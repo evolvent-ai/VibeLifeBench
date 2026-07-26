@@ -1,16 +1,8 @@
-"""Flat-pool scoring for long-horizon finance tasks.
-
-Scoring is passed-atomic-weight / total-atomic-weight. The hierarchical
-stage/final/cross ratios and gate flags are still computed and exposed on
-ScoreBreakdown for diagnostics, but no longer gate the score.
-"""
+"""Flat-pool scoring with diagnostic gate metrics for long-horizon finance tasks."""
 from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Mapping
-
-
-BUCKET_WEIGHTS = {"stage": 0.35, "final": 0.40, "cross": 0.25}
 
 
 @dataclass(frozen=True)
@@ -44,11 +36,10 @@ def aggregate_score(
     *,
     stage_count: int = 24,
 ) -> ScoreBreakdown:
-    """Score atomic outcomes using complete-Stage and integrated Task gates.
+    """Score every atomic outcome in one weighted pool.
 
-    Atomic outcomes remain independently visible. Credit is hierarchical:
-    a Stage contributes only when every atomic check in that Stage passes,
-    and Final/Cross buckets contribute only when their complete contracts pass.
+    Stage completion and Final/Cross gate fields remain available for diagnosis,
+    but they do not gate or otherwise alter the flat-pool score.
     """
     incomplete_stages: list[int] = []
     completed = 0
@@ -75,14 +66,13 @@ def aggregate_score(
     final_ratio = raw_final_ratio if final_gate else 0.0
     cross_ratio = raw_cross_ratio if cross_gate else 0.0
 
-    # flat_pool: score is passed atomic weight over total atomic weight.
-    # Stage/final/cross ratios and gate flags are still computed above, but
-    # only as diagnostics — they no longer zero out a bucket's contribution.
-    total_weight = sum(float(w) for w in weights.values())
+    total_weight = sum(float(weight) for weight in weights.values())
     passed_weight = sum(
-        float(w) for check_id, w in weights.items() if bool(outcomes.get(check_id, False))
+        float(weight)
+        for check_id, weight in weights.items()
+        if bool(outcomes.get(check_id, False))
     )
-    score = (passed_weight / total_weight) if total_weight > 0 else 0.0
+    score = passed_weight / total_weight if total_weight > 0 else 0.0
     return ScoreBreakdown(
         score=score,
         stage_ratio=stage_ratio,

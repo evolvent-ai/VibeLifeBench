@@ -83,7 +83,7 @@ The initial workspace contains 6 files: `AGENTS.md`, `IDENTITY.md`, `PERSONA.md`
 
 ## 评分结构 / Scoring
 
-- **Mode / 模式:** `hierarchical_gates` — 分层门控评分 / hierarchical gated scoring
+- **Mode / 模式:** `flat_pool` — 原子检查按权重统一汇总；Stage/Final/Cross 门控仅作诊断 / weighted aggregation of atomic checks; Stage/Final/Cross gates are diagnostic only
 - **Atomic checks / 原子检查数:** `69`
 - **Declared total weight / 声明总权重:** `134.0`
 

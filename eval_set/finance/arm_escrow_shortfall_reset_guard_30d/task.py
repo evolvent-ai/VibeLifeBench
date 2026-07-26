@@ -518,7 +518,7 @@ def arm_escrow_shortfall_reset_guard_30d(env, agent):
     scoring_mod = _load_rubric("scoring")
     breakdown = scoring_mod.aggregate_score(outcomes, checker_weights, stage_count=stage_count)
     logger.info(
-        "score hierarchical_gates: "
+        "score flat_pool: "
         f"stage={breakdown.stage_completed}/{breakdown.stage_count} ({breakdown.stage_ratio:.3f}) "
         f"final={breakdown.final_ratio:.3f} raw={breakdown.raw_final_ratio:.3f} gate={breakdown.final_gate_passed} "
         f"cross={breakdown.cross_ratio:.3f} raw={breakdown.raw_cross_ratio:.3f} gate={breakdown.cross_gate_passed} "

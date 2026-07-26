@@ -1,6 +1,24 @@
+---
+pretty_name: Vibelifebench
+language:
+- zh
+- en
+license: other
+task_categories:
+- text-generation
+tags:
+- agents
+- tool-use
+- long-horizon
+- evaluation
+- synthetic-data
+size_categories:
+- n<1K
+---
+
 <div align="center">
 
-# VibeLifeBench
+# Vibelifebench
 
 [![Tasks](https://img.shields.io/badge/tasks-20-blue)](#tasks)
 [![Domains](https://img.shields.io/badge/domains-10-8b5cf6)](#tasks)
@@ -8,6 +26,9 @@
 [![Checks](https://img.shields.io/badge/atomic_checks-1247-green)](#evaluation)
 [![Services](https://img.shields.io/badge/services-21-f59e0b)](#service-coverage)
 [![Language](https://img.shields.io/badge/lang-zh%20%2B%20en-lightgrey)](#tasks)
+
+**Benchmark version:** `1.1.0`<br>
+**Scoring contract:** `flat_pool`
 
 > **Long-horizon** &mdash; 20&ndash;30 stages per task, spanning simulated weeks.<br>
 > **Multi-service** &mdash; 137 task-local environment bindings across 21 services.<br>
@@ -19,7 +40,7 @@
 
 ## Overview
 
-VibeLifeBench evaluates agents on the messy, consequential work of managing someone's
+Vibelifebench evaluates agents on the messy, consequential work of managing someone's
 life over weeks: a lawsuit, a mortgage escrow shortfall, a cross-city apartment hunt,
 a licensing exam, an office fit-out.
 
@@ -63,6 +84,11 @@ agent understood at stage 3**, and nothing re-states the context along the way.
 | Team building / 团队活动 | `pottery_invoice_compliance_day` | Indoor Pottery Team-Building Planning | 25 | 7 | 64 | 100 | `medium` |
 | Travel / 差旅与出行 | `east_china_bereavement_docs_reissue` | Low-Disruption Bereavement Travel and Document Reissue Assistance | 22 | 10 | 44 | 100 | `hard` |
 | Travel / 差旅与出行 | `galapagos_no_us_transit` | Galapagos Travel Without U.S. Transit | 25 | 7 | 41 | 100 | `hard` |
+
+
+> **Difficulty labels in 1.1.0 are retained from the prior audited release.** The
+> scoring contract changed to `flat_pool`, but the labels were not recalibrated or
+> re-bucketed for this release: 16 tasks are `hard`, 4 are `medium`, and 0 are `easy`.
 
 `Envs` counts the task's service-environment bindings. `Weight` is the task's declared
 total scoring weight; scores are normalized per task, so weights are not comparable
@@ -121,7 +147,7 @@ Stages are checkpoints, not calendar days. Event types include `user_message`,
 ## Repository Structure
 
 ```
-VibeLifeBench/
+Vibelifebench/
 ├── README.md
 └── eval_set/
     └── <domain>/
@@ -208,7 +234,7 @@ governed by the terms supplied by the publisher for this repository.
 
 ```bibtex
 @misc{vibelifebench_2026,
-  title        = {VibeLifeBench: A 20-Task Long-Horizon Agent Evaluation Set},
+  title        = {Vibelifebench: A 20-Task Long-Horizon Agent Evaluation Set},
   year         = {2026},
   howpublished = {Task-only release},
   note         = {Long-horizon agent tasks with task-local synthetic environments}
@@ -217,4 +243,4 @@ governed by the terms supplied by the publisher for this repository.
 
 ---
 
-<p align="center">VibeLifeBench &middot; Evolvent AI</p>
+<p align="center">Vibelifebench &middot; Evolvent AI</p>
