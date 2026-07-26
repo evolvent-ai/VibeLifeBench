@@ -1,0 +1,47 @@
+[metadata]
+name = "baby_stroller_safety_standard_30d"
+title_zh = "二胎出行前的婴儿推车与配件事务"
+title_en = "Baby Stroller Safety and Accessory Coordination"
+author = "xhs-benchmark"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "medium"
+category = "shopping"
+tags = ["shopping", "stroller", "safety-standard", "recall", "lithium-battery", "phishing", "long-horizon"]
+summary_zh = "围绕婴儿推车安全标准、召回批次、含锂电池配件出运、旧推车转卖、重复扣费和钓鱼识别展开的 30 天多服务事务管理任务。"
+summary_en = "A 30-day shopping task covering stroller safety standards, recall verification, lithium-battery accessory shipping, second-hand resale, duplicate charges, phishing, and cross-service case tracking."
+description = "A 30-day shopping task covering stroller safety standards, recall verification, lithium-battery accessory shipping, second-hand resale, duplicate charges, phishing, and cross-service case tracking."
+
+[scenario]
+stage_count = 24
+start_date = "2026-06-15"
+end_date = "2026-07-14"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["ecommerce", "delivery_logistics", "credit_card", "email", "calendar", "notification_hub", "listing_platform"]
+
+[dependencies.envs]
+ecommerce = "baby_stroller_safety_standard_30d"
+delivery_logistics = "baby_stroller_safety_standard_30d"
+credit_card = "baby_stroller_safety_standard_30d"
+email = "baby_stroller_safety_standard_30d"
+calendar = "baby_stroller_safety_standard_30d"
+notification_hub = "baby_stroller_safety_standard_30d"
+listing_platform = "baby_stroller_safety_standard_30d"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 69
+total_weight = 134.0
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = ""
+
+[run]
+config = "openclaw"

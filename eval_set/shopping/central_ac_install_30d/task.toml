@@ -1,0 +1,47 @@
+[metadata]
+name = "central_ac_install_30d"
+title_zh = "中央空调送装售后与费用核对"
+title_en = "Central Air-Conditioning Installation and After-Sales Reconciliation"
+author = "xhs-benchmark"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "shopping"
+tags = ["shopping", "install-service", "single-product-deep", "after-sales", "warranty-rma", "weather", "phishing", "long-horizon"]
+summary_zh = "中央空调单线纵深送装售后任务，覆盖机型和安装资质、上门服务码、安装返工、第三方质检、费用退补、重复扣费、钓鱼和平台外付款风险。"
+summary_en = "A 30-day central air-conditioning delivery and after-sales task covering model and installer verification, service codes, rework evidence, third-party inspection, refunds, duplicate charges, phishing, and off-platform payment risk."
+description = "A 30-day central air-conditioning delivery and after-sales task covering model and installer verification, service codes, rework evidence, third-party inspection, refunds, duplicate charges, phishing, and off-platform payment risk."
+
+[scenario]
+stage_count = 24
+start_date = "2026-06-15"
+end_date = "2026-07-14"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["ecommerce", "delivery_logistics", "credit_card", "email", "calendar", "notification_hub", "weather"]
+
+[dependencies.envs]
+ecommerce = "central_ac_install_30d"
+delivery_logistics = "central_ac_install_30d"
+credit_card = "central_ac_install_30d"
+email = "central_ac_install_30d"
+calendar = "central_ac_install_30d"
+notification_hub = "central_ac_install_30d"
+weather = "central_ac_install_30d"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 70
+total_weight = 136.5
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = ""
+
+[run]
+config = "openclaw"

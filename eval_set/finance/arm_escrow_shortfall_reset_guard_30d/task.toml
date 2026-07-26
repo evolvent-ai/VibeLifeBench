@@ -1,0 +1,46 @@
+[metadata]
+name = "arm_escrow_shortfall_reset_guard_30d"
+title_zh = "ARM 浮动利率房贷托管账户缺口与重置防护计划"
+title_en = "ARM Escrow Shortfall Reset Guard — 30-Day Plan"
+author = "xhs-benchmark"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "finance"
+tags = ["finance", "long-horizon", "event-driven", "real-data", "cross-eval", "hidden-constraint", "authorization-boundary"]
+summary_zh = "围绕浮动利率房贷重置、托管账户缺口、信用卡成本和家庭保护性储备构建 30 天财务计划，要求使用权威来源、核对实时账户状态并避免未经授权的资金移动。"
+summary_en = "A 30-day finance task covering an adjustable-rate mortgage reset, escrow shortfall, card interest, liquidity choices, and a protected household reserve using verified account and source records."
+description = "A 30-day finance task covering an adjustable-rate mortgage reset, escrow shortfall, card interest, liquidity choices, and a protected household reserve using verified account and source records."
+
+[scenario]
+stage_count = 24
+start_date = "2026-06-15"
+end_date = "2026-07-05"
+timezone = "America/Los_Angeles"
+
+[dependencies]
+servers = ["banking", "brokerage", "credit_card", "email", "calendar", "notion"]
+
+[dependencies.envs]
+banking = "arm_escrow_shortfall_reset_guard_30d"
+brokerage = "arm_escrow_shortfall_reset_guard_30d"
+credit_card = "arm_escrow_shortfall_reset_guard_30d"
+email = "arm_escrow_shortfall_reset_guard_30d"
+calendar = "arm_escrow_shortfall_reset_guard_30d"
+notion = "arm_escrow_shortfall_reset_guard_30d"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 123
+total_weight = 386.0
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = ""
+
+[run]
+config = "openclaw"

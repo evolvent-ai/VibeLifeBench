@@ -1,0 +1,15 @@
+job_name = "arm_escrow_shortfall_reset_guard_30d"
+job_dir = "outputs/finance/arm_escrow_shortfall_reset_guard_30d"
+tasks = ["eval_set/finance/arm_escrow_shortfall_reset_guard_30d"]
+n_attempts = 2
+n_concurrent_trials = 1
+agent_exec_timeout_sec = 7200
+resume = false
+
+[[agents]]
+name = "openclaw"
+model_name = "<your-provider>/<your-model>"
+
+[agents.kwargs]
+models_config_path = "runs/openclaw_models.json"
+think = "xhigh"

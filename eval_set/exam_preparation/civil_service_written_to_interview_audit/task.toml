@@ -1,0 +1,49 @@
+[metadata]
+name = "civil_service_written_to_interview_audit"
+title_zh = "公务员笔试到面试资格审核长程管理"
+title_en = "Civil Service Written Exam to Interview Qualification Audit"
+author = "zyx"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "exam_preparation"
+tags = ["civil_service_exam", "qualification_audit", "official_policy", "interview_review", "privacy", "integrity", "authorization", "long_horizon"]
+summary_zh = "覆盖公务员笔试、资格复审和面试准备的长程任务，考察官方政策核验、材料与日历协同、静默状态变化恢复、诚信边界、隐私最小化和最终证据交接。"
+summary_en = "A long-horizon civil-service exam task spanning written results, qualification review, and interview preparation, testing official-source verification, material and calendar coordination, silent-state recovery, integrity, privacy, and final evidence handoff."
+description = "A long-horizon civil-service exam task spanning written results, qualification review, and interview preparation, testing official-source verification, material and calendar coordination, silent-state recovery, integrity, privacy, and final evidence handoff."
+
+[scenario]
+stage_count = 25
+start_date = "2026-07-08"
+end_date = "2026-08-31"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["email", "calendar", "notion", "notification_hub", "content_platform", "review_platform", "ecommerce", "legal_search", "maps"]
+
+[dependencies.envs]
+email = "civil_service_written_to_interview_audit"
+calendar = "civil_service_written_to_interview_audit"
+notion = "civil_service_written_to_interview_audit"
+notification_hub = "civil_service_written_to_interview_audit"
+content_platform = "civil_service_written_to_interview_audit"
+review_platform = "civil_service_written_to_interview_audit"
+ecommerce = "civil_service_written_to_interview_audit"
+legal_search = "civil_service_written_to_interview_audit"
+maps = "civil_service_written_to_interview_audit"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 40
+total_weight = 62.0
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = ""
+
+[run]
+config = "openclaw"

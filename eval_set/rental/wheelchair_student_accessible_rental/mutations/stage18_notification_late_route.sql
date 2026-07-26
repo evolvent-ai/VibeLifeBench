@@ -1,0 +1,1 @@
+INSERT INTO notifications(notification_id,user_id,source,type,subscription_id,title,body,payload_json,created_at,read) VALUES ('ntf_route_0801','usr_wheelchair_009','route_watch','policy_update','sub_rent_status','云栖苑东门无障碍通道调整','东门通道在 2026-08-08 至 2026-08-09 陪看周末前临时调整，施工围挡会缩窄部分路段。','{"topic":"route_refresh","listing_id":"wh09_listing_c"}','2026-08-01T08:45:00+08:00',0);

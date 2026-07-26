@@ -1,0 +1,48 @@
+[metadata]
+name = "wheelchair_student_accessible_rental"
+title_zh = "轮椅学生的校园无障碍住房"
+title_en = "Accessible Campus Housing for a Wheelchair-Using Student"
+author = "OpenAI / Codex"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "rental"
+tags = ["listing_search", "commute_validation", "lease_risk", "authorization", "state_recovery", "accessibility"]
+summary_zh = "轮椅学生寻找校园附近无障碍住房的长程任务，要求核验入口、电梯、门宽、卫生间和无台阶通勤，并处理合同、隐私、改造承诺和动态状态变化。"
+summary_en = "A long-horizon housing task for a wheelchair-using student, verifying step-free access, elevators, door widths, bathrooms, commute routes, lease risk, privacy, modification promises, and changing availability."
+description = "A long-horizon housing task for a wheelchair-using student, verifying step-free access, elevators, door widths, bathrooms, commute routes, lease risk, privacy, modification promises, and changing availability."
+
+[scenario]
+stage_count = 24
+start_date = "2026-07-14"
+end_date = "2026-08-24"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["listing_platform", "maps", "calendar", "email", "notion", "review_platform", "legal_search", "notification_hub"]
+
+[dependencies.envs]
+listing_platform = "wheelchair_student_accessible_rental"
+maps = "wheelchair_student_accessible_rental"
+calendar = "wheelchair_student_accessible_rental"
+email = "wheelchair_student_accessible_rental"
+notion = "wheelchair_student_accessible_rental"
+review_platform = "wheelchair_student_accessible_rental"
+legal_search = "wheelchair_student_accessible_rental"
+notification_hub = "wheelchair_student_accessible_rental"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 58
+total_weight = 88.75
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = "mutations"
+
+[run]
+config = "openclaw"

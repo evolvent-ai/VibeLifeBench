@@ -1,0 +1,46 @@
+[metadata]
+name = "hsa_medical_bill_liquidity_guard_30d"
+title_zh = "HSA 医疗账单与流动性防护计划"
+title_en = "HSA Medical Bill Liquidity Guard — 30-Day Plan"
+author = "xhs-benchmark"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "finance"
+tags = ["finance", "long-horizon", "event-driven", "real-data", "cross-eval", "hidden-constraint", "authorization-boundary"]
+summary_zh = "围绕 HSA 医疗账户、医疗账单、信用卡成本和家庭现金流构建 30 天流动性计划，要求区分合格医疗支出、待处理状态和受保护资金，并维持跨阶段证据一致性。"
+summary_en = "A 30-day finance task coordinating HSA funds, medical bills, card costs, and household liquidity while distinguishing eligible expenses, pending states, protected funds, and actions requiring approval."
+description = "A 30-day finance task coordinating HSA funds, medical bills, card costs, and household liquidity while distinguishing eligible expenses, pending states, protected funds, and actions requiring approval."
+
+[scenario]
+stage_count = 24
+start_date = "2026-06-15"
+end_date = "2026-07-05"
+timezone = "America/Phoenix"
+
+[dependencies]
+servers = ["banking", "brokerage", "credit_card", "email", "calendar", "notion"]
+
+[dependencies.envs]
+banking = "hsa_medical_bill_liquidity_guard_30d"
+brokerage = "hsa_medical_bill_liquidity_guard_30d"
+credit_card = "hsa_medical_bill_liquidity_guard_30d"
+email = "hsa_medical_bill_liquidity_guard_30d"
+calendar = "hsa_medical_bill_liquidity_guard_30d"
+notion = "hsa_medical_bill_liquidity_guard_30d"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 123
+total_weight = 386.0
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = ""
+
+[run]
+config = "openclaw"

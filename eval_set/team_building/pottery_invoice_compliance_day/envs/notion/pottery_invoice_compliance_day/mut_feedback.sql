@@ -1,0 +1,2 @@
+INSERT OR IGNORE INTO pages(page_id,parent_type,parent_id,title,archived,created_time,last_edited_time,properties_json) VALUES ('page_tb011_feedback_late','workspace','ws_tb011','迟报反馈与整改',0,'2026-07-23T09:00:00+08:00','2026-07-23T09:00:00+08:00','{}');
+INSERT OR IGNORE INTO blocks(block_id,parent_page_id,type,content_json,position,created_time,last_edited_time) VALUES ('page_tb011_feedback_late_block','page_tb011_feedback_late','paragraph','{"text":"反馈系统新增：手套更换提示需要提前，轻餐标签应更醒目，作品姓名标签应改为内部编号。"}',0,'2026-07-23T09:00:00+08:00','2026-07-23T09:00:00+08:00');

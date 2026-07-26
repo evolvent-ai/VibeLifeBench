@@ -1,0 +1,45 @@
+[metadata]
+name = "food_safety_dispute_33d"
+title_zh = "食品安全网络购物退一赔十纠纷诉讼"
+title_en = "Food Safety E-commerce Dispute Litigation — 33 Days"
+author = "xhs-benchmark"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "litigation"
+tags = ["litigation", "food-safety", "consumer-protection", "punitive-damages", "tenfold-compensation", "online-shopping", "imported-food", "no-chinese-label", "platform-liability", "knowing-purchase", "food-inspection", "shanghai", "implicit-constraints", "disruption-handling"]
+summary_zh = "围绕进口食品标签、非法添加、违法功效宣传和网络平台责任展开的一审与上诉阶段诉讼管理任务，要求完成证据、检验、法律检索、期限和授权边界闭环。"
+summary_en = "A 33-day consumer litigation task involving imported-food labeling, prohibited additives, unlawful health claims, punitive damages, platform liability, inspection evidence, deadlines, and appeal handling."
+description = "A 33-day consumer litigation task involving imported-food labeling, prohibited additives, unlawful health claims, punitive damages, platform liability, inspection evidence, deadlines, and appeal handling."
+
+[scenario]
+stage_count = 22
+start_date = "2026-05-20"
+end_date = "2026-06-22"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["legal_search", "notification_hub", "calendar", "notion", "email"]
+
+[dependencies.envs]
+legal_search = "food_safety_2026"
+notification_hub = "zhao_meng_litigation"
+calendar = "zhao_meng_litigation"
+notion = "zhao_meng_litigation"
+email = "zhao_meng_litigation"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 51
+total_weight = 100.0
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = ""
+
+[run]
+config = "openclaw"

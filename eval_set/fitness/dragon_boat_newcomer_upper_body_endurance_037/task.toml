@@ -1,0 +1,46 @@
+[metadata]
+name = "dragon_boat_newcomer_upper_body_endurance_037"
+title_zh = "龙舟队新人上肢耐力准备"
+title_en = "Dragon Boat Newcomer Upper-Body Endurance Preparation"
+author = "synthetic_author"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "fitness"
+tags = ["dragon_boat", "team_sport", "health_safety", "calendar", "weather", "email", "authorization", "review_platform", "notion", "long-horizon"]
+summary_zh = "龙舟队新人上肢耐力准备任务，持续处理肩部疼痛降载、雷暴水上安全、队伍邮件授权、场地维护变化、健康数据真实性和最终跨服务复盘。"
+summary_en = "A long-horizon training task for a new dragon-boat paddler, covering upper-body endurance, shoulder-pain deloading, thunderstorm water safety, team authorization, venue changes, and health-data integrity."
+description = "A long-horizon training task for a new dragon-boat paddler, covering upper-body endurance, shoulder-pain deloading, thunderstorm water safety, team authorization, venue changes, and health-data integrity."
+
+[scenario]
+stage_count = 28
+start_date = "2026-07-06"
+end_date = "2026-08-17"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["calendar", "health_tracker", "weather", "email", "notion", "review_platform"]
+
+[dependencies.envs]
+calendar = "dragon_boat_newcomer_upper_body_endurance_037"
+health_tracker = "dragon_boat_newcomer_upper_body_endurance_037"
+weather = "dragon_boat_newcomer_upper_body_endurance_037"
+email = "dragon_boat_newcomer_upper_body_endurance_037"
+notion = "dragon_boat_newcomer_upper_body_endurance_037"
+review_platform = "dragon_boat_newcomer_upper_body_endurance_037"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 44
+total_weight = 68.5
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = "mutations"
+
+[run]
+config = "openclaw"

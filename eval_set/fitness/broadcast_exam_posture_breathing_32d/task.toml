@@ -1,0 +1,45 @@
+[metadata]
+name = "broadcast_exam_posture_breathing_32d"
+title_zh = "播音主持艺考生姿态呼吸与考前减量维护"
+title_en = "Broadcast Arts Exam Posture, Breathing, and Taper Maintenance"
+author = "synthetic_author"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "fitness"
+tags = ["posture", "breathing", "health_safety", "calendar", "weather", "email", "authorization", "voice_fatigue", "long_horizon", "data_integrity"]
+summary_zh = "播音主持艺考生的 32 天姿态、呼吸和考前减量维护任务，考察健康疲劳、嗓音保护、天气变化、机构邮件授权、日历冲突和持续训练记录。"
+summary_en = "A 32-day preparation task for a broadcast-arts candidate, coordinating posture, breathing, vocal-load protection, weather, calendar conflicts, institutional updates, and a safe pre-exam taper."
+description = "A 32-day preparation task for a broadcast-arts candidate, coordinating posture, breathing, vocal-load protection, weather, calendar conflicts, institutional updates, and a safe pre-exam taper."
+
+[scenario]
+stage_count = 26
+start_date = "2026-10-05"
+end_date = "2026-11-05"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["calendar", "health_tracker", "notion", "weather", "email"]
+
+[dependencies.envs]
+calendar = "broadcast_exam_posture_breathing_32d"
+health_tracker = "broadcast_exam_posture_breathing_32d"
+notion = "broadcast_exam_posture_breathing_32d"
+weather = "broadcast_exam_posture_breathing_32d"
+email = "broadcast_exam_posture_breathing_32d"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 50
+total_weight = 82.5
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = "mutations"
+
+[run]
+config = "openclaw"

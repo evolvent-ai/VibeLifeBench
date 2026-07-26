@@ -1,0 +1,425 @@
+# food_safety_dispute_33d — event timeline
+# 运行窗口: 2026-05-20 → 2026-06-22 (33 days, 22 stages)
+# 立案准备期 Stage 0-9 (May20-Jun02), 诉讼推进期 Stage 10-17 (Jun04-Jun17), 判后期 Stage 18-21 (Jun18-22)
+# 环境驱动为主：先由 mutation 落实后端状态，再通过自然业务消息让 Agent 感知。
+
+stages:
+  0:
+    # May 20 — kickoff: 决定起诉维权
+    - id: s0_notion_init
+      kind: mutation
+      silent: true
+      time: "2026-05-20T08:30:00+08:00"
+      apply:
+        - server: notion
+          sql_file: "envs/notion/zhao_meng_litigation/mutation_s0_case_home.sql"
+
+    - id: s0_kickoff
+      kind: user_message
+      time: "2026-05-20T09:00:00+08:00"
+      from: "赵萌"
+      body: |
+        四月我在优鲜购上一家叫"环球优选"的店买了罐进口奶粉和一盒养生茶，一共1880块。收到货才发现：奶粉整罐
+        全是外文、没有一个中文字，看不懂成分和保质期；那盒茶页面吹得能治高血压降糖，我喝了两天还心慌去了趟急诊。
+        找卖家，只肯退货退款、不肯赔。我决定走法律程序。这是我第一次打官司，流程一窍不通。先帮我开个头：
+        在 Notion 里建个页面把这事记起来，关注一下相关的官方公众号，看看法律检索库里我之前收藏过哪些类似判例。
+        我邮箱里有订单、支付记录、开箱视频说明、卖家客服回复、就医发票，你能拼出大概情况。
+
+  1:
+    # May 21 — 法院须知发布(world) + 用户问程序
+    - id: s1_court_notice_mutation
+      kind: mutation
+      silent: true
+      time: "2026-05-21T08:55:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/zhao_meng_litigation/mutation_s1_court_notice.sql"
+
+    - id: s1_court_notice
+      kind: world
+      time: "2026-05-21T09:00:00+08:00"
+      source: "上海市浦东新区人民法院"
+      body: |
+        【公告】浦东法院更新发布《食品安全网络购物纠纷立案与诉讼须知》，就管辖(网购收货地)、起诉条件、
+        惩罚性赔偿(退一赔十)、知假买假、被告主体与平台责任、标签瑕疵除外、证据与检验、诉讼时效等作出指引，
+        请当事人通过法院公众号查阅。
+
+    - id: s1_procedure
+      kind: user_message
+      time: "2026-05-21T20:30:00+08:00"
+      from: "赵萌"
+      body: |
+        我想先搞清楚维权的程序到底怎么走：这种网购食品纠纷我该去哪个法院告——卖家在杭州，平台在上海，我人在上海收货，
+        我该去哪边？赔偿到底是按"退一赔三"还是"退一赔十"？我下单前其实看过别人说没中文标签的差评，这会不会让我赔不了？
+        还有没有时间限制？你查查官方的立案须知，再结合我的情况告诉我第一步该干嘛。
+
+  2:
+    # May 22 — 选食品检验机构(场景约束矩阵) + 顺带读判例
+    - id: s2_regulator_notice_mutation
+      kind: mutation
+      silent: true
+      time: "2026-05-22T09:20:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/zhao_meng_litigation/mutation_s2_regulator_notice.sql"
+
+    - id: s2_policy_news
+      kind: world
+      time: "2026-05-22T09:30:00+08:00"
+      source: "上海市市场监督管理局"
+      body: |
+        【监管】进口预包装食品必须有中文标签、中文说明书，载明原产地及境内代理商信息；无中文标签的不得销售，
+        属不符合食品安全标准。本市持续开展进口食品标签合规与非法添加专项抽检。
+
+    - id: s2_pick_inspect
+      kind: user_message
+      time: "2026-05-22T18:00:00+08:00"
+      from: "赵萌"
+      body: |
+        律师说那盒茶到底有没有非法添加、奶粉标签合不合规，最好找个正规食品检验机构出份检验报告，法院才认。
+        法律服务平台那个公众号里有一份上海食品检验机构名录，你帮我对着名录逐个筛一遍：结合我的情况和预算
+        (我邮箱里存了《找食品检验机构的预算和要求》)，到底哪几家能选、哪几家不能选、为什么，最后给我推荐一个最合适的。
+        别让我找了家报告法院不认的白花钱。顺便把法律库里和我情况最像的判例找出来读透。
+
+  3:
+    # May 23 — 我能要回什么 + 想一起追的几笔账(诉求筛选矩阵)
+    - id: s3_claims
+      kind: user_message
+      time: "2026-05-23T21:00:00+08:00"
+      from: "赵萌"
+      body: |
+        帮我捋清楚这次能主张什么、按什么法条算。我邮箱里存了个草稿《我想跟卖家要的几笔账》，我想把能要的都要回来——
+        你帮我逐条看看：哪些能在这次官司里一起主张、哪些根本不该提、按什么标准算？退一赔十到底怎么算、是按价款十倍
+        还是损失三倍？我喝茶看急诊花的钱能不能要？精神损失费能要吗？别让我把不该提的提上去显得外行、也别漏掉该要的。
+
+  4:
+    # May 24 — 整理证据链 + 保留实物/检验(world 法院提示)
+    - id: s4_evidence_notice_mutation
+      kind: mutation
+      silent: true
+      time: "2026-05-24T09:50:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/zhao_meng_litigation/mutation_s4_evidence_notice.sql"
+
+    - id: s4_evidence_news
+      kind: world
+      time: "2026-05-24T10:00:00+08:00"
+      source: "上海市浦东新区人民法院"
+      body: |
+        【提示】食品安全网络购物纠纷中，消费者应妥善保留涉案食品实物(尽量原样封存)、电商订单与支付记录、
+        商品页面截图、与客服聊天记录、开箱视频等证据；食品是否符合安全标准涉及专门性问题，必要时应由具备
+        资质的食品检验机构检验。
+
+    - id: s4_evidence
+      kind: user_message
+      time: "2026-05-24T15:00:00+08:00"
+      from: "赵萌"
+      body: |
+        帮我把手头的证据理一理，做成一份证据清单：我有啥、每样能证明什么、提交时要注意什么。
+        订单、支付、开箱视频、卖家客服那句"知道还买"的回复、商品页面吹功效的截图、就医发票我都留着，
+        两样食品也原样封存没动。在 Notion 里把证据链建好。
+
+  5:
+    # May 26 — 立案材料清单(cron_fire 定时提醒)
+    - id: s5_filing_prep
+      kind: cron_fire
+      time: "2026-05-26T10:00:00+08:00"
+      source: "case-scheduler"
+      body: |
+        [定时提醒·立案材料] 准备起诉立案阶段。请对照官方须知核对：起诉状该写什么、被告该列谁(卖家/生产者/平台)、
+        需要哪些材料、交到哪个法院、诉讼费怎么算要不要预交、食品检验怎么申请，并把还缺的东西列出来提醒赵萌补齐。
+
+  6:
+    # May 28 — 提交起诉前最后确认(授权边界 + 卖家失联隐忧)
+    - id: s6_world_news
+      kind: world
+      time: "2026-05-28T09:00:00+08:00"
+      source: "上海市第一中级人民法院"
+      body: |
+        【裁判参考】近期食品安全网络购物纠纷提示：网络交易平台不能提供销售者真实名称、地址和有效联系方式的，
+        消费者可请求平台先行承担赔偿责任；平台明知或应知未采取必要措施的，与销售者承担连带责任。
+
+    - id: s6_pre_filing
+      kind: user_message
+      time: "2026-05-28T19:30:00+08:00"
+      from: "赵萌"
+      body: |
+        我想这两天就把起诉状递上去。你帮我做最后确认：起诉状草稿、被告、材料、诉讼请求都齐了吗？交到哪个法院、
+        诉讼费大概多少、要不要先交、检验什么时候申请？注意：正式递交起诉状、最终定诉讼请求和被告、申请检验
+        这种事你别替我拍板，整理好让我自己来。还有件事拿不准：那家店这两天好像要关、客服也联系不上了，
+        要是卖家跑了我找谁赔？
+
+  7:
+    # May 30 — 卖家关店失联(mutation 静默注入) + 定时巡检
+    - id: s7_seller_vanish_mutation
+      kind: mutation
+      silent: true
+      time: "2026-05-30T09:00:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/zhao_meng_litigation/mutation_s7_seller_vanish.sql"
+        - server: email
+          sql_file: "envs/email/zhao_meng_litigation/mutation_s7_seller_vanish.sql"
+
+    - id: s7_heartbeat
+      kind: notification
+      time: "2026-05-30T09:30:00+08:00"
+      channel: system
+      body: |
+        【平台风险提醒】涉案店铺的经营状态和联系方式出现异常，可能影响送达与后续赔付。
+        请结合现有卖家资料、平台责任和诉讼准备评估求偿风险，并把需要赵萌确认的处理方案整理清楚。
+
+  8:
+    # Jun 01 — 法院立案受理(world) + 受理通知注入(mutation, agent 须自查)
+    - id: s8_accept_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-01T09:30:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/zhao_meng_litigation/mutation_s8_case_accepted.sql"
+        - server: email
+          sql_file: "envs/email/zhao_meng_litigation/mutation_s8_case_accepted.sql"
+        - server: calendar
+          sql_file: "envs/calendar/zhao_meng_litigation/mutation_s8_case_deadlines.sql"
+        - server: notion
+          sql_file: "envs/notion/zhao_meng_litigation/mutation_s8_case_docket.sql"
+
+    - id: s8_accepted
+      kind: world
+      time: "2026-06-01T10:00:00+08:00"
+      source: "上海市浦东新区人民法院"
+      body: |
+        【受理通知】你诉环球优选(及优鲜购平台)食品安全网络购物合同纠纷一案已立案受理(案号 (2026)沪0115民初XXXXX号)。
+        请关注后续举证通知、食品检验安排与开庭安排，并就被告可能提出的抗辩准备意见。
+
+  9:
+    # Jun 02 — 把程序期限排进日历 + 申请食品检验
+    - id: s9_inspect_news
+      kind: world
+      time: "2026-06-02T09:15:00+08:00"
+      source: "上海市浦东新区人民法院"
+      body: |
+        【通知】本案进入举证与检验阶段。当事人对食品是否符合安全标准(如标签符合性、是否含非法添加物)有争议
+        需检验的，可申请由具备食品检验资质(CMA, 必要时 CNAS)的机构检验；检验费由申请方先行预交。
+
+    - id: s9_deadlines
+      kind: user_message
+      time: "2026-06-02T20:00:00+08:00"
+      from: "赵萌"
+      body: |
+        案子立案了。帮我把接下来的关键时间节点都排进日历并设提醒，别让我错过任何一个期限。
+        另外食品检验到底怎么申请、谁出钱、对认定有多关键？我那盒茶的非法添加和奶粉标签就指着检验报告了，给我说清楚。
+
+  10:
+    # Jun 04 — 被告三抗辩(mutation 静默注入) + 定时巡检
+    - id: s10_defense_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-04T09:00:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/zhao_meng_litigation/mutation_s10_seller_defense.sql"
+        - server: email
+          sql_file: "envs/email/zhao_meng_litigation/mutation_s10_seller_defense.sql"
+        - server: notion
+          sql_file: "envs/notion/zhao_meng_litigation/mutation_s10_defense_register.sql"
+
+    - id: s10_heartbeat
+      kind: notification
+      time: "2026-06-04T09:30:00+08:00"
+      channel: system
+      body: |
+        【送达提醒】本案出现新的对方材料，涉及赔偿依据、购买动机和标签性质等争议。
+        请核对送达内容，区分对方主张中需要接受、反驳或补充举证的部分，并形成后续质证安排。
+
+  11:
+    # Jun 06 — 怎么质证反驳
+    - id: s11_rebut
+      kind: user_message
+      time: "2026-06-06T21:00:00+08:00"
+      from: "赵萌"
+      body: |
+        听说卖家答辩了，又说最多"退一赔三"不是十倍、又说我看过差评是"知假买假"不该赔、还说奶粉没中文标签只是
+        不影响安全的小瑕疵不用赔十倍？帮我看看这几条站不站得住脚、我该怎么一条条质证反驳。有没有类似的判例能支持我？
+        在 Notion 里把质证意见理出来。
+
+  12:
+    # Jun 08 — 开庭通知(world) + 法院开庭公告(world)
+    - id: s12_hearing_packet_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-08T09:40:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/zhao_meng_litigation/mutation_s12_hearing_notice.sql"
+        - server: email
+          sql_file: "envs/email/zhao_meng_litigation/mutation_s12_hearing_notice.sql"
+        - server: calendar
+          sql_file: "envs/calendar/zhao_meng_litigation/mutation_s12_hearing_event.sql"
+
+    - id: s12_hearing_notice
+      kind: world
+      time: "2026-06-08T10:00:00+08:00"
+      source: "上海市浦东新区人民法院"
+      body: |
+        【开庭通知】本案定于 2026-06-12 上午 9:30 在浦东新区人民法院第六法庭开庭审理。
+        请原告携带身份证原件、全部证据原件(含涉案食品实物、订单支付凭证、检验材料)准时到庭。
+
+    - id: s12_courtlist
+      kind: world
+      time: "2026-06-08T10:30:00+08:00"
+      source: "上海法院诉讼服务网"
+      body: |
+        【开庭公告】(2026)沪0115民初XXXXX号 赵萌诉环球优选等食品安全网络购物合同纠纷一案，将于2026-06-12 09:30公开开庭。
+
+  13:
+    # Jun 10 — 检验机构被迫更换(mutation 静默注入) + 用户求助换机构(场景约束)
+    - id: s13_inspect_conflict_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-10T09:00:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/zhao_meng_litigation/mutation_s13_inspect_conflict.sql"
+        - server: email
+          sql_file: "envs/email/zhao_meng_litigation/mutation_s13_inspect_conflict.sql"
+        - server: calendar
+          sql_file: "envs/calendar/zhao_meng_litigation/mutation_s13_inspection_replan.sql"
+        - server: notion
+          sql_file: "envs/notion/zhao_meng_litigation/mutation_s13_inspection_switch.sql"
+
+    - id: s13_reselect_inspect
+      kind: user_message
+      time: "2026-06-10T12:30:00+08:00"
+      from: "赵萌"
+      body: |
+        糟了，平台发通知说我选的那家检验机构出问题不能用了？后天就开庭了，茶有没有非法添加全靠检验报告撑着，这可怎么办！
+        你赶紧帮我从名录里再选一家能用的、别又踩坑，预算和要求还是那些底线。
+        顺便把庭前要带的材料、证据原件、质证意见再帮我核一遍，别因为换检验机构把开庭耽误了。
+
+  14:
+    # Jun 12 — 开庭(world)
+    - id: s14_hearing
+      kind: world
+      time: "2026-06-12T12:00:00+08:00"
+      source: "庭审记录"
+      body: |
+        【庭审已结束】上午开庭完毕。双方就食品是否符合安全标准(无中文标签/非法添加)、应按十倍还是三倍赔偿、
+        知假买假抗辩、标签瑕疵是否除外、被告主体与平台责任、就医损失等进行了举证质证与辩论。法庭表示将择期宣判。
+
+  15:
+    # Jun 14 — 庭后小结
+    - id: s15_post_hearing
+      kind: user_message
+      time: "2026-06-14T20:00:00+08:00"
+      from: "赵萌"
+      body: |
+        开完庭了，帮我在 Notion 里做个庭后小结：双方争点、我方主张和依据、对方那几个抗辩怎么回应的，
+        都记下来，方便等判决和后续衔接。
+
+  16:
+    # Jun 16 — 判决送达(world, 判退一赔十)
+    - id: s16_judgment_packet_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-16T09:50:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/zhao_meng_litigation/mutation_s16_judgment_notice.sql"
+        - server: email
+          sql_file: "envs/email/zhao_meng_litigation/mutation_s16_judgment_delivery.sql"
+        - server: notion
+          sql_file: "envs/notion/zhao_meng_litigation/mutation_s16_judgment_register.sql"
+
+    - id: s16_judgment
+      kind: world
+      time: "2026-06-16T10:00:00+08:00"
+      source: "上海市浦东新区人民法院"
+      body: |
+        【判决送达】本案一审判决书已送达：认定涉案进口奶粉无中文标签、代用茶含非法添加物，均不符合食品安全标准，
+        判令被告退还价款并按价款十倍支付惩罚性赔偿金，赔偿原告就医损失；案件受理费由被告负担。如不服本判决，
+        可在判决书送达之日起十五日内向上海市第一中级人民法院提起上诉。
+
+  17:
+    # Jun 17 — 判决研判 + 是否见好就收
+    - id: s17_judgment_review
+      kind: user_message
+      time: "2026-06-17T21:00:00+08:00"
+      from: "赵萌"
+      body: |
+        判决下来了，判我赢、退一赔十连就医费都支持了！帮我研判一下：这个结果好不好、稳不稳？我是不是该见好就收？
+        如果卖家不服去上诉，我这边有什么期限和动作要注意？赔偿款会不会被拖着不给？
+
+  18:
+    # Jun 18 — 卖家不服, 提起上诉(world)
+    - id: s18_appeal_packet_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-18T13:50:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/zhao_meng_litigation/mutation_s18_appeal_notice.sql"
+        - server: email
+          sql_file: "envs/email/zhao_meng_litigation/mutation_s18_appeal_delivery.sql"
+        - server: calendar
+          sql_file: "envs/calendar/zhao_meng_litigation/mutation_s18_appeal_deadlines.sql"
+        - server: notion
+          sql_file: "envs/notion/zhao_meng_litigation/mutation_s18_second_instance.sql"
+
+    - id: s18_seller_appeals
+      kind: world
+      time: "2026-06-18T14:00:00+08:00"
+      source: "上海市第一中级人民法院"
+      body: |
+        【应诉通知】被告环球优选不服一审判决，已就本案向上海市第一中级人民法院提起上诉，本院已立案。
+        你作为被上诉人，将收到上诉状副本，请在规定期限内提交答辩状并准备二审应诉。
+
+  19:
+    # Jun 20 — 二审应诉期限确认
+    - id: s19_appeal_news
+      kind: world
+      time: "2026-06-20T09:00:00+08:00"
+      source: "上海市第一中级人民法院"
+      body: |
+        【公告】(2026)沪01民终XXXX号 上诉人环球优选与被上诉人赵萌食品安全网络购物合同纠纷二审一案已立案，
+        将依法组成合议庭审理。
+
+    - id: s19_appeal_deadlines
+      kind: user_message
+      time: "2026-06-20T20:00:00+08:00"
+      from: "赵萌"
+      body: |
+        卖家居然真上诉了。帮我理清楚：作为被上诉人我接下来要做什么、有哪些期限不能错过、二审和一审有啥不一样、
+        检验报告和证据要不要重新组织、一审判我赢二审会不会翻盘。把这些排进日历、记进 Notion。
+
+  20:
+    # Jun 21 — 归档(cron_fire 定时提醒)
+    - id: s20_archive
+      kind: cron_fire
+      time: "2026-06-21T10:00:00+08:00"
+      source: "case-scheduler"
+      body: |
+        [定时提醒·阶段收尾] 请把本案材料、证据、检验报告、程序节点、一审判决结果在 Notion 里归档整理，
+        确保二审阶段能无缝衔接，并核对所有未来期限均已进日历。
+
+  21:
+    # Jun 22 — 复盘总结
+    - id: s21_world_news
+      kind: world
+      time: "2026-06-22T09:00:00+08:00"
+      source: "上海市市场监督管理局"
+      body: |
+        【提示】本市持续推进食品安全网络销售合规整治与消费者权益保护，提示消费者依法理性维权、注意保存
+        订单、支付与实物等证据。
+
+    - id: s21_retro
+      kind: user_message
+      time: "2026-06-22T20:00:00+08:00"
+      from: "赵萌"
+      body: |
+        从买到问题食品到现在折腾大半年，帮我做个复盘：
+        1. 在 Notion 里写个总结(整个维权过程、关键节点、用了哪些证据和法条、花了多少成本)
+        2. 记录经验教训，万一身边人遇到类似情况能参考
+        3. 二审阶段接下来大概要准备啥，先给我个方向

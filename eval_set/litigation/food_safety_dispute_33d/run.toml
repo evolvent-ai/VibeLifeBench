@@ -1,0 +1,15 @@
+job_name = "food_safety_dispute_33d"
+job_dir = "outputs/litigation/food_safety_dispute_33d"
+tasks = ["eval_set/litigation/food_safety_dispute_33d"]
+n_attempts = 2
+n_concurrent_trials = 1
+agent_exec_timeout_sec = 14400
+resume = false
+
+[[agents]]
+name = "openclaw"
+model_name = "<your-provider>/<your-model>"
+
+[agents.kwargs]
+models_config_path = "runs/openclaw_models.json"
+think = "xhigh"

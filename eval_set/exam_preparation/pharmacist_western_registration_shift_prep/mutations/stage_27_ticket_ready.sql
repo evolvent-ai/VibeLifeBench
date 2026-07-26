@@ -1,0 +1,1 @@
+INSERT OR REPLACE INTO notifications VALUES ('notif_ticket_ready','user_zhou','provincial_pharmacist_office','portal_status',NULL,'准考证考点座位已写入','准考证状态 ready，考试日期 2026-10-11，考点市职业教育中心A楼，座位 12-08，请于考试当日凭准考证与身份证入场。','{"ticket_status":"ready","exam_date":"2026-10-11","site":"市职业教育中心A楼","seat":"12-08"}','2026-10-08T09:00:00+08:00',0);

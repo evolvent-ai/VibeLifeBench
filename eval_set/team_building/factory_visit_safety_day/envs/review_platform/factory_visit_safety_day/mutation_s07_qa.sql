@@ -1,0 +1,3 @@
+INSERT OR IGNORE INTO merchant_qa(qa_id,merchant_id,user_id,question,answer,answered_by,created_at) VALUES ('qa_factory_invoice','mer_7a4c19d2','user_seed_tb_013','是否可以开公司发票并提供禁拍说明？','可以开具公司发票；参访线涉及客户样机区域，需签署拍摄边界说明。','merchant','2026-07-07T09:00:00Z');
+INSERT OR IGNORE INTO merchant_qa(qa_id,merchant_id,user_id,question,answer,answered_by,created_at) VALUES ('qa_factory_refund','mer_7a4c19d2','user_seed_tb_013','预留名额在什么时间之前可以无损取消？','参访日前三个工作日内取消不收费用，押金原路退回；三日内取消扣押金一半。','merchant','2026-07-08T02:00:00Z');
+INSERT OR IGNORE INTO merchant_qa(qa_id,merchant_id,user_id,question,answer,answered_by,created_at) VALUES ('qa_lunch_refund','mer_5e91a7c3','user_seed_tb_013','人数临时减少怎么结算？','按实际到场人数结算但不低于合同人数的九成，减少部分需在当天上午十点前告知。','merchant','2026-07-08T02:15:00Z');

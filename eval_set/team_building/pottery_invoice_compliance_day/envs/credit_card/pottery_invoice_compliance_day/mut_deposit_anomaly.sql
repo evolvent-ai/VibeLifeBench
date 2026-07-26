@@ -1,0 +1,1 @@
+INSERT OR IGNORE INTO unbilled_transactions(tx_id,card_id,posted_at,amount_minor,merchant_name,mcc,category,kind) VALUES ('tx_pottery_private_0716','card_luyao_team_corp','2026-07-16T08:40:00+08:00',980000,'待核验陶艺定金收款方','7399','活动定金','purchase');

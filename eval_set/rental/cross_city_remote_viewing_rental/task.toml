@@ -1,0 +1,48 @@
+[metadata]
+name = "cross_city_remote_viewing_rental"
+title_zh = "跨城入职远程看房与住址证明"
+title_en = "Cross-City Remote Viewing Rental and Address Proof"
+author = "OpenAI / Codex"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "rental"
+tags = ["listing_search", "commute_validation", "lease_risk", "authorization", "long_horizon_state", "final_archive"]
+summary_zh = "跨城入职前的远程看房与住址证明任务，考察房源检索、真实通勤核验、合同和隐私风险、授权边界、动态状态恢复与最终归档。"
+summary_en = "A long-horizon rental task for remote viewings before a cross-city job move, testing listing search, commute verification, lease and privacy risk, authorization, state recovery, and address-proof handoff."
+description = "A long-horizon rental task for remote viewings before a cross-city job move, testing listing search, commute verification, lease and privacy risk, authorization, state recovery, and address-proof handoff."
+
+[scenario]
+stage_count = 24
+start_date = "2026-07-10"
+end_date = "2026-08-17"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["listing_platform", "maps", "calendar", "email", "notion", "review_platform", "legal_search", "notification_hub"]
+
+[dependencies.envs]
+listing_platform = "cross_city_remote_viewing_rental"
+maps = "cross_city_remote_viewing_rental"
+calendar = "cross_city_remote_viewing_rental"
+email = "cross_city_remote_viewing_rental"
+notion = "cross_city_remote_viewing_rental"
+review_platform = "cross_city_remote_viewing_rental"
+legal_search = "cross_city_remote_viewing_rental"
+notification_hub = "cross_city_remote_viewing_rental"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 66
+total_weight = 97.5
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = "mutations"
+
+[run]
+config = "openclaw"

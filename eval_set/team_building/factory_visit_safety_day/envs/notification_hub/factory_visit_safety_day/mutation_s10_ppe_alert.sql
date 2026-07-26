@@ -1,0 +1,1 @@
+INSERT OR IGNORE INTO notifications(notification_id,user_id,source,type,subscription_id,title,body,payload_json,created_at,read) VALUES ('ntf_013_ppe_shift','user_seed_tb_013','review_platform','policy_update','sub_013_policy','参访配套项状态变动','你关注的场馆有一个配套项目今天不再可选，场馆主项目未受影响。','{"scope":"deal"}','2026-07-11T00:05:00Z',0);

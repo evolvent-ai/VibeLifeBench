@@ -1,0 +1,1 @@
+INSERT OR REPLACE INTO notifications VALUES ('notif_schema_v2','user_zhou','provincial_pharmacist_office','portal_status',NULL,'报名材料字段更新','材料清单新增单位统一社会信用代码字段。','{"portal_state":"schema_v2","field":"employer_unified_social_credit_code"}','2026-08-15T08:00:00+08:00',0);

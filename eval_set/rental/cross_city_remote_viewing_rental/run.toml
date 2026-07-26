@@ -1,0 +1,15 @@
+job_name = "cross_city_remote_viewing_rental"
+job_dir = "outputs/rental/cross_city_remote_viewing_rental"
+tasks = ["eval_set/rental/cross_city_remote_viewing_rental"]
+n_attempts = 2
+n_concurrent_trials = 1
+agent_exec_timeout_sec = 7200
+resume = false
+
+[[agents]]
+name = "openclaw"
+model_name = "<your-provider>/<your-model>"
+
+[agents.kwargs]
+models_config_path = "runs/openclaw_models.json"
+think = "xhigh"

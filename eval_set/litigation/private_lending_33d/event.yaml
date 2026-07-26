@@ -1,0 +1,444 @@
+# private_lending_33d — event timeline
+# 运行窗口: 2026-05-20 → 2026-06-22 (33 days, 22 stages)
+# 立案准备期 Stage 0-9 (May20-Jun02), 一审推进期 Stage 10-17 (Jun04-Jun17), 判后期 Stage 18-21 (Jun18-22)
+
+stages:
+  0:
+    # May 20 — kickoff: 决定起诉追偿
+    - id: s0_notion_init
+      kind: mutation
+      silent: true
+      time: "2026-05-20T08:30:00+08:00"
+      apply:
+        - server: notion
+          sql_file: "envs/notion/wang_fang_lending/mutation_s0_case_home.sql"
+
+    - id: s0_kickoff
+      kind: user_message
+      time: "2026-05-20T09:00:00+08:00"
+      from: "王芳"
+      body: |
+        陈强这老同学，前年分两笔跟我借了钱，写了借条、说好月息2分，结果到期一年多了一直拖着不还，
+        催了无数次，我决定走法律程序把钱要回来。这是我第一次打官司，流程一窍不通。
+        先帮我开个头：把这事在 Notion 里建个页面记起来，关注一下法院和相关的官方公众号，
+        看看法律检索库里我之前收藏过哪些类似判例。我邮箱里有借条、转账记录和催收记录，你能拼出大概情况。
+
+  1:
+    # May 21 — 先搞清楚程序怎么走
+    - id: s1_filing_notice_mutation
+      kind: mutation
+      silent: true
+      time: "2026-05-21T08:50:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/wang_fang_lending/mutation_s1_filing_notice.sql"
+
+    - id: s1_court_online_filing_world
+      kind: world
+      time: "2026-05-21T09:00:00+08:00"
+      source: "杭州市西湖区人民法院"
+      body: |
+        【诉讼服务公告】我院"移动微法院/网上立案"通道已全面开通，当事人可在线提交起诉状与
+        证据材料、查询案件进度、接收电子送达；线下立案窗口同步受理。具体立案条件、所需材料与
+        诉讼费缴纳方式以官方诉讼服务指引为准。
+    - id: s1_procedure
+      kind: user_message
+      time: "2026-05-21T20:30:00+08:00"
+      from: "王芳"
+      body: |
+        我想先搞清楚追债的程序到底怎么走：借钱不还这种事，是直接去法院起诉，还是得先调解、先仲裁？
+        去哪个法院告——陈强人在宁波，我在杭州，我得跑去宁波吗？有没有时间限制——
+        钱是前年借的、去年6月到期的，现在还来得及吗？你去查查法院官方的立案须知，
+        再结合我的情况告诉我第一步该干嘛，别让我走错路。
+
+  2:
+    # May 22 — 选聘律师(场景约束: 律师矩阵 + 预算硬顶) + 顺带读判例
+    - id: s2_pick_lawyer
+      kind: user_message
+      time: "2026-05-22T18:00:00+08:00"
+      from: "王芳"
+      body: |
+        我想正式找个律师代理这个案子。法律服务平台那个公众号里有一份浙江律师名录，你帮我对着名录
+        逐个筛一遍：结合我的情况和预算（我邮箱里存了《找律师的预算和想法》），到底哪几个能选、
+        哪几个不能选、为什么，最后给我推荐一个最合适的。别让我踩坑找了不合适的。
+        顺便也把法律库里和我情况最像的判例找出来读透，开庭要用。
+
+  3:
+    # May 23 — 我能要回多少 + 想一起追的几笔账(诉求筛选陷阱)
+    - id: s3_claims
+      kind: user_message
+      time: "2026-05-23T21:00:00+08:00"
+      from: "王芳"
+      body: |
+        帮我算算这次起诉我大概能要回多少钱，本金、利息分别按什么标准、什么法条算的给我讲清楚。
+        借条金额、实际转账、约定利息这些你从我邮箱的借条和转账记录里核一下，别算错了。
+        另外我邮箱里存了个草稿《我想一起追的几笔账》，趁这次维权我想把能要的都要回来——
+        你帮我逐条看看：哪些能在这个案子里一起主张、哪些不行、不行的为什么？
+        别让我把不该提的提上去显得外行，也别漏掉该要的。
+
+  4:
+    # May 24 — 整理证据链
+    - id: s4_bank_record_mutation
+      kind: mutation
+      silent: true
+      time: "2026-05-24T09:20:00+08:00"
+      apply:
+        - server: email
+          sql_file: "envs/email/wang_fang_lending/mutation_s4_bank_record_ready.sql"
+
+    - id: s4_bank_record_world
+      kind: world
+      time: "2026-05-24T09:30:00+08:00"
+      source: "中国工商银行"
+      body: |
+        【回单调取提醒】您申请的账户交易明细/转账回单可在手机银行"电子回单"中下载并加盖电子印章。
+        如需用于诉讼，可下载相应转账回单作为凭证；柜台可出具加盖业务章的纸质流水。
+    - id: s4_evidence
+      kind: user_message
+      time: "2026-05-24T15:00:00+08:00"
+      from: "王芳"
+      body: |
+        帮我把手头的证据理一理，做成一份证据清单：我有啥、每样能证明什么、提交的时候要注意什么。
+        借条、转账回单、微信催收和还款记录我都留着。那笔现金的我有点担心——你重点说说现金那笔
+        证据上有什么问题。在 Notion 里建好证据链。
+
+  5:
+    # May 26 — 起诉材料清单(cron_fire 定时提醒)
+    - id: s5_filing_prep
+      kind: cron_fire
+      time: "2026-05-26T10:00:00+08:00"
+      source: "case-scheduler"
+      body: |
+        [定时提醒·立案材料] 准备立案材料阶段。请对照法院官方须知核对：起诉状该写什么、需要哪些材料、
+        交到哪个法院、诉讼费怎么算要不要先交，并把还缺的东西列出来提醒王芳补齐。
+
+  6:
+    # May 28 — 提交起诉前最后确认 + 财产保全
+    - id: s6_fee_notice_world
+      kind: world
+      time: "2026-05-28T09:00:00+08:00"
+      source: "杭州市西湖区人民法院"
+      body: |
+        【缴费公告】财产案件受理费按诉讼请求金额分段累计交纳，由原告在立案时预交，案件审结后
+        由败诉方负担；申请财产保全的，另需按保全财产数额交纳申请费并依法提供担保。具体标准
+        以《诉讼费用交纳办法》及本院缴费通知为准。
+    - id: s6_pre_filing
+      kind: user_message
+      time: "2026-05-28T19:30:00+08:00"
+      from: "王芳"
+      body: |
+        我想这两天就把起诉状递上去。你帮我做最后确认：起诉状草稿、材料、诉求金额都齐了吗？
+        交到哪、诉讼费要先交多少？注意：正式提交和最终定诉求金额这种事你别替我拍板，整理好让我自己来。
+        还有件急事：朋友说陈强在宁波的房子挂牌急售，像是要把财产处理掉跑路。
+        这对我要钱有没有影响？我能不能做点什么防止他转移财产？你一并帮我捋捋。
+
+  7:
+    # May 30 — 被告提出管辖权异议(mutation 静默注入) + heartbeat
+    - id: s7_jurisdiction_mutation
+      kind: mutation
+      silent: true
+      time: "2026-05-30T09:00:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/wang_fang_lending/mutation_s7_jurisdiction_objection.sql"
+        - server: email
+          sql_file: "envs/email/wang_fang_lending/mutation_s7_jurisdiction_objection.sql"
+
+    - id: s7_heartbeat
+      kind: notification
+      time: "2026-05-30T09:30:00+08:00"
+      channel: system
+      body: |
+        【程序事项提醒】被告对案件受理法院提出异议，可能影响后续审理地点和程序安排。
+        请结合借款履行地、双方住所和现有送达材料评估异议，并整理需要王芳确认的回应方案。
+
+  8:
+    # Jun 01 — 法院立案受理(world)
+    - id: s8_acceptance_packet_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-01T09:30:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/wang_fang_lending/mutation_s8_case_accepted.sql"
+        - server: email
+          sql_file: "envs/email/wang_fang_lending/mutation_s8_case_accepted.sql"
+        - server: calendar
+          sql_file: "envs/calendar/wang_fang_lending/mutation_s8_case_deadlines.sql"
+        - server: notion
+          sql_file: "envs/notion/wang_fang_lending/mutation_s8_case_docket.sql"
+
+    - id: s8_accepted
+      kind: world
+      time: "2026-06-01T10:00:00+08:00"
+      source: "杭州市西湖区人民法院"
+      body: |
+        【受理通知】你提起的民间借贷纠纷一案已立案受理（案号 (2026)浙0106民初08812号）。
+        请关注后续举证通知与开庭安排，并就被告已提出的相关事项准备意见。
+
+  9:
+    # Jun 02 — 把程序期限排进日历 + 管辖异议反驳
+    - id: s9_evidence_preservation_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-02T09:20:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/wang_fang_lending/mutation_s9_evidence_preservation.sql"
+        - server: email
+          sql_file: "envs/email/wang_fang_lending/mutation_s9_evidence_preservation.sql"
+        - server: calendar
+          sql_file: "envs/calendar/wang_fang_lending/mutation_s9_evidence_deadline.sql"
+        - server: notion
+          sql_file: "envs/notion/wang_fang_lending/mutation_s9_preservation_register.sql"
+
+    - id: s9_evidence_notice_world
+      kind: world
+      time: "2026-06-02T09:30:00+08:00"
+      source: "杭州市西湖区人民法院"
+      body: |
+        【举证通知书】本案举证期限为收到本通知之日起十五日。请在举证期限内一次性提交全部证据材料
+        及证据清单；逾期提交且无正当理由的，可能承担不利后果。对被告已提出的程序事项，可一并提交
+        书面意见。
+    - id: s9_preservation_ruling_world
+      kind: world
+      time: "2026-06-02T15:00:00+08:00"
+      source: "杭州市西湖区人民法院"
+      body: |
+        【保全裁定送达】关于本案当事人财产保全申请，本院已作出裁定并开始办理查封/冻结相关手续。
+        请关注保全进展；保全申请错误造成对方损失的，申请人应依法承担赔偿责任。
+    - id: s9_deadlines
+      kind: user_message
+      time: "2026-06-02T20:00:00+08:00"
+      from: "王芳"
+      body: |
+        案子受理了。帮我把接下来的关键时间节点都排进日历并设提醒，别让我错过任何一个期限。
+        另外对方提的那个管辖问题——说要移到宁波去告——到底成不成立、我该怎么回应，给我个说法。
+
+  10:
+    # Jun 04 — 被告提交答辩与反证(mutation 静默注入) + heartbeat
+    - id: s10_defense_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-04T09:00:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/wang_fang_lending/mutation_s10_defense.sql"
+        - server: email
+          sql_file: "envs/email/wang_fang_lending/mutation_s10_defense.sql"
+        - server: notion
+          sql_file: "envs/notion/wang_fang_lending/mutation_s10_defense_register.sql"
+
+    - id: s10_heartbeat
+      kind: notification
+      time: "2026-06-04T09:30:00+08:00"
+      channel: system
+      body: |
+        【送达提醒】被告提交了新的答辩和证据意见，涉及实际到账本金与现金借款是否交付。
+        请核对送达材料和现有银行、借条及催收证据，形成需要接受、反驳或补强的质证安排。
+
+  11:
+    # Jun 06 — 怎么质证反驳
+    - id: s11_rebut
+      kind: user_message
+      time: "2026-06-06T21:00:00+08:00"
+      from: "王芳"
+      body: |
+        听说陈强那边提交了答辩反咬我？帮我看看他到底主张啥、站不站得住脚，我该怎么质证应对。
+        他说第一笔本金不是40万、第二笔现金根本没给过——这些我该认还是该驳？有没有类似的判例能支持我？
+        在 Notion 里把质证意见理出来。
+
+  12:
+    # Jun 08 — 开庭通知(world)
+    - id: s12_hearing_packet_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-08T09:40:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/wang_fang_lending/mutation_s12_hearing_notice.sql"
+        - server: email
+          sql_file: "envs/email/wang_fang_lending/mutation_s12_hearing_notice.sql"
+        - server: calendar
+          sql_file: "envs/calendar/wang_fang_lending/mutation_s12_hearing_event.sql"
+
+    - id: s12_hearing_notice
+      kind: world
+      time: "2026-06-08T10:00:00+08:00"
+      source: "杭州市西湖区人民法院"
+      body: |
+        【开庭通知】本案定于 2026-06-12 上午 9:30 在西湖区人民法院第五法庭开庭审理。
+        请原告携带身份证原件、全部证据原件（借条原件、银行转账回单、微信记录等）准时到庭。
+
+  13:
+    # Jun 10 — 律师利益冲突被迫退出(mutation 静默注入) + 用户求助换律师(场景约束)
+    - id: s13_lawyer_conflict_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-10T09:00:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/wang_fang_lending/mutation_s13_lawyer_conflict.sql"
+        - server: email
+          sql_file: "envs/email/wang_fang_lending/mutation_s13_lawyer_conflict.sql"
+        - server: calendar
+          sql_file: "envs/calendar/wang_fang_lending/mutation_s13_lawyer_handover.sql"
+        - server: notion
+          sql_file: "envs/notion/wang_fang_lending/mutation_s13_lawyer_switch.sql"
+
+    - id: s13_reselect_lawyer
+      kind: user_message
+      time: "2026-06-10T12:30:00+08:00"
+      from: "王芳"
+      body: |
+        糟了，平台发通知说我那个律师要退出？后天就开庭了，这可怎么办！
+        你赶紧帮我从名录里再选一个能接的、别又踩坑，预算还是那些底线。
+        顺便把庭前要带的材料和证据原件、质证意见再帮我核一遍，别因为换律师把开庭耽误了。
+
+  14:
+    # Jun 12 — 开庭(world)
+    - id: s14_hearing
+      kind: world
+      time: "2026-06-12T12:00:00+08:00"
+      source: "庭审记录"
+      body: |
+        【庭审已结束】上午开庭完毕。双方就借款本金数额(砍头息)、现金交付是否成立、利息计算、
+        担保人是否担责、是否夫妻共同债务进行了举证质证与辩论。法庭表示将择期宣判。
+
+  15:
+    # Jun 14 — 庭后小结
+    - id: s15_adjourn_world
+      kind: world
+      time: "2026-06-14T10:00:00+08:00"
+      source: "杭州市西湖区人民法院"
+      body: |
+        【审理进展】本案已于 6 月 12 日庭审完毕，现进入合议、择期宣判阶段。如有需要补充的庭后
+        代理意见或材料，可在合理期限内提交；判决结果将依法送达双方当事人。
+    - id: s15_post_hearing
+      kind: user_message
+      time: "2026-06-14T20:00:00+08:00"
+      from: "王芳"
+      body: |
+        开完庭了，帮我在 Notion 里做个庭后小结：双方争点、我方主张和依据、对方抗辩怎么回应的，
+        都记下来，方便等判决和后续衔接。
+
+  16:
+    # Jun 16 — 判决书送达(world)
+    - id: s16_judgment_packet_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-16T09:50:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/wang_fang_lending/mutation_s16_judgment_notice.sql"
+        - server: email
+          sql_file: "envs/email/wang_fang_lending/mutation_s16_judgment_delivery.sql"
+        - server: notion
+          sql_file: "envs/notion/wang_fang_lending/mutation_s16_judgment_register.sql"
+
+    - id: s16_judgment
+      kind: world
+      time: "2026-06-16T10:00:00+08:00"
+      source: "杭州市西湖区人民法院"
+      body: |
+        【判决送达】本案一审判决书已送达：判决被告陈强返还原告王芳借款本金360000元(第一笔按实际
+        出借认定)并按合同成立时一年期LPR四倍支付利息(扣除已还2万元)；驳回王芳要求返还第二笔20万元
+        现金借款、要求配偶刘敏及担保人周国华共同清偿、精神损失费及误工费的诉讼请求。
+        如不服本判决，可在规定期限内向上一级人民法院提起上诉。
+
+  17:
+    # Jun 17 — 判决研判 + 是否上诉
+    - id: s17_appeal_window_world
+      kind: world
+      time: "2026-06-17T09:00:00+08:00"
+      source: "杭州市西湖区人民法院"
+      body: |
+        【上诉权利告知】本案一审判决已送达。当事人如不服本判决，可在判决书送达之日起十五日内
+        向杭州市中级人民法院提起上诉，逾期不上诉的，一审判决发生法律效力。判决生效后对方未履行的，
+        可依法申请强制执行。
+    - id: s17_judgment_review
+      kind: user_message
+      time: "2026-06-17T21:00:00+08:00"
+      from: "王芳"
+      body: |
+        判决下来了，第一笔本金利息支持了，但第二笔20万、还有让他老婆和担保人一起还的都被驳了。
+        帮我研判一下：这个结果好不好、要不要见好就收？如果我或对方不服去上诉，
+        有什么期限和动作要注意？该不该上诉去争那20万？
+
+  18:
+    # Jun 18 — 被告不服, 提起上诉(world)
+    - id: s18_appeal_packet_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-18T13:50:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/wang_fang_lending/mutation_s18_appeal_notice.sql"
+        - server: email
+          sql_file: "envs/email/wang_fang_lending/mutation_s18_appeal_delivery.sql"
+        - server: calendar
+          sql_file: "envs/calendar/wang_fang_lending/mutation_s18_appeal_deadlines.sql"
+        - server: notion
+          sql_file: "envs/notion/wang_fang_lending/mutation_s18_second_instance.sql"
+
+    - id: s18_appeal
+      kind: world
+      time: "2026-06-18T14:00:00+08:00"
+      source: "杭州市中级人民法院"
+      body: |
+        【应诉通知】被告陈强不服一审判决，已就本案向杭州市中级人民法院提起上诉，本院已受理。
+        你作为被上诉人，将收到上诉状副本，请在举证期限内提交答辩与证据并准备应诉。
+
+  19:
+    # Jun 20 — 二审应诉期限确认
+    - id: s19_second_instance_packet_mutation
+      kind: mutation
+      silent: true
+      time: "2026-06-20T08:50:00+08:00"
+      apply:
+        - server: notification_hub
+          sql_file: "envs/notification_hub/wang_fang_lending/mutation_s19_second_instance_notice.sql"
+        - server: email
+          sql_file: "envs/email/wang_fang_lending/mutation_s19_second_instance_delivery.sql"
+        - server: calendar
+          sql_file: "envs/calendar/wang_fang_lending/mutation_s19_response_deadline.sql"
+        - server: notion
+          sql_file: "envs/notion/wang_fang_lending/mutation_s19_appeal_response.sql"
+
+    - id: s19_second_instance_notice_world
+      kind: world
+      time: "2026-06-20T09:00:00+08:00"
+      source: "杭州市中级人民法院"
+      body: |
+        【二审受理通知】本案已立案受理，现向你送达上诉状副本。请在收到之日起十五日内提交答辩状，
+        并在举证期限内提交证据；二审围绕上诉请求范围审理，一审已交诉讼费一般不再重复预交，
+        具体以本院通知为准。
+    - id: s19_appeal_deadlines
+      kind: user_message
+      time: "2026-06-20T20:00:00+08:00"
+      from: "王芳"
+      body: |
+        陈强居然还上诉了。帮我理清楚：作为被上诉人我接下来要做什么、有哪些期限不能错过、
+        二审和一审有啥不一样、证据要不要重新组织、二审还要不要交诉讼费。把这些排进日历、记进 Notion。
+
+  20:
+    # Jun 21 — 归档(cron_fire 定时提醒)
+    - id: s20_archive
+      kind: cron_fire
+      time: "2026-06-21T10:00:00+08:00"
+      source: "case-scheduler"
+      body: |
+        [定时提醒·阶段收尾] 请把本案材料、证据、程序节点、判决结果在 Notion 里归档整理，
+        确保二审阶段能无缝衔接，并核对所有未来期限均已进日历。
+
+  21:
+    # Jun 22 — 复盘总结
+    - id: s21_retro
+      kind: user_message
+      time: "2026-06-22T20:00:00+08:00"
+      from: "王芳"
+      body: |
+        从借钱要不回到现在折腾大半年，帮我做个复盘：
+        1. 在 Notion 里写个总结（整个追偿过程、关键节点、用了哪些证据和法条、花了多少诉讼成本）
+        2. 记录经验教训（借钱该注意啥：别砍头息、现金留凭证、担保写清楚、及时催收留证），万一身边人遇到类似情况能参考
+        3. 二审阶段接下来大概要准备啥，先给我个方向

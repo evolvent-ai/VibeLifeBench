@@ -1,0 +1,2 @@
+INSERT INTO messages(id,folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,in_reply_to,references_header,headers_json,uid,size,created_at) VALUES
+(9107,1,'<rent-c-followup-0721@wuhan-agency.invalid>','云栖苑门宽记录与合同附件补充','zhou.lan@wuhan-agency.invalid','["wenxi.shen@example.invalid"]','[]','[]','2026-07-21T08:40:00+08:00','现有记录显示入户门净宽约 85 厘米，东门入口为连续坡道，电梯维修责任和服务费可列入合同附件；卫生间转身空间仍需现场复测，记录原件需签约前核对。','',0,1,0,NULL,NULL,'{}',9107,348,'2026-07-21T08:40:00+08:00');

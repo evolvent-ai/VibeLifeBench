@@ -1,0 +1,1 @@
+UPDATE deals SET status='expired' WHERE deal_id='deal_factory_013_visit'; INSERT OR IGNORE INTO merchant_qa(qa_id,merchant_id,user_id,question,answer,answered_by,created_at) VALUES ('qa_factory_credential_gap','mer_7a4c19d2','vendor','资质包是否齐全？','保险附件暂缺，预计 7 月 16 日补齐。','merchant','2026-07-14T00:10:00Z');

@@ -1,0 +1,47 @@
+[metadata]
+name = "office_fitout_15d"
+title_zh = "商业办公室 Fit-out 项目管理"
+title_en = "Commercial Office Fit-Out Project Management"
+author = "OpenClaw renovation scenario — commercial fit-out"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "renovation"
+tags = ["commercial", "fit-out", "fire-compliance", "electrical-load", "tenant-improvement", "insurance-required", "compliance", "long-horizon", "schedule", "inspection-gates", "vendor-management"]
+summary_zh = "上海浦东商业办公室装修项目管理任务，覆盖设计施工供应商、装修备案、消防、电气负荷、应急照明、空气质量、工程保险、物业窗口、预算和入驻交接。"
+summary_en = "A multi-stage commercial office fit-out task in Shanghai covering design-build vendors, filing, fire and electrical gates, emergency lighting, air-quality evidence, insurance, property windows, budget, and handover."
+description = "A multi-stage commercial office fit-out task in Shanghai covering design-build vendors, filing, fire and electrical gates, emergency lighting, air-quality evidence, insurance, property windows, budget, and handover."
+
+[scenario]
+stage_count = 21
+start_date = "2026-07-01"
+end_date = "2026-09-01"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["email", "calendar", "notion", "maps", "visa_and_advisory", "hotel_booking", "weather"]
+
+[dependencies.envs]
+email = "office_fitout_15d"
+calendar = "office_fitout_15d"
+notion = "office_fitout_15d"
+maps = "office_fitout_15d"
+visa_and_advisory = "office_fitout_15d"
+hotel_booking = "office_fitout_15d"
+weather = "office_fitout_15d"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 105
+total_weight = 289.657
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = "mutations"
+
+[run]
+config = "openclaw"

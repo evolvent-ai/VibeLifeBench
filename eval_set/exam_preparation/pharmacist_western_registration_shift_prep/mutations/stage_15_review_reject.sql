@@ -1,0 +1,1 @@
+INSERT OR REPLACE INTO notifications VALUES ('notif_review_reject','user_zhou','provincial_pharmacist_office','portal_status',NULL,'报名初审退回补正','报名状态变为 rejected_need_sealed_cert，需补传 HR 盖章版工作年限证明。','{"application_status":"rejected_need_sealed_cert","required_doc":"sealed_work_cert"}','2026-09-04T09:00:00+08:00',0);

@@ -1,0 +1,1 @@
+INSERT OR IGNORE INTO notifications(notification_id,user_id,source,type,subscription_id,title,body,payload_json,created_at,read) VALUES ('ntf_013_late_need','user_seed_tb_013','feedback_form','policy_update','sub_013_policy','迟报特殊需求','一名成员反馈噪音提醒不足，另有英文安全提醒需求。','{"need":"sound_and_english_notice"}','2026-07-22T00:20:00Z',0);

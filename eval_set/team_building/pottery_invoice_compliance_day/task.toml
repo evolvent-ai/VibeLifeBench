@@ -1,0 +1,51 @@
+[metadata]
+name = "pottery_invoice_compliance_day"
+title_zh = "室内陶艺团建筹备"
+title_en = "Indoor Pottery Team-Building Planning"
+author = "synthetic_team_building_writer"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "medium"
+category = "team_building"
+tags = ["event_planning", "vendor_risk", "budget", "privacy", "safety", "authorization", "onsite_coordination", "post_event_review"]
+summary_zh = "室内陶艺团建筹备任务，持续处理供应商和发票合规、预算授权、安全与隐私、交通安排、动态变化、付款状态和活动后复盘。"
+summary_en = "A long-horizon indoor pottery event-planning task covering vendor and invoice compliance, budget authorization, safety, privacy, transport, dynamic changes, payment states, and post-event review."
+description = "A long-horizon indoor pottery event-planning task covering vendor and invoice compliance, budget authorization, safety, privacy, transport, dynamic changes, payment states, and post-event review."
+
+[scenario]
+stage_count = 25
+start_date = "2026-07-01"
+end_date = "2026-07-30"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["email", "calendar", "notion", "review_platform", "maps", "credit_card", "notification_hub"]
+
+[dependencies.envs]
+email = "pottery_invoice_compliance_day"
+calendar = "pottery_invoice_compliance_day"
+notion = "pottery_invoice_compliance_day"
+review_platform = "pottery_invoice_compliance_day"
+maps = "pottery_invoice_compliance_day"
+credit_card = "pottery_invoice_compliance_day"
+notification_hub = "pottery_invoice_compliance_day"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 64
+total_weight = 100.0
+stage_weight = 52.0
+cross_stage_weight = 28.0
+tool_quality_weight = 8.0
+final_weight = 12.0
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = ""
+
+[run]
+config = "openclaw"

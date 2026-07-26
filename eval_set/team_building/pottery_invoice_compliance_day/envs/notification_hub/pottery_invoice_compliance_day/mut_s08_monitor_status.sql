@@ -1,0 +1,1 @@
+INSERT OR IGNORE INTO notifications(notification_id,user_id,source,type,subscription_id,title,body,payload_json,created_at,read) VALUES ('notif_pottery_monitor_0709','user_luyao_tb011','team_building_monitor','policy_update',NULL,'筹备状态例行检查','报名、供应商、路线、预算、发票与授权状态进入例行刷新窗口。','{"scope":"preparation"}','2026-07-09T08:55:00+08:00',0);

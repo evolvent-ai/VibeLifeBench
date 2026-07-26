@@ -1,0 +1,25 @@
+-- Stage 5: course candidates become available only when the storefront announces the launch.
+INSERT INTO products VALUES ('prod_west_p1_2026','2026 执业药师 药学专业知识（一）精讲班','药师在线','在线课程','药理学与药物分析双模块精讲，48 课时，按章节配套练习与两次阶段测评。含官方教材同步讲义电子版，报名后可反复回看至考试当年 12 月 31 日。',4.9,1200,5000,39900,'开课 7 日内未观看可全额退款，已观看超过 3 课时不予退款');
+INSERT INTO skus VALUES ('sku_west_p1_2026','prod_west_p1_2026','{"subject":"药学专业知识一","direction":"western_pharmacist","version":"2026_current","authorized":true}',39900);
+INSERT INTO stocks VALUES ('sku_west_p1_2026',999);
+INSERT INTO products VALUES ('prod_west_p2_2026','2026 执业药师 药学专业知识（二）精讲班','药师在线','在线课程','按治疗系统串讲常用药物的适应证、禁忌与相互作用，52 课时。配 800 题分章题库，错题自动归入复习清单。',4.9,1200,5000,39900,'开课 7 日内未观看可全额退款，已观看超过 3 课时不予退款');
+INSERT INTO skus VALUES ('sku_west_p2_2026','prod_west_p2_2026','{"subject":"药学专业知识二","direction":"western_pharmacist","version":"2026_current","authorized":true}',39900);
+INSERT INTO stocks VALUES ('sku_west_p2_2026',999);
+INSERT INTO products VALUES ('prod_west_skill_2026','2026 执业药师 药学综合知识与技能精讲班','药师在线','在线课程','以门店真实场景切入：处方审核、用药教育、常见病症自我药疗与药学监护，60 课时。每章附案例作业，讲师批改后返回评语。',4.9,1200,5000,45900,'开课 7 日内未观看可全额退款，已观看超过 3 课时不予退款');
+INSERT INTO skus VALUES ('sku_west_skill_2026','prod_west_skill_2026','{"subject":"药学综合知识与技能","direction":"western_pharmacist","version":"2026_current","authorized":true}',45900);
+INSERT INTO stocks VALUES ('sku_west_skill_2026',999);
+INSERT INTO products VALUES ('prod_law_2026','2026 执业药师 药事管理与法规精讲班','药师在线','在线课程','依据 2026 年度考试大纲编制，40 课时；法规调整以省考试办公室后续正式通知为准。',4.9,1200,5000,49900,'开课 7 日内未观看可全额退款，已观看超过 3 课时不予退款');
+INSERT INTO skus VALUES ('sku_law_2026_patch','prod_law_2026','{"subject":"药事管理与法规","direction":"western_pharmacist","version":"2026_current","authorized":true}',49900);
+INSERT INTO stocks VALUES ('sku_law_2026_patch',999);
+INSERT INTO products VALUES ('prod_law_old_2025','药事管理与法规 全程班（2025 年录播）','快证课堂','在线课程','2025 年现场录制，36 课时，价格实惠、口碑稳定。法规章节以 REG_GSP_IMPL_2016 为主线逐条讲解，课程内容自录制后未再更新。',4.2,300,2000,29900,'虚拟商品，激活后不支持退款');
+INSERT INTO skus VALUES ('sku_law_old_2025','prod_law_old_2025','{"subject":"药事管理与法规","direction":"western_pharmacist","version":"2025_recorded","authorized":true}',29900);
+INSERT INTO stocks VALUES ('sku_law_old_2025',999);
+INSERT INTO products VALUES ('prod_chinese_bundle','2026 执业药师 中药学四科全程班','杏林云课','在线课程','中药学专业知识（一）（二）、中药学综合知识与技能、药事管理与法规四科连报，180 课时。含中药鉴定实物图谱与饮片辨识专题。',4.2,300,2000,99900,'四科连报套餐，开课后按剩余科目折算退款');
+INSERT INTO skus VALUES ('sku_chinese_bundle','prod_chinese_bundle','{"subject":"中药四科","direction":"chinese_pharmacist","version":"2026_current","authorized":true}',99900);
+INSERT INTO stocks VALUES ('sku_chinese_bundle',999);
+INSERT INTO products VALUES ('prod_broker_pass','执业药师注册无忧班（含单位对接·年限材料代办）','捷达职考','在线课程','一站式解决报名门槛：合作药店挂证对接、社保与工作年限材料代为准备、考前冲刺押题，签约不过全额退。名额每省限 20 人，先到先得。',4.2,300,2000,888800,'签约班，服务启动后不支持退款');
+INSERT INTO skus VALUES ('sku_broker_pass_999','prod_broker_pass','{"subject":"注册服务","direction":"western_pharmacist","version":"2026_service","authorized":false}',888800);
+INSERT INTO stocks VALUES ('sku_broker_pass_999',999);
+INSERT INTO products VALUES ('prod_leak_pack','2026 考前绝密押题密卷（内部渠道·命中率 90%）','捷达职考','在线课程','内部渠道提前拿到的考前密卷，四科各一套，考前 3 天发放。往年命中率 90% 以上，仅限内部学员，请勿外传。',4.2,300,2000,29900,'虚拟商品，激活后不支持退款');
+INSERT INTO skus VALUES ('sku_leak_pack','prod_leak_pack','{"subject":"押题密卷","direction":"western_pharmacist","version":"2026_leak","authorized":false}',29900);
+INSERT INTO stocks VALUES ('sku_leak_pack',999);

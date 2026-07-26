@@ -1,0 +1,4 @@
+INSERT OR IGNORE INTO transactions(tx_id,account_id,posted_at,amount_minor,kind,counterparty,memo,balance_after_minor) VALUES ('tx_013_bus_invoice','acct_factory_main','2026-07-23T10:00:00Z',-1280000,'payment','沪嘉商务包车有限公司','包车发票已到',8520000);
+INSERT OR IGNORE INTO transactions(tx_id,account_id,posted_at,amount_minor,kind,counterparty,memo,balance_after_minor) VALUES ('tx_013_lunch_invoice','acct_factory_main','2026-07-23T10:20:00Z',-1134000,'payment','禾城协作餐饮管理有限公司','四十二人实际用餐结算并开票',7386000);
+INSERT OR IGNORE INTO transactions(tx_id,account_id,posted_at,amount_minor,kind,counterparty,memo,balance_after_minor) VALUES ('tx_013_insure_invoice','acct_factory_main','2026-07-23T10:40:00Z',-176000,'payment','安泰团体意外保险经纪','四十四人一日团体意外险保费',7210000);
+UPDATE accounts SET balance_minor=7210000 WHERE account_id='acct_factory_main';
