@@ -123,7 +123,6 @@ Stages are checkpoints, not calendar days. Event types include `user_message`,
 ```
 VibeLifeBench/
 ├── README.md
-├── LICENSE
 └── eval_set/
     └── <domain>/
         └── <task>/
@@ -139,9 +138,8 @@ VibeLifeBench/
             └── rubrics/         # formal scoring modules
 ```
 
-Apart from `README.md` and `LICENSE`, the repository root contains only `eval_set/`.
-Every environment payload is task-local; no shared top-level `envs/` directory is
-distributed.
+The repository root contains only `README.md` and `eval_set/`. Every environment payload
+is task-local; no shared top-level `envs/` directory is distributed.
 
 ## Environments
 
@@ -203,7 +201,8 @@ environments require no internet access and contain no real personal data.
 
 ## License
 
-Released under the [MIT License](LICENSE).
+No license file is bundled with this task-only release. Use and redistribution are
+governed by the terms supplied by the publisher for this repository.
 
 ## Citation
 
