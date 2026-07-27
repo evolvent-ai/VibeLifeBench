@@ -2,7 +2,7 @@
 name = "career_equity_buyback_recovery"
 title_zh = "离职限制性股票回购争议核对与再就业"
 title_en = "Equity Buyback Reconciliation and Re-employment"
-author = "xhs-benchmark"
+author = "VibeLifeBench"
 version = "1.1.0"
 language = ["zh", "en"]
 difficulty = "hard"

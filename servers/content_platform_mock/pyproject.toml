@@ -1,7 +1,7 @@
 [project]
 name = "content-platform-mock"
 version = "0.1.0"
-description = "FastMCP-based mock 小红书/XHS UGC content community server (SQLite, streamable-HTTP, offline)"
+description = "FastMCP-based mock Xiaohongshu-style UGC content community server (SQLite, streamable-HTTP, offline)"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

@@ -2,7 +2,7 @@
 name = "factory_visit_safety_day"
 title_zh = "供应链团队工厂参访团建"
 title_en = "Supply Chain Factory Visit Team Day"
-author = "synthetic_team_building_writer"
+author = "VibeLifeBench"
 version = "1.1.0"
 language = ["zh", "en"]
 difficulty = "hard"

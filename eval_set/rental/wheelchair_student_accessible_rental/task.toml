@@ -2,7 +2,7 @@
 name = "wheelchair_student_accessible_rental"
 title_zh = "轮椅学生的校园无障碍住房"
 title_en = "Accessible Campus Housing for a Wheelchair-Using Student"
-author = "OpenAI / Codex"
+author = "VibeLifeBench"
 version = "1.1.0"
 language = ["zh", "en"]
 difficulty = "hard"

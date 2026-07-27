@@ -81,8 +81,8 @@ def main() -> None:
     )
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--port", type=int, default=8008)
-    parser.add_argument("--env", type=str, default=os.environ.get("XHS_ENV"),
-                        help="Path to envs/<server>/<env_name>/ directory (falls back to $XHS_ENV)")
+    parser.add_argument("--env", type=str, default=os.environ.get("VLB_ENV"),
+                        help="Path to envs/<server>/<env_name>/ directory (falls back to $VLB_ENV)")
     parser.add_argument("--transport", choices=["streamable-http", "stdio"],
                         default="streamable-http",
                         help="streamable-http for Terrarium/containers; stdio for local .mcp.json debugging")
@@ -93,7 +93,7 @@ def main() -> None:
     logger = logging.getLogger(__name__)
 
     if not args.env:
-        parser.error("--env is required (pass --env <dir> or set $XHS_ENV)")
+        parser.error("--env is required (pass --env <dir> or set $VLB_ENV)")
     env_dir = Path(args.env)
     if not env_dir.is_dir():
         logger.error("--env path is not a directory: %s", env_dir)

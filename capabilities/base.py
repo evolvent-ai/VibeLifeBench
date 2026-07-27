@@ -1,4 +1,4 @@
-"""Base class for all xhs mock-server Terrarium capabilities.
+"""Base class for all VibeLifeBench mock-server Terrarium capabilities.
 
 Each concrete subclass only declares 4 class-level constants:
 
@@ -34,7 +34,7 @@ from capabilities import PROJECT_ROOT
 
 
 class AgentMockServerCapability(BaseCapability):
-    """Base for xhs mock-server capabilities. See module docstring."""
+    """Base for VibeLifeBench mock-server capabilities. See module docstring."""
 
     IMAGE: str = ""
     SERVER_KEY: str = ""
@@ -90,7 +90,7 @@ class AgentMockServerCapability(BaseCapability):
         ``initialize``, and only return when it succeeds.
         """
         if timeout is None:
-            timeout = float(os.environ.get("XHS_MCP_READY_TIMEOUT", "120"))
+            timeout = float(os.environ.get("VLB_MCP_READY_TIMEOUT", "120"))
         host, port = self._sandbox.get_host(self.MCP_PORT)
         self._mcp_host, self._mcp_port = host, port
         deadline = time.monotonic() + timeout
@@ -195,8 +195,8 @@ class AgentMockServerCapability(BaseCapability):
         program = textwrap.dedent(
             f"""\
             import json, os, sqlite3
-            sql = os.environ['__XHS_SQL']
-            params = json.loads(os.environ['__XHS_PARAMS'])
+            sql = os.environ['__VLB_SQL']
+            params = json.loads(os.environ['__VLB_PARAMS'])
             with sqlite3.connect({self._CONTAINER_RUNTIME_DB!r}, isolation_level=None, timeout=30) as conn:
                 conn.execute('PRAGMA busy_timeout=30000')
                 conn.execute(sql, params)
@@ -204,7 +204,7 @@ class AgentMockServerCapability(BaseCapability):
         )
         self._exec_python(
             program,
-            env={"__XHS_SQL": sql, "__XHS_PARAMS": json.dumps(params)},
+            env={"__VLB_SQL": sql, "__VLB_PARAMS": json.dumps(params)},
         )
 
     def _exec_python(self, program: str, env: dict[str, str] | None = None) -> None:

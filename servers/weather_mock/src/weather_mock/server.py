@@ -36,8 +36,8 @@ def _setup_logging(debug: bool = False) -> None:
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     ap = argparse.ArgumentParser(description="Weather Mock MCP Server (streamable-HTTP)")
-    ap.add_argument("--env", type=str, default=os.environ.get("XHS_ENV"),
-                    help="Path to envs/<server>/<env_name>/ directory (falls back to $XHS_ENV)")
+    ap.add_argument("--env", type=str, default=os.environ.get("VLB_ENV"),
+                    help="Path to envs/<server>/<env_name>/ directory (falls back to $VLB_ENV)")
     ap.add_argument("--transport", choices=["streamable-http", "stdio"],
                     default="streamable-http",
                     help="streamable-http for Terrarium/containers; stdio for local .mcp.json debugging")
@@ -82,7 +82,7 @@ def main() -> None:
     logger = logging.getLogger(__name__)
 
     if not args.env:
-        raise SystemExit("--env is required (pass --env <dir> or set $XHS_ENV)")
+        raise SystemExit("--env is required (pass --env <dir> or set $VLB_ENV)")
 
     be = None
     try:

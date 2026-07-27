@@ -6,7 +6,7 @@ Scope: implementation spec for the `content-platform-mock` MCP server.
 ## 1. Purpose
 
 `content_platform_mock` is a self-contained, fully-offline mock of a
-小红书/XHS-style UGC content community — notes (笔记), comments, users, topics
+Xiaohongshu-style UGC content community — notes (笔记), comments, users, topics
 (话题), and the like/collect/follow social graph. It exists so benchmark tasks
 can exercise an agent's ability to discover and read UGC, engage with it (like /
 collect / comment / follow), publish notes, and react to deterministic state
@@ -195,7 +195,7 @@ No JSON seed. The server takes `--env <dir>` and on cold start:
 4. Opens streamable-HTTP on `<host>:<port>/mcp`.
 
 The minimal stateless env is `envs/content_platform/empty/`. The rich scenario
-env is `envs/content_platform/xhs_2026q2/`.
+env is `envs/content_platform/civil_service_written_to_interview_audit/`.
 
 ## 6. State evolution across stages
 

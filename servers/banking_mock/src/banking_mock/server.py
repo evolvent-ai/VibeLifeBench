@@ -54,9 +54,9 @@ def build_server(db_path: str, init_sql: str | None) -> FastMCP:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="banking_mock MCP server")
-    parser.add_argument("--env", type=str, default=os.environ.get("XHS_ENV"),
+    parser.add_argument("--env", type=str, default=os.environ.get("VLB_ENV"),
                         help="Path to envs/<server>/<env_name>/ directory "
-                             "(falls back to $XHS_ENV)")
+                             "(falls back to $VLB_ENV)")
     parser.add_argument("--transport", choices=["streamable-http", "stdio"],
                         default="streamable-http",
                         help="streamable-http for Terrarium/containers; "
@@ -70,7 +70,7 @@ def main() -> None:
     logger = logging.getLogger(__name__)
 
     if not args.env:
-        parser.error("--env is required (pass --env <dir> or set $XHS_ENV)")
+        parser.error("--env is required (pass --env <dir> or set $VLB_ENV)")
     env_dir = Path(args.env)
     db_file = env_dir / "runtime.db"
     if db_file.exists():

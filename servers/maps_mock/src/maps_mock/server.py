@@ -91,8 +91,8 @@ def main() -> None:
     parser.add_argument(
         "--env",
         type=str,
-        default=os.environ.get("XHS_ENV"),
-        help="Path to envs/<server>/<env_name>/ directory (falls back to $XHS_ENV)",
+        default=os.environ.get("VLB_ENV"),
+        help="Path to envs/<server>/<env_name>/ directory (falls back to $VLB_ENV)",
     )
     parser.add_argument("--transport", choices=["streamable-http", "stdio"],
                         default="streamable-http",
@@ -104,7 +104,7 @@ def main() -> None:
     logger = logging.getLogger(__name__)
 
     if not args.env:
-        parser.error("--env is required (pass --env <dir> or set $XHS_ENV)")
+        parser.error("--env is required (pass --env <dir> or set $VLB_ENV)")
 
     try:
         mcp, _backend = build_server(env_dir=Path(args.env))

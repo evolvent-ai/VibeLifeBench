@@ -2,7 +2,7 @@
 name = "pottery_invoice_compliance_day"
 title_zh = "室内陶艺团建筹备"
 title_en = "Indoor Pottery Team-Building Planning"
-author = "synthetic_team_building_writer"
+author = "VibeLifeBench"
 version = "1.1.0"
 language = ["zh", "en"]
 difficulty = "medium"

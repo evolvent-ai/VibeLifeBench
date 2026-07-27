@@ -2,7 +2,7 @@
 name = "hsa_medical_bill_liquidity_guard_30d"
 title_zh = "HSA 医疗账单与流动性防护计划"
 title_en = "HSA Medical Bill Liquidity Guard — 30-Day Plan"
-author = "xhs-benchmark"
+author = "VibeLifeBench"
 version = "1.1.0"
 language = ["zh", "en"]
 difficulty = "hard"

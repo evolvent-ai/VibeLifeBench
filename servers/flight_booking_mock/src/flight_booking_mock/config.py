@@ -20,8 +20,8 @@ def parse_args(argv: Optional[list[str]] = None) -> AppConfig:
     parser = argparse.ArgumentParser(
         description="flight-booking-mock MCP server (streamable-HTTP)"
     )
-    parser.add_argument("--env", type=str, default=os.environ.get("XHS_ENV"),
-                        help="Path to envs/<server>/<env_name>/ directory (falls back to $XHS_ENV)")
+    parser.add_argument("--env", type=str, default=os.environ.get("VLB_ENV"),
+                        help="Path to envs/<server>/<env_name>/ directory (falls back to $VLB_ENV)")
     parser.add_argument("--transport", choices=["streamable-http", "stdio"],
                         default="streamable-http",
                         help="streamable-http for Terrarium/containers; stdio for local .mcp.json debugging")
@@ -32,7 +32,7 @@ def parse_args(argv: Optional[list[str]] = None) -> AppConfig:
 
     args = parser.parse_args(argv)
     if not args.env:
-        parser.error("--env is required (pass --env <dir> or set $XHS_ENV)")
+        parser.error("--env is required (pass --env <dir> or set $VLB_ENV)")
     return AppConfig(
         env=args.env,
         host=args.host,

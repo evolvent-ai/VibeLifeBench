@@ -2,7 +2,7 @@
 name = "cross_city_remote_viewing_rental"
 title_zh = "跨城入职远程看房与住址证明"
 title_en = "Cross-City Remote Viewing Rental and Address Proof"
-author = "OpenAI / Codex"
+author = "VibeLifeBench"
 version = "1.1.0"
 language = ["zh", "en"]
 difficulty = "hard"

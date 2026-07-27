@@ -1,6 +1,6 @@
 # content-platform-mock
 
-A FastMCP-based, fully-offline mock of a 小红书/XHS-style UGC content community —
+A FastMCP-based, fully-offline mock of a Xiaohongshu-style UGC content community —
 notes (笔记), comments, users, topics (话题), and the like/collect/follow social
 graph. Runs over **streamable-HTTP** (no stdio) with a local SQLite database.
 This is the namesake server of the vibe-agent-benchmark repo.
@@ -48,7 +48,7 @@ pip install -e .
 # Run with an env directory.
 content-mock \
   --port 8015 \
-  --env ../../envs/content_platform/xhs_2026q2
+  --env ../../envs/content_platform/civil_service_written_to_interview_audit
 ```
 
 On startup the server unlinks any `<env>/runtime.db`, creates the schema,
@@ -68,7 +68,7 @@ executes `<env>/init.sql` if present, and binds streamable-HTTP at
 python3 scripts/smoke_http.py
 ```
 
-Spins up the server in a subprocess against `envs/content_platform/xhs_2026q2`
+Spins up the server in a subprocess against `envs/content_platform/civil_service_written_to_interview_audit`
 and round-trips `search_notes`, `get_note`, `get_trending`, `collect_note`,
 `list_collections`, `follow_user`, `publish_note`, plus a `get_note` on a missing
 id expecting `NOTE_NOT_FOUND`. Prints `PASS` or `FAIL`.
