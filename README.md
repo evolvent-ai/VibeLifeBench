@@ -8,8 +8,7 @@
 [![Services](https://img.shields.io/badge/services-21-f59e0b)](#service-coverage)
 [![Language](https://img.shields.io/badge/lang-zh%20%2B%20en-lightgrey)](#tasks)
 
-**Benchmark version:** `1.1.0`<br>
-**Scoring contract:** `flat_pool`
+**Benchmark version:** `1.1.0`
 
 > **Long-horizon** &mdash; 20&ndash;30 stages per task, spanning simulated weeks.<br>
 > **Multi-service** &mdash; task-local environment bindings across 21 services.<br>
