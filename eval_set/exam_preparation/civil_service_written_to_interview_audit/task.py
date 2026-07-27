@@ -12,7 +12,7 @@ from terrarium.models.checker import CheckerResults
 from terrarium.task.decorator import entry
 
 from capabilities import agent_caps_config
-from hf.lib.handbook_task_runtime import (
+from lib.handbook_task_runtime import (
     bootstrap_workspace,
     dispatch_event,
     load_events,

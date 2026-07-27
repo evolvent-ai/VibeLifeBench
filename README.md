@@ -20,10 +20,9 @@ size_categories:
 
 # Vibelifebench
 
-[![Tasks](https://img.shields.io/badge/tasks-20-blue)](#tasks)
+[![Tasks](https://img.shields.io/badge/tasks-200-blue)](#tasks)
+[![Open subset](https://img.shields.io/badge/open_subset-20-06b6d4)](#tasks)
 [![Domains](https://img.shields.io/badge/domains-10-8b5cf6)](#tasks)
-[![Stages](https://img.shields.io/badge/stages-489-0ea5e9)](#tasks)
-[![Checks](https://img.shields.io/badge/atomic_checks-1247-green)](#evaluation)
 [![Services](https://img.shields.io/badge/services-21-f59e0b)](#service-coverage)
 [![Language](https://img.shields.io/badge/lang-zh%20%2B%20en-lightgrey)](#tasks)
 
@@ -31,14 +30,14 @@ size_categories:
 **Scoring contract:** `flat_pool`
 
 > **Long-horizon** &mdash; 20&ndash;30 stages per task, spanning simulated weeks.<br>
-> **Multi-service** &mdash; 137 task-local environment bindings across 21 services.<br>
-> **Verifiable** &mdash; 1247 atomic checks reading real backend state, not prose.
+> **Multi-service** &mdash; task-local environment bindings across 21 services.<br>
+> **Verifiable** &mdash; atomic checks reading real backend state, not prose.
 
 </div>
 
 ---
 
-## Overview
+## Why it is hard
 
 Vibelifebench evaluates agents on the messy, consequential work of managing someone's
 life over weeks: a lawsuit, a mortgage escrow shortfall, a cross-city apartment hunt,
@@ -49,19 +48,32 @@ the agent (a hearing gets rescheduled, a price moves, a policy updates), and the
 has to keep goals, constraints, commitments, and open items coherent across every stage
 &mdash; while knowing which actions it may take on its own and which require asking first.
 
-What makes this hard is not any single step. It is that **stage 20 depends on what the
-agent understood at stage 3**, and nothing re-states the context along the way.
+- **Stage 20 depends on what the agent understood at stage 3.** Nothing re-states the
+  context along the way. Constraints given once, in passing, are still binding twenty
+  stages later.
+- **The world moves silently.** Many changes arrive with no notification at all. Only an
+  agent that re-checks discovers the discrepancy in time to act on it.
+- **Narration earns nothing.** Checks read backend state and workspace artifacts. An
+  agent that says it booked the flight, but did not, scores zero for that check.
+- **Some actions need permission.** Reads and drafts are free; payments, orders, and
+  cancellations are not. Acting without asking is penalised, and so is asking about
+  everything.
+- **Nothing is retrieval.** Every environment is offline synthetic data, so no answer
+  exists in pretraining, across 21 services.
 
-> **Tasks and evaluation runtime.** This repository distributes the task bundles
-> together with the 22 mock service implementations (`servers/`), the Terrarium
-> capability layer that binds them (`capabilities/`), and the setup script
-> (`scripts/`). An external Terrarium/OpenClaw engine is still required to execute
-> tasks. See [External Runtime Requirement](#external-runtime-requirement).
+Run it yourself in about fifteen minutes of setup &mdash; [Quickstart](#quickstart).
 
 ## Tasks
 
-20 tasks across 10 domains, 489 stages, 1247 atomic checks. Every task ships bilingual
-(zh/en) documentation and is fully self-contained.
+The full benchmark is **200 tasks** across 10 domains. This repository ships a
+**20-task open subset**, two per domain, that is complete and runnable on its own.
+Every task ships bilingual (zh/en) documentation and is fully self-contained.
+
+To evaluate against all 200, email
+**[vibelife@evolvent.co](mailto:vibelife@evolvent.co)** &mdash; see
+[Want us to run it instead?](#want-us-to-run-it-instead).
+
+### The open subset
 
 | Domain | Task ID | Title | Stages | Envs | Checks | Weight | Difficulty |
 |---|---|---|---:|---:|---:|---:|---|
@@ -135,6 +147,8 @@ Stages are checkpoints, not calendar days. Event types include `user_message`,
 
 ### Service Coverage
 
+Task counts are for the 20-task open subset in this repository.
+
 | Service | Tasks | Service | Tasks | Service | Tasks |
 |---|---:|---|---:|---|---:|
 | `calendar` | 20 | `email` | 20 | `notion` | 18 |
@@ -174,30 +188,128 @@ Vibelifebench/
 ```
 
 Every environment payload is committed task-locally. The top-level `envs/` tree the
-capability layer reads from is generated, not committed — see [Setup](#setup).
+capability layer reads from is generated, not committed — see [Quickstart](#quickstart).
 
-## Setup
+## Quickstart
 
-Environments are committed task-locally, but `capabilities/base.py` resolves them from
-a single top-level `envs/<service>/<env_name>/` tree. Generate it once after cloning:
+You need **Docker**, **Python 3.12+**, and [**uv**](https://docs.astral.sh/uv/). The
+whole benchmark runs offline against local containers &mdash; the only network traffic is
+to your own model endpoint.
 
+### Setup
+
+One-time, about fifteen minutes &mdash; most of it waiting on the image builds.
+
+```bash
+git clone https://github.com/evolvent-ai/VibeLifeBench.git
+cd VibeLifeBench
+
+# Install the harness and build the world
+uv sync                              # Terrarium, pinned to a validated commit
+python3 scripts/materialize_envs.py  # the envs/ tree the services load from
+./build_images.sh                    # 22 mock service images (~10 min, once)
+
+# Point it at your model
+cp models.json.example models.json
+chmod 600 models.json                # then edit: keep one provider, fill in its apiKey
 ```
-python3 scripts/materialize_envs.py
+
+`uv sync` installs [**Terrarium**](https://github.com/evolvent-ai/Terrarium), the
+sandboxed execution engine that runs each trial. The agent itself runs as
+**OpenClaw 2026.7.1** in a workspace image Terrarium pulls on first use. Both that
+image and the Terrarium commit are pinned, so everyone measures the same harness.
+
+### Run the benchmark
+
+```bash
+# Smoke-test first — one task, proves the whole stack works
+python3 scripts/run_eval.py --model anthropic/claude-opus-4-8 --tasks galapagos_no_us_transit
+
+# The whole open subset (20 tasks, single attempt)
+python3 scripts/run_eval.py --model anthropic/claude-opus-4-8
+
+# Standard reporting protocol (three attempts per task, averaged)
+python3 scripts/run_eval.py --model anthropic/claude-opus-4-8 --attempts 3
+
+# One domain, three in parallel
+python3 scripts/run_eval.py --model openai/gpt-5.5 --domains travel --concurrent 3
+
+# Re-print the score table for a finished or in-flight run
+python3 scripts/run_eval.py --report outputs/<job>
 ```
 
-This flattens all 137 task-local bindings into `envs/`. Until it has been run, the
-top-level tree does not exist, and `import capabilities` fails: `capabilities/__init__.py`
-discovers `PROJECT_ROOT` by walking parents for a directory holding both `envs/` and
-`servers/`, and raises `RuntimeError` when it finds none.
+The runner preflights your setup and, when something is missing, prints the exact
+command that fixes it. A full 20-task pass is many hours of wall-clock &mdash; each trial
+replays a multi-week timeline. Watch it with `tail -f outputs/<job>/job.log`.
 
-To verify a materialised tree still matches its task-local sources:
+Key flags: `--list` (all task ids), `--tasks ID [ID ...]`, `--domains D [D ...]`,
+`--attempts N`, `--concurrent N` (default `4`), `--think off…xhigh` (default `xhigh`),
+`--timeout SEC` (default `14400`), `--dry-run`, `--report DIR`.
 
+### Want us to run it instead?
+
+The 20 tasks here are an open subset. To evaluate against the **full 200-task
+benchmark** &mdash; or if you would rather not stand up the harness at all &mdash; email
+**[vibelife@evolvent.co](mailto:vibelife@evolvent.co)** with the model name, an endpoint
+we can reach, and any inference settings you want used. We run it and send back the
+per-domain breakdown.
+
+### Models
+
+The template ships four models, one per provider. **Delete the ones you do not use**,
+then fill in the `apiKey` of the one you keep. Reference a model as
+`<provider>/<model id>`:
+
+| Provider | `--model` | Notes |
+|---|---|---|
+| `anthropic` | `anthropic/claude-opus-4-8` | native `anthropic-messages`; thinking is set for you |
+| `openai` | `openai/gpt-5.5` | `reasoning_effort` in `params` |
+| `moonshot` | `moonshot/kimi-k2.6` | 256K context, the model's own ceiling; use `api.moonshot.cn` inside mainland China |
+| `deepseek` | `deepseek/deepseek-v4-pro` | needs `thinkingFormat: "deepseek"` |
+
+Model `id`s must match what your endpoint expects &mdash; some gateways rename them, and
+vendors ship new versions. Any OpenAI-compatible gateway also works: keep
+`"api": "openai-completions"`, point `baseUrl` at it, and keep `authHeader: true`
+(native Anthropic is the exception, which authenticates without it).
+
+Reasoning depth has two independent knobs, and both ship at their maximum:
+`reasoning_effort` in `models.json` goes to the model, while `--think` sets OpenClaw's
+own level. Both default to `xhigh`. OpenClaw also accepts `max`, but only passes it
+through when the model itself declares support for that effort &mdash; otherwise it falls
+back to `xhigh`. If your endpoint does accept `max`, add it to
+`supportedReasoningEfforts` and set `reasoning_effort` to match. Lower both together
+for a cheaper run.
+
+`models.json` is git-ignored &mdash; never commit it.
+
+### Scoring
+
+Each task scores as the earned fraction of its total check weight (`flat_pool`), so
+scores are comparable across tasks. The reported figure is the mean over tasks; with
+`--attempts 3` each task is averaged over its attempts first, which is the standard
+`avg@3` protocol.
+
+`run_eval.py` only generates a Terrarium config and summarises results. To customise
+beyond the flags above, use `--dry-run` and edit the generated TOML, then:
+
+```bash
+.venv/bin/terrarium run -c outputs/<job>.toml
 ```
-python3 scripts/materialize_envs.py --check     # exits 1 on missing or drifted envs
-```
 
-Re-run the plain command after editing any task-local env. The task-local copies are the
-source of truth; `envs/` is a build artifact and is git-ignored.
+### Troubleshooting
+
+| Symptom | Cause and fix |
+|---|---|
+| `RuntimeError: Could not locate ... project root` | `envs/` was never generated. Run `python3 scripts/materialize_envs.py`. |
+| `FileNotFoundError: env dir not found` | `envs/` is stale after editing a task-local env. Re-run `materialize_envs.py`; `--check` reports drift without writing. |
+| `'X' MCP not ready` | That service's image is missing or its container exited. Re-run `./build_images.sh X`, then `docker logs` the exited container. |
+| Trials end at exactly the timeout | Long tasks hitting `--timeout` (default 4h). Raise it, or lower `--concurrent` if the host is saturated. |
+| Every task scores 0.0 | Almost always model config: a wrong `model_name`, or an endpoint rejecting the key. Check `outputs/<job>/*/trial.log`. |
+
+Environments are committed task-locally, but `capabilities/base.py` resolves them from a
+single top-level `envs/<service>/<env_name>/` tree; `materialize_envs.py` flattens all
+137 bindings into it. The task-local copies are the source of truth, and `envs/` is a
+git-ignored build artifact.
 
 ## Environments
 
@@ -212,7 +324,7 @@ Environments are seeded from `init.sql` at load time, so no database files are c
 
 ## Evaluation
 
-All 20 tasks use `flat_pool` scoring: atomic checks draw from a single weighted pool,
+All tasks use `flat_pool` scoring: atomic checks draw from a single weighted pool,
 and the task score is the earned fraction of total weight.
 
 Rubric modules live in `rubrics/` and are loaded and aggregated by `task.py`:
@@ -237,18 +349,22 @@ narration, so describing an action does not earn the credit for performing it.
 The services and their capability bindings ship here, but the engine that drives them
 does not. Execution still depends on an external runtime, which must:
 
-1. provide the Terrarium/OpenClaw task APIs referenced by `task.py`;
+1. provide the [Terrarium](https://github.com/evolvent-ai/Terrarium)/OpenClaw task APIs
+   referenced by `task.py`;
 2. build the `servers/` images and launch them per `capabilities/`;
 3. apply `event.yaml` events in stage and time order;
 4. supply workspace persistence, tool traces, and the runtime context the rubrics need.
 
-The capability layer was validated against Terrarium at commit
-[`7d641ea`](https://github.com/evolvent-ai/Terrarium/tree/7d641ea587687e7360f2bf74951b9353c2894b18);
-later builds can change session and runner behaviour, so pin it rather than tracking
-`main`. Service resolution is declared by `[dependencies.envs]` in each `task.toml` and
-read from the generated top-level `envs/` tree (see [Setup](#setup)).
+The pin is Terrarium commit
+[`7d641ea`](https://github.com/evolvent-ai/Terrarium/tree/7d641ea587687e7360f2bf74951b9353c2894b18),
+which in turn pins the OpenClaw 2026.7.1 workspace image. Later builds can change
+session and runner behaviour, so track the pin rather than `main`.
 
-Set the model in each task's `run.toml` before running:
+Service resolution is declared by `[dependencies.envs]` in each `task.toml` and read
+from the generated top-level `envs/` tree (see [Quickstart](#quickstart)).
+
+`scripts/run_eval.py` writes the run config for you. Each task also ships a `run.toml`
+for running it standalone; set the model there before using one directly:
 
 ```toml
 [[agents]]
