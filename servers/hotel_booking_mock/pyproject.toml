@@ -1,0 +1,26 @@
+[project]
+name = "hotel-booking-mock"
+version = "0.1.0"
+description = "A FastMCP-based mock hotel booking server (SQLite, streamable-HTTP, offline)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=2.10.5",
+    "mcp[cli]>=1.11.0",
+    "typing-extensions>=4.9.0",
+]
+
+[project.scripts]
+hotel-booking-mock = "hotel_booking_mock.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hotel_booking_mock"]
+
+[tool.hatch.build]
+include = [
+    "src/hotel_booking_mock/**/*.py",
+]

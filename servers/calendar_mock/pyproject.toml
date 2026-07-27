@@ -1,0 +1,26 @@
+[project]
+name = "calendar-mock"
+version = "0.1.0"
+description = "FastMCP-based mock Google-Calendar-style server (SQLite, streamable-HTTP, offline)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=2.10.5",
+    "mcp[cli]>=1.11.0",
+    "typing-extensions>=4.9.0",
+]
+
+[project.scripts]
+calendar-mock = "calendar_mock.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/calendar_mock"]
+
+[tool.hatch.build]
+include = [
+    "src/calendar_mock/**/*.py",
+]

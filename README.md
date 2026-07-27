@@ -52,10 +52,11 @@ has to keep goals, constraints, commitments, and open items coherent across ever
 What makes this hard is not any single step. It is that **stage 20 depends on what the
 agent understood at stage 3**, and nothing re-states the context along the way.
 
-> **Task-only release.** This repository distributes task bundles only: no service
-> implementations, mock servers, capability framework, or execution engine. Running the
-> tasks requires a compatible Terrarium/OpenClaw runtime and service implementations
-> supplied separately. See [External Runtime Requirement](#external-runtime-requirement).
+> **Tasks and evaluation runtime.** This repository distributes the task bundles
+> together with the 22 mock service implementations (`servers/`), the Terrarium
+> capability layer that binds them (`capabilities/`), and the setup script
+> (`scripts/`). An external Terrarium/OpenClaw engine is still required to execute
+> tasks. See [External Runtime Requirement](#external-runtime-requirement).
 
 ## Tasks
 
@@ -149,6 +150,14 @@ Stages are checkpoints, not calendar days. Event types include `user_message`,
 ```
 Vibelifebench/
 ├── README.md
+├── servers/                     # 22 mock services (MCP), one directory each
+│   └── <service>_mock/
+│       ├── src/                 # service implementation
+│       ├── Dockerfile           # image the capability layer launches
+│       └── SPEC.md              # tool surface and schema
+├── capabilities/                # Terrarium capability per service + shared base
+├── scripts/
+│   └── materialize_envs.py      # build the top-level envs/ tree (run this first)
 └── eval_set/
     └── <domain>/
         └── <task>/
@@ -164,8 +173,31 @@ Vibelifebench/
             └── rubrics/         # formal scoring modules
 ```
 
-The repository root contains only `README.md` and `eval_set/`. Every environment payload
-is task-local; no shared top-level `envs/` directory is distributed.
+Every environment payload is committed task-locally. The top-level `envs/` tree the
+capability layer reads from is generated, not committed — see [Setup](#setup).
+
+## Setup
+
+Environments are committed task-locally, but `capabilities/base.py` resolves them from
+a single top-level `envs/<service>/<env_name>/` tree. Generate it once after cloning:
+
+```
+python3 scripts/materialize_envs.py
+```
+
+This flattens all 137 task-local bindings into `envs/`. Until it has been run, the
+top-level tree does not exist, and `import capabilities` fails: `capabilities/__init__.py`
+discovers `PROJECT_ROOT` by walking parents for a directory holding both `envs/` and
+`servers/`, and raises `RuntimeError` when it finds none.
+
+To verify a materialised tree still matches its task-local sources:
+
+```
+python3 scripts/materialize_envs.py --check     # exits 1 on missing or drifted envs
+```
+
+Re-run the plain command after editing any task-local env. The task-local copies are the
+source of truth; `envs/` is a build artifact and is git-ignored.
 
 ## Environments
 
@@ -202,14 +234,19 @@ narration, so describing an action does not earn the credit for performing it.
 
 ## External Runtime Requirement
 
-Task content is complete as a bundle, but execution depends on an external runtime.
-A compatible environment must:
+The services and their capability bindings ship here, but the engine that drives them
+does not. Execution still depends on an external runtime, which must:
 
 1. provide the Terrarium/OpenClaw task APIs referenced by `task.py`;
-2. provide implementations and schemas for the declared services;
-3. load environments from task-local `envs/` per `[dependencies.envs]` in `task.toml`;
-4. apply `event.yaml` events in stage and time order;
-5. supply workspace persistence, tool traces, and the runtime context the rubrics need.
+2. build the `servers/` images and launch them per `capabilities/`;
+3. apply `event.yaml` events in stage and time order;
+4. supply workspace persistence, tool traces, and the runtime context the rubrics need.
+
+The capability layer was validated against Terrarium at commit
+[`7d641ea`](https://github.com/evolvent-ai/Terrarium/tree/7d641ea587687e7360f2bf74951b9353c2894b18);
+later builds can change session and runner behaviour, so pin it rather than tracking
+`main`. Service resolution is declared by `[dependencies.envs]` in each `task.toml` and
+read from the generated top-level `envs/` tree (see [Setup](#setup)).
 
 Set the model in each task's `run.toml` before running:
 
@@ -227,8 +264,11 @@ environments require no internet access and contain no real personal data.
 
 ## License
 
-No license file is bundled with this task-only release. Use and redistribution are
-governed by the terms supplied by the publisher for this repository.
+No repository-level license file is bundled. Use and redistribution of the task bundles
+are governed by the terms supplied by the publisher for this repository.
+
+The mock services under `servers/` carry their own MIT license files (19 of 22;
+`car_rental_mock`, `flight_booking_mock`, and `rail_booking_mock` ship without one).
 
 ## Citation
 
@@ -236,8 +276,8 @@ governed by the terms supplied by the publisher for this repository.
 @misc{vibelifebench_2026,
   title        = {Vibelifebench: A 20-Task Long-Horizon Agent Evaluation Set},
   year         = {2026},
-  howpublished = {Task-only release},
-  note         = {Long-horizon agent tasks with task-local synthetic environments}
+  note         = {Long-horizon agent tasks with task-local synthetic environments,
+                  22 mock services, and the Terrarium capability layer}
 }
 ```
 
