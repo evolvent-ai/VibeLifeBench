@@ -1,21 +1,3 @@
----
-pretty_name: Vibelifebench
-language:
-- zh
-- en
-license: other
-task_categories:
-- text-generation
-tags:
-- agents
-- tool-use
-- long-horizon
-- evaluation
-- synthetic-data
-size_categories:
-- n<1K
----
-
 <div align="center">
 
 # Vibelifebench
