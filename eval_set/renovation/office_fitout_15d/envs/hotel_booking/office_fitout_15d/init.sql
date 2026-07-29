@@ -466,3 +466,14 @@ INSERT INTO rate_plans (hotel_id,date,room_type,flavor,nightly_price,base_price,
 COMMIT;
 
 
+
+-- Vendor hold window for the lead design-build contractor.
+-- Slots above are single isolated dates, so `create_reservation` (which books
+-- check_in..check_out as consecutive nights) can never succeed and the
+-- shortlist gate's "at least one reservation exists in live state" condition
+-- was unreachable. These two adjacent slots make a one-night hold bookable for
+-- the recommended vendor only; every other vendor's slots are untouched, so the
+-- comparison/exclusion logic and all prices stay exactly as seeded.
+INSERT INTO rate_plans (hotel_id,date,room_type,flavor,nightly_price,base_price,currency,inventory_remaining,inventory_capacity,cancellation_policy,refundable_until,breakfast_included,max_occupancy) VALUES
+('prov_steady_renov_001','2026-06-10','design-hold-steady_a05','flex',1200,1200,'CNY',1,1,'48h前可全额退','2026-06-08T18:00:00+08:00',0,6),
+('prov_steady_renov_001','2026-06-11','design-hold-steady_a06','flex',1200,1200,'CNY',1,1,'48h前可全额退','2026-06-09T18:00:00+08:00',0,6);

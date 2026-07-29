@@ -1,6 +1,6 @@
 [project]
 name = "vibelifebench"
-version = "1.1.0"
+version = "1.1.1"
 description = "VibeLifeBench: long-horizon life-admin agent tasks with mock services and the Terrarium capability layer."
 requires-python = ">=3.12"
 dependencies = [
@@ -19,3 +19,8 @@ package = false
 # rev: upstream main has moved past this commit, and later Terrarium builds can
 # change the session/runner behavior. uv.lock records the same commit.
 terrarium = { git = "https://github.com/evolvent-ai/Terrarium", rev = "7d641ea587687e7360f2bf74951b9353c2894b18" }
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+]

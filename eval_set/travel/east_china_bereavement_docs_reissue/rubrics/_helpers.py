@@ -340,7 +340,22 @@ def _rail_bookings(env) -> list[dict[str, Any]]:
 
 
 def _hotel_reservations(env) -> list[dict[str, Any]]:
-    return _rows(_call(env, S_HOTEL, "list_reservations", user_id=USER_ID))
+    # list_reservations answers with {user_id, count, reservation_ids} only —
+    # no city, room_type or refundable flag — so the summary alone can never
+    # satisfy _active_hotel. Expand each id through get_reservation, which
+    # carries the substantive fields. Ownership is already enforced by the
+    # list query.
+    listing = _call(env, S_HOTEL, "list_reservations", user_id=USER_ID)
+    ids = listing.get("reservation_ids") if isinstance(listing, dict) else None
+    if not ids:
+        # Some deployments answer with full rows instead of an id list.
+        return _rows(listing)
+    details: list[dict[str, Any]] = []
+    for reservation_id in ids or []:
+        detail = _call(env, S_HOTEL, "get_reservation", reservation_id=reservation_id)
+        if isinstance(detail, dict) and detail and not detail.get("error"):
+            details.append(detail)
+    return details
 
 
 def _calendar_events(env) -> list[dict[str, Any]]:
@@ -376,11 +391,24 @@ def _active(row: dict[str, Any]) -> bool:
 
 
 def _active_flight(env, origin: str, destination: str, marker: str | None = None) -> bool:
+    # Ownership is enforced by the query, not by the row: _flight_bookings()
+    # already calls list_bookings(user_id=USER_ID), and flight_booking's summary
+    # payload carries only {pnr, status, total_paid, first_depart_dt,
+    # route_summary} — it never echoes user_id. Requiring USER_ID inside the row
+    # therefore made this unsatisfiable no matter how correctly the agent booked.
+    # (rail_booking does echo user_id, which is why _active_rail can still ask.)
     for row in _flight_bookings(env):
-        if not _active(row) or not _has_all(row, [USER_ID, origin, destination]):
+        if not _active(row) or not _has_all(row, [origin, destination]):
             continue
         if marker and not _has_all(row, [marker]):
-            continue
+            # The summary row carries no flight number either, so a marker such
+            # as a flight_no has to be confirmed on the booking detail.
+            pnr = str(row.get("pnr") or "").strip()
+            if not pnr:
+                continue
+            detail = _call(env, S_FLIGHT, "get_booking", pnr=pnr)
+            if not _has_all(detail, [marker]):
+                continue
         return True
     return False
 
@@ -407,7 +435,9 @@ def _active_hotel(
     env, city: str, room_markers: list[str] | None = None, *, require_refundable: bool = True
 ) -> bool:
     for row in _hotel_reservations(env):
-        if not _active(row) or not _has_all(row, [USER_ID, city]):
+        # USER_ID is not echoed in the reservation payload; the list query above
+        # already scoped these rows to this user.
+        if not _active(row) or not _has_all(row, [city]):
             continue
         if room_markers and not _has_any(row, room_markers):
             continue

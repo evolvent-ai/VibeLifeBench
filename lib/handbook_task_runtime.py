@@ -17,6 +17,16 @@ SNAPSHOTS_DIR = "/terrarium/stage_snapshots"
 RECEIPTS_DIR = "/terrarium/mutation_receipts"
 MAX_STAGE_RESPONSE_CHARS = 20000
 _IDENTIFIER = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
+_EMAIL_FOLDER_COUNTS_SQL = """
+UPDATE folders
+SET message_count = (
+        SELECT COUNT(*) FROM messages WHERE messages.folder_id = folders.id
+    ),
+    unread_count = (
+        SELECT COUNT(*) FROM messages
+        WHERE messages.folder_id = folders.id AND messages.is_read = 0
+    )
+""".strip()
 
 
 def register_all_mcp(env, agent) -> None:
@@ -525,6 +535,28 @@ def _write_receipt(event: dict[str, Any], env) -> None:
     )
 
 
+def refresh_email_folder_counts(cap) -> None:
+    """Keep Email folder counters consistent after out-of-band message mutations."""
+    custom = getattr(cap, "refresh_folder_counts", None)
+    if callable(custom):
+        custom()
+        return
+    runner = getattr(cap, "_run_sqlite_in_container", None)
+    if callable(runner):
+        runner(_EMAIL_FOLDER_COUNTS_SQL, [])
+        return
+    exec_python = getattr(cap, "_exec_python", None)
+    if not callable(exec_python):
+        raise RuntimeError("email capability does not support derived folder-count refresh")
+    runtime_db = str(getattr(cap, "_CONTAINER_RUNTIME_DB", "/env/runtime.db"))
+    exec_python(
+        "import sqlite3\n"
+        f"with sqlite3.connect({runtime_db!r}, isolation_level=None, timeout=30) as conn:\n"
+        "    conn.execute('PRAGMA busy_timeout=30000')\n"
+        f"    conn.execute({_EMAIL_FOLDER_COUNTS_SQL!r})\n"
+    )
+
+
 def apply_mutation_event(event: dict[str, Any], env, task_dir: Path) -> None:
     specs = event.get("apply") or []
     if not specs:
@@ -538,7 +570,17 @@ def apply_mutation_event(event: dict[str, Any], env, task_dir: Path) -> None:
     receipt = _receipt_path(event)
     if env.workspace.fs.exists(receipt):
         return
+    touches_email_messages = any(
+        spec.get("server") == "email"
+        and spec.get("table") in {"messages", "folders"}
+        for spec in specs
+    )
     if postconditions_satisfied(event, env):
+        if touches_email_messages:
+            cap = getattr(env, "email_mock", None)
+            if cap is None:
+                raise RuntimeError(f"mutation {event.get('id')}: no capability for 'email'")
+            refresh_email_folder_counts(cap)
         _write_receipt(event, env)
         return
 
@@ -579,6 +621,8 @@ def apply_mutation_event(event: dict[str, Any], env, task_dir: Path) -> None:
                         raise RuntimeError(f"mutation tool call failed: {result!r}")
                 else:
                     cap.apply_mutation(spec)
+            if touches_email_messages:
+                refresh_email_folder_counts(capabilities["email"])
             apply_postconditions(event, env)
             _write_receipt(event, env)
         except Exception:
@@ -646,16 +690,32 @@ def persist_stage_score(
     checks: list[Any],
     total_weight: float,
     passed_weight: float,
+    checks_spec: Iterable[tuple[str, Any, float]] | None = None,
 ) -> None:
+    weights = {
+        str(check_id): float(weight)
+        for check_id, _function, weight in (checks_spec or [])
+    }
+    atomic: list[dict[str, Any]] = []
+    for check in checks:
+        name = str(getattr(check, "name", ""))
+        passed = bool(getattr(check, "passed", False))
+        weight = weights.get(name, 0.0)
+        check_score = 1.0 if passed else 0.0
+        atomic.append({
+            "name": name,
+            "weight": weight,
+            "check_score": check_score,
+            "earned_score": weight * check_score,
+            "pass_threshold": 1.0,
+            "passed": passed,
+        })
     payload = {
         "stage": stage_idx,
         "total_weight": total_weight,
         "passed_weight": passed_weight,
-        "score": (passed_weight / total_weight) if total_weight else None,
-        "checks": [
-            {"name": str(getattr(check, "name", "")), "passed": bool(getattr(check, "passed", False))}
-            for check in checks
-        ],
+        "final_score": (passed_weight / total_weight) if total_weight else 0.0,
+        "checks": atomic,
     }
     env.workspace.fs.write_file(
         f"{SCORES_DIR}/stage_{stage_idx}.json",

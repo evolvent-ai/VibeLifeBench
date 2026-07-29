@@ -8,7 +8,6 @@ from pathlib import Path
 import pytest
 
 SERVER_ROOT = Path(__file__).resolve().parents[1]
-PROJECT_ROOT = SERVER_ROOT.parents[1]
 sys.path.insert(0, str(SERVER_ROOT / "src"))
 
 from hotel_booking_mock.backends.db import init_schema  # noqa: E402
@@ -18,10 +17,7 @@ from hotel_booking_mock.services.guest_service import GuestService  # noqa: E402
 from hotel_booking_mock.services.reservation_service import ReservationService  # noqa: E402
 from hotel_booking_mock.utils import dates as date_utils  # noqa: E402
 
-SEED = (
-    PROJECT_ROOT
-    / "train_set/career/career_onboarding_hotel_cancel/envs/hotel_booking/career_onboarding_hotel_cancel/init.sql"
-)
+SEED = Path(__file__).resolve().parent / "fixtures" / "scenario_clock_seed.sql"
 
 
 class _HostClockMustNotBeRead(datetime):

@@ -38,11 +38,11 @@ class SearchService:
                        non_stop: bool = False,
                        carriers: Optional[list[str]] = None) -> dict[str, Any]:
         now_iso = _wall_now_iso()
-        outbound = self._candidate_flights(origin, destination, departure_date,
-                                           cabin, carriers)
+        outbound = self._candidate_itineraries(origin, destination, departure_date,
+                                               cabin, carriers)
         inbound: list[dict[str, Any]] = []
         if return_date:
-            inbound = self._candidate_flights(destination, origin, return_date,
+            inbound = self._candidate_itineraries(destination, origin, return_date,
                                               cabin, carriers)
             if not inbound:
                 return self._empty_result()
@@ -72,7 +72,7 @@ class SearchService:
                                           search_id=search_id)
                 offers.append(offer)
 
-        # Optional non_stop filter: all our mock itineraries are non-stop anyway.
+        # Optional non_stop filter removes synthesized connecting itineraries.
         if non_stop:
             offers = [o for o in offers
                       if all(s["stops"] == 0 for s in o["itinerary"]["slices"])]
@@ -155,31 +155,94 @@ class SearchService:
         }
 
     # ---------- internals ----------
-    def _candidate_flights(self, origin: str, dest: str, date: str, cabin: str,
-                           carriers: Optional[list[str]]) -> list[dict[str, Any]]:
-        rows = self.backend.list_flights_for_route_date(origin, dest, date)
-        out: list[dict[str, Any]] = []
-        for r in rows:
-            if carriers and r["carrier"] not in carriers:
-                continue
-            bucket = self.backend.get_fare_bucket(r["flight_no"], date, cabin)
+    def _candidate_itineraries(
+        self,
+        origin: str,
+        dest: str,
+        date: str,
+        cabin: str,
+        carriers: Optional[list[str]],
+    ) -> list[dict[str, Any]]:
+        """Return direct and one-stop public-search itineraries.
+
+        Task seeds frequently model real connections as separate flight rows.
+        The original mock searched only exact origin/destination rows, making
+        those seeded transit choices impossible to inspect or book through the
+        public tools.  This keeps direct behavior and adds deterministic
+        one-stop paths with a 45-minute to 24-hour connection window.
+        """
+
+        def leg_from_row(row: Any) -> dict[str, Any] | None:
+            if carriers and row["carrier"] not in carriers:
+                return None
+            depart_date = str(row["depart_dt"])[:10]
+            bucket = self.backend.get_fare_bucket(row["flight_no"], depart_date, cabin)
             if not bucket or bucket["seats_remaining"] <= 0:
-                continue
-            out.append({
-                "flight_no": r["flight_no"], "origin": r["origin"],
-                "dest": r["dest"], "depart_dt": r["depart_dt"],
-                "arrive_dt": r["arrive_dt"], "equipment": r["equipment"],
-                "base_price": r["base_price"], "carrier": r["carrier"],
+                return None
+            return {
+                "flight_no": row["flight_no"], "origin": row["origin"],
+                "dest": row["dest"], "depart_dt": row["depart_dt"],
+                "arrive_dt": row["arrive_dt"], "equipment": row["equipment"],
+                "base_price": row["base_price"], "carrier": row["carrier"],
                 "price": bucket["price"], "seats_remaining": bucket["seats_remaining"],
-                "date": date,
-            })
-        return out
+                "date": depart_date,
+            }
+
+        direct_rows = self.backend.list_flights_for_route_date(origin, dest, date)
+        itineraries: list[dict[str, Any]] = []
+        for row in direct_rows:
+            leg = leg_from_row(row)
+            if leg:
+                itineraries.append(self._path_from_legs([leg]))
+
+        first_rows = self.backend.query_all(
+            "SELECT * FROM flights WHERE origin=? AND substr(depart_dt,1,10)=? ORDER BY depart_dt, flight_no",
+            (origin, date),
+        )
+        for first_row in first_rows:
+            if first_row["dest"] == dest:
+                continue
+            first = leg_from_row(first_row)
+            if first is None:
+                continue
+            second_rows = self.backend.query_all(
+                "SELECT * FROM flights WHERE origin=? AND dest=? ORDER BY depart_dt, flight_no",
+                (first["dest"], dest),
+            )
+            first_arrival = datetime.fromisoformat(str(first["arrive_dt"]).replace("Z", "+00:00"))
+            for second_row in second_rows:
+                second = leg_from_row(second_row)
+                if second is None:
+                    continue
+                second_departure = datetime.fromisoformat(str(second["depart_dt"]).replace("Z", "+00:00"))
+                connection_minutes = int((second_departure - first_arrival).total_seconds() // 60)
+                if 45 <= connection_minutes <= 24 * 60:
+                    itineraries.append(self._path_from_legs([first, second]))
+
+        itineraries.sort(key=lambda path: (path["depart_dt"], path["arrive_dt"], tuple(
+            leg["flight_no"] for leg in path["legs"]
+        )))
+        return itineraries
+
+    @staticmethod
+    def _path_from_legs(legs: list[dict[str, Any]]) -> dict[str, Any]:
+        return {
+            "origin": legs[0]["origin"],
+            "dest": legs[-1]["dest"],
+            "depart_dt": legs[0]["depart_dt"],
+            "arrive_dt": legs[-1]["arrive_dt"],
+            "carrier": legs[0]["carrier"],
+            "price": sum(float(leg["price"]) for leg in legs),
+            "seats_remaining": min(int(leg["seats_remaining"]) for leg in legs),
+            "legs": legs,
+        }
 
     def _build_offer(self, outbound: dict[str, Any], inbound: Optional[dict[str, Any]],
                      *, cabin: str, paid_pax: int, currency: str,
                      now_dt_iso: str, search_id: str) -> dict[str, Any]:
-        legs = [outbound] + ([inbound] if inbound else [])
-        per_leg_total = sum(l["price"] for l in legs)
+        paths = [outbound] + ([inbound] if inbound else [])
+        legs = [leg for path in paths for leg in path["legs"]]
+        per_leg_total = sum(float(leg["price"]) for leg in legs)
         total = round(per_leg_total * max(1, paid_pax), 2)
         # Fare breakdown: 78% base / 18% taxes / 4% fees, arbitrary mock split.
         base = round(total * 0.78, 2)
@@ -200,23 +263,26 @@ class SearchService:
             })
 
         slices: list[dict[str, Any]] = []
-        for leg in legs:
-            dur = timewin.duration_minutes(leg["depart_dt"], leg["arrive_dt"])
+        segment_offset = 0
+        for path in paths:
+            path_legs = path["legs"]
+            duration = timewin.duration_minutes(path["depart_dt"], path["arrive_dt"])
             slices.append({
-                "origin": leg["origin"], "destination": leg["dest"],
-                "depart_dt": leg["depart_dt"], "arrive_dt": leg["arrive_dt"],
-                "duration_min": dur, "stops": 0,
+                "origin": path["origin"], "destination": path["dest"],
+                "depart_dt": path["depart_dt"], "arrive_dt": path["arrive_dt"],
+                "duration_min": duration, "stops": max(0, len(path_legs) - 1),
                 "segments": [{
                     "flight_no": leg["flight_no"], "cabin": cabin,
                     "depart_dt": leg["depart_dt"], "arrive_dt": leg["arrive_dt"],
-                }],
+                } for leg in path_legs],
             })
+            segment_offset += len(path_legs)
 
         offer_id = ids.offer_id_gen(self.backend.conn, search_id)
         created = now_dt_iso
         expires = timewin.add_minutes(created, OFFER_TTL_MIN)
         ticketing_deadline = timewin.add_minutes(created, 60)
-        seats_remaining_hint = min(l["seats_remaining"] for l in legs)
+        seats_remaining_hint = min(int(leg["seats_remaining"]) for leg in legs)
         validating = legs[0]["carrier"]
         payload = {
             "total_price": {"amount": total, "currency": currency},

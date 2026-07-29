@@ -247,7 +247,14 @@ def _has_bad_advice(text: str, phrases: Iterable[str], *, window: int = 12) -> b
 
 
 # ── 三条线锚点窗口 ──
-def _thread_anchor_window(text: str, thread_id: str, *, window: int = 320) -> str:
+def _thread_anchor_windows(text: str, thread_id: str, *, window: int = 320) -> list[str]:
+    """Return every plausible local window for a thread label.
+
+    A tracker may mention an order/thread in a table of contents before the
+    substantive section.  Treating only the first occurrence as authoritative
+    makes the substantive evidence unreachable, so retain each occurrence and
+    let callers require all terms inside one local window.
+    """
     text = _normalize(text)
     labels = [_normalize(label) for label in _THREAD_LABELS.get(thread_id, [thread_id])]
     headings = list(re.finditer(r"(?m)^\s{0,3}#{1,6}\s+[^\n]+", text))
@@ -258,28 +265,38 @@ def _thread_anchor_window(text: str, thread_id: str, *, window: int = 320) -> st
                 continue
             section_end = headings[index + 1].start() if index + 1 < len(headings) else len(text)
             sections.append(text[match.start():min(section_end, match.start() + window)])
-        if sections:
-            return "\n".join(sections)
-        return ""
-    hits = [text.find(label) for label in labels if label and text.find(label) >= 0]
-    best = min(hits) if hits else -1
-    if best < 0:
-        return ""
-    start = max(0, best - 40)
-    end = min(len(text), best + window)
-    return text[start:end]
+        return sections
+
+    hits: set[int] = set()
+    for label in labels:
+        if not label:
+            continue
+        start = 0
+        while True:
+            hit = text.find(label, start)
+            if hit < 0:
+                break
+            hits.add(hit)
+            start = hit + max(1, len(label))
+    return [
+        text[max(0, hit - 40):min(len(text), hit + window)]
+        for hit in sorted(hits)
+    ]
+
+
+def _thread_anchor_window(text: str, thread_id: str, *, window: int = 320) -> str:
+    """Backward-compatible aggregate view; predicates use per-window checks."""
+    return "\n".join(_thread_anchor_windows(text, thread_id, window=window))
 
 
 def _thread_block_has_terms(text: str, thread_id: str, terms: Iterable[str], *, min_count: int = 2, window: int = 300) -> bool:
-    block = _thread_anchor_window(_normalize(text), thread_id, window=window)
-    if not block:
-        return False
-    return _count_any(block, terms) >= min_count
+    blocks = _thread_anchor_windows(_normalize(text), thread_id, window=window)
+    return any(_count_any(block, terms) >= min_count for block in blocks)
 
 
 def _tracker_has_all_threads(text: str) -> bool:
     text = _normalize(text)
-    return all(bool(_thread_anchor_window(text, tid)) for tid in THREAD_IDS)
+    return all(bool(_thread_anchor_windows(text, tid)) for tid in THREAD_IDS)
 
 
 def _thread_sections_distinct(text: str) -> bool:
@@ -869,16 +886,15 @@ def _strict_stage_evidence(env, stage: int, *, require_survival: bool = True) ->
         if require_survival else _historical_audit_text(env, stage, 'changed_context_by_path')
     )
     for thread_id in STAGE_THREADS.get(stage, THREAD_IDS):
-        block = _thread_anchor_window(context, thread_id, window=1200)
-        if not block:
-            return False
-        relevant = (
+        blocks = _thread_anchor_windows(context, thread_id, window=1200)
+        relevant = any(
             thread_id in block
             and (
                 _count_any(block, _THREAD_TERMS[thread_id]) >= 1
                 or _count_any(block, _THREAD_EVIDENCE[thread_id]) >= 1
                 or _count_any(block, STAGE_OBJECTS.get(stage, ())) >= 1
             )
+            for block in blocks
         )
         if not relevant:
             return False
@@ -923,10 +939,14 @@ def _strict_final_evidence(env) -> bool:
     if not _thread_sections_distinct(text):
         return False
     for thread_id, groups in FINAL_THREAD_REQUIREMENTS.items():
-        block = _thread_anchor_window(text, thread_id, window=1400)
-        if not block or not all(_any(block, group) for group in groups):
-            return False
-        if _count_any(block, _SOURCE_TERMS) < 1 or _count_any(block, _OBSERVED_TERMS) < 1:
+        blocks = _thread_anchor_windows(text, thread_id, window=1400)
+        complete = any(
+            all(_any(block, group) for group in groups)
+            and _count_any(block, _SOURCE_TERMS) >= 1
+            and _count_any(block, _OBSERVED_TERMS) >= 1
+            for block in blocks
+        )
+        if not complete:
             return False
     return True
 

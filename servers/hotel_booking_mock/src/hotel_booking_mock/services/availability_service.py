@@ -107,7 +107,7 @@ def parse_rate_plan_id(rate_plan_id: str) -> Tuple[str, str, str, str, str]:
     """Parse back (hotel_id, room_type_slug, flavor, check_in, check_out).
 
     rate_plan_id format: rp_<hotel_id>_<room_type_slug>_<flavor>_<YYYYMMDD>_<YYYYMMDD>
-    hotel_id always starts with 'htl_' and the last two tokens are compact dates.
+    hotel_id may use any non-empty seed-defined prefix; the last two tokens are compact dates.
     room_type_slug may contain hyphens ('-') but no underscores.
     """
     if not rate_plan_id.startswith("rp_"):
@@ -130,8 +130,11 @@ def parse_rate_plan_id(rate_plan_id: str) -> Tuple[str, str, str, str, str]:
     # Room slug is the single last token (slugify produces hyphens, never underscores).
     slug = rest[-1]
     hotel_tokens = rest[:-1]
-    if hotel_tokens[0] != "htl":
-        raise ValueError("rate_plan_id hotel segment must start with 'htl'")
+    # make_rate_plan_id() embeds the seed-defined hotel_id verbatim. Requiring
+    # one prefix here breaks the service's own round-trip for valid `hotel_*`
+    # and `prov_*` environments; the caller validates existence in `hotels`.
+    if not hotel_tokens or not hotel_tokens[0]:
+        raise ValueError("rate_plan_id missing hotel segment")
     hotel_id = "_".join(hotel_tokens)
     return hotel_id, slug, flavor, check_in, check_out
 

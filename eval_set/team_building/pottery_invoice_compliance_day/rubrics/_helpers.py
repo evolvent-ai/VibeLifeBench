@@ -1580,11 +1580,26 @@ def backend_lumen_credential_gap(env):
 
 
 def backend_southbank_noncompliant(env):
-    """Near-miss fact (stable, not mutated): the alternate vendor southbank offers
-    a MATERIAL-SALES invoice and a deposit ABOVE the 3000 cap (3200). Both facts
-    live in qa_south_invoice ("发票类目可能为材料销售，定金 3200 元"). A compliant
-    plan must exclude southbank on these backend attributes, not lock it as the
-    'cheap' pick."""
+    """Read the stable Southbank near-miss from the current public backend.
+
+    Stage 2 creates the merchant with ``材料销售发票`` and ``定金3200元`` in its
+    merchant tags.  ``qa_south_invoice`` is not added until the stage-5 mutation,
+    so requiring that future QA row made the stage-2 checker unreachable even
+    after a correct cross-source read.  Prefer the merchant object that is live
+    at stage 2, while retaining the QA path as a compatible later-stage fallback.
+    Both paths still require the same two authoritative facts: a material-sales
+    invoice and a deposit above the 3000-yuan cap.
+    """
+    merchant = call(
+        env,
+        "review_platform",
+        "get_merchant",
+        merchant_id=SOUTHBANK_MERCHANT_ID,
+    )
+    merchant_text = flat(merchant)
+    if "材料销售" in merchant_text and "3200" in merchant_text:
+        return True
+
     qa = _qa_map(env, SOUTHBANK_MERCHANT_ID)
     if qa is None:
         return None

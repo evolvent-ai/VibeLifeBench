@@ -145,19 +145,32 @@ immediately. Pending rows are only posted by orchestrator-issued
  "amount_minor": 80000}
 ```
 
-### 3.8 `schedule_recurring(account_id, payee_id, amount_minor, freq, start_date, end_date?) -> str`
+### 3.8 `list_pending_payments(user_id, account_id?, status_filter?, limit=50) -> str`
+
+Returns future-dated one-off payments owned by `user_id`, ordered by
+`scheduled_for`. `account_id` and `status_filter` (`pending`, `posted`, or
+`cancelled`) are optional; `limit` is capped at 500. Each row includes the
+pending ID, source account, payee identity, amount, memo, date, and status.
+
+```json
+[{"pending_id": "pend_000001", "account_id": "acct_checking_main",
+  "payee_id": "pay_000001", "payee_name": "Acme", "amount_minor": 80000,
+  "memo": "deposit", "scheduled_for": "2026-06-15", "status": "pending"}]
+```
+
+### 3.9 `schedule_recurring(account_id, payee_id, amount_minor, freq, start_date, end_date?) -> str`
 
 `freq` ∈ `{daily, weekly, monthly}`. Returns `{schedule_id, next_run_date,
 amount_minor, freq, status: "active"}`. `next_run_date` starts equal to
 `start_date`.
 
-### 3.9 `cancel_recurring(schedule_id) -> str`
+### 3.10 `cancel_recurring(schedule_id) -> str`
 
 Returns `{schedule_id, status: "cancelled"}`. `SCHEDULE_NOT_FOUND` if the
 id is unknown. Idempotent: cancelling an already-cancelled schedule still
 returns `cancelled`.
 
-### 3.10 `list_recurring(user_id, status_filter?) -> str`
+### 3.11 `list_recurring(user_id, status_filter?) -> str`
 
 `status` ∈ `{active, paused, cancelled, ended}`.
 

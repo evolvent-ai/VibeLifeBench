@@ -412,7 +412,15 @@ async def visa_application_state(ctx, app_id: str) -> str:
 async def visa_application_history(ctx, app_id: str) -> list[dict]:
     apps = await compliance_apps(ctx)
     history = (apps.get(app_id) or {}).get("history") or []
-    return [item for item in history if isinstance(item, dict)]
+    normalized: list[dict] = []
+    for item in history:
+        if not isinstance(item, dict):
+            continue
+        row = dict(item)
+        if not row.get("to") and row.get("status"):
+            row["to"] = row["status"]
+        normalized.append(row)
+    return normalized
 
 
 async def visa_application_documents(ctx, app_id: str) -> list[dict]:
@@ -444,19 +452,38 @@ async def hotel_booking_reservation(ctx, reservation_id: str) -> dict:
     return item if isinstance(item, dict) else {}
 
 
-async def hotel_rate_plan_status(ctx, hotel_id: str, room_type: str) -> str:
-    """Best-effort status read for a (hotel_id, room_type) rate plan."""
+async def hotel_rate_plan_status(
+    ctx,
+    hotel_id: str,
+    room_type: str,
+    *,
+    check_in: str,
+    check_out: str,
+    guests: int = 1,
+) -> str:
+    """Return availability status for one room type in a concrete date window."""
     data = await call(
-        ctx, "hotel_booking", "get_room_availability",
-        hotel_id=hotel_id, room_type=room_type,
+        ctx,
+        "hotel_booking",
+        "get_room_availability",
+        hotel_id=hotel_id,
+        check_in=check_in,
+        check_out=check_out,
+        guests=guests,
     )
-    if isinstance(data, dict):
-        return str(data.get("status") or "").lower()
-    if isinstance(data, list) and data:
-        first = data[0]
-        if isinstance(first, dict):
-            return str(first.get("status") or "").lower()
-    return ""
+    plans = data if isinstance(data, list) else (
+        data.get("rate_plans") or data.get("items") or data.get("results") or []
+        if isinstance(data, dict) else []
+    )
+    for plan in plans:
+        if not isinstance(plan, dict) or str(plan.get("room_type") or "") != room_type:
+            continue
+        explicit = str(plan.get("status") or "").lower()
+        if explicit:
+            return explicit
+        inventory = plan.get("inventory_remaining")
+        return "available" if isinstance(inventory, int) and inventory > 0 else "unavailable"
+    return "unavailable" if isinstance(plans, list) else ""
 
 
 # ── Email reads ───────────────────────────────────────────────────────
@@ -476,12 +503,46 @@ def _extract_email_addresses(value: str) -> tuple[str, ...]:
     return tuple(dict.fromkeys(email.lower() for email in emails))
 
 
-def parse_email_detail(raw: str) -> EmailRecord | None:
+def _address_field(value: Any) -> tuple[str, ...]:
+    if isinstance(value, (list, tuple)):
+        return _extract_email_addresses(" ".join(str(item) for item in value))
+    return _extract_email_addresses(str(value or ""))
+
+
+def parse_email_detail(raw: Any) -> EmailRecord | None:
+    """Normalize both legacy text email details and the current dict payload.
+
+    The production email MCP now returns structured ``get_emails`` /
+    ``read_email`` objects.  Older rubric fixtures returned RFC-like text.
+    Supporting both preserves the same substantive checks while making the
+    live backend observable instead of silently treating every mailbox as empty.
+    """
+    if isinstance(raw, dict):
+        if raw.get("error"):
+            return None
+        email_id = str(raw.get("email_id") or raw.get("id") or "")
+        if not email_id:
+            return None
+        subject = str(raw.get("subject") or "")
+        raw_from = str(raw.get("from_addr") or raw.get("from") or "")
+        from_addresses = _address_field(raw_from)
+        from_addr = from_addresses[0] if from_addresses else raw_from
+        to = _address_field(raw.get("to_addr") or raw.get("to"))
+        cc = _address_field(raw.get("cc_addr") or raw.get("cc"))
+        date = str(raw.get("date") or raw.get("created_at") or "")
+        body = str(raw.get("body_text") or raw.get("body") or raw.get("text") or "")
+        return EmailRecord(
+            email_id=email_id, subject=subject, from_addr=from_addr,
+            to=to, cc=cc, date=date, body=body,
+            raw=json.dumps(raw, ensure_ascii=False, default=str),
+        )
     if not isinstance(raw, str) or raw.lower().startswith("error reading email"):
         return None
     email_id = _header_value(raw, "Email ID")
     subject = _header_value(raw, "Subject")
-    from_addr = _header_value(raw, "From")
+    raw_from = _header_value(raw, "From")
+    from_addresses = _extract_email_addresses(raw_from)
+    from_addr = from_addresses[0] if from_addresses else raw_from
     to = _extract_email_addresses(_header_value(raw, "To"))
     cc = _extract_email_addresses(_header_value(raw, "CC"))
     date = _header_value(raw, "Date")
@@ -510,11 +571,21 @@ async def _emails_from_folder(ctx, folder: str, page_size: int = 50) -> list[Ema
     data = await call(
         ctx, "emails", "get_emails", folder=folder, page=1, page_size=page_size,
     )
-    if not isinstance(data, str) or not data or "empty" in data.lower():
+    email_ids: list[str] = []
+    if isinstance(data, dict):
+        for row in data.get("emails") or data.get("items") or data.get("results") or []:
+            if not isinstance(row, dict):
+                continue
+            email_id = str(row.get("email_id") or row.get("id") or "")
+            if email_id:
+                email_ids.append(email_id)
+    elif isinstance(data, str) and data and "empty" not in data.lower():
+        email_ids.extend(re.findall(r"\bID:\s*(\d+)\b", data))
+    else:
         return records
-    for email_id in re.findall(r"\bID:\s*(\d+)\b", data):
+    for email_id in dict.fromkeys(email_ids):
         detail = await call(ctx, "emails", "read_email", email_id=email_id)
-        record = parse_email_detail(detail) if isinstance(detail, str) else None
+        record = parse_email_detail(detail)
         if record is not None:
             records.append(record)
     return records
@@ -565,14 +636,14 @@ async def calendar_events_in_window(
         ctx,
         "calendar",
         "list_events",
-        timeMin=time_min,
-        timeMax=time_max,
-        maxResults=max_results,
-        orderBy="startTime",
+        time_min=time_min,
+        time_max=time_max,
+        max_results=max_results,
+        order_by="startTime",
     )
     items: list[dict[str, Any]] = []
     if isinstance(data, dict):
-        items = data.get("items") or []
+        items = data.get("events") or data.get("items") or []
     elif isinstance(data, list):
         items = data
     elif isinstance(data, str):
@@ -591,7 +662,7 @@ async def calendar_events_in_window(
         end = item.get("end") or {}
         out.append(
             CalendarEventRecord(
-                event_id=str(item.get("id") or ""),
+                event_id=str(item.get("event_id") or item.get("id") or ""),
                 summary=str(item.get("summary") or ""),
                 description=str(item.get("description") or ""),
                 location=str(item.get("location") or ""),
@@ -700,6 +771,23 @@ def event_in_phase(event: CalendarEventRecord, phase_terms: list[str]) -> bool:
     return has_any(event.text, phase_terms)
 
 
+# Calendar entries that are paperwork or notices, not physical site work.
+# They must be excluded from sequencing: the seeded filing deadline is literally
+# named 静安 装饰装修一件事 (the programme's name contains 装饰/装修) and the
+# property notice is named 周末施工, so a bare substring match classifies both as
+# "finish work" scheduled before any acceptance gate could exist — and the
+# fit-up period does not even open until 2026-07-05, after them. Left unfiltered,
+# the sequencing gates are unsatisfiable no matter what the agent schedules.
+_NON_SITE_WORK_TERMS = (
+    "ddl", "deadline", "申请", "报批", "管制", "restriction", "notice", "通知",
+    "提醒", "reminder", "hold", "规划", "一件事",
+)
+
+
+def _is_site_work(event: CalendarEventRecord) -> bool:
+    return not has_any(event.text, list(_NON_SITE_WORK_TERMS))
+
+
 def schedule_dependency_ok(
     events: list[CalendarEventRecord],
     *,
@@ -708,9 +796,13 @@ def schedule_dependency_ok(
 ) -> bool:
     """Return True iff every event matching ``after_terms`` starts after the
     last event matching ``before_terms`` ends. Lenient when one side is empty.
+
+    Only real site work is sequenced; administrative deadlines and property
+    notices are skipped (see _NON_SITE_WORK_TERMS).
     """
     before_ends: list[datetime] = []
     after_starts: list[datetime] = []
+    events = [event for event in events if _is_site_work(event)]
     for event in events:
         window = calendar_event_window(event)
         if window is None:
@@ -794,17 +886,18 @@ async def notion_database_row(
 ) -> dict | list:
     """Best-effort read of a Notion database row.
 
-    Tries ``query_database`` first; falls back to ``get_page``. Returns
-    the raw payload (dict or list) or an empty dict if unreachable.
+    Tries ``API-post-database-query`` first; falls back to
+    ``API-retrieve-a-page``. Returns the raw payload (dict or list) or an empty
+    dict if unreachable.
     """
-    kwargs: dict[str, Any] = {"database": db_name}
+    kwargs: dict[str, Any] = {"database_id": db_name}
     if filter_kwargs:
         kwargs.update(filter_kwargs)
-    data = await call(ctx, "notion", "query_database", **kwargs)
+    data = await call(ctx, "notion", "API-post-database-query", **kwargs)
     if data is not None:
         return data if isinstance(data, (dict, list)) else {}
     if row_id:
-        page = await call(ctx, "notion", "get_page", page_id=row_id)
+        page = await call(ctx, "notion", "API-retrieve-a-page", page_id=row_id)
         if isinstance(page, dict):
             return page
     return {}

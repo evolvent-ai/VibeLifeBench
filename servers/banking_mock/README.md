@@ -13,6 +13,7 @@ See [SPEC.md](./SPEC.md) for the full implementer-facing specification.
 - `list_transactions(account_id, since?, until?, limit?, kind_filter?)`
 - `transfer(from_account_id, to_account_id, amount_minor, memo?)`
 - `list_payees(user_id)` / `add_payee(user_id, name, account_no, bank_name)`
+- `list_pending_payments(user_id, account_id?, status_filter?, limit?)`
 - `pay_payee(account_id, payee_id, amount_minor, memo?, scheduled_for?)`
 - `schedule_recurring(account_id, payee_id, amount_minor, freq, start_date, end_date?)`
 - `list_recurring(user_id, status_filter?)` / `cancel_recurring(schedule_id)`

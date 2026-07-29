@@ -1,9 +1,35 @@
-from typing import Optional
+from typing import Annotated, Optional, TypedDict
 
 from mcp.server.fastmcp import FastMCP
+from pydantic import Field
 
 from ..services.reservation_service import ReservationService
 from ._common import dumps, handle_errors
+
+
+class GuestProfile(TypedDict):
+    """Guest identity and ownership fields required by ReservationService."""
+
+    first_name: Annotated[str, Field(description="Guest given/first name.")]
+    last_name: Annotated[str, Field(description="Guest family/last name.")]
+    email: Annotated[str, Field(description="Guest contact email address.")]
+    phone: Annotated[str, Field(description="Guest contact phone number.")]
+    user_id: Annotated[
+        str,
+        Field(description="Stable user_id that owns and can list this reservation."),
+    ]
+
+
+RatePlanId = Annotated[
+    str,
+    Field(
+        description=(
+            "Use the exact rate_plan_id returned by get_room_availability; "
+            "its opaque format is "
+            "rp_<hotel_id>_<room_type_slug>_<flavor>_<YYYYMMDD>_<YYYYMMDD>."
+        )
+    ),
+]
 
 
 def register_reservation_tools(mcp: FastMCP, reservation_service: ReservationService) -> None:
@@ -11,8 +37,8 @@ def register_reservation_tools(mcp: FastMCP, reservation_service: ReservationSer
     @mcp.tool()
     @handle_errors
     async def create_reservation(
-        rate_plan_id: str,
-        guest_profile: dict,
+        rate_plan_id: RatePlanId,
+        guest_profile: GuestProfile,
         payment_method_id: str,
         special_requests: Optional[str] = None,
     ) -> str:

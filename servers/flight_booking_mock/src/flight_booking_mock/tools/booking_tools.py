@@ -1,21 +1,80 @@
 """Booking management tools."""
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Annotated, Any, NotRequired, Optional, TypedDict
 
 from mcp.server.fastmcp import FastMCP
+from pydantic import Field
 
 from ..services.booking_service import BookingService
+
+
+class PassengerProfile(TypedDict):
+    """Passenger fields accepted by the booking service."""
+
+    type: Annotated[
+        str,
+        Field(description="Passenger type, for example ADT, CHD, or INF."),
+    ]
+    given_name: Annotated[str, Field(description="Passenger given name(s).")]
+    family_name: Annotated[str, Field(description="Passenger family name.")]
+    dob: NotRequired[
+        Annotated[str, Field(description="Optional date of birth, preferably YYYY-MM-DD.")]
+    ]
+    passport_no: NotRequired[
+        Annotated[str, Field(description="Optional passport number.")]
+    ]
+    nationality: NotRequired[
+        Annotated[str, Field(description="Optional passenger nationality.")]
+    ]
+    frequent_flyer: NotRequired[
+        Annotated[
+            dict[str, str],
+            Field(description="Optional frequent-flyer program details."),
+        ]
+    ]
+
+
+class BookingContact(TypedDict):
+    email: Annotated[str, Field(description="Booking contact email address.")]
+    phone: Annotated[str, Field(description="Booking contact phone number.")]
+
+
+class PaymentDetails(TypedDict):
+    method: Annotated[
+        str,
+        Field(description="Payment method identifier, such as CARD, POINTS, or token."),
+    ]
+    card_last4: NotRequired[
+        Annotated[str, Field(description="Optional last four card digits.")]
+    ]
+    token: NotRequired[
+        Annotated[str, Field(description="Optional payment-provider token.")]
+    ]
+
+
+class SeatSelection(TypedDict):
+    segment_idx: Annotated[
+        int,
+        Field(description="Zero-based itinerary segment index."),
+    ]
+    pax_idx: Annotated[int, Field(description="Zero-based passenger index.")]
+    seat: Annotated[str, Field(description="Seat designator, for example 12A.")]
+
+
+class PreferredSeat(TypedDict):
+    pax_idx: Annotated[int, Field(description="Zero-based passenger index.")]
+    seat: Annotated[str, Field(description="Preferred seat designator, for example 12A.")]
 
 
 def register_booking_tools(mcp: FastMCP, booking_service: BookingService) -> None:
     @mcp.tool()
     async def create_booking(
         offer_id: str,
-        passengers: list[dict[str, Any]],
-        contact: dict[str, str],
-        payment: dict[str, Any],
-        seat_selections: Optional[list[dict[str, Any]]] = None,
+        passengers: list[PassengerProfile],
+        contact: BookingContact,
+        payment: PaymentDetails,
+        seat_selections: Optional[list[SeatSelection]] = None,
         hold: bool = False,
     ) -> dict[str, Any]:
         """Issue a PNR for a priced offer.
@@ -74,7 +133,7 @@ def register_booking_tools(mcp: FastMCP, booking_service: BookingService) -> Non
         pnr: str,
         segment_idx: int,
         pax_indices: Optional[list[int]] = None,
-        preferred_seats: Optional[list[dict[str, Any]]] = None,
+        preferred_seats: Optional[list[PreferredSeat]] = None,
     ) -> dict[str, Any]:
         """Online check-in for a segment (must be within T-48h to T-45m)."""
         return booking_service.check_in(

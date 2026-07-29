@@ -16,6 +16,24 @@ def register_payee_tools(mcp: FastMCP, payee_service: PayeeService) -> None:
 
     @mcp.tool()
     @handle_errors
+    async def list_pending_payments(
+        user_id: str,
+        account_id: Optional[str] = None,
+        status_filter: Optional[str] = None,
+        limit: int = 50,
+    ) -> str:
+        """List future-dated one-off payments for a user, optionally filtered by account and status."""
+        return dumps(
+            payee_service.list_pending_payments(
+                user_id=user_id,
+                account_id=account_id,
+                status_filter=status_filter,
+                limit=int(limit),
+            )
+        )
+
+    @mcp.tool()
+    @handle_errors
     async def add_payee(
         user_id: str,
         name: str,

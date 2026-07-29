@@ -6,10 +6,9 @@ import importlib
 import json
 import re
 import sys
-from dataclasses import dataclass
 from pathlib import Path
 from types import SimpleNamespace
-from typing import Any, Iterable
+from typing import Any, Iterable, NamedTuple
 
 import yaml
 from loguru import logger
@@ -31,8 +30,7 @@ TRACKED_WORKSPACE_FILES = (
 )
 
 
-@dataclass(frozen=True)
-class ScoreBreakdown:
+class ScoreBreakdown(NamedTuple):
     passed_weight: float
     total_weight: float
     score: float

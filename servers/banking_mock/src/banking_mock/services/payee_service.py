@@ -15,6 +15,8 @@ from ._posting import fetch_account, post_transaction
 
 logger = logging.getLogger(__name__)
 
+VALID_PENDING_STATUSES = {"pending", "posted", "cancelled"}
+
 
 class PayeeService:
     def __init__(self, conn: sqlite3.Connection) -> None:
@@ -40,6 +42,57 @@ class PayeeService:
                 "added_at": r["added_at"],
             }
             for r in rows
+        ]
+
+    def list_pending_payments(
+        self,
+        user_id: str,
+        account_id: Optional[str] = None,
+        status_filter: Optional[str] = None,
+        limit: int = 50,
+    ) -> List[dict]:
+        """List future-dated one-off payments visible to an account owner."""
+        if not user_id:
+            raise BadArgError("user_id is required")
+        if status_filter is not None and status_filter not in VALID_PENDING_STATUSES:
+            raise BadArgError(
+                f"status_filter must be one of {sorted(VALID_PENDING_STATUSES)}"
+            )
+        if limit is None or int(limit) < 1:
+            raise BadArgError("limit must be >= 1")
+        limit = min(int(limit), 500)
+
+        sql = [
+            "SELECT pp.pending_id, pp.account_id, pp.payee_id, p.name AS payee_name, ",
+            "pp.amount_minor, pp.memo, pp.scheduled_for, pp.status ",
+            "FROM pending_payments pp ",
+            "JOIN accounts a ON a.account_id = pp.account_id ",
+            "JOIN payees p ON p.payee_id = pp.payee_id ",
+            "WHERE a.user_id = ? ",
+        ]
+        args: List = [user_id]
+        if account_id:
+            fetch_account(self.conn, account_id)
+            sql.append("AND pp.account_id = ? ")
+            args.append(account_id)
+        if status_filter:
+            sql.append("AND pp.status = ? ")
+            args.append(status_filter)
+        sql.append("ORDER BY pp.scheduled_for ASC, pp.pending_id ASC LIMIT ?")
+        args.append(limit)
+        rows = self.conn.execute("".join(sql), args).fetchall()
+        return [
+            {
+                "pending_id": row["pending_id"],
+                "account_id": row["account_id"],
+                "payee_id": row["payee_id"],
+                "payee_name": row["payee_name"],
+                "amount_minor": int(row["amount_minor"]),
+                "memo": row["memo"],
+                "scheduled_for": row["scheduled_for"],
+                "status": row["status"],
+            }
+            for row in rows
         ]
 
     def add_payee(

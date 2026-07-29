@@ -176,7 +176,28 @@ async def chk_final_no_false_ready_when_blocked(ctx) -> bool:
     punch_text = await read_workspace_file(ctx, "handover_punch_list.md")
     punch_open = _current_punch_is_open(punch_text)
     if not blocked and not punch_open:
-        return True
+        # Nothing is blocking. Previously this returned True outright, which
+        # also rewarded an agent that never worked the task — every gate ends
+        # approved in this scenario, so the "vacuous pass" was unconditional.
+        # Require the readiness call to actually exist: a punch list plus a
+        # stated go/no-go. The veto below is unchanged, so claiming ready while
+        # something is blocked still fails.
+        decided = (
+            stage_response(ctx, stage=19)
+            + "\n"
+            + stage_response(ctx, stage=20)
+            + "\n"
+            + await read_workspace_file(ctx, "fit_out_plan.md")
+        ).lower()
+        return bool(punch_text.strip()) and has_any(
+            decided,
+            [
+                "ready for move-in", "release final payment", "green light",
+                "可入住", "释放尾款", "occupancy ready", "准予入驻",
+                "conditional", "no-go", "not ready", "暂缓", "hold",
+                "do not release", "不释放", "待解决",
+            ],
+        )
 
     decision_text = (
         stage_response(ctx, stage=19)

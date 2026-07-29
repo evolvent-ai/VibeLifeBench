@@ -1831,8 +1831,14 @@ def structured_service_blob(env) -> str:
         service_call(env, "calendar", "list_events", max_results=500),
         service_call(env, "legal_search", "search_statutes", keyword="公共数据治理 B12 数据治理", limit=20),
         service_call(env, "ecommerce", "search_products", query="公务员 内部题 泄题", limit=20),
-        service_call(env, "review_platform", "search_merchants", query="公务员 课程", limit=20),
-        service_call(env, "content_platform", "search_notes", query="公务员 岗位 专业", limit=20),
+        service_call(
+            env, "review_platform", "search_merchants",
+            category="home_service", city="南岭", limit=20,
+        ),
+        service_call(
+            env, "content_platform", "search_notes",
+            keyword="公务员", category="备考", limit=20,
+        ),
         service_call(env, "maps", "search_places", query="南岭职业学院 云台校区", limit=20),
     ]
     return flatten_value(parts)
@@ -2113,13 +2119,30 @@ def _active_event(event: dict[str, Any]) -> bool:
     return str(event.get("status") or "confirmed").lower() not in {"cancelled", "canceled", "deleted"}
 
 
+def _event_dt_value(event: dict[str, Any], key: str) -> str:
+    """Return an ISO datetime string for ``start``/``end`` in either shape.
+
+    ``list_events``/``get_event`` return the Google-shaped nested form
+    ``{"start": {"dateTime": ...}}``, while the sqlite row uses the flat
+    ``start_dt`` column. Reading only the flat form turned the nested dict into
+    its ``str()`` — ``"{'dateTime"`` — so every date/time comparison below
+    silently failed: the five calendar-bound checks became unreachable, and
+    ``_stage_06_calendar_adjusted``'s overlap test compared garbage, which made
+    that safety veto pass even for a revision block scheduled straight on top of
+    the thesis defense. Accept both shapes.
+    """
+    value = event.get(f"{key}_dt") or event.get(key) or ""
+    if isinstance(value, dict):
+        value = value.get("dateTime") or value.get("date") or ""
+    return str(value)
+
+
 def _event_date(event: dict[str, Any]) -> str:
-    value = str(event.get("start_dt") or event.get("start") or "")
-    return value[:10]
+    return _event_dt_value(event, "start")[:10]
 
 
 def _event_time(event: dict[str, Any], key: str = "start") -> str:
-    value = str(event.get(f"{key}_dt") or event.get(key) or "")
+    value = _event_dt_value(event, key)
     return value[11:16] if len(value) >= 16 else ""
 
 

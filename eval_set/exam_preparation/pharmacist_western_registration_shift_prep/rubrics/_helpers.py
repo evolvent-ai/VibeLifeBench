@@ -414,7 +414,17 @@ def official_notification_seen(env, *markers: str) -> bool:
 
 
 def _payload_dict(notification: dict[str, Any]) -> dict[str, Any]:
-    payload = notification.get("payload_json")
+    """Return a notification's payload from either the tool or the DB spelling.
+
+    ``list_notifications`` returns the already-parsed payload under ``payload``;
+    ``payload_json`` is only the sqlite column name. Reading the column name
+    alone made ``official_application_chain`` always empty, so every
+    official-status gate (pending_review / rejected / resubmitted /
+    approved_unpaid / paid) was unreachable no matter what the agent did.
+    """
+    payload = notification.get("payload")
+    if payload is None:
+        payload = notification.get("payload_json")
     if isinstance(payload, dict):
         return payload
     if isinstance(payload, str):
@@ -773,7 +783,15 @@ def agent_notion_objects(env) -> dict[str, str]:
     for page_id, page in pages.items():
         children = call(env, "notion", "API-get-block-children", block_id=page_id, page_size=100)
         objects[page_id] = "\n".join((_blob(page), _blob(children)))
-        objects.update(_walk_notion_objects(children))
+        # Merge, never overwrite. Every child block carries
+        # parent={"type":"page_id","page_id":<page_id>}, so _walk_notion_objects
+        # also emits <page_id> -> that tiny parent reference. A plain .update()
+        # let it clobber the page's real text, so a page written WITH body
+        # blocks scored False while a title-only page scored True — the check
+        # penalised the more thorough agent. (Same merge the sibling
+        # civil_service task already uses.)
+        for object_id, blob in _walk_notion_objects(children).items():
+            objects[object_id] = "\n".join(filter(None, (objects.get(object_id), blob)))
     return objects
 
 

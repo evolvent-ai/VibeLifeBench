@@ -8,7 +8,7 @@
 [![Services](https://img.shields.io/badge/services-21-f59e0b)](#service-coverage)
 [![Language](https://img.shields.io/badge/lang-zh%20%2B%20en-lightgrey)](#tasks)
 
-**Benchmark version:** `1.1.0`
+**Benchmark version:** `1.1.1`
 
 > **Long-horizon** &mdash; 20&ndash;30 stages per task, spanning simulated weeks.<br>
 > **Multi-service** &mdash; task-local environment bindings across 21 services.<br>
@@ -80,7 +80,7 @@ To evaluate against all 200, email
 | Travel / 差旅与出行 | `galapagos_no_us_transit` | Galapagos Travel Without U.S. Transit | 25 | 7 | 41 | 100 | `hard` |
 
 
-> **Difficulty labels in 1.1.0 are retained from the prior audited release.** The
+> **Difficulty labels are retained from the audited 1.1.0 release.** The
 > scoring contract changed to `flat_pool`, but the labels were not recalibrated or
 > re-bucketed for this release: 16 tasks are `hard`, 4 are `medium`, and 0 are `easy`.
 

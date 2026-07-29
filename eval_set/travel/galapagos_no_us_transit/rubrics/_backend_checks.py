@@ -97,7 +97,25 @@ def _active(row: dict[str, Any]) -> bool:
 
 
 def flight_bookings(env) -> list[dict[str, Any]]:
-    return _rows(_call(env, "flight_booking", "list_bookings", user_id=USER_ID))
+    # `list_bookings` answers with per-booking *summaries* (pnr, status,
+    # route_summary) and carries no `segments`, so every segment-level
+    # predicate below — including the no-US-transit gate this task is named
+    # for — read an empty list and silently passed: an itinerary through LAX
+    # scored as compliant. Resolve each pnr to its detail record the same way
+    # `email_records` resolves an email id, so the airports being judged are
+    # the ones actually booked.
+    summaries = _rows(_call(env, "flight_booking", "list_bookings", user_id=USER_ID))
+    detailed: list[dict[str, Any]] = []
+    for row in summaries:
+        pnr = row.get("pnr")
+        detail = _call(env, "flight_booking", "get_booking", pnr=str(pnr)) if pnr else None
+        if isinstance(detail, dict) and not detail.get("error"):
+            # Keep the summary's fields as a fallback for anything the detail
+            # payload omits, but let the detail win where they overlap.
+            detailed.append({**row, **detail})
+        else:
+            detailed.append(row)
+    return detailed
 
 
 def active_flight_bookings(env) -> list[dict[str, Any]]:
@@ -105,7 +123,38 @@ def active_flight_bookings(env) -> list[dict[str, Any]]:
 
 
 def hotel_reservations(env) -> list[dict[str, Any]]:
-    return _rows(_call(env, "hotel_booking", "list_reservations", user_id=USER_ID))
+    # Same summary/detail split as flight_bookings: `list_reservations` returns
+    # only {user_id, count, reservation_ids}, so city-level assertions such as
+    # lodging_complete could never see "Puerto Ayora". Resolve each id, and
+    # attach the hotel's city, which lives in the catalog rather than on the
+    # reservation.
+    listing = _call(env, "hotel_booking", "list_reservations", user_id=USER_ID)
+    ids = (listing or {}).get("reservation_ids") if isinstance(listing, dict) else None
+    if not ids:
+        return _rows(listing)
+    # The reservation detail names the hotel but not its city, and
+    # get_hotel_details omits the city too; the catalog search is what pairs a
+    # hotel_id with its city, so build that map once and stamp it onto each
+    # reservation.
+    city_by_hotel: dict[str, str] = {}
+    for city in ("Puerto Ayora", "Guayaquil", "Quito", "Baltra"):
+        for row in _rows(
+            _call(env, "hotel_booking", "search_hotels", city_or_geo=city,
+                  check_in="2026-08-16", check_out="2026-08-17", guests=2)
+        ):
+            hotel_id, hotel_city = row.get("hotel_id"), row.get("city")
+            if hotel_id and hotel_city:
+                city_by_hotel[str(hotel_id)] = str(hotel_city)
+
+    detailed: list[dict[str, Any]] = []
+    for reservation_id in ids:
+        detail = _call(env, "hotel_booking", "get_reservation",
+                       reservation_id=str(reservation_id))
+        if not isinstance(detail, dict) or detail.get("error"):
+            continue
+        city = city_by_hotel.get(str(detail.get("hotel_id") or ""))
+        detailed.append({**detail, "city": city} if city else detail)
+    return detailed
 
 
 def active_hotel_reservations(env) -> list[dict[str, Any]]:
@@ -179,6 +228,12 @@ def booking_is_contiguous(booking: dict[str, Any]) -> bool:
 
 
 def booking_has_required_travelers(booking: dict[str, Any]) -> bool:
+    # A journey assembled from connecting bookings only carries both travellers
+    # if *every* leg does — one leg booked for a single passenger leaves the
+    # other stranded, so check the legs rather than the merged whole.
+    legs = booking.get("bookings")
+    if isinstance(legs, list) and legs:
+        return all(booking_has_required_travelers(leg) for leg in legs)
     return _has_groups(booking.get("passengers") or booking.get("travelers"), [[name] for name in TRAVELERS])
 
 
@@ -190,18 +245,68 @@ def all_active_bookings_avoid_us(env) -> bool:
 
 
 def _single_ticket_route(env, start: str, end: str, minimum_segments: int) -> dict[str, Any] | None:
-    for booking in active_flight_bookings(env):
-        airports = booking_airports(booking)
-        if len(_segments(booking)) < minimum_segments or not booking_is_contiguous(booking):
-            continue
-        if not airports or airports[0] != start or airports[-1] != end:
-            continue
-        if booking.get("single_ticket") is False:
-            continue
-        if set(airports) & US_AIRPORTS:
-            continue
-        return booking
-    return None
+    """The journey start -> end, as one booking or a chain of connecting ones.
+
+    `search_flights` synthesises one offer per direction of travel, so a single
+    booking can never hold the three legs PVG -> Europe -> GYE -> GPS: booking
+    the itinerary through the real API always yields one booking per leg.
+    Requiring all the legs inside one booking made every route predicate
+    unsatisfiable regardless of what the agent did.
+
+    What the task actually forbids is a *gap* — a leg the traveller has no
+    ticket for — and transiting the United States. So accept a set of bookings
+    whose legs chain end-to-end from `start` to `end`, and keep every other
+    condition (contiguity, minimum leg count, no US airport, both travellers)
+    exactly as before.
+    """
+    candidates = [
+        booking for booking in active_flight_bookings(env)
+        if _segments(booking) and booking_is_contiguous(booking)
+        and booking.get("single_ticket") is not False
+    ]
+
+    # Walk forward from `start`, taking any booking that departs where the
+    # previous one landed. Legs are unique per journey here, so a greedy walk
+    # with backtracking over same-origin options is enough.
+    def walk(position: str, used: tuple[int, ...]) -> list[dict[str, Any]] | None:
+        if position == end:
+            return []
+        for index, booking in enumerate(candidates):
+            if index in used:
+                continue
+            airports = booking_airports(booking)
+            if not airports or airports[0] != position:
+                continue
+            rest = walk(airports[-1], used + (index,))
+            if rest is not None:
+                return [booking] + rest
+        return None
+
+    chain = walk(start, ())
+    if not chain:
+        return None
+    airports: list[str] = []
+    segments: list[dict[str, Any]] = []
+    for booking in chain:
+        for airport in booking_airports(booking):
+            if not airports or airports[-1] != airport:
+                airports.append(airport)
+        segments.extend(_segments(booking))
+    if len(segments) < minimum_segments:
+        return None
+    if set(airports) & US_AIRPORTS:
+        return None
+    # Present the chain as one journey so callers can go on asking a single
+    # object about its passengers, status and segments.
+    merged = dict(chain[0])
+    merged["segments"] = segments
+    merged["bookings"] = chain
+    merged["status"] = (
+        chain[0].get("status")
+        if all(_status(b) == _status(chain[0]) for b in chain)
+        else "mixed"
+    )
+    return merged
 
 
 def outbound_single_ticket_complete(env) -> bool:
@@ -276,8 +381,24 @@ def registration_calendar_ready(env) -> bool:
 
 
 def travel_window_calendar_ready(env) -> bool:
-    text = _flatten(calendar_events(env))
-    return _has_groups(text, [["2026-08-14"], ["17:30"], ["2026-08-25"], ["noon", "中午", "12:00"]])
+    # Flattening every event into one blob let the seed satisfy this on its own:
+    # the 08-14 17:30 group meeting and the 08-25 faculty meeting are unrelated
+    # immovable blockers that already carry all four literals between them. The
+    # agent's job is to record the window those blockers imply, so require the
+    # departure and return bounds to appear together in a single event — the
+    # same per-row shape registration_calendar_ready and transfer_calendar_ready
+    # use.
+    return any(
+        _has_groups(
+            row,
+            [
+                ["2026-08-14"], ["17:30"],
+                ["2026-08-25"], ["noon", "中午", "12:00"],
+                ["travel", "trip", "window", "行程", "出行", "往返"],
+            ],
+        )
+        for row in calendar_events(env)
+    )
 
 
 def transfer_calendar_ready(env) -> bool:
@@ -295,11 +416,22 @@ def weather_calendar_updated(env) -> bool:
 
 
 def organizer_source_ingested(env) -> bool:
-    source = email_records(env, "INBOX")
-    return any(
-        _has_groups(row, [[ORGANIZER], ["LIN QIAO"], ["XU WEN CHENG"], ["2026-08-17"], ["18:00"]])
-        for row in source
-    ) and contains_all_groups(
+    # The organizer deliberately spreads these facts over several mails — the
+    # badge list carries both travellers' names, the logistics note carries the
+    # registration cut-off ("17 August ... closes at 18:00", never in ISO form).
+    # Demanding all of it inside one row asked for a mail the seed does not
+    # contain and cannot contain, since the agent cannot author inbound mail.
+    # Read the organizer's correspondence as the single source it is, and keep
+    # the real requirement: the agent had to combine those mails into the
+    # workspace record below.
+    source = [row for row in email_records(env, "INBOX") if _has_groups(row, [[ORGANIZER]])]
+    ingested = (
+        any(_has_groups(row, [["LIN QIAO"]]) for row in source)
+        and any(_has_groups(row, [["XU WEN CHENG"]]) for row in source)
+        and any(_has_groups(row, [["2026-08-17", "17 august", "8/17", "8月17"]]) for row in source)
+        and any(_has_groups(row, [["18:00"]]) for row in source)
+    )
+    return ingested and contains_all_groups(
         workspace_text(env), [["LIN QIAO"], ["XU WEN CHENG"], ["passport", "证件"], ["2026-08-17"], ["18:00"]]
     )
 
@@ -314,15 +446,31 @@ def organizer_confirmation_sent(env) -> bool:
 
 
 def map_transfer_route_available(env) -> bool:
-    data = _call(env, "maps", "directions", origin="GPS", destination="Puerto Ayora", mode="transit")
-    return _has_groups(data, [["GPS"], ["Puerto Ayora"], ["ferry", "渡轮"]])
+    # The tool parameter is `dest` (not `destination`), and there is no transit
+    # line across the channel, so a transit-mode request answers ZERO_RESULTS.
+    # Ask for the ground route that actually exists.
+    route = _call(env, "maps", "directions", origin="GPS", dest="Puerto Ayora", mode="driving")
+    if not _has_groups(route, [["GPS"], ["Puerto Ayora"]]):
+        return False
+    # The route payload names endpoints only; the water crossing between Baltra
+    # and Santa Cruz is modelled as the Itabaca Channel docks, which is where
+    # the ferry/barge leg has to be read from.
+    crossing = _call(env, "maps", "search_places", query="Itabaca")
+    return _has_groups(crossing, [["dock", "channel", "barge", "ferry", "渡轮"]])
 
 
 def weather_risk_available(env) -> bool:
-    data = _call(env, "weather", "get_forecast", location="Puerto Ayora")
-    if data is None:
-        data = _call(env, "weather", "get_weather_forecast", location="Puerto Ayora")
-    return _has_groups(data, [["Puerto Ayora"], ["swell", "wave", "marine", "风浪", "海况"]])
+    # Marine risk lives in the alert feed, not the forecast tables: the daily
+    # rows carry temperature and wind only. get_alerts also returns just the
+    # *active* alerts, so this tracks the sea-state watch being upgraded to a
+    # warning across stages instead of reading one frozen snapshot.
+    data = _call(env, "weather", "get_alerts", geo="Puerto Ayora")
+    # The backend identifies the island by its geo_key (puerto_ayora); accept
+    # both spellings so the location group matches the payload it is reading.
+    return _has_groups(
+        data,
+        [["Puerto Ayora", "puerto_ayora"], ["swell", "wave", "marine", "风浪", "海况"]],
+    )
 
 
 def payment_state_consistent(env) -> bool:

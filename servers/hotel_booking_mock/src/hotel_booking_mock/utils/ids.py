@@ -1,6 +1,6 @@
 import hashlib
 import sqlite3
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 def confirmation_code(seed: str) -> str:
@@ -22,7 +22,12 @@ def ticket_id(seq: int) -> str:
 
 def now_iso_z() -> str:
     """Wall-clock UTC in Z-iso format (audit-trail only)."""
-    return datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+    return (
+        datetime.now(timezone.utc)
+        .replace(microsecond=0)
+        .isoformat()
+        .replace("+00:00", "Z")
+    )
 
 
 def slugify(s: str) -> str:

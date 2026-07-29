@@ -33,3 +33,32 @@ SELECT printf('hotel_east_%02d',((n-1)%19)+1),
        CASE n%3 WHEN 2 THEN NULL ELSE (CASE WHEN n<=19 THEN '2026-04-04T18:00:00+08:00' ELSE '2026-04-05T18:00:00+08:00' END) END,
        CASE n%2 WHEN 0 THEN 1 ELSE 0 END,CASE n%4 WHEN 3 THEN 3 ELSE 2 END
 FROM seq;
+
+-- Shanghai window-day lodging (2026-04-09..2026-04-12).
+-- The stage-7 world event tells the agent that refundable rooms near the
+-- Shanghai ID window "仍有可取消房可查", and the rubric requires an active
+-- Shanghai reservation for the 04-11 appointment — but the inventory above
+-- stops at 04-05, so no such room could ever be booked. These rows close that
+-- gap for the Shanghai properties only; Suzhou/Beijing/Ningbo are untouched so
+-- the elder-lodging price delta at 04-05..04-08 stays exactly as seeded.
+WITH d(day) AS (VALUES('2026-04-09'),('2026-04-10'),('2026-04-11'),('2026-04-12')),
+rooms(room_type,base_price) AS (VALUES('double',680),('quiet_double',720)),
+sha(hotel_id) AS (SELECT hotel_id FROM hotels WHERE city = '上海')
+INSERT INTO rate_plans(hotel_id,date,room_type,flavor,nightly_price,currency,inventory_remaining,inventory_capacity,cancellation_policy,refundable_until,breakfast_included,max_occupancy)
+SELECT sha.hotel_id, d.day, rooms.room_type, 'flex',
+       rooms.base_price + CAST(substr(d.day,-2) AS INTEGER)*4, 'CNY',
+       3, 10, 'free_cancel_until_18_local', d.day||'T18:00:00+08:00', 1, 2
+FROM sha CROSS JOIN d CROSS JOIN rooms;
+
+-- Ningbo arrival-day lodging (2026-04-16..2026-04-21).
+-- The elder reaches Ningbo on D3135 at 19:46 on 04-16 and the return flight is
+-- 04-21, and final_all_segments_closed requires an active Ningbo reservation,
+-- but the seeded inventory stops at 04-05. Ningbo properties only.
+WITH d(day) AS (VALUES('2026-04-16'),('2026-04-17'),('2026-04-18'),('2026-04-19'),('2026-04-20'),('2026-04-21')),
+rooms(room_type,base_price) AS (VALUES('twin',560),('quiet_double',600)),
+ngb(hotel_id) AS (SELECT hotel_id FROM hotels WHERE city = '宁波')
+INSERT INTO rate_plans(hotel_id,date,room_type,flavor,nightly_price,currency,inventory_remaining,inventory_capacity,cancellation_policy,refundable_until,breakfast_included,max_occupancy)
+SELECT ngb.hotel_id, d.day, rooms.room_type, 'flex',
+       rooms.base_price + CAST(substr(d.day,-2) AS INTEGER)*3, 'CNY',
+       3, 10, 'free_cancel_until_18_local', d.day||'T18:00:00+08:00', 1, 2
+FROM ngb CROSS JOIN d CROSS JOIN rooms;

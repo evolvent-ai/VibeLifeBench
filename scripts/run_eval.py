@@ -37,6 +37,20 @@ DEFAULT_MODELS_JSON = REPO_ROOT / "models.json"
 DEFAULT_TIMEOUT_SEC = 14400
 
 
+def resolve_user_path(path: Path) -> Path:
+    """Expand and resolve a CLI path relative to the caller's working directory."""
+    return path.expanduser().resolve()
+
+
+def config_path_value(path: Path) -> str:
+    """Use portable repo-relative paths, while preserving external absolute paths."""
+    resolved = resolve_user_path(path)
+    try:
+        return str(resolved.relative_to(REPO_ROOT))
+    except ValueError:
+        return str(resolved)
+
+
 def discover_tasks() -> dict[str, Path]:
     """Map task id -> task dir, for every task in the eval set."""
     return {
@@ -144,7 +158,7 @@ def write_config(path: Path, job_name: str, job_dir: Path, tasks: dict[str, Path
         f'model_name = "{model}"\n'
         f'\n'
         f'[agents.kwargs]\n'
-        f'models_config_path = "{models_json.relative_to(REPO_ROOT)}"\n'
+        f'models_config_path = "{config_path_value(models_json)}"\n'
         f'think = "{think}"\n',
         encoding="utf-8",
     )
@@ -260,7 +274,8 @@ def main() -> int:
         p.error("--model is required (or use --report / --list)")
 
     tasks = select(all_tasks, args.tasks, args.domains)
-    preflight(args.models_json, tasks)
+    models_json = resolve_user_path(args.models_json)
+    preflight(models_json, tasks)
 
     job_name = args.job_name or (
         f"{args.model.replace('/', '_')}_{len(tasks)}tasks_"
@@ -269,7 +284,7 @@ def main() -> int:
     job_dir = REPO_ROOT / "outputs" / job_name
     cfg = REPO_ROOT / "outputs" / f"{job_name}.toml"
     cfg.parent.mkdir(parents=True, exist_ok=True)
-    write_config(cfg, job_name, job_dir, tasks, args.model, args.models_json,
+    write_config(cfg, job_name, job_dir, tasks, args.model, models_json,
                  args.attempts, args.concurrent, args.timeout, args.think)
 
     print(f"model      {args.model}")
