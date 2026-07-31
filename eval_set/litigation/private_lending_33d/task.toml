@@ -1,0 +1,45 @@
+[metadata]
+name = "private_lending_33d"
+title_zh = "民间借贷追偿一审与二审管理"
+title_en = "Private Lending Recovery Litigation — 33 Days"
+author = "VibeLifeBench"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "medium"
+category = "litigation"
+tags = ["litigation", "private-lending", "civil-litigation", "debt-recovery", "hangzhou", "evidence", "jurisdiction", "guarantee", "spousal-debt", "implicit-constraints", "disruption-handling"]
+summary_zh = "出借人追偿民间借贷的一审与二审长程任务，覆盖实际本金、利率上限、诉讼时效、管辖、保证期间、夫妻共同债务、财产保全和证据风险。"
+summary_en = "A 33-day private-lending recovery task spanning first instance and appeal, covering actual principal, rate caps, limitation periods, jurisdiction, guarantees, spousal debt, preservation, and evidence risk."
+description = "A 33-day private-lending recovery task spanning first instance and appeal, covering actual principal, rate caps, limitation periods, jurisdiction, guarantees, spousal debt, preservation, and evidence risk."
+
+[scenario]
+stage_count = 22
+start_date = "2026-05-20"
+end_date = "2026-06-22"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["legal_search", "notification_hub", "calendar", "notion", "email"]
+
+[dependencies.envs]
+legal_search = "private_lending_2026"
+notification_hub = "wang_fang_lending"
+calendar = "wang_fang_lending"
+notion = "wang_fang_lending"
+email = "wang_fang_lending"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 71
+total_weight = 100.0
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = ""
+
+[run]
+config = "openclaw"

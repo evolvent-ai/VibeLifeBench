@@ -1,0 +1,1 @@
+INSERT OR REPLACE INTO notifications VALUES ('notif_payment_open','user_zhou','provincial_pharmacist_office','portal_status',NULL,'报名初审通过并开放缴费','西药类报名状态为 approved_unpaid，官方报名费 CNY 244。','{"application_status":"approved_unpaid","fee_minor":24400,"direction":"western_pharmacist"}','2026-09-18T09:00:00+08:00',0);

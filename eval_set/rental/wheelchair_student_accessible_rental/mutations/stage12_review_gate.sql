@@ -1,0 +1,1 @@
+INSERT INTO reviews(review_id,merchant_id,user_id,rating,body,image_captions,created_at) VALUES ('rev_comm_b_gate_0726','mer_seed_004_b','resident_new',2,'物业公告显示北门 23:30 后关闭，侧门有三级台阶且照明较弱；轮椅通行需绕到西门，距离比房源说明更长。','["北门台阶","西门绕行"]','2026-07-26T08:40:00+08:00');

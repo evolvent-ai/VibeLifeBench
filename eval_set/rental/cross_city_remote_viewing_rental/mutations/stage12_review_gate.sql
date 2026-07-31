@@ -1,0 +1,1 @@
+INSERT INTO reviews(review_id,merchant_id,user_id,rating,body,image_captions,created_at) VALUES ('rev_comm_b_gate_0730','mer_seed_005_b','resident_new',2,'物业公告显示北门 23:30 后关闭，晚间需绕到西门；施工路段照明较弱，实际步行距离比房源说明更长。','["北门公告","西门绕行"]','2026-07-30T08:40:00+08:00');

@@ -1,0 +1,1 @@
+INSERT OR IGNORE INTO notifications(notification_id,user_id,source,type,subscription_id,title,body,payload_json,created_at,read) VALUES ('notif_pottery_preflight_0719','user_luyao_tb011','team_building_monitor','policy_update',NULL,'活动前48小时核对','请对齐27人名单、餐饮标签、集合路线、现场联系人、丁腈手套、休息点和未发送通知草稿。','{"window":"48h"}','2026-07-19T08:55:00+08:00',0);

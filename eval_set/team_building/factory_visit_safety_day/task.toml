@@ -1,0 +1,51 @@
+[metadata]
+name = "factory_visit_safety_day"
+title_zh = "供应链团队工厂参访团建"
+title_en = "Supply Chain Factory Visit Team Day"
+author = "VibeLifeBench"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "team_building"
+tags = ["team_building", "event_planning", "vendor_risk", "budget", "privacy", "safety", "authorization", "onsite_coordination", "post_event_review"]
+summary_zh = "供应链团队工厂参访团建任务，覆盖供应商核验、预算与发票、PPE 和现场安全、隐私最小化、授权、交通协调、静默变化恢复及活动复盘。"
+summary_en = "A long-horizon factory-visit team event covering vendor verification, budget and invoices, PPE and onsite safety, privacy minimization, authorization, transport coordination, silent changes, and post-event review."
+description = "A long-horizon factory-visit team event covering vendor verification, budget and invoices, PPE and onsite safety, privacy minimization, authorization, transport coordination, silent changes, and post-event review."
+
+[scenario]
+stage_count = 25
+start_date = "2026-07-01"
+end_date = "2026-07-25"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["email", "calendar", "notion", "maps", "review_platform", "banking", "notification_hub"]
+
+[dependencies.envs]
+email = "factory_visit_safety_day"
+calendar = "factory_visit_safety_day"
+notion = "factory_visit_safety_day"
+maps = "factory_visit_safety_day"
+review_platform = "factory_visit_safety_day"
+banking = "factory_visit_safety_day"
+notification_hub = "factory_visit_safety_day"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 46
+total_weight = 100.0
+stage_weight = 52.0
+cross_stage_weight = 28.0
+tool_quality_weight = 8.0
+final_weight = 12.0
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = ""
+
+[run]
+config = "openclaw"

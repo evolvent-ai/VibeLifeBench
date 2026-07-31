@@ -1,0 +1,26 @@
+[project]
+name = "brokerage-mock"
+version = "0.1.0"
+description = "A FastMCP-based mock brokerage server (personal A-share portfolio / positions / orders / quotes / funds)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=2.10.5",
+    "mcp[cli]>=1.11.0",
+    "typing-extensions>=4.9.0",
+]
+
+[project.scripts]
+brokerage-mock = "brokerage_mock.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/brokerage_mock"]
+
+[tool.hatch.build]
+include = [
+    "src/brokerage_mock/**/*.py",
+]

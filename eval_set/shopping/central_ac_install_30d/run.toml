@@ -1,0 +1,15 @@
+job_name = "central_ac_install_30d"
+job_dir = "outputs/shopping/central_ac_install_30d"
+tasks = ["eval_set/shopping/central_ac_install_30d"]
+n_attempts = 5
+n_concurrent_trials = 5
+agent_exec_timeout_sec = 14400
+resume = false
+
+[[agents]]
+name = "openclaw"
+model_name = "<your-provider>/<your-model>"
+
+[agents.kwargs]
+models_config_path = "runs/openclaw_models.json"
+think = "xhigh"

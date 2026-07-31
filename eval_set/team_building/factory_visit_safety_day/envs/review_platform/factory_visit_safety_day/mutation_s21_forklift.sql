@@ -1,0 +1,1 @@
+INSERT OR IGNORE INTO merchant_qa(qa_id,merchant_id,user_id,question,answer,answered_by,created_at) VALUES ('qa_factory_onsite_photo','mer_7a4c19d2','onsite_contact','靠近叉车通道的拍照点今天还开放吗？','该拍照点即刻起关闭，合影统一改到一层大厅接待区，午餐前分组顺序相应后移十分钟。','merchant','2026-07-21T03:05:00Z');

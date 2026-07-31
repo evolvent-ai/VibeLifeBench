@@ -1,0 +1,10 @@
+-- Time-isolated email seed for baby_stroller_safety_standard_30d
+BEGIN;
+INSERT INTO account_config (id, email, name, created_at) VALUES (1, 'yan.ting.mom@gmail.com', '阎婷', '2021-09-01T00:00:00Z');
+INSERT INTO folders (id,name) VALUES (1,'INBOX'),(2,'Sent'),(3,'Drafts'),(4,'Trash'),(5,'Spam');
+INSERT INTO messages (id, folder_id, message_id, subject, from_addr, to_addr_json, cc_addr_json, bcc_addr_json, date, body_text, body_html, is_read, is_important, is_flagged, in_reply_to, references_header, headers_json, uid, size, created_at) VALUES (1, 1, '<strr-o1@mall.cn>', '订单确认：GlideBaby S5 婴儿推车', '官方商城 <order@mall.cn>', '["yan.ting.mom@gmail.com"]', '[]', '[]', '2026-06-12T03:25:00Z', '您的订单 ord_strr_0001 已支付成功。订单详情中保存了商品型号与购买凭证。', NULL, 1, 0, 0, NULL, NULL, '{}', 1001, 240, '2026-06-12T03:25:00Z');
+INSERT INTO messages (id, folder_id, message_id, subject, from_addr, to_addr_json, cc_addr_json, bcc_addr_json, date, body_text, body_html, is_read, is_important, is_flagged, in_reply_to, references_header, headers_json, uid, size, created_at) VALUES (2, 1, '<strr-o2@mall.cn>', '订单确认：婴儿床配件', '官方商城 <order@mall.cn>', '["yan.ting.mom@gmail.com"]', '[]', '[]', '2026-06-12T04:10:00Z', '您的订单 ord_strr_0002 已支付成功，将发往订单中填写的收货地址。', NULL, 1, 0, 0, NULL, NULL, '{}', 1002, 220, '2026-06-12T04:10:00Z');
+INSERT INTO messages (id, folder_id, message_id, subject, from_addr, to_addr_json, cc_addr_json, bcc_addr_json, date, body_text, body_html, is_read, is_important, is_flagged, in_reply_to, references_header, headers_json, uid, size, created_at) VALUES (3, 1, '<strr-fwd@forward.com>', '【集英转运仓】包裹入仓记录', '转运仓 <service@forward.com>', '["yan.ting.mom@gmail.com"]', '[]', '[]', '2026-06-14T00:20:00Z', 'YT2099 会员的包裹已入仓。含受管制或带电物品时，运输方式和申报要求以仓库规则为准。', NULL, 0, 1, 0, NULL, NULL, '{}', 1003, 240, '2026-06-14T00:20:00Z');
+UPDATE folders SET message_count=(SELECT COUNT(*) FROM messages WHERE messages.folder_id=folders.id), unread_count=(SELECT COUNT(*) FROM messages WHERE messages.folder_id=folders.id AND messages.is_read=0);
+INSERT INTO _counters (key,value) VALUES ('msg_seq',3);
+COMMIT;

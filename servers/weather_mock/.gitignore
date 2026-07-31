@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+.weather_mock/
+*.sqlite
+*.sqlite-journal
+.DS_Store

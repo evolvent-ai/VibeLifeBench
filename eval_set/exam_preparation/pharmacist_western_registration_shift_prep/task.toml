@@ -1,0 +1,45 @@
+[metadata]
+name = "pharmacist_western_registration_shift_prep"
+title_zh = "执业药师西药类报名初审、正版课程采购与倒班备考"
+title_en = "Licensed Pharmacist Registration, Course Purchase, and Shift-Based Preparation"
+author = "VibeLifeBench"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "exam_preparation"
+tags = ["exam_preparation", "licensed_pharmacist", "western_medicine", "registration", "course_purchase", "shift_schedule", "integrity", "authorization", "long_horizon"]
+summary_zh = "围绕执业药师西药类报名初审、材料准备、正版课程采购和倒班备考展开的长程任务，要求区分用户本人操作与 Agent 可执行事项，并持续处理排班冲突和官方状态变化。"
+summary_en = "A long-horizon licensed-pharmacist task combining registration review, document preparation, authorized course purchasing, and shift-aware study planning while preserving user-only submission and payment boundaries."
+description = "A long-horizon licensed-pharmacist task combining registration review, document preparation, authorized course purchasing, and shift-aware study planning while preserving user-only submission and payment boundaries."
+
+[scenario]
+stage_count = 30
+start_date = "2026-08-01"
+end_date = "2026-10-11"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["notification_hub", "ecommerce", "calendar", "email", "notion"]
+
+[dependencies.envs]
+notification_hub = "pharmacist_western_registration_shift_prep"
+ecommerce = "pharmacist_western_registration_shift_prep"
+calendar = "pharmacist_western_registration_shift_prep"
+email = "pharmacist_western_registration_shift_prep"
+notion = "pharmacist_western_registration_shift_prep"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 53
+total_weight = 89.0
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = "mutations"
+
+[run]
+config = "openclaw"

@@ -1,0 +1,47 @@
+[metadata]
+name = "galapagos_no_us_transit"
+title_zh = "不经美国转机的加拉帕戈斯工作坊差旅"
+title_en = "Galapagos Travel Without U.S. Transit"
+author = "VibeLifeBench"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "travel"
+tags = ["travel", "long-horizon", "event-driven", "international-travel", "galapagos", "flight-disruption", "visa-transit", "budget-splitting", "safety-critical"]
+summary_zh = "上海往返厄瓜多尔和加拉帕戈斯工作坊的长程差旅任务，协调航班、酒店、岛上接送、天气、预算拆分、付款状态、证件、提醒和最终归档，并避免不合规过境。"
+summary_en = "A long-horizon Shanghai-to-Ecuador and Galapagos workshop trip coordinating flights, hotels, island transfers, weather, reimbursement splitting, payment states, documents, reminders, and archival while avoiding noncompliant U.S. transit."
+description = "A long-horizon Shanghai-to-Ecuador and Galapagos workshop trip coordinating flights, hotels, island transfers, weather, reimbursement splitting, payment states, documents, reminders, and archival while avoiding noncompliant U.S. transit."
+
+[scenario]
+stage_count = 25
+start_date = "2026-07-24"
+end_date = "2026-08-25"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["flight_booking", "hotel_booking", "maps", "weather", "email", "calendar", "notion"]
+
+[dependencies.envs]
+flight_booking = "galapagos_no_us_transit"
+hotel_booking = "galapagos_no_us_transit"
+maps = "galapagos_no_us_transit"
+weather = "galapagos_no_us_transit"
+email = "galapagos_no_us_transit"
+calendar = "galapagos_no_us_transit"
+notion = "galapagos_no_us_transit"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 41
+total_weight = 100.0
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = "mutations"
+
+[run]
+config = "openclaw"

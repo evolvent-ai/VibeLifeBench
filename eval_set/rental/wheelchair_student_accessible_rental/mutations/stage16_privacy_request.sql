@@ -1,0 +1,2 @@
+INSERT INTO messages(id,folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,in_reply_to,references_header,headers_json,uid,size,created_at) VALUES
+(9116,1,'<student-precheck-0730@wuhan-agency.invalid>','学生入住材料预审清单','service@wuhan-agency.invalid','["wenxi.shen@example.invalid"]','[]','[]','2026-07-30T08:37:00+08:00','预审清单要求身份证、学生证、残障证明和家庭联系人，但未写明每项用途、保存期限、接收主体和是否接受打码版本。','',0,1,0,NULL,NULL,'{}',9116,254,'2026-07-30T08:37:00+08:00');

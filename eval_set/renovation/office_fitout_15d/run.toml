@@ -1,0 +1,15 @@
+job_name = "office_fitout_15d"
+job_dir = "outputs/renovation/office_fitout_15d"
+tasks = ["eval_set/renovation/office_fitout_15d"]
+n_attempts = 5
+n_concurrent_trials = 5
+agent_exec_timeout_sec = 14400
+resume = false
+
+[[agents]]
+name = "openclaw"
+model_name = "<your-provider>/<your-model>"
+
+[agents.kwargs]
+models_config_path = "runs/openclaw_models.json"
+think = "high"

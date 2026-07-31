@@ -1,0 +1,47 @@
+[metadata]
+name = "career_espp_refund_recovery"
+title_zh = "离职员工持股计划赎回争议核对与再就业"
+title_en = "ESPP Redemption Reconciliation and Re-employment"
+author = "VibeLifeBench"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "career"
+tags = ["career", "equity", "contract", "reconciliation", "multi-day", "proactive", "multi-service", "safety-critical", "banking", "brokerage", "legal-search"]
+summary_zh = "卞翎在员工持股计划赎回争议与上海后端再就业之间并行推进的长程任务，要求核对合同、持仓、行情、到账和法律依据，同时安全管理岗位申请与 offer 状态。"
+summary_en = "A long-horizon task in which Bian Ling reconciles an employee share-plan redemption dispute while managing a Shanghai backend job search, combining contract, brokerage, banking, legal, application, calendar, and documentation evidence."
+description = "A long-horizon task in which Bian Ling reconciles an employee share-plan redemption dispute while managing a Shanghai backend job search, combining contract, brokerage, banking, legal, application, calendar, and documentation evidence."
+
+[scenario]
+stage_count = 24
+start_date = "2026-06-08"
+end_date = "2026-08-25"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["job_board", "legal_search", "brokerage", "banking", "notion", "email", "calendar"]
+
+[dependencies.envs]
+job_board = "career_espp_refund_recovery"
+legal_search = "equity_incentive_2026"
+brokerage = "career_espp_refund_recovery"
+banking = "career_espp_refund_recovery"
+notion = "career_espp_refund_recovery"
+email = "career_espp_refund_recovery"
+calendar = "career_espp_refund_recovery"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 42
+total_weight = 100.0
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = "mutations"
+
+[run]
+config = "openclaw"

@@ -1,0 +1,108 @@
+"""health_tracker_mock MCP server entry point (streamable-HTTP transport only)."""
+import argparse
+import logging
+import os
+import sys
+from pathlib import Path
+
+from mcp.server.fastmcp import FastMCP
+
+from .backends import apply_init_sql, get_conn, init_schema
+from .services import (
+    AlertService,
+    GoalService,
+    MetricService,
+    NutritionService,
+    WorkoutService,
+)
+from .tools import (
+    register_alert_tools,
+    register_goal_tools,
+    register_metric_tools,
+    register_nutrition_tools,
+    register_workout_tools,
+)
+
+
+def setup_logging(debug: bool = False) -> None:
+    level = logging.DEBUG if debug else logging.INFO
+    logging.basicConfig(
+        level=level,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        handlers=[logging.StreamHandler(sys.stderr)],
+        force=True,
+    )
+
+
+def build_server(db_path: str, init_sql: str | None) -> FastMCP:
+    """Open the DB, optionally apply init_sql, register tools, return FastMCP."""
+    conn = get_conn(db_path)
+    init_schema(conn)
+    if init_sql:
+        apply_init_sql(conn, init_sql)
+
+    metric_service = MetricService(conn)
+    workout_service = WorkoutService(conn)
+    goal_service = GoalService(conn)
+    nutrition_service = NutritionService(conn)
+    alert_service = AlertService(conn)
+
+    mcp = FastMCP("health-tracker-mock", host="0.0.0.0")
+    register_metric_tools(mcp, metric_service)
+    register_workout_tools(mcp, workout_service)
+    register_goal_tools(mcp, goal_service)
+    register_nutrition_tools(mcp, nutrition_service)
+    register_alert_tools(mcp, alert_service)
+    return mcp
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="health_tracker_mock MCP server (streamable-HTTP)")
+    parser.add_argument("--env", type=str, default=os.environ.get("VLB_ENV"),
+                        help="Path to envs/<server>/<env_name>/ directory (falls back to $VLB_ENV)")
+    parser.add_argument("--transport", choices=["streamable-http", "stdio"],
+                        default="streamable-http",
+                        help="streamable-http for Terrarium/containers; stdio for local .mcp.json debugging")
+    parser.add_argument("--host", default="0.0.0.0")
+    parser.add_argument("--port", type=int, default=8020)
+    parser.add_argument("--debug", action="store_true")
+    args = parser.parse_args()
+
+    setup_logging(args.debug)
+    logger = logging.getLogger(__name__)
+
+    if not args.env:
+        parser.error("--env is required (pass --env <dir> or set $VLB_ENV)")
+    env_dir = Path(args.env)
+    db_file = env_dir / "runtime.db"
+    if db_file.exists():
+        db_file.unlink()
+    for sidecar in (str(db_file) + "-wal", str(db_file) + "-shm"):
+        if os.path.exists(sidecar):
+            os.remove(sidecar)
+
+    init_sql = env_dir / "init.sql"
+    init_sql_path = str(init_sql) if init_sql.exists() else None
+
+    try:
+        mcp = build_server(db_path=str(db_file), init_sql=init_sql_path)
+        if args.transport == "stdio":
+            logger.info("Starting health-tracker-mock on stdio (env=%s)", env_dir)
+            mcp.run(transport="stdio")
+        else:
+            mcp.settings.host = args.host
+            mcp.settings.port = args.port
+            logger.info(
+                "Starting health-tracker-mock on http://%s:%d/mcp (env=%s)",
+                args.host, args.port, env_dir,
+            )
+            mcp.run(transport="streamable-http")
+    except KeyboardInterrupt:
+        logger.info("Server shutdown requested")
+    except Exception as e:
+        logger.exception("Server startup failed: %s", e)
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

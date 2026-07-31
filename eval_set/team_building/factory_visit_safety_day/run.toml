@@ -1,0 +1,15 @@
+job_name = "factory_visit_safety_day"
+job_dir = "outputs/team_building/factory_visit_safety_day"
+tasks = ["eval_set/team_building/factory_visit_safety_day"]
+n_attempts = 2
+n_concurrent_trials = 2
+agent_exec_timeout_sec = 14400
+resume = false
+
+[[agents]]
+name = "openclaw"
+model_name = "<your-provider>/<your-model>"
+
+[agents.kwargs]
+models_config_path = "runs/openclaw_models.json"
+think = "high"

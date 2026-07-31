@@ -1,0 +1,10 @@
+-- Generated listing_platform seed for baby_stroller_safety_standard_30d
+BEGIN;
+INSERT INTO agents (agent_id, name, agency, phone, rating, deals_count, service_area) VALUES ('agt_strr_1', '二手平台官方验机', '平台担保服务', '4009000088', 4.8, 15230, '全国 顺丰到付验机');
+INSERT INTO listings (listing_id, category, title, city, district, community, price_minor, area_sqm, rooms, metro, attrs_json, description, photos_json, agent_id, owner_user_id, status, listed_at) VALUES ('lst_strr_0001', 'secondhand', '出 GlideBaby S3 推车 9 成新', '南京市', '建邺区', '南京眼', 150000, NULL, NULL, '地铁站附近', '{"condition": "9新", "brand": "GlideBaby", "model": "S3", "invoice": true, "recalled": false}', '大宝用完转出，原装发票在，无事故无召回，平台担保交易优先。', '["正面", "接口", "电池健康截图"]', NULL, 'usr_yan_ting', 'active', '2026-06-14T09:00:00+08:00');
+INSERT INTO listings (listing_id, category, title, city, district, community, price_minor, area_sqm, rooms, metro, attrs_json, description, photos_json, agent_id, owner_user_id, status, listed_at) VALUES ('lst_strr_0002', 'secondhand', 'S3 推车 9 成新 当面交易', '南京市', '鼓楼区', '市区', 130000, NULL, NULL, '地铁站附近', '{"invoice": false}', '无发票，仅同城面交。', '["正面"]', 'agt_strr_1', NULL, 'active', '2026-06-14T10:00:00+08:00');
+INSERT INTO listings (listing_id, category, title, city, district, community, price_minor, area_sqm, rooms, metro, attrs_json, description, photos_json, agent_id, owner_user_id, status, listed_at) VALUES ('lst_strr_0003', 'secondhand', 'S3 推车 99新 平台担保', '南京市', '江宁区', '市区', 170000, NULL, NULL, '地铁站附近', '{"invoice": true}', '支持平台验机担保。', '["正面"]', 'agt_strr_1', NULL, 'active', '2026-06-14T10:00:00+08:00');
+INSERT INTO market_stats (stat_id, area, city, category, avg_price_minor, unit, sample_size, period) VALUES ('stat_strr_1', '南京眼', '南京市', 'secondhand', 155000, 'total', 27, '2026-06');
+INSERT INTO market_stats (stat_id, area, city, category, avg_price_minor, unit, sample_size, period) VALUES ('stat_strr_2', 'S3 推车', '南京市', 'secondhand', 158000, 'total', 82, '2026-06');
+INSERT INTO _counters (key,value) VALUES ('listing_seq',3),('viewing_seq',0),('contact_seq',0),('subscription_seq',0),('saved_seq',0);
+COMMIT;

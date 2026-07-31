@@ -1,0 +1,1 @@
+INSERT INTO notifications(notification_id,user_id,source,type,subscription_id,title,body,payload_json,created_at,read) VALUES ('ntf_route_0806','usr_seed_005','route_watch','policy_update','sub_rent_status','云栖苑东门临时绕行','东门步行段在 2026-08-08 至 2026-08-09 临时绕行，搬家车辆进入时段同步调整。','{"topic":"route_refresh","listing_id":"rs005_listing_c"}','2026-08-06T08:45:00+08:00',0);

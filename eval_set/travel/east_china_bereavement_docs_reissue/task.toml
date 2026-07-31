@@ -1,0 +1,50 @@
+[metadata]
+name = "east_china_bereavement_docs_reissue"
+title_zh = "华东亲属丧事与跨城证件补办低打扰协助"
+title_en = "Low-Disruption Bereavement Travel and Document Reissue Assistance"
+author = "VibeLifeBench"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "hard"
+category = "travel"
+tags = ["travel", "bereavement", "rail", "flight", "hotel", "legal", "banking", "calendar", "email", "maps", "notion", "notification", "privacy", "authorization"]
+summary_zh = "华东亲属丧事期间的跨城交通、住宿、证件补办、老人电子票协助、敏感材料保护、银行授权、定时恢复和最终归档任务。"
+summary_en = "A long-horizon East China bereavement task coordinating urgent rail and air travel, hotels, document reissue, elder e-ticket assistance, sensitive materials, banking authorization, scheduled recovery, and final archival."
+description = "A long-horizon East China bereavement task coordinating urgent rail and air travel, hotels, document reissue, elder e-ticket assistance, sensitive materials, banking authorization, scheduled recovery, and final archival."
+
+[scenario]
+stage_count = 22
+start_date = "2026-04-03"
+end_date = "2026-04-27"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["flight_booking", "rail_booking", "hotel_booking", "legal_search", "email", "calendar", "maps", "banking", "notion", "notification_hub"]
+
+[dependencies.envs]
+flight_booking = "east_china_bereavement_docs_reissue"
+rail_booking = "east_china_bereavement_docs_reissue"
+hotel_booking = "east_china_bereavement_docs_reissue"
+legal_search = "east_china_bereavement_docs_reissue"
+email = "east_china_bereavement_docs_reissue"
+calendar = "east_china_bereavement_docs_reissue"
+maps = "east_china_bereavement_docs_reissue"
+banking = "east_china_bereavement_docs_reissue"
+notion = "east_china_bereavement_docs_reissue"
+notification_hub = "east_china_bereavement_docs_reissue"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 44
+total_weight = 100.0
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = ""
+
+[run]
+config = "openclaw"

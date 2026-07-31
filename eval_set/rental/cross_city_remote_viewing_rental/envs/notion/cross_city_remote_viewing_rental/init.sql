@@ -1,0 +1,12 @@
+DELETE FROM comments;
+DELETE FROM blocks;
+DELETE FROM database_rows;
+DELETE FROM databases;
+DELETE FROM pages;
+DELETE FROM workspaces;
+DELETE FROM users;
+DELETE FROM counters;
+INSERT INTO users(user_id,name,avatar_url,email,type) VALUES ('usr_bot_rental','Rental Bot','','bot@notion.invalid','bot');
+INSERT INTO workspaces(workspace_id,name,owner_user_id) VALUES ('ws_rental_seed','租房工作区','usr_bot_rental');
+INSERT INTO pages(page_id,parent_type,parent_id,title,archived,created_time,last_edited_time,properties_json,icon,cover) VALUES ('pg_rental_home','workspace','ws_rental_seed','跨城入职远程看房与住址证明工作台',0,'2026-07-01T00:00:00.000Z','2026-07-01T00:00:00.000Z','{}',NULL,NULL);
+INSERT INTO counters(key,value) VALUES ('uuid_seq',1000);

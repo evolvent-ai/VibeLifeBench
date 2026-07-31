@@ -1,0 +1,2 @@
+-- Mutation SQL
+INSERT INTO alerts (alert_id,kind,severity,start_dt,end_dt,areas_json,description,active,created_at,source_event) VALUES ('alert_galapagos_sea_rough','marine','warning','2026-08-06T04:40:00-06:00','2026-08-21T23:59:00-06:00','["gps","puerto_ayora","baltra_channel"]','Rougher sea conditions; avoid long speedboat transfers for seasick travelers.',1,'2026-08-06T04:40:00Z','S13_mutation_sea_condition_warning');

@@ -1,0 +1,48 @@
+[metadata]
+name = "garage_adu_rental_conversion_25d"
+title_zh = "后院车库改合法出租 ADU 项目"
+title_en = "Legal Garage-to-Rental ADU Conversion"
+author = "VibeLifeBench"
+version = "1.0.0"
+language = ["zh", "en"]
+difficulty = "medium"
+category = "renovation"
+tags = ["renovation", "adu", "garage-conversion", "rental-compliance", "permit", "egress", "inspection", "tenant-listing", "budget"]
+summary_zh = "将后院车库改造为合法出租 ADU 的 25 阶段项目，覆盖分区许可、逃生与采光、卫浴和小厨房、承包商、检查整改、预算回本和出租上线合规。"
+summary_en = "A 25-stage project converting a backyard garage into a legal rental ADU, covering zoning, permits, egress, utilities, contractor selection, inspection rework, budget recovery, and compliant listing."
+description = "A 25-stage project converting a backyard garage into a legal rental ADU, covering zoning, permits, egress, utilities, contractor selection, inspection rework, budget recovery, and compliant listing."
+
+[scenario]
+stage_count = 25
+start_date = "2026-08-03"
+end_date = "2026-08-27"
+timezone = "Asia/Shanghai"
+
+[dependencies]
+servers = ["legal_search", "review_platform", "ecommerce", "listing_platform", "notification_hub", "email", "calendar", "notion"]
+
+[dependencies.envs]
+legal_search = "garage_adu_rental_conversion_25d"
+review_platform = "garage_adu_rental_conversion_25d"
+ecommerce = "garage_adu_rental_conversion_25d"
+listing_platform = "garage_adu_rental_conversion_25d"
+notification_hub = "garage_adu_rental_conversion_25d"
+email = "garage_adu_rental_conversion_25d"
+calendar = "garage_adu_rental_conversion_25d"
+notion = "garage_adu_rental_conversion_25d"
+
+[scoring]
+mode = "flat_pool"
+checker_count = 45
+total_weight = 77.5
+
+[runtime]
+entrypoint = "task.py"
+events = "event.yaml"
+workspace = "workspace"
+env_root = "envs"
+rubrics = "rubrics"
+mutations = ""
+
+[run]
+config = "openclaw"

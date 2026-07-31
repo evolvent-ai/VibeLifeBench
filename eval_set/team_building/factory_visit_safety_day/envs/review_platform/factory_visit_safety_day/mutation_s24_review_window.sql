@@ -1,0 +1,1 @@
+INSERT OR IGNORE INTO merchant_qa(qa_id,merchant_id,user_id,question,answer,answered_by,created_at) VALUES ('qa_factory_followup','mer_7a4c19d2','user_seed_tb_013','这次参访的高分贝声响提醒和分组安排还有什么可以改进？','建议下次在出发前一天单独发一次防护提醒，并把耳塞发放放在门岗登记环节完成。','merchant','2026-07-25T02:00:00Z');

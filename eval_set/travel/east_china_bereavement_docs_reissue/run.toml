@@ -1,0 +1,19 @@
+job_name = "east_china_bereavement_docs_reissue"
+job_dir = "outputs/travel/east_china_bereavement_docs_reissue"
+tasks = ["eval_set/travel/east_china_bereavement_docs_reissue"]
+n_attempts = 2
+n_concurrent_trials = 2
+agent_exec_timeout_sec = 14400
+resume = false
+
+[[agents]]
+name = "openclaw"
+model_name = "<your-provider>/<your-model>"
+
+[agents.kwargs]
+models_config_path = "runs/openclaw_models.json"
+think = "high"
+
+[agents.kwargs.agents_defaults_config.compaction]
+timeoutSeconds = 600
+truncateAfterCompaction = true

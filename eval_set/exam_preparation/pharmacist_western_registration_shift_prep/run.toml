@@ -1,0 +1,15 @@
+job_name = "pharmacist_western_registration_shift_prep"
+job_dir = "outputs/exam_preparation/pharmacist_western_registration_shift_prep"
+tasks = ["eval_set/exam_preparation/pharmacist_western_registration_shift_prep"]
+n_attempts = 2
+n_concurrent_trials = 1
+agent_exec_timeout_sec = 14400
+resume = false
+
+[[agents]]
+name = "openclaw"
+model_name = "<your-provider>/<your-model>"
+
+[agents.kwargs]
+models_config_path = "runs/openclaw_models.json"
+think = "high"

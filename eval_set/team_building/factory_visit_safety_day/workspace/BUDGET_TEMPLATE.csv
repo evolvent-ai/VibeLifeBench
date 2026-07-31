@@ -1,0 +1,5 @@
+item,estimate_minor,invoice_required,authorization_status,notes
+bus,0,true,pending,
+lunch,0,true,pending,
+insurance,0,true,pending,
+deposit,0,true,requires_user_confirmation,

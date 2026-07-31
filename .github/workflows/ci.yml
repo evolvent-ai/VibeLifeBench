@@ -1,0 +1,50 @@
+name: Release gate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  public-release-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        run: python -m pip install "uv==0.11.16"
+
+      - name: Sync locked dependencies
+        run: uv sync --locked
+
+      - name: Validate lock and environment
+        run: |
+          uv lock --check
+          uv pip check
+
+      - name: Materialize task environments
+        run: |
+          uv run python scripts/materialize_envs.py
+          uv run python scripts/materialize_envs.py --check
+
+      - name: Compile public Python sources
+        run: uv run python -m compileall -q capabilities lib scripts eval_set servers tests
+
+      - name: Run public regression tests
+        run: uv run pytest -q
+
+      - name: Build modified mock-server packages
+        run: |
+          uv build servers/banking_mock --out-dir /tmp/vibelifebench-dist/banking
+          uv build servers/hotel_booking_mock --out-dir /tmp/vibelifebench-dist/hotel
+          uv build servers/flight_booking_mock --out-dir /tmp/vibelifebench-dist/flight

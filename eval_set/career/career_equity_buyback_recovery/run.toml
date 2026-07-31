@@ -1,0 +1,15 @@
+job_name = "career_equity_buyback_recovery"
+job_dir = "outputs/career/career_equity_buyback_recovery"
+tasks = ["eval_set/career/career_equity_buyback_recovery"]
+n_attempts = 5
+n_concurrent_trials = 5
+agent_exec_timeout_sec = 14400
+resume = false
+
+[[agents]]
+name = "openclaw"
+model_name = "<your-provider>/<your-model>"
+
+[agents.kwargs]
+models_config_path = "runs/openclaw_models.json"
+think = "high"

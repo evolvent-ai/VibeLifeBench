@@ -1,0 +1,98 @@
+{
+  "providers": {
+    "anthropic": {
+      "baseUrl": "https://api.anthropic.com",
+      "apiKey": "<ANTHROPIC_API_KEY>",
+      "api": "anthropic-messages",
+      "models": [
+        {
+          "id": "claude-opus-4-8",
+          "name": "Claude Opus 4.8",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "contextWindow": 950000,
+          "maxTokens": 128000
+        }
+      ]
+    },
+
+    "openai": {
+      "baseUrl": "https://api.openai.com/v1",
+      "apiKey": "<OPENAI_API_KEY>",
+      "authHeader": true,
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "gpt-5.5",
+          "name": "GPT-5.5",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "contextWindow": 320000,
+          "maxTokens": 128000,
+          "params": {
+            "reasoning_effort": "xhigh"
+          },
+          "compat": {
+            "supportsReasoningEffort": true,
+            "supportedReasoningEfforts": ["low", "medium", "high", "xhigh"]
+          }
+        }
+      ]
+    },
+
+    "moonshot": {
+      "baseUrl": "https://api.moonshot.ai/v1",
+      "apiKey": "<MOONSHOT_API_KEY>",
+      "authHeader": true,
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "kimi-k2.6",
+          "name": "Kimi K2.6",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "contextWindow": 262144,
+          "maxTokens": 65536,
+          "params": {
+            "reasoning_effort": "xhigh"
+          },
+          "compat": {
+            "supportsReasoningEffort": true,
+            "supportedReasoningEfforts": ["low", "medium", "high", "xhigh"]
+          }
+        }
+      ]
+    },
+
+    "deepseek": {
+      "baseUrl": "https://api.deepseek.com",
+      "apiKey": "<DEEPSEEK_API_KEY>",
+      "authHeader": true,
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 950000,
+          "maxTokens": 128000,
+          "params": {
+            "reasoning_effort": "xhigh",
+            "extra_body": {
+              "thinking": {
+                "type": "enabled"
+              }
+            }
+          },
+          "compat": {
+            "supportsReasoningEffort": true,
+            "supportedReasoningEfforts": ["low", "medium", "high", "xhigh"],
+            "maxTokensField": "max_tokens",
+            "thinkingFormat": "deepseek"
+          }
+        }
+      ]
+    }
+  }
+}

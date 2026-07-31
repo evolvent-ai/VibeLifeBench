@@ -1,0 +1,1 @@
+INSERT OR REPLACE INTO notifications VALUES ('notif_ticket_open','user_zhou','provincial_pharmacist_office','portal_status',NULL,'准考证打印入口开放','准考证状态 open_no_seat，暂未写入考点和座位。','{"ticket_status":"open_no_seat"}','2026-10-06T08:00:00+08:00',0);

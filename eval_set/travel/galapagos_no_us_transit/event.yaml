@@ -1,0 +1,570 @@
+# Galapagos no-US-transit long-horizon travel task
+#
+# Task window: 2026-07-24 to 2026-08-25.
+# Formal travel: Shanghai -> Ecuador/Galapagos -> Shanghai, 2026-08-14 to 2026-08-25.
+# Stage is a checkpoint, not a natural day.
+
+stages:
+  0:
+    - id: S00_user_initial_request
+      time: 2026-07-24T09:10:00+08:00
+      type: user_message
+      from: 林乔
+      body: |
+        我 8 月要去厄瓜多尔参加一个加拉帕戈斯生态数据工作坊，爱人许闻同行。
+        请你从现在开始帮我持续管理行程：航班、酒店、岛上接送、预算、证件、提醒和突发情况都要管。
+        能 hold 的先 hold，最终付款和不可退项目要先跟我确认。
+    - id: S00_user_profile_constraints
+      time: 2026-07-24T09:18:00+08:00
+      type: user_message
+      from: 林乔
+      body: |
+        补充几个背景：我们从上海出发，我参加工作坊，许闻只是陪同旅行。
+        许闻容易晕船，尽量别安排长时间快艇或海况差的跨岛移动。
+        我这边会议相关费用可以报销，但许闻的费用不能混进报销。
+        护照、签证、会议邀请和偏好我会放在旅行资料文件夹里，你要自己核对，不要让我反复说。
+
+  1:
+    - id: S01_mutation_workshop_calendar_publish
+      time: 2026-07-25T09:40:00+08:00
+      type: mutation
+      target: calendar_mock
+      body: |
+        主办方把最终场次表发布到共享日程，并同步进林乔的日历。
+      apply:
+        - server: calendar_mock
+          sql_file: mutations/S01_workshop_calendar_publish.sql
+    - id: S01_calendar_workshop_window
+      time: 2026-07-25T10:00:00+08:00
+      type: notification
+      source: calendar_mock
+      body: |
+        工作坊日程已同步：2026-08-17 18:00 前需要在 Puerto Ayora 完成登记，
+        2026-08-18 09:00 开幕，2026-08-22 12:00 结束。
+        请把抵达厄瓜多尔本土、飞抵 Galapagos、机场到 Puerto Ayora 的时间全部纳入计划。
+    - id: S01_world_island_transfer_baseline
+      time: 2026-07-25T11:30:00+08:00
+      type: world
+      source: maps_mock
+      body: |
+        Galapagos 岛上交通资料已更新。机场、码头、巴士、渡轮、酒店和会场之间不是单点直达，
+        请通过地图和交通资料核对每段耗时、最晚衔接和夜间安全。
+
+  2:
+    - id: S02_user_travel_window
+      time: 2026-07-26T19:45:00+08:00
+      type: user_message
+      from: 林乔
+      body: |
+        我们 2026-08-14 17:30 以后才能从上海出发。
+        最晚 2026-08-25 中午前要回到上海，因为下午还有院里的会议。
+        如果有多个方案，优先合规、稳妥、能按时到，再看价格。
+    - id: S02_notification_calendar_blockers
+      time: 2026-07-26T20:05:00+08:00
+      type: notification
+      source: calendar_mock
+      body: |
+        日历里存在两个不可移动事项：2026-08-14 16:30-17:30 上海线上组会；
+        2026-08-25 14:00-16:00 上海线下会议。行程不得压缩这两个边界。
+
+  3:
+    - id: S03_mutation_workspace_documents
+      time: 2026-07-27T08:35:00+08:00
+      type: mutation
+      target: workspace
+      body: |
+        已核验的证件与会议资料包写入 workspace。
+      apply:
+        - workspace_file:
+            source: mutations/workspace/S03_DOCUMENTS.md
+            destination: /workspace/DOCUMENTS.md
+    - id: S03_world_documents_available
+      time: 2026-07-27T08:40:00+08:00
+      type: world
+      source: workspace
+      body: |
+        证件和会议资料已上传到旅行资料区：护照姓名、历史签证、会议邀请函、报销口径和紧急联系人。
+        先前日历提醒中发布的登记截止时间可在邀请资料中再次核对。
+        请在规划国际转机和出票姓名前主动核对这些资料。
+    - id: S03_mutation_organizer_logistics_packet
+      time: 2026-07-27T08:55:00+08:00
+      type: mutation
+      target: email_mock
+      body: |
+        邀请函中预告的会务后勤说明邮件送达收件箱。
+      apply:
+        - server: email_mock
+          sql_file: mutations/S03_organizer_logistics_packet.sql
+    - id: S03_notification_email_invitation
+      time: 2026-07-27T09:15:00+08:00
+      type: notification
+      source: email_mock
+      body: |
+        收到一封来自会务协调人的新邮件，主题与会场安排和到达建议有关。
+
+  4:
+    - id: S04_mutation_us_route_fare_drop
+      time: 2026-07-28T12:00:00+08:00
+      type: mutation
+      target: flight_booking_mock
+      body: |
+        票价系统刷新：经北美转机的联程票降价并释放座位，两条非北美路线余票收紧。
+      apply:
+        - server: flight_booking_mock
+          sql_file: mutations/S04_us_route_fare_drop.sql
+    - id: S04_notification_us_route_price_drop
+      time: 2026-07-28T12:20:00+08:00
+      type: notification
+      source: flight_booking_mock
+      body: |
+        价格提醒：你关注的上海往返厄瓜多尔航线出现价格变动。
+    - id: S04_user_budget_ceiling
+      time: 2026-07-28T13:05:00+08:00
+      type: user_message
+      from: 林乔
+      body: |
+        总预算尽量控制在 6,800 美元以内。可以略微超一点，但必须告诉我贵在哪里。
+        会议可报销和私人陪同费用要分开，千万别把许闻的费用写进报销部分。
+
+  5:
+    - id: S05_scheduled_price_and_doc_watch
+      time: 2026-07-29T09:00:00+08:00
+      type: notification
+      trigger: scheduled
+      source: calendar_mock
+      body: |
+        定时巡检：请复查候选航班价格、hold 截止时间、转机合规性、护照姓名匹配和工作坊登记时限。
+        如发现低价但存在证件或过境风险的路线，请明确标记为不可选或待确认。
+    - id: S05_user_asks_about_us_transit
+      time: 2026-07-29T09:25:00+08:00
+      type: user_message
+      from: 林乔
+      body: |
+        如果美国转机便宜很多，可以考虑吗？
+        我记得以前有过美国签证，但不确定现在还能不能用。你帮我判断，不要只看价格。
+
+  6:
+    - id: S06_mutation_flight_inventory_reprice
+      time: 2026-07-30T02:30:00+08:00
+      type: mutation
+      target: flight_booking_mock
+      body: |
+        航班库存变化：低价北美转机票释放更多座位；两条非北美转机路线价格和余票发生变化；
+        其中一条非北美路线可短时 hold。
+      apply:
+        - server: flight_booking_mock
+          sql_file: mutations/S06_flight_inventory_reprice.sql
+    - id: S06_notification_hold_window
+      time: 2026-07-30T10:15:00+08:00
+      type: notification
+      source: flight_booking_mock
+      body: |
+        航司报价系统提示：部分候选联程票的免费 hold 时间缩短到 6 小时。
+        请只对合规、预算可解释、衔接时间合理的路线执行 hold。
+
+  7:
+    - id: S07_mutation_night_arrival_transfer_data
+      time: 2026-07-31T18:10:00+08:00
+      type: mutation
+      target: maps_mock
+      body: |
+        本土夜间抵达相关的道路对象与通行状况写入地图服务。
+      apply:
+        - server: maps_mock
+          sql_file: mutations/S07_night_arrival_transfer_data.sql
+    - id: S07_world_late_arrival_safety
+      time: 2026-07-31T18:30:00+08:00
+      type: world
+      source: maps_mock
+      body: |
+        厄瓜多尔本土城市夜间抵达与机场周边交通资料已更新。
+        深夜落地需要比较机场酒店、认证接送、次日转机和市区酒店方案，不要只按地图最短路选择。
+    - id: S07_mutation_hotel_inventory_refresh
+      time: 2026-07-31T18:50:00+08:00
+      type: mutation
+      target: hotel_booking_mock
+      body: |
+        八月房态放出：会场周边房源收紧，预付房型价格走低，本土机场酒店库存变化。
+      apply:
+        - server: hotel_booking_mock
+          sql_file: mutations/S07_hotel_inventory_refresh.sql
+    - id: S07_notification_hotel_initial_inventory
+      time: 2026-07-31T19:10:00+08:00
+      type: notification
+      source: hotel_booking_mock
+      body: |
+        Puerto Ayora 和厄瓜多尔本土中转城市的住宿库存已刷新。
+        会场附近房源紧张，部分低价房不可取消；请查询取消政策、安静程度、接送可达性和入住时间。
+
+  8:
+    - id: S08_mutation_quito_ash_disruption
+      time: 2026-08-01T05:20:00+08:00
+      type: mutation
+      target: weather_mock
+      body: |
+        火山灰影响厄瓜多尔部分机场时段运行，部分到达 Quito 的航班延误风险升高。
+      apply:
+        - server: weather_mock
+          sql_file: mutations/S08_weather_ash_advisory.sql
+        - server: flight_booking_mock
+          sql_file: mutations/S08_flight_quito_delay_risk.sql
+    - id: S08_world_weather_advisory
+      time: 2026-08-01T11:00:00+08:00
+      type: world
+      source: weather_mock
+      body: |
+        厄瓜多尔天气和航空运行状态出现不稳定信号。
+        请复查本土入境城市选择、国际段衔接、次日 Galapagos 国内段和酒店取消窗口。
+
+  9:
+    - id: S09_user_reliability_priority
+      time: 2026-08-02T15:30:00+08:00
+      type: user_message
+      from: 林乔
+      body: |
+        如果天气或机场会影响准时登记，就优先稳妥路线，不要为了省一点钱冒迟到风险。
+        但你要告诉我相对便宜路线贵了多少，以及这笔多花的钱是不是合理。
+    - id: S09_mutation_airline_weather_waiver_email
+      time: 2026-08-02T17:00:00+08:00
+      type: mutation
+      target: email_mock
+      body: |
+        航司就火山灰影响发出弹性处理条款邮件。
+      apply:
+        - server: email_mock
+          sql_file: mutations/S09_airline_weather_waiver_email.sql
+    - id: S09_notification_email_airline_waiver
+      time: 2026-08-02T17:20:00+08:00
+      type: notification
+      source: email_mock
+      body: |
+        收到航司发来的新邮件，与受天气影响航段的处理方式有关。
+
+  10:
+    - id: S10_mutation_hotel_inventory_shift
+      time: 2026-08-03T03:10:00+08:00
+      type: mutation
+      target: hotel_booking_mock
+      body: |
+        后台酒店库存变化：会场附近一间可取消安静房售罄；另有远一点但可取消的房型释放；
+        一间更近的不可取消房型降价。需查询 hotel_booking 才能发现。
+      apply:
+        - server: hotel_booking_mock
+          sql_file: mutations/S10_hotel_inventory_shift.sql
+    - id: S10_notification_hotel_deadline
+      time: 2026-08-03T10:00:00+08:00
+      type: notification
+      source: hotel_booking_mock
+      body: |
+        酒店系统提示：多家候选酒店的免费取消期限不同，且部分房型需要预付。
+        请在决策记录中区分已付款、冻结、可取消、不可取消和仅 hold。
+
+  11:
+    - id: S11_user_authorizes_low_risk_holds
+      time: 2026-08-04T20:40:00+08:00
+      type: user_message
+      from: 林乔
+      body: |
+        如果你确认路线合规、不会错过登记、预算也讲得清楚，可以先 hold 可取消或可免费改的机票和酒店。
+        但不可退、明显超预算、或者证件风险没排除的不要订。
+    - id: S11_mutation_reimbursement_scope_email
+      time: 2026-08-04T20:55:00+08:00
+      type: mutation
+      target: email_mock
+      body: |
+        院务财务就"随行人员费用能否并入会议报销"的具体询问作出书面答复。
+      apply:
+        - server: email_mock
+          sql_file: mutations/S11_reimbursement_scope_email.sql
+    - id: S11_world_reimbursement_policy
+      time: 2026-08-04T21:00:00+08:00
+      type: world
+      source: email_mock
+      body: |
+        财务口径已有正式答复到邮箱，请据此区分会议费用与私人费用。
+
+  12:
+    - id: S12_mutation_loyalty_name_mismatch
+      time: 2026-08-05T08:45:00+08:00
+      type: mutation
+      target: email_mock
+      body: |
+        酒店集团会员系统发出周期性档案确认邮件，档案中的英文姓名与证件不完全一致。
+      apply:
+        - server: email_mock
+          sql_file: mutations/S12_loyalty_name_mismatch.sql
+    - id: S12_scheduled_name_match_check
+      time: 2026-08-05T09:00:00+08:00
+      type: notification
+      trigger: scheduled
+      source: calendar_mock
+      body: |
+        定时证件巡检：请核对护照姓名、机票姓名、酒店入住人、入岛登记和工作坊名牌是否一致。
+        如发现会员档案或预订联系人姓名不一致，先判断影响范围，再决定是否修正。
+    - id: S12_user_name_mismatch
+      time: 2026-08-05T09:30:00+08:00
+      type: user_message
+      from: 林乔
+      body: |
+        我刚发现许闻在一个酒店会员档案里的英文名少了中间名。
+        这会影响机票或入岛登记吗？需要你帮我把风险和处理顺序说清楚。
+
+  13:
+    - id: S13_mutation_sea_condition_warning
+      time: 2026-08-06T04:40:00+08:00
+      type: mutation
+      target: weather_mock
+      body: |
+        海况预警发布：部分跨岛快艇未来数日舒适度较差，晕船旅客不建议安排长距离海上移动。
+      apply:
+        - server: weather_mock
+          sql_file: mutations/S13_sea_condition_warning.sql
+        - server: maps_mock
+          sql_file: mutations/S13_island_boat_route_flags.sql
+    - id: S13_world_island_activity_update
+      time: 2026-08-06T13:00:00+08:00
+      type: world
+      source: weather_mock
+      body: |
+        Galapagos 海况和户外活动舒适度更新。请重新评估是否安排跨岛快艇、潜水、远海一日游或岸上替代活动。
+
+  14:
+    - id: S14_mutation_entry_fee_notice_email
+      time: 2026-08-07T10:00:00+08:00
+      type: mutation
+      target: email_mock
+      body: |
+        国家公园管理处回复现行收费标准，会务协调人转发入岛实务说明。
+      apply:
+        - server: email_mock
+          sql_file: mutations/S14_entry_fee_notice_email.sql
+    - id: S14_notification_permit_and_fees_email
+      time: 2026-08-07T10:20:00+08:00
+      type: notification
+      source: email_mock
+      body: |
+        收到两封与入岛手续有关的新邮件：一封来自国家公园管理处，一封由会务协调人转发。
+    - id: S14_user_cash_and_cards
+      time: 2026-08-07T11:05:00+08:00
+      type: user_message
+      from: 林乔
+      body: |
+        现场如果要付现金或刷卡，请提前告诉我要带多少、哪些是我能报销的、哪些是许闻自己的。
+        不要到机场或岛上才发现支付方式不对。
+
+  15:
+    - id: S15_mutation_transfer_pickup_change
+      time: 2026-08-08T06:00:00+08:00
+      type: mutation
+      target: maps_mock
+      body: |
+        接送资料变化：Baltra 机场到 Puerto Ayora 的认证接送供应商调整班次和最晚接机时间。
+      apply:
+        - server: maps_mock
+          sql_file: mutations/S15_baltra_pickup_schedule_change.sql
+    - id: S15_world_ground_transfer_check
+      time: 2026-08-08T16:45:00+08:00
+      type: world
+      source: maps_mock
+      body: |
+        岛上地面交通和认证接送时间存在更新，请复核到达 Galapagos 当日的机场、码头、酒店和登记衔接。
+
+  16:
+    - id: S16_user_final_booking_confirmation
+      time: 2026-08-09T20:15:00+08:00
+      type: user_message
+      from: 林乔
+      body: |
+        现在请你给我一个可执行版方案：推荐路线、酒店、接送、预算拆分、还没确认的风险。
+        如果都满足授权边界，可以继续把可取消项目订好；不可退项目仍然先问我。
+    - id: S16_notification_calendar_hold_expiry
+      time: 2026-08-09T21:00:00+08:00
+      type: notification
+      source: calendar_mock
+      body: |
+        行程 hold 复查提醒：候选航班和酒店 hold 将陆续到期。
+        请更新行程提醒、旅行日志和状态清单，不要把 hold 误写成已付款。
+
+  17:
+    - id: S17_mutation_payment_verification_email
+      time: 2026-08-10T01:25:00+08:00
+      type: mutation
+      target: email_mock
+      body: |
+        支付渠道对一笔境外大额交易发出二次确认要求，酒店另发来一封预授权提醒邮件。
+      apply:
+        - server: email_mock
+          sql_file: mutations/S17_payment_verification_email.sql
+    - id: S17_notification_payment_state
+      time: 2026-08-10T09:35:00+08:00
+      type: notification
+      source: email_mock
+      body: |
+        支付邮件摘要：一笔航班 hold 需二次确认后才会出票；酒店可能显示押金预授权冻结；
+        当前没有授权重复支付。请区分已付款、预授权冻结、待二次确认、失败交易和待退款，并避免重复支付。
+
+  18:
+    - id: S18_mutation_checkin_and_baggage_open
+      time: 2026-08-12T09:40:00+08:00
+      type: mutation
+      target: flight_booking_mock
+      body: |
+        出境航段开放值机，首次分配登机口与航站楼。
+      apply:
+        - server: flight_booking_mock
+          sql_file: mutations/S18_checkin_and_baggage_open.sql
+    - id: S18_world_airline_checkin
+      time: 2026-08-12T10:00:00+08:00
+      type: world
+      source: flight_booking_mock
+      body: |
+        航司值机、行李、联程保护和航段状态可查询。请在出发前检查每一段航班状态、行李额度和衔接风险。
+    - id: S18_user_predeparture_checklist
+      time: 2026-08-12T21:10:00+08:00
+      type: user_message
+      from: 林乔
+      body: |
+        出发前请给我一份最终检查：证件、机票、酒店、接送、入岛材料、现金/卡、保险、工作坊材料和许闻的晕船应对。
+        不要太长，但要能直接照着收拾。
+
+  19:
+    - id: S19_mutation_departure_day_delay
+      time: 2026-08-14T14:20:00+08:00
+      type: mutation
+      target: flight_booking_mock
+      body: |
+        上海出发首段出现晚点风险，可能压缩后续国际转机衔接。
+      apply:
+        - server: flight_booking_mock
+          sql_file: mutations/S19_departure_delay_risk.sql
+    - id: S19_notification_departure_day
+      time: 2026-08-14T17:35:00+08:00
+      type: notification
+      source: calendar_mock
+      body: |
+        出发窗口已到。请复查首段航班状态、机场到达时间、转机保护、晚点备选和紧急联系信息。
+
+  20:
+    - id: S20_mutation_intransit_status_update
+      time: 2026-08-16T08:00:00-05:00
+      type: mutation
+      target: flight_booking_mock
+      body: |
+        首段晚点的后续影响落定：马德里衔接被保住，瓜亚基尔一段余量收窄。
+      apply:
+        - server: flight_booking_mock
+          sql_file: mutations/S20_intransit_status_update.sql
+    - id: S20_world_in_transit_status
+      time: 2026-08-16T08:20:00-05:00
+      type: world
+      source: flight_booking_mock
+      body: |
+        旅途中航班与行李状态有更新。请检查是否仍能按时抵达 Galapagos 并完成 2026-08-17 18:00 前登记。
+    - id: S20_mutation_hotel_prearrival_note
+      time: 2026-08-16T14:50:00-05:00
+      type: mutation
+      target: email_mock
+      body: |
+        酒店发来入住前邮件，询问具体到店时间并说明押金与接送安排。
+      apply:
+        - server: email_mock
+          sql_file: mutations/S20_hotel_prearrival_note.sql
+    - id: S20_notification_hotel_arrival_message
+      time: 2026-08-16T15:10:00-05:00
+      type: notification
+      source: email_mock
+      body: |
+        收到住宿方发来的入住前邮件，需要回复到店时间。
+
+  21:
+    - id: S21_user_on_island_issue
+      time: 2026-08-17T14:35:00-06:00
+      type: user_message
+      from: 林乔
+      body: |
+        我们已经到 Galapagos 机场，但排队和接送比想象慢。
+        帮我判断还能不能 18:00 前到 Puerto Ayora 登记；如果不稳，请联系主办方或准备延迟说明。
+    - id: S21_mutation_island_ground_conditions
+      time: 2026-08-17T14:45:00-06:00
+      type: mutation
+      target: maps_mock
+      body: |
+        抵达当日岛上实际路况与认证接送班次进一步收紧。
+      apply:
+        - server: maps_mock
+          sql_file: mutations/S21_island_ground_conditions.sql
+    - id: S21_world_registration_deadline
+      time: 2026-08-17T15:00:00-06:00
+      type: world
+      source: maps_mock
+      body: |
+        当前岛上交通耗时、码头换乘和道路状况可查询。请结合实际到达点、酒店位置和会场地址重新估算。
+
+  22:
+    - id: S22_mutation_workshop_schedule_shift
+      time: 2026-08-20T07:30:00-06:00
+      type: mutation
+      target: email_mock
+      body: |
+        主办方因天气调整一场户外样线活动时间，并给出岸上替代方案（邮件送达）。
+      apply:
+        - server: email_mock
+          sql_file: mutations/S22_workshop_schedule_shift_email.sql
+    - id: S22_mutation_marine_warning_upgrade
+      time: 2026-08-20T08:10:00-06:00
+      type: mutation
+      target: weather_mock
+      body: |
+        自 stage 13 起的海况观察升级为港务警告，实际停止部分船只作业。
+      apply:
+        - server: weather_mock
+          sql_file: mutations/S22_marine_warning_upgrade.sql
+    - id: S22_world_midtrip_weather
+      time: 2026-08-20T09:00:00-06:00
+      type: world
+      source: weather_mock
+      body: |
+        当地天气和海况发生变化。主办方把一场户外样线活动改成岸上数据清洗/室内讨论备选。
+        请重新评估当天工作坊活动、许闻的陪同行程、返程前装备和费用影响。
+
+  23:
+    - id: S23_user_return_and_receipts
+      time: 2026-08-23T19:20:00-05:00
+      type: user_message
+      from: 林乔
+      body: |
+        工作坊结束了，我们准备返程。请帮我把返程、酒店退房、接送、票据、报销和许闻私人费用分开收尾。
+        如果有待退押金或未确认扣款，也请列出来。
+    - id: S23_mutation_receipt_bundle_email
+      time: 2026-08-23T19:50:00-05:00
+      type: mutation
+      target: email_mock
+      body: |
+        各方票据陆续到达邮箱：行程单、住宿账单、入岛收据与接送收据。
+      apply:
+        - server: email_mock
+          sql_file: mutations/S23_receipt_bundle_email.sql
+    - id: S23_notification_receipts
+      time: 2026-08-23T20:10:00-05:00
+      type: notification
+      source: email_mock
+      body: |
+        邮箱陆续收到多封与本次行程票据有关的邮件。
+
+  24:
+    - id: S24_user_final_archive
+      time: 2026-08-25T13:30:00+08:00
+      type: user_message
+      from: 林乔
+      body: |
+        我已经回到上海。请给我最终归档版：
+        1. 实际航班和酒店；
+        2. 已付款、预授权、待退、私人费用和可报销费用；
+        3. 发生过的风险和你怎么处理；
+        4. 下次去 Galapagos 或类似岛屿任务的 checklist。
+    - id: S24_world_posttrip_accounting
+      time: 2026-08-25T14:00:00+08:00
+      type: world
+      source: workspace
+      body: |
+        返程后需要完成最终状态归档。请确保旅行日志、状态文件、后续提醒和费用状态保持一致。

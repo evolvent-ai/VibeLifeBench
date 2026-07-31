@@ -1,0 +1,1 @@
+INSERT OR IGNORE INTO notifications(notification_id,user_id,source,type,subscription_id,title,body,payload_json,created_at,read) VALUES ('notif_pottery_onsite_0721','user_luyao_tb011','onsite_monitor','new_content',NULL,'现场材料与手套反馈','有人询问使用高复杂度亮面釉；另有参与者反馈手套佩戴不适。现场可切换低接触材料并安排休息，不做医疗判断。','{"onsite":"material_and_glove"}','2026-07-21T08:25:00+08:00',0);

@@ -1,0 +1,1 @@
+INSERT OR IGNORE INTO notifications(notification_id,user_id,source,type,subscription_id,title,body,payload_json,created_at,read) VALUES ('notif_pottery_private_0716','user_luyao_tb011','compliance_monitor','policy_update',NULL,'收款账户异常待核验','供应商定金请求指向私人账户；付款权限尚未取得，请暂停并核对原邮件链。','{"risk":"private_account","amount_minor":980000}','2026-07-16T08:44:00+08:00',0);

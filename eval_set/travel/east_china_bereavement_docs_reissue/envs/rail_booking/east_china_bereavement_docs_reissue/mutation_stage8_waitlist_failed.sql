@@ -1,0 +1,1 @@
+UPDATE train_bookings SET status='waitlist_failed', history_json='[{"at":"2026-04-07T10:10:00+08:00","event":"WAITLIST_CREATED"},{"at":"2026-04-08T08:40:00+08:00","event":"WAITLIST_FAILED","refund_status":"pending"}]' WHERE booking_ref='rail_booking_suz_sha_waitlist';

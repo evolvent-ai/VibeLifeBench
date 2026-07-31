@@ -1,0 +1,29 @@
+[project]
+name = "maps-mock"
+version = "0.1.0"
+description = "FastMCP-based mock Maps server (geocode, places, directions, transit; SQLite, streamable-HTTP, offline)"
+readme = "README.md"
+authors = [
+    { name = "Toolathlon", email = "noreply@toolathlon.local" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=2.10.5",
+    "mcp[cli]>=1.11.0",
+    "typing-extensions>=4.9.0",
+]
+
+[project.scripts]
+maps-mock = "maps_mock.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/maps_mock"]
+
+[tool.hatch.build]
+include = [
+    "src/maps_mock/**/*.py",
+]
