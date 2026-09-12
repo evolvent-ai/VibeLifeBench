@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "family_profile_sync_20260902"
+  ],
+  "source_stage": 1,
+  "source_time": "2026-09-02T09:55:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-000-token",
+  "operations": [
+    {
+      "server": "notion",
+      "table": "pages",
+      "op": "update",
+      "source_event_id": "family_profile_sync_20260902",
+      "operation_index": 0,
+      "values": {
+        "title": "Parents Kansai travel mobility profile",
+        "last_edited_time": "2026-09-02T09:55:00+08:00",
+        "properties_json": "{\"scope\":\"travel logistics only\",\"source\":\"family profile sync\",\"medical_clearance\":false}"
+      },
+      "set": {
+        "title": "Parents Kansai travel mobility profile",
+        "last_edited_time": "2026-09-02T09:55:00+08:00",
+        "properties_json": "{\"scope\":\"travel logistics only\",\"source\":\"family profile sync\",\"medical_clearance\":false}"
+      },
+      "where": {
+        "page_id": "pg_access_notes"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "update",
+      "source_event_id": "family_profile_sync_20260902",
+      "operation_index": 1,
+      "values": {
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"father：[source-term-U+907F][source-term-U+514D]red-eye flight、[source-term-U+8FC7][source-term-U+65E9]departure[source-term-U+548C]long periods of standing；[source-term-U+5E38][source-term-U+7528]departure[source-term-U+673A][source-term-U+573A][source-term-U+4E3A]Shanghai Pudong。\"}}]}",
+        "last_edited_time": "2026-09-02T09:55:00+08:00"
+      },
+      "set": {
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"father：[source-term-U+907F][source-term-U+514D]red-eye flight、[source-term-U+8FC7][source-term-U+65E9]departure[source-term-U+548C]long periods of standing；[source-term-U+5E38][source-term-U+7528]departure[source-term-U+673A][source-term-U+573A][source-term-U+4E3A]Shanghai Pudong。\"}}]}",
+        "last_edited_time": "2026-09-02T09:55:00+08:00"
+      },
+      "where": {
+        "block_id": "blk_access_1"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "update",
+      "source_event_id": "family_profile_sync_20260902",
+      "operation_index": 2,
+      "values": {
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"mother：walking[source-term-U+901F][source-term-U+5EA6][source-term-U+8F83][source-term-U+6162]；[source-term-U+4F4F][source-term-U+5BBF][source-term-U+4F18][source-term-U+5148]elevator[source-term-U+6216]step-free[source-term-U+8DEF][source-term-U+5F84]、few transfers，[source-term-U+5E76][source-term-U+5C3D][source-term-U+91CF][source-term-U+63A7][source-term-U+5236][source-term-U+5728]stationwalking[source-term-U+7EA6] 10 minute[source-term-U+949F][source-term-U+5185]。[source-term-U+8BE5]recordfor logistics planning only，[source-term-U+4E0D][source-term-U+6784][source-term-U+6210]medicalfit to fly[source-term-U+5224][source-term-U+65AD]。\"}}]}",
+        "last_edited_time": "2026-09-02T09:55:00+08:00"
+      },
+      "set": {
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"mother：walking[source-term-U+901F][source-term-U+5EA6][source-term-U+8F83][source-term-U+6162]；[source-term-U+4F4F][source-term-U+5BBF][source-term-U+4F18][source-term-U+5148]elevator[source-term-U+6216]step-free[source-term-U+8DEF][source-term-U+5F84]、few transfers，[source-term-U+5E76][source-term-U+5C3D][source-term-U+91CF][source-term-U+63A7][source-term-U+5236][source-term-U+5728]stationwalking[source-term-U+7EA6] 10 minute[source-term-U+949F][source-term-U+5185]。[source-term-U+8BE5]recordfor logistics planning only，[source-term-U+4E0D][source-term-U+6784][source-term-U+6210]medicalfit to fly[source-term-U+5224][source-term-U+65AD]。\"}}]}",
+        "last_edited_time": "2026-09-02T09:55:00+08:00"
+      },
+      "where": {
+        "block_id": "blk_access_2"
+      }
+    }
+  ]
+}

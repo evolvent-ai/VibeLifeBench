@@ -1,0 +1,20 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "east-china-release-004-7f6c2d91b0a449c2",
+  "operations": [
+    {
+      "server": "rail_booking",
+      "table": "train_bookings",
+      "op": "update",
+      "set": {
+        "status": "waitlist_failed",
+        "history_json": "[{\"at\":\"2026-04-07T10:10:00+08:00\",\"event\":\"WAITLIST_CREATED\"},{\"at\":\"2026-04-08T08:40:00+08:00\",\"event\":\"WAITLIST_FAILED\",\"refund_status\":\"pending\"}]"
+      },
+      "where": {
+        "booking_ref": "rail_booking_suz_sha_waitlist"
+      },
+      "source_event_id": "evt_s8_mut_waitlist_failed"
+    }
+  ]
+}

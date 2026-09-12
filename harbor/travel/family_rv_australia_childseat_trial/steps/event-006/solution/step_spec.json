@@ -1,0 +1,39 @@
+{
+  "step": "event-006",
+  "stage": 5,
+  "virtual_stage": 5,
+  "source_event_id": "evt_s5_notification_inventory_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": []
+  },
+  "response": "Reviewed the remaining compliant child-restraint inventory and drafted a supplier-standard query.",
+  "response_paraphrase": "Checked the one-seat stock change and prepared a message asking the supplier to verify AS/NZS compliance.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s5_notification_inventory_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_detect_childseat_stock_change",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s5_email_childseat_standard_query",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s5_update_risk_log",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

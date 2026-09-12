@@ -1,0 +1,200 @@
+{
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "galapagos-no-us-transit-release-003-20260825-token",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "price": 125.0,
+        "seats_remaining": 13
+      },
+      "where": {
+        "flight_no": "CM159",
+        "date": "2026-08-15",
+        "cabin": "ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "price": 155.0,
+        "seats_remaining": 12
+      },
+      "where": {
+        "flight_no": "CM473",
+        "date": "2026-08-14",
+        "cabin": "ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "price": 830.0,
+        "seats_remaining": 8
+      },
+      "where": {
+        "flight_no": "CX315",
+        "date": "2026-08-15",
+        "cabin": "ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "price": 1264.0,
+        "seats_remaining": 1
+      },
+      "where": {
+        "flight_no": "CX315",
+        "date": "2026-08-15",
+        "cabin": "PREMIUM_ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "price": 250.0,
+        "seats_remaining": 7
+      },
+      "where": {
+        "flight_no": "CX368",
+        "date": "2026-08-14",
+        "cabin": "ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "price": 365.0,
+        "seats_remaining": 1
+      },
+      "where": {
+        "flight_no": "CX368",
+        "date": "2026-08-14",
+        "cabin": "PREMIUM_ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "price": 730.0,
+        "seats_remaining": 9
+      },
+      "where": {
+        "flight_no": "IB6453",
+        "date": "2026-08-15",
+        "cabin": "ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "price": 1109.0,
+        "seats_remaining": 2
+      },
+      "where": {
+        "flight_no": "IB6453",
+        "date": "2026-08-15",
+        "cabin": "PREMIUM_ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 2
+      },
+      "where": {
+        "flight_no": "KL755",
+        "date": "2026-08-15",
+        "cabin": "ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 2
+      },
+      "where": {
+        "flight_no": "KL896",
+        "date": "2026-08-14",
+        "cabin": "ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 2
+      },
+      "where": {
+        "flight_no": "KL896",
+        "date": "2026-08-14",
+        "cabin": "PREMIUM_ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "price": 115.0,
+        "seats_remaining": 14
+      },
+      "where": {
+        "flight_no": "LA1411",
+        "date": "2026-08-16",
+        "cabin": "ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "price": 465.0,
+        "seats_remaining": 11
+      },
+      "where": {
+        "flight_no": "UA858",
+        "date": "2026-08-14",
+        "cabin": "ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "price": 751.0,
+        "seats_remaining": 9
+      },
+      "where": {
+        "flight_no": "UA858",
+        "date": "2026-08-14",
+        "cabin": "PREMIUM_ECONOMY"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+For the flights and the first and second Sydney hotel nights, you may book a reasonably priced option that is cancellable or has a 24-hour free-cancellation window. Do not buy a non-refundable motorhome yet.

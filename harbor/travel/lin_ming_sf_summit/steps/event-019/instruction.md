@@ -1,0 +1,1 @@
+Finance has updated the travel reimbursement filing requirements. Please review the latest policy, then sync the policy review and the current flight, hotel, and expense breakdown to the Notion trip page.

@@ -1,0 +1,25 @@
+{
+  "step": "event-007",
+  "virtual_stage": 4,
+  "source_event_id": "S04_1_\u61d2",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The travel-planning action for stage 4 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 4 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S04_1_\u61d2"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s4_gate",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

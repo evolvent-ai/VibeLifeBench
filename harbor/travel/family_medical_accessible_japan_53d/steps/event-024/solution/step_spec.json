@@ -1,0 +1,40 @@
+{
+  "step": "event-024",
+  "virtual_stage": 23,
+  "source_event_id": "s23_notification_in_trip_weather_and_rail",
+  "response": "The stage 23 Kansai trip work was completed with evidence recorded and authorization boundaries preserved.",
+  "response_paraphrase": "I finished the stage 23 travel review, retaining the supporting records and keeping payment within the approved scope.",
+  "expected_env": {
+    "preceding_releases": [
+      "release-015"
+    ],
+    "released_mutations": [
+      "s23_mutation_live_weather_and_rail"
+    ]
+  },
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s23_notification_in_trip_weather_and_rail",
+      "virtual_stage": 23,
+      "event_kind": "notification",
+      "event_time": "2026-10-15T07:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_exact_rechecks",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s23_backend_weather_and_rail",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s23_plan_has_object_specific_recovery",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

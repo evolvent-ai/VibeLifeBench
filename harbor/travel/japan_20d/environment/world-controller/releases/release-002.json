@@ -1,0 +1,22 @@
+{
+  "release_id": "release-002",
+  "previous": "release-001",
+  "source_stage": 2,
+  "source_time": "2026-04-19T10:10:00+08:00",
+  "source_event_ids": ["D2_flight_equip_swap_mutation"],
+  "token": "9b271bdf929be6bd7691eec9c7bc165fc0d67189dc9fd0425d0d9523596d3e8c",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flights",
+      "op": "update",
+      "set": {
+        "equipment": "B737-800"
+      },
+      "where": {
+        "flight_no": "MU549",
+        "depart_dt": "2026-05-01T08:55:00+08:00"
+      }
+    }
+  ]
+}

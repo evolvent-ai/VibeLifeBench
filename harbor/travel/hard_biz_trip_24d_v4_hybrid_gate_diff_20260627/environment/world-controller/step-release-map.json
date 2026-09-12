@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "step_count": 35,
+  "steps": {
+    "event-000": {
+      "source_event_id": "S00_0_\u5f20\u660e",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-01T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "S00_1_banking_context",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-01T09:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "S01_0_flight_search",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-02T09:00:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "S01_1_\u5f20\u660e",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T10:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "S02_0_hotel_search",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-03T09:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "S02_1_\u5f20\u660e",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-03T10:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "S03_0_budget_init",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-04T14:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "S03_1_\u5f20\u660e",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-04T15:00:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "S04_0_calendar_setup",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-05T09:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "S04_1_\u5f20\u660e",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-05T09:30:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "S05_0_insurance_trap",
+      "before": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T15:00:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "S06_0_booking_hold_mutation",
+      "before": [],
+      "virtual_stage": 6,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-07T10:00:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "S06_1_live_inventory_context",
+      "before": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-07T10:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "S07_0_pre_departure_checklist",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-12T20:00:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "S08_0_visa_booking_reminder",
+      "before": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T09:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "S09_0_departure",
+      "before": [],
+      "virtual_stage": 9,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-15T08:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "S09_1_arrival",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-15T13:30:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "S10_0_meeting_conflict_email",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-16T10:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "S10_2_\u5f20\u660e",
+      "before": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-16T11:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "S11_0_conference_lunch",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-17T18:00:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "S12_0_flight_cancelled",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-18T08:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "S12_1_cancellation_notification",
+      "before": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-18T09:00:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "S13_0_post_typhoon",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-19T08:00:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "S14_0_transit_search",
+      "before": [],
+      "virtual_stage": 14,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-19T10:00:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "S14_1_transit_hint",
+      "before": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-19T10:00:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "S15_0_transit_booked",
+      "before": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-19T15:00:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "S16_0_extend_hotel",
+      "before": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-20T17:00:00+08:00"
+    },
+    "event-027": {
+      "source_event_id": "S17_0_depart_transit",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-21T07:00:00+08:00"
+    },
+    "event-028": {
+      "source_event_id": "S18_0_return_home",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-22T09:00:00+08:00"
+    },
+    "event-029": {
+      "source_event_id": "S18_1_\u5f20\u660e",
+      "before": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-22T10:00:00+08:00"
+    },
+    "event-030": {
+      "source_event_id": "S19_0_reconciliation",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-23T09:00:00+08:00"
+    },
+    "event-031": {
+      "source_event_id": "S20_0_expense_email",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-23T14:00:00+08:00"
+    },
+    "event-032": {
+      "source_event_id": "S21_0_receipt_gap",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-24T10:00:00+08:00"
+    },
+    "event-033": {
+      "source_event_id": "S22_0_insurance_reimbursement",
+      "before": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-24T15:00:00+08:00"
+    },
+    "event-034": {
+      "source_event_id": "S23_0_final_archive",
+      "before": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-25T10:00:00+08:00"
+    }
+  }
+}

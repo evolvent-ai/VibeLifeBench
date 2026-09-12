@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "D15_weather_maps"
+  ],
+  "source_stage": 15,
+  "source_time": "2026-09-09T00:01",
+  "previous": "release-008",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "wx_firenze_20260909_heavyrain",
+        "kind": "heavy_rain",
+        "severity": "moderate",
+        "start_dt": "2026-09-09T06:00:00+02:00",
+        "end_dt": "2026-09-12T22:00:00+02:00",
+        "areas_json": "[\"Florence\"]",
+        "description": "Heavy rain and localized street flooding may slow transfers through central Florence.",
+        "active": 1,
+        "created_at": "2026-09-09T00:00:00Z",
+        "source_event": "Comune di Firenze Protezione Civile"
+      },
+      "source_event_id": "D15_weather_maps",
+      "operation_index": 0
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "incident_firenze_ztl_20260909",
+        "road_id": "road_florence_center",
+        "start_dt": "2026-09-09T06:00:00+02:00",
+        "end_dt": "2026-09-12T23:00:00+02:00",
+        "kind": "heavy_traffic",
+        "magnitude": 1.5,
+        "note": "Municipal flood-control work and event traffic are expected to slow vehicles through the historic-center access zone.",
+        "active": 1
+      },
+      "source_event_id": "D15_weather_maps",
+      "operation_index": 1
+    }
+  ]
+}

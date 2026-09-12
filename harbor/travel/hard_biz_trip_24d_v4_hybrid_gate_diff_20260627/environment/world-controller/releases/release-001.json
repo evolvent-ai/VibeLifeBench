@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "S10_1_meeting_inject"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-07-16T09:55:00+08:00",
+  "previous": "release-000",
+  "token": "hard-biz-trip-release-001-token-2026",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9100,
+        "folder_id": 1,
+        "message_id": "<client-meeting-20260716@abc.example>",
+        "subject": "Meeting Request: Project Discussion Jul 20",
+        "from_addr": "tanaka@abc.example",
+        "to_addr_json": "[\"zhang.ming@company.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-16T10:00:00+09:00",
+        "body_text": "Please meet at our Shimbashi office on July 20 from 14:00 to 16:00. This overlaps the summit programme, so please propose alternatives before confirming.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"category\":\"client_request\",\"source\":\"external\"}",
+        "uid": 9100,
+        "size": 188,
+        "created_at": "2026-07-16T10:00:00+09:00"
+      },
+      "source_event_id": "S10_1_meeting_inject",
+      "operation_index": 0
+    },
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_client_request_external",
+        "calendar_id": "cal_zhangming_primary",
+        "summary": "Client Project Discussion — requested",
+        "description": "External request from Tanaka; not yet accepted. Check summit conflict and propose alternatives.",
+        "location": "Shimbashi 5-chome, Tokyo",
+        "start_dt": "2026-07-20T14:00:00+09:00",
+        "end_dt": "2026-07-20T16:00:00+09:00",
+        "all_day": 0,
+        "status": "tentative",
+        "created_at": "2026-07-16T10:00:00+09:00",
+        "updated_at": "2026-07-16T10:00:00+09:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      },
+      "source_event_id": "S10_1_meeting_inject",
+      "operation_index": 1
+    }
+  ]
+}

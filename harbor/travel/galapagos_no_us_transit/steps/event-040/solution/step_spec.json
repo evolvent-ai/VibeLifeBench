@@ -1,0 +1,23 @@
+{
+ "step": "event-040",
+ "stage": 24,
+ "event_id": "S24_user_final_archive",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 24,
+   "event_id": "S24_user_final_archive"
+  }
+ ],
+ "response_paraphrase": "The final handoff summarizes realized flights and lodging, money states, incidents, and the next-trip checklist.",
+ "expected_env": {
+  "virtual_stage": 24,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S24_user_final_archive"
+}

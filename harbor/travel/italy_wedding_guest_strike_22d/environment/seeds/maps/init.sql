@@ -1,0 +1,45 @@
+-- HAND-REVIEWED MATERIALIZED ENVIRONMENT (2026-08-02)
+-- Each loaded business row is retained; template values were replaced one-for-one.
+PRAGMA foreign_keys = OFF;
+BEGIN TRANSACTION;
+-- places: 14 rows
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_florence_smn', 'Firenze Santa Maria Novella', 'station', 43.7767, 11.248, 'Italy', 'Florence', 4.4, 2, '{"daily":"04:00-01:00"}', NULL, 'https://www.rfi.it/', 'Piazza della Stazione, Florence, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_villa_arno', 'Villa Arno Terrace', 'venue', 43.765, 11.27, 'Italy', 'Florence', 4.8, 4, '{"event_hours":"by invitation"}', NULL, NULL, 'Arno riverside district, Florence, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_hotel_arno', 'Arno Garden Florence', 'hotel', 43.772, 11.249, 'Italy', 'Florence', 4.6, 3, '{"front_desk":"24h"}', NULL, NULL, 'Santa Maria Novella district, Florence, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_la_quercia', 'La Quercia Firenze', 'restaurant', 43.768, 11.252, 'Italy', 'Florence', 4.7, 3, '{"dinner":"18:30-23:00"}', NULL, NULL, 'Central Florence, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_roma_termini', 'Roma Termini', 'station', 41.901, 12.501, 'Italy', 'Rome', 4.1, 2, '{"daily":"04:00-01:00"}', NULL, 'https://www.rfi.it/', 'Piazza dei Cinquecento, Rome, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_fco', 'Rome Fiumicino Airport', 'airport', 41.7999, 12.2462, 'Italy', 'Rome', 4.2, 3, '{"daily":"24h"}', NULL, 'https://www.adr.it/', 'Fiumicino, Metropolitan City of Rome, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_milano_centrale', 'Milano Centrale', 'station', 45.4863, 9.2043, 'Italy', 'Milan', 4.2, 2, '{"daily":"04:00-01:00"}', NULL, 'https://www.rfi.it/', 'Piazza Duca d Aosta, Milan, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_firenze_campo_marte', 'Firenze Campo di Marte', 'station', 43.7778, 11.2777, 'Italy', 'Florence', 4.0, 2, '{"daily":"05:00-00:30"}', NULL, 'https://www.rfi.it/', 'Via Mannelli, Florence, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_florence_airport', 'Florence Airport Peretola', 'airport', 43.81, 11.2051, 'Italy', 'Florence', 4.0, 3, '{"daily":"04:00-00:30"}', NULL, 'https://www.aeroporto.firenze.it/', 'Via del Termine, Florence, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_careggi_hospital', 'Careggi University Hospital', 'hospital', 43.8055, 11.2484, 'Italy', 'Florence', 4.1, 2, '{"emergency":"24h"}', NULL, 'https://www.aou-careggi.toscana.it/', 'Largo Brambilla, Florence, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_smn_pharmacy', 'Farmacia della Stazione', 'pharmacy', 43.7758, 11.2487, 'Italy', 'Florence', 4.2, 2, '{"weekday":"07:30-20:00","weekend":"08:00-19:00"}', NULL, NULL, 'Near Firenze Santa Maria Novella, Florence, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_smn_luggage', 'Santa Maria Novella luggage storage', 'luggage_storage', 43.7763, 11.2476, 'Italy', 'Florence', 4.0, 2, '{"daily":"07:00-21:00"}', NULL, NULL, 'Station concourse, Florence, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_aurelia_flex_rome', 'Aurelia Flex Hotel Rome', 'hotel', 41.8989, 12.4978, 'Italy', 'Rome', 4.4, 3, '{"front_desk":"24h"}', NULL, NULL, 'Near Roma Termini, Rome, Italy');
+INSERT INTO "places" ("place_id", "name", "category", "lat", "lng", "country", "city", "rating", "price_level", "hours_json", "phone", "website", "formatted") VALUES ('pl_milan_arrival_hotel', 'Porta Nuova Arrival Hotel', 'hotel', 45.482, 9.1964, 'Italy', 'Milan', 4.3, 3, '{"front_desk":"24h"}', NULL, NULL, 'Between Milano Centrale and Porta Nuova, Milan, Italy');
+-- road_events: 1 rows
+INSERT INTO "road_events" ("event_id", "road_id", "start_dt", "end_dt", "kind", "magnitude", "note", "active") VALUES ('road_termini_weekday_peak', 'road_termini_fco', '2026-09-15T07:00:00+02:00', '2026-09-15T10:00:00+02:00', 'heavy_traffic', 0.7, 'Weekday road traffic can lengthen the airport transfer; rail remains a separate option.', 1);
+-- roads: 3 rows
+INSERT INTO "roads" ("road_id", "name", "city", "geom_json") VALUES ('road_florence_center', 'Florence historic-center access', 'Florence', '{"typical_minutes":18,"limited_traffic_zone":true}');
+INSERT INTO "roads" ("road_id", "name", "city", "geom_json") VALUES ('road_smn_villa_arno', 'Santa Maria Novella to Villa Arno', 'Florence', '{"typical_minutes":22,"rain_buffer_minutes":15}');
+INSERT INTO "roads" ("road_id", "name", "city", "geom_json") VALUES ('road_termini_fco', 'Roma Termini to Fiumicino Airport', 'Rome', '{"typical_minutes":42,"peak_buffer_minutes":25}');
+-- transit_lines: 3 rows
+INSERT INTO "transit_lines" ("line_id", "name", "mode", "operator", "segment_minutes_json") VALUES ('line_milan_florence_hs', 'Milan–Florence high-speed corridor', 'train', 'Multiple operators', '{"stop_milano_centrale-stop_firenze_smn":115}');
+INSERT INTO "transit_lines" ("line_id", "name", "mode", "operator", "segment_minutes_json") VALUES ('line_florence_rome_hs', 'Florence–Rome high-speed corridor', 'train', 'Multiple operators', '{"stop_firenze_smn-stop_roma_termini":96}');
+INSERT INTO "transit_lines" ("line_id", "name", "mode", "operator", "segment_minutes_json") VALUES ('line_leonardo_express', 'Leonardo express', 'train', 'Trenitalia', '{"stop_roma_termini-stop_fco_airport":32}');
+-- transit_schedule: 6 rows
+INSERT INTO "transit_schedule" ("schedule_id", "line_id", "stop_id", "direction", "stop_seq", "time") VALUES (1, 'line_milan_florence_hs', 'stop_milano_centrale', 'Florence', 1, '08:10');
+INSERT INTO "transit_schedule" ("schedule_id", "line_id", "stop_id", "direction", "stop_seq", "time") VALUES (2, 'line_milan_florence_hs', 'stop_firenze_smn', 'Florence', 2, '10:05');
+INSERT INTO "transit_schedule" ("schedule_id", "line_id", "stop_id", "direction", "stop_seq", "time") VALUES (3, 'line_florence_rome_hs', 'stop_firenze_smn', 'Rome', 1, '09:43');
+INSERT INTO "transit_schedule" ("schedule_id", "line_id", "stop_id", "direction", "stop_seq", "time") VALUES (4, 'line_florence_rome_hs', 'stop_roma_termini', 'Rome', 2, '11:19');
+INSERT INTO "transit_schedule" ("schedule_id", "line_id", "stop_id", "direction", "stop_seq", "time") VALUES (5, 'line_leonardo_express', 'stop_roma_termini', 'Airport', 1, '08:20');
+INSERT INTO "transit_schedule" ("schedule_id", "line_id", "stop_id", "direction", "stop_seq", "time") VALUES (6, 'line_leonardo_express', 'stop_fco_airport', 'Airport', 2, '08:52');
+-- transit_stops: 6 rows
+INSERT INTO "transit_stops" ("stop_id", "name", "lat", "lng", "city") VALUES ('stop_milano_centrale', 'Milano Centrale', 45.4863, 9.2043, 'Milan');
+INSERT INTO "transit_stops" ("stop_id", "name", "lat", "lng", "city") VALUES ('stop_firenze_smn', 'Firenze Santa Maria Novella', 43.7767, 11.248, 'Florence');
+INSERT INTO "transit_stops" ("stop_id", "name", "lat", "lng", "city") VALUES ('stop_firenze_campo_marte', 'Firenze Campo di Marte', 43.7778, 11.2777, 'Florence');
+INSERT INTO "transit_stops" ("stop_id", "name", "lat", "lng", "city") VALUES ('stop_roma_termini', 'Roma Termini', 41.901, 12.501, 'Rome');
+INSERT INTO "transit_stops" ("stop_id", "name", "lat", "lng", "city") VALUES ('stop_fco_airport', 'Fiumicino Aeroporto', 41.7999, 12.2462, 'Rome');
+INSERT INTO "transit_stops" ("stop_id", "name", "lat", "lng", "city") VALUES ('stop_florence_airport', 'Peretola Aeroporto', 43.81, 11.2051, 'Florence');
+COMMIT;
+PRAGMA foreign_keys = ON;

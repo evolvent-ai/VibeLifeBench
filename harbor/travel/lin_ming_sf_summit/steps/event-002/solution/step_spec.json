@@ -1,0 +1,27 @@
+{
+  "step": "event-002",
+  "stage": 2,
+  "virtual_stage": 2,
+  "source_event_id": "u2",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I compared current flight and hotel options while applying the lower-back constraint: a long itinerary must use business class or a connection that keeps the economy-segment limit in view. The hotel search covers the summit window and is sorted for value.",
+  "response_paraphrase": "Live airfare and San Francisco lodging choices have been reviewed for value. The comparison accounts for the travel-health restriction on lengthy economy segments and keeps the March 28-30 stay fully covered.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "u2"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_searched_with_health",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

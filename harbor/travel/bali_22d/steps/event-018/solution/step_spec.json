@@ -1,0 +1,26 @@
+{
+  "step": "event-018",
+  "virtual_stage": 15,
+  "source_event_id": "D15_user_checkin",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Ubud days use a measured under-3-km walking cap with safer choices.",
+  "response_paraphrase": "Equivalent operational guidance: Ubud days use a measured under-3-km walking cap with safer choices.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D15_user_checkin"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_daily_walking_under_3km",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

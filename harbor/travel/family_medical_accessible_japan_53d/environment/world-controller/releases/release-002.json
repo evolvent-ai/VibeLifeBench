@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "kyoto_accessible_rate_refresh_20260907"
+  ],
+  "source_stage": 4,
+  "source_time": "2026-09-07T08:55:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-002-token",
+  "operations": [
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "source_event_id": "kyoto_accessible_rate_refresh_20260907",
+      "operation_index": 0,
+      "values": {
+        "nightly_price": 21450,
+        "inventory_remaining": 1
+      },
+      "set": {
+        "nightly_price": 21450,
+        "inventory_remaining": 1
+      },
+      "where": {
+        "hotel_id": "jp_ht_001",
+        "date": "2026-10-15",
+        "flavor": "flex"
+      }
+    }
+  ],
+  "previous": "release-001"
+}

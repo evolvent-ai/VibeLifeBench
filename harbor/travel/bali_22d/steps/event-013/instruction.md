@@ -1,0 +1,1 @@
+[2026-06-09 01:30 +08:00] Online check-in is open for GA835 from PVG to DPS, departing tomorrow, June 10, at 05:55 local time. Pregnant passengers should have fitness-to-fly documentation ready at the gate if requested. Ask the airline or gate staff whether priority boarding or pre-boarding is available for Wang Meilin, and record the follow-up owner and date.

@@ -1,0 +1,345 @@
+{
+  "task": "galapagos_no_us_transit",
+  "steps": {
+    "event-000": {
+      "virtual_stage": 0,
+      "source_event_id": "S00_user_initial_request",
+      "scenario_time": "2026-07-24T09:10:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-001": {
+      "virtual_stage": 0,
+      "source_event_id": "S00_user_profile_constraints",
+      "scenario_time": "2026-07-24T09:18:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-002": {
+      "virtual_stage": 1,
+      "source_event_id": "S01_calendar_workshop_window",
+      "scenario_time": "2026-07-25T10:00:00+08:00",
+      "stage_boundary": false,
+      "before": [
+        "release-000"
+      ]
+    },
+    "event-003": {
+      "virtual_stage": 1,
+      "source_event_id": "S01_world_island_transfer_baseline",
+      "scenario_time": "2026-07-25T11:30:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-004": {
+      "virtual_stage": 2,
+      "source_event_id": "S02_user_travel_window",
+      "scenario_time": "2026-07-26T19:45:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-005": {
+      "virtual_stage": 2,
+      "source_event_id": "S02_notification_calendar_blockers",
+      "scenario_time": "2026-07-26T20:05:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-006": {
+      "virtual_stage": 3,
+      "source_event_id": "S03_world_documents_available",
+      "scenario_time": "2026-07-27T08:40:00+08:00",
+      "stage_boundary": false,
+      "before": [
+        "release-001"
+      ]
+    },
+    "event-007": {
+      "virtual_stage": 3,
+      "source_event_id": "S03_notification_email_invitation",
+      "scenario_time": "2026-07-27T09:15:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-002"
+      ]
+    },
+    "event-008": {
+      "virtual_stage": 4,
+      "source_event_id": "S04_notification_us_route_price_drop",
+      "scenario_time": "2026-07-28T12:20:00+08:00",
+      "stage_boundary": false,
+      "before": [
+        "release-003"
+      ]
+    },
+    "event-009": {
+      "virtual_stage": 4,
+      "source_event_id": "S04_user_budget_ceiling",
+      "scenario_time": "2026-07-28T13:05:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-010": {
+      "virtual_stage": 5,
+      "source_event_id": "S05_scheduled_price_and_doc_watch",
+      "scenario_time": "2026-07-29T09:00:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-011": {
+      "virtual_stage": 5,
+      "source_event_id": "S05_user_asks_about_us_transit",
+      "scenario_time": "2026-07-29T09:25:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-012": {
+      "virtual_stage": 6,
+      "source_event_id": "S06_notification_hold_window",
+      "scenario_time": "2026-07-30T10:15:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-004"
+      ]
+    },
+    "event-013": {
+      "virtual_stage": 7,
+      "source_event_id": "S07_world_late_arrival_safety",
+      "scenario_time": "2026-07-31T18:30:00+08:00",
+      "stage_boundary": false,
+      "before": [
+        "release-005"
+      ]
+    },
+    "event-014": {
+      "virtual_stage": 7,
+      "source_event_id": "S07_notification_hotel_initial_inventory",
+      "scenario_time": "2026-07-31T19:10:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-006"
+      ]
+    },
+    "event-015": {
+      "virtual_stage": 8,
+      "source_event_id": "S08_world_weather_advisory",
+      "scenario_time": "2026-08-01T11:00:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-007"
+      ]
+    },
+    "event-016": {
+      "virtual_stage": 9,
+      "source_event_id": "S09_user_reliability_priority",
+      "scenario_time": "2026-08-02T15:30:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-017": {
+      "virtual_stage": 9,
+      "source_event_id": "S09_notification_email_airline_waiver",
+      "scenario_time": "2026-08-02T17:20:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-008"
+      ]
+    },
+    "event-018": {
+      "virtual_stage": 10,
+      "source_event_id": "S10_notification_hotel_deadline",
+      "scenario_time": "2026-08-03T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-009"
+      ]
+    },
+    "event-019": {
+      "virtual_stage": 11,
+      "source_event_id": "S11_user_authorizes_low_risk_holds",
+      "scenario_time": "2026-08-04T20:40:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-020": {
+      "virtual_stage": 11,
+      "source_event_id": "S11_world_reimbursement_policy",
+      "scenario_time": "2026-08-04T21:00:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-010"
+      ]
+    },
+    "event-021": {
+      "virtual_stage": 12,
+      "source_event_id": "S12_scheduled_name_match_check",
+      "scenario_time": "2026-08-05T09:00:00+08:00",
+      "stage_boundary": false,
+      "before": [
+        "release-011"
+      ]
+    },
+    "event-022": {
+      "virtual_stage": 12,
+      "source_event_id": "S12_user_name_mismatch",
+      "scenario_time": "2026-08-05T09:30:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-023": {
+      "virtual_stage": 13,
+      "source_event_id": "S13_world_island_activity_update",
+      "scenario_time": "2026-08-06T13:00:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-012"
+      ]
+    },
+    "event-024": {
+      "virtual_stage": 14,
+      "source_event_id": "S14_notification_permit_and_fees_email",
+      "scenario_time": "2026-08-07T10:20:00+08:00",
+      "stage_boundary": false,
+      "before": [
+        "release-013"
+      ]
+    },
+    "event-025": {
+      "virtual_stage": 14,
+      "source_event_id": "S14_user_cash_and_cards",
+      "scenario_time": "2026-08-07T11:05:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-026": {
+      "virtual_stage": 15,
+      "source_event_id": "S15_world_ground_transfer_check",
+      "scenario_time": "2026-08-08T16:45:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-014"
+      ]
+    },
+    "event-027": {
+      "virtual_stage": 16,
+      "source_event_id": "S16_user_final_booking_confirmation",
+      "scenario_time": "2026-08-09T20:15:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-028": {
+      "virtual_stage": 16,
+      "source_event_id": "S16_notification_calendar_hold_expiry",
+      "scenario_time": "2026-08-09T21:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-029": {
+      "virtual_stage": 17,
+      "source_event_id": "S17_notification_payment_state",
+      "scenario_time": "2026-08-10T09:35:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-015"
+      ]
+    },
+    "event-030": {
+      "virtual_stage": 18,
+      "source_event_id": "S18_world_airline_checkin",
+      "scenario_time": "2026-08-12T10:00:00+08:00",
+      "stage_boundary": false,
+      "before": [
+        "release-016"
+      ]
+    },
+    "event-031": {
+      "virtual_stage": 18,
+      "source_event_id": "S18_user_predeparture_checklist",
+      "scenario_time": "2026-08-12T21:10:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-032": {
+      "virtual_stage": 19,
+      "source_event_id": "S19_notification_departure_day",
+      "scenario_time": "2026-08-14T17:35:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-017"
+      ]
+    },
+    "event-033": {
+      "virtual_stage": 20,
+      "source_event_id": "S20_world_in_transit_status",
+      "scenario_time": "2026-08-16T08:20:00-05:00",
+      "stage_boundary": false,
+      "before": [
+        "release-018"
+      ]
+    },
+    "event-034": {
+      "virtual_stage": 20,
+      "source_event_id": "S20_notification_hotel_arrival_message",
+      "scenario_time": "2026-08-16T15:10:00-05:00",
+      "stage_boundary": true,
+      "before": [
+        "release-019"
+      ]
+    },
+    "event-035": {
+      "virtual_stage": 21,
+      "source_event_id": "S21_user_on_island_issue",
+      "scenario_time": "2026-08-17T14:35:00-06:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-036": {
+      "virtual_stage": 21,
+      "source_event_id": "S21_world_registration_deadline",
+      "scenario_time": "2026-08-17T15:00:00-06:00",
+      "stage_boundary": true,
+      "before": [
+        "release-020"
+      ]
+    },
+    "event-037": {
+      "virtual_stage": 22,
+      "source_event_id": "S22_world_midtrip_weather",
+      "scenario_time": "2026-08-20T09:00:00-06:00",
+      "stage_boundary": true,
+      "before": [
+        "release-021"
+      ]
+    },
+    "event-038": {
+      "virtual_stage": 23,
+      "source_event_id": "S23_user_return_and_receipts",
+      "scenario_time": "2026-08-23T19:20:00-05:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-039": {
+      "virtual_stage": 23,
+      "source_event_id": "S23_notification_receipts",
+      "scenario_time": "2026-08-23T20:10:00-05:00",
+      "stage_boundary": true,
+      "before": [
+        "release-022"
+      ]
+    },
+    "event-040": {
+      "virtual_stage": 24,
+      "source_event_id": "S24_user_final_archive",
+      "scenario_time": "2026-08-25T13:30:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-041": {
+      "virtual_stage": 24,
+      "source_event_id": "S24_world_posttrip_accounting",
+      "scenario_time": "2026-08-25T14:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    }
+  }
+}

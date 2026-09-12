@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "D19_weather_clock_mutation",
+    "D19_agung_upgrade_mutation"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-06-22T04:55+08:00",
+  "previous": "release-010",
+  "token": "bali-22d-release-token-011-9f42c7a1",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "set": {
+        "sim_now": "2026-06-22T04:55:00+08:00"
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "D19_weather_clock_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 0
+      },
+      "where": {
+        "alert_id": "alert_volcano_l2"
+      },
+      "source_event_id": "D19_agung_upgrade_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "alert_id": "alert_volcano_l3"
+      },
+      "source_event_id": "D19_agung_upgrade_mutation",
+      "operation_index": 1
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "active": 1,
+        "magnitude": 1.0
+      },
+      "where": {
+        "event_id": "evt_kintamani_volcano_closure"
+      },
+      "source_event_id": "D19_agung_upgrade_mutation",
+      "operation_index": 2
+    }
+  ]
+}

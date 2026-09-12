@@ -1,0 +1,74 @@
+{
+  "release_id": "release-005",
+  "previous": "release-004",
+  "token": "galapagos-no-us-transit-release-005-20260825-token",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "roads",
+      "op": "insert",
+      "values": {
+        "road_id": "road_gye_airport_terminal_walk",
+        "name": "Guayaquil airport terminal to hotel footbridge",
+        "city": "Guayaquil",
+        "geom_json": "[[-2.158,-79.884],[-2.1565,-79.8842],[-2.155,-79.884]]"
+      }
+    },
+    {
+      "server": "maps",
+      "table": "roads",
+      "op": "insert",
+      "values": {
+        "road_id": "road_uio_airport_hotel_strip",
+        "name": "Quito airport perimeter hotel strip",
+        "city": "Quito",
+        "geom_json": "[[-0.129,-78.357],[-0.135,-78.362]]"
+      }
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "ev_gye_footbridge_open",
+        "road_id": "road_gye_airport_terminal_walk",
+        "start_dt": "2026-07-31T00:00:00-05:00",
+        "end_dt": "2026-08-31T23:59:00-05:00",
+        "kind": "heavy_traffic",
+        "magnitude": 0.1,
+        "note": "Covered footbridge from the terminal, lit and staffed overnight; about six minutes on foot with luggage.",
+        "active": 1
+      }
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "ev_uio_night_road_caution",
+        "road_id": "road_uio_airport_city_late",
+        "start_dt": "2026-07-31T19:00:00-05:00",
+        "end_dt": "2026-08-31T05:00:00-05:00",
+        "kind": "heavy_traffic",
+        "magnitude": 0.65,
+        "note": "Quito airport to the city is roughly 45 km; the road is unlit for long stretches and journey times after dark are unpredictable.",
+        "active": 1
+      }
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "ev_uio_strip_shuttle_gap",
+        "road_id": "road_uio_airport_hotel_strip",
+        "start_dt": "2026-07-31T23:00:00-05:00",
+        "end_dt": "2026-08-31T05:00:00-05:00",
+        "kind": "heavy_traffic",
+        "magnitude": 0.4,
+        "note": "Perimeter hotel shuttles stop running between 23:00 and 05:00; arrivals in that window need a pre-arranged pickup.",
+        "active": 1
+      }
+    }
+  ]
+}

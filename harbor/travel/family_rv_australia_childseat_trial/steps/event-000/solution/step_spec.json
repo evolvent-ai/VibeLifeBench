@@ -1,0 +1,32 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "virtual_stage": 0,
+  "source_event_id": "evt_s0_user_kickoff",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Opened and recorded the Australia motorhome route trial with budget, authorization and safety boundaries.",
+  "response_paraphrase": "Started the family Australia route record with its CNY limit, approval gates and safety watchlist.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s0_user_kickoff"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_create_trip_dashboard",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s0_record_authorization",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4
+}

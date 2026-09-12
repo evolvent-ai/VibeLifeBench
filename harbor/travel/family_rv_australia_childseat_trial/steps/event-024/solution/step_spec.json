@@ -1,0 +1,32 @@
+{
+  "step": "event-024",
+  "stage": 20,
+  "virtual_stage": 20,
+  "source_event_id": "evt_s20_user_returned_rv",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Recorded the Melbourne return inspection and kept the AUD 600 deposit pending.",
+  "response_paraphrase": "Logged the clean, incident-free counter inspection while marking the deposit as awaiting back-office release.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s20_user_returned_rv"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_record_return_status",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s20_do_not_claim_deposit_released",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4
+}

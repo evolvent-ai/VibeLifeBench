@@ -1,0 +1,33 @@
+{
+  "step": "event-009",
+  "virtual_stage": 8,
+  "source_event_id": "D8_weather_14d_outlook",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": []
+  },
+  "response": "Storms with 60-90 mm rain are expected 2026-06-20 through 2026-06-22, conflicting with Liu Fang's arrival; verified Ubud indoor backups are ready.",
+  "response_paraphrase": "Storms with 60-90 mm rain are expected 2026-06-20 through 2026-06-22, conflicting with Liu Fang's arrival; verified Ubud indoor backups stand ready.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D8_weather_14d_outlook"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_mother_arrival_conflict",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s8_indoor_backup_plan",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

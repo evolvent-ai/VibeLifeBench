@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "step_count": 23,
+  "steps": {
+    "event-000": {
+      "source_event_id": "D0_kickoff",
+      "before": [
+        "release-000"
+      ],
+      "after": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-25T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "D1_save_date",
+      "before": [
+        "release-001"
+      ],
+      "after": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-26T09:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "D2_calendar_budget",
+      "before": [],
+      "after": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-27T10:00:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "D3_flights",
+      "before": [
+        "release-001a"
+      ],
+      "after": [],
+      "virtual_stage": 3,
+      "stage_boundary": false,
+      "scenario_time": "2026-08-28T11:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "D3_card",
+      "before": [
+        "release-001b"
+      ],
+      "after": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-28T12:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "D4_hotels_maps",
+      "before": [
+        "release-002"
+      ],
+      "after": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-29T10:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "D5_rail_release",
+      "before": [
+        "release-003"
+      ],
+      "after": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-30T09:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "D6_restaurants",
+      "before": [],
+      "after": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-31T10:00:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "D7_scheduled_refresh",
+      "before": [],
+      "after": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-01T09:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "D8_rail_notice",
+      "before": [
+        "release-004"
+      ],
+      "after": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-02T09:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "D9_hotel_bait",
+      "before": [
+        "release-005"
+      ],
+      "after": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-03T10:00:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "D10_hotel_refresh",
+      "before": [
+        "release-006"
+      ],
+      "after": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-04T09:00:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "D11_restaurant_question",
+      "before": [],
+      "after": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-05T09:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "D12_qa_answer",
+      "before": [
+        "release-007"
+      ],
+      "after": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-06T10:00:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "D13_bestman_pressure",
+      "before": [
+        "release-008"
+      ],
+      "after": [],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-07T10:30:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "D14_user_refundable",
+      "before": [],
+      "after": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-08T09:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "D15_route_refresh",
+      "before": [
+        "release-009"
+      ],
+      "after": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-09T09:00:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "D16_flight_notice",
+      "before": [
+        "release-010"
+      ],
+      "after": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-10T09:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "D17_departure_status",
+      "before": [
+        "release-011"
+      ],
+      "after": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-10T18:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "D18_final_pre_wedding",
+      "before": [],
+      "after": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-11T08:00:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "D19_safe_packet",
+      "before": [],
+      "after": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-12T09:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "D20_return_refresh",
+      "before": [
+        "release-012"
+      ],
+      "after": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-13T09:00:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "D21_handoff",
+      "before": [],
+      "after": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-15T09:00:00+08:00"
+    }
+  }
+}

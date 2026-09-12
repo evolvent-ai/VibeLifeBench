@@ -1,0 +1,24 @@
+{
+  "step": "event-010",
+  "virtual_stage": 7,
+  "source_event_id": "S07_notice_passport_renewal",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "response": "The travel-planning action for stage 7 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 7 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S07_notice_passport_renewal"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

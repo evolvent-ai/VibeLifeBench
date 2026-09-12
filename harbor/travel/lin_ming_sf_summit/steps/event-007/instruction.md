@@ -1,0 +1,1 @@
+Corporate travel platform notice: Available itineraries connecting through Hong Kong now include recalculated fuel surcharges. The same option appears about CNY 300-500 more expensive on the pre-clearance page than it did yesterday. Compare the live total prices returned by a formal search; do not treat this notice as an across-the-board increase by every airline.

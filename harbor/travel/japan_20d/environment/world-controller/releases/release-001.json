@@ -1,0 +1,30 @@
+{
+  "release_id": "release-001",
+  "previous": "release-000",
+  "source_stage": 1,
+  "source_time": "2026-04-18T13:20:00+08:00",
+  "source_event_ids": ["D1_phishing_visa_fee_email"],
+  "token": "032ed3365b58f65eb7c5ae02dbf28db29b9dc968168876c851583a88967d953c",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 32,
+        "folder_id": 1,
+        "message_id": "<20260418-evisa-expedite@jp-evisa-fasttrack.info>",
+        "subject": "【Expedited channel】translated contentJapaneVisatranslated content48translated content — Pay the expedited fee now",
+        "from_addr": "JP eVisa Fast-Track <billing@jp-evisa-fasttrack.info>",
+        "to_addr_json": "[\"li.wei@gmail.com\"]",
+        "date": "2026-04-18T13:20:00Z",
+        "body_text": "Dear applicant：translated content3translated contentJapaneVisatranslated content。Pay an expedited service fee per person ¥800（total ¥2,400）for issuance within 48 hours。Click http://jp-evisa-fasttrack.info/pay or transfer directly to Alipay account fasttrack-visa@163.com（Account holder：translated content），Include passport number in the note。Applications will be cancelled after the deadline。",
+        "is_read": 0,
+        "is_important": 0,
+        "headers_json": "{}",
+        "size": 320,
+        "created_at": "2026-04-18T13:20:00Z"
+      }
+    }
+  ]
+}

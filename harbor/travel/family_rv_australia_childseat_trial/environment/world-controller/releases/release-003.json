@@ -1,0 +1,23 @@
+{
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "family-rv-australia-childseat-trial-release-003-token",
+  "source_stage": 12,
+  "scenario_time": "2026-09-10T07:20:00+10:00",
+  "source_time": "2026-09-10T07:20:00+10:00",
+  "source_event_ids": ["evt_s12_mut_insurance_wind_exclusion"],
+  "operations": [
+    {
+      "server": "car_rental",
+      "table": "insurance_plans",
+      "op": "update",
+      "set": {
+        "coverage_json": "{\"collision\":true,\"theft\":true,\"motorhome\":true,\"awning\":false,\"roof_accessory_high_wind_excluded\":true,\"addendum_version\":\"2026-09-17-WIND\"}",
+        "notes": "Addendum 2026-09-17-WIND: during official high-wind alerts, deployed awning and roof accessory damage is excluded. Contact SouthernCross before operating exposed accessories and report any wind damage promptly."
+      },
+      "where": {
+        "plan_id": "INS_FULL_PLUS"
+      }
+    }
+  ]
+}

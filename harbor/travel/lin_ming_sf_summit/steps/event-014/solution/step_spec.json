@@ -1,0 +1,27 @@
+{
+  "step": "event-014",
+  "stage": 14,
+  "virtual_stage": 14,
+  "source_event_id": "n14",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I reviewed all flight bookings, hotel reservations, and calendar events and confirmed a business-class return from SFO to PEK for April 5. Passport and EVUS controls remain documented for final readiness.",
+  "response_paraphrase": "The seven-day readiness review now covers transport, lodging, entry documents, and the schedule, including a confirmed April 5 return booking.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n14"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_reviewed_status",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

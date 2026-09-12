@@ -1,0 +1,30 @@
+{
+ "step": "event-017",
+ "stage": 9,
+ "event_id": "S09_notification_email_airline_waiver",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 9,
+   "event_id": "S09_notification_email_airline_waiver"
+  }
+ ],
+ "response_paraphrase": "The waiver notice is reconciled with the route status and the existing safety margin.",
+ "expected_env": {
+  "virtual_stage": 9,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-008"
+  ],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s9_waiver_reliability_choice",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S09_notification_email_airline_waiver"
+}

@@ -1,0 +1,1 @@
+Check-in reminder: the check-in window is open for the June 8 OZ102 flight from Tokyo to Seoul, departing at `2026-06-08T01:00:00Z`, or 10:00 Japan time. The window runs from 48 hours until 45 minutes before departure, and check-in can now be completed for all travelers on this segment.

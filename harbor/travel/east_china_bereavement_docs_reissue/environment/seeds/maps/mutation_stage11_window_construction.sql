@@ -1,0 +1,2 @@
+-- Stage 11: Shanghaiservice windowscenario textpedestrian access constructionscenario text。
+INSERT OR REPLACE INTO road_events (event_id, road_id, start_dt, end_dt, kind, magnitude, note, active) VALUES ('road_event_sh_window_construction', 'road_sh_window_walk', '2026-04-11T07:00:00+08:00', '2026-04-11T18:00:00+08:00', 'closure', 0.6, 'pedestrian access construction，walking time increases by 20-30 minutes。', 1);

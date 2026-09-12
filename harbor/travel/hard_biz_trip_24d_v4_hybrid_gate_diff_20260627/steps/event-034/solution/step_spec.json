@@ -1,0 +1,50 @@
+{
+  "step": "event-034",
+  "virtual_stage": 23,
+  "source_event_id": "S23_0_final_archive",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the current Tokyo business-trip step through the formal systems and updated the durable records.",
+  "response_paraphrase": "The evidence-backed travel records and next actions for virtual stage 23 are now current.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S23_0_final_archive",
+      "virtual_stage": 23,
+      "event_kind": "user_message",
+      "event_time": "2026-07-25T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_file_exists",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s23_has_summary",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s23_has_checklist",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s23_has_pending",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s23_has_reusable",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

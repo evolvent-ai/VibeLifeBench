@@ -1,0 +1,23 @@
+{
+  "release_id": "release-006",
+  "previous": "release-005",
+  "token": "east-china-release-006-7f6c2d91b0a449c2",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "road_sh_window_construction",
+        "road_id": "road_sh_window_walk",
+        "start_dt": "2026-04-11T07:00:00+08:00",
+        "end_dt": "2026-04-11T18:00:00+08:00",
+        "kind": "closure",
+        "magnitude": 0.6,
+        "note": "Pedestrian access construction adds 20-30 minutes of walking time.",
+        "active": 1
+      },
+      "source_event_id": "evt_s11_mut_window_construction"
+    }
+  ]
+}

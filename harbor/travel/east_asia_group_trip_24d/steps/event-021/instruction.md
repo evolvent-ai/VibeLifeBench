@@ -1,0 +1,1 @@
+After several consecutive days of long-distance travel, the group's fatigue is becoming noticeable. Monitor everyone's overall condition, and account for changing weather and any outdoor waiting at venues.

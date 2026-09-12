@@ -1,0 +1,29 @@
+{
+  "step": "event-025",
+  "virtual_stage": 19,
+  "source_event_id": "S19_1_\u9152\u5e97\u56de\u6267",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "release-006"
+    ]
+  },
+  "response": "The travel-planning action for stage 19 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 19 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S19_1_\u9152\u5e97\u56de\u6267"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_gate",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

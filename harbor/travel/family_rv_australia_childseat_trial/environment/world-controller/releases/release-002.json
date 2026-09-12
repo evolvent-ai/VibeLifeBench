@@ -1,0 +1,82 @@
+{
+  "release_id": "release-002",
+  "previous": "release-001",
+  "token": "family-rv-australia-childseat-trial-release-002-token",
+  "source_stage": 11,
+  "scenario_time": "2026-09-09T09:10:00+10:00",
+  "source_time": "2026-09-09T09:10:00+10:00",
+  "source_event_ids": ["evt_s11_mut_parking_email_weather"],
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "conflict_keys": ["id"],
+      "values": {
+        "id": 9111,
+        "folder_id": 1,
+        "message_id": "<parking-change-20260909@lakeview-family.example.au>",
+        "subject": "Canberra stay: RV parking reduced to 2.1m underground clearance",
+        "from_addr": "parking@lakeview-family.example.au",
+        "to_addr_json": "[\"li.cheng@example.cn\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-09T09:10:00+10:00",
+        "body_text": "Your booked outdoor RV bay is unavailable during the event. Only the 2.1m underground garage remains; a 2.85m motorhome will not fit. Please contact us or arrange a confirmed external large-vehicle bay.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"category\":\"hotel_parking_change\",\"hotel_id\":\"cbrlake\"}",
+        "uid": 9111,
+        "size": 238,
+        "created_at": "2026-09-09T09:10:00+10:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 27,
+        "unread_count": 9
+      },
+      "where": {
+        "id": 1
+      }
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "upsert",
+      "conflict_keys": ["alert_id"],
+      "values": {
+        "alert_id": "alert_act_wind_20260918",
+        "kind": "wind",
+        "severity": "severe",
+        "start_dt": "2026-09-18T08:00:00+10:00",
+        "end_dt": "2026-09-18T20:00:00+10:00",
+        "areas_json": "[\"gelkvfflnm\",\"ACT\",\"Canberra-Albury corridor\"]",
+        "description": "Severe wind warning for high-sided vehicles and motorhomes; avoid exposed parking, deployed awnings and long high-speed driving.",
+        "active": 1,
+        "created_at": "2026-09-09T09:35:00+10:00",
+        "source_event": "evt_s11_weather_act_wind"
+      }
+    },
+    {
+      "server": "maps",
+      "table": "places",
+      "op": "update",
+      "set": {
+        "name": "Canberra Exhibition Park oversized-vehicle lot",
+        "hours_json": "{\"daily\":\"06:00-23:00\",\"overnight\":\"confirmation_required\"}",
+        "formatted": "Flemington Road, Mitchell ACT; open-air bays fit vehicles above 2.85m, overnight use requires operator confirmation."
+      },
+      "where": {
+        "place_id": "place_canberra_external_rv"
+      }
+    }
+  ]
+}

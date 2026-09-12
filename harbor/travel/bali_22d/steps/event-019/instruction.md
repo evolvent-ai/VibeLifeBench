@@ -1,0 +1,1 @@
+[2026-06-16 08:50 +08:00] Family travel-document notice: Liu Fang's new passport documents have been verified. The document reference is DOC-PASS-LF-20260616 and the new expiry date is 2036-06-14; the old document is invalid. Re-check Indonesian entry requirements, and handle her June 22 flight only after the budget and change or refund authorization requirements are satisfied.

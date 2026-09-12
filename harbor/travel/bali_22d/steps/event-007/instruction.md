@@ -1,0 +1,1 @@
+[2026-06-03 14:00 +08:00] Tegallalang Rice Terrace has 40% fewer visitors on Wednesdays. Access requires more than 200 uneven stone steps and an average visit involves 2.5 km of walking on sloped terrain. Ceking Rice Terrace offers an alternative viewpoint with a wheelchair-accessible flat path and only 0.4 km of walking.

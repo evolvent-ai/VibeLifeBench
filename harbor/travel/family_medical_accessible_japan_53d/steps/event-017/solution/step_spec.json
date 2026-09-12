@@ -1,0 +1,40 @@
+{
+  "step": "event-017",
+  "virtual_stage": 16,
+  "source_event_id": "s16_notification_email_from_hotel",
+  "response": "The stage 16 Kansai trip work was completed with evidence recorded and authorization boundaries preserved.",
+  "response_paraphrase": "I finished the stage 16 travel review, retaining the supporting records and keeping payment within the approved scope.",
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "s16_mutation_hotel_request_email"
+    ]
+  },
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s16_notification_email_from_hotel",
+      "virtual_stage": 16,
+      "event_kind": "notification",
+      "event_time": "2026-09-29T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_reads_exact_source_thread",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s16_draft_is_thread_bound_and_specific",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s16_register_keeps_candidate_unconfirmed",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "s15_mutation_payment_limit"
+  ],
+  "source_stage": 15,
+  "source_time": "2026-09-27T08:55:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-009-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "source_event_id": "s15_mutation_payment_limit",
+      "operation_index": 0,
+      "values": {
+        "available_credit_minor": 2800000
+      },
+      "set": {
+        "available_credit_minor": 2800000
+      },
+      "where": {
+        "card_id": "card_travel_visa"
+      }
+    }
+  ],
+  "previous": "release-008"
+}

@@ -1,0 +1,28 @@
+{
+ "step": "event-005",
+ "stage": 2,
+ "event_id": "S02_notification_calendar_blockers",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 2,
+   "event_id": "S02_notification_calendar_blockers"
+  }
+ ],
+ "response_paraphrase": "The calendar blockers are recorded as hard boundaries for the international itinerary.",
+ "expected_env": {
+  "virtual_stage": 2,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s2_time_window_respected",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S02_notification_calendar_blockers"
+}

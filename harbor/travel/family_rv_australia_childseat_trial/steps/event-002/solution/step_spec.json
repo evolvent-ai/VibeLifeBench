@@ -1,0 +1,37 @@
+{
+  "step": "event-002",
+  "stage": 2,
+  "virtual_stage": 2,
+  "source_event_id": "evt_s2_world_rules_available",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Recorded child-restraint, insurance and card-coverage rules for the motorhome plan.",
+  "response_paraphrase": "Logged the approved restraint requirement, supplier insurance need and the card's motorhome exclusion.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s2_world_rules_available"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_child_restraint_policy_recorded",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s2_cc_rv_exclusion_found",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s2_insurance_budgeted",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

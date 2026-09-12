@@ -1,0 +1,1 @@
+There are several airlines and similar departure times for Shanghai (PVG/SHA) to Tokyo, Tokyo to Seoul, and Seoul to Shanghai, with meaningful differences in price and change or cancellation terms. Zhao Min participates only in the Tokyo segment. Compare candidates for each flight segment and record an actionable option in the trip journal.

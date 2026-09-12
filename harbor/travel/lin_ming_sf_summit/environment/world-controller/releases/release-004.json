@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "m23"
+  ],
+  "source_stage": 23,
+  "source_time": "2026-03-25T14:00:00+08:00",
+  "previous": "release-003",
+  "token": "lin-ming-sf-summit-release-004-token-62e294ab",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flights",
+      "op": "update",
+      "set": {
+        "equipment": "B787"
+      },
+      "where": {
+        "flight_no": "CX870",
+        "depart_dt": "2026-03-26T07:00:00"
+      },
+      "source_event_id": "m23",
+      "operation_index": 0
+    }
+  ]
+}

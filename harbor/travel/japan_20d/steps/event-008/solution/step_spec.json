@@ -1,0 +1,35 @@
+{
+  "step": "event-008",
+  "virtual_stage": 5,
+  "source_event_id": "D5_hotel_prepay_scam_notice",
+  "stage_boundary": true,
+  "response": "Recorded d5 hotel prepay scam notice: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d5 hotel prepay scam notice update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "notification",
+      "event_id": "D5_hotel_prepay_scam_notice",
+      "virtual_stage": 5,
+      "event_kind": "notification",
+      "event_time": "2026-04-22T15:45:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s5_insurance_quote_action",
+      "weight": 1
+    },
+    {
+      "check_id": "s5_flight_booked",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

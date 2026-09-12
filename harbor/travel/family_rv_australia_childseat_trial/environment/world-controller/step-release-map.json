@@ -1,0 +1,225 @@
+{
+  "steps": {
+    "event-000": {
+      "virtual_stage": 0,
+      "scenario_time": "2026-09-01T09:10:00+08:00",
+      "source_event_id": "evt_s0_user_kickoff",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-001": {
+      "virtual_stage": 1,
+      "scenario_time": "2026-09-01T14:30:00+08:00",
+      "source_event_id": "evt_s1_scheduled_doc_check",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-002": {
+      "virtual_stage": 2,
+      "scenario_time": "2026-09-02T10:00:00+08:00",
+      "source_event_id": "evt_s2_world_rules_available",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-003": {
+      "virtual_stage": 3,
+      "scenario_time": "2026-09-03T09:20:00+08:00",
+      "source_event_id": "evt_s3_world_offers_open",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-004": {
+      "virtual_stage": 3,
+      "scenario_time": "2026-09-03T10:05:00+08:00",
+      "source_event_id": "evt_s3_notification_weather_initial",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-005": {
+      "virtual_stage": 4,
+      "scenario_time": "2026-09-04T19:00:00+08:00",
+      "source_event_id": "evt_s4_user_approve_refundable_flight_hotel",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-006": {
+      "virtual_stage": 5,
+      "scenario_time": "2026-09-06T09:00:00+10:00",
+      "source_event_id": "evt_s5_notification_inventory_check",
+      "stage_boundary": true,
+      "before": [
+        "release-000"
+      ]
+    },
+    "event-007": {
+      "virtual_stage": 6,
+      "scenario_time": "2026-09-06T15:10:00+10:00",
+      "source_event_id": "evt_s6_world_refundable_deadline",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-008": {
+      "virtual_stage": 6,
+      "scenario_time": "2026-09-06T15:40:00+10:00",
+      "source_event_id": "evt_s6_notification_cbr_family_rooms",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-009": {
+      "virtual_stage": 7,
+      "scenario_time": "2026-09-07T20:45:00+08:00",
+      "source_event_id": "evt_s7_user_spouse_declines_nonrefund",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-010": {
+      "virtual_stage": 8,
+      "scenario_time": "2026-09-08T11:00:00+08:00",
+      "source_event_id": "evt_s8_notification_visa_followup",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-011": {
+      "virtual_stage": 9,
+      "scenario_time": "2026-09-09T09:00:00+08:00",
+      "source_event_id": "evt_s9_scheduled_fatigue_plan",
+      "stage_boundary": true,
+      "before": [
+        "release-001"
+      ]
+    },
+    "event-012": {
+      "virtual_stage": 11,
+      "scenario_time": "2026-09-09T09:15:00+10:00",
+      "source_event_id": "evt_s11_email_hotel_parking",
+      "stage_boundary": false,
+      "before": [
+        "release-002"
+      ]
+    },
+    "event-013": {
+      "virtual_stage": 11,
+      "scenario_time": "2026-09-09T09:40:00+10:00",
+      "source_event_id": "evt_s11_weather_act_wind",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-014": {
+      "virtual_stage": 11,
+      "scenario_time": "2026-09-09T10:05:00+10:00",
+      "source_event_id": "evt_s11_world_external_parking_hint",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-015": {
+      "virtual_stage": 12,
+      "scenario_time": "2026-09-10T08:00:00+10:00",
+      "source_event_id": "evt_s12_world_wind_addendum_notice",
+      "stage_boundary": true,
+      "before": [
+        "release-003"
+      ]
+    },
+    "event-016": {
+      "virtual_stage": 14,
+      "scenario_time": "2026-09-12T08:00:00+08:00",
+      "source_event_id": "evt_s14_scheduled_departure_check",
+      "stage_boundary": true,
+      "before": [
+        "release-004"
+      ]
+    },
+    "event-017": {
+      "virtual_stage": 15,
+      "scenario_time": "2026-09-13T10:30:00+10:00",
+      "source_event_id": "evt_s15_world_arrival_visa_granted",
+      "stage_boundary": true,
+      "before": [
+        "release-005"
+      ]
+    },
+    "event-018": {
+      "virtual_stage": 16,
+      "scenario_time": "2026-09-15T09:30:00+10:00",
+      "source_event_id": "evt_s16_user_right_hand_anxiety",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-019": {
+      "virtual_stage": 17,
+      "scenario_time": "2026-09-17T18:00:00+10:00",
+      "source_event_id": "evt_s17_scheduled_wind_check",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-020": {
+      "virtual_stage": 18,
+      "scenario_time": "2026-09-20T12:20:00+10:00",
+      "source_event_id": "evt_s18_notification_duplicate_hold",
+      "stage_boundary": false,
+      "before": [
+        "release-006"
+      ]
+    },
+    "event-021": {
+      "virtual_stage": 18,
+      "scenario_time": "2026-09-20T12:35:00+10:00",
+      "source_event_id": "evt_s18_world_rental_deposit_rule",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-022": {
+      "virtual_stage": 19,
+      "scenario_time": "2026-09-21T08:45:00+10:00",
+      "source_event_id": "evt_s19_world_weather_improves",
+      "stage_boundary": false,
+      "before": [
+        "release-007"
+      ]
+    },
+    "event-023": {
+      "virtual_stage": 19,
+      "scenario_time": "2026-09-21T09:05:00+10:00",
+      "source_event_id": "evt_s19_user_child_fatigue",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-024": {
+      "virtual_stage": 20,
+      "scenario_time": "2026-09-24T17:30:00+10:00",
+      "source_event_id": "evt_s20_user_returned_rv",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-025": {
+      "virtual_stage": 21,
+      "scenario_time": "2026-09-25T11:00:00+10:00",
+      "source_event_id": "evt_s21_notification_return_prep",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-026": {
+      "virtual_stage": 21,
+      "scenario_time": "2026-09-25T11:20:00+10:00",
+      "source_event_id": "evt_s21_world_hotel_checkout_digest",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-027": {
+      "virtual_stage": 22,
+      "scenario_time": "2026-09-26T16:00:00+10:00",
+      "source_event_id": "evt_s22_notification_cc_update",
+      "stage_boundary": true,
+      "before": [
+        "release-008"
+      ]
+    },
+    "event-028": {
+      "virtual_stage": 23,
+      "scenario_time": "2026-09-27T20:30:00+10:00",
+      "source_event_id": "evt_s23_user_final_review",
+      "stage_boundary": true,
+      "before": []
+    }
+  }
+}

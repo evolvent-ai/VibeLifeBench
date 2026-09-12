@@ -1,0 +1,33 @@
+{
+  "step": "event-009",
+  "virtual_stage": 6,
+  "source_event_id": "D6_hakone_train_pass_reminder",
+  "stage_boundary": true,
+  "response": "Recorded d6 hakone train pass reminder: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d6 hakone train pass reminder update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "world",
+      "event_id": "D6_hakone_train_pass_reminder",
+      "virtual_stage": 6,
+      "event_kind": "world",
+      "event_time": "2026-04-23T15:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s6_precision_no_overmessage",
+      "weight": 1
+    },
+    {
+      "check_id": "d_s6_no_booking_mutations",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 2
+}

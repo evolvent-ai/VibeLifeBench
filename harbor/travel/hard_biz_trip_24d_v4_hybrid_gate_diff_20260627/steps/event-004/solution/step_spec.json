@@ -1,0 +1,24 @@
+{
+  "step": "event-004",
+  "virtual_stage": 2,
+  "source_event_id": "S02_0_hotel_search",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the current Tokyo business-trip step through the formal systems and updated the durable records.",
+  "response_paraphrase": "The evidence-backed travel records and next actions for virtual stage 2 are now current.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S02_0_hotel_search",
+      "virtual_stage": 2,
+      "event_kind": "world",
+      "event_time": "2026-07-03T09:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

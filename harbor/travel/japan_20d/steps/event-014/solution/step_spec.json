@@ -1,0 +1,33 @@
+{
+  "step": "event-014",
+  "virtual_stage": 9,
+  "source_event_id": "D9_bookings_lock_deadline_user",
+  "stage_boundary": true,
+  "response": "Recorded d9 bookings lock deadline user: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d9 bookings lock deadline user update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "event_id": "D9_bookings_lock_deadline_user",
+      "virtual_stage": 9,
+      "event_kind": "user_message",
+      "event_time": "2026-04-26T19:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s9_bookings_locked",
+      "weight": 2.5
+    },
+    {
+      "check_id": "d_budget_warning_before_60k_cap",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

@@ -1,0 +1,29 @@
+{
+  "step": "event-003",
+  "virtual_stage": 1,
+  "source_event_id": "S01_1_\u738b\u6d69",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The travel-planning action for stage 1 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 1 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S01_1_\u738b\u6d69"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_country_specific_requirements_rechecked",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s1_wang_hao_exact_passport_risk_persisted",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

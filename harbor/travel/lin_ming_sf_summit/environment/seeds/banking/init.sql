@@ -1,0 +1,10 @@
+BEGIN TRANSACTION;
+INSERT INTO accounts VALUES ('ACC_TRIP', 'liming@company.com', 'checking', 'Company Trip Account', 5000000, 'CNY', '2024-01-10T09:00:00+08:00', 0);
+INSERT INTO accounts VALUES ('ACC_PERSONAL', 'liming@company.com', 'savings', 'Personal Savings', 3200000, 'CNY', '2024-03-18T09:00:00+08:00', 0);
+INSERT INTO transactions VALUES ('TX001', 'ACC_TRIP', '2025-11-10T10:00:00', 420000, 'payment', 'Airline Shanghai', '2025-11 Shanghai flight', 4580000);
+INSERT INTO transactions VALUES ('TX002', 'ACC_TRIP', '2025-11-10T10:05:00', 210000, 'payment', 'Hotel Shanghai', '2025-11 Shanghai hotel', 4370000);
+INSERT INTO transactions VALUES ('TX003', 'ACC_TRIP', '2025-12-05T09:00:00', 680000, 'payment', 'Airline Shenzhen', '2025-12 Shenzhen flight', 3690000);
+INSERT INTO transactions VALUES ('TX004', 'ACC_TRIP', '2025-12-06T12:00:00', 45000, 'payment', 'Restaurant', '2025-12 client meal', 3645000);
+INSERT INTO transactions VALUES ('TX005', 'ACC_TRIP', '2026-01-15T14:00:00', 32000, 'payment', 'Taxi Guangzhou', '2026-01 Guangzhou transport', 3613000);
+INSERT INTO _counters VALUES ('account', 2), ('payee', 0), ('transaction', 5), ('pending', 0), ('recurring', 0);
+COMMIT;

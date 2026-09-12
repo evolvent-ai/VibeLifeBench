@@ -1,0 +1,1 @@
+Li Ting has a history of hypertension. Before departure, establish a recent blood-pressure baseline and monitoring target. Use systolic 140 mmHg and diastolic 90 mmHg as the monitoring thresholds. In her health record, clearly document abnormal thresholds, repeat-measurement instructions, when to reduce exertion, and when to escalate to medical care.

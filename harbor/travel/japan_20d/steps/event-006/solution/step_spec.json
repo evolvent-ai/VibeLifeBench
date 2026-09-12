@@ -1,0 +1,37 @@
+{
+  "step": "event-006",
+  "virtual_stage": 4,
+  "source_event_id": "D4_passport_validity_trigger",
+  "stage_boundary": true,
+  "response": "Recorded d4 passport validity trigger: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d4 passport validity trigger update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "world",
+      "event_id": "D4_passport_validity_trigger",
+      "virtual_stage": 4,
+      "event_kind": "world",
+      "event_time": "2026-04-21T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s4_passport_resolved",
+      "weight": 2
+    },
+    {
+      "check_id": "s4_visa_application_started",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s4_passport_cross_service",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

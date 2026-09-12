@@ -1,0 +1,33 @@
+{
+  "step": "event-022",
+  "virtual_stage": 17,
+  "source_event_id": "S17_0_AA\u50ac\u6536",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-005"
+    ]
+  },
+  "response": "The travel-planning action for stage 17 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 17 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S17_0_AA\u50ac\u6536"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_frozen_payee_attempt_did_not_post",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s17_frozen_payment_fallback_persisted",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

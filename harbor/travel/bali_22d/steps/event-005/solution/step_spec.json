@@ -1,0 +1,38 @@
+{
+  "step": "event-005",
+  "virtual_stage": 4,
+  "source_event_id": "D4_passport_validity_trigger",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": []
+  },
+  "response": "Liu Fang's date-specific passport block and the no-ticket condition are recorded.",
+  "response_paraphrase": "Liu Fang's date-specific passport block and the no-ticket condition have been logged.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D4_passport_validity_trigger"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s4_indonesia_entry_rule_rechecked",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s4_passport_risk_record_is_date_specific",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s4_mother_flight_register_remains_blocked",
+      "weight": 0.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

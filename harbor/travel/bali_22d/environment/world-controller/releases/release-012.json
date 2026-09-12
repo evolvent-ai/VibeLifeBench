@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "D19_mother_arrived_mutation"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-06-22T13:42+08:00",
+  "previous": "release-011",
+  "token": "bali-22d-release-token-012-9f42c7a1",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "ARRIVED",
+        "actual_arrive": "2026-06-22T13:42:00+08:00",
+        "gate": "A2",
+        "terminal": "I",
+        "delay_min": 2,
+        "last_updated": "2026-06-22T13:42:00+08:00"
+      },
+      "where": {
+        "flight_no": "GA837",
+        "date": "2026-06-22"
+      },
+      "source_event_id": "D19_mother_arrived_mutation",
+      "operation_index": 0
+    }
+  ]
+}

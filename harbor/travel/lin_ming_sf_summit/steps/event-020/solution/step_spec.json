@@ -1,0 +1,37 @@
+{
+  "step": "event-020",
+  "stage": 22,
+  "virtual_stage": 22,
+  "source_event_id": "u22",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The itinerary and expense breakdown are organized in Notion, including a CNY 14,820 pre-clearance total. I sent Manager Zhang a written approval request that identifies the CNY 5,000 threshold and the CNY 15,000 cap.",
+  "response_paraphrase": "The Notion trip archive now contains the bookings and cost summary, and a formal email asks the direct manager to approve the CNY 14,820 request under the applicable spending limits.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "u22"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_sent_email",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s22_email_has_amount",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s22_notion_reimbursement",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

@@ -1,0 +1,21 @@
+{
+  "step": "event-025",
+  "stage": 21,
+  "virtual_stage": 21,
+  "source_event_id": "evt_s21_notification_return_prep",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Reviewed return preparations and left unsettled card or deposit work visible.",
+  "response_paraphrase": "Reviewed the return preparations and left the pending charge reconciliation visible.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s21_notification_return_prep"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

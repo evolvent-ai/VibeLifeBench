@@ -1,0 +1,18 @@
+{
+  "release_id": "release-001",
+  "previous": "release-000",
+  "token": "galapagos-no-us-transit-release-001-20260825-token",
+  "operations": [
+    {
+      "server": "notion",
+      "table": "workspaces",
+      "op": "update",
+      "set": {
+        "workspace_id": "ws_linqiao"
+      },
+      "where": {
+        "workspace_id": "ws_linqiao"
+      }
+    }
+  ]
+}

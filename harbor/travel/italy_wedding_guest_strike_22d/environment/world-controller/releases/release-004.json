@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "D8_mut_rail"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-09-02T00:01",
+  "previous": "release-003",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "rail_booking",
+      "table": "train_status",
+      "op": "update",
+      "set": {
+        "status": "STRIKE_NOTICE",
+        "delay_min": 240,
+        "last_updated": "2026-09-02T00:00:00Z"
+      },
+      "where": {
+        "train_no": "FR9403",
+        "date": "2026-09-11"
+      },
+      "source_event_id": "D8_mut_rail",
+      "operation_index": 0
+    }
+  ]
+}

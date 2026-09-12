@@ -1,0 +1,20 @@
+{
+  "step": "event-015",
+  "virtual_stage": 13,
+  "source_event_id": "D13_departure_morning",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The exact GA835 arrival status was verified from the live flight record.",
+  "response_paraphrase": "The exact GA835 arrival status was confirmed from the live flight record.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D13_departure_morning"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

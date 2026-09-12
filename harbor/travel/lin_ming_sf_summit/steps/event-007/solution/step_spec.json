@@ -1,0 +1,27 @@
+{
+  "step": "event-007",
+  "stage": 7,
+  "virtual_stage": 7,
+  "source_event_id": "w7b",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I refreshed the formal search for connecting alternatives and recorded the direct-flight cancellation. The Hong Kong transit fuel surcharge is being compared against live totals, not treated as a universal airline price increase.",
+  "response_paraphrase": "Current connection fares have been retrieved after the cancellation. I am evaluating the Hong Kong routing by its actual recalculated total instead of generalizing the surcharge notice to every carrier.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "w7b"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_responded_to_cancellation",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

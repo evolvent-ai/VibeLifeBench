@@ -1,0 +1,35 @@
+{
+  "release_id": "release-007",
+  "previous": "release-006",
+  "token": "east-china-release-007-7f6c2d91b0a449c2",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1012,
+        "folder_id": 1,
+        "message_id": "msg_cousin_pickup",
+        "subject": "Ningbo meeting time",
+        "from_addr": "chen.yu@example.test",
+        "to_addr_json": "[\"lin.che@example.test\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-04-12T20:18:00+08:00",
+        "body_text": "I can meet Auntie at Ningbo Station North Square after 19:00 on April 16. A late arrival will tire her; send only the train number and meeting exit.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 1012,
+        "size": 190,
+        "created_at": "2026-04-12T20:18:00+08:00"
+      },
+      "source_event_id": "evt_s12_mut_cousin_pickup_email"
+    }
+  ]
+}

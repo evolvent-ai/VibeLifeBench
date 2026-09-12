@@ -1,0 +1,35 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "token": "east-china-release-000-7f6c2d91b0a449c2",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1001,
+        "folder_id": 1,
+        "message_id": "msg_uncle_funeral_time",
+        "subject": "Farewell hall time preliminary confirmation",
+        "from_addr": "zhou.jianguo@example.test",
+        "to_addr_json": "[\"lin.che@example.test\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-04-03T09:00:00+08:00",
+        "body_text": "The farewell hall is likely scheduled for the morning of April 6. The funeral home will confirm the exact hall number by the evening of April 5. Please do not keep asking; I am at the site.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"source\":\"family\"}",
+        "uid": 1001,
+        "size": 240,
+        "created_at": "2026-04-03T09:00:00+08:00"
+      },
+      "source_event_id": "evt_s1_mut_uncle_email"
+    }
+  ]
+}

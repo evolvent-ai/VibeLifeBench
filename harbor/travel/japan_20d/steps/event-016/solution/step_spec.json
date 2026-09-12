@@ -1,0 +1,37 @@
+{
+  "step": "event-016",
+  "virtual_stage": 11,
+  "source_event_id": "D11_typhoon_track_update",
+  "stage_boundary": true,
+  "response": "Recorded d11 typhoon track update: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d11 typhoon track update update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "world",
+      "event_id": "D11_typhoon_track_update",
+      "virtual_stage": 11,
+      "event_kind": "world",
+      "event_time": "2026-04-28T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s11_typhoon_replan",
+      "weight": 2.5
+    },
+    {
+      "check_id": "s11_typhoon_track_surfaced",
+      "weight": 1.5
+    },
+    {
+      "check_id": "d_weather_advisory_surfaced_timely",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

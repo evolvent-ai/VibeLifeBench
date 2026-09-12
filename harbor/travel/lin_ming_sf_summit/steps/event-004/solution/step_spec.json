@@ -1,0 +1,27 @@
+{
+  "step": "event-004",
+  "stage": 4,
+  "virtual_stage": 4,
+  "source_event_id": "w4",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The budget tracker now uses the internal pre-clearance rate of 1 USD = 7.42 CNY and includes conversion evidence. It also states that final reimbursement follows Finance's settlement records rather than this planning rate.",
+  "response_paraphrase": "I refreshed the planning conversion to CNY 7.42 per U.S. dollar and preserved an example calculation, with a separate note that the eventual expense settlement may use another Finance rate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "w4"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s4_expense_and_fx",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

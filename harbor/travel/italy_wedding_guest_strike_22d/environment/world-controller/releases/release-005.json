@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "D9_mut_hotel_sales_email"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-09-03T08:30",
+  "previous": "release-004",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 7427,
+        "folder_id": 1,
+        "message_id": "<florence-block-20260903@arno-garden.example.it>",
+        "subject": "Wedding block: prepaid rate expires soon",
+        "from_addr": "sales@arno-garden.example.it",
+        "to_addr_json": "[\"maya.chen@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-03T08:30:00Z",
+        "body_text": "The prepaid wedding-block rate near Santa Maria Novella is currently cheaper and inventory is limited. Flexible rooms may still be available under different cancellation terms; confirm live inventory before choosing.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"category\":\"hotel_sales\",\"campaign\":\"wedding_block\"}",
+        "uid": 7427,
+        "size": 206,
+        "created_at": "2026-09-03T08:30:00Z"
+      },
+      "source_event_id": "D9_mut_hotel_sales_email",
+      "operation_index": 0
+    }
+  ]
+}

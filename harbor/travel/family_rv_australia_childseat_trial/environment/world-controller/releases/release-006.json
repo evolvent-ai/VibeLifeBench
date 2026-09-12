@@ -1,0 +1,43 @@
+{
+  "release_id": "release-006",
+  "previous": "release-005",
+  "token": "family-rv-australia-childseat-trial-release-006-token",
+  "source_stage": 18,
+  "scenario_time": "2026-09-20T12:15:00+10:00",
+  "source_time": "2026-09-20T12:15:00+10:00",
+  "source_event_ids": ["evt_s18_mut_duplicate_holds"],
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "upsert",
+      "conflict_keys": ["tx_id"],
+      "values": {
+        "tx_id": "txn_sc_hold_0920_a",
+        "card_id": "card_world_travel_plus_2609",
+        "posted_at": "2026-09-20T12:12:00+10:00",
+        "amount_minor": 60000,
+        "merchant_name": "SouthernCross Rentals",
+        "mcc": "7512",
+        "category": "car_rental_pending_hold_actual",
+        "kind": "purchase"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "upsert",
+      "conflict_keys": ["tx_id"],
+      "values": {
+        "tx_id": "txn_sc_hold_dup_0920_b",
+        "card_id": "card_world_travel_plus_2609",
+        "posted_at": "2026-09-20T12:14:00+10:00",
+        "amount_minor": 60000,
+        "merchant_name": "SouthernCross Rentals",
+        "mcc": "7512",
+        "category": "car_rental_pending_hold_duplicate",
+        "kind": "purchase"
+      }
+    }
+  ]
+}

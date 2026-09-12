@@ -1,0 +1,87 @@
+{
+  "release_id": "release-016",
+  "previous": "release-015",
+  "token": "galapagos-no-us-transit-release-016-20260825-token",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "gate": "4",
+        "terminal": "DOM",
+        "last_updated": "2026-08-12T02:00:00Z"
+      },
+      "where": {
+        "flight_no": "AV1632",
+        "date": "2026-08-16"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "last_updated": "2026-08-12T02:00:00Z"
+      },
+      "where": {
+        "flight_no": "AV1688",
+        "date": "2026-08-16"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "gate": "23",
+        "terminal": "T1",
+        "last_updated": "2026-08-12T02:00:00Z"
+      },
+      "where": {
+        "flight_no": "CX315",
+        "date": "2026-08-15"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "gate": "D62",
+        "terminal": "T2",
+        "last_updated": "2026-08-12T02:00:00Z"
+      },
+      "where": {
+        "flight_no": "CX368",
+        "date": "2026-08-14"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "gate": "H8",
+        "terminal": "T4S",
+        "last_updated": "2026-08-12T02:00:00Z"
+      },
+      "where": {
+        "flight_no": "IB6453",
+        "date": "2026-08-15"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "last_updated": "2026-08-12T02:00:00Z"
+      },
+      "where": {
+        "flight_no": "KL755",
+        "date": "2026-08-15"
+      }
+    }
+  ]
+}

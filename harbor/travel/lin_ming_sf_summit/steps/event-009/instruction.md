@@ -1,0 +1,1 @@
+Hong Kong International Airport has issued a weather advisory: thunderstorms may occur from the evening of March 26 through the morning of March 27, and some connecting flights may be delayed or canceled.

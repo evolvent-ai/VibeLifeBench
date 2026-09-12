@@ -1,0 +1,27 @@
+{
+  "step": "event-022",
+  "stage": 25,
+  "virtual_stage": 25,
+  "source_event_id": "u25",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Final review: the flight bookings include the Hong Kong outbound connection and April 5 return; the San Francisco hotel covers the summit; the calendar includes the summit, internal stand-up, and client visit; expenses total CNY 14,820 for pre-clearance; Manager Zhang's reimbursement approval request was sent; EVUS, passport, wind, and seat-change records are archived with no open operational omission.",
+  "response_paraphrase": "The closeout confirms outbound and return air travel, conference-period lodging, the meeting calendar, and the CNY 14,820 cost record. The manager authorization email and reimbursement archive are in place, with entry-document, weather, and changed-aircraft follow-up retained in the trip files.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "u25"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s25_summary_consistent",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

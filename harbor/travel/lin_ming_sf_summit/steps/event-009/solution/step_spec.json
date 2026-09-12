@@ -1,0 +1,27 @@
+{
+  "step": "event-009",
+  "stage": 9,
+  "virtual_stage": 9,
+  "source_event_id": "w9",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I checked the Hong Kong transit booking and documented the thunderstorm risk. The plan keeps connection buffer, active flight monitoring, and an alternative or rebooking contingency for delays or cancellation.",
+  "response_paraphrase": "The HKG connection has been reviewed against the storm advisory, with extra transfer margin, formal status monitoring, and a fallback routing ready if weather disrupts the flights.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "w9"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_transit_weather_handled",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

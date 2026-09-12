@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "D2_flight_equip_swap_mutation"
+  ],
+  "source_stage": 2,
+  "source_time": "2026-05-30T06:00+08:00",
+  "previous": "release-000",
+  "token": "bali-22d-release-token-001-9f42c7a1",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flights",
+      "op": "update",
+      "set": {
+        "equipment": "B737-800"
+      },
+      "where": {
+        "flight_no": "GA835",
+        "depart_dt": "2026-06-10T05:55:00+08:00"
+      },
+      "source_event_id": "D2_flight_equip_swap_mutation",
+      "operation_index": 0
+    }
+  ]
+}

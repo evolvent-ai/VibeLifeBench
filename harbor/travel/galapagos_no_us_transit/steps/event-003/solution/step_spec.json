@@ -1,0 +1,28 @@
+{
+ "step": "event-003",
+ "stage": 1,
+ "event_id": "S01_world_island_transfer_baseline",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 1,
+   "event_id": "S01_world_island_transfer_baseline"
+  }
+ ],
+ "response_paraphrase": "The island transfer review links Baltra, the channel crossing, and Puerto Ayora instead of assuming a direct ride.",
+ "expected_env": {
+  "virtual_stage": 1,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s1_registration_transfer_gate",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S01_world_island_transfer_baseline"
+}

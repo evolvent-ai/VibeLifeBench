@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-014",
+  "source_event_ids": [
+    "D22_ash_alert_mutation"
+  ],
+  "source_stage": 22,
+  "source_time": "2026-06-29T07:55+08:00",
+  "previous": "release-013",
+  "token": "bali-22d-release-token-014-9f42c7a1",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "alert_id": "alert_ash_dps_20260629"
+      },
+      "source_event_id": "D22_ash_alert_mutation",
+      "operation_index": 0
+    }
+  ]
+}

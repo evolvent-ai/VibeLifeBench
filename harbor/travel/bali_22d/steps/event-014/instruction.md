@@ -1,0 +1,1 @@
+[2026-06-09 06:00 +08:00] PVMBG 12-hour update: Agung seismicity remains stable at Level 2 with no escalation. DPS airport has normal operations. The Kintamani viewpoint, 12 km from the crater, remains accessible.

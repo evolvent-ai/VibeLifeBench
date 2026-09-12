@@ -1,0 +1,67 @@
+{
+  "release_id": "release-018",
+  "previous": "release-017",
+  "token": "galapagos-no-us-transit-release-018-20260825-token",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "delayed",
+        "delay_min": 40,
+        "last_updated": "2026-08-16T13:20:00Z"
+      },
+      "where": {
+        "flight_no": "AV1632",
+        "date": "2026-08-16"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "arrived",
+        "actual_depart": "2026-08-15T01:35:00+08:00",
+        "actual_arrive": "2026-08-15T08:40:00+02:00",
+        "delay_min": 35,
+        "last_updated": "2026-08-16T13:20:00Z"
+      },
+      "where": {
+        "flight_no": "CX315",
+        "date": "2026-08-15"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "departed",
+        "actual_depart": "2026-08-14T18:50:00+08:00",
+        "last_updated": "2026-08-16T13:20:00Z"
+      },
+      "where": {
+        "flight_no": "CX368",
+        "date": "2026-08-14"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "arrived",
+        "actual_depart": "2026-08-15T12:05:00+02:00",
+        "actual_arrive": "2026-08-15T17:10:00-05:00",
+        "delay_min": 15,
+        "last_updated": "2026-08-16T13:20:00Z"
+      },
+      "where": {
+        "flight_no": "IB6453",
+        "date": "2026-08-15"
+      }
+    }
+  ]
+}

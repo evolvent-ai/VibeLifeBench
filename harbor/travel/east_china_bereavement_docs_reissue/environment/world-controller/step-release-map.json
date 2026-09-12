@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "step_count": 29,
+  "steps": {
+    "event-000": {
+      "source_event_id": "evt_s0_user_brief",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-03T08:20:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "evt_s1_email_uncle",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-03T09:05:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "evt_s1_world_route",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-03T09:15:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "evt_s2_order_watch",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-03T13:15:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "evt_s3_user_id_lost",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-03T20:40:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "evt_s4_sched_doc_check",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-04T08:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "evt_s5_lodging_watch",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-05T09:25:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "evt_s6_user_funeral_confirm",
+      "before": [],
+      "virtual_stage": 6,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-05T17:30:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "evt_s6_world_funeral_home",
+      "before": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-05T17:40:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "evt_s7_world_shanghai_window",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 7,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-07T10:15:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "evt_s7_waitlist_notice",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-07T10:18:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "evt_s7_hotel_notice",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-07T10:22:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "evt_s8_order_watch",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-08T08:45:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "evt_s9_user_after_funeral",
+      "before": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-09T12:20:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "evt_s10_balance_notice",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-10T15:05:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "evt_s11_sched_shanghai_check",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-11T08:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "evt_s11_world_route_construction",
+      "before": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-11T08:05:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "evt_s12_user_ningbo_pickup",
+      "before": [],
+      "virtual_stage": 12,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-12T20:10:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "evt_s12_email_cousin",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-12T20:20:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "evt_s13_material_watch",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-13T10:18:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "evt_s14_email_sensitive_request",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-14T09:05:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "evt_s15_world_return_need",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-15T18:35:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "evt_s16_sched_elder_ticket",
+      "before": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-16T08:00:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "evt_s17_user_send_pickup",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-16T17:50:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "evt_s17_world_station_flow",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-16T17:55:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "evt_s18_flight_watch",
+      "before": [
+        "release-011"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-21T16:15:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "evt_s19_world_bank_posted",
+      "before": [
+        "release-012"
+      ],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-23T11:00:00+08:00"
+    },
+    "event-027": {
+      "source_event_id": "evt_s20_sched_closure",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-27T09:00:00+08:00"
+    },
+    "event-028": {
+      "source_event_id": "evt_s21_user_final",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-27T20:30:00+08:00"
+    }
+  }
+}

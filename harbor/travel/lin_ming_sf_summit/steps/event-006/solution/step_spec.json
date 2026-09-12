@@ -1,0 +1,25 @@
+{
+  "step": "event-006",
+  "stage": 7,
+  "virtual_stage": 7,
+  "source_event_id": "n7",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "m6"
+    ]
+  },
+  "response": "I verified the direct-flight cancellation and searched again for live connecting alternatives. A Hong Kong transit or other reroute will be compared by current total price before any rebooking decision.",
+  "response_paraphrase": "The cancelled direct services have been checked, and replacement searches are underway for a connection-based itinerary using current quoted totals rather than the old fare.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n7"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

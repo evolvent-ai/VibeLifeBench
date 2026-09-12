@@ -1,0 +1,1 @@
+The Lost & Found search receipt from Shinjuku Grand Hotel has arrived in the inbox. Read it and verify the case reference, recovered items, retention deadline, and collection restrictions. Link the actual special-request ticket and the receipt to the incident record.

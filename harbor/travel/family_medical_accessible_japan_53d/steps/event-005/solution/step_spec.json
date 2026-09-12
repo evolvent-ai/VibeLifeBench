@@ -1,0 +1,28 @@
+{
+  "step": "event-005",
+  "virtual_stage": 5,
+  "source_event_id": "s5_user_preference_update",
+  "response": "The stage 5 Kansai trip work was completed with evidence recorded and authorization boundaries preserved.",
+  "response_paraphrase": "I finished the stage 5 travel review, retaining the supporting records and keeping payment within the approved scope.",
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s5_user_preference_update",
+      "virtual_stage": 5,
+      "event_kind": "user_message",
+      "event_time": "2026-09-08T20:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_records_mobility_preferences",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

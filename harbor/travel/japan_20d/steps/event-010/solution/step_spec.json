@@ -1,0 +1,41 @@
+{
+  "step": "event-010",
+  "virtual_stage": 7,
+  "source_event_id": "D7_user_proactive_packing",
+  "stage_boundary": true,
+  "response": "Recorded d7 user proactive packing: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d7 user proactive packing update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "event_id": "D7_user_proactive_packing",
+      "virtual_stage": 7,
+      "event_kind": "user_message",
+      "event_time": "2026-04-24T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s7_insulin_guidance",
+      "weight": 2
+    },
+    {
+      "check_id": "s7_doctor_letter_todo",
+      "weight": 1
+    },
+    {
+      "check_id": "d_mother_raw_fish_avoid",
+      "weight": 0.5
+    },
+    {
+      "check_id": "d_hotel_minifridge_insulin",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

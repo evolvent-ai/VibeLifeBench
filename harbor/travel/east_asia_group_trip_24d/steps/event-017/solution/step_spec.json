@@ -1,0 +1,29 @@
+{
+  "step": "event-017",
+  "virtual_stage": 13,
+  "source_event_id": "S13_0_\u62b5\u4e1c\u4eac",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The travel-planning action for stage 13 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 13 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S13_0_\u62b5\u4e1c\u4eac"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_gate",
+      "weight": 2
+    },
+    {
+      "check_id": "s13b_gate",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

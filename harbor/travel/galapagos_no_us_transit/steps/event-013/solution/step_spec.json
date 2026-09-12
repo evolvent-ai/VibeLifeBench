@@ -1,0 +1,25 @@
+{
+ "step": "event-013",
+ "stage": 7,
+ "event_id": "S07_world_late_arrival_safety",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 7,
+   "event_id": "S07_world_late_arrival_safety"
+  }
+ ],
+ "response_paraphrase": "The late-arrival review compares airport access, transfer reliability, and next-day connection margin.",
+ "expected_env": {
+  "virtual_stage": 7,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-005"
+  ],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S07_world_late_arrival_safety"
+}

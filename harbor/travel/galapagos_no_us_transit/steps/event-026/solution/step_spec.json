@@ -1,0 +1,30 @@
+{
+ "step": "event-026",
+ "stage": 15,
+ "event_id": "S15_world_ground_transfer_check",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 15,
+   "event_id": "S15_world_ground_transfer_check"
+  }
+ ],
+ "response_paraphrase": "The ground-transfer update retimes the airport, ferry, and Puerto Ayora connection.",
+ "expected_env": {
+  "virtual_stage": 15,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-014"
+  ],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s15_transfer_mutation_retime",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S15_world_ground_transfer_check"
+}

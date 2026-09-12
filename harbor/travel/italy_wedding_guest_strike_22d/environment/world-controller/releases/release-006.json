@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "D10_mut_hotel"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-09-04T00:01",
+  "previous": "release-005",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 1,
+        "nightly_price": 230,
+        "refundable_until": "2026-09-07T18:00:00+02:00"
+      },
+      "where": {
+        "hotel_id": "hotel_firenze_smn_042",
+        "date": "2026-09-11",
+        "flavor": "flex"
+      },
+      "source_event_id": "D10_mut_hotel",
+      "operation_index": 0
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 0
+      },
+      "where": {
+        "hotel_id": "hotel_firenze_smn_042",
+        "date": "2026-09-11",
+        "flavor": "semi"
+      },
+      "source_event_id": "D10_mut_hotel",
+      "operation_index": 1
+    }
+  ]
+}

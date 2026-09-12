@@ -1,0 +1,39 @@
+{
+  "step": "event-011",
+  "stage": 9,
+  "virtual_stage": 9,
+  "source_event_id": "evt_s9_scheduled_fatigue_plan",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": []
+  },
+  "response": "Detected the Canberra parking mismatch, searched an external oversized-vehicle option and documented wind risk.",
+  "response_paraphrase": "Found that the 2.1m garage cannot accept the 2.85m RV, sought a confirmed large-vehicle alternative and logged ACT wind exposure.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s9_scheduled_fatigue_plan"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_calendar_driving_segments",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s9_no_segment_over_limit",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s9_right_hand_adaptation_block",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6
+}

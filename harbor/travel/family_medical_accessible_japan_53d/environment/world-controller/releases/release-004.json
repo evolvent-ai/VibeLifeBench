@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "insurance_quote_delivery_20260916"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-09-16T10:55:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-004-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "insurance_quote_delivery_20260916",
+      "operation_index": 0,
+      "values": {
+        "folder_id": 1,
+        "message_id": "<insurance-options-20260916@kansai-cover.example>",
+        "subject": "Japan family travel insurance comparison（senior terms update）",
+        "from_addr": "quotes@kansai-cover.example",
+        "to_addr_json": "[\"liwei@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-16T10:55:00+08:00",
+        "body_text": "quote[source-term-U+7F16][source-term-U+53F7] INS-QUOTE-KANSAI-0916，valid until 2026-09-20T18:00:00+08:00。plan A [source-term-U+542B]Japanoutpatient[source-term-U+4E0E]emergency[source-term-U+8F6C][source-term-U+4ECB][source-term-U+534F][source-term-U+52A9]、baggage delay 6 [source-term-U+5C0F]hour[source-term-U+8D77][source-term-U+8D54][source-term-U+548C]refundable[source-term-U+6B3E]trip interruption or change[source-term-U+4FDD][source-term-U+969C]；plan B [source-term-U+63D0][source-term-U+9AD8]trip interruption or change[source-term-U+9650][source-term-U+989D][source-term-U+4F46][source-term-U+5BF9] 70 [source-term-U+5C81][source-term-U+4EE5][source-term-U+4E0A]traveler[source-term-U+8BBE][source-term-U+6709]pre-existing condition exclusion[source-term-U+548C] 20% deductible；plan C [source-term-U+4EC5][source-term-U+542B][source-term-U+57FA][source-term-U+7840][source-term-U+7D27][source-term-U+6025][source-term-U+534F][source-term-U+52A9]，baggage delaywaiting period[source-term-U+4E3A] 12 [source-term-U+5C0F]hour。[source-term-U+4EE5][source-term-U+4E0A][source-term-U+4E3A][source-term-U+4FDD][source-term-U+969C][source-term-U+4E0E][source-term-U+7269][source-term-U+6D41][source-term-U+4FE1][source-term-U+606F]，[source-term-U+4E0D][source-term-U+662F]doctor[source-term-U+7684]fit to fly[source-term-U+6216]travelsafety[source-term-U+5224][source-term-U+65AD]；[source-term-U+662F][source-term-U+5426][source-term-U+6295][source-term-U+4FDD]、[source-term-U+662F][source-term-U+5426][source-term-U+7406][source-term-U+8D54][source-term-U+5747][source-term-U+4EE5]formal policy、health disclosure[source-term-U+548C]insurer review[source-term-U+4E3A][source-term-U+51C6]。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 998,
+        "size": 3850,
+        "created_at": "2026-09-16T10:55:00+08:00"
+      }
+    }
+  ],
+  "previous": "release-003"
+}

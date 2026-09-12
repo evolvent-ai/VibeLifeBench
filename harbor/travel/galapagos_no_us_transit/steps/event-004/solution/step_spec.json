@@ -1,0 +1,23 @@
+{
+ "step": "event-004",
+ "stage": 2,
+ "event_id": "S02_user_travel_window",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 2,
+   "event_id": "S02_user_travel_window"
+  }
+ ],
+ "response_paraphrase": "The trip window is anchored after the group meeting and before the return-day faculty meeting.",
+ "expected_env": {
+  "virtual_stage": 2,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S02_user_travel_window"
+}

@@ -1,0 +1,28 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "east-asia-group-trip-24d-release-004-token",
+  "source_step": "event-020",
+  "source_stage": 16,
+  "source_time": "2026-06-08T06:00:00+08:00",
+  "source_event_ids": [
+    "S16_mut_advisory"
+  ],
+  "operations": [
+    {
+      "server": "visa_and_advisory",
+      "operation_index": 1,
+      "source_event_id": "S16_mut_advisory",
+      "table": "advisories",
+      "op": "update",
+      "set": {
+        "level": 3,
+        "text": "Warning: localized social unrest has occurred in Seoul and nearby areas. Avoid crowded areas and demonstrations and monitor consular updates.",
+        "updated_at": "2026-06-06T08:00:00Z"
+      },
+      "where": {
+        "country_code": "KR"
+      }
+    }
+  ]
+}

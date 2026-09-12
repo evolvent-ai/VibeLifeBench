@@ -1,0 +1,28 @@
+{
+ "step": "event-041",
+ "stage": 24,
+ "event_id": "S24_world_posttrip_accounting",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 24,
+   "event_id": "S24_world_posttrip_accounting"
+  }
+ ],
+ "response_paraphrase": "The archive closeout aligns the final summary, receipt matrix, payment states, and follow-up reminders.",
+ "expected_env": {
+  "virtual_stage": 24,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s24_final_archive",
+   "weight": 3
+  }
+ ],
+ "expected_stage_weight": 3,
+ "source_event_id": "S24_world_posttrip_accounting"
+}

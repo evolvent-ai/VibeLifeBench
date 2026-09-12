@@ -1,0 +1,30 @@
+{
+ "step": "event-032",
+ "stage": 19,
+ "event_id": "S19_notification_departure_day",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 19,
+   "event_id": "S19_notification_departure_day"
+  }
+ ],
+ "response_paraphrase": "The departure-day status check records the delay and confirms the live outbound route.",
+ "expected_env": {
+  "virtual_stage": 19,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-017"
+  ],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s19_departure_delay_response",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S19_notification_departure_day"
+}

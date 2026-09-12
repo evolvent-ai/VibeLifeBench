@@ -1,0 +1,29 @@
+{
+  "step": "event-015",
+  "virtual_stage": 11,
+  "source_event_id": "S11_0_\u7fa4\u6d88\u606f",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The travel-planning action for stage 11 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 11 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S11_0_\u7fa4\u6d88\u606f"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_cancelled_flight_was_verified",
+      "weight": 2.0
+    },
+    {
+      "check_id": "s11_replacement_arrives_before_meeting_day",
+      "weight": 3.5
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

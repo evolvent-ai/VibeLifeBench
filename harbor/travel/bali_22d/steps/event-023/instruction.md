@@ -1,0 +1,1 @@
+[2026-06-20 10:30 +08:00] Chen Yu says the hotel recommends staying indoors because of standing water on the roads. Meilin is a little bored but otherwise fine. Can they go out tomorrow, and his mother arrives the day after tomorrow?

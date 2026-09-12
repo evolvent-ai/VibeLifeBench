@@ -1,0 +1,21 @@
+{
+  "release_id": "release-010",
+  "previous": "release-009",
+  "token": "east-china-release-010-7f6c2d91b0a449c2",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "price": 1320
+      },
+      "where": {
+        "flight_no": "CA1856",
+        "date": "2026-04-21",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "evt_s15_mut_return_price"
+    }
+  ]
+}

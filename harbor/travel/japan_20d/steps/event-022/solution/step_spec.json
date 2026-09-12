@@ -1,0 +1,37 @@
+{
+  "step": "event-022",
+  "virtual_stage": 16,
+  "source_event_id": "D16_hotel_overbook_notify",
+  "stage_boundary": true,
+  "response": "Recorded d16 hotel overbook notify: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d16 hotel overbook notify update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "world",
+      "event_id": "D16_hotel_overbook_notify",
+      "virtual_stage": 16,
+      "event_kind": "world",
+      "event_time": "2026-05-03T14:05:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s16_walk_acceptance",
+      "weight": 2.5
+    },
+    {
+      "check_id": "s16_compensation_logged",
+      "weight": 1
+    },
+    {
+      "check_id": "d_hotel_walk_calendar_updated",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

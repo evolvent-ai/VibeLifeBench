@@ -1,0 +1,26 @@
+{
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "east-china-release-003-7f6c2d91b0a449c2",
+  "operations": [
+    {
+      "server": "rail_booking",
+      "table": "train_bookings",
+      "op": "insert",
+      "values": {
+        "booking_ref": "rail_booking_suz_sha_waitlist",
+        "user_id": "user_lin_che",
+        "offer_id": "rail_offer_suz_sha_0411_g7025",
+        "status": "waitlist_pending",
+        "total_paid": 79.0,
+        "currency": "CNY",
+        "created_at": "2026-04-07T10:10:00+08:00",
+        "contact_json": "{\"user_id\":\"user_lin_che\",\"phone\":\"13800001276\",\"email\":\"lin.che@example.test\"}",
+        "passengers_json": "[{\"user_id\":\"user_lin_che\",\"name\":\"Lin Che\",\"fare_type\":\"adult\"},{\"user_id\":\"mother_zhou_huilan\",\"name\":\"Zhou Huilan\",\"fare_type\":\"adult\"}]",
+        "tickets_json": "[{\"passenger_name\":\"Lin Che\",\"train_no\":\"G7025\",\"date\":\"2026-04-11\",\"seat_class\":\"second_class\",\"seat\":\"05 car 08A\",\"fare\":39.5,\"currency\":\"CNY\"},{\"passenger_name\":\"Zhou Huilan\",\"train_no\":\"G7025\",\"date\":\"2026-04-11\",\"seat_class\":\"second_class\",\"seat\":\"05 car 08B\",\"fare\":39.5,\"currency\":\"CNY\"}]",
+        "history_json": "[{\"at\":\"2026-04-07T10:10:00+08:00\",\"event\":\"WAITLIST_CREATED\"}]"
+      },
+      "source_event_id": "evt_s7_mut_waitlist_created"
+    }
+  ]
+}

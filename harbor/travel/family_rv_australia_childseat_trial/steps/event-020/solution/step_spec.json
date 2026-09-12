@@ -1,0 +1,23 @@
+{
+  "step": "event-020",
+  "stage": 18,
+  "virtual_stage": 18,
+  "source_event_id": "evt_s18_notification_duplicate_hold",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": []
+  },
+  "response": "Rechecked the return flight and archived completed hotel orders while retaining open financial items.",
+  "response_paraphrase": "Verified MEL-PVG and the accommodation records, archiving finished stays and leaving only card or deposit work open.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s18_notification_duplicate_hold"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

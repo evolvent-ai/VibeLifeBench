@@ -1,0 +1,33 @@
+{
+  "step": "event-018",
+  "virtual_stage": 13,
+  "source_event_id": "D13_checkin_open",
+  "stage_boundary": true,
+  "response": "Recorded d13 checkin open: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d13 checkin open update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "world",
+      "event_id": "D13_checkin_open",
+      "virtual_stage": 13,
+      "event_kind": "world",
+      "event_time": "2026-04-30T00:01:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s13_online_checkin",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s13_packing_list",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

@@ -1,0 +1,38 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "token": "east-asia-group-trip-24d-release-000-token",
+  "source_step": "event-010",
+  "source_stage": 7,
+  "source_time": "2026-06-01T09:35:00+08:00",
+  "source_event_ids": [
+    "S07_mut_passport_renewal"
+  ],
+  "operations": [
+    {
+      "server": "email",
+      "operation_index": 1,
+      "source_event_id": "S07_mut_passport_renewal",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<passport-renewal-wh-20260601>",
+        "subject": "[East Asia Trip] Wang Hao passport verification complete",
+        "from_addr": "travel-docs@family.example",
+        "to_addr_json": "[\"chen.yu@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-01T09:35:00+08:00",
+        "body_text": "Wang Hao's new passport documents passed verification. Verification ref: DOC-PASS-WH-20260601. New expiry date: 2036-05-31. The prior passport expiring 2026-11-25 is invalidated. Re-check Japan and Korea requirements before ticketing.",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{\"X-Document-Ref\":\"DOC-PASS-WH-20260601\"}",
+        "uid": 701,
+        "size": 786,
+        "created_at": "2026-06-01T09:35:00+08:00"
+      }
+    }
+  ]
+}

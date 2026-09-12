@@ -1,0 +1,26 @@
+{
+  "step": "event-020",
+  "virtual_stage": 16,
+  "source_event_id": "D16_midtrip_heartbeat",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Liu Fang's passport transition was verified and GA837 was ticketed only afterward.",
+  "response_paraphrase": "Liu Fang's passport transition was confirmed and GA837 was ticketed only afterward.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D16_midtrip_heartbeat"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_heartbeat_file_updated",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

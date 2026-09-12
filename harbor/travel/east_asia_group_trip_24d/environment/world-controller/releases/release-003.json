@@ -1,0 +1,29 @@
+{
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "east-asia-group-trip-24d-release-003-token",
+  "source_step": "event-019",
+  "source_stage": 15,
+  "source_time": "2026-06-06T07:00:00+08:00",
+  "source_event_ids": [
+    "S15_mut_bp_spike"
+  ],
+  "operations": [
+    {
+      "server": "health_tracker",
+      "operation_index": 1,
+      "source_event_id": "S15_mut_bp_spike",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "bp-2606060700-36ra2gu",
+        "user_id": "usr_li_ting",
+        "type": "blood_pressure",
+        "value": 158,
+        "value_text": "158/96",
+        "unit": "mmHg",
+        "recorded_at": "2026-06-06T07:00:00+09:00"
+      }
+    }
+  ]
+}

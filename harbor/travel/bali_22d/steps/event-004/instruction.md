@@ -1,0 +1,1 @@
+[2026-05-31 14:00 +08:00] Chen Yu asks: What activities are suitable for Meilin during pregnancy? Scuba diving is clearly unsuitable, but what about rafting? She would like to see sea turtles; is snorkeling acceptable? What other activities would be appropriate?

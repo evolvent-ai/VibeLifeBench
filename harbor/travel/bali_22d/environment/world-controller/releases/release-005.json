@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "D10_weather_clock_mutation",
+    "D10_agung_seismic_mutation"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-06-07T03:55+08:00",
+  "previous": "release-004",
+  "token": "bali-22d-release-token-005-9f42c7a1",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "set": {
+        "sim_now": "2026-06-07T03:55:00+08:00"
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "D10_weather_clock_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "alert_id": "alert_volcano_l2"
+      },
+      "source_event_id": "D10_agung_seismic_mutation",
+      "operation_index": 0
+    }
+  ]
+}

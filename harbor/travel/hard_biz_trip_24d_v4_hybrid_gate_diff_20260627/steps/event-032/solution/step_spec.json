@@ -1,0 +1,30 @@
+{
+  "step": "event-032",
+  "virtual_stage": 21,
+  "source_event_id": "S21_0_receipt_gap",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the current Tokyo business-trip step through the formal systems and updated the durable records.",
+  "response_paraphrase": "The evidence-backed travel records and next actions for virtual stage 21 are now current.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S21_0_receipt_gap",
+      "virtual_stage": 21,
+      "event_kind": "user_message",
+      "event_time": "2026-07-24T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_identified_gaps",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,33 @@
+{
+  "step": "event-016",
+  "virtual_stage": 12,
+  "source_event_id": "S12_0_hotel_inventory_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-002"
+    ]
+  },
+  "response": "The travel-planning action for stage 12 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 12 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S12_0_hotel_inventory_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s12_shinjuku_inventory_rechecked",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s12_recovery_record_is_durable",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

@@ -1,0 +1,24 @@
+{
+  "step": "event-027",
+  "virtual_stage": 20,
+  "source_event_id": "D20_late_trip_heartbeat",
+  "stage_boundary": true,
+  "response": "Recorded d20 late trip heartbeat: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d20 late trip heartbeat update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "notification",
+      "event_id": "D20_late_trip_heartbeat",
+      "virtual_stage": 20,
+      "event_kind": "notification",
+      "event_time": "2026-05-12T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

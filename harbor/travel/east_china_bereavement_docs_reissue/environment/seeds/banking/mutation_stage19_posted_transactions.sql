@@ -1,0 +1,2 @@
+-- Stage 19: scenario textrefundable lodging preauthorizationscenario text；rail waitlist refundscenario text。
+INSERT OR REPLACE INTO transactions (tx_id, account_id, posted_at, amount_minor, kind, counterparty, memo, balance_after_minor) VALUES ('tx_card_hold_release_001', 'acct_lin_main_cny', '2026-04-23T10:55:00+08:00', 39500, 'transfer_in', 'Shanghaiscenario textauthorization', 'refundable lodging preauthorizationscenario text；rail waitlist refundscenario textpending', 2239500);

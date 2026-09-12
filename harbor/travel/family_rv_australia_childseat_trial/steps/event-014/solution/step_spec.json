@@ -1,0 +1,37 @@
+{
+  "step": "event-014",
+  "stage": 11,
+  "virtual_stage": 11,
+  "source_event_id": "evt_s11_world_external_parking_hint",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Confirmed the granted family visa and preserved an arrival rest period in Sydney.",
+  "response_paraphrase": "Confirmed the family's visa grant and kept the first arrival period free of vehicle driving.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s11_world_external_parking_hint"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_detect_parking_mismatch",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s11_recover_cbr_parking",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s11_record_weather_risk",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.75
+}

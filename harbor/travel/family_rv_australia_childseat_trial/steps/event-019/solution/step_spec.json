@@ -1,0 +1,37 @@
+{
+  "step": "event-019",
+  "stage": 17,
+  "virtual_stage": 17,
+  "source_event_id": "evt_s17_scheduled_wind_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Recorded the Melbourne return inspection and kept the AUD 600 deposit pending.",
+  "response_paraphrase": "Logged the clean, incident-free counter inspection while marking the deposit as awaiting back-office release.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s17_scheduled_wind_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_weather_recheck_before_drive",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s17_route_adjusted_for_wind_and_fatigue",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s17_no_awning_advice",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.75
+}

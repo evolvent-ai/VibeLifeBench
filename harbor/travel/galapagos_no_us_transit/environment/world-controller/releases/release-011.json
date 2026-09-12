@@ -1,0 +1,61 @@
+{
+  "release_id": "release-011",
+  "previous": "release-010",
+  "token": "galapagos-no-us-transit-release-011-20260825-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 46,
+        "folder_id": 1,
+        "message_id": "<islasverdes-profile-annual-check@example.com>",
+        "subject": "Please confirm your member details",
+        "from_addr": "members@islasverdes.example.com",
+        "to_addr_json": "[\"linqiao@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-05T09:00:00-06:00",
+        "body_text": "We send this once a year and before any stay in a peak period.\n\nThe details we hold for the guests on your account:\n\nMember 1: LIN QIAO\nMember 2: XU WEN\n\nThe name we hold is the name we pass to the property when a reservation is made, and the property matches it against the identity document at check-in. Where they differ, the property may ask for the booking to be corrected before the room is released, and in high season that can mean a wait.\n\nAmend a member name in the account settings. Amendments take effect on reservations made afterwards, not on reservations already in the system.\n\nIslas Verdes Collection",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 71,
+        "size": 900,
+        "created_at": "2026-08-05T09:00:00-06:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 47,
+        "folder_id": 1,
+        "message_id": "<carrier-ib-name-policy@carrier-ib.example.com>",
+        "subject": "Re: name on ticket",
+        "from_addr": "service@carrier-ib.example.com",
+        "to_addr_json": "[\"linqiao@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-05T11:30:00+02:00",
+        "body_text": "In reply to your question about names.\n\nThe name on the ticket must match the travel document exactly, including any middle name that appears on the document's machine-readable zone.\n\nBefore ticketing, a name can be corrected at no charge. After ticketing, a name change is not permitted on this fare: the ticket must be voided if still within the void window, or reissued at the fare available on the day.\n\nA frequent-flyer or hotel loyalty profile is a separate record and has no bearing on the ticket. A mismatch there is a matter for that programme, not for us.\n\nIberia Customer Service",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 72,
+        "size": 780,
+        "created_at": "2026-08-05T11:30:00+02:00"
+      }
+    }
+  ]
+}

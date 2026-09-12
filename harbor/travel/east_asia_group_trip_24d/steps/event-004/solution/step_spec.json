@@ -1,0 +1,29 @@
+{
+  "step": "event-004",
+  "virtual_stage": 2,
+  "source_event_id": "S02_0_transport",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The travel-planning action for stage 2 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 2 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S02_0_transport"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_exact_three_leg_searches",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s2_flight_options_are_durable_and_traveler_specific",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

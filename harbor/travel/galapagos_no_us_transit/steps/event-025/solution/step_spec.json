@@ -1,0 +1,28 @@
+{
+ "step": "event-025",
+ "stage": 14,
+ "event_id": "S14_user_cash_and_cards",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 14,
+   "event_id": "S14_user_cash_and_cards"
+  }
+ ],
+ "response_paraphrase": "The payment-preparation review states what is reimbursable and what remains private.",
+ "expected_env": {
+  "virtual_stage": 14,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s14_permit_fee_split",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S14_user_cash_and_cards"
+}

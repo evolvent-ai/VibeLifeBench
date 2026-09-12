@@ -1,0 +1,27 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "virtual_stage": 1,
+  "source_event_id": "n1",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The passport expires on 2026-05-30, shortly after the summit ends on 2026-03-30. I recorded the short margin, the need for written confirmation from the operating airline and official CBP guidance, and a contingency to renew or replace the passport while retaining refundable or held bookings.",
+  "response_paraphrase": "I documented that the passport has limited validity beyond the March 30 trip end. Carrier confirmation and an official U.S. border-source check are required, with passport replacement or renewal and reversible reservations kept as the fallback.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n1"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_passport_issue_handled",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

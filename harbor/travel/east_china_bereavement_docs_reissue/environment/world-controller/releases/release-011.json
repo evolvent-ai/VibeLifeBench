@@ -1,0 +1,21 @@
+{
+  "release_id": "release-011",
+  "previous": "release-010",
+  "token": "east-china-release-011-7f6c2d91b0a449c2",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "gate": "C21",
+        "last_updated": "2026-04-21T16:10:00+08:00"
+      },
+      "where": {
+        "flight_no": "CA1856",
+        "date": "2026-04-21"
+      },
+      "source_event_id": "evt_s18_mut_gate_change"
+    }
+  ]
+}

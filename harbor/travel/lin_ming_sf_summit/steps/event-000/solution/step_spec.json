@@ -1,0 +1,52 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "virtual_stage": 0,
+  "source_event_id": "u0",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I reviewed the user and tool context and opened the full San Francisco industry summit trip workflow. Initial live searches cover flights for March 26-27 and a San Francisco hotel through March 31; the health constraint favors business class or a suitable connecting itinerary for any long segment, while passport, EVUS, calendar, banking, and reimbursement pre-clearance are now tracked.",
+  "response_paraphrase": "The end-to-end San Francisco summit plan is active after reviewing the workspace guidance. I checked current air and lodging options, the travel-health limit on long economy segments, U.S. entry readiness, schedule records, the trip account, and the approval process before making commitments.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "u0"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_read_user_materials",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s0_searched_flights",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s0_searched_hotels",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s0_queried_health",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s0_queried_visa_and_banking",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s0_no_bad_advice",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.5
+}

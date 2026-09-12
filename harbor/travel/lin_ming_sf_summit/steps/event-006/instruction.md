@@ -1,0 +1,1 @@
+Dear Mr. Lin, the Beijing-San Francisco flights you were watching for March 26 and March 27 have been canceled due to operational restrictions. There are currently no direct flights available on this route.

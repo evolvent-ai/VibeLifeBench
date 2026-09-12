@@ -1,0 +1,31 @@
+{
+  "step": "event-019",
+  "stage": 21,
+  "virtual_stage": 21,
+  "source_event_id": "n21",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "m20"
+    ]
+  },
+  "response": "I reviewed the trip account and latest reimbursement requirements, then synchronized the Notion itinerary with flight, hotel, expense, budget, approval, receipt, and exchange-rate archive requirements.",
+  "response_paraphrase": "The updated expense-filing policy has been checked against the banking record, and the trip page now carries the transport, lodging, cost, authorization, receipt, and settlement evidence needed for reimbursement.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n21"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_reimbursement_synced",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

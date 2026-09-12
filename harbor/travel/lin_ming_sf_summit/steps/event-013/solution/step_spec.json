@@ -1,0 +1,27 @@
+{
+  "step": "event-013",
+  "stage": 13,
+  "virtual_stage": 13,
+  "source_event_id": "w13b",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The remaining budget was recalculated at the updated internal pre-clearance rate of 1 USD = 7.58 CNY. The tracker also preserves the hotel price increase and explains that the final reimbursement exchange rate may differ.",
+  "response_paraphrase": "I revised the planning conversion to CNY 7.58 per dollar, reassessed the lodging cost change, and noted that Finance may settle the eventual claim using a different rate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "w13b"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_hotel_surge_handled",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

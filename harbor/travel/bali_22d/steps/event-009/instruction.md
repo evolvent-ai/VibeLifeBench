@@ -1,0 +1,1 @@
+[2026-06-05 08:00 +08:00] Fourteen-day Bali outlook from June 10: mostly sunny, highs 30 to 33 C, lows 23 to 25 C. A cluster of strong convective storms is expected June 20 through 22 as the monsoon tail interacts with Indian Ocean moisture; Ubud highlands could receive 60 to 90 mm of rain per day. No tropical cyclone activity is being tracked.

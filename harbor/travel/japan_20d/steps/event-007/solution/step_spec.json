@@ -1,0 +1,24 @@
+{
+  "step": "event-007",
+  "virtual_stage": 5,
+  "source_event_id": "D5_insurance_quote_ready",
+  "stage_boundary": false,
+  "response": "Recorded d5 insurance quote ready: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d5 insurance quote ready update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "world",
+      "event_id": "D5_insurance_quote_ready",
+      "virtual_stage": 5,
+      "event_kind": "world",
+      "event_time": "2026-04-22T11:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0.0
+}

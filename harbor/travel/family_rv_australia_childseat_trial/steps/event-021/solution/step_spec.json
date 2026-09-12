@@ -1,0 +1,37 @@
+{
+  "step": "event-021",
+  "stage": 18,
+  "virtual_stage": 18,
+  "source_event_id": "evt_s18_world_rental_deposit_rule",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Reconciled the duplicate-hold reversal and retained the normal security deposit as pending.",
+  "response_paraphrase": "Recorded the reversed duplicate authorization while the genuine AUD 600 deposit remains unresolved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s18_world_rental_deposit_rule"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_detect_duplicate_hold",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s18_do_not_count_pending_hold_as_spend",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s18_contact_rental_about_hold",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5
+}

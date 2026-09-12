@@ -1,0 +1,1 @@
+[2026-06-26 09:00 +08:00] Return-preparation heartbeat: the trip is nearing its end. Re-check durable state for unresolved receipts, VOA extension status if applicable, return-flight readiness, volcano and ash conditions for DPS, and packing notes for the mother's medication and the pregnant traveler. Message Chen Yu only if something needs attention.

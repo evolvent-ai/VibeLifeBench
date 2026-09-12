@@ -1,0 +1,32 @@
+{
+  "step": "event-023",
+  "stage": 19,
+  "virtual_stage": 19,
+  "source_event_id": "evt_s19_user_child_fatigue",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Updated the Albury-to-Melbourne route to leave early, retain child rest stops and avoid peak or night driving.",
+  "response_paraphrase": "Moved the Melbourne departure earlier so Mimi keeps her breaks and the route avoids dark and peak traffic.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s19_user_child_fatigue"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_update_melbourne_route",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s19_avoid_night_and_peak",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "s17_mutation_weather_model_update"
+  ],
+  "source_stage": 17,
+  "source_time": "2026-10-04T07:55:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-011-token",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "source_event_id": "s17_mutation_weather_model_update",
+      "operation_index": 0,
+      "values": {
+        "sim_now": "2026-10-04T07:55:00+09:00"
+      },
+      "set": {
+        "sim_now": "2026-10-04T07:55:00+09:00"
+      },
+      "where": {
+        "id": 1
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "source_event_id": "s17_mutation_weather_model_update",
+      "operation_index": 1,
+      "values": {
+        "precip_prob": 0.72,
+        "precip_mm": 12.0,
+        "condition": "rain"
+      },
+      "set": {
+        "precip_prob": 0.72,
+        "precip_mm": 12.0,
+        "condition": "rain"
+      },
+      "where": {
+        "geo_key": "kyoto",
+        "date": "2026-10-15"
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "source_event_id": "s17_mutation_weather_model_update",
+      "operation_index": 2,
+      "values": {
+        "precip_prob": 0.62,
+        "precip_mm": 6.4,
+        "condition": "rain"
+      },
+      "set": {
+        "precip_prob": 0.62,
+        "precip_mm": 6.4,
+        "condition": "rain"
+      },
+      "where": {
+        "geo_key": "nara",
+        "date": "2026-10-17"
+      }
+    }
+  ],
+  "previous": "release-010"
+}

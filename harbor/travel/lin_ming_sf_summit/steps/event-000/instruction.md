@@ -1,0 +1,1 @@
+I will be in San Francisco from March 28 through March 30 for an industry summit. Please first read USER.md and TOOLS.md, then arrange the entire business trip for me, including flights, hotel, visa-related matters, calendar management, and reimbursement pre-clearance.

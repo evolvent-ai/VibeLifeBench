@@ -1,0 +1,27 @@
+{
+  "step": "event-017",
+  "stage": 18,
+  "virtual_stage": 18,
+  "source_event_id": "u18",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The San Francisco client visit has been added to the calendar without duplicating the existing internal stand-up, and the itinerary document now records both meetings and their times.",
+  "response_paraphrase": "I created the Downtown client appointment, retained the team stand-up already on the schedule, and synchronized both entries into the trip plan.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "u18"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_created_event",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

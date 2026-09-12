@@ -1,0 +1,37 @@
+{
+  "step": "event-005",
+  "stage": 5,
+  "virtual_stage": 5,
+  "source_event_id": "u5",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "A business-class outbound booking for March 26 has been confirmed through the corporate flight platform. This avoids placing the long PEK-SFO segment in economy and remains subject to the written-approval workflow.",
+  "response_paraphrase": "The March 26 outbound is now ticketed in business class through the formal booking system, respecting the long-segment health restriction and the company's approval controls.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "u5"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_booked_outbound",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s5_outbound_compliant",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s5_no_bad_advice",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

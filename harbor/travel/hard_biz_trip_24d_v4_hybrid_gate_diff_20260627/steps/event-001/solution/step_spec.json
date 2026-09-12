@@ -1,0 +1,35 @@
+{
+  "step": "event-001",
+  "virtual_stage": 0,
+  "source_event_id": "S00_1_banking_context",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the current Tokyo business-trip step through the formal systems and updated the durable records.",
+  "response_paraphrase": "The evidence-backed travel records and next actions for virtual stage 0 are now current.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S00_1_banking_context",
+      "virtual_stage": 0,
+      "event_kind": "world",
+      "event_time": "2026-07-01T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_notion_created",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s0_must_mention_four",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

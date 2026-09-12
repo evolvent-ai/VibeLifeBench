@@ -1,0 +1,23 @@
+{
+ "step": "event-027",
+ "stage": 16,
+ "event_id": "S16_user_final_booking_confirmation",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 16,
+   "event_id": "S16_user_final_booking_confirmation"
+  }
+ ],
+ "response_paraphrase": "The executable plan tickets both travelers on continuous compliant legs and keeps lodging refundable.",
+ "expected_env": {
+  "virtual_stage": 16,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S16_user_final_booking_confirmation"
+}

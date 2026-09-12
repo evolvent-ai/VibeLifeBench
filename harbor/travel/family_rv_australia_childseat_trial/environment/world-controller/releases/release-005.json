@@ -1,0 +1,26 @@
+{
+  "release_id": "release-005",
+  "previous": "release-004",
+  "token": "family-rv-australia-childseat-trial-release-005-token",
+  "source_stage": 15,
+  "scenario_time": "2026-09-13T09:50:00+10:00",
+  "source_time": "2026-09-13T09:50:00+10:00",
+  "source_event_ids": ["evt_s15_mut_visa_granted"],
+  "operations": [
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "set": {
+        "status": "granted",
+        "decision_note": "Granted after additional documents; eVisitor grant notice available.",
+        "evisa_doc_ref": "doc_ref_evisitor_family_260913",
+        "updated_at": "2026-09-13T09:50:00+10:00",
+        "history_json": "[{\"at\":\"2026-09-05T10:15:00+08:00\",\"event\":\"additional_info_required\"},{\"at\":\"2026-09-13T09:50:00+10:00\",\"event\":\"granted\"}]"
+      },
+      "where": {
+        "application_id": "VAC_LC_2026_09_AU"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "step": "event-003",
+  "virtual_stage": 2,
+  "source_event_id": "D2_flight_equip_swap",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": []
+  },
+  "response": "GA835 equipment and an aisle-seat requirement for pregnant traveler Wang Meilin are recorded.",
+  "response_paraphrase": "GA835 equipment and an aisle-seat requirement for pregnant traveler Wang Meilin have been logged.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D2_flight_equip_swap"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_aisle_requirement_persisted",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

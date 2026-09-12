@@ -1,0 +1,33 @@
+{
+  "step": "event-013",
+  "virtual_stage": 8,
+  "source_event_id": "D8_med_customs_alert",
+  "stage_boundary": true,
+  "response": "Recorded d8 med customs alert: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d8 med customs alert update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "notification",
+      "event_id": "D8_med_customs_alert",
+      "virtual_stage": 8,
+      "event_kind": "notification",
+      "event_time": "2026-04-25T11:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s8_persistent_followup_recorded",
+      "weight": 1
+    },
+    {
+      "check_id": "s8_heartbeat_established",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

@@ -1,0 +1,30 @@
+{
+ "step": "event-034",
+ "stage": 20,
+ "event_id": "S20_notification_hotel_arrival_message",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 20,
+   "event_id": "S20_notification_hotel_arrival_message"
+  }
+ ],
+ "response_paraphrase": "The pre-arrival message is reconciled with the live flight and certified pickup.",
+ "expected_env": {
+  "virtual_stage": 20,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-019"
+  ],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s20_in_transit_arrival_sync",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S20_notification_hotel_arrival_message"
+}

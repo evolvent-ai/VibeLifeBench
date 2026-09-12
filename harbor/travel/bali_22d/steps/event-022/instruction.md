@@ -1,0 +1,1 @@
+[2026-06-20 06:00 +08:00] BMKG real-time update: heavy rain began at 04:00 and the Ubud gauge recorded 42 mm in two hours. Campuhan Ridge Walk is closed. Several villa access roads have 15 to 30 cm of standing water, and mudslide risk is elevated around Monkey Forest.

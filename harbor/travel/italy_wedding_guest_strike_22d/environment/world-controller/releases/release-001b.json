@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001b",
+  "source_event_ids": [
+    "D3_card"
+  ],
+  "source_stage": 3,
+  "source_time": "2026-08-28T12:00",
+  "previous": "release-001a",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "statements",
+      "op": "insert",
+      "values": {
+        "statement_id": "stmt_aug",
+        "card_id": "cadqrf73jw",
+        "period_start": "2026-08-01",
+        "period_end": "2026-08-28",
+        "opening_balance_minor": 0,
+        "new_charges_minor": 98000,
+        "payments_minor": 0,
+        "closing_balance_minor": 98000,
+        "min_payment_due_minor": 2940,
+        "due_date": "2026-09-20",
+        "status": "open"
+      },
+      "source_event_id": "D3_card",
+      "operation_index": 0
+    },
+    {
+      "server": "credit_card",
+      "table": "statement_lines",
+      "op": "insert",
+      "values": {
+        "line_id": "line_air_hold",
+        "statement_id": "stmt_aug",
+        "posted_at": "2026-08-28T04:00:00Z",
+        "amount_minor": 98000,
+        "merchant_name": "Italia Air fare hold",
+        "mcc": "4511",
+        "category": "travel",
+        "kind": "purchase"
+      },
+      "source_event_id": "D3_card",
+      "operation_index": 1
+    },
+    {
+      "server": "credit_card",
+      "table": "rewards_balances",
+      "op": "insert",
+      "values": {
+        "card_id": "cadqrf73jw",
+        "points_balance": 68000,
+        "ytd_earned": 12000,
+        "lifetime_earned": 200000,
+        "updated_at": "2026-08-28T04:00:00Z"
+      },
+      "source_event_id": "D3_card",
+      "operation_index": 2
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "available_credit_minor": 1102000,
+        "statement_balance_minor": 98000,
+        "min_payment_due_minor": 2940
+      },
+      "where": {
+        "card_id": "cadqrf73jw"
+      },
+      "source_event_id": "D3_card",
+      "operation_index": 3
+    }
+  ]
+}

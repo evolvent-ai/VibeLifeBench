@@ -1,0 +1,31 @@
+{
+  "step": "event-014",
+  "virtual_stage": 12,
+  "source_event_id": "D12_agung_update_stable",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Departure packing safeguards and outbound check-in are ready.",
+  "response_paraphrase": "Departure packing safeguards and outbound check-in stand ready.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D12_agung_update_stable"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s12_prenatal_doc_in_packing",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s12_mosquito_repellent_in_packing",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

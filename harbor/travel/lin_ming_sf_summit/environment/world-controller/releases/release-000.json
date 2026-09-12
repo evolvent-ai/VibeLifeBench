@@ -1,0 +1,2274 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "m6"
+  ],
+  "source_stage": 6,
+  "source_time": "2026-03-16T14:00:00+08:00",
+  "previous": null,
+  "token": "lin-ming-sf-summit-release-000-token-62e294ab",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA255",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 0
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA255",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 1
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA358",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 2
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA358",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 3
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA518",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 4
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA518",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 5
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA670",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 6
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA670",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 7
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA736",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 8
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA736",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 9
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA868",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 10
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA868",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 11
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA957",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 12
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA957",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 13
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA957",
+        "date": "2026-03-27",
+        "cabin": "FIRST"
+      },
+      "source_event_id": "m6",
+      "operation_index": 14
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA981",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 15
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA981",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 16
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CA981",
+        "date": "2026-03-26",
+        "cabin": "FIRST"
+      },
+      "source_event_id": "m6",
+      "operation_index": 17
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CX296",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 18
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CX296",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 19
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CX378",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 20
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CX378",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 21
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CX418",
+        "date": "2026-03-25",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 22
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CX418",
+        "date": "2026-03-25",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 23
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CX418",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 24
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CX418",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 25
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CX911",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 26
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CX911",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 27
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CZ261",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 28
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CZ261",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 29
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CZ568",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 30
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CZ568",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 31
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CZ627",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 32
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CZ627",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 33
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CZ776",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 34
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "CZ776",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 35
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU424",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 36
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU424",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 37
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU539",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 38
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU539",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 39
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU539",
+        "date": "2026-04-06",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 40
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU539",
+        "date": "2026-04-06",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 41
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU710",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 42
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU710",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 43
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU901",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 44
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU901",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 45
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU927",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 46
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU927",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 47
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU927",
+        "date": "2026-04-01",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 48
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU927",
+        "date": "2026-04-01",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 49
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU927",
+        "date": "2026-04-01",
+        "cabin": "FIRST"
+      },
+      "source_event_id": "m6",
+      "operation_index": 50
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU929",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 51
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU929",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 52
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU929",
+        "date": "2026-03-26",
+        "cabin": "FIRST"
+      },
+      "source_event_id": "m6",
+      "operation_index": 53
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU977",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 54
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU977",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 55
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "HU977",
+        "date": "2026-03-27",
+        "cabin": "FIRST"
+      },
+      "source_event_id": "m6",
+      "operation_index": 56
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "JL217",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 57
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "JL217",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 58
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "JL744",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 59
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "JL744",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 60
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "KE172",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 61
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "KE172",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 62
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "KE357",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 63
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "KE357",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 64
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "MU177",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 65
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "MU177",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 66
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "MU250",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 67
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "MU250",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 68
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "MU576",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 69
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "MU576",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 70
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "NH329",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 71
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "NH329",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 72
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "NH576",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 73
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "NH576",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 74
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "NH750",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 75
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "NH750",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 76
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "NH889",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 77
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "NH889",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 78
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "NH972",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 79
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "NH972",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 80
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "OZ109",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 81
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "OZ109",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 82
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "OZ406",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 83
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "OZ406",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 84
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "OZ416",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 85
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "OZ416",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 86
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "OZ423",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 87
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "OZ423",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 88
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "OZ763",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 89
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "OZ763",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 90
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "OZ953",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 91
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "OZ953",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 92
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "UA650",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 93
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "UA650",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 94
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "UA683",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 95
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "UA683",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 96
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "UA919",
+        "date": "2026-03-27",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 97
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "UA919",
+        "date": "2026-03-27",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 98
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "UA919",
+        "date": "2026-03-27",
+        "cabin": "FIRST"
+      },
+      "source_event_id": "m6",
+      "operation_index": 99
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "UA986",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 100
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "UA986",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 101
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "UA986",
+        "date": "2026-03-26",
+        "cabin": "FIRST"
+      },
+      "source_event_id": "m6",
+      "operation_index": 102
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "UA993",
+        "date": "2026-03-26",
+        "cabin": "BUSINESS"
+      },
+      "source_event_id": "m6",
+      "operation_index": 103
+    },
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "set": {
+        "seats_remaining": 0
+      },
+      "where": {
+        "flight_no": "UA993",
+        "date": "2026-03-26",
+        "cabin": "ECONOMY"
+      },
+      "source_event_id": "m6",
+      "operation_index": 104
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CA255",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 105
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CA358",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 106
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CA518",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 107
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CA670",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 108
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CA736",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 109
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CA868",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 110
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CA957",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 111
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CA981",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 112
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CX296",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 113
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CX378",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 114
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CX418",
+        "date": "2026-03-25"
+      },
+      "source_event_id": "m6",
+      "operation_index": 115
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CX418",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 116
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CX911",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 117
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CZ261",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 118
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CZ568",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 119
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CZ627",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 120
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "CZ776",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 121
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "HU424",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 122
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "HU539",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 123
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "HU539",
+        "date": "2026-04-06"
+      },
+      "source_event_id": "m6",
+      "operation_index": 124
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "HU710",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 125
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "HU901",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 126
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "HU927",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 127
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "HU927",
+        "date": "2026-04-01"
+      },
+      "source_event_id": "m6",
+      "operation_index": 128
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "HU929",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 129
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "HU977",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 130
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "JL217",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 131
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "JL744",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 132
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "KE172",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 133
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "KE357",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 134
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "MU177",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 135
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "MU250",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 136
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "MU576",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 137
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "NH329",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 138
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "NH576",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 139
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "NH750",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 140
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "NH889",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 141
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "NH972",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 142
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "OZ109",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 143
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "OZ406",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 144
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "OZ416",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 145
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "OZ423",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 146
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "OZ763",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 147
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "OZ953",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 148
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "UA650",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 149
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "UA683",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 150
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "UA919",
+        "date": "2026-03-27"
+      },
+      "source_event_id": "m6",
+      "operation_index": 151
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "UA986",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 152
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "UA993",
+        "date": "2026-03-26"
+      },
+      "source_event_id": "m6",
+      "operation_index": 153
+    }
+  ]
+}

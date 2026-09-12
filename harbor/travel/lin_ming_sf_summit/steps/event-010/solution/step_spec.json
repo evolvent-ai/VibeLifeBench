@@ -1,0 +1,27 @@
+{
+  "step": "event-010",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "n10",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I reviewed the EVUS record and recorded the renewal as an authorization-dependent next step before the 2026-03-25 expiry.",
+  "response_paraphrase": "The existing EVUS enrollment was checked and the formal renewal was identified as awaiting authorization before submission.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n10"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_checked_evus",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

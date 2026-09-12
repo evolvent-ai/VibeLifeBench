@@ -1,0 +1,279 @@
+{
+  "release_id": "release-006",
+  "previous": "release-005",
+  "token": "galapagos-no-us-transit-release-006-20260825-token",
+  "operations": [
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 8
+      },
+      "where": {
+        "rate_plan_row_id": 1
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "nightly_price": 187,
+        "inventory_remaining": 8
+      },
+      "where": {
+        "rate_plan_row_id": 11
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 3
+      },
+      "where": {
+        "rate_plan_row_id": 12
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "nightly_price": 195,
+        "inventory_remaining": 8
+      },
+      "where": {
+        "rate_plan_row_id": 14
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 3
+      },
+      "where": {
+        "rate_plan_row_id": 15
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "nightly_price": 203,
+        "inventory_remaining": 8
+      },
+      "where": {
+        "rate_plan_row_id": 17
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 3
+      },
+      "where": {
+        "rate_plan_row_id": 18
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 8
+      },
+      "where": {
+        "rate_plan_row_id": 2
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "nightly_price": 187,
+        "inventory_remaining": 8
+      },
+      "where": {
+        "rate_plan_row_id": 20
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 3
+      },
+      "where": {
+        "rate_plan_row_id": 21
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "nightly_price": 195,
+        "inventory_remaining": 8
+      },
+      "where": {
+        "rate_plan_row_id": 23
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 3
+      },
+      "where": {
+        "rate_plan_row_id": 24
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "nightly_price": 203,
+        "inventory_remaining": 8
+      },
+      "where": {
+        "rate_plan_row_id": 26
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 3
+      },
+      "where": {
+        "rate_plan_row_id": 27
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "nightly_price": 187,
+        "inventory_remaining": 8
+      },
+      "where": {
+        "rate_plan_row_id": 29
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 9
+      },
+      "where": {
+        "rate_plan_row_id": 3
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 3
+      },
+      "where": {
+        "rate_plan_row_id": 30
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "nightly_price": 195,
+        "inventory_remaining": 8
+      },
+      "where": {
+        "rate_plan_row_id": 32
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 9
+      },
+      "where": {
+        "rate_plan_row_id": 4
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 10
+      },
+      "where": {
+        "rate_plan_row_id": 5
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 10
+      },
+      "where": {
+        "rate_plan_row_id": 6
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 8
+      },
+      "where": {
+        "rate_plan_row_id": 7
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 8
+      },
+      "where": {
+        "rate_plan_row_id": 8
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 3
+      },
+      "where": {
+        "rate_plan_row_id": 9
+      }
+    }
+  ]
+}

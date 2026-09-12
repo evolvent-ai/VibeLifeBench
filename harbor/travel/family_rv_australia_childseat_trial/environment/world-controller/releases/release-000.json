@@ -1,0 +1,37 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "token": "family-rv-australia-childseat-trial-release-000-token",
+  "source_stage": 5,
+  "scenario_time": "2026-09-05T10:15:00+08:00",
+  "source_time": "2026-09-05T10:15:00+08:00",
+  "source_event_ids": ["evt_s4_mut_visa_additional_info", "evt_s5_mut_childseat_stock"],
+  "operations": [
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "set": {
+        "status": "additional_info_required",
+        "decision_note": "RFI: upload child relationship proof and trip statement before 2026-09-09T23:59:00+08:00",
+        "updated_at": "2026-09-05T10:15:00+08:00",
+        "history_json": "[{\"at\":\"2026-09-05T10:15:00+08:00\",\"event\":\"additional_info_required\",\"due\":\"2026-09-09T23:59:00+08:00\"}]"
+      },
+      "where": {
+        "application_id": "VAC_LC_2026_09_AU"
+      }
+    },
+    {
+      "server": "car_rental",
+      "table": "rental_offers",
+      "op": "update",
+      "set": {
+        "return_requirements_json": "{\"return_city\":\"Melbourne\",\"child_seat_qty\":1,\"child_restraint_standard\":\"AS/NZS 1754 approved restraint\",\"vehicle_height_m\":2.85,\"refundable_until\":\"2026-09-07T18:00:00+10:00\"}",
+        "notes": "SouthernCross 4B automatic right-hand-drive motorhome; child_seat_qty=1 after 2026-09-06; refundable hold only."
+      },
+      "where": {
+        "offer_id": "CRO_SC4B_260915"
+      }
+    }
+  ]
+}

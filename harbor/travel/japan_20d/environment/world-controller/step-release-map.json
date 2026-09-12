@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "step_count": 31,
+  "steps": {
+    "event-000": {
+      "source_event_id": "D0_kickoff_user",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-17T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "D1_visa_channel_review",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-18T08:30:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "D1_typhoon_season_notice",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-18T11:00:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "D1_phishing_visa_fee_notice",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-18T13:25:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "D2_flight_equip_swap",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-19T10:15:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "D3_user_followup_budget",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-20T14:30:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "D4_passport_validity_trigger",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-21T09:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "D5_insurance_quote_ready",
+      "before": [],
+      "virtual_stage": 5,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-22T11:00:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "D5_hotel_prepay_scam_notice",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-22T15:45:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "D6_hakone_train_pass_reminder",
+      "before": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-23T15:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "D7_user_proactive_packing",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-24T10:00:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "D8_weather_early_forecast",
+      "before": [],
+      "virtual_stage": 8,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-25T08:30:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "D8_flight_retime_notice",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 8,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-25T10:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "D8_med_customs_alert",
+      "before": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-25T11:30:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "D9_bookings_lock_deadline_user",
+      "before": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-26T19:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "D10_typhoon_watch_alert",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-27T07:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "D11_typhoon_track_update",
+      "before": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-28T09:00:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "D12_confirmation_final_docs",
+      "before": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-29T10:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "D13_checkin_open",
+      "before": [],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-30T00:01:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "D14_morning_go",
+      "before": [],
+      "virtual_stage": 14,
+      "stage_boundary": false,
+      "scenario_time": "2026-05-01T05:30:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "D14_flight_arrived_nrt",
+      "before": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-01T17:40:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "D15_asakusa_reco",
+      "before": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-02T09:00:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "D16_hotel_overbook_notify",
+      "before": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-03T14:05:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "D17_shinkansen_partial_suspension",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 17,
+      "stage_boundary": false,
+      "scenario_time": "2026-05-04T06:00:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "D17_hypo_event_user",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-04T11:30:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "D18_midtrip_heartbeat",
+      "before": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-06T09:00:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "D19_light_user_checkin",
+      "before": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-09T20:30:00+08:00"
+    },
+    "event-027": {
+      "source_event_id": "D20_late_trip_heartbeat",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-12T09:00:00+08:00"
+    },
+    "event-028": {
+      "source_event_id": "D21_return_prep_heartbeat",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-14T09:00:00+08:00"
+    },
+    "event-029": {
+      "source_event_id": "D22_return_checkin",
+      "before": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-15T00:01:00+08:00"
+    },
+    "event-030": {
+      "source_event_id": "D23_return_delay",
+      "before": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-16T11:15:00+08:00"
+    }
+  }
+}

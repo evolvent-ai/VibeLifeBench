@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "D5_insurance_quote_email_mutation"
+  ],
+  "source_stage": 5,
+  "source_time": "2026-06-02T09:55+08:00",
+  "previous": "release-002",
+  "token": "bali-22d-release-token-003-9f42c7a1",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<ti-q-20260602@axa-insurance.example>",
+        "subject": "[Bali 2026] AXA family quote TI-Q-20260602",
+        "from_addr": "familytravel@axa-insurance.example",
+        "to_addr_json": "[\"chen.yu@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-02T09:55:00+08:00",
+        "body_text": "Quote TI-Q-20260602 covers Chen Yu and Wang Meilin for the full 22-day Indonesia trip, with Liu Fang joining on 2026-06-22. Base premium is CNY 1,860. The pregnancy-complication rider for gestational weeks 20-28 adds CNY 2,180, for a total of CNY 4,040. The quote expires 2026-06-05T09:55:00+08:00. The rider covers emergency complications only and excludes elective procedures and routine prenatal care abroad.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 6100,
+        "size": 1080,
+        "created_at": "2026-06-02T09:55:00+08:00"
+      },
+      "source_event_id": "D5_insurance_quote_email_mutation",
+      "operation_index": 0
+    }
+  ]
+}

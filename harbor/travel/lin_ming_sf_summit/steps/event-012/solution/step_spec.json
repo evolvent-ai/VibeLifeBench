@@ -1,0 +1,25 @@
+{
+  "step": "event-012",
+  "stage": 13,
+  "virtual_stage": 13,
+  "source_event_id": "n13",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "m12"
+    ]
+  },
+  "response": "I searched the current San Francisco hotel inventory after the price surge and compared alternatives before confirmation. The budget record reflects the increase and the need to reassess value.",
+  "response_paraphrase": "Fresh lodging quotes have been reviewed following the rate change, with less expensive options compared before a booking and the budget impact documented.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n13"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

@@ -1,0 +1,1 @@
+[2026-06-29 08:00 +08:00] VAAC Darwin reports volcanic ash from Agung drifting southwest toward DPS at FL150 to FL200. Current impact is nil because the ash is below flight levels. If winds shift northwest as forecast for July 1, the airport could temporarily close or flights could be delayed. Confidence is medium at 60%.

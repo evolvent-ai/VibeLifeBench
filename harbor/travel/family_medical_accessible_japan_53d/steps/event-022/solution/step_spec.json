@@ -1,0 +1,36 @@
+{
+  "step": "event-022",
+  "virtual_stage": 21,
+  "source_event_id": "s21_user_final_flight_authorization",
+  "response": "The stage 21 Kansai trip work was completed with evidence recorded and authorization boundaries preserved.",
+  "response_paraphrase": "I finished the stage 21 travel review, retaining the supporting records and keeping payment within the approved scope.",
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s21_user_final_flight_authorization",
+      "virtual_stage": 21,
+      "event_kind": "user_message",
+      "event_time": "2026-10-09T19:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_ticketing_call_matches_persisted_booking",
+      "weight": 2.0
+    },
+    {
+      "check_id": "s21_ticketed_state_is_mu737_daytime_price_drop",
+      "weight": 2.0
+    },
+    {
+      "check_id": "s21_ticket_and_budget_register_are_object_specific",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

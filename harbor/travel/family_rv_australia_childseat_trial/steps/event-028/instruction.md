@@ -1,0 +1,1 @@
+We are back in Shanghai. Close out the motorhome trial: confirm that orders are closed, check whether the budget was exceeded, summarize child-seat, insurance, and right-hand-drive findings, and state whether longer-term travel is practical. Keep it concise but traceable.

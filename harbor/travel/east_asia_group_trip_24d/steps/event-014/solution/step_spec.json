@@ -1,0 +1,33 @@
+{
+  "step": "event-014",
+  "virtual_stage": 10,
+  "source_event_id": "S10_0_flight_watch",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-001"
+    ]
+  },
+  "response": "The travel-planning action for stage 10 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 10 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S10_0_flight_watch"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_mu501_cancellation_rechecked",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s10_recovery_state_persisted",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

@@ -1,0 +1,23 @@
+{
+ "step": "event-016",
+ "stage": 9,
+ "event_id": "S09_user_reliability_priority",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 9,
+   "event_id": "S09_user_reliability_priority"
+  }
+ ],
+ "response_paraphrase": "The route decision favors a protected margin and documents why the extra cost is reasonable.",
+ "expected_env": {
+  "virtual_stage": 9,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S09_user_reliability_priority"
+}

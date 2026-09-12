@@ -1,0 +1,21 @@
+{
+  "step": "event-007",
+  "stage": 6,
+  "virtual_stage": 6,
+  "source_event_id": "evt_s6_world_refundable_deadline",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Held the cancellable SouthernCross 4B with full motorhome insurance and arranged Canberra accommodation.",
+  "response_paraphrase": "Placed a refundable SouthernCross 4B hold with INS_FULL_PLUS and recorded the Canberra stay request.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s6_world_refundable_deadline"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

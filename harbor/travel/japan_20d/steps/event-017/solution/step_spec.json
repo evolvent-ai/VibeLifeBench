@@ -1,0 +1,33 @@
+{
+  "step": "event-017",
+  "virtual_stage": 12,
+  "source_event_id": "D12_confirmation_final_docs",
+  "stage_boundary": true,
+  "response": "Recorded d12 confirmation final docs: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d12 confirmation final docs update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "world",
+      "event_id": "D12_confirmation_final_docs",
+      "virtual_stage": 12,
+      "event_kind": "world",
+      "event_time": "2026-04-29T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "d_doctor_letter_reminder_before_s13",
+      "weight": 2
+    },
+    {
+      "check_id": "d_s12_no_overexplain_confirmations",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 3
+}

@@ -1,0 +1,23 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "source_stage": 8,
+  "source_time": "2026-04-25T09:55:00+08:00",
+  "source_event_ids": ["D8_flight_retime_mutation"],
+  "token": "1f2eb6c40c32dc2a3a138d835d4f2f12fd0ebd518c54aa50c2f296edec26b1ce",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flights",
+      "op": "update",
+      "set": {
+        "depart_dt": "2026-05-01T06:30:00+08:00",
+        "arrive_dt": "2026-05-01T10:40:00+09:00"
+      },
+      "where": {
+        "flight_no": "MU549",
+        "depart_dt": "2026-05-01T08:55:00+08:00"
+      }
+    }
+  ]
+}

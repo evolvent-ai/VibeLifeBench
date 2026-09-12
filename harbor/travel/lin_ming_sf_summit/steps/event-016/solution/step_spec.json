@@ -1,0 +1,36 @@
+{
+  "step": "event-016",
+  "stage": 17,
+  "virtual_stage": 17,
+  "source_event_id": "n17",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "m16"
+    ]
+  },
+  "response": "I checked the March 29 calendar and documented the scheduling conflict review for both the internal stand-up and the Downtown San Francisco client visit. A transfer buffer is required even though their stated times do not directly overlap.",
+  "response_paraphrase": "Both the morning stand-up and afternoon client appointment are visible in the day plan. I recorded the tight schedule and the need to preserve travel time between them.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n17"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_checked_calendar",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s17_conflict_ack",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

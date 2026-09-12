@@ -1,0 +1,1 @@
+[2026-06-16 09:00 +08:00] Scheduled heartbeat checkpoint after the morning passport-document notice. Read durable state, including the Notion trip journal, calendar, and workspace files such as HEARTBEAT.md. Complete any routine follow-up and do not send Chen Yu a separate update unless there is a concrete risk or pending decision.

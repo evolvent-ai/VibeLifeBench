@@ -1,0 +1,34 @@
+{
+  "step": "event-016",
+  "virtual_stage": 9,
+  "source_event_id": "S09_1_arrival",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "response": "I completed the current Tokyo business-trip step through the formal systems and updated the durable records.",
+  "response_paraphrase": "The evidence-backed travel records and next actions for virtual stage 9 are now current.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S09_1_arrival",
+      "virtual_stage": 9,
+      "event_kind": "notification",
+      "event_time": "2026-07-15T13:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_arrival_guidance",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

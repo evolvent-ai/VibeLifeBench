@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "S11_1_lunch_mutation"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-07-17T17:55:00+08:00",
+  "previous": "release-001",
+  "token": "hard-biz-trip-release-002-token-2026",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_jpy_client_lunch_0717",
+        "account_id": "acct_zhangming_jpy_wallet",
+        "posted_at": "2026-07-17T13:30:00+09:00",
+        "amount_minor": -6800,
+        "kind": "payment",
+        "counterparty": "Roppongi Client Lunch",
+        "memo": "Client lunch during summit; receipt requested",
+        "balance_after_minor": 113200
+      },
+      "source_event_id": "S11_1_lunch_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {
+        "balance_minor": 113200
+      },
+      "where": {
+        "account_id": "acct_zhangming_jpy_wallet"
+      },
+      "source_event_id": "S11_1_lunch_mutation",
+      "operation_index": 1
+    }
+  ]
+}

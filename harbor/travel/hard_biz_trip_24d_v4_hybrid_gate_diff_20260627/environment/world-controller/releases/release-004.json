@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "S13_0_weakening_backend_mutation"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-07-19T07:55:00+08:00",
+  "previous": "release-003",
+  "token": "hard-biz-trip-release-004-token-2026",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "severity": "moderate",
+        "end_dt": "2026-07-20T12:00:00+09:00",
+        "description": "Typhoon Yinxing has turned north-east and weakened to Category 1. Kanto conditions improve during July 20; airlines still control recovery and the cancelled July 22 direct services remain unavailable.",
+        "active": 1,
+        "created_at": "2026-07-19T07:55:00+09:00",
+        "source_event": "S13_0_weakening_backend_mutation"
+      },
+      "where": {
+        "alert_id": "wx_kanto_7f3c"
+      },
+      "source_event_id": "S13_0_weakening_backend_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {
+        "tmin": 23,
+        "tmax": 28,
+        "condition": "Category 1 outer rain bands",
+        "precip_mm": 22.0,
+        "precip_prob": 0.82,
+        "wind_kmh": 42
+      },
+      "where": {
+        "geo_key": "geo_narita",
+        "date": "2026-07-20"
+      },
+      "source_event_id": "S13_0_weakening_backend_mutation",
+      "operation_index": 1
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {"tmin": 22, "tmax": 27, "condition": "Category 1 rain bands and gusts", "precip_mm": 28.0, "precip_prob": 0.88, "wind_kmh": 49},
+      "where": {"geo_key": "geo_narita", "date": "2026-07-19"},
+      "source_event_id": "S13_0_weakening_backend_mutation",
+      "operation_index": 2
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {"tmin": 24, "tmax": 29, "condition": "rain easing by afternoon", "precip_mm": 8.0, "precip_prob": 0.50, "wind_kmh": 24},
+      "where": {"geo_key": "geo_tokyo", "date": "2026-07-20"},
+      "source_event_id": "S13_0_weakening_backend_mutation",
+      "operation_index": 3
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {"tmin": 23, "tmax": 28, "condition": "morning showers then improving", "precip_mm": 10.0, "precip_prob": 0.58, "wind_kmh": 29},
+      "where": {"geo_key": "geo_narita", "date": "2026-07-20"},
+      "source_event_id": "S13_0_weakening_backend_mutation",
+      "operation_index": 4
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {"tmin": 24, "tmax": 31, "condition": "partly cloudy", "precip_mm": 2.0, "precip_prob": 0.25, "wind_kmh": 17},
+      "where": {"geo_key": "geo_tokyo", "date": "2026-07-21"},
+      "source_event_id": "S13_0_weakening_backend_mutation",
+      "operation_index": 5
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {"tmin": 23, "tmax": 30, "condition": "partly cloudy with light crosswind", "precip_mm": 2.0, "precip_prob": 0.25, "wind_kmh": 20},
+      "where": {"geo_key": "geo_narita", "date": "2026-07-21"},
+      "source_event_id": "S13_0_weakening_backend_mutation",
+      "operation_index": 6
+    },
+    {
+      "server": "weather",
+      "table": "typhoon_tracks",
+      "op": "update",
+      "set": {"lat": 33.6, "lng": 140.4, "intensity": "category_1"},
+      "where": {"storm_id": "storm_yinxing_20260718", "dt": "2026-07-19T08:00:00+09:00"},
+      "source_event_id": "S13_0_weakening_backend_mutation",
+      "operation_index": 7
+    },
+    {
+      "server": "weather",
+      "table": "typhoon_tracks",
+      "op": "update",
+      "set": {"lat": 37.5, "lng": 143.0, "intensity": "tropical_storm"},
+      "where": {"storm_id": "storm_yinxing_20260718", "dt": "2026-07-20T08:00:00+09:00"},
+      "source_event_id": "S13_0_weakening_backend_mutation",
+      "operation_index": 8
+    },
+    {
+      "server": "weather",
+      "table": "typhoon_tracks",
+      "op": "insert",
+      "values": {"storm_id": "storm_yinxing_20260718", "dt": "2026-07-21T08:00:00+09:00", "lat": 41.8, "lng": 147.2, "intensity": "extratropical"},
+      "source_event_id": "S13_0_weakening_backend_mutation",
+      "operation_index": 9
+    }
+  ]
+}

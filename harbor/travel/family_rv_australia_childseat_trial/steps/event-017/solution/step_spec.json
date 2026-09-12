@@ -1,0 +1,34 @@
+{
+  "step": "event-017",
+  "stage": 15,
+  "virtual_stage": 15,
+  "source_event_id": "evt_s15_world_arrival_visa_granted",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": []
+  },
+  "response": "Identified duplicate AUD 600 holds, excluded pending authorizations from spend and drafted a rental query.",
+  "response_paraphrase": "Compared the two SouthernCross pre-authorizations, treated them as non-spend and drafted a duplicate-hold enquiry.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s15_world_arrival_visa_granted"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_close_visa_risk_after_granted",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s15_preserve_arrival_rest",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

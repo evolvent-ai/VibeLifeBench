@@ -1,0 +1,30 @@
+{
+ "step": "event-039",
+ "stage": 23,
+ "event_id": "S23_notification_receipts",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 23,
+   "event_id": "S23_notification_receipts"
+  }
+ ],
+ "response_paraphrase": "The receipt bundle is ingested with settled charges, frozen holds, and pending refunds distinguished.",
+ "expected_env": {
+  "virtual_stage": 23,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-022"
+  ],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s23_receipts_return_closeout",
+   "weight": 3
+  }
+ ],
+ "expected_stage_weight": 3,
+ "source_event_id": "S23_notification_receipts"
+}

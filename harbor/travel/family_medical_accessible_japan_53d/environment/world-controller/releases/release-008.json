@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "s13_mutation_hotel_policy"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-09-24T11:55:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-008-token",
+  "operations": [
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "source_event_id": "s13_mutation_hotel_policy",
+      "operation_index": 0,
+      "values": {
+        "refundable_until": "2026-09-28T23:59:00+09:00",
+        "inventory_remaining": 1
+      },
+      "set": {
+        "refundable_until": "2026-09-28T23:59:00+09:00",
+        "inventory_remaining": 1
+      },
+      "where": {
+        "hotel_id": "jp_ht_006",
+        "date": "2026-10-12",
+        "flavor": "flex"
+      }
+    },
+    {
+      "server": "hotel_booking",
+      "table": "hotels",
+      "op": "update",
+      "source_event_id": "s13_mutation_hotel_policy",
+      "operation_index": 1,
+      "values": {
+        "policies_json": "{\"free_cancel\":\"2026-09-28T23:59:00+09:00\",\"deposit\":\"first_night\",\"prepaid_nonref\":false,\"accessible_inventory_remaining\":1}"
+      },
+      "set": {
+        "policies_json": "{\"free_cancel\":\"2026-09-28T23:59:00+09:00\",\"deposit\":\"first_night\",\"prepaid_nonref\":false,\"accessible_inventory_remaining\":1}"
+      },
+      "where": {
+        "hotel_id": "jp_ht_006"
+      }
+    }
+  ],
+  "previous": "release-007"
+}

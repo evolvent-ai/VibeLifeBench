@@ -1,0 +1,31 @@
+{
+  "step": "event-027",
+  "virtual_stage": 21,
+  "source_event_id": "D21_return_prep_heartbeat",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Return weather, flight status, receipts, and RA medication obligations were rechecked.",
+  "response_paraphrase": "Equivalent operational guidance: Return weather, flight status, receipts, and RA medication obligations were rechecked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D21_return_prep_heartbeat"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_return_risks_rechecked",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s21_return_obligations_persisted",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

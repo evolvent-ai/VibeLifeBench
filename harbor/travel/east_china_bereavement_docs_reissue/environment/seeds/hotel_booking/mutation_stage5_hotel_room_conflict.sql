@@ -1,0 +1,2 @@
+UPDATE rate_plans SET inventory_remaining=0 WHERE hotel_id='hotel_suz_mourning_nearby' AND room_type='twin' AND date BETWEEN '2026-04-05' AND '2026-04-08';
+INSERT INTO notifications(created_at, channel, payload_json) VALUES ('2026-04-05T09:20:00+08:00','system','{"hotel_id":"hotel_suz_mourning_nearby","room_type":"twin","status":"needs_action","note":"twin inventory released failed; use two_single or nearby refundable twin"}');

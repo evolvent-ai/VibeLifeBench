@@ -1,0 +1,39 @@
+{
+  "step": "event-015",
+  "stage": 12,
+  "virtual_stage": 12,
+  "source_event_id": "evt_s12_world_wind_addendum_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": []
+  },
+  "response": "Verified pickup, child restraint, insurance and return requirements and reduced the first drive for acclimation.",
+  "response_paraphrase": "Documented the handover checks and return terms, then limited the initial right-hand-drive outing.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s12_world_wind_addendum_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s12_detect_insurance_addendum",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s12_update_user_safety_guidance",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s12_adjust_route_or_calendar_for_wind",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

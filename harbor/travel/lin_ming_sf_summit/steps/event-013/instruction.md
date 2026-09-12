@@ -1,0 +1,1 @@
+Corporate Finance has further updated the travel pre-clearance exchange rate to 1 USD = 7.58 CNY. Recalculate the remaining budget and retain a note in the approval materials that the internal pre-clearance rate may differ from the final reimbursement exchange rate.

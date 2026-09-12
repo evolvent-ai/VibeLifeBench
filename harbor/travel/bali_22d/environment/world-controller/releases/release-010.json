@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "D18_storm_live_mutation"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-06-20T05:55+08:00",
+  "previous": "release-009",
+  "token": "bali-22d-release-token-010-9f42c7a1",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "set": {
+        "sim_now": "2026-06-20T05:55:00+08:00"
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "D18_storm_live_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {
+        "condition": "severe_thunderstorm",
+        "precip_mm": 115.0,
+        "precip_prob": 1.0,
+        "wind_kmh": 34.0
+      },
+      "where": {
+        "geo_key": "bali_ubud",
+        "date": "2026-06-20"
+      },
+      "source_event_id": "D18_storm_live_mutation",
+      "operation_index": 1
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "severity": "warning",
+        "description": "Observed 42mm in two hours; flooded villa access roads and elevated mudslide risk"
+      },
+      "where": {
+        "alert_id": "alert_storm_ubud"
+      },
+      "source_event_id": "D18_storm_live_mutation",
+      "operation_index": 2
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "active": 1,
+        "magnitude": 0.8
+      },
+      "where": {
+        "event_id": "evt_ubud_flood_20260620"
+      },
+      "source_event_id": "D18_storm_live_mutation",
+      "operation_index": 3
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "active": 1,
+        "magnitude": 0.9
+      },
+      "where": {
+        "event_id": "evt_ubud_flood2_20260620"
+      },
+      "source_event_id": "D18_storm_live_mutation",
+      "operation_index": 4
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "step": "event-017",
+  "virtual_stage": 14,
+  "source_event_id": "D14_hotel_mold_issue",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "A mold/musty room-change request is linked to the reservation. Mold may aggravate respiratory or allergy symptoms during pregnancy; seek a doctor or clinician if symptoms occur, without making a medical conclusion.",
+  "response_paraphrase": "Equivalent operational guidance: A mold/musty room-change request is linked to the reservation. Mold may aggravate respiratory or allergy symptoms in pregnancy; seek a doctor or clinician if symptoms occur, without treating this as a diagnosis.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D14_hotel_mold_issue"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_room_change_requested",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s14_mold_health_risk_communicated",
+      "weight": 2.5,
+      "expected": true
+    },
+    {
+      "check_id": "s14_calendar_updated",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 7.5
+}

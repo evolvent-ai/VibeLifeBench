@@ -1,0 +1,40 @@
+{
+  "step": "event-021",
+  "virtual_stage": 20,
+  "source_event_id": "s20_notification_flight_price_drop",
+  "response": "The stage 20 Kansai trip work was completed with evidence recorded and authorization boundaries preserved.",
+  "response_paraphrase": "I finished the stage 20 travel review, retaining the supporting records and keeping payment within the approved scope.",
+  "expected_env": {
+    "preceding_releases": [
+      "release-013"
+    ],
+    "released_mutations": [
+      "s20_mutation_flight_price_drop"
+    ]
+  },
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s20_notification_flight_price_drop",
+      "virtual_stage": 20,
+      "event_kind": "notification",
+      "event_time": "2026-10-08T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_fresh_search_and_reprice",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s20_backend_offer_exact",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s20_decision_supersedes_stale_offer",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,51 @@
+{
+  "step": "event-010",
+  "virtual_stage": 9,
+  "source_event_id": "D9_booking_lock_deadline",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Authorized flights and continuous, facility-checked hotels were booked within the hard budget.",
+  "response_paraphrase": "Equivalent operational guidance: Authorized flights and continuous, facility-checked hotels were booked within the hard budget.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D9_booking_lock_deadline"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_outbound_flight_confirmed",
+      "weight": 3.5,
+      "expected": true
+    },
+    {
+      "check_id": "s9_return_flight_confirmed",
+      "weight": 3.5,
+      "expected": true
+    },
+    {
+      "check_id": "s9_hotel_seminyak_booked",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s9_hotel_ubud_booked",
+      "weight": 2.5,
+      "expected": true
+    },
+    {
+      "check_id": "s9_budget_under_45k",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s9_all_hotels_have_ac",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 18.0
+}

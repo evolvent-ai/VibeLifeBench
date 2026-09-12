@@ -1,0 +1,26 @@
+{
+  "release_id": "release-005",
+  "previous": "release-004",
+  "token": "east-asia-group-trip-24d-release-005-token",
+  "source_step": "event-022",
+  "source_stage": 17,
+  "source_time": "2026-06-09T00:00:00+08:00",
+  "source_event_ids": [
+    "S17_pre_mut_freeze"
+  ],
+  "operations": [
+    {
+      "server": "banking",
+      "operation_index": 1,
+      "source_event_id": "S17_pre_mut_freeze",
+      "table": "accounts",
+      "op": "update",
+      "set": {
+        "frozen": 1
+      },
+      "where": {
+        "account_id": "acct_wang_hao_001"
+      }
+    }
+  ]
+}

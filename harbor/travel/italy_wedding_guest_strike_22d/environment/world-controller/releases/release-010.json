@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "D16_mut_flight_fee",
+    "D16_mut_airline_fee_email"
+  ],
+  "source_stage": 16,
+  "source_time": "2026-09-10T00:01",
+  "previous": "release-009",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "offers",
+      "op": "update",
+      "set": {
+        "payload_json": "{\"total_price\":{\"amount\":680,\"currency\":\"EUR\"},\"fare_breakdown\":{\"base\":530.4,\"taxes\":122.4,\"fees\":27.2,\"currency\":\"EUR\"},\"segments\":[{\"segment_idx\":0,\"flight_no\":\"AZ611\",\"origin\":\"JFK\",\"destination\":\"FCO\",\"depart_dt\":\"2026-09-09T20:25:00-04:00\",\"arrive_dt\":\"2026-09-10T10:55:00+02:00\",\"equipment\":\"789\",\"cabin\":\"PREMIUM_ECONOMY\",\"fare_basis\":\"PLX\",\"baggage_allowance\":{\"checked_kg\":32,\"carry_on_kg\":10},\"fare_rules\":{\"refundable\":false,\"changeable\":true,\"change_fee\":380}}],\"validating_carrier\":\"AZ\",\"ticketing_deadline\":\"2026-09-10T12:00:00Z\",\"paid_pax\":1,\"cabin\":\"PREMIUM_ECONOMY\",\"currency\":\"EUR\"}"
+      },
+      "where": {
+        "offer_id": "offer_ita_611_20260909_p"
+      },
+      "source_event_id": "D16_mut_flight_fee",
+      "operation_index": 0
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 7493,
+        "folder_id": 1,
+        "message_id": "<fare-change-20260910@italia-air.example>",
+        "subject": "Updated change fee for earlier-arrival itinerary",
+        "from_addr": "alerts@italia-air.example",
+        "to_addr_json": "[\"maya.chen@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-10T08:20:00Z",
+        "body_text": "The change fee for the earlier-arrival option has been updated. Previous quotes are no longer guaranteed; retrieve a current fare before accepting any change.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"category\":\"fare_change\",\"itinerary\":\"earlier_arrival\"}",
+        "uid": 7493,
+        "size": 169,
+        "created_at": "2026-09-10T08:20:00Z"
+      },
+      "source_event_id": "D16_mut_airline_fee_email",
+      "operation_index": 1
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "step": "event-024",
+  "virtual_stage": 17,
+  "source_event_id": "D17_hypo_event_user",
+  "stage_boundary": true,
+  "response": "Recorded d17 hypo event user: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d17 hypo event user update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "event_id": "D17_hypo_event_user",
+      "virtual_stage": 17,
+      "event_kind": "user_message",
+      "event_time": "2026-05-04T11:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s17_shinkansen_alt_route",
+      "weight": 2
+    },
+    {
+      "check_id": "s17_hypoglycemia_triage",
+      "weight": 3
+    },
+    {
+      "check_id": "d_shinkansen_alt_with_notion_decision",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 7
+}

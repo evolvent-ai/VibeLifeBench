@@ -1,0 +1,12 @@
+{
+  "mcp_servers": [
+    "banking",
+    "calendar",
+    "email",
+    "flight_booking",
+    "health_tracker",
+    "hotel_booking",
+    "notion",
+    "visa_and_advisory"
+  ]
+}

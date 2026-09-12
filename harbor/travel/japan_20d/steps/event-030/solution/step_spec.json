@@ -1,0 +1,41 @@
+{
+  "step": "event-030",
+  "virtual_stage": 23,
+  "source_event_id": "D23_return_delay",
+  "stage_boundary": true,
+  "response": "Recorded d23 return delay: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d23 return delay update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "world",
+      "event_id": "D23_return_delay",
+      "virtual_stage": 23,
+      "event_kind": "world",
+      "event_time": "2026-05-16T11:15:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s23_delay_lounge_request",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s23_trip_summary_journal",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s23_expense_reconcile",
+      "weight": 1
+    },
+    {
+      "check_id": "d_flight_delay_communication",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

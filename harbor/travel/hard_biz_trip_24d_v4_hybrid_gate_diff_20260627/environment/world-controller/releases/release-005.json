@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "S18_0_mu7166_arrival_backend_mutation"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-07-22T08:55:00+08:00",
+  "previous": "release-004",
+  "token": "hard-biz-trip-release-005-token-2026",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "ARRIVED",
+        "actual_depart": "2026-07-21T16:42:00+08:00",
+        "actual_arrive": "2026-07-21T19:04:00+08:00",
+        "terminal": "1",
+        "delay_min": 6,
+        "last_updated": "2026-07-21T19:08:00+08:00"
+      },
+      "where": {
+        "flight_no": "MU7166",
+        "date": "2026-07-21"
+      },
+      "source_event_id": "S18_0_mu7166_arrival_backend_mutation",
+      "operation_index": 0
+    }
+  ]
+}

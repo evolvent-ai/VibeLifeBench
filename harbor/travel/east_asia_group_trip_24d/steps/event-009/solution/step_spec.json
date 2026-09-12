@@ -1,0 +1,25 @@
+{
+  "step": "event-009",
+  "virtual_stage": 6,
+  "source_event_id": "S06_0_health",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The travel-planning action for stage 6 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 6 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S06_0_health"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_gate",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

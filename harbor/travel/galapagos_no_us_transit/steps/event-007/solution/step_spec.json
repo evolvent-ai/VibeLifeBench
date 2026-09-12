@@ -1,0 +1,30 @@
+{
+ "step": "event-007",
+ "stage": 3,
+ "event_id": "S03_notification_email_invitation",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 3,
+   "event_id": "S03_notification_email_invitation"
+  }
+ ],
+ "response_paraphrase": "The organizer mail is ingested with both travelers and the Puerto Ayora deadline reconciled.",
+ "expected_env": {
+  "virtual_stage": 3,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-002"
+  ],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s3_docs_email_ingested",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S03_notification_email_invitation"
+}

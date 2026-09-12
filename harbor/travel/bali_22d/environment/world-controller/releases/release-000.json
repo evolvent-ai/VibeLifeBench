@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "D1_zika_advisory_mutation"
+  ],
+  "source_stage": 1,
+  "source_time": "2026-05-29T07:55+08:00",
+  "previous": null,
+  "token": "bali-22d-release-token-000-9f42c7a1",
+  "operations": [
+    {
+      "server": "visa_and_advisory",
+      "table": "advisories",
+      "op": "update",
+      "set": {
+        "level": 2,
+        "text": "Indonesia: Zika virus active monitoring zone includes Bali, Lombok, and Java. WHO advises pregnant travelers to consult their healthcare provider before travel because infection during pregnancy can cause microcephaly and other birth defects. Aedes mosquito activity is elevated June-August. Mount Agung remains Level 1 (Normal).",
+        "updated_at": "2026-05-29T07:55:00+08:00"
+      },
+      "where": {
+        "country_code": "ID"
+      },
+      "source_event_id": "D1_zika_advisory_mutation",
+      "operation_index": 0
+    }
+  ]
+}

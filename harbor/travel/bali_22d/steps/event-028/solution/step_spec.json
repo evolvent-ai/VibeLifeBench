@@ -1,0 +1,22 @@
+{
+  "step": "event-028",
+  "virtual_stage": 22,
+  "source_event_id": "D22_return_checkin_open",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-013"
+    ],
+    "released_mutations": []
+  },
+  "response": "Return check-in and a PNR-bound volcanic-ash contingency plan are recorded.",
+  "response_paraphrase": "Return check-in and a PNR-bound volcanic-ash contingency plan have been logged.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D22_return_checkin_open"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

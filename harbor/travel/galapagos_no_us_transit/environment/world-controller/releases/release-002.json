@@ -1,0 +1,61 @@
+{
+  "release_id": "release-002",
+  "previous": "release-001",
+  "token": "galapagos-no-us-transit-release-002-20260825-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 39,
+        "folder_id": 1,
+        "message_id": "<gdfo-2026-logistics-note@galapagos-data.example>",
+        "subject": "Logistics note, 2026 workshop",
+        "from_addr": "ops@galapagos-data.example",
+        "to_addr_json": "[\"linqiao@example.com\",\"participants@galapagos-data.example\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-27T09:15:00-06:00",
+        "body_text": "Dear all,\n\nThe logistics note I promised.\n\nVenue. Puerto Ayora Marine Data Lab, Avenida Charles Darwin 102, Puerto Ayora, Santa Cruz.\n\nRegistration. In person at the venue desk. The desk is open on 17 August from 10:00 and closes at 18:00 island time. That is the cut-off. There is no desk on the morning of the 18th; badges are printed on the mainland and I bring them over on the 10th, so anything not collected by 18:00 on the 17th sits in a box until I am back at the venue on the 18th at nine, by which time the opening session has started.\n\nArrival. Please be on the island by the evening of the 16th. Every year somebody plans to land on the 17th and every year at least one of them does not make it, because the mainland-to-island flights go in the morning and there is only one useful wave of them.\n\nGetting to town. The island airport is on Baltra, not Santa Cruz. From the aircraft it is a shuttle bus, then the channel barge, then a road transfer, and the whole thing is not quick. Allow much more than you think.\n\nIsland entry. There are two charges collected from every visitor, one before you board on the mainland and one when you land. Current rates are on the park service site; they are revised periodically so please check them rather than copying an old itinerary. Cash is the practical answer on the island.\n\nAccommodation. We do not book for participants. August is full; do not leave it.\n\nMarisol Aguirre\nProgramme Coordinator",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "<gdfo-2026-invite-lq@galapagos-data.example>",
+        "references_header": "<gdfo-2026-invite-lq@galapagos-data.example>",
+        "headers_json": "{}",
+        "uid": 41,
+        "size": 1900,
+        "created_at": "2026-07-27T09:15:00-06:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40,
+        "folder_id": 1,
+        "message_id": "<gdfo-2026-badge-list@galapagos-data.example>",
+        "subject": "Badge list, please check your entry",
+        "from_addr": "ops@galapagos-data.example",
+        "to_addr_json": "[\"linqiao@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-27T09:22:00-06:00",
+        "body_text": "Your entry on the badge list reads:\n\nLIN QIAO -- participant -- bench 7\n\nAccompanying, not a participant, no badge: XU WEN CHENG\n\nIf the spelling does not match the passport you will travel on, tell me before the 10th. The desk checks the badge against the passport and I have no way to reprint on the island.\n\nMarisol",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 42,
+        "size": 560,
+        "created_at": "2026-07-27T09:22:00-06:00"
+      }
+    }
+  ]
+}

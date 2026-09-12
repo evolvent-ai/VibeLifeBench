@@ -1,0 +1,37 @@
+{
+  "step": "event-018",
+  "stage": 16,
+  "virtual_stage": 16,
+  "source_event_id": "evt_s16_user_right_hand_anxiety",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Updated the Albury-to-Melbourne route to leave early, retain child rest stops and avoid peak or night driving.",
+  "response_paraphrase": "Moved the Melbourne departure earlier so Mimi keeps her breaks and the route avoids dark and peak traffic.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s16_user_right_hand_anxiety"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_confirm_pickup_childseat_insurance",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s16_reduce_first_drive_due_right_hand",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s16_record_return_requirements",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.25
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "s20_mutation_flight_price_drop"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-10-08T08:55:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-013-token",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "source_event_id": "s20_mutation_flight_price_drop",
+      "operation_index": 0,
+      "values": {
+        "price": 3180,
+        "seats_remaining": 4
+      },
+      "set": {
+        "price": 3180,
+        "seats_remaining": 4
+      },
+      "where": {
+        "flight_no": "MU737",
+        "date": "2026-10-12",
+        "cabin": "ECONOMY"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "offers",
+      "op": "insert",
+      "source_event_id": "s20_mutation_flight_price_drop",
+      "operation_index": 1,
+      "values": {
+        "offer_id": "of_kansai_price_drop_20261008",
+        "created_at": "2026-10-08T08:55:00+08:00",
+        "expires_at": "2026-10-09T23:00:00+08:00",
+        "payload_json": "{\"total_price\":{\"amount\":9540.0,\"currency\":\"CNY\"},\"fare_breakdown\":{\"base\":7441.2,\"taxes\":1717.2,\"fees\":381.6,\"currency\":\"CNY\"},\"segments\":[{\"segment_idx\":0,\"flight_no\":\"MU737\",\"origin\":\"PVG\",\"destination\":\"KIX\",\"depart_dt\":\"2026-10-12T10:00:00+08:00\",\"arrive_dt\":\"2026-10-12T13:30:00+09:00\",\"equipment\":\"A321\",\"cabin\":\"ECONOMY\",\"fare_basis\":\"YLX\",\"fare_rules\":{\"refundable\":true,\"changeable\":true}}],\"validating_carrier\":\"MU\",\"ticketing_deadline\":\"2026-10-09T23:00:00+08:00\",\"paid_pax\":3,\"cabin\":\"ECONOMY\",\"currency\":\"CNY\"}",
+        "priced_price": 9540,
+        "priced_at": "2026-10-08T08:55:00+08:00",
+        "price_guarantee_until": "2026-10-09T23:00:00+08:00"
+      }
+    }
+  ],
+  "previous": "release-012"
+}

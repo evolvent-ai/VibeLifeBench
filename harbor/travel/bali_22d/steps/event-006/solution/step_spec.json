@@ -1,0 +1,28 @@
+{
+  "step": "event-006",
+  "virtual_stage": 5,
+  "source_event_id": "D5_insurance_quote",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": []
+  },
+  "response": "The AXA quote, rider, expiry, and CNY running-cost fields are linked to inbox evidence.",
+  "response_paraphrase": "The AXA quote, rider, expiry, and CNY running-cost fields are tied to inbox evidence.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D5_insurance_quote"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_budget_running_total",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

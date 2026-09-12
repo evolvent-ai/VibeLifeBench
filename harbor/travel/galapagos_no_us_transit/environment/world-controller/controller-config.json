@@ -1,0 +1,21 @@
+{
+  "db_paths": {
+    "calendar": "/calendar-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "flight_booking": "/flight_booking-env/runtime.db",
+    "hotel_booking": "/hotel_booking-env/runtime.db",
+    "maps": "/maps-env/runtime.db",
+    "notion": "/notion-env/runtime.db",
+    "weather": "/weather-env/runtime.db"
+  },
+  "db_aliases": {
+    "calendar": "svc_calendar",
+    "email": "svc_email",
+    "flight_booking": "svc_flight_booking",
+    "hotel_booking": "svc_hotel_booking",
+    "maps": "svc_maps",
+    "notion": "svc_notion",
+    "weather": "svc_weather"
+  },
+  "step_count": 42
+}

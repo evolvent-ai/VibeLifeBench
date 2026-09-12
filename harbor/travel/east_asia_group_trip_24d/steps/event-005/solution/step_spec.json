@@ -1,0 +1,25 @@
+{
+  "step": "event-005",
+  "virtual_stage": 3,
+  "source_event_id": "S03_0_hotel",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The travel-planning action for stage 3 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 3 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S03_0_hotel"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_gate",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

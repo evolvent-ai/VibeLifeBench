@@ -1,0 +1,30 @@
+{
+ "step": "event-037",
+ "stage": 22,
+ "event_id": "S22_world_midtrip_weather",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 22,
+   "event_id": "S22_world_midtrip_weather"
+  }
+ ],
+ "response_paraphrase": "The weather recovery moves the activity onto land and records the swell and warning evidence.",
+ "expected_env": {
+  "virtual_stage": 22,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-021"
+  ],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s22_midtrip_schedule_weather",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S22_world_midtrip_weather"
+}

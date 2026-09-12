@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "D1_mut_save_date_email"
+  ],
+  "source_stage": 1,
+  "source_time": "2026-08-26T08:10",
+  "previous": "release-000",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 7401,
+        "folder_id": 1,
+        "message_id": "<wedding-weekend-20260826@sofia.example.it>",
+        "subject": "Sofia and Marco: Florence wedding weekend details",
+        "from_addr": "sofia@example.it",
+        "to_addr_json": "[\"maya.chen@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-26T08:10:00Z",
+        "body_text": "The ceremony is Saturday 12 September 2026 at 15:30 at Villa Arno Terrace. Rehearsal dinner is Friday 11 September at 19:30. A hotel block is available, but please verify current room terms directly before booking.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"category\":\"wedding\",\"thread\":\"sofia-marco-weekend\"}",
+        "uid": 7401,
+        "size": 224,
+        "created_at": "2026-08-26T08:10:00Z"
+      },
+      "source_event_id": "D1_mut_save_date_email",
+      "operation_index": 0
+    }
+  ]
+}

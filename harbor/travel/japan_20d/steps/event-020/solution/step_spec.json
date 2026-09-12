@@ -1,0 +1,33 @@
+{
+  "step": "event-020",
+  "virtual_stage": 14,
+  "source_event_id": "D14_flight_arrived_nrt",
+  "stage_boundary": true,
+  "response": "Recorded d14 flight arrived nrt: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d14 flight arrived nrt update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "world",
+      "event_id": "D14_flight_arrived_nrt",
+      "virtual_stage": 14,
+      "event_kind": "world",
+      "event_time": "2026-05-01T17:40:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s14_departure_day_brief",
+      "weight": 1.5
+    },
+    {
+      "check_id": "d_timezone_meal_adjust",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

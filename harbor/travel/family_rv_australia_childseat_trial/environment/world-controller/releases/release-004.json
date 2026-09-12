@@ -1,0 +1,27 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "family-rv-australia-childseat-trial-release-004-token",
+  "source_stage": 14,
+  "scenario_time": "2026-09-11T21:05:00+10:00",
+  "source_time": "2026-09-11T21:05:00+10:00",
+  "source_event_ids": ["evt_s13_mut_departure_earlier"],
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "SCHEDULE_CHANGED",
+        "actual_depart": "2026-09-12T19:45:00+08:00",
+        "actual_arrive": "2026-09-13T08:45:00+10:00",
+        "delay_min": -45,
+        "last_updated": "2026-09-11T21:05:00+10:00"
+      },
+      "where": {
+        "flight_no": "SC888",
+        "date": "2026-09-12"
+      }
+    }
+  ]
+}

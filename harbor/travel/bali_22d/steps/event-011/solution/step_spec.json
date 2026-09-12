@@ -1,0 +1,28 @@
+{
+  "step": "event-011",
+  "virtual_stage": 10,
+  "source_event_id": "D10_agung_watch",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": []
+  },
+  "response": "Mount Agung remains Level 2 (Waspada), not Level 3; its 4 km exclusion zone and escalation trigger are recorded.",
+  "response_paraphrase": "Mount Agung remains Level 2 (Waspada), not Level 3; its 4 km exclusion zone and escalation trigger have been logged.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D10_agung_watch"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_volcano_level_correct",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "D4_mut_flight_fee_watch"
+  ],
+  "source_stage": 4,
+  "source_time": "2026-08-29T00:01",
+  "previous": "release-001b",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "offers",
+      "op": "update",
+      "set": {
+        "payload_json": "{\"total_price\":{\"amount\":680,\"currency\":\"EUR\"},\"fare_breakdown\":{\"base\":530.4,\"taxes\":122.4,\"fees\":27.2,\"currency\":\"EUR\"},\"segments\":[{\"segment_idx\":0,\"flight_no\":\"AZ611\",\"origin\":\"JFK\",\"destination\":\"FCO\",\"depart_dt\":\"2026-09-09T20:25:00-04:00\",\"arrive_dt\":\"2026-09-10T10:55:00+02:00\",\"equipment\":\"789\",\"cabin\":\"PREMIUM_ECONOMY\",\"fare_basis\":\"PLX\",\"baggage_allowance\":{\"checked_kg\":32,\"carry_on_kg\":10},\"fare_rules\":{\"refundable\":false,\"changeable\":true,\"change_fee\":260}}],\"validating_carrier\":\"AZ\",\"ticketing_deadline\":\"2026-09-10T12:00:00Z\",\"paid_pax\":1,\"cabin\":\"PREMIUM_ECONOMY\",\"currency\":\"EUR\"}"
+      },
+      "where": {
+        "offer_id": "offer_ita_611_20260909_p"
+      },
+      "source_event_id": "D4_mut_flight_fee_watch",
+      "operation_index": 0
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "s10_mutation_flight_hold_expiring"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-09-18T09:00:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-005-token",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "offers",
+      "op": "insert",
+      "source_event_id": "s10_mutation_flight_hold_expiring",
+      "operation_index": 0,
+      "values": {
+        "offer_id": "of_kansai_daytime_refundable_hold",
+        "created_at": "2026-09-18T09:00:00+08:00",
+        "expires_at": "2026-09-18T16:00:00+08:00",
+        "payload_json": "{\"total_price\":{\"amount\":12840.0,\"currency\":\"CNY\"},\"fare_breakdown\":{\"base\":10015.2,\"taxes\":2311.2,\"fees\":513.6,\"currency\":\"CNY\"},\"segments\":[{\"segment_idx\":0,\"flight_no\":\"MU737\",\"origin\":\"PVG\",\"destination\":\"KIX\",\"depart_dt\":\"2026-10-12T10:00:00+08:00\",\"arrive_dt\":\"2026-10-12T13:30:00+09:00\",\"equipment\":\"A321\",\"cabin\":\"ECONOMY\",\"fare_basis\":\"YLX\",\"baggage_allowance\":{\"checked_kg\":23,\"carry_on_kg\":7},\"fare_rules\":{\"refundable\":true,\"refund_fee_per_passenger\":300,\"changeable\":true,\"change_fee_per_passenger\":200}}],\"validating_carrier\":\"MU\",\"ticketing_deadline\":\"2026-09-18T16:00:00+08:00\",\"paid_pax\":3,\"cabin\":\"ECONOMY\",\"currency\":\"CNY\",\"assistance_note\":\"Wheelchair assistance can be requested before ticketing.\"}",
+        "priced_price": 12840,
+        "priced_at": "2026-09-18T09:00:00+08:00",
+        "price_guarantee_until": "2026-09-18T16:00:00+08:00"
+      }
+    }
+  ],
+  "previous": "release-004"
+}

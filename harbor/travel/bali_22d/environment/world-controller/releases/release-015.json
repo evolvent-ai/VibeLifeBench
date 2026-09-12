@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "release_id": "release-015",
+  "source_event_ids": [
+    "D23_return_delay_mutation"
+  ],
+  "source_stage": 23,
+  "source_time": "2026-07-01T10:55+08:00",
+  "previous": "release-014",
+  "token": "bali-22d-release-token-015-9f42c7a1",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "set": {
+        "sim_now": "2026-07-01T10:55:00+08:00"
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "D23_return_delay_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "DELAYED",
+        "delay_min": 220,
+        "gate": "T8",
+        "terminal": "I",
+        "last_updated": "2026-07-01T10:55:00+08:00"
+      },
+      "where": {
+        "flight_no": "GA836",
+        "date": "2026-07-01"
+      },
+      "source_event_id": "D23_return_delay_mutation",
+      "operation_index": 1
+    }
+  ]
+}

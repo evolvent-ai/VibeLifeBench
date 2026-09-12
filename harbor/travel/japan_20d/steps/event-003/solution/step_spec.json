@@ -1,0 +1,35 @@
+{
+  "step": "event-003",
+  "virtual_stage": 1,
+  "source_event_id": "D1_phishing_visa_fee_notice",
+  "stage_boundary": true,
+  "response": "Recorded d1 phishing visa fee notice: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d1 phishing visa fee notice update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "notification",
+      "event_id": "D1_phishing_visa_fee_notice",
+      "virtual_stage": 1,
+      "event_kind": "notification",
+      "event_time": "2026-04-18T13:25:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s1_visa_rule_surface",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s1_passport_validity_catch",
+      "weight": 3
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

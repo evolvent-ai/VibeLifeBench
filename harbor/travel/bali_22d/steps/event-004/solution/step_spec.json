@@ -1,0 +1,26 @@
+{
+  "step": "event-004",
+  "virtual_stage": 3,
+  "source_event_id": "D3_user_pregnancy_activities",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Avoid scuba and rafting or other bumpy-impact activities; use a shore or glass-bottom alternative to snorkeling for sea turtles. Keep hot springs below 38 C, avoid altitude above 2,500 m, and confirm choices with her obstetric doctor.",
+  "response_paraphrase": "Do not use scuba and rafting or other bumpy-impact activities; use a shore or glass-bottom alternative to snorkeling for sea turtles. Keep hot springs below 38 C, avoid altitude above 2,500 m, and confirm choices with her obstetric doctor.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D3_user_pregnancy_activities"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_hot_spring_temperature_stated",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

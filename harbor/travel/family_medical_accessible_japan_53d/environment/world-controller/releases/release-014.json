@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-014",
+  "source_event_ids": [
+    "s22_mutation_confirmation_inbox"
+  ],
+  "source_stage": 22,
+  "source_time": "2026-10-11T11:55:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-014-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "s22_mutation_confirmation_inbox",
+      "operation_index": 0,
+      "values": {
+        "folder_id": 1,
+        "message_id": "<kansai-confirm-20261011@kansai-travel.example>",
+        "subject": "Kansaifamilyitinerary confirmation[source-term-U+6C47][source-term-U+603B]｜flight、[source-term-U+4F4F][source-term-U+5BBF][source-term-U+4E0E]insurance",
+        "from_addr": "bookings@kansai-travel.example",
+        "to_addr_json": "[\"liwei@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-10-11T11:55:00+08:00",
+        "body_text": "【synthetic future scenario】[source-term-U+674E][source-term-U+5148][source-term-U+751F][source-term-U+60A8][source-term-U+597D]：MU737 [source-term-U+4E8E] 2026-10-12 10:00 [source-term-U+4ECE] PVG departure、13:30 arrival KIX；travelinsuranceconfirmation[source-term-U+53F7] INS-KANSAI-2026-381，paymentstatus confirmed，refundable[source-term-U+6B3E][source-term-U+622A][source-term-U+6B62] 2026-10-11T18:00:00+08:00。Kyoto[source-term-U+4E0E]Osaka[source-term-U+4F4F][source-term-U+5BBF][source-term-U+7684][source-term-U+5B9E]hour reservation_id、confirmation_code、paymentstatus[source-term-U+4E0E]free cancellation[source-term-U+622A][source-term-U+6B62]hour[source-term-U+95F4][source-term-U+8BF7][source-term-U+4EE5][source-term-U+8D26][source-term-U+6237][source-term-U+4E2D][source-term-U+7684][source-term-U+5DF2]confirmation[source-term-U+8BA2][source-term-U+5355][source-term-U+4E3A][source-term-U+51C6]；[source-term-U+65E0][source-term-U+969C][source-term-U+788D][source-term-U+9700][source-term-U+6C42][source-term-U+4ECD][source-term-U+987B][source-term-U+9010][source-term-U+5355][source-term-U+6838][source-term-U+5BF9]。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 999,
+        "size": 4096,
+        "created_at": "2026-10-11T11:55:00+08:00"
+      }
+    }
+  ],
+  "previous": "release-013"
+}

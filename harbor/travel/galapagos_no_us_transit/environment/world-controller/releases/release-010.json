@@ -1,0 +1,61 @@
+{
+  "release_id": "release-010",
+  "previous": "release-009",
+  "token": "galapagos-no-us-transit-release-010-20260825-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 44,
+        "folder_id": 1,
+        "message_id": "<fin-2026-companion-ruling-lq@example.edu>",
+        "subject": "Re: August trip, my husband travels with me",
+        "from_addr": "finance.travel@example.edu",
+        "to_addr_json": "[\"linqiao@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-04T21:00:00+08:00",
+        "body_text": "Dr. Lin,\n\nIn reply to your query, and to save you a rejected claim afterwards.\n\nClaimable: your own airfare; your own island entry charges; the room for the nights of the meeting and reasonable travel days, at the single-occupancy rate the property publishes, not the double rate; airport and venue transfers for you.\n\nNot claimable: your husband's airfare; his island entry charges; the difference between the single and double room rate; any transfer seat booked for him; his insurance; anything either of you does that is not the meeting.\n\nWhere you book one room for two people, claim the single rate and carry the difference yourself. Ask the property to state the single rate on the invoice at the time of booking. They will not do it afterwards.\n\nWhere a charge is only pre-authorised or held, it is not an expense yet and must not be on the form. Claim it when it settles, and only if it settles.\n\nOffice of Finance",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 61,
+        "size": 1200,
+        "created_at": "2026-08-04T21:00:00+08:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 45,
+        "folder_id": 2,
+        "message_id": "<lq-2026-companion-query@example.com>",
+        "subject": "August trip, my husband travels with me",
+        "from_addr": "linqiao@example.com",
+        "to_addr_json": "[\"finance.travel@example.edu\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-04T20:35:00+08:00",
+        "body_text": "We are booking one room for the two of us and one transfer for the two of us. I would rather split it correctly at the time than argue about it in September. What exactly can I put on the claim?",
+        "body_html": null,
+        "is_read": 1,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 62,
+        "size": 260,
+        "created_at": "2026-08-04T20:35:00+08:00"
+      }
+    }
+  ]
+}

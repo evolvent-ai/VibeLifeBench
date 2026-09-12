@@ -1,0 +1,26 @@
+{
+  "step": "event-008",
+  "virtual_stage": 7,
+  "source_event_id": "D7_user_seafood_allergy",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Avoid seafood-focused shared preparation and cross-contamination; use verified alternatives. Ask her doctor or pharmacist about a familiar antihistamine and seek emergency care for breathing difficulty or anaphylaxis.",
+  "response_paraphrase": "Do not use seafood-focused shared preparation and cross-contamination; use verified alternatives. Ask her doctor or pharmacist about a familiar antihistamine and seek emergency care for breathing difficulty or anaphylaxis.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D7_user_seafood_allergy"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_allergy_safeguards_persisted",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

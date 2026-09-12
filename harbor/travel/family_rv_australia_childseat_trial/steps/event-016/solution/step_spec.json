@@ -1,0 +1,39 @@
+{
+  "step": "event-016",
+  "stage": 14,
+  "virtual_stage": 14,
+  "source_event_id": "evt_s14_scheduled_departure_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": []
+  },
+  "response": "Rechecked the Canberra wind alert and shortened the route while preserving fatigue limits and awning restrictions.",
+  "response_paraphrase": "Used the Canberra warning to defer or shorten the leg, maintain a conservative fatigue ceiling and prohibit awning use.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s14_scheduled_departure_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_detect_flight_schedule_change",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s14_update_calendar_and_user",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s14_late_arrival_email",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.25
+}

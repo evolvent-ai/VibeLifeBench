@@ -1,0 +1,26 @@
+{
+  "step": "event-012",
+  "virtual_stage": 11,
+  "source_event_id": "D11_booking_reconciliation_reminder",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Live booking, hotel, and inbox records were reconciled concisely.",
+  "response_paraphrase": "Live booking, hotel, and inbox records were cross-checked concisely.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D11_booking_reconciliation_reminder"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_max_3_sentences_to_user",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

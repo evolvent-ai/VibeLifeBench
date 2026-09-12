@@ -1,0 +1,21 @@
+{
+  "release_id": "release-017",
+  "previous": "release-016",
+  "token": "galapagos-no-us-transit-release-017-20260825-token",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "delayed",
+        "delay_min": 70,
+        "last_updated": "2026-08-14T14:20:00Z"
+      },
+      "where": {
+        "flight_no": "CX368",
+        "date": "2026-08-14"
+      }
+    }
+  ]
+}

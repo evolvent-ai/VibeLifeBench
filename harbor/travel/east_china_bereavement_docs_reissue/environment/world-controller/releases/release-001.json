@@ -1,0 +1,42 @@
+{
+  "release_id": "release-001",
+  "previous": "release-000",
+  "token": "east-china-release-001-7f6c2d91b0a449c2",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "delayed",
+        "actual_depart": "2026-04-03T15:30:00+08:00",
+        "actual_arrive": "2026-04-03T17:40:00+08:00",
+        "delay_min": 75,
+        "last_updated": "2026-04-03T13:10:00+08:00"
+      },
+      "where": {
+        "flight_no": "MU5102",
+        "date": "2026-04-03"
+      },
+      "source_event_id": "evt_s2_mut_flight_delay"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notification_flight_delay_mu5102",
+        "user_id": "user_lin_che",
+        "source": "flight_booking",
+        "type": "policy_update",
+        "subscription_id": "sub_flight_status",
+        "title": "Flight MU5102 delayed",
+        "body": "Flight MU5102 is delayed by 75 minutes.",
+        "created_at": "2026-04-03T13:10:00+08:00",
+        "read": 0,
+        "payload_json": "{\"flight_no\":\"MU5102\",\"status\":\"delayed\",\"delay_min\":75}"
+      },
+      "source_event_id": "evt_s2_mut_flight_delay"
+    }
+  ]
+}

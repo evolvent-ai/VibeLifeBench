@@ -1,0 +1,25 @@
+{
+  "step": "event-018",
+  "virtual_stage": 14,
+  "source_event_id": "S14_0_checkin",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The travel-planning action for stage 14 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 14 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S14_0_checkin"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_gate",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

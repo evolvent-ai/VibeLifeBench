@@ -1,0 +1,1 @@
+The Tokyo meeting venue is near Shinjuku, and the Seoul activities are centered around Myeongdong. The group prefers refundable room rates. Check room capacity against the actual number of guests, as well as total price and the cancellation deadline.

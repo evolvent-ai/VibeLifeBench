@@ -1,0 +1,27 @@
+{
+  "release_id": "release-001",
+  "previous": "release-000",
+  "token": "east-asia-group-trip-24d-release-001-token",
+  "source_step": "event-014",
+  "source_stage": 10,
+  "source_time": "2026-06-04T00:00:00+08:00",
+  "source_event_ids": [
+    "S10_mut_flight_cancel"
+  ],
+  "operations": [
+    {
+      "server": "flight_booking",
+      "operation_index": 1,
+      "source_event_id": "S10_mut_flight_cancel",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "cancelled"
+      },
+      "where": {
+        "flight_no": "MU501",
+        "date": "2026-06-05"
+      }
+    }
+  ]
+}

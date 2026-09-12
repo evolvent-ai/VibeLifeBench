@@ -1,0 +1,28 @@
+{
+  "step": "event-025",
+  "virtual_stage": 19,
+  "source_event_id": "D19_mother_arrived",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": []
+  },
+  "response": "Liu Fang's GA837 arrived at A2 with carousel 5; VOA costs IDR 500000. Level 3/Siaga, the 6 km zone, and the Kintamani closure were checked.",
+  "response_paraphrase": "Liu Fang's GA837 arrived at A2 with carousel 5; VOA costs IDR 500000. Level 3/Siaga, the 6 km zone, and the Kintamani closure were verified.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D19_mother_arrived"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_voa_guidance_for_mother",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

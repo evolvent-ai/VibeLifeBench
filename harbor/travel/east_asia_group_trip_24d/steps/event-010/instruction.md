@@ -1,0 +1,1 @@
+Travel-document notification: Wang Hao's new passport information has been verified under reference `DOC-PASS-WH-20260601`, with a new expiration date of May 31, 2036. Recheck the Japan and South Korea rules separately, update his risk status, and only then include him in ticketing.

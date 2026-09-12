@@ -1,0 +1,1 @@
+[2026-05-30 06:15 +08:00] Garuda Indonesia schedule notice: GA835 from PVG to DPS on June 10 has changed aircraft from an A330-300 to a B737-800. The previously published A330 seat map is withdrawn; seats 35A through 37K do not exist on the replacement aircraft. Any seat shortlist or future booking must use the B737-800 seat map.

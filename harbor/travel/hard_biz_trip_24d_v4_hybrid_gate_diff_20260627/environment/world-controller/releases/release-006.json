@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "S19_0_banking_settlement_mutation"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-07-23T08:55:00+08:00",
+  "previous": "release-005",
+  "token": "hard-biz-trip-release-006-token-2026",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {"tx_id": "tx_trip_mu523_settlement", "account_id": "acct_zhangming_cny_checking", "posted_at": "2026-07-07T10:12:00+08:00", "amount_minor": -145000, "kind": "payment", "counterparty": "China Eastern", "memo": "MU523 ticket settlement; CNY 1,450.00", "balance_after_minor": 3140000},
+      "source_event_id": "S19_0_banking_settlement_mutation", "operation_index": 2
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {"tx_id": "tx_trip_mu7165_settlement", "account_id": "acct_zhangming_cny_checking", "posted_at": "2026-07-19T15:18:00+08:00", "amount_minor": -280000, "kind": "payment", "counterparty": "China Eastern", "memo": "NRT-HKG recovery ticket settlement; CNY 2,800.00", "balance_after_minor": 2860000},
+      "source_event_id": "S19_0_banking_settlement_mutation", "operation_index": 3
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {"tx_id": "tx_trip_mu7166_settlement", "account_id": "acct_zhangming_cny_checking", "posted_at": "2026-07-19T15:19:00+08:00", "amount_minor": -150000, "kind": "payment", "counterparty": "China Eastern", "memo": "HKG-PVG recovery ticket settlement; CNY 1,500.00", "balance_after_minor": 2710000},
+      "source_event_id": "S19_0_banking_settlement_mutation", "operation_index": 4
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {"tx_id": "tx_trip_travel_insurance", "account_id": "acct_zhangming_cny_checking", "posted_at": "2026-07-07T10:25:00+08:00", "amount_minor": -80000, "kind": "payment", "counterparty": "Company Travel Insurance", "memo": "International travel policy premium; CNY 800.00", "balance_after_minor": 2630000},
+      "source_event_id": "S19_0_banking_settlement_mutation", "operation_index": 5
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {"tx_id": "tx_jpy_cash_withdrawal_0716", "account_id": "acct_zhangming_jpy_wallet", "posted_at": "2026-07-16T18:10:00+09:00", "amount_minor": -60000, "kind": "withdrawal", "counterparty": "Seven Bank ATM", "memo": "JPY 60,000 cash withdrawal for trip expenses", "balance_after_minor": 60000},
+      "source_event_id": "S19_0_banking_settlement_mutation", "operation_index": 6
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {"tx_id": "tx_hkg_airport_purchase_0721", "account_id": "acct_zhangming_hkd_wallet", "posted_at": "2026-07-21T14:42:00+08:00", "amount_minor": -22000, "kind": "payment", "counterparty": "Hong Kong International Airport", "memo": "HKD 220 airport rail and meal purchase; bank-displayed CNY equivalent 200.00", "balance_after_minor": 278000},
+      "source_event_id": "S19_0_banking_settlement_mutation", "operation_index": 7
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {"tx_id": "tx_hkg_foreign_transaction_fee_0721", "account_id": "acct_zhangming_hkd_wallet", "posted_at": "2026-07-21T14:43:00+08:00", "amount_minor": -330, "kind": "fee", "counterparty": "Card Network", "memo": "1.5% foreign transaction fee on HKD 220 airport purchase", "balance_after_minor": 277670},
+      "source_event_id": "S19_0_banking_settlement_mutation", "operation_index": 8
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "update",
+      "set": {"balance_after_minor": 53200},
+      "where": {"tx_id": "tx_jpy_client_lunch_0717"},
+      "source_event_id": "S19_0_banking_settlement_mutation", "operation_index": 9
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {
+        "balance_minor": 2630000
+      },
+      "where": {
+        "account_id": "acct_zhangming_cny_checking"
+      },
+      "source_event_id": "S19_0_banking_settlement_mutation",
+      "operation_index": 10
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {
+        "balance_minor": 53200
+      },
+      "where": {
+        "account_id": "acct_zhangming_jpy_wallet"
+      },
+      "source_event_id": "S19_0_banking_settlement_mutation",
+      "operation_index": 11
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {"balance_minor": 277670},
+      "where": {"account_id": "acct_zhangming_hkd_wallet"},
+      "source_event_id": "S19_0_banking_settlement_mutation", "operation_index": 12
+    }
+  ]
+}

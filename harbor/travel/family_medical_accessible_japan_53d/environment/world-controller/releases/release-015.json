@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "release_id": "release-015",
+  "source_event_ids": [
+    "s23_mutation_live_weather_and_rail"
+  ],
+  "source_stage": 23,
+  "source_time": "2026-10-15T06:55:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-015-token",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "source_event_id": "s23_mutation_live_weather_and_rail",
+      "operation_index": 0,
+      "values": {
+        "sim_now": "2026-10-15T06:55:00+09:00"
+      },
+      "set": {
+        "sim_now": "2026-10-15T06:55:00+09:00"
+      },
+      "where": {
+        "id": 1
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "source_event_id": "s23_mutation_live_weather_and_rail",
+      "operation_index": 1,
+      "values": {
+        "precip_prob": 0.9,
+        "precip_mm": 28.0,
+        "condition": "heavy_rain",
+        "wind_kmh": 18.0
+      },
+      "set": {
+        "precip_prob": 0.9,
+        "precip_mm": 28.0,
+        "condition": "heavy_rain",
+        "wind_kmh": 18.0
+      },
+      "where": {
+        "geo_key": "kyoto",
+        "date": "2026-10-15"
+      }
+    },
+    {
+      "server": "rail_booking",
+      "table": "train_status",
+      "op": "update",
+      "source_event_id": "s23_mutation_live_weather_and_rail",
+      "operation_index": 2,
+      "values": {
+        "status": "DELAYED",
+        "delay_min": 35,
+        "last_updated": "2026-10-15T06:55:00+09:00"
+      },
+      "set": {
+        "status": "DELAYED",
+        "delay_min": 35,
+        "last_updated": "2026-10-15T06:55:00+09:00"
+      },
+      "where": {
+        "train_no": "A1738",
+        "date": "2026-10-16"
+      }
+    }
+  ],
+  "previous": "release-014"
+}

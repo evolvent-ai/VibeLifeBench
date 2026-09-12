@@ -1,0 +1,23 @@
+{
+ "step": "event-038",
+ "stage": 23,
+ "event_id": "S23_user_return_and_receipts",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 23,
+   "event_id": "S23_user_return_and_receipts"
+  }
+ ],
+ "response_paraphrase": "The closeout review separates the return chain, lodging release, receipts, and companion expenses.",
+ "expected_env": {
+  "virtual_stage": 23,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S23_user_return_and_receipts"
+}

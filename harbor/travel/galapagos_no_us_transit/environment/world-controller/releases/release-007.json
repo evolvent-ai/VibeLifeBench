@@ -1,0 +1,52 @@
+{
+  "release_id": "release-007",
+  "previous": "release-006",
+  "token": "galapagos-no-us-transit-release-007-20260825-token",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "alert_ash_quito_warning",
+        "kind": "aviation",
+        "severity": "warning",
+        "start_dt": "2026-08-01T05:20:00-05:00",
+        "end_dt": "2026-08-16T18:00:00-05:00",
+        "areas_json": "[\"uio\"]",
+        "description": "Quito ash warning upgraded; UIO flights face higher delay/cancellation risk.",
+        "active": 1,
+        "created_at": "2026-08-01T05:20:00Z",
+        "source_event": "S08_mutation_quito_ash_disruption"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "delayed",
+        "delay_min": 95,
+        "last_updated": "2026-08-01T11:00:00Z"
+      },
+      "where": {
+        "flight_no": "AV1688",
+        "date": "2026-08-16"
+      }
+    },
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "delayed",
+        "delay_min": 95,
+        "last_updated": "2026-08-01T11:00:00Z"
+      },
+      "where": {
+        "flight_no": "KL755",
+        "date": "2026-08-15"
+      }
+    }
+  ]
+}

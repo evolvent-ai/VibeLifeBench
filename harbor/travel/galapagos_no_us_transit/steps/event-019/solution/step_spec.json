@@ -1,0 +1,23 @@
+{
+ "step": "event-019",
+ "stage": 11,
+ "event_id": "S11_user_authorizes_low_risk_holds",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 11,
+   "event_id": "S11_user_authorizes_low_risk_holds"
+  }
+ ],
+ "response_paraphrase": "The authorization review limits action to compliant, explainable, cancellable items.",
+ "expected_env": {
+  "virtual_stage": 11,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S11_user_authorizes_low_risk_holds"
+}

@@ -1,0 +1,27 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "virtual_stage": 3,
+  "source_event_id": "n3",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The quarterly travel cap is CNY 15,000, and any item above CNY 5,000 needs Manager Zhang's prior written approval. I recorded both controls in the budget tracker and checked the company trip account.",
+  "response_paraphrase": "I verified and logged the policy limits: total pre-clearance must stay within CNY 15,000, while spending over CNY 5,000 requires advance written sign-off from the direct manager.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n3"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_budget_rules_recorded",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

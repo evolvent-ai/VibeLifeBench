@@ -1,0 +1,1 @@
+Hotel fulfillment notification: the booked Tokyo room type cannot be provided under the confirmed terms. Check current inventory and booking status, identify the affected actual reservation, and preserve the original booking status, budget difference, and authorization record before making a replacement booking.

@@ -1,0 +1,25 @@
+{
+ "step": "event-006",
+ "stage": 3,
+ "event_id": "S03_world_documents_available",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 3,
+   "event_id": "S03_world_documents_available"
+  }
+ ],
+ "response_paraphrase": "The document packet is checked before flight and registration data are used.",
+ "expected_env": {
+  "virtual_stage": 3,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-001"
+  ],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S03_world_documents_available"
+}

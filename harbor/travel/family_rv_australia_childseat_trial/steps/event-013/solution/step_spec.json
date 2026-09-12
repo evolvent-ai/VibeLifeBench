@@ -1,0 +1,21 @@
+{
+  "step": "event-013",
+  "stage": 11,
+  "virtual_stage": 11,
+  "source_event_id": "evt_s11_weather_act_wind",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Rechecked the changed outbound flight and prepared updated departure and late-arrival notices.",
+  "response_paraphrase": "Updated the family for the SC888 timing change and prepared the Sydney hotel late-arrival notice.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s11_weather_act_wind"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

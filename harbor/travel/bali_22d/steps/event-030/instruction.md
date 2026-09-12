@@ -1,0 +1,1 @@
+[2026-07-01 11:00 +08:00] GA836 from DPS to PVG is delayed by 3 hours 40 minutes because the volcanic-ash advisory requires holding-pattern clearance from VAAC. The new estimated departure is 17:45 local time. Garuda offers an IDR 150,000 meal voucher per passenger and lounge access at Premier Lounge T-International for all affected passengers.

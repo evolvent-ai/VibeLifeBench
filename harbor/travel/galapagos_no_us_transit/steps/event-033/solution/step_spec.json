@@ -1,0 +1,25 @@
+{
+ "step": "event-033",
+ "stage": 20,
+ "event_id": "S20_world_in_transit_status",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 20,
+   "event_id": "S20_world_in_transit_status"
+  }
+ ],
+ "response_paraphrase": "The journey update confirms the Madrid connection and the remaining Galapagos arrival margin.",
+ "expected_env": {
+  "virtual_stage": 20,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-018"
+  ],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S20_world_in_transit_status"
+}

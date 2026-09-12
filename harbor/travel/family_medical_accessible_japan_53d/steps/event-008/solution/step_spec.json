@@ -1,0 +1,36 @@
+{
+  "step": "event-008",
+  "virtual_stage": 8,
+  "source_event_id": "s8_user_hold_request",
+  "response": "The stage 8 Kansai trip work was completed with evidence recorded and authorization boundaries preserved.",
+  "response_paraphrase": "I finished the stage 8 travel review, retaining the supporting records and keeping payment within the approved scope.",
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s8_user_hold_request",
+      "virtual_stage": 8,
+      "event_kind": "user_message",
+      "event_time": "2026-09-14T18:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_exact_hold_call",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s8_backend_hold_not_ticketed",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s8_hold_register_is_explicit",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

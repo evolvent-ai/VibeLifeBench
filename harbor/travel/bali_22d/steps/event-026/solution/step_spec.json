@@ -1,0 +1,41 @@
+{
+  "step": "event-026",
+  "virtual_stage": 20,
+  "source_event_id": "D20_user_medical_concern",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I cannot diagnose the tightening; regular, worsening, persistent symptoms, bleeding, or fluid leakage need medical assessment. Kasih Ibu is about 0.8 km away and BIMC about 4.4 km by verified route; both offer obstetric or OB-GYN care with English support. TI-Q-20260602 claims need the hotline, receipt, invoice, and medical record.",
+  "response_paraphrase": "Equivalent operational guidance: I cannot diagnose the tightening; regular, worsening, persistent symptoms, bleeding, or fluid leakage need medical assessment. Kasih Ibu is about 0.8 km away and BIMC about 4.4 km by verified route; both offer obstetric or OB-GYN care with English support. TI-Q-20260602 claims need the hotline, receipt, invoice, and medical record.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D20_user_medical_concern"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_hospital_name_and_distance",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s20_no_diagnosis_given",
+      "weight": 4.0,
+      "expected": true
+    },
+    {
+      "check_id": "s20_ob_gyn_specified",
+      "weight": 2.5,
+      "expected": true
+    },
+    {
+      "check_id": "s20_insurance_claim_info",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 11.5
+}

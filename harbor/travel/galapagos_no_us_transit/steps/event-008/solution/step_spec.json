@@ -1,0 +1,25 @@
+{
+ "step": "event-008",
+ "stage": 4,
+ "event_id": "S04_notification_us_route_price_drop",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 4,
+   "event_id": "S04_notification_us_route_price_drop"
+  }
+ ],
+ "response_paraphrase": "The fare alert is reviewed on compliance grounds instead of price alone.",
+ "expected_env": {
+  "virtual_stage": 4,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-003"
+  ],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S04_notification_us_route_price_drop"
+}

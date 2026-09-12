@@ -1,0 +1,149 @@
+{
+  "release_id": "release-021",
+  "previous": "release-020",
+  "token": "galapagos-no-us-transit-release-021-20260825-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 56,
+        "folder_id": 1,
+        "message_id": "<gdfo-2026-transect-moved@galapagos-data.example>",
+        "subject": "Change to Thursday: transect is off the water",
+        "from_addr": "ops@galapagos-data.example",
+        "to_addr_json": "[\"linqiao@example.com\",\"participants@galapagos-data.example\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-20T07:30:00-06:00",
+        "body_text": "All,\n\nThe port captain has the marine warning in force through Friday, so the boat-supported leg of Thursday's transect is cancelled. We are not going out.\n\nThe session runs instead as a shore transect from Tortuga Bay, walked from the trailhead, followed by data cleaning in the lab in the afternoon. Same content, same datasets, no boat.\n\nThe walk to the trailhead is about forty minutes each way in full sun. Bring water, a hat and closed shoes. There is no shade at the far end and there is nowhere to buy anything.\n\nAnyone who booked the optional Sunday excursion separately should speak to their operator directly; we have no arrangement with them.\n\nPartners and guests are welcome on the shore walk. There is a reserve entry charge of 12 USD per person for anyone who is not a registered participant, collected at the trailhead in cash. Participants are covered by the programme.\n\nMarisol Aguirre",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 111,
+        "size": 1180,
+        "created_at": "2026-08-20T07:30:00-06:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 57,
+        "folder_id": 1,
+        "message_id": "<portcaptain-marine-warning@example.ec>",
+        "subject": "Marine warning: Santa Cruz and Baltra channel",
+        "from_addr": "capitania@puertoayora.example.ec",
+        "to_addr_json": "[\"operadores@puertoayora.example.ec\",\"linqiao@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-20T06:10:00-06:00",
+        "body_text": "Marine warning in force from 20 August 06:00 until further notice.\n\nSmall craft movements between Santa Cruz and the outer islands are suspended. The Itabaca Channel barge continues to operate on a reduced timetable at the discretion of the operator; expect waits.\n\nOperators must not carry passengers on open-water routes while the warning stands. Bookings affected by this notice are refundable under the standard regulation.\n\nCapitania de Puerto, Puerto Ayora",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 112,
+        "size": 660,
+        "created_at": "2026-08-20T06:10:00-06:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 58,
+        "folder_id": 1,
+        "message_id": "<islandtours-refund-offer@example.com>",
+        "subject": "Your Sunday excursion: options",
+        "from_addr": "reservas@islandtours.example.com",
+        "to_addr_json": "[\"linqiao@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-20T10:40:00-06:00",
+        "body_text": "Good morning,\n\nBecause of the port captain's notice we are not sailing this week. Your enquiry for the 23 August excursion has not been confirmed and no payment has been taken, so there is nothing for us to refund.\n\nIf conditions improve we will contact anyone still holding a place. We are not taking new bookings while the warning stands.\n\nReservas, Island Tours",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 113,
+        "size": 520,
+        "created_at": "2026-08-20T10:40:00-06:00"
+      }
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "alert_galapagos_marine_warning_0820",
+        "kind": "marine",
+        "severity": "warning",
+        "start_dt": "2026-08-20T06:00:00-06:00",
+        "end_dt": "2026-08-22T18:00:00-06:00",
+        "areas_json": "[\"gps\",\"puerto_ayora\",\"baltra_channel\",\"tortuga_bay\"]",
+        "description": "Port captain warning in force: small craft movements between Santa Cruz and the outer islands suspended. Itabaca Channel barge continues on a reduced timetable at operator discretion.",
+        "active": 1,
+        "created_at": "2026-08-20T06:00:00-06:00",
+        "source_event": "S22_mutation_marine_warning_upgrade"
+      }
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "end_dt": "2026-08-20T06:00:00-06:00",
+        "description": "Moderate sea state; superseded by the port captain warning of 20 August.",
+        "active": 0
+      },
+      "where": {
+        "alert_id": "alert_galapagos_sea_moderate"
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {
+        "tmax": 28.5,
+        "condition": "sunny",
+        "precip_prob": 0.05,
+        "wind_kmh": 31.0
+      },
+      "where": {
+        "geo_key": "gps",
+        "date": "2026-08-20"
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {
+        "tmax": 28.5,
+        "condition": "sunny",
+        "precip_mm": 0.0,
+        "precip_prob": 0.05,
+        "wind_kmh": 31.0
+      },
+      "where": {
+        "geo_key": "gps",
+        "date": "2026-08-21"
+      }
+    }
+  ]
+}

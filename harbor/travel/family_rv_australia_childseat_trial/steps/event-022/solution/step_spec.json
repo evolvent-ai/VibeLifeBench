@@ -1,0 +1,23 @@
+{
+  "step": "event-022",
+  "stage": 19,
+  "virtual_stage": 19,
+  "source_event_id": "evt_s19_world_weather_improves",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": []
+  },
+  "response": "Closed the trial with a traceable order, budget, safety and long-term feasibility assessment.",
+  "response_paraphrase": "Produced the final trace covering bookings, budget, restraint, insurance, driving, wind and visible deposit follow-up.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s19_world_weather_improves"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

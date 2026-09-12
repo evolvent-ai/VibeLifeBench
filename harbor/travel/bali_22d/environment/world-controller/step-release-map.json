@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "step_count": 32,
+  "steps": {
+    "event-000": {
+      "source_event_id": "D0_kickoff_user",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-28T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "D1_zika_advisory",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-05-29T08:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "D1_entry_policy_notice",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-29T10:30:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "D2_flight_equip_swap",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-30T06:15:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "D3_user_pregnancy_activities",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-31T14:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "D4_passport_validity_trigger",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-01T09:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "D5_insurance_quote",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-02T10:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "D6_tegallalang_tip",
+      "before": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-03T14:00:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "D7_user_seafood_allergy",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-04T11:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "D8_weather_14d_outlook",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-05T08:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "D9_booking_lock_deadline",
+      "before": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-06T19:00:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "D10_agung_watch",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-07T07:00:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "D11_booking_reconciliation_reminder",
+      "before": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-08T10:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "D12_checkin_open",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-09T01:30:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "D12_agung_update_stable",
+      "before": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-09T06:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "D13_departure_morning",
+      "before": [],
+      "virtual_stage": 13,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-10T03:15:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "D13_flight_landed",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-10T12:20:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "D14_hotel_mold_issue",
+      "before": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-11T08:30:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "D15_user_checkin",
+      "before": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-13T20:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "D16_passport_renewal_notice",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 16,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-16T08:50:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "D16_midtrip_heartbeat",
+      "before": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-16T09:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "D17_storm_upgrade",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-18T07:00:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "D18_storm_arrival",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-20T06:00:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "D18_user_stuck_indoors",
+      "before": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-20T10:30:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "D19_agung_upgrade_alert",
+      "before": [
+        "release-011"
+      ],
+      "virtual_stage": 19,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-22T06:00:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "D19_mother_arrived",
+      "before": [
+        "release-012"
+      ],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-22T13:45:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "D20_user_medical_concern",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-24T15:30:00+08:00"
+    },
+    "event-027": {
+      "source_event_id": "D21_return_prep_heartbeat",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-26T09:00:00+08:00"
+    },
+    "event-028": {
+      "source_event_id": "D22_return_checkin_open",
+      "before": [
+        "release-013"
+      ],
+      "virtual_stage": 22,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-29T01:00:00+08:00"
+    },
+    "event-029": {
+      "source_event_id": "D22_ash_drift_warning",
+      "before": [
+        "release-014"
+      ],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-29T08:00:00+08:00"
+    },
+    "event-030": {
+      "source_event_id": "D23_return_delay",
+      "before": [
+        "release-015"
+      ],
+      "virtual_stage": 23,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-01T11:00:00+08:00"
+    },
+    "event-031": {
+      "source_event_id": "D23_user_final",
+      "before": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-01T11:30:00+08:00"
+    }
+  }
+}

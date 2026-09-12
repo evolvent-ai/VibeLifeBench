@@ -1,0 +1,28 @@
+{
+ "step": "event-028",
+ "stage": 16,
+ "event_id": "S16_notification_calendar_hold_expiry",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 16,
+   "event_id": "S16_notification_calendar_hold_expiry"
+  }
+ ],
+ "response_paraphrase": "The expiry review confirms that ticketed and frozen states are labeled accurately.",
+ "expected_env": {
+  "virtual_stage": 16,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s16_executable_plan_and_status",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S16_notification_calendar_hold_expiry"
+}

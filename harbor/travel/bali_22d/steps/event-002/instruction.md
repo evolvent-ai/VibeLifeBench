@@ -1,0 +1,1 @@
+[2026-05-29 10:30 +08:00] Indonesia entry reminder: Chinese passport holders are eligible for a 30-day Visa on Arrival costing IDR 500,000 per person and extendable once. Requirements include passport validity of at least six months from entry, proof of a return ticket, and sufficient funds. Pregnant travelers may be asked for a fitness-to-fly certificate at boarding.

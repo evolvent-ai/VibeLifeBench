@@ -1,0 +1,47 @@
+{
+  "step": "event-028",
+  "stage": 23,
+  "virtual_stage": 23,
+  "source_event_id": "evt_s23_user_final_review",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Closed the trial with a traceable order, budget, safety and long-term feasibility assessment.",
+  "response_paraphrase": "Produced the final trace covering bookings, budget, restraint, insurance, driving, wind and visible deposit follow-up.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s23_user_final_review"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_final_notion_assessment",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s23_budget_under_cap_and_traceable",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s23_safety_conclusions_complete",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s23_open_items_not_hidden",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s23_user_summary_sent_or_drafted",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 10
+}

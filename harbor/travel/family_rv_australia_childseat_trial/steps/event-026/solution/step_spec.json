@@ -1,0 +1,32 @@
+{
+  "step": "event-026",
+  "stage": 21,
+  "virtual_stage": 21,
+  "source_event_id": "evt_s21_world_hotel_checkout_digest",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Rechecked the return flight and archived completed hotel orders while retaining open financial items.",
+  "response_paraphrase": "Verified MEL-PVG and the accommodation records, archiving finished stays and leaving only card or deposit work open.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s21_world_hotel_checkout_digest"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_return_flight_rechecked",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s21_close_completed_hotel_orders",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3
+}

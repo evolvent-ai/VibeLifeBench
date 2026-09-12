@@ -1,0 +1,140 @@
+x-health: &health
+  test: [CMD, python, -c, "import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()"]
+  interval: 2s
+  timeout: 5s
+  retries: 30
+  start_period: 3s
+x-mock: &mock
+  expose: ['8000']
+  healthcheck: *health
+services:
+  main:
+    build: {context: ., dockerfile: Dockerfile}
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      world-controller: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      car-rental: {condition: service_healthy}
+      credit-card: {condition: service_healthy}
+      email: {condition: service_healthy}
+      flight-booking: {condition: service_healthy}
+      hotel-booking: {condition: service_healthy}
+      maps: {condition: service_healthy}
+      notion: {condition: service_healthy}
+      visa-and-advisory: {condition: service_healthy}
+      weather: {condition: service_healthy}
+    volumes: [workspace-state:/workspace, evidence:/harbor/evidence:ro, world-clock:/world-clock:ro]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,calendar,car-rental,credit-card,email,flight-booking,hotel-booking,maps,notion,visa-and-advisory,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,calendar,car-rental,credit-card,email,flight-booking,hotel-booking,maps,notion,visa-and-advisory,weather
+  workspace-init:
+    build: {context: ., dockerfile: workspace-init/Dockerfile}
+    volumes: [workspace-state:/target]
+    restart: 'no'
+  world-controller:
+    build: {context: ., dockerfile: world-controller/Dockerfile}
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      calendar: {condition: service_healthy}
+      car-rental: {condition: service_healthy}
+      credit-card: {condition: service_healthy}
+      email: {condition: service_healthy}
+      flight-booking: {condition: service_healthy}
+      hotel-booking: {condition: service_healthy}
+      maps: {condition: service_healthy}
+      notion: {condition: service_healthy}
+      visa-and-advisory: {condition: service_healthy}
+      weather: {condition: service_healthy}
+    volumes:
+      - calendar-env:/calendar-env
+      - car-rental-env:/car-rental-env
+      - credit-card-env:/credit-card-env
+      - email-env:/email-env
+      - flight-booking-env:/flight-booking-env
+      - hotel-booking-env:/hotel-booking-env
+      - maps-env:/maps-env
+      - notion-env:/notion-env
+      - visa-and-advisory-env:/visa-and-advisory-env
+      - weather-env:/weather-env
+      - controller-state:/controller-state
+      - workspace-state:/workspace-source:ro
+      - evidence:/evidence
+      - world-clock:/world-clock
+    environment:
+      HEALTH_TOKEN: family-rv-australia-childseat-trial-health-token
+      CLOCK_TOKEN: family-rv-australia-childseat-trial-clock-token
+      SCENARIO_CLOCK_REQUIRED: '1'
+      SCENARIO_CLOCK_PATH: /world-clock/current.json
+    expose: ['8090']
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health', timeout=2).read()"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  calendar:
+    <<: *mock
+    build: {context: ./servers/calendar_mock}
+    volumes: [./seeds/calendar:/env-seed:ro, calendar-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+  car-rental:
+    <<: *mock
+    build: {context: ./servers/car_rental_mock}
+    volumes: [./seeds/car_rental:/env-seed:ro, car-rental-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+  credit-card:
+    <<: *mock
+    build: {context: ./servers/credit_card_mock}
+    volumes: [./seeds/credit_card:/env-seed:ro, credit-card-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+  email:
+    <<: *mock
+    build: {context: ./servers/email_mock}
+    volumes: [./seeds/email:/env-seed:ro, email-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+  flight-booking:
+    <<: *mock
+    build: {context: ./servers/flight_booking_mock}
+    volumes: [./seeds/flight_booking:/env-seed:ro, flight-booking-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+  hotel-booking:
+    <<: *mock
+    build: {context: ./servers/hotel_booking_mock}
+    volumes: [./seeds/hotel_booking:/env-seed:ro, hotel-booking-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+  maps:
+    <<: *mock
+    build: {context: ./servers/maps_mock}
+    volumes: [./seeds/maps:/env-seed:ro, maps-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+  notion:
+    <<: *mock
+    build: {context: ./servers/notion_mock}
+    volumes: [./seeds/notion:/env-seed:ro, notion-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+  visa-and-advisory:
+    <<: *mock
+    build: {context: ./servers/visa_and_advisory_mock}
+    volumes: [./seeds/visa_and_advisory:/env-seed:ro, visa-and-advisory-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+  weather:
+    <<: *mock
+    build: {context: ./servers/weather_mock}
+    volumes: [./seeds/weather:/env-seed:ro, weather-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+volumes:
+  workspace-state: {}
+  evidence: {}
+  world-clock: {}
+  controller-state: {}
+  calendar-env: {}
+  car-rental-env: {}
+  credit-card-env: {}
+  email-env: {}
+  flight-booking-env: {}
+  hotel-booking-env: {}
+  maps-env: {}
+  notion-env: {}
+  visa-and-advisory-env: {}
+  weather-env: {}

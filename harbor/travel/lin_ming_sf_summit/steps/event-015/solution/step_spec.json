@@ -1,0 +1,27 @@
+{
+  "step": "event-015",
+  "stage": 15,
+  "virtual_stage": 15,
+  "source_event_id": "u15",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "A San Francisco hotel has been confirmed for March 27 through March 31, covering the full summit window near the event area. The reservation and hotel line are recorded in the budget materials.",
+  "response_paraphrase": "The lodging is now booked across the conference dates, with arrival on March 27 and checkout on March 31; its confirmation and cost category have been added to the trip records.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "u15"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_booked_hotel",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

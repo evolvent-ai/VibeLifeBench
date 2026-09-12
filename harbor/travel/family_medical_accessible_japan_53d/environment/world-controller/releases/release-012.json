@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "s18_mutation_weather_alert",
+    "s18_mutation_nara_improves"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-10-05T07:55:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-012-token",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "source_event_id": "s18_mutation_weather_alert",
+      "operation_index": 0,
+      "values": {
+        "sim_now": "2026-10-05T07:50:00+09:00"
+      },
+      "set": {
+        "sim_now": "2026-10-05T07:50:00+09:00"
+      },
+      "where": {
+        "id": 1
+      }
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "source_event_id": "s18_mutation_weather_alert",
+      "operation_index": 1,
+      "values": {
+        "alert_id": "wx_kyoto_jma_orange_20261015",
+        "kind": "rain",
+        "severity": "orange",
+        "start_dt": "2026-10-15T08:00:00+09:00",
+        "end_dt": "2026-10-16T18:00:00+09:00",
+        "areas_json": "[\"kyoto\"]",
+        "description": "Kyoto heavy-rain watch: localized downpours may disrupt step-free routes and evening rail connections.",
+        "active": 1,
+        "created_at": "2026-10-05T07:50:00+09:00",
+        "source_event": "kyoto-rain-bulletin-20261005"
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "source_event_id": "s18_mutation_nara_improves",
+      "operation_index": 0,
+      "values": {
+        "precip_prob": 0.18,
+        "precip_mm": 0.0,
+        "condition": "partly_cloudy"
+      },
+      "set": {
+        "precip_prob": 0.18,
+        "precip_mm": 0.0,
+        "condition": "partly_cloudy"
+      },
+      "where": {
+        "geo_key": "nara",
+        "date": "2026-10-17"
+      }
+    }
+  ],
+  "previous": "release-011"
+}

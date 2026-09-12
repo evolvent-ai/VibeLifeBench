@@ -1,0 +1,19 @@
+BEGIN TRANSACTION;
+INSERT INTO workspaces VALUES ('WS001', 'Personal', 'USER001');
+INSERT INTO users VALUES ('USER001', 'Ming Lin', NULL, 'liming@company.com', 'person');
+INSERT INTO pages VALUES
+('PAGE_TRIP', 'workspace', 'WS001', 'Ming Lin 2026 San Francisco Summit Itinerary', 0, '2026-03-14T13:17:24+08:00', '2026-03-14T13:17:24+08:00', '{"title": {"title": [{"type": "text", "text": {"content": "Ming Lin 2026 San Francisco Summit Itinerary"}}]}}', NULL, NULL),
+('PAGE_POLICY', 'workspace', 'WS001', 'Q1 Travel Policy Notes', 0, '2026-01-06T10:00:00+08:00', '2026-03-12T17:05:00+08:00', '{"title": {"title": [{"type": "text", "text": {"content": "Q1 Travel Policy Notes"}}]}}', NULL, NULL),
+('PAGE_FORUM_2025', 'workspace', 'WS001', '2025 Global Tech Forum Retrospective', 0, '2025-11-22T09:00:00+08:00', '2025-11-25T18:00:00+08:00', '{"title": {"title": [{"type": "text", "text": {"content": "2025 Global Tech Forum Retrospective"}}]}}', NULL, NULL),
+('PAGE_CANDIDATES', 'workspace', 'WS001', 'International Conference Option Comparison Template', 0, '2026-02-10T14:00:00+08:00', '2026-03-10T09:30:00+08:00', '{"title": {"title": [{"type": "text", "text": {"content": "International Conference Option Comparison Template"}}]}}', NULL, NULL);
+INSERT INTO blocks VALUES
+('BLOCK001', NULL, 'PAGE_TRIP', 'paragraph', '{"rich_text": [{"type": "text", "text": {"content": "This archive is empty. No agent-authored itinerary or pre-clearance record exists yet."}}]}', 0, 0, 0, '2026-03-14T13:17:25+08:00', '2026-03-14T13:17:25+08:00'),
+('BLOCK_POLICY_1', NULL, 'PAGE_POLICY', 'paragraph', '{"rich_text": [{"type": "text", "text": {"content": "The quarterly travel cap is CNY 15,000. Preserve written approval from the direct manager for any item over CNY 5,000."}}]}', 0, 0, 0, '2026-01-06T10:01:00+08:00', '2026-01-06T10:01:00+08:00'),
+('BLOCK_POLICY_2', NULL, 'PAGE_POLICY', 'paragraph', '{"rich_text": [{"type": "text", "text": {"content": "The reimbursement archive includes confirmed bookings, invoices or receipts, approval email, and the exchange-rate basis. A historical case cannot replace approval for this trip."}}]}', 0, 0, 0, '2026-03-12T17:06:00+08:00', '2026-03-12T17:06:00+08:00'),
+('BLOCK_FORUM_1', NULL, 'PAGE_FORUM_2025', 'paragraph', '{"rich_text": [{"type": "text", "text": {"content": "The 2025 event was an online forum and involved no flight, hotel, or U.S. entry-document process."}}]}', 0, 0, 0, '2025-11-22T09:05:00+08:00', '2025-11-22T09:05:00+08:00'),
+('BLOCK_FORUM_2', NULL, 'PAGE_FORUM_2025', 'paragraph', '{"rich_text": [{"type": "text", "text": {"content": "The retrospective focused on agenda selection before the event and organizing contacts afterward. It is historical reference only."}}]}', 0, 0, 0, '2025-11-25T18:00:00+08:00', '2025-11-25T18:00:00+08:00'),
+('BLOCK_CAND_1', NULL, 'PAGE_CANDIDATES', 'bulleted_list_item', '{"rich_text": [{"type": "text", "text": {"content": "For each transportation option, record the live offer, segment durations, cabin, change and refund terms, and total price."}}]}', 0, 0, 0, '2026-02-10T14:05:00+08:00', '2026-02-10T14:05:00+08:00'),
+('BLOCK_CAND_2', NULL, 'PAGE_CANDIDATES', 'bulleted_list_item', '{"rich_text": [{"type": "text", "text": {"content": "For each lodging option, record dates, location, taxes and fees, inventory, and cancellation terms. An option page is not a confirmed booking."}}]}', 0, 0, 0, '2026-02-10T14:06:00+08:00', '2026-02-10T14:06:00+08:00'),
+('BLOCK_CAND_3', NULL, 'PAGE_CANDIDATES', 'bulleted_list_item', '{"rich_text": [{"type": "text", "text": {"content": "Distinguish passport, visa, and EVUS checks, and verify each through a current official channel."}}]}', 0, 0, 0, '2026-03-10T09:30:00+08:00', '2026-03-10T09:30:00+08:00');
+INSERT INTO counters VALUES ('page', 4), ('block', 8), ('database', 0), ('row', 0), ('comment', 0);
+COMMIT;

@@ -1,0 +1,37 @@
+{
+  "step": "event-008",
+  "stage": 8,
+  "virtual_stage": 8,
+  "source_event_id": "u8",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "A confirmed PEK-HKG-SFO connecting booking has been created through the formal platform. It replaces reliance on the cancelled direct options and preserves the health-aware cabin choice.",
+  "response_paraphrase": "The outbound alternative is now booked with a Hong Kong connection, so the itinerary no longer depends on the unavailable nonstop services and keeps the long-haul cabin constraint intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "u8"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_booked_transit",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s8_no_direct_outbound",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s8_no_bad_advice",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.25
+}

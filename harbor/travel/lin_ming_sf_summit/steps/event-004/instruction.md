@@ -1,0 +1,1 @@
+Corporate Finance has updated the internal pre-clearance exchange rate for this U.S. business trip to 1 USD = 7.42 CNY. This rate is for budget pre-clearance and is not a guarantee of future market rates. Final reimbursement will still use Finance's settlement records.

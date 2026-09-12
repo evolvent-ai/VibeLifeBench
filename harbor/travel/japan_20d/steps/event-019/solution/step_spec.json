@@ -1,0 +1,24 @@
+{
+  "step": "event-019",
+  "virtual_stage": 14,
+  "source_event_id": "D14_morning_go",
+  "stage_boundary": false,
+  "response": "Recorded d14 morning go: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d14 morning go update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "event_id": "D14_morning_go",
+      "virtual_stage": 14,
+      "event_kind": "user_message",
+      "event_time": "2026-05-01T05:30:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0.0
+}

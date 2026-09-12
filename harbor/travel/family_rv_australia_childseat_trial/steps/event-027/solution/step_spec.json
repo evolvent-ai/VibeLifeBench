@@ -1,0 +1,34 @@
+{
+  "step": "event-027",
+  "stage": 22,
+  "virtual_stage": 22,
+  "source_event_id": "evt_s22_notification_cc_update",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": []
+  },
+  "response": "Reconciled the duplicate-hold reversal and retained the normal security deposit as pending.",
+  "response_paraphrase": "Recorded the reversed duplicate authorization while the genuine AUD 600 deposit remains unresolved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s22_notification_cc_update"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_update_hold_reversal",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s22_keep_actual_deposit_pending",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

@@ -1,0 +1,23 @@
+{
+  "step": "event-012",
+  "stage": 11,
+  "virtual_stage": 11,
+  "source_event_id": "evt_s11_email_hotel_parking",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": []
+  },
+  "response": "Recorded the severe-wind insurance addendum, secured-awning guidance and a route adjustment.",
+  "response_paraphrase": "Added the wind-policy limitation, kept exterior equipment secured and adjusted the planned journey.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s11_email_hotel_parking"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

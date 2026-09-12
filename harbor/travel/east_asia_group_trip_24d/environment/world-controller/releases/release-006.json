@@ -1,0 +1,41 @@
+{
+  "release_id": "release-006",
+  "previous": "release-005",
+  "token": "east-asia-group-trip-24d-release-006-token",
+  "source_step": "event-025",
+  "source_stage": 19,
+  "source_time": "2026-06-10T08:55:00+08:00",
+  "source_event_ids": [
+    "S19_mut_lost_found_receipt"
+  ],
+  "operations": [
+    {
+      "server": "email",
+      "operation_index": 1,
+      "source_event_id": "S19_mut_lost_found_receipt",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<lost-found-lf-0610-27@sg-hotel.ex>",
+        "subject": "Shinjuku hotel lost-property receipt LF-TYO-0610-27",
+        "from_addr": "lostandfound@shinjuku-grand.example.com",
+        "to_addr_json": "[\"chen.yu@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-10T08:55:00+09:00",
+        "body_text": "Hello Chen, housekeeping found one power bank and one passport photocopy (passport copy) under case reference LF-TYO-0610-27. The paper copy is sealed. The power bank cannot be air-mailed; the owner or an authorized person must collect it by 2026-07-10.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 901,
+        "size": 1480,
+        "created_at": "2026-06-10T08:55:00+09:00"
+      }
+    }
+  ]
+}

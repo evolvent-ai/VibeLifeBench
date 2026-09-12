@@ -1,0 +1,27 @@
+{
+  "step": "event-018",
+  "stage": 19,
+  "virtual_stage": 19,
+  "source_event_id": "w19",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I checked the return-flight status and documented the San Francisco high-wind advisory. The plan includes early airport arrival, schedule buffer, continued monitoring, and a change-flight or rebooking contingency.",
+  "response_paraphrase": "The Bay Area wind warning is reflected in the return plan after verifying the flight. Extra time, live updates, and an alternate booking path are retained in case operations are delayed.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "w19"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_return_wind_handled",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

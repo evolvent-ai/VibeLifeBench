@@ -1,0 +1,23 @@
+{
+ "step": "event-035",
+ "stage": 21,
+ "event_id": "S21_user_on_island_issue",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 21,
+   "event_id": "S21_user_on_island_issue"
+  }
+ ],
+ "response_paraphrase": "The arrival-day review measures the real Baltra-to-Puerto Ayora path against the desk closing time.",
+ "expected_env": {
+  "virtual_stage": 21,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S21_user_on_island_issue"
+}

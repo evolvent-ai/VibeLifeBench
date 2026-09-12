@@ -1,0 +1,22 @@
+{
+  "step": "event-013",
+  "virtual_stage": 12,
+  "source_event_id": "D12_checkin_open",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": []
+  },
+  "response": "Departure packing safeguards and outbound check-in are ready.",
+  "response_paraphrase": "Departure packing safeguards and outbound check-in stand ready.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D12_checkin_open"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

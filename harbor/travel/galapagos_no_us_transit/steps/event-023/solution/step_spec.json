@@ -1,0 +1,30 @@
+{
+ "step": "event-023",
+ "stage": 13,
+ "event_id": "S13_world_island_activity_update",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 13,
+   "event_id": "S13_world_island_activity_update"
+  }
+ ],
+ "response_paraphrase": "The activity review avoids exposed water travel and preserves a shore alternative.",
+ "expected_env": {
+  "virtual_stage": 13,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-012"
+  ],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s13_seasick_activity_safety",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S13_world_island_activity_update"
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "D20_mut_return_status"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-09-13T08:45",
+  "previous": "release-011",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "SCHEDULED",
+        "delay_min": 0,
+        "gate": "E7",
+        "terminal": "3",
+        "last_updated": "2026-09-13T08:45:00Z"
+      },
+      "where": {
+        "flight_no": "UA971",
+        "date": "2026-09-15"
+      },
+      "source_event_id": "D20_mut_return_status",
+      "operation_index": 0
+    }
+  ]
+}

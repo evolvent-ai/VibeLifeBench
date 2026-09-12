@@ -1,0 +1,36 @@
+{
+  "step": "event-021",
+  "stage": 24,
+  "virtual_stage": 24,
+  "source_event_id": "n24",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "m23"
+    ]
+  },
+  "response": "I verified the HKG-SFO aircraft change and seat status in the confirmed booking, refreshed the live seat map, and assigned a valid seat on the changed aircraft.",
+  "response_paraphrase": "The affected Hong Kong-to-San Francisco segment has been checked after the equipment swap, and a usable replacement seat is now persisted in the booking.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n24"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s24_checked_booking",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s24_selected_seat",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

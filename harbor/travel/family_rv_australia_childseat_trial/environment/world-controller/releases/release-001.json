@@ -1,0 +1,24 @@
+{
+  "release_id": "release-001",
+  "previous": "release-000",
+  "token": "family-rv-australia-childseat-trial-release-001-token",
+  "source_stage": 9,
+  "scenario_time": "2026-09-08T16:30:00+10:00",
+  "source_time": "2026-09-08T16:30:00+10:00",
+  "source_event_ids": ["evt_s10_mut_cbr_parking_limit"],
+  "operations": [
+    {
+      "server": "hotel_booking",
+      "table": "hotels",
+      "op": "update",
+      "set": {
+        "amenities_json": "{\"family_room\":true,\"rv_parking\":\"underground_only\",\"max_height_m\":2.1,\"outdoor_rv_bay\":false,\"late_arrival\":true}",
+        "policies_json": "{\"free_cancel\":true,\"family_checkin\":true,\"parking_max_height_m\":2.1,\"parking_change_reason\":\"event_allocation\"}",
+        "description": "Outdoor RV bay unavailable due to event; only 2.1m underground parking remains."
+      },
+      "where": {
+        "hotel_id": "cbrlake"
+      }
+    }
+  ]
+}

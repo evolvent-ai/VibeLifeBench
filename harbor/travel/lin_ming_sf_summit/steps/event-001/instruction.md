@@ -1,0 +1,1 @@
+System reminder: You have an upcoming international trip. Use get_passport_info(user_id) together with the visa and entry-rule tools to confirm that your passport and visa status meet the destination's requirements.

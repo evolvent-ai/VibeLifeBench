@@ -1,0 +1,1 @@
+[2026-06-24 15:30 +08:00] Chen Yu says Meilin feels some abdominal tightening. It is irregular, but she is worried and they are unsure whether it is Braxton Hicks or something else. Should they go to a hospital? Is there a nearby place with obstetric care and English communication?

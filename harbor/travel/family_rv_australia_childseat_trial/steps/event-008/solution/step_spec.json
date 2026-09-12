@@ -1,0 +1,47 @@
+{
+  "step": "event-008",
+  "stage": 6,
+  "virtual_stage": 6,
+  "source_event_id": "evt_s6_notification_cbr_family_rooms",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Recorded Zhou Ran's refusal of non-refundable or uncertain child-restraint purchases.",
+  "response_paraphrase": "Captured Zhou Ran's instruction to reject non-refundable options or any package with an uncertain restraint standard.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s6_notification_cbr_family_rooms"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_lock_refundable_rv",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s6_childseat_addon_confirmed",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s6_full_rv_insurance_selected",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s6_one_way_return_valid",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s6_book_cbr_parking_hotel",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 10
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "D8_weather_clock_mutation"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-06-05T07:55+08:00",
+  "previous": "release-003",
+  "token": "bali-22d-release-token-004-9f42c7a1",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "set": {
+        "sim_now": "2026-06-05T07:55:00+08:00"
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "D8_weather_clock_mutation",
+      "operation_index": 0
+    }
+  ]
+}

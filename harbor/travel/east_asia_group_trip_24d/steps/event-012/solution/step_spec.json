@@ -1,0 +1,29 @@
+{
+  "step": "event-012",
+  "virtual_stage": 8,
+  "source_event_id": "S08_0_\u9648\u5b87",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The travel-planning action for stage 8 was completed and the evidence was recorded.",
+  "response_paraphrase": "Stage 8 travel work is complete, with the resulting records saved for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S08_0_\u9648\u5b87"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_exact_hotels_reserved",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s8_booking_register_matches_policies",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

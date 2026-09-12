@@ -1,0 +1,33 @@
+{
+  "step": "event-029",
+  "virtual_stage": 22,
+  "source_event_id": "D22_return_checkin",
+  "stage_boundary": true,
+  "response": "Recorded d22 return checkin: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d22 return checkin update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "world",
+      "event_id": "D22_return_checkin",
+      "virtual_stage": 22,
+      "event_kind": "world",
+      "event_time": "2026-05-15T00:01:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s22_return_checkin",
+      "weight": 1
+    },
+    {
+      "check_id": "d_unionpay_kix_nrt_cash",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

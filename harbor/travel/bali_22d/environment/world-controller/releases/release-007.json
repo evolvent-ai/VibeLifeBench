@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "D13_flight_landed_mutation"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-06-10T12:15+08:00",
+  "previous": "release-006",
+  "token": "bali-22d-release-token-007-9f42c7a1",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "ARRIVED",
+        "actual_arrive": "2026-06-10T12:18:00+08:00",
+        "gate": "B4",
+        "terminal": "I",
+        "delay_min": 3,
+        "last_updated": "2026-06-10T12:15:00+08:00"
+      },
+      "where": {
+        "flight_no": "GA835",
+        "date": "2026-06-10"
+      },
+      "source_event_id": "D13_flight_landed_mutation",
+      "operation_index": 0
+    }
+  ]
+}

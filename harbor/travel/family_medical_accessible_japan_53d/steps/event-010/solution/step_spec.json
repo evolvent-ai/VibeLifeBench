@@ -1,0 +1,36 @@
+{
+  "step": "event-010",
+  "virtual_stage": 10,
+  "source_event_id": "s10_notification_vendor_hold_notice",
+  "response": "The stage 10 Kansai trip work was completed with evidence recorded and authorization boundaries preserved.",
+  "response_paraphrase": "I finished the stage 10 travel review, retaining the supporting records and keeping payment within the approved scope.",
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "s10_mutation_flight_hold_expiring"
+    ]
+  },
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s10_notification_vendor_hold_notice",
+      "virtual_stage": 10,
+      "event_kind": "notification",
+      "event_time": "2026-09-18T09:05:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_expiring_offer_exact",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s10_durable_old_quote",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

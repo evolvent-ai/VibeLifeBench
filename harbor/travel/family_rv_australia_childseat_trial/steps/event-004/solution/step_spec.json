@@ -1,0 +1,42 @@
+{
+  "step": "event-004",
+  "stage": 3,
+  "virtual_stage": 3,
+  "source_event_id": "evt_s3_notification_weather_initial",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Compared flights, motorhome candidates, weather subscriptions and a first fatigue-aware route.",
+  "response_paraphrase": "Assessed air and RV choices, subscribed to regional alerts and mapped a first rest-led driving outline.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s3_notification_weather_initial"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_compare_flight_and_rv_options",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s3_filter_noncompliant_rv",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s3_subscribe_weather_alerts",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_route_fatigue_first_pass",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 7.25
+}

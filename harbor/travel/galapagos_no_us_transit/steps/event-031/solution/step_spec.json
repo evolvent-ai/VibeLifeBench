@@ -1,0 +1,28 @@
+{
+ "step": "event-031",
+ "stage": 18,
+ "event_id": "S18_user_predeparture_checklist",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 18,
+   "event_id": "S18_user_predeparture_checklist"
+  }
+ ],
+ "response_paraphrase": "The packing handoff lists the travel essentials and the companion's seasickness plan.",
+ "expected_env": {
+  "virtual_stage": 18,
+  "workspace": "/workspace",
+  "preceding_releases": [],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s18_predeparture_checklist",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S18_user_predeparture_checklist"
+}

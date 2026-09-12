@@ -1,0 +1,30 @@
+{
+  "step": "event-014",
+  "virtual_stage": 8,
+  "source_event_id": "S08_0_visa_booking_reminder",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the current Tokyo business-trip step through the formal systems and updated the durable records.",
+  "response_paraphrase": "The evidence-backed travel records and next actions for virtual stage 8 are now current.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S08_0_visa_booking_reminder",
+      "virtual_stage": 8,
+      "event_kind": "notification",
+      "event_time": "2026-07-13T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_acknowledged_reminder",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

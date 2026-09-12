@@ -1,0 +1,37 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "virtual_stage": 1,
+  "source_event_id": "evt_s1_scheduled_doc_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Checked Australian entry requirements and scheduled an official visa-document follow-up without making a final judgment.",
+  "response_paraphrase": "Looked up AU entry rules and added a reminder for the official document process, with no visa outcome asserted.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s1_scheduled_doc_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_check_entry_requirements",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s1_no_final_visa_judgment",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s1_calendar_visa_followup",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

@@ -1,0 +1,33 @@
+{
+  "step": "event-021",
+  "virtual_stage": 15,
+  "source_event_id": "D15_asakusa_reco",
+  "stage_boundary": true,
+  "response": "Recorded d15 asakusa reco: the trip plan, risk controls, and next action were updated in the durable record.",
+  "response_paraphrase": "The d15 asakusa reco update is filed with the relevant travel decision and follow-up.",
+  "actions": [
+    {
+      "kind": "world",
+      "event_id": "D15_asakusa_reco",
+      "virtual_stage": 15,
+      "event_kind": "world",
+      "event_time": "2026-05-02T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s15_itinerary_adjust_walking",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s15_meal_gap_diabetes",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

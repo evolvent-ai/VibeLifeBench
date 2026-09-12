@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "D17_mut_departure_status"
+  ],
+  "source_stage": 17,
+  "source_time": "2026-09-10T17:50",
+  "previous": "release-010",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "SCHEDULED",
+        "delay_min": 0,
+        "gate": "B12",
+        "terminal": "1",
+        "last_updated": "2026-09-10T17:50:00Z"
+      },
+      "where": {
+        "flight_no": "AZ608",
+        "date": "2026-09-10"
+      },
+      "source_event_id": "D17_mut_departure_status",
+      "operation_index": 0
+    }
+  ]
+}

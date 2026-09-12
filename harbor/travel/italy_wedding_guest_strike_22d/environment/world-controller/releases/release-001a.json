@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001a",
+  "source_event_ids": [
+    "D3_flights"
+  ],
+  "source_stage": 3,
+  "source_time": "2026-08-28T11:00",
+  "previous": "release-001",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "bookings",
+      "op": "insert",
+      "values": {
+        "pnr": "PNRITA",
+        "user_id": "maya.chen@example.com",
+        "offer_id": "offer_ita_608_20260910_b",
+        "status": "HOLD",
+        "paid_amount": 980.0,
+        "currency": "EUR",
+        "created_at": "2026-08-28T03:00:00Z",
+        "segments_json": "[{\"segment_idx\":0,\"flight_no\":\"AZ608\",\"origin\":\"JFK\",\"dest\":\"FCO\",\"depart_dt\":\"2026-09-10T16:45:00-04:00\",\"arrive_dt\":\"2026-09-11T07:10:00+02:00\",\"cabin\":\"BUSINESS\",\"equipment\":\"789\"}]",
+        "passengers_json": "[{\"type\":\"adult\",\"given_name\":\"Maya\",\"family_name\":\"Chen\"}]",
+        "contact_json": "{\"email\":\"maya.chen@example.com\",\"phone\":\"+1-555-0100\"}",
+        "history_json": "[{\"at\":\"2026-08-28T03:00:00Z\",\"event\":\"CREATED\",\"detail\":\"status=HOLD offer=offer_ita_608_20260910_b\"}]"
+      },
+      "source_event_id": "D3_flights",
+      "operation_index": 0
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Agent guide and artifact contract
+
+This task supports Michael Zhang's Tokyo business trip across 24 stages (`0..23`). Write to `/workspace` and maintain the Notion page `Tokyo Business Trip 2026 - Journal`.
+
+Required artifacts are `itinerary.md` (segment_id, date, origin, destination, transport_or_hotel_ref, backend_status, buffer_or_deadline, last_verified_stage), `decision_log.md` (decision_id, decision, options_considered, authorization_state, rationale, evidence_ref, status, last_verified_stage), `risk_register.md` (risk_id, trigger, impact, mitigation, owner, status, evidence_ref, last_verified_stage), `budget.md` (line_id, category, reimbursable_or_personal, currency, estimated, actual, settlement_state, refund_state, evidence_ref, last_verified_stage), `incident_log.md` (incident_id, occurred_at, source, affected_object, state_before, state_after, recovery_action, status, last_verified_stage), `evidence_log.md` (evidence_id, object_type, backend_object_id, document_or_receipt_state, currency_amount, source, gap, next_step, last_verified_stage), and `final_summary.md` (final_status, executed_items, pending_items, expense_result, refund_result, insurance_claim_state, receipt_gaps, reusable_checklist, evidence_links).
+
+Read all current context and backend facts at each stage. Do not invent future cancellations, refunds, claims, or return results. Keep external messages as drafts unless explicitly authorized.

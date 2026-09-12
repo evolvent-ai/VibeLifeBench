@@ -1,0 +1,25 @@
+{
+ "step": "event-024",
+ "stage": 14,
+ "event_id": "S14_notification_permit_and_fees_email",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 14,
+   "event_id": "S14_notification_permit_and_fees_email"
+  }
+ ],
+ "response_paraphrase": "The island-entry mail is reconciled into the per-traveler fee and receipt plan.",
+ "expected_env": {
+  "virtual_stage": 14,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-013"
+  ],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S14_notification_permit_and_fees_email"
+}

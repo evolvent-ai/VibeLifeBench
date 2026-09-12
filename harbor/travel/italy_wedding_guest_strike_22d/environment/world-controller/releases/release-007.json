@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "D12_mut_restaurant"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-09-06T00:01",
+  "previous": "release-006",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_la_quercia_allergy",
+        "merchant_id": "rest_la_quercia",
+        "user_id": "maya_chen",
+        "question": "Can your kitchen safely serve a guest with a severe pine-nut allergy, including cross-contact from pesto, shared boards, knives, and preparation surfaces?",
+        "answer": "Yes. We can prepare a pine-nut-free rehearsal dinner menu with separate prep boards if the reservation notes the allergy.",
+        "answered_by": "La Quercia Manager",
+        "created_at": "2026-09-05T09:10:00Z"
+      },
+      "source_event_id": "D12_mut_restaurant",
+      "operation_index": 0
+    }
+  ]
+}

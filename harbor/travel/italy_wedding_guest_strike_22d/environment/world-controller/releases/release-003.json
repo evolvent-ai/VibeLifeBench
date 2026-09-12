@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "D5_mut_rail_release"
+  ],
+  "source_stage": 5,
+  "source_time": "2026-08-30T00:01",
+  "previous": "release-002",
+  "token": "italy-wedding-guest-strike-22d-release",
+  "operations": [
+    {
+      "server": "rail_booking",
+      "table": "train_offers",
+      "op": "update",
+      "set": {
+        "train_no": "FR9403",
+        "date": "2026-09-11",
+        "origin_city": "Milan",
+        "dest_city": "Florence",
+        "origin_station": "MIL-CENT",
+        "dest_station": "FIR-SMN",
+        "depart_at": "2026-09-11T09:10:00+02:00",
+        "arrive_at": "2026-09-11T11:05:00+02:00",
+        "adult_fare": 48,
+        "currency": "EUR",
+        "refundability": "free24",
+        "route_notes": "Direct high-speed service with a provisional platform; refund permitted until 24 hours before departure."
+      },
+      "where": {
+        "offer_id": "offer_fr9403_b7d921"
+      },
+      "source_event_id": "D5_mut_rail_release",
+      "operation_index": 0
+    },
+    {
+      "server": "rail_booking",
+      "table": "train_offers",
+      "op": "update",
+      "set": {
+        "train_no": "FR9505",
+        "date": "2026-09-11",
+        "origin_city": "Milan",
+        "dest_city": "Florence",
+        "origin_station": "MIL-CENT",
+        "dest_station": "FIR-SMN",
+        "depart_at": "2026-09-11T07:20:00+02:00",
+        "arrive_at": "2026-09-11T09:25:00+02:00",
+        "adult_fare": 72,
+        "currency": "EUR",
+        "refundability": "free48",
+        "route_notes": "Early direct service with the widest arrival buffer; this fare permits refund until 48 hours before departure."
+      },
+      "where": {
+        "offer_id": "offer_fr9505_c4a8e2"
+      },
+      "source_event_id": "D5_mut_rail_release",
+      "operation_index": 1
+    },
+    {
+      "server": "rail_booking",
+      "table": "train_offers",
+      "op": "update",
+      "set": {
+        "train_no": "FR9467",
+        "date": "2026-09-11",
+        "origin_city": "Milan",
+        "dest_city": "Florence",
+        "origin_station": "MIL-CENT",
+        "dest_station": "FIR-SMN",
+        "depart_at": "2026-09-11T11:40:00+02:00",
+        "arrive_at": "2026-09-11T13:35:00+02:00",
+        "adult_fare": 41,
+        "currency": "EUR",
+        "refundability": "nonrefundable",
+        "route_notes": "Midday direct departure sold on a lower nonrefundable fare."
+      },
+      "where": {
+        "offer_id": "ofiwe6w3yd"
+      },
+      "source_event_id": "D5_mut_rail_release",
+      "operation_index": 2
+    },
+    {
+      "server": "rail_booking",
+      "table": "train_offers",
+      "op": "update",
+      "set": {
+        "train_no": "FR9521",
+        "date": "2026-09-11",
+        "origin_city": "Milan",
+        "dest_city": "Florence",
+        "origin_station": "MIL-CENT",
+        "dest_station": "FIR-SMN",
+        "depart_at": "2026-09-11T15:10:00+02:00",
+        "arrive_at": "2026-09-11T17:08:00+02:00",
+        "adult_fare": 64,
+        "currency": "EUR",
+        "refundability": "partial",
+        "route_notes": "Afternoon service; refund incurs a fixed penalty after ticketing."
+      },
+      "where": {
+        "offer_id": "oftd52cmkm"
+      },
+      "source_event_id": "D5_mut_rail_release",
+      "operation_index": 3
+    },
+    {
+      "server": "rail_booking",
+      "table": "train_offers",
+      "op": "update",
+      "set": {
+        "train_no": "FR9388",
+        "date": "2026-09-11",
+        "origin_city": "Milan",
+        "dest_city": "Florence",
+        "origin_station": "MIL-CENT",
+        "dest_station": "FIR-CM",
+        "depart_at": "2026-09-11T06:10:00+02:00",
+        "arrive_at": "2026-09-11T08:18:00+02:00",
+        "adult_fare": 39,
+        "currency": "EUR",
+        "refundability": "nonrefundable",
+        "route_notes": "Lowest advertised fare arrives at Campo di Marte and cannot be refunded."
+      },
+      "where": {
+        "offer_id": "ofx3lk6klx"
+      },
+      "source_event_id": "D5_mut_rail_release",
+      "operation_index": 4
+    },
+    {
+      "server": "rail_booking",
+      "table": "train_offers",
+      "op": "update",
+      "set": {
+        "train_no": "FR9601",
+        "date": "2026-09-14",
+        "origin_city": "Florence",
+        "dest_city": "Rome",
+        "origin_station": "FIR-SMN",
+        "dest_station": "ROM-TERM",
+        "depart_at": "2026-09-14T10:20:00+02:00",
+        "arrive_at": "2026-09-14T12:00:00+02:00",
+        "adult_fare": 55,
+        "currency": "EUR",
+        "refundability": "flex",
+        "route_notes": "Direct Florence-to-Rome service with flexible refund terms."
+      },
+      "where": {
+        "offer_id": "offer_fr9601_f19c63"
+      },
+      "source_event_id": "D5_mut_rail_release",
+      "operation_index": 5
+    },
+    {
+      "server": "rail_booking",
+      "table": "train_offers",
+      "op": "update",
+      "set": {
+        "train_no": "FR9617",
+        "date": "2026-09-14",
+        "origin_city": "Florence",
+        "dest_city": "Rome",
+        "origin_station": "FIR-SMN",
+        "dest_station": "ROM-TERM",
+        "depart_at": "2026-09-14T07:05:00+02:00",
+        "arrive_at": "2026-09-14T08:43:00+02:00",
+        "adult_fare": 43,
+        "currency": "EUR",
+        "refundability": "free24",
+        "route_notes": "Morning direct service; refund permitted until 24 hours before departure."
+      },
+      "where": {
+        "offer_id": "ofauhvm7xz"
+      },
+      "source_event_id": "D5_mut_rail_release",
+      "operation_index": 6
+    },
+    {
+      "server": "rail_booking",
+      "table": "train_offers",
+      "op": "update",
+      "set": {
+        "train_no": "FR9644",
+        "date": "2026-09-14",
+        "origin_city": "Florence",
+        "dest_city": "Rome",
+        "origin_station": "FIR-CM",
+        "dest_station": "ROM-TIB",
+        "depart_at": "2026-09-14T14:35:00+02:00",
+        "arrive_at": "2026-09-14T16:28:00+02:00",
+        "adult_fare": 36,
+        "currency": "EUR",
+        "refundability": "partial",
+        "route_notes": "Later service uses Campo di Marte and Roma Tiburtina; cancellation carries a penalty."
+      },
+      "where": {
+        "offer_id": "ofpigply3l"
+      },
+      "source_event_id": "D5_mut_rail_release",
+      "operation_index": 7
+    }
+  ]
+}

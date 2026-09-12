@@ -1,0 +1,40 @@
+{
+  "step": "event-007",
+  "virtual_stage": 3,
+  "source_event_id": "S03_1_\u5f20\u660e",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the current Tokyo business-trip step through the formal systems and updated the durable records.",
+  "response_paraphrase": "The evidence-backed travel records and next actions for virtual stage 3 are now current.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S03_1_\u5f20\u660e",
+      "virtual_stage": 3,
+      "event_kind": "user_message",
+      "event_time": "2026-07-04T15:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_budget_file",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_currency_split",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s3_reimburse_split",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

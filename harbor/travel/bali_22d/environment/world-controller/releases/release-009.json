@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "D17_storm_watch_mutation"
+  ],
+  "source_stage": 17,
+  "source_time": "2026-06-18T06:55+08:00",
+  "previous": "release-008",
+  "token": "bali-22d-release-token-009-9f42c7a1",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "set": {
+        "sim_now": "2026-06-18T06:55:00+08:00"
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "D17_storm_watch_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "alert_id": "alert_storm_ubud"
+      },
+      "source_event_id": "D17_storm_watch_mutation",
+      "operation_index": 1
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "alert_id": "alert_storm_coastal"
+      },
+      "source_event_id": "D17_storm_watch_mutation",
+      "operation_index": 2
+    }
+  ]
+}

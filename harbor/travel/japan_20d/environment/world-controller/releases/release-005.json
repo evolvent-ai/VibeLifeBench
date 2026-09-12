@@ -1,0 +1,46 @@
+{
+  "release_id": "release-005",
+  "previous": "release-004",
+  "source_stage": 10,
+  "source_time": "2026-04-27T06:00:00+08:00",
+  "source_event_ids": ["D10_typhoon_track_publish"],
+  "token": "4b479ad604cbe2083d26bfc03ba62425bf2f37a9e0794ca17e6b12ec86d71599",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "typhoon_tracks",
+      "op": "insert",
+      "values": {
+        "storm_id": "T2602-MAYA",
+        "dt": "2026-04-27T00:00:00+09:00",
+        "lat": 20.1,
+        "lng": 132.4,
+        "intensity": "TS"
+      }
+    },
+    {
+      "server": "weather",
+      "table": "typhoon_tracks",
+      "op": "insert",
+      "values": {
+        "storm_id": "T2602-MAYA",
+        "dt": "2026-04-28T00:00:00+09:00",
+        "lat": 24.8,
+        "lng": 131.1,
+        "intensity": "STS"
+      }
+    },
+    {
+      "server": "weather",
+      "table": "typhoon_tracks",
+      "op": "insert",
+      "values": {
+        "storm_id": "T2602-MAYA",
+        "dt": "2026-04-29T00:00:00+09:00",
+        "lat": 28.9,
+        "lng": 132.6,
+        "intensity": "TY"
+      }
+    }
+  ]
+}

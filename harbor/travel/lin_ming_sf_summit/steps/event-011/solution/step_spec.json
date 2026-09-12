@@ -1,0 +1,32 @@
+{
+  "step": "event-011",
+  "stage": 11,
+  "virtual_stage": 11,
+  "source_event_id": "u11",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Passport and EVUS readiness cannot be deferred until arrival. After the user's instruction to handle both matters, I submitted the EVUS renewal with its prior enrollment and supporting passport evidence, and the passport plan retains the exact dates, official airline and CBP confirmation, and a renewal or refundable-booking contingency.",
+  "response_paraphrase": "I kept both entry-document issues active rather than postponing them. The authorized EVUS renewal was submitted through the formal workflow, while passport validity still requires formal carrier and border guidance plus a reversible backup plan.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "u11"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_passport_remedy",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s10_submitted_evus_renewal",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

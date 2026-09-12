@@ -1,0 +1,30 @@
+{
+ "step": "event-018",
+ "stage": 10,
+ "event_id": "S10_notification_hotel_deadline",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 10,
+   "event_id": "S10_notification_hotel_deadline"
+  }
+ ],
+ "response_paraphrase": "The hotel review distinguishes refundable, held, frozen, and charged states before expiry.",
+ "expected_env": {
+  "virtual_stage": 10,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-009"
+  ],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s10_hotel_mutation_policy",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S10_notification_hotel_deadline"
+}

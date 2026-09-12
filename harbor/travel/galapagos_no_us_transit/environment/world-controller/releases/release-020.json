@@ -1,0 +1,49 @@
+{
+  "release_id": "release-020",
+  "previous": "release-019",
+  "token": "galapagos-no-us-transit-release-020-20260825-token",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "ev_itabaca_barge_queue",
+        "road_id": "road_baltra_to_puerto_ayora_standard",
+        "start_dt": "2026-08-17T12:00:00-06:00",
+        "end_dt": "2026-08-17T19:00:00-06:00",
+        "kind": "heavy_traffic",
+        "magnitude": 0.8,
+        "note": "Barge running one vessel while the second is off for maintenance; queue at the Baltra side is about 40 minutes and lengthening.",
+        "active": 1
+      }
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "ev_santa_cruz_road_works",
+        "road_id": "road_baltra_to_puerto_ayora_standard",
+        "start_dt": "2026-08-17T13:00:00-06:00",
+        "end_dt": "2026-08-19T18:00:00-06:00",
+        "kind": "heavy_traffic",
+        "magnitude": 0.5,
+        "note": "Single-lane working with traffic control at the highlands junction; add 15 to 20 minutes southbound.",
+        "active": 1
+      }
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "magnitude": 0.85,
+        "note": "Certified pickup last departure from the airport is 16:40 today; operators are not waiting for delayed arrivals. Shared taxis continue from the bus terminal side."
+      },
+      "where": {
+        "event_id": "ev_baltra_pickup_late_change"
+      }
+    }
+  ]
+}

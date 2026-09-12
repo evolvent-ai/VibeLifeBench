@@ -1,0 +1,146 @@
+services:
+  main:
+    build: {context: ., dockerfile: Dockerfile}
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      world-controller: {condition: service_healthy}
+      banking: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      email: {condition: service_healthy}
+      flight-booking: {condition: service_healthy}
+      health-tracker: {condition: service_healthy}
+      hotel-booking: {condition: service_healthy}
+      notion: {condition: service_healthy}
+      visa-and-advisory: {condition: service_healthy}
+    volumes:
+      - workspace-state:/workspace
+      - eval-evidence:/harbor/evidence:ro
+      - world-clock:/world-clock:ro
+      - agent-logs:/logs/agent
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: &no-proxy localhost,127.0.0.1,::1,world-controller,banking,calendar,email,flight-booking,health-tracker,hotel-booking,notion,visa-and-advisory
+      no_proxy: *no-proxy
+
+  workspace-init:
+    build: {context: ., dockerfile: workspace-init/Dockerfile}
+    volumes: [workspace-state:/target]
+    restart: "no"
+
+  banking:
+    build: {context: ./servers/banking_mock}
+    volumes: [./seeds/banking:/env-seed:ro, banking-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: &mock-env
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: *no-proxy
+      no_proxy: *no-proxy
+    healthcheck: &health
+      test: [CMD, python, -c, "import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+
+  calendar:
+    build: {context: ./servers/calendar_mock}
+    volumes: [./seeds/calendar:/env-seed:ro, calendar-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: *mock-env
+    healthcheck: *health
+
+  email:
+    build: {context: ./servers/email_mock}
+    volumes: [./seeds/email:/env-seed:ro, email-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: *mock-env
+    healthcheck: *health
+
+  flight-booking:
+    build: {context: ./servers/flight_booking_mock}
+    volumes: [./seeds/flight_booking:/env-seed:ro, flight-booking-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: *mock-env
+    healthcheck: *health
+
+  health-tracker:
+    build: {context: ./servers/health_tracker_mock}
+    volumes: [./seeds/health_tracker:/env-seed:ro, health-tracker-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: *mock-env
+    healthcheck: *health
+
+  hotel-booking:
+    build: {context: ./servers/hotel_booking_mock}
+    volumes: [./seeds/hotel_booking:/env-seed:ro, hotel-booking-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: *mock-env
+    healthcheck: *health
+
+  notion:
+    build: {context: ./servers/notion_mock}
+    volumes: [./seeds/notion:/env-seed:ro, notion-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: *mock-env
+    healthcheck: *health
+
+  visa-and-advisory:
+    build: {context: ./servers/visa_and_advisory_mock}
+    volumes: [./seeds/visa_and_advisory:/env-seed:ro, visa-and-advisory-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: *mock-env
+    healthcheck: *health
+
+  world-controller:
+    build: {context: ., dockerfile: world-controller/Dockerfile}
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      CLOCK_TOKEN: lin-ming-sf-summit-clock-62e294ab
+      HEALTH_TOKEN: lin-ming-sf-summit-health-54fb3cd1
+      NO_PROXY: *no-proxy
+      no_proxy: *no-proxy
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      banking: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      email: {condition: service_healthy}
+      flight-booking: {condition: service_healthy}
+      health-tracker: {condition: service_healthy}
+      hotel-booking: {condition: service_healthy}
+      notion: {condition: service_healthy}
+      visa-and-advisory: {condition: service_healthy}
+    volumes:
+      - world-clock:/world-clock
+      - workspace-state:/workspace-source:ro
+      - eval-evidence:/evidence
+      - controller-state:/controller-state
+      - banking-env:/banking-env
+      - calendar-env:/calendar-env
+      - email-env:/email-env
+      - flight-booking-env:/flight-booking-env
+      - health-tracker-env:/health-tracker-env
+      - hotel-booking-env:/hotel-booking-env
+      - notion-env:/notion-env
+      - visa-and-advisory-env:/visa-and-advisory-env
+    expose: ["8090"]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health',timeout=2).read()"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+
+volumes:
+  workspace-state: {}
+  eval-evidence: {}
+  world-clock: {}
+  controller-state: {}
+  agent-logs: {}
+  banking-env: {}
+  calendar-env: {}
+  email-env: {}
+  flight-booking-env: {}
+  health-tracker-env: {}
+  hotel-booking-env: {}
+  notion-env: {}
+  visa-and-advisory-env: {}

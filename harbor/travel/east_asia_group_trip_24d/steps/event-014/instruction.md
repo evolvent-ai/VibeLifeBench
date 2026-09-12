@@ -1,0 +1,1 @@
+Flight-watch notification: the status of a candidate flight from Shanghai to Tokyo has changed. Verify the specific flight and travel date, then update the trip status with the affected travelers, replacement options, and whether additional authorization is required.

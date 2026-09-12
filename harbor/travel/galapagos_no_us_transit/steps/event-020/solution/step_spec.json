@@ -1,0 +1,30 @@
+{
+ "step": "event-020",
+ "stage": 11,
+ "event_id": "S11_world_reimbursement_policy",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 11,
+   "event_id": "S11_world_reimbursement_policy"
+  }
+ ],
+ "response_paraphrase": "The reimbursement policy is captured from the written response and kept separate from companion costs.",
+ "expected_env": {
+  "virtual_stage": 11,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-010"
+  ],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s11_authorized_holds",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S11_world_reimbursement_policy"
+}

@@ -1,0 +1,34 @@
+{
+  "release_id": "release-019",
+  "previous": "release-018",
+  "token": "galapagos-no-us-transit-release-019-20260825-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 55,
+        "folder_id": 1,
+        "message_id": "<jardintranquilo-prearrival@example.com>",
+        "subject": "Before you arrive",
+        "from_addr": "reservas@jardintranquilo.example.com",
+        "to_addr_json": "[\"linqiao@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-16T15:10:00-06:00",
+        "body_text": "Good afternoon,\n\nWe are expecting you today. Three things before you get here.\n\nArrival time. Reception is staffed until 22:00. After that the night bell is answered but the wait can be twenty minutes or more. If you know roughly when you will reach town, tell us and we will watch for you.\n\nRoom. You asked for the garden side. We have held one for you. The front rooms are the ones people complain about in August; you were right to ask.\n\nDeposit. The incidentals hold we placed on the card last week stands until you check out. It is not a charge and nothing further is taken on arrival.\n\nWe do not run a transfer from the airport ourselves and we would not recommend waiting for a taxi at the pier at that hour. The certified operators book up; if you have not arranged one, do it before you land rather than after.\n\nReservas, Jardin Tranquilo",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 131,
+        "size": 1050,
+        "created_at": "2026-08-16T15:10:00-06:00"
+      }
+    }
+  ]
+}

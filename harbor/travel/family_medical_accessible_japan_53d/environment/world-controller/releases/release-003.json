@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "s6_mutation_weather_clock"
+  ],
+  "source_stage": 6,
+  "source_time": "2026-09-10T08:59:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-003-token",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "source_event_id": "s6_mutation_weather_clock",
+      "operation_index": 0,
+      "values": {
+        "sim_now": "2026-09-10T09:00:00+09:00"
+      },
+      "set": {
+        "sim_now": "2026-09-10T09:00:00+09:00"
+      },
+      "where": {
+        "id": 1
+      }
+    }
+  ],
+  "previous": "release-002"
+}

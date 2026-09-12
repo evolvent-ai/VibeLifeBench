@@ -1,0 +1,36 @@
+{
+  "step": "event-031",
+  "virtual_stage": 23,
+  "source_event_id": "D23_user_final",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Wang Meilin is about 25 weeks pregnant. GA836 is delayed 220 minutes to 17:45; Premier Lounge and an IDR 150000 voucher are available. Persistent or regular symptoms, bleeding, or fluid leakage require doctor assessment and airline review.",
+  "response_paraphrase": "Equivalent operational guidance: Wang Meilin is about 25 weeks pregnant. GA836 is delayed 220 minutes to 17:45; Premier Lounge and an IDR 150000 voucher are available. Persistent or regular symptoms, bleeding, or fluid leakage require doctor assessment and airline review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D23_user_final"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_budget_final_accurate",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s23_trip_journal_complete",
+      "weight": 2.5,
+      "expected": true
+    },
+    {
+      "check_id": "s23_pregnancy_week_awareness",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 7.5
+}

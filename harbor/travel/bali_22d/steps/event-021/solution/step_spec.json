@@ -1,0 +1,33 @@
+{
+  "step": "event-021",
+  "virtual_stage": 17,
+  "source_event_id": "D17_storm_upgrade",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": []
+  },
+  "response": "The upgraded Ubud storm was checked live and its owner/action risk record was persisted.",
+  "response_paraphrase": "Equivalent operational guidance: The upgraded Ubud storm was checked live and its owner/action risk record was persisted.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D17_storm_upgrade"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_ubud_storm_state_verified",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s17_storm_risk_persisted",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

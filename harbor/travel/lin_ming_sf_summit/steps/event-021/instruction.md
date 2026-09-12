@@ -1,0 +1,1 @@
+Dear Mr. Lin, the travel platform has detected an aircraft change on the Hong Kong-San Francisco segment of your itinerary. First verify the affected segment and seat status in the confirmed booking. If the original seat is no longer valid, select another seat around the colleague meeting and connection schedule.

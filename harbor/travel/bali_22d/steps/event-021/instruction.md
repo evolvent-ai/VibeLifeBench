@@ -1,0 +1,1 @@
+[2026-06-18 07:00 +08:00] BMKG severe-weather warning: a strong monsoon-tail storm system is confirmed for Bali from June 20 through 22. Expect 80 to 120 mm of rain per day in the Ubud and Kintamani highlands, with possible flooding in low-lying Ubud rice-terrace areas. Seminyak and Kuta may receive moderate rain, and roads on the Ubud to Kintamani corridor may close.

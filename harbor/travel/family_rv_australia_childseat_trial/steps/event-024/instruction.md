@@ -1,0 +1,1 @@
+The motorhome has been returned in Melbourne. The desk reports no incident on the initial inspection and no cleaning issue; the deposit awaits back-office confirmation. Track the return and deposit follow-up.

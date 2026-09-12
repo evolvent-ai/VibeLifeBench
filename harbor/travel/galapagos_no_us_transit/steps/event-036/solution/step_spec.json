@@ -1,0 +1,30 @@
+{
+ "step": "event-036",
+ "stage": 21,
+ "event_id": "S21_world_registration_deadline",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 21,
+   "event_id": "S21_world_registration_deadline"
+  }
+ ],
+ "response_paraphrase": "The deadline response confirms both travelers, Puerto Ayora, and the 18:00 registration cutoff.",
+ "expected_env": {
+  "virtual_stage": 21,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-020"
+  ],
+  "released_mutations": [],
+  "stage_boundary": true
+ },
+ "expected_checks": [
+  {
+   "check_id": "s21_registration_deadline_response",
+   "weight": 2
+  }
+ ],
+ "expected_stage_weight": 2,
+ "source_event_id": "S21_world_registration_deadline"
+}

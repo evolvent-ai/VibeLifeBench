@@ -1,0 +1,40 @@
+{
+  "step": "event-024",
+  "virtual_stage": 14,
+  "source_event_id": "S14_1_transit_hint",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the current Tokyo business-trip step through the formal systems and updated the durable records.",
+  "response_paraphrase": "The evidence-backed travel records and next actions for virtual stage 14 are now current.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S14_1_transit_hint",
+      "virtual_stage": 14,
+      "event_kind": "world",
+      "event_time": "2026-07-19T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_searched_transit",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s14_checked_transit_visa",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s14_found_specific_route",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8.0
+}

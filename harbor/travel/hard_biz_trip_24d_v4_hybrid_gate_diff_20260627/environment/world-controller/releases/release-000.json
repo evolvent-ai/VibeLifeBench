@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "S09_1_arrival_backend_mutation"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-07-15T13:20:00+08:00",
+  "previous": null,
+  "token": "hard-biz-trip-release-000-token-2026",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "flight_status",
+      "op": "update",
+      "set": {
+        "status": "ARRIVED",
+        "actual_depart": "2026-07-15T08:38:00+08:00",
+        "actual_arrive": "2026-07-15T13:00:00+09:00",
+        "terminal": "1",
+        "delay_min": 7,
+        "last_updated": "2026-07-15T13:05:00+09:00"
+      },
+      "where": {
+        "flight_no": "MU523",
+        "date": "2026-07-15"
+      },
+      "source_event_id": "S09_1_arrival_backend_mutation",
+      "operation_index": 0
+    }
+  ]
+}

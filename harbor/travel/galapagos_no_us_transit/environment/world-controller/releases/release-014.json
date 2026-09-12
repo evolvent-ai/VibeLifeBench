@@ -1,0 +1,22 @@
+{
+  "release_id": "release-014",
+  "previous": "release-013",
+  "token": "galapagos-no-us-transit-release-014-20260825-token",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "ev_baltra_pickup_late_change",
+        "road_id": "road_baltra_pickup_late_change",
+        "start_dt": "2026-08-08T06:00:00-06:00",
+        "end_dt": "2026-08-17T18:00:00-06:00",
+        "kind": "heavy_traffic",
+        "magnitude": 0.75,
+        "note": "Certified pickup last departure moved earlier; verify arrival before registration deadline.",
+        "active": 1
+      }
+    }
+  ]
+}

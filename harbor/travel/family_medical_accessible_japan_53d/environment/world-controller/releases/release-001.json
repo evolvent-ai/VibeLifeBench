@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "s3_mutation_flight_prices_seeded"
+  ],
+  "source_stage": 3,
+  "source_time": "2026-09-05T08:25:00+08:00",
+  "token": "family-medical-accessible-japan-53d-release-001-token",
+  "operations": [
+    {
+      "server": "flight_booking",
+      "table": "fare_buckets",
+      "op": "update",
+      "source_event_id": "s3_mutation_flight_prices_seeded",
+      "operation_index": 0,
+      "values": {
+        "seats_remaining": 9
+      },
+      "set": {
+        "seats_remaining": 9
+      },
+      "where": {
+        "flight_no": "MU737",
+        "date": "2026-10-12",
+        "cabin": "ECONOMY"
+      }
+    }
+  ],
+  "previous": "release-000"
+}

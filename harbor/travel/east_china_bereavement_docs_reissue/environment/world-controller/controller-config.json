@@ -1,0 +1,20 @@
+{
+  "task": "east_china_bereavement_docs_reissue",
+  "step_count": 29,
+  "clock_file": "/world-clock/current.json",
+  "clock_key": "world_now",
+  "clock_token_env": "CLOCK_TOKEN",
+  "release_token_prefix": "RELEASE_TOKEN_",
+  "servers": [
+    "banking",
+    "calendar",
+    "email",
+    "flight_booking",
+    "hotel_booking",
+    "legal_search",
+    "maps",
+    "notification_hub",
+    "notion",
+    "rail_booking"
+  ]
+}

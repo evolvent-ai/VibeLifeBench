@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "m20"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-03-24T09:00:00+08:00",
+  "previous": "release-002",
+  "token": "lin-ming-sf-summit-release-003-token-62e294ab",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {
+        "balance_minor": 2913000
+      },
+      "where": {
+        "account_id": "ACC_TRIP"
+      },
+      "source_event_id": "m20",
+      "operation_index": 0
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "TX_M1",
+        "account_id": "ACC_TRIP",
+        "posted_at": "2026-03-24T09:00:00",
+        "amount_minor": 700000,
+        "kind": "withdrawal",
+        "counterparty": "Other Teams",
+        "memo": "Other teams claim for March 2026",
+        "balance_after_minor": 2913000
+      },
+      "source_event_id": "m20",
+      "operation_index": 1
+    }
+  ]
+}

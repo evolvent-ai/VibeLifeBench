@@ -1,0 +1,103 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "token": "galapagos-no-us-transit-release-000-20260825-token",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "ev_coordinator_travel_0810",
+        "calendar_id": "cal_linqiao_primary",
+        "summary": "Coordinator flies out with the badges",
+        "description": "Marisol travels to the island on 10 August. Nothing printed on the mainland can be changed after she leaves.",
+        "location": "Mainland Ecuador",
+        "start_dt": "2026-08-10T00:00:00-06:00",
+        "end_dt": "2026-08-11T00:00:00-06:00",
+        "all_day": 1,
+        "status": "confirmed",
+        "created_at": "2026-07-25T10:00:00-06:00",
+        "updated_at": "2026-07-25T10:00:00-06:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      }
+    },
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "ev_venue_desk_0817",
+        "calendar_id": "cal_linqiao_primary",
+        "summary": "Venue desk open (badge collection)",
+        "description": "Published by the Galapagos Data Field Office. The desk is staffed from 10:00 and shuts at 18:00; the badge printer goes back to the mainland overnight and there is no desk on the opening morning.",
+        "location": "Puerto Ayora Marine Data Lab, Avenida Charles Darwin 102",
+        "start_dt": "2026-08-17T10:00:00-06:00",
+        "end_dt": "2026-08-17T18:00:00-06:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-07-25T10:00:00-06:00",
+        "updated_at": "2026-07-25T10:00:00-06:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      }
+    },
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "ev_welcome_drinks_0817",
+        "calendar_id": "cal_linqiao_primary",
+        "summary": "Welcome drinks (optional)",
+        "description": "After the desk closes. Guests welcome.",
+        "location": "Puerto Ayora",
+        "start_dt": "2026-08-17T19:30:00-06:00",
+        "end_dt": "2026-08-17T21:30:00-06:00",
+        "all_day": 0,
+        "status": "tentative",
+        "created_at": "2026-07-25T10:00:00-06:00",
+        "updated_at": "2026-07-25T10:00:00-06:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      }
+    },
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "update",
+      "set": {
+        "description": "Outdoor session, walked from the beach. Runs only if the port captain has no marine warning in force; otherwise it is replaced by a shore-based alternative.",
+        "updated_at": "2026-07-25T10:00:00-06:00"
+      },
+      "where": {
+        "event_id": "ev_workshop_day2_0819"
+      }
+    },
+    {
+      "server": "calendar",
+      "table": "attendees",
+      "op": "insert",
+      "values": {
+        "id": 21,
+        "event_id": "ev_venue_desk_0817",
+        "email": "ops@galapagos-data.example",
+        "name": "Galapagos Data Field Office",
+        "response_status": "accepted"
+      }
+    },
+    {
+      "server": "calendar",
+      "table": "attendees",
+      "op": "insert",
+      "values": {
+        "id": 22,
+        "event_id": "ev_welcome_drinks_0817",
+        "email": "linqiao@example.com",
+        "name": "Lin Qiao",
+        "response_status": "needsAction"
+      }
+    }
+  ]
+}

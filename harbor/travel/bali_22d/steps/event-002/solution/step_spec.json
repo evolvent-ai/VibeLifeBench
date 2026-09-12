@@ -1,0 +1,31 @@
+{
+  "step": "event-002",
+  "virtual_stage": 1,
+  "source_event_id": "D1_entry_policy_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Zika can cause microcephaly during pregnancy; Wang Meilin should consult her doctor, while Chen Yu decides among the travel options. The live Indonesia entry rule and Liu Fang passport block were also checked.",
+  "response_paraphrase": "Zika can cause microcephaly during pregnancy; Wang Meilin needs to consult her doctor, while Chen Yu decides among the travel options. The live Indonesia entry rule and Liu Fang passport block were also checked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D1_entry_policy_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_zika_user_notified",
+      "weight": 4.0,
+      "expected": true
+    },
+    {
+      "check_id": "s1_passport_proactive_before_stage4",
+      "weight": 3.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 7.5
+}

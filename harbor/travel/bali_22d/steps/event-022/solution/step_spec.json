@@ -1,0 +1,22 @@
+{
+  "step": "event-022",
+  "virtual_stage": 18,
+  "source_event_id": "D18_storm_arrival",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": []
+  },
+  "response": "Flooded routes and verified indoor Ubud alternatives are recorded for the storm dates.",
+  "response_paraphrase": "Flooded routes and verified indoor Ubud alternatives have been logged for the storm dates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D18_storm_arrival"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

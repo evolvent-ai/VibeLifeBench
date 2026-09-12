@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "D16_passport_renewal_mutation"
+  ],
+  "source_stage": 16,
+  "source_time": "2026-06-16T08:45+08:00",
+  "previous": "release-007",
+  "token": "bali-22d-release-token-008-9f42c7a1",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<passport-renewal-lf-20260616>",
+        "subject": "[Bali 2026] Liu Fang passport document verification complete",
+        "from_addr": "travel-docs@family.example",
+        "to_addr_json": "[\"chen.yu@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-16T08:45:00+08:00",
+        "body_text": "Liu Fang's new passport documents passed family-trip verification.\nVerification ref: DOC-PASS-LF-20260616.\nNew expiry date: 2036-06-14.\nThe previous document expiring 2026-12-03 is invalidated.\nFor privacy, the passport number is stored only in the encrypted attachment.\nPlease re-check Indonesia entry requirements before creating her booking.\n",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{\"X-Document-Ref\":\"DOC-PASS-LF-20260616\"}",
+        "uid": 2016,
+        "size": 842,
+        "created_at": "2026-06-16T08:45:00+08:00"
+      },
+      "source_event_id": "D16_passport_renewal_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "set": {
+        "status": "ready_for_booking",
+        "applicant_json": "{\"full_name\":\"Liu Fang\",\"passport_country\":\"CN\",\"passport_expiry\":\"2036-06-14\",\"document_ref\":\"DOC-PASS-LF-20260616\"}",
+        "decision_note": "Replacement passport verified; re-check entry rules before booking.",
+        "history_json": "[{\"at\":\"2026-06-01T08:55:00+08:00\",\"status\":\"needs_action\",\"reason\":\"passport_validity\"},{\"at\":\"2026-06-16T08:45:00+08:00\",\"status\":\"ready_for_booking\",\"document_ref\":\"DOC-PASS-LF-20260616\"}]",
+        "updated_at": "2026-06-16T08:45:00+08:00"
+      },
+      "where": {
+        "application_id": "VA-ID-260601-LFANG"
+      },
+      "source_event_id": "D16_passport_renewal_mutation",
+      "operation_index": 1
+    }
+  ]
+}

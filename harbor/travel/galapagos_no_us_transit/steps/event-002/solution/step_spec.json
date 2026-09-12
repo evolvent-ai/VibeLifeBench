@@ -1,0 +1,25 @@
+{
+ "step": "event-002",
+ "stage": 1,
+ "event_id": "S01_calendar_workshop_window",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 1,
+   "event_id": "S01_calendar_workshop_window"
+  }
+ ],
+ "response_paraphrase": "The published workshop window is reconciled with the island arrival and registration timing.",
+ "expected_env": {
+  "virtual_stage": 1,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-000"
+  ],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S01_calendar_workshop_window"
+}

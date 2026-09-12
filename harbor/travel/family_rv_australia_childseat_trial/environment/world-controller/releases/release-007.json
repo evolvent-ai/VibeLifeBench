@@ -1,0 +1,28 @@
+{
+  "release_id": "release-007",
+  "previous": "release-006",
+  "token": "family-rv-australia-childseat-trial-release-007-token",
+  "source_stage": 19,
+  "scenario_time": "2026-09-21T08:40:00+10:00",
+  "source_time": "2026-09-21T08:40:00+10:00",
+  "source_event_ids": ["evt_s19_mut_weather_improves"],
+  "operations": [
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {
+        "tmin": 10.5,
+        "tmax": 19.5,
+        "condition": "morning_clear_afternoon_showers",
+        "precip_mm": 1.8,
+        "precip_prob": 0.42,
+        "wind_kmh": 17.0
+      },
+      "where": {
+        "geo_key": "gep5qgur7x",
+        "date": "2026-09-21"
+      }
+    }
+  ]
+}

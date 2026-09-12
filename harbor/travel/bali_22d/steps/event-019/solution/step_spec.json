@@ -1,0 +1,22 @@
+{
+  "step": "event-019",
+  "virtual_stage": 16,
+  "source_event_id": "D16_passport_renewal_notice",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": []
+  },
+  "response": "Liu Fang's passport transition was verified and GA837 was ticketed only afterward.",
+  "response_paraphrase": "Liu Fang's passport transition was confirmed and GA837 was ticketed only afterward.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D16_passport_renewal_notice"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

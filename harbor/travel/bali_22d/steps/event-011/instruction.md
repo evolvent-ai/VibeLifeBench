@@ -1,0 +1,1 @@
+[2026-06-07 07:00 +08:00] PVMBG advisory: Mount Agung in Bali has risen to Level 2 (Waspada). Forty-seven volcanic earthquakes were recorded in the past 24 hours. The exclusion zone is a 4 km radius from the crater. No eruption is imminent, but activity is elevated. Ngurah Rai Airport (DPS) is operating normally; the next update is expected in 12 hours.

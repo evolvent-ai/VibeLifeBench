@@ -1,0 +1,21 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "virtual_stage": 3,
+  "source_event_id": "evt_s3_world_offers_open",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Reviewed the newly available travel inventory and preserved the planning context.",
+  "response_paraphrase": "Reviewed the open September inventory and kept the trip coordination record current.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s3_world_offers_open"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

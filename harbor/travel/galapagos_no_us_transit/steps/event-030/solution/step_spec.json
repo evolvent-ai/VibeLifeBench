@@ -1,0 +1,25 @@
+{
+ "step": "event-030",
+ "stage": 18,
+ "event_id": "S18_world_airline_checkin",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 18,
+   "event_id": "S18_world_airline_checkin"
+  }
+ ],
+ "response_paraphrase": "The check-in review verifies every outbound segment and its operational status.",
+ "expected_env": {
+  "virtual_stage": 18,
+  "workspace": "/workspace",
+  "preceding_releases": [
+   "release-016"
+  ],
+  "released_mutations": [],
+  "stage_boundary": false
+ },
+ "expected_checks": [],
+ "expected_stage_weight": 0,
+ "source_event_id": "S18_world_airline_checkin"
+}

@@ -1,0 +1,28 @@
+{
+  "step": "event-029",
+  "virtual_stage": 22,
+  "source_event_id": "D22_ash_drift_warning",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-014"
+    ],
+    "released_mutations": []
+  },
+  "response": "Return check-in and a PNR-bound volcanic-ash contingency plan are recorded.",
+  "response_paraphrase": "Return check-in and a PNR-bound volcanic-ash contingency plan have been logged.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D22_ash_drift_warning"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_ash_contingency_plan",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}
