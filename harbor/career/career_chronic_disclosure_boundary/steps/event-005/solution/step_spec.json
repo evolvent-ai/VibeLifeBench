@@ -1,0 +1,24 @@
+{
+  "step": "event-005",
+  "virtual_stage": 3,
+  "source_event_id": "S03_notif_legal",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I researched the compensation and sensitive-information authorities and recorded the applicable standards and citations.",
+  "response_paraphrase": "The stage 3 record now preserves the relevant evidence, authorization boundary, and next action in different wording.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S03_notif_legal",
+      "virtual_stage": 3,
+      "event_kind": "notification",
+      "event_time": "2026-06-11T08:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

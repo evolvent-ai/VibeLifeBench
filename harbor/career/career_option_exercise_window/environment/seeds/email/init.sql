@@ -1,0 +1,60 @@
+-- email_mock seed: career_option_exercise_window. Stage 0 reference 2026-06-08.
+-- recordterminationnotice, recordandvestingrecord; personal deadline, recordandrecordby Stage record. 
+BEGIN;
+DELETE FROM account_config;
+INSERT INTO account_config (id, email, name, created_at) VALUES
+  (1,'gaokai_dev@163.com','Xi Mo (Xi Mo)','2018-08-01T00:00:00Z');
+DELETE FROM folders;
+INSERT INTO folders (id, name) VALUES (1,'INBOX'),(2,'Sent'),(3,'Drafts'),(4,'Trash'),(5,'Spam');
+INSERT INTO messages (id, folder_id, message_id, subject, from_addr, to_addr_json, date, body_text, is_read, is_important, headers_json, size, created_at) VALUES
+  (1,1,'<20260608-exit-notice@lanqiai.example>','Lanqi Technologyrolerecordandlast working daynotice','Lanqi Technology HR <hr@lanqiai.example>','["gaokai_dev@163.com"]','2026-06-08T01:20:00Z',
+   'Hello Xi Mo. Due to infrastructure team changes, your proposed last working day is June 30, 2026. Salary, social insurance, and handover will be handled separately. The equity administrator must confirm equity matters from your grant documents; this HR email does not confirm exercise quantity or a personal deadline.',0,1,'{}',402,'2026-06-08T01:20:00Z'),
+  (2,1,'<20210427-grant@lanqiai.example>','stock optionsrecordnotice G-2021-0427','Lanqi Technologyequity administration <equity@lanqiai.example>','["gaokai_dev@163.com"]','2021-04-27T03:00:00Z',
+   'Grant ID G-2021-0427, total grant 5,500 shares, exercise price 29.72 CNY per share, vesting in installments under the plan. After termination, treatment of vested shares depends on plan rules and the written notice sent by the administrator; unvested shares stop vesting under the plan.',1,1,'{}',420,'2021-04-27T03:00:00Z'),
+  (3,1,'<20250427-vesting@lanqiai.example>','G-2021-0427 annualvestingrecordbill','Lanqi Technologyequity administration <equity@lanqiai.example>','["gaokai_dev@163.com"]','2025-04-27T03:10:00Z',
+   'As of April 27, 2025, grant G-2021-0427 has 4,000 vested shares and 1,500 remaining unvested shares. This statement records quantities only; it does not represent a submitted exercise, paid exercise cost, or shares already held.',1,1,'{}',368,'2025-04-27T03:10:00Z'),
+  (4,1,'<20260605-market-risk@broker.example>','recordsharerecordriskrecord','record <education@broker.example>','["gaokai_dev@163.com"]','2026-06-05T00:30:00Z',
+   'market quoterecordvaluation, recordquantityandexercise price. record, record, recordandnominee holdingrecord, recordaccountthe userrecordandriskrecord. ',1,0,'{}',286,'2026-06-05T00:30:00Z'),
+  (5,1,'<20260606-mortgage-review@family.example>','homecashrecord','record <family@family.example>','["gaokai_dev@163.com"]','2026-06-06T11:00:00Z',
+   'recordonrecordandrecordmonthrecord. sharerecordconfirmrecord, recordvaluationrecordcash. ',1,0,'{}',224,'2026-06-06T11:00:00Z'),
+  (6,1,'<20210506-grant-portal-guide@lanqiai.example>','recordequity portalrecord','Lanqi Technologyequity administration <equity@lanqiai.example>','["gaokai_dev@163.com"]','2021-05-06T02:18:00Z',
+   'recordgrant ID, recorddocumentandvestingrecord. recordonofrecordofwrittennotice; submittransactionrecordaccountthe usercompleterecordsharesrecord. ',1,0,'{}',262,'2021-05-06T02:18:00Z'),
+  (7,1,'<20220428-vesting-confirmation@lanqiai.example>','G-2021-0427 recordvestingconfirm','Lanqi Technologyequity administration <equity@lanqiai.example>','["gaokai_dev@163.com"]','2022-04-28T03:26:00Z',
+   'record G-2021-0427 ofrecordvestingrecordaccount. emailrecordvestingrecord, record, recordorrecordsharerecord. ',1,0,'{}',226,'2022-04-28T03:26:00Z'),
+  (8,1,'<20230914-trading-blackout@lanqiai.example>','quarterlytransactionrecord','Lanqi Technologyrecord <compliance@lanqiai.example>','["gaokai_dev@163.com"]','2023-09-14T08:42:00Z',
+   'recordofrecordatquarterlyrecordtransactioncompanyrecord. recordandterminationrecordexercise windowrecord, recordbyrecordsharesandwrittennoticerecord. ',1,0,'{}',278,'2023-09-14T08:42:00Z'),
+  (9,1,'<20250112-equity-account-statement@lanqiai.example>','2024 yearrecordsharerecordaccountannualrecordbill','Lanqi Technologyequity administration <equity@lanqiai.example>','["gaokai_dev@163.com"]','2025-01-12T01:37:00Z',
+   'annualrecordbillrecord, vestingandrecordquantity, accountnonerecord. recordbillinofrecordvaluationrecord, record. ',1,0,'{}',244,'2025-01-12T01:37:00Z'),
+  (10,1,'<20251103-tender-information@lanqiai.example>','recordsharesharesrecord','Lanqi Technologyequity administration <equity@lanqiai.example>','["gaokai_dev@163.com"]','2025-11-03T06:14:00Z',
+   'recordsharesharesofrecordandquoterecord, recordofrecord. recordandrecord, recordquantityandtaxesrecordconfirm. ',1,0,'{}',250,'2025-11-03T06:14:00Z'),
+  (11,1,'<20260602-exit-payroll-checklist@lanqiai.example>','terminationsalaryandrecord','Lanqi Technologyrecordservice <peopleops@lanqiai.example>','["gaokai_dev@163.com"]','2026-06-02T07:08:00Z',
+   'recordmonthsalary, record, recordmonthsharesandrecord. sharerecordequity administrationrecord, recordatrecordinconfirmpersonal deadline. ',1,0,'{}',258,'2026-06-02T07:08:00Z'),
+  (12,1,'<20260524-diversification-note@broker.example>','recordinrecordandrecordriskrecord','record <education@broker.example>','["gaokai_dev@163.com"]','2026-05-24T00:52:00Z',
+   'recordcompanyrisk, recordandrecordonrecord. recordvaluationrecordbyrecord, recordandrecord. ',1,0,'{}',266,'2026-05-24T00:52:00Z'),
+  (13,1,'<20260428-mortgage-rate-reset@metrobank.example>','recordnotice','recordbankrecordservice <mortgage@metrobank.example>','["gaokai_dev@163.com"]','2026-04-28T04:46:00Z',
+   'recordofrecordwillat 7 monthbyrecord, monthrecordatrecordbankrecord. homerecordismonthrecord, recordsharerecord. ',1,0,'{}',252,'2026-04-28T04:46:00Z'),
+  (14,1,'<20260603-infra-jobs-digest@jobs.example>','Shanghaiinfrastructurerolerecord','record <digest@jobs.example>','["gaokai_dev@163.com"]','2026-06-03T23:18:00Z',
+   'record, record SRE andrecordproject. summaryinofrecordisrecruitingrecord, record, noncompeteclauseandrolestatusrecordatrecord. ',1,0,'{}',250,'2026-06-03T23:18:00Z'),
+  (15,1,'<20260604-cloud-contractor@talentbridge.example>','recordprojectrecordmonthrecord','record <consultant@talentbridge.example>','["gaokai_dev@163.com"]','2026-06-04T06:35:00Z',
+   'projectatrecord, recordservicerecord, recordmonth. recordcompanyrecord, recordquantity. ',1,0,'{}',236,'2026-06-04T06:35:00Z'),
+  (16,1,'<20240119-plan-amendment-summary@lanqiai.example>','recordsharerecordsummary','Lanqi Technologyrecordandequity administration <equity@lanqiai.example>','["gaokai_dev@163.com"]','2024-01-19T09:11:00Z',
+   'recordsummaryupdaterecordadministratorrecord, noticerecordandrecord. summarynonerecordterminationrecordofrecord, recorddocumentandrecordwrittennoticeisrecord. ',1,0,'{}',284,'2024-01-19T09:11:00Z'),
+  (17,1,'<20260605-equity-mfa@lanqiai.example>','sharerecordaccountrecord','Lanqi Technologyequity administration <equity@lanqiai.example>','["gaokai_dev@163.com"]','2026-06-05T01:23:00Z',
+   'recordofequity portalrecordandrecord. recordthe userrecord, administratorandrecruitingrecordthroughemailrecordverification code. ',1,0,'{}',214,'2026-06-05T01:23:00Z'),
+  (18,1,'<20260530-equity-tax-seminar@taxlearning.example>','equity incentiverecordpolicyrecord','recordcenter <events@taxlearning.example>','["gaokai_dev@163.com"]','2026-05-30T05:28:00Z',
+   'record, vesting, recordandrecord, andrecordpolicyrecordandrecord. recordtaxrecord. ',1,0,'{}',244,'2026-05-30T05:28:00Z'),
+  (19,1,'<20260606-school-open-day@family.example>','recorddaytimeconfirm','record <family@family.example>','["gaokai_dev@163.com"]','2026-06-06T10:14:00Z',
+   'recorddayrecordat 6 month 20 daymorning, record. recordrecruitingrecordorrecord, recordhomerecord. ',1,0,'{}',190,'2026-06-06T10:14:00Z'),
+  (20,1,'<20260601-handover-plan@lanqiai.example>','infrastructureservicerecord','Lanqi Technologyrecord <platform-ops@lanqiai.example>','["gaokai_dev@163.com"]','2026-06-01T08:56:00Z',
+   'recorddayrecord, recordandrecordofrecord, recordatlast working dayrecordcompleterecordandrecord. recordsharerecordorvestingquantity. ',1,0,'{}',260,'2026-06-01T08:56:00Z'),
+  (21,1,'<20260511-april-payslip@lanqiai.example>','Lanqi Technology 2026 year 4 monthrecordsalaryrecord','Lanqi Technologyrecordservice <payroll@lanqiai.example>','["gaokai_dev@163.com"]','2026-05-11T02:03:00Z',
+   'salaryrecordfixedsalary, record, recordandrecord, recordvaluation. recordsharerecordmonthcashsalary, recordtaxatrecord. ',1,0,'{}',258,'2026-05-11T02:03:00Z'),
+  (22,1,'<20260518-index-fund-alert@broker.example>','record','recordaccountnotice <account@broker.example>','["gaokai_dev@163.com"]','2026-05-18T01:16:00Z',
+   'recordmonthrecordbyrecord 1,500 CNY, recordandcompanyrecordaccountrecord. recordhomecashrecord, record. ',1,0,'{}',226,'2026-05-18T01:16:00Z'),
+  (23,1,'<20260509-alumni-roundtable@engineering.example>','infrastructurerecordconfirmrecord','record <alumni@engineering.example>','["gaokai_dev@163.com"]','2026-05-09T12:27:00Z',
+   'recordconfirmrecord 6 month 12 dayrecordofinfrastructurerecord, recordisrecordofrecordselect. recordproviderecordorrecord. ',1,0,'{}',222,'2026-05-09T12:27:00Z'),
+  (24,1,'<20260216-risk-profile-review@broker.example>','recordriskrecord','recordservice <service@broker.example>','["gaokai_dev@163.com"]','2026-02-16T05:44:00Z',
+   'recordofriskrecordwillat 8 monthrecord, record. riskrecord, record, recordorrecordinrecordcompanyrecord. ',1,0,'{}',244,'2026-02-16T05:44:00Z'),
+  (25,1,'<20260607-cash-reserve-review@metrobank.example>','homerecordaccountmonthlysummary','recordbankaccountservice <account@metrobank.example>','["gaokai_dev@163.com"]','2026-06-07T00:39:00Z',
+   'recordaccountrecordmonthnonerecord, record. summaryrecordstock optionsrecord, recordnonerecordNo.record. ',1,0,'{}',238,'2026-06-07T00:39:00Z');
+COMMIT;

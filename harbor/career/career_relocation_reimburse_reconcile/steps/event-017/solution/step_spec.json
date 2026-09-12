@@ -1,0 +1,15 @@
+{
+  "step": "event-017",
+  "virtual_stage": 12,
+  "source_event_id": "S12_notif_app",
+  "response": "The application update reminder was recorded.",
+  "response_paraphrase": "The latest application update prompt is logged.",
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

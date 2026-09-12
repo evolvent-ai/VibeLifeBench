@@ -1,0 +1,40 @@
+{
+  "step": "event-006",
+  "virtual_stage": 3,
+  "source_event_id": "S03_user_legal_basis",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I researched Labor Contract Law Article 40, Article 46, Article 47, Implementing Regulation Article 27 (art_lcl_reg_027), and case judg-2025-2nx6fcq7lw3ax. The wage basis is the average wages over twelve months, including bonuses and allowance; eight years plus the additional month of notice pay yields nine months. Personal Information Protection Law Article 6, Article 13, Article 14, Article 28 and Article 29 and privacy cases require necessity, minimum necessary scope, specific purpose, and separate consent for sensitive health information and medical records.",
+  "response_paraphrase": "The stage 3 record now preserves the relevant evidence, authorization boundary, and next action in different wording.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S03_user_legal_basis",
+      "virtual_stage": 3,
+      "event_kind": "user_message",
+      "event_time": "2026-06-11T15:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_legal_tool_used",
+      "weight": 2.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_basis_caliber_cited",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s3_sensitive_info_basis_cited",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

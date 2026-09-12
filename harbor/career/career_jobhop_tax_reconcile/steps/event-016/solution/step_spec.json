@@ -1,0 +1,33 @@
+{
+  "step": "event-016",
+  "virtual_stage": 12,
+  "source_event_id": "tax_s12_user_sync_jobs",
+  "stage_boundary": true,
+  "response": "The requested records were updated with verified backend evidence and authorization-aware next steps.",
+  "response_paraphrase": "Stage 12 records now preserve source evidence, user control, and review follow-ups.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "source_event_id": "tax_s12_user_sync_jobs",
+      "virtual_stage": 12,
+      "event_kind": "user_message",
+      "event_time": "2026-07-02T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-004"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "tax_s12_application_statuses_synced_from_backend",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

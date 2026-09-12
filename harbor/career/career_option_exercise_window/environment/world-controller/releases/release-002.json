@@ -1,0 +1,26 @@
+{
+  "release_id": "release-002",
+  "previous": "release-001",
+  "token": "837e9f5095b8dabad758328c4df06422",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 103,
+        "folder_id": 1,
+        "message_id": "<20260624-window-pending@lanqiai.example>",
+        "subject": "Re: Grant G-2021-0427 personal deadline confirmation",
+        "from_addr": "Lanqi Technologynotenotenotenote <equity@lanqiai.example>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-06-24T09:35:00Z",
+        "created_at": "2026-06-24T09:35:00Z",
+        "body_text": "The plan default rule is confirmed as a 90-day post-termination window, but the portal will create a personal deadline after termination settlement. System maintenance in early July may affect portal access; it does not automatically shorten a window with written confirmation. The final date and maintenance compensation days remain pending administrator notice.",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 512
+      }
+    }
+  ]
+}

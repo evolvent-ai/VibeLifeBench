@@ -1,0 +1,218 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      workspace-init:
+        condition: service_completed_successfully
+      world-controller:
+        condition: service_healthy
+      job-board:
+        condition: service_healthy
+      email:
+        condition: service_healthy
+      calendar:
+        condition: service_healthy
+      legal-search:
+        condition: service_healthy
+      notion:
+        condition: service_healthy
+      notification-hub:
+        condition: service_healthy
+    volumes:
+    - workspace-state:/workspace
+    - eval-evidence:/harbor/evidence:ro
+    - world-clock:/world-clock:ro
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,job-board,email,calendar,legal-search,notion,notification-hub,banking,brokerage
+      no_proxy: localhost,127.0.0.1,::1,world-controller,job-board,email,calendar,legal-search,notion,notification-hub,banking,brokerage
+  workspace-init:
+    build:
+      context: .
+      dockerfile: workspace-init/Dockerfile
+    volumes:
+    - workspace-state:/target
+    restart: 'no'
+  job-board:
+    build:
+      context: ./servers/job_board_mock
+    volumes:
+    - ./seeds/job_board:/env-seed:ro
+    - job-board-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: &id001
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  email:
+    build:
+      context: ./servers/email_mock
+    volumes:
+    - ./seeds/email:/env-seed:ro
+    - email-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: *id001
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  calendar:
+    build:
+      context: ./servers/calendar_mock
+    volumes:
+    - ./seeds/calendar:/env-seed:ro
+    - calendar-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: *id001
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  legal-search:
+    build:
+      context: ./servers/legal_search_mock
+    volumes:
+    - ./seeds/legal_search:/env-seed:ro
+    - legal-search-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: *id001
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  notion:
+    build:
+      context: ./servers/notion_mock
+    volumes:
+    - ./seeds/notion:/env-seed:ro
+    - notion-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: *id001
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  notification-hub:
+    build:
+      context: ./servers/notification_hub_mock
+    volumes:
+    - ./seeds/notification_hub:/env-seed:ro
+    - notification-hub-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: *id001
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  banking:
+    build:
+      context: ./servers/banking_mock
+    volumes:
+    - ./seeds/banking:/env-seed:ro
+    - banking-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: *id001
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  brokerage:
+    build:
+      context: ./servers/brokerage_mock
+    volumes:
+    - ./seeds/brokerage:/env-seed:ro
+    - brokerage-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: *id001
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  world-controller:
+    build:
+      context: .
+      dockerfile: world-controller/Dockerfile
+    environment:
+      HEALTH_TOKEN: bank037-health-6fd1289b
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+      CLOCK_TOKEN: bank037-clock-9f0243a86b4fc38a
+    depends_on:
+      workspace-init:
+        condition: service_completed_successfully
+      job-board:
+        condition: service_healthy
+      email:
+        condition: service_healthy
+      calendar:
+        condition: service_healthy
+      legal-search:
+        condition: service_healthy
+      notion:
+        condition: service_healthy
+      notification-hub:
+        condition: service_healthy
+      banking:
+        condition: service_healthy
+      brokerage:
+        condition: service_healthy
+    volumes:
+    - job-board-env:/job-board-env
+    - email-env:/email-env
+    - calendar-env:/calendar-env
+    - legal-search-env:/legal-search-env
+    - notion-env:/notion-env
+    - notification-hub-env:/notification-hub-env
+    - banking-env:/banking-env
+    - brokerage-env:/brokerage-env
+    - controller-state:/controller-state
+    - workspace-state:/workspace-source:ro
+    - eval-evidence:/evidence
+    - world-clock:/world-clock
+    expose:
+    - '8090'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health',
+        timeout=2).read()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+volumes:
+  workspace-state: null
+  job-board-env: null
+  email-env: null
+  calendar-env: null
+  legal-search-env: null
+  notion-env: null
+  notification-hub-env: null
+  banking-env: null
+  brokerage-env: null
+  controller-state: null
+  eval-evidence: null
+  world-clock: null

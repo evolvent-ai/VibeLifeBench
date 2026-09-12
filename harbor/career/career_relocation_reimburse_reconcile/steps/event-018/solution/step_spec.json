@@ -1,0 +1,20 @@
+{
+  "step": "event-018",
+  "virtual_stage": 12,
+  "source_event_id": "S12_user_status_check",
+  "response": "Application statuses were checked and synchronized on the board.",
+  "response_paraphrase": "Viewed, interview, and rejection progress is now synchronized.",
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s12_status_synced",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

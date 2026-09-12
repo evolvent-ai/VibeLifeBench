@@ -1,0 +1,28 @@
+{
+  "release_id": "release-005",
+  "before_step": "event-019",
+  "previous": "release-004",
+  "token": "career_espp_refund_recovery_release-005_token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 500,
+        "headers_json": "{}",
+        "id": 105,
+        "message_id": "<20260706-offer@dewu.com>",
+        "subject": "Dewu backend role - written indicative terms (pending approval)",
+        "from_addr": "Dewu Recruiting <hr@dewu.com>",
+        "date": "2026-07-06T09:55:00Z",
+        "body_text": "Based on your resume and an initial call, we can offer non-binding indicative terms: monthly salary multiplied by 16, with a base above your current level. A formal offer, if interviews and approval pass, may include a two-year non-compete covering e-commerce transaction roles. This is not a formal hiring notice.",
+        "created_at": "2026-07-06T09:55:00Z"
+      }
+    }
+  ]
+}

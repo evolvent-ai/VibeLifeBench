@@ -1,0 +1,1 @@
+HR is now willing to discuss the issue and has asked me for a written calculation and the amount I am claiming. Prepare a calculation memo showing the wage basis, service period, amount legally due, difference from the company's proposal, and the supporting statute and case. Show me the draft first; I will decide whether it is ready to send.

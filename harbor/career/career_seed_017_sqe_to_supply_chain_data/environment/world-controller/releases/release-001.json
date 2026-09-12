@@ -1,0 +1,26 @@
+{
+  "release_id": "release-001",
+  "token": "career_seed_017_sqe_to_supply_chain_data-release",
+  "previous": "release-000a",
+  "source_stage": 4,
+  "source_event_stage": 4,
+  "source_time": "2026-07-04T08:30:00+08:00",
+  "source_event_ids": ["evt_006"],
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "source_event_id": "evt_006",
+      "where": {
+        "job_id": "job_novaforge_sca_001"
+      },
+      "set": {
+        "city": "Changshu",
+        "jd": "supply chain data analyticsrole，business recordChangshubusiness recordon-site，business recordfactory-basedsupportsupplier qualityandproduction lineexception，business recordandnighttimeproduction linebusiness record。",
+        "requirements": "familiar withsupplier qualitymetric、SQL/BI board；business recordacceptChangshubusiness recordandbusiness recordon-sitesupport。",
+        "tags": "supply chain data,SQE,Changshu,factory-based,nighttimesupport"
+      }
+    }
+  ]
+}

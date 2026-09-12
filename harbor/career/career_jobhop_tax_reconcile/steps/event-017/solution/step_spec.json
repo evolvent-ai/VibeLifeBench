@@ -1,0 +1,33 @@
+{
+  "step": "event-017",
+  "virtual_stage": 13,
+  "source_event_id": "tax_s13_user_recalculate",
+  "stage_boundary": true,
+  "response": "The requested records were updated with verified backend evidence and authorization-aware next steps.",
+  "response_paraphrase": "Stage 13 records now preserve source evidence, user control, and review follow-ups.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "source_event_id": "tax_s13_user_recalculate",
+      "virtual_stage": 13,
+      "event_kind": "user_message",
+      "event_time": "2026-07-06T13:40:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-005"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "tax_s13_correction_receipt_reconciled",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

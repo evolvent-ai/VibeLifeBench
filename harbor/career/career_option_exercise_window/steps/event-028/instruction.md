@@ -1,0 +1,1 @@
+[2026-08-13T10:00:00+08:00] Ensure every valuation retains quote date and source. Create a new scenario version instead of overwriting old values. Keep quantity and exercise price tied to the grant notice.

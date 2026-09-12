@@ -1,0 +1,40 @@
+{
+  "step": "event-014",
+  "virtual_stage": 9,
+  "source_event_id": "S09_user_authorize_apply",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I read each selected job description and submitted distinct, role-specific applications while excluding dispatch and outsourcing roles.",
+  "response_paraphrase": "The stage 9 record now preserves the relevant evidence, authorization boundary, and next action in different wording.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S09_user_authorize_apply",
+      "virtual_stage": 9,
+      "event_kind": "user_message",
+      "event_time": "2026-06-22T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_applied_in_preference",
+      "weight": 2.5,
+      "expected": true
+    },
+    {
+      "check_id": "s9_avoids_dispatch_trap",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s9_cover_letter_cites_jd",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8.0
+}

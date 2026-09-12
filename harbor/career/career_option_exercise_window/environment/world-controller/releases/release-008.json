@@ -1,0 +1,21 @@
+{
+  "release_id": "release-008",
+  "previous": "release-007",
+  "token": "e03666c88ecca5aea81703b52b985eb5",
+  "operations": [
+    {
+      "server": "brokerage",
+      "table": "quotes_daily",
+      "op": "insert",
+      "values": {
+        "symbol": "688111",
+        "date": "2026-07-16",
+        "open_minor": 7430,
+        "close_minor": 7580,
+        "high_minor": 7655,
+        "low_minor": 7388,
+        "volume": 1286400
+      }
+    }
+  ]
+}

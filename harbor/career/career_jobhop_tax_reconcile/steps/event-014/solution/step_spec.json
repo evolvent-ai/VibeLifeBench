@@ -1,0 +1,33 @@
+{
+  "step": "event-014",
+  "virtual_stage": 10,
+  "source_event_id": "tax_s10_user_packet",
+  "stage_boundary": true,
+  "response": "The requested records were updated with verified backend evidence and authorization-aware next steps.",
+  "response_paraphrase": "Stage 10 records now preserve source evidence, user control, and review follow-ups.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "source_event_id": "tax_s10_user_packet",
+      "virtual_stage": 10,
+      "event_kind": "user_message",
+      "event_time": "2026-06-24T14:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-002"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "tax_s10_accepted_not_completed_is_preserved",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

@@ -1,0 +1,28 @@
+{
+  "step": "event-011",
+  "stage": 9,
+  "virtual_stage": 9,
+  "source_event_id": "evt_016",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The concise update separates confirmed written or system facts from pending processes and low-credibility rumor; every acceptance, rejection, negotiation, and document action remains for Ethan to confirm.",
+  "response_paraphrase": "I summarized each opportunity by evidence level, distinguishing verified records, work still in progress, and unsubstantiated claims, with decision authority reserved to you.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_016",
+      "event_time": "2026-05-23T18:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_09_summary_distinguishes_status_and_confirmations",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

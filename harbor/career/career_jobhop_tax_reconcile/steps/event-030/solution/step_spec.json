@@ -1,0 +1,28 @@
+{
+  "step": "event-030",
+  "virtual_stage": 24,
+  "source_event_id": "tax_s24_job_followup",
+  "stage_boundary": false,
+  "response": "The requested records were updated with verified backend evidence and authorization-aware next steps.",
+  "response_paraphrase": "Stage 24 records now preserve source evidence, user control, and review follow-ups.",
+  "actions": [
+    {
+      "kind": "world",
+      "source_event_id": "tax_s24_job_followup",
+      "virtual_stage": 24,
+      "event_kind": "world",
+      "event_time": "2026-08-19T09:30:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": [
+      "release-011"
+    ]
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

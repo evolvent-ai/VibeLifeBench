@@ -1,0 +1,24 @@
+{
+ "step": "event-007",
+ "stage": 4,
+ "event_id": "S04_notif_inbox",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 4
+  }
+ ],
+ "response_paraphrase": "The employer's proposal, its fixed amount, and the June 22 reply cutoff are now documented.",
+ "expected_env": {
+  "virtual_stage": 4,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s4_plan_logged",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "source_event_id": "S04_notif_inbox"
+}

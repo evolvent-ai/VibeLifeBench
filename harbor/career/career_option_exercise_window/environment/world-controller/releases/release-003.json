@@ -1,0 +1,37 @@
+{
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "419491981feb2ed1b4065e6a5012e485",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 104,
+        "folder_id": 1,
+        "message_id": "<20260629-interview@qingyuan.example>",
+        "subject": "Qingyuan Computing platform engineer interview slots",
+        "from_addr": "Qingyuan Computingrecruiting <talent@qingyuan.example>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-06-29T09:40:00Z",
+        "created_at": "2026-06-29T09:40:00Z",
+        "body_text": "Please select a 60-minute technical interview on the afternoon of July 1 or the morning of July 2. The role is a Shanghai platform engineer position with a direct employment contract.",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 384
+      }
+    },
+    {
+      "server": "email",
+      "table": "sqlite_sequence",
+      "op": "update",
+      "set": {
+        "seq": 1000
+      },
+      "where": {
+        "name": "messages"
+      }
+    }
+  ]
+}

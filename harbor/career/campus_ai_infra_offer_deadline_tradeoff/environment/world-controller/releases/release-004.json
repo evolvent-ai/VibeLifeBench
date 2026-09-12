@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "evt_015"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-05-21T08:30:00+08:00",
+  "previous": "release-003",
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-004-token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "chat_messages",
+      "op": "insert",
+      "values": {
+        "message_id": "msg_starridge_hr_review",
+        "chat_id": "chat_starridge_001",
+        "sender": "recruiter",
+        "body": "StarRidge The technical interview is complete and the process is now in HR review. Please watch for the offer letter and response deadline.",
+        "sent_at": "2026-05-21T00:20:00Z"
+      },
+      "source_event_id": "evt_015",
+      "operation_index": 0
+    }
+  ]
+}

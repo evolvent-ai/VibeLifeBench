@@ -1,0 +1,1 @@
+Reply with only the minimum information needed for start-date planning. Do not disclose abnormal readings, diagnoses, medication, or another company's process. Log recipient and actual disclosure scope after sending.

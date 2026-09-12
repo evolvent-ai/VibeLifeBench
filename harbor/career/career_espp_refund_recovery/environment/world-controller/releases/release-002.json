@@ -1,0 +1,28 @@
+{
+  "release_id": "release-002",
+  "before_step": "event-015",
+  "previous": "release-001",
+  "token": "career_espp_refund_recovery_release-002_token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 500,
+        "headers_json": "{}",
+        "id": 103,
+        "message_id": "<20260624-revise@ximingsemi.com>",
+        "subject": "Re: ESPP shortfall plan - further discussion possible",
+        "from_addr": "Lu Qian, Ximing Semiconductor HR <hr.luqian@ximingsemi.com>",
+        "date": "2026-06-24T09:55:00Z",
+        "body_text": "We can discuss the redemption price, but first provide written calculation support and the amount you request. State the original ESPP or grant terms, vested quantity, base-date price, reference fair value, and difference from the company proposal.",
+        "created_at": "2026-06-24T09:55:00Z"
+      }
+    }
+  ]
+}

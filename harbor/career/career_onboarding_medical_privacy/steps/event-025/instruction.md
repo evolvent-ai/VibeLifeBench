@@ -1,0 +1,1 @@
+Draft a conditional confirmation to Hanyu Health: only after every written boundary is clear and I separately authorize it may a limited-purpose conclusion be provided. Include no diagnosis, metrics, or default consent. Show me first; do not send final acceptance.

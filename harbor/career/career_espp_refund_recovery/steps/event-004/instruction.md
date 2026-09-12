@@ -1,0 +1,2 @@
+[2026-06-10T10:00:00+08:00] My contract lists a base salary of CNY 25,100, but actual monthly income also includes quarterly bonuses and a role allowance. Calculate my last-year average income from payroll account transactions as income and cash-flow support, and record it on the board. This is not the employee share plan redemption valuation basis; verify equity separately using the original plan terms, vested share count, and market price.
+

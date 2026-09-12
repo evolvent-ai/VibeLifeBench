@@ -1,0 +1,1 @@
+I authorize applications to the selected direct-employment backup roles. Tailor each cover note to its JD, record job_id, employment arrangement, and status, and omit physical readings or the current dispute.

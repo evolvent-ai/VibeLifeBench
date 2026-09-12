@@ -1,0 +1,3 @@
+# career_background_check_consent — job_board
+
+Shanghaibackendtranslated textplatformroletranslated text，translated textinternet、logistics、translated text、translated textcalculate、translated texthealthcaretranslated text。roletranslated textretainemployment arrangement、translated text、translated text，job applicationtranslated textneedtranslated textreconcile。

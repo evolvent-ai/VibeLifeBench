@@ -1,0 +1,30 @@
+{
+  "release_id": "release-000",
+  "token": "career_seed_017_sqe_to_supply_chain_data-release",
+  "previous": null,
+  "source_stage": 0,
+  "source_event_stage": 0,
+  "source_time": "2026-07-01T08:55:00+08:00",
+  "source_event_ids": ["evt_001"],
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "evt_001",
+      "conflict_keys": ["notification_id"],
+      "values": {
+        "notification_id": "ntf_seed_017_0001",
+        "user_id": "usr_lin_che",
+        "source": "career_monitor",
+        "type": "keyword",
+        "subscription_id": null,
+        "title": "job searchbusiness record",
+        "body": "business recordrole、email、business record、content platformandnotificationbusiness record。",
+        "payload_json": "{}",
+        "created_at": "2026-07-01T08:55:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

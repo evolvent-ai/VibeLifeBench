@@ -1,0 +1,32 @@
+{
+  "step": "event-022",
+  "stage": 19,
+  "virtual_stage": 19,
+  "source_event_id": "evt_033a_bytelattice_timeline_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-013"
+    ],
+    "released_mutations": [
+      "evt_033"
+    ]
+  },
+  "response": "ByteLattice has a final interview but no written offer, with results expected after 2026-06-07. It is not counted as an offer and creates timeline risk beyond StarRidge's window.",
+  "response_paraphrase": "Recruiter chat and email agree that ByteLattice remains pre-offer and will decide too late for the current deadline, so it stays an uncertain alternative.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_033a_bytelattice_timeline_notice",
+      "event_time": "2026-06-04T13:05:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_19_bytelattice_not_counted_and_timeline_risk_recorded",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,41 @@
+{
+  "release_id": "release-005",
+  "token": "career_seed_017_sqe_to_supply_chain_data-release",
+  "previous": "release-004",
+  "source_stage": 14,
+  "source_event_stage": 13,
+  "source_time": "2026-07-13T20:20:00+08:00",
+  "source_event_ids": ["evt_022"],
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "chats",
+      "op": "insert",
+      "source_event_id": "evt_022",
+      "conflict_keys": ["chat_id"],
+      "values": {
+        "chat_id": "chat_novaforge_assignment",
+        "user_id": "usr_lin_che",
+        "job_id": "job_novaforge_sca_001",
+        "company_id": "comp_novaforge",
+        "recruiter_name": "Mina Yu",
+        "created_at": "2026-07-13T20:20:00+08:00",
+        "last_at": "2026-07-13T20:20:00+08:00"
+      }
+    },
+    {
+      "server": "job_board",
+      "table": "chat_messages",
+      "op": "insert",
+      "source_event_id": "evt_022",
+      "conflict_keys": ["message_id"],
+      "values": {
+        "message_id": "msg_novaforge_assignment_001",
+        "chat_id": "chat_novaforge_assignment",
+        "sender": "recruiter",
+        "body": "interview assignmentbusiness record：business recordsubmitbusiness recordsupplier qualitydata analyticscase。do notbusiness record，7/19 business record。",
+        "sent_at": "2026-07-13T20:20:00+08:00"
+      }
+    }
+  ]
+}

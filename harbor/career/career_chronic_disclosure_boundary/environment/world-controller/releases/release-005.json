@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "S13_mut_dewu_offer"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-07-06T09:55:00+08:00",
+  "previous": "release-004",
+  "token": "career-release-05-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 105,
+        "folder_id": 1,
+        "message_id": "<20260706-offer@dewu.com>",
+        "subject": "English text English text Offer",
+        "from_addr": "English text <hr@dewu.com>",
+        "to_addr_json": "[\"feng.yi@163.com\"]",
+        "date": "2026-07-06T09:55:00Z",
+        "created_at": "2026-07-06T09:55:00Z",
+        "body_text": "English text，English text。English text 52000 English text、16 English text。\nEnglish text 2 English text（English text）。English text。\n",
+        "is_read": 1,
+        "is_important": 1,
+        "size": 500
+      },
+      "source_event_id": "S13_mut_dewu_offer"
+    }
+  ]
+}

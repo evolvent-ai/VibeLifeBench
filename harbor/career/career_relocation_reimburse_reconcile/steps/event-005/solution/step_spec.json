@@ -1,0 +1,15 @@
+{
+  "step": "event-005",
+  "virtual_stage": 3,
+  "source_event_id": "S03_notif_legal",
+  "response": "The legal update was queued for source verification.",
+  "response_paraphrase": "The legal research reminder is logged.",
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

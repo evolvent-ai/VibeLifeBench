@@ -1,0 +1,42 @@
+{
+  "step": "event-020",
+  "stage": 17,
+  "virtual_stage": 17,
+  "source_event_id": "evt_031",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": [
+      "evt_030"
+    ]
+  },
+  "response": "StarRidge HR confirmed the extension to 2026-06-05 12:00 and the 2026-07-20 start plan. The one deadline event and tracker now reflect both, while final acceptance remains Ethan's action.",
+  "response_paraphrase": "I used the reply as the authoritative record, moved the existing reminder to noon on June 5, and logged July 20 for onboarding without accepting the offer.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_031",
+      "event_time": "2026-06-03T19:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_17_extension_and_start_date_recorded",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "stage_17_extension_reply_and_calendar_args_exact",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "stage_17_offer_not_accepted",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

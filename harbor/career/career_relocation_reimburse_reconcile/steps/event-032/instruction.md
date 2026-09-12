@@ -1,0 +1,1 @@
+[Reminder] Review the audit trail periodically. Each key calculation and reconciliation conclusion should be traceable to its backend transaction identifier for later review. Keep this durable audit trail in the workspace file `audit_journal.md`.

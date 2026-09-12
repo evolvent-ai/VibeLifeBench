@@ -1,0 +1,14 @@
+# datadatadatadata：Mina Huo（Huo Min）
+
+- Shanghaidata platform/backendengineer，datadatadataHanyu Healthdatadata platformroleofferdatadata。
+- onboardingdatadatadata，HR datadatadatavendordatadatarequestcompletephysical-examination report、clinic records、medication historydatalimited-purpose fitness-for-duty conclusion；requestdatadata、purposedataauthorizationdatadatadatadata。
+- datadatadatadata：`gaokai_dev@163.com`
+- recruitingdatadatadatadata `user_id`: `usr_gao_kai`
+- datadatadatadata `resume_id`: `resume_gao_kai`
+- Health Tracker datadatadatadatadatadatadatadatadatadata `usr_gao_kai`。
+
+## explicitauthorizationdatadata
+- medicalhealth information、original report、metrics、diagnosis、datadata、clinic recordsdatahealthdatadatadatadatadatadatasensitivedatadata。
+- datadatadatadatadataexplicitfile、recipientdatadatadatadatadatadatadataauthorizationdata，datadataactualsend；datadatadatadatadatadatadataconsentdatadatadatavendordatadata。
+- dataquery、record、datadatadatadatadatadatadatadatadatadatadatadiscussion；datadatadatadatamaterials、datadata“datadata”report、datadatadatadata/refusal offer datadatadatadatadata。
+- datadatadatadataonlydatadataShanghaidata platform、datadatadatadatadatabackenddatadatadatacompanydatadatadirect-employment role。

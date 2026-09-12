@@ -1,0 +1,30 @@
+{
+  "step": "event-002",
+  "virtual_stage": 1,
+  "source_event_id": "S01_user_read_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I reviewed the position notice, identified its legal basis and last-working-day date, and recorded both.",
+  "response_paraphrase": "The stage 1 record now preserves the relevant evidence, authorization boundary, and next action in different wording.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S01_user_read_notice",
+      "virtual_stage": 1,
+      "event_kind": "user_message",
+      "event_time": "2026-06-09T09:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_notice_logged",
+      "weight": 3.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

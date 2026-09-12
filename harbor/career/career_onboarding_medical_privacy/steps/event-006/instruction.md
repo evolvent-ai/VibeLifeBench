@@ -1,0 +1,1 @@
+Search authoritative personal-information and employment-physical rules. Verify boundaries for health data, separate consent, minimum necessity, and unreasonable hiring conditions. Log titles, article locations, and business meaning, not just a vague legal concern.

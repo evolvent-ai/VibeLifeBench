@@ -1,0 +1,24 @@
+{
+  "step": "event-026",
+  "virtual_stage": 18,
+  "source_event_id": "S18_user_compare",
+  "response": "Meituan and Dewu offers were compared while leaving the final decision to the user.",
+  "response_paraphrase": "The offer comparison includes compensation, arrangement, risk, and a non-binding recommendation.",
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s18_offer_compare",
+      "weight": 2.5
+    },
+    {
+      "check_id": "s18_meituan_offer_value",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

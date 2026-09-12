@@ -1,0 +1,32 @@
+{
+  "release_id": "release-002",
+  "source_stage": 10,
+  "source_time": "2026-06-24T09:30:00+08:00",
+  "source_event_ids": ["tax_s10_correction_request"],
+  "token": "career_jobhop_tax_reconcile-release-token",
+  "previous": "release-001",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_stage": 10,
+      "source_time": "2026-06-24T09:30:00+08:00",
+      "source_event_id": "tax_s10_correction_request",
+      "values": {
+        "id": 3010,
+        "folder_id": 1,
+        "message_id": "<20260624-correction-case@hanlandata.example>",
+      "subject": "Withholding correction case accepted: April performance and departure settlement pending review",
+      "from_addr": "Hanlan Data Payroll, Ji Tong <payroll.jitong@hanlandata.example>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-06-24T09:30:00+08:00",
+        "created_at": "2026-06-24T09:30:00+08:00",
+      "body_text": "We opened withholding correction case TAX-CORR-2026-0618 using the bank-credit dates and payroll references you supplied.\nThis confirms acceptance only; the correction is not completed. We will send the before-and-after variance after the tax-system receipt arrives. Do not record accepted as corrected.\n",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 506
+      }
+    }
+  ]
+}

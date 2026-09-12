@@ -1,0 +1,28 @@
+{
+  "step": "event-005",
+  "stage": 3,
+  "event_id": "S03_notif_legal",
+  "source_event_id": "S03_notif_legal",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 3
+    }
+  ],
+  "response_paraphrase": "The stage 5 review is complete; I updated evidence and left decisions with Ji Chen.",
+  "expected_env": {
+    "virtual_stage": 3,
+    "workspace": "/workspace"
+  },
+  "expected_checks": [
+    {
+      "check_id": "s3_legal_tool_used",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s3_contract_legal_basis",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

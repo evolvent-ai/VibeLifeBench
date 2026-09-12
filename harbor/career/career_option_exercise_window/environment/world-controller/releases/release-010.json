@@ -1,0 +1,20 @@
+{
+  "release_id": "release-010",
+  "previous": "release-009",
+  "token": "6191f9f5dce9564dd0411e1114c66279",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "offer",
+        "updated_at": "2026-08-19T01:30:00Z"
+      },
+      "where": {
+        "application_id": "app_000002",
+        "status": "viewed"
+      }
+    }
+  ]
+}

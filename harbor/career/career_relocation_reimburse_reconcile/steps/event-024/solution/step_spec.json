@@ -1,0 +1,15 @@
+{
+  "step": "event-024",
+  "virtual_stage": 17,
+  "source_event_id": "S17_notif_bank",
+  "response": "The incoming bank transaction alert was recorded.",
+  "response_paraphrase": "The deposit alert is logged for verification.",
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

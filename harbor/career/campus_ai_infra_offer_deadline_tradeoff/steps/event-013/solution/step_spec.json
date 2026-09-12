@@ -1,0 +1,42 @@
+{
+  "step": "event-013",
+  "stage": 11,
+  "virtual_stage": 11,
+  "source_event_id": "evt_020",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "evt_019"
+    ]
+  },
+  "response": "MatrixCloud's written offer is RMB 35k x 13, or 455k annual cash, but its 12-18 month long-term on-site client placement is non-compliant. The offer is retained without accepting or rejecting it.",
+  "response_paraphrase": "I verified MatrixCloud's cash basis and identified the extended customer-site requirement as a hard working-arrangement conflict, while leaving the final response untouched.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_020",
+      "event_time": "2026-05-27T16:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_11_matrixcloud_cash_and_onsite_detected",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "stage_11_matrixcloud_not_recommended_as_compliant",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "stage_11_no_offer_rejection",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.75
+}

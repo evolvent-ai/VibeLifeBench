@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "evt_033"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-06-04T13:05:00+08:00",
+  "previous": "release-012",
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-013-token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "chat_messages",
+      "op": "insert",
+      "values": {
+        "message_id": "msg_bytelattice_final_after_window",
+        "chat_id": "chat_bytelattice_001",
+        "sender": "recruiter",
+        "body": "ByteLattice can arrange a final interview, but the result is expected only after 2026-06-07; there is no written offer yet.",
+        "sent_at": "2026-06-04T05:00:00Z"
+      },
+      "source_event_id": "evt_033",
+      "operation_index": 0
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 219,
+        "folder_id": 1,
+        "message_id": "<20260604-bytelattice-final@example.com>",
+        "subject": "ByteLattice final interview arrangement",
+        "from_addr": "ref-bytelattice-wang@example.com",
+        "to_addr_json": "[\"lin.che@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-04T05:00:00Z",
+        "body_text": "The team is willing to arrange a final interview, but the written-offer result is expected only after 2026-06-07.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 420,
+        "created_at": "2026-06-04T05:00:00Z"
+      },
+      "source_event_id": "evt_033",
+      "operation_index": 1
+    }
+  ]
+}

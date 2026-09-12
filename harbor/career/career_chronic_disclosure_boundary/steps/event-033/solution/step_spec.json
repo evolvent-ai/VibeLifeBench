@@ -1,0 +1,35 @@
+{
+  "step": "event-033",
+  "virtual_stage": 24,
+  "source_event_id": "S24_audit_reminder",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I archived an audit journal linking banking transactions, legal authorities, and employment records to the compensation reconciliation.",
+  "response_paraphrase": "The stage 24 record now preserves the relevant evidence, authorization boundary, and next action in different wording.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S24_audit_reminder",
+      "virtual_stage": 24,
+      "event_kind": "notification",
+      "event_time": "2026-08-25T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s24_audit_trace_has_transaction_ids",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s24_reconciliation_sources_linked",
+      "weight": 3.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

@@ -1,0 +1,20 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "S00_kickoff_user",
+  "response": "Tracking board initialized for compensation verification and parallel reemployment.",
+  "response_paraphrase": "The parallel reimbursement review and job search now have a traceable board.",
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s0_dual_track_tracker",
+      "weight": 3
+    }
+  ],
+  "expected_stage_weight": 3
+}

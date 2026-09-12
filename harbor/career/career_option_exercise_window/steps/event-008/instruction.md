@@ -1,0 +1,1 @@
+[2026-06-15T14:00:00+08:00] Build reproducible full, partial, and no-exercise scenarios from the grant statement, plan summary, quotes, and bank cash. Show cash, shares, taxes, and price risks. Keep the deadline pending until written confirmation and do not choose for me.

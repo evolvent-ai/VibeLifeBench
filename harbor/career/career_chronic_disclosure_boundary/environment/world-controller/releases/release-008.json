@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "S17_mut_severance_paid"
+  ],
+  "source_stage": 17,
+  "source_time": "2026-07-16T08:00:00+08:00",
+  "previous": "release-007",
+  "token": "career-release-08-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "BKT-20260716-PAY-75lf43k7xtx",
+        "account_id": "acct_fy_checking",
+        "posted_at": "2026-07-16T08:00:00Z",
+        "amount_minor": 20540000,
+        "kind": "deposit",
+        "counterparty": "LuminaBio (Shanghai) Ltd.",
+        "memo": "severance payment",
+        "balance_after_minor": 69047000
+      },
+      "source_event_id": "S17_mut_severance_paid"
+    }
+  ]
+}

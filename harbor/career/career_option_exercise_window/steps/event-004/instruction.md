@@ -1,0 +1,1 @@
+[2026-06-10T10:30:00+08:00] Use public quotes, vested quantity, and exercise price to calculate exercise cost, market value, and spread scenarios. Check payroll cash. Distinguish valuation, required cash, potential taxes, and shares already held; do not call a price increase realized profit.

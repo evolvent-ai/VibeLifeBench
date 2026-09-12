@@ -1,0 +1,24 @@
+{
+  "step": "event-021",
+  "stage": 15,
+  "event_id": "S15_world_itw",
+  "source_event_id": "S15_world_itw",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 15
+    }
+  ],
+  "response_paraphrase": "The stage 21 review is complete; I updated evidence and left decisions with Ji Chen.",
+  "expected_env": {
+    "virtual_stage": 15,
+    "workspace": "/workspace"
+  },
+  "expected_checks": [
+    {
+      "check_id": "s15_prep_from_jd",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

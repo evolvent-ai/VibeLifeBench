@@ -1,0 +1,2 @@
+[2026-07-30T10:00:00+08:00] If the company reassesses the employee share plan redemption using original terms, vested share count, and reference-date price and pays a reasonable shortfall, I will consider signing. If we cannot agree, I will consult a lawyer before deciding whether to arbitrate or litigate. Prepare a formal HR reply draft with final calculation, evidence sources, and requested amount. Show it to me first; without final approval do not sign, commit, or send anything.
+

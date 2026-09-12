@@ -1,0 +1,24 @@
+{
+  "step": "event-006",
+  "virtual_stage": 3,
+  "source_event_id": "S03_user_legal_basis",
+  "response": "The statutory and case-based lawful calculation basis was researched.",
+  "response_paraphrase": "The applicable law and case evidence now support the calculation basis.",
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s3_legal_tool_used",
+      "weight": 2.5
+    },
+    {
+      "check_id": "s3_basis_caliber_cited",
+      "weight": 3.5
+    }
+  ],
+  "expected_stage_weight": 6
+}

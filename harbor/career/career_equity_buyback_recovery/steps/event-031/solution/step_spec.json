@@ -1,0 +1,19 @@
+{
+  "step": "event-031",
+  "stage": 22,
+  "event_id": "S22_followup_0",
+  "source_event_id": "S22_followup_0",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 22
+    }
+  ],
+  "response_paraphrase": "The stage 31 review is complete; I updated evidence and left decisions with Ji Chen.",
+  "expected_env": {
+    "virtual_stage": 22,
+    "workspace": "/workspace"
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

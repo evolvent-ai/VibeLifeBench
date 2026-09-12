@@ -1,0 +1,40 @@
+{
+  "release_id": "release-008",
+  "before_step": "event-024",
+  "previous": "release-007",
+  "token": "career-equity-release-4d7a2b91",
+  "operations": [
+    {
+      "source_event_id": "S17_mut_severance_paid",
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_gk_severance",
+        "account_id": "acct_gk_checking",
+        "posted_at": "2026-07-16T00:00:00Z",
+        "amount_minor": 20010000,
+        "kind": "deposit",
+        "counterparty": "Yiwei Data Technology (Shanghai) Co., Ltd.",
+        "memo": "Equity buyback payment (company proposal)",
+        "balance_after_minor": 81710000
+      }
+    },
+    {
+      "source_event_id": "S17_mut_severance_paid",
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {"balance_minor": 81710000},
+      "where": {"account_id": "acct_gk_checking"}
+    },
+    {
+      "source_event_id": "S17_mut_severance_paid",
+      "server": "banking",
+      "table": "_counters",
+      "op": "update",
+      "set": {"value": 241},
+      "where": {"key": "tx_seq"}
+    }
+  ]
+}

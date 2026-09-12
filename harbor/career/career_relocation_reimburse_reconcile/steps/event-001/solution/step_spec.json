@@ -1,0 +1,15 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "S01_notif_hr_doc",
+  "response": "The HR notice reminder was recorded for review.",
+  "response_paraphrase": "The notice prompt is logged for follow-up.",
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

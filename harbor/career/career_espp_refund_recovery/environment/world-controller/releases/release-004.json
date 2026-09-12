@@ -1,0 +1,47 @@
+{
+  "release_id": "release-004",
+  "before_step": "event-017",
+  "previous": "release-003",
+  "token": "career_espp_refund_recovery_release-004_token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "interview",
+        "updated_at": "2026-07-02T08:00:00Z"
+      },
+      "where": {
+        "job_id": "job_gk_0002",
+        "status": "submitted"
+      }
+    },
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "viewed",
+        "updated_at": "2026-07-02T08:00:00Z"
+      },
+      "where": {
+        "job_id": "job_gk_0003",
+        "status": "submitted"
+      }
+    },
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "viewed",
+        "updated_at": "2026-07-02T08:00:00Z"
+      },
+      "where": {
+        "job_id": "job_gk_0004",
+        "status": "submitted"
+      }
+    }
+  ]
+}

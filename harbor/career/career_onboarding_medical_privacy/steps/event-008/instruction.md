@@ -1,0 +1,1 @@
+Draft a minimum-disclosure plan: I may consider a clinic-issued fitness-for-general-office-work conclusion, but not full metrics, clinic records, medication history, or physician contacts. List purpose, recipient, retention, and deletion questions for HR. Show me for confirmation before sending.

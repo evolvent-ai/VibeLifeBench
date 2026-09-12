@@ -1,0 +1,28 @@
+{
+  "step": "event-027",
+  "virtual_stage": 22,
+  "source_event_id": "tax_s22_statement_ready",
+  "stage_boundary": false,
+  "response": "The requested records were updated with verified backend evidence and authorization-aware next steps.",
+  "response_paraphrase": "Stage 22 records now preserve source evidence, user control, and review follow-ups.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "tax_s22_statement_ready",
+      "virtual_stage": 22,
+      "event_kind": "notification",
+      "event_time": "2026-08-13T09:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "release-010"
+    ]
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

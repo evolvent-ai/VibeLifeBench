@@ -1,0 +1,1 @@
+The supply and demand for internet backend-engineering talent in Shanghai has recently remained stable, with the number of open roles at major platforms unchanged from last month. Consult the job platform for current listings.

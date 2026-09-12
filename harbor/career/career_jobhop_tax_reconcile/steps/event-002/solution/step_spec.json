@@ -1,0 +1,29 @@
+{
+  "step": "event-002",
+  "virtual_stage": 1,
+  "source_event_id": "tax_s01_user_review_sources",
+  "stage_boundary": true,
+  "response": "The requested records were updated with verified backend evidence and authorization-aware next steps.",
+  "response_paraphrase": "Stage 1 records now preserve source evidence, user control, and review follow-ups.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "source_event_id": "tax_s01_user_review_sources",
+      "virtual_stage": 1,
+      "event_kind": "user_message",
+      "event_time": "2026-06-09T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "tax_s01_source_documents_itemized",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

@@ -1,0 +1,35 @@
+{
+  "step": "event-004",
+  "virtual_stage": 2,
+  "source_event_id": "S02_user_base_salary",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I calculated the trailing twelve-month payroll average, including bonuses and the position allowance, as the evidence-based wage base.",
+  "response_paraphrase": "The stage 2 record now preserves the relevant evidence, authorization boundary, and next action in different wording.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S02_user_base_salary",
+      "virtual_stage": 2,
+      "event_kind": "user_message",
+      "event_time": "2026-06-10T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_base_backend",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s2_avg_salary_computed",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

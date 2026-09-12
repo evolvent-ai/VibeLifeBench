@@ -1,0 +1,33 @@
+{
+  "release_id": "release-003",
+  "token": "career_seed_017_sqe_to_supply_chain_data-release",
+  "previous": "release-002",
+  "source_stage": 8,
+  "source_event_stage": 8,
+  "source_time": "2026-07-08T07:50:00+08:00",
+  "source_event_ids": ["evt_013"],
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "source_event_id": "evt_013",
+      "conflict_keys": ["event_id"],
+      "values": {
+        "event_id": "cal_audit_changshu_0711",
+        "calendar_id": "cal_lin_work",
+        "summary": "supplieron-sitebusiness record（business record）",
+        "description": "Michael Qiaobusiness recordcurrentbusiness record；business record。",
+        "location": "Suzhoubusiness record",
+        "start_dt": "2026-07-11T13:30:00+08:00",
+        "end_dt": "2026-07-11T17:30:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-07-08T07:50:00+08:00",
+        "updated_at": "2026-07-08T07:50:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      }
+    }
+  ]
+}

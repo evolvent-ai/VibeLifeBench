@@ -1,0 +1,15 @@
+{
+  "step": "event-031",
+  "virtual_stage": 22,
+  "source_event_id": "S22_followup_0",
+  "response": "The periodic follow-up reminder was recorded.",
+  "response_paraphrase": "The follow-up reminder is logged.",
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

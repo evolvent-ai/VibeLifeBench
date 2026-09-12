@@ -1,0 +1,28 @@
+{
+ "step": "event-025",
+ "stage": 17,
+ "event_id": "S17_user_verify_paid",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 17
+  }
+ ],
+ "response_paraphrase": "I confirmed the share-plan deposit and marked it as only a partial settlement.",
+ "expected_env": {
+  "virtual_stage": 17,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s17_equity_payment_backend",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s17_payment_reconciled",
+   "weight": 3.5
+  }
+ ],
+ "expected_stage_weight": 5.5,
+ "source_event_id": "S17_user_verify_paid"
+}

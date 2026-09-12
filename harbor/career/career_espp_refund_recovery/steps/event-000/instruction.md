@@ -1,0 +1,2 @@
+[2026-06-08T11:00:00+08:00] Hello, I need your help. HR sent me a written notice saying that when I leave, the company will redeem my vested shares or options using a very low valuation. I suspect the amount is seriously understated. My last working day is June 30. I have worked there for nearly eight years, and my wife is pregnant, so this timing has left me overwhelmed. We need to verify the employee share plan spread proposal and urgently restart my job search. Please organize this and create a tracking board using the workspace information.
+

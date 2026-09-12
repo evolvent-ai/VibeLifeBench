@@ -1,0 +1,35 @@
+{
+  "step": "event-030",
+  "virtual_stage": 21,
+  "source_event_id": "S21_user_wrapup",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the transition wrap-up covering severance, privacy boundaries, reemployment progress, and pending decisions.",
+  "response_paraphrase": "The stage 21 record now preserves the relevant evidence, authorization boundary, and next action in different wording.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S21_user_wrapup",
+      "virtual_stage": 21,
+      "event_kind": "user_message",
+      "event_time": "2026-08-10T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_wrapup_severance",
+      "weight": 2.5,
+      "expected": true
+    },
+    {
+      "check_id": "s21_wrapup_reemploy",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

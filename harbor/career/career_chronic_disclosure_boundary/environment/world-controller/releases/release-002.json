@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "S10_mut_hr_revise"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-06-24T09:55:00+08:00",
+  "previous": "release-001",
+  "token": "career-release-02-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 103,
+        "folder_id": 1,
+        "message_id": "<20260624-revise@liyaobio.com>",
+        "subject": "Re: English text——English text",
+        "from_addr": "English text HR English text <hr.qinshuang@liyaobio.com>",
+        "to_addr_json": "[\"feng.yi@163.com\"]",
+        "date": "2026-06-24T09:55:00Z",
+        "created_at": "2026-06-24T09:55:00Z",
+        "body_text": "English text，English text。English text，English text。\nEnglish text，English text。English text。\n",
+        "is_read": 1,
+        "is_important": 1,
+        "size": 500
+      },
+      "source_event_id": "S10_mut_hr_revise"
+    }
+  ]
+}

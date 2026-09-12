@@ -1,0 +1,6 @@
+# discussiondatadata
+
+- datadata、datadataprivacy、datarequestdatadatadatadatadatadata。
+- datadatacompleteauthorizationexplicitdatadata `requested`、`declined` data `conditional`。
+- datasourcedatadatadatadatadatadatadatasensitivedatadata；datadatadatadatadatadatadatadatadatadatadatadatadatadatadata。
+- datadatadatadatarequest，datadatadatadatadatadatadatadatadata、recipient、datadatadatadeletiondatadata。

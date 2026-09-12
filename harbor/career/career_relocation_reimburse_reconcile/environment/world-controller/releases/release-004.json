@@ -1,0 +1,36 @@
+{
+  "release": "release-004",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update_many",
+      "where": {
+        "status": "submitted"
+      },
+      "set": {
+        "status": "interview",
+        "updated_at": "2026-07-02T08:00:00Z"
+      },
+      "limit": 1,
+      "order_by": [
+        "application_id"
+      ]
+    },
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update_many",
+      "where": {
+        "status": "submitted"
+      },
+      "set": {
+        "status": "viewed",
+        "updated_at": "2026-07-02T08:00:00Z"
+      }
+    }
+  ],
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "career-relocation-reimburse-reconcile-release-004-token-000000"
+}

@@ -1,0 +1,1 @@
+[2026-07-30T10:00:00+08:00] Prepare a decision package with full and partial scenarios at the latest quote, cash shortfall, tax boundaries, deadline, irreversible risks, waiting items, and confirmation questions. Prepare only; do not submit exercise, sale, financing, or employment decisions.

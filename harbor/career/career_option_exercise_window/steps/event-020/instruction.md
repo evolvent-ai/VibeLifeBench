@@ -1,0 +1,1 @@
+[2026-07-13T13:40:00+08:00] Reply with only minimum availability information. Do not disclose grant ID, quantity, exercise price, valuation, funding, or another offer's salary. Preserve evidence of the actual disclosure scope.

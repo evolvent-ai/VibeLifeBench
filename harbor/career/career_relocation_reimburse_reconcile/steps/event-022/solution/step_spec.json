@@ -1,0 +1,20 @@
+{
+  "step": "event-022",
+  "virtual_stage": 15,
+  "source_event_id": "S15_user_interview_prep",
+  "response": "Technical preparation was tied to the Meituan JD.",
+  "response_paraphrase": "Preparation topics were derived from the role requirements.",
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s15_prep_from_jd",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

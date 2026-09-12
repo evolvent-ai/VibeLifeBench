@@ -1,0 +1,24 @@
+{
+  "step": "event-003",
+  "virtual_stage": 2,
+  "source_event_id": "evt_004",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The career-search records were updated with verified evidence, privacy controls, and authorization-aware next steps.",
+  "response_paraphrase": "I updated the stage 2 career records while preserving evidence, privacy, and Claire Lin's approval gates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_004",
+      "virtual_stage": 2,
+      "event_kind": "notification",
+      "event_time": "2026-07-02T19:45:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0.0
+}

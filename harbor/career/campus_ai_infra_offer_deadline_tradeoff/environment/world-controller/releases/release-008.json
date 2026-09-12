@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "evt_023"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-05-31T18:00:00+08:00",
+  "previous": "release-007",
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-008-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 213,
+        "folder_id": 1,
+        "message_id": "<20260531-starridge-deadline-shortened@example.com>",
+        "subject": "StarRidge AI offer response-deadline update",
+        "from_addr": "hr-starridge-chen@example.com",
+        "to_addr_json": "[\"lin.che@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-05-31T01:00:00Z",
+        "body_text": "Due to a campus-recruiting batch adjustment, your StarRidge AI written-offer response deadline moved from 2026-06-08 18:00 to 2026-06-04 18:00. A confirming reply counts as acceptance; please act carefully.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 620,
+        "created_at": "2026-05-31T01:00:00Z"
+      },
+      "source_event_id": "evt_023",
+      "operation_index": 0
+    }
+  ]
+}

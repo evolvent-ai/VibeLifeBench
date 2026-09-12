@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "evt_007"
+  ],
+  "source_stage": 3,
+  "source_time": "2026-05-15T11:20:00+08:00",
+  "previous": null,
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-000-token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "chat_messages",
+      "op": "insert",
+      "values": {
+        "message_id": "msg_bytelattice_referral_screen",
+        "chat_id": "chat_bytelattice_001",
+        "sender": "recruiter",
+        "body": "ByteLattice The employee referral has entered referral_screen; a joint algorithm and systems interview may be scheduled.",
+        "sent_at": "2026-05-15T03:10:00Z"
+      },
+      "source_event_id": "evt_007",
+      "operation_index": 0
+    }
+  ]
+}

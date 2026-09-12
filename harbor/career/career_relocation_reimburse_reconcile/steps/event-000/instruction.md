@@ -1,0 +1,3 @@
+Hello, I need your help. Today HR sent me a written notice saying that there is a dispute over relocation-expense reimbursement from when I changed jobs this year. The company and withholding party used a very low basis, so the refund or supplemental amount due to me has been reduced. My last working day is June 30. I have worked at this company for nearly eight years, and my wife is pregnant, so I am overwhelmed by the timing.
+
+We need to handle two things in parallel: first, carefully verify the company's proposed relocation reimbursement shortfall and make sure I am not misled; second, restart my job search immediately. Please get this organized and create a tracking board. You can review the materials in the workspace for my background.

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "S12_mut_app_advance"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-07-02T08:00:00+08:00",
+  "previous": "release-003",
+  "token": "career-release-04-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "interview",
+        "updated_at": "2026-07-02T08:00:00Z"
+      },
+      "where": {
+        "application_id": "app_mj_001"
+      },
+      "source_event_id": "S12_mut_app_advance"
+    },
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "viewed",
+        "updated_at": "2026-07-02T08:00:00Z"
+      },
+      "where": {
+        "user_id": "usr_feng_yi",
+        "status": "submitted"
+      },
+      "source_event_id": "S12_mut_app_advance",
+      "allow_many": true
+    }
+  ]
+}

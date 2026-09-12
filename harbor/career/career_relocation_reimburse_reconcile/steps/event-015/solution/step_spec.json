@@ -1,0 +1,20 @@
+{
+  "step": "event-015",
+  "virtual_stage": 10,
+  "source_event_id": "S10_user_negotiate",
+  "response": "A calculation memo and claim were drafted for review before sending.",
+  "response_paraphrase": "The written calculation and claim are ready for authorization review.",
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s10_demand_letter_drafted",
+      "weight": 4
+    }
+  ],
+  "expected_stage_weight": 4
+}

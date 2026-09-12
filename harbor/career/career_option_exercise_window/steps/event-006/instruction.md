@@ -1,0 +1,1 @@
+[2026-06-11T14:00:00+08:00] Research individual-income-tax policy for equity incentives, contract notice and good-faith rules, and comparable post-employment-window cases. Record source titles, provisions, and applicability limits. Do not infer that a tax preference requires an extended window.

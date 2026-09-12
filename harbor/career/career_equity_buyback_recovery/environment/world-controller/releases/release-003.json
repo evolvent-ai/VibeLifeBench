@@ -1,0 +1,38 @@
+{
+  "release_id": "release-003",
+  "before_step": "event-016",
+  "previous": "release-002",
+  "token": "career-equity-release-4d7a2b91",
+  "operations": [
+    {
+      "source_event_id": "S11_mut_interview_invite",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 104,
+        "folder_id": 1,
+        "message_id": "<20260629-itw@meituan.com>",
+        "subject": "Meituan senior backend engineer interview invitation",
+        "from_addr": "Meituan Recruiting <campus@meituan.com>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-06-29T01:55:00Z",
+        "body_text": "Hello Ji Chen, we found your backend and transaction-platform experience through your public recruiting profile and invite you to a first-round interview for Senior Backend Engineer (Transaction Platform). If you already applied, the application flow will advance in sync. Please choose a morning between July 1 and July 3.",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 500,
+        "headers_json": "{}",
+        "created_at": "2026-06-29T01:55:00Z"
+      }
+    },
+    {
+      "source_event_id": "S11_mut_interview_invite",
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "allow_zero": true,
+      "set": {"status": "interview", "updated_at": "2026-06-29T01:55:00Z"},
+      "where": {"job_id": "job_gk_0001", "status": "submitted"}
+    }
+  ]
+}

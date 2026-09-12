@@ -1,0 +1,1 @@
+[2026-06-15T09:45:00+08:00] The equity administrator sent a personal grant reconciliation statement. Treat its grant ID, quantities, exercise price, and pending written-confirmation status as authoritative.

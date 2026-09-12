@@ -1,0 +1,1 @@
+[2026-06-09T10:00:00+08:00] Extract grant ID and date, vested and unvested quantities, exercise price, last working day, default post-employment window, expiry handling, and administrator contact. Keep source identifiers and do not treat a generic plan deadline as a confirmed personal deadline.

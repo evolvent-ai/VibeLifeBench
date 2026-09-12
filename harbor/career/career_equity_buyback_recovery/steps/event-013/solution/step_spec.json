@@ -1,0 +1,24 @@
+{
+  "step": "event-013",
+  "stage": 8,
+  "event_id": "S08_user_search_jobs",
+  "source_event_id": "S08_user_search_jobs",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 8
+    }
+  ],
+  "response_paraphrase": "The stage 13 review is complete; I updated evidence and left decisions with Ji Chen.",
+  "expected_env": {
+    "virtual_stage": 8,
+    "workspace": "/workspace"
+  },
+  "expected_checks": [
+    {
+      "check_id": "s8_search_done",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

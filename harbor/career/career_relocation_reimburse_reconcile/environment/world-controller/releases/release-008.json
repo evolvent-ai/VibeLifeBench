@@ -1,0 +1,34 @@
+{
+  "release": "release-008",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_gk_severance",
+        "account_id": "acct_gk_checking",
+        "posted_at": "2026-07-16T08:00:00Z",
+        "amount_minor": 20080000,
+        "kind": "deposit",
+        "counterparty": "Lithic Manufacturing Technology (Shanghai) Co., Ltd.",
+        "memo": "Departure settlement payment (company unilateral plan, pending verification)",
+        "balance_after_minor": 81780000
+      }
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "where": {
+        "account_id": "acct_gk_checking"
+      },
+      "set": {
+        "balance_minor": 81780000
+      }
+    }
+  ],
+  "release_id": "release-008",
+  "previous": "release-007",
+  "token": "career-relocation-reimburse-reconcile-release-008-token-000000"
+}

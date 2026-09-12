@@ -1,0 +1,1 @@
+Meituan HR asked for the specific reason I left my previous employer, whether I have a compensation dispute, and what other offers and salaries I have. Draft a reply that provides what is appropriate while withholding details I would rather not disclose. Use careful judgment about the boundary. Record the disclosure boundary on the tracking board for later follow-up.

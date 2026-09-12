@@ -1,0 +1,32 @@
+{
+  "release_id": "release-005",
+  "source_stage": 13,
+  "source_time": "2026-07-06T09:35:00+08:00",
+  "source_event_ids": ["tax_s13_correction_receipt"],
+  "token": "career_jobhop_tax_reconcile-release-token",
+  "previous": "release-004",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_stage": 13,
+      "source_time": "2026-07-06T09:35:00+08:00",
+      "source_event_id": "tax_s13_correction_receipt",
+      "values": {
+        "id": 5010,
+        "folder_id": 1,
+        "message_id": "<20260706-correction-receipt@hanlandata.example>",
+      "subject": "Withholding correction completed: duplicate April performance entry removed",
+      "from_addr": "Hanlan Data Payroll, Ji Tong <payroll.jitong@hanlandata.example>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-07-06T09:35:00+08:00",
+        "created_at": "2026-07-06T09:35:00+08:00",
+      "body_text": "The tax system returned a correction-completed receipt. April 2025 income changed from CNY 43,600 to CNY 35,600 and tax withheld changed from CNY 1,760 to CNY 960. The duplicate CNY 8,000 performance income and corresponding CNY 800 withholding were removed; the departure settlement and one-time bonus were unchanged.\nCase TAX-CORR-2026-0618 is closed. You must personally review the updated income, tax withheld, and refund estimate in the tax application.\n",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 532
+      }
+    }
+  ]
+}

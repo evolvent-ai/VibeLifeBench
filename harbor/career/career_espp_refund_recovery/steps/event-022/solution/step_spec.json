@@ -1,0 +1,24 @@
+{
+ "step": "event-022",
+ "stage": 15,
+ "event_id": "S15_user_interview_prep",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 15
+  }
+ ],
+ "response_paraphrase": "I read the Meituan posting and tied concrete preparation subjects to the corresponding application.",
+ "expected_env": {
+  "virtual_stage": 15,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s15_prep_from_jd",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "source_event_id": "S15_user_interview_prep"
+}

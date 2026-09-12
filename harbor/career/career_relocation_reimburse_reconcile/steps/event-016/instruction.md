@@ -1,0 +1,1 @@
+Meituan invited me to interview and asked me to choose a morning slot between July 1 and July 3. Check my calendar, select a time that does not conflict with anything, reply to them, and add it to my calendar. Make sure it does not overlap any of my fixed commitments.

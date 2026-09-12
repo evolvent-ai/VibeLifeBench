@@ -1,0 +1,24 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "event_id": "S00_kickoff_user",
+  "source_event_id": "S00_kickoff_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 0
+    }
+  ],
+  "response_paraphrase": "The stage 0 review is complete; I updated evidence and left decisions with Ji Chen.",
+  "expected_env": {
+    "virtual_stage": 0,
+    "workspace": "/workspace"
+  },
+  "expected_checks": [
+    {
+      "check_id": "s0_dual_track_tracker",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

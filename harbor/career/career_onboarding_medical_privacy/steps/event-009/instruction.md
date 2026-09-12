@@ -1,0 +1,1 @@
+I did not authorize uploading a report or screenshot and do not agree to default consent. Record the refusal and ask only for lawful basis and minimum alternatives; do not include my specific health situation.

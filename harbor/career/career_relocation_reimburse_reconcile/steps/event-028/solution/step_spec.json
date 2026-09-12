@@ -1,0 +1,20 @@
+{
+  "step": "event-028",
+  "virtual_stage": 19,
+  "source_event_id": "S19_notif_quiet",
+  "response": "The compensation and reemployment state was maintained with unresolved next actions.",
+  "response_paraphrase": "Both workstreams remain current with pending follow-up.",
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s19_maintains_state",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

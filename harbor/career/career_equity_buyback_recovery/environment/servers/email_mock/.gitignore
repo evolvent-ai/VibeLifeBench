@@ -1,0 +1,15 @@
+# Python-generated files
+__pycache__/
+*.py[cod]
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Virtual environments
+.venv/
+
+# SQLite local state
+*.db
+*.db-wal
+*.db-shm

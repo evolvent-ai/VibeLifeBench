@@ -1,0 +1,28 @@
+{
+  "step": "event-024",
+  "stage": 21,
+  "virtual_stage": 21,
+  "source_event_id": "evt_035",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "StarRidge evidence and risks are archived, a 2026-07-20 onboarding reminder is active, and the audit records that sensitive materials were not sent. No other company was contacted or withdrawn from.",
+  "response_paraphrase": "The completed decision is filed with its supporting record and follow-ups; private documents remain undisclosed, and all outbound activity toward the remaining employers has stopped.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_035",
+      "event_time": "2026-06-06T20:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_21_archive_and_onboarding_reminders_created",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

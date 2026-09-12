@@ -1,0 +1,20 @@
+{
+  "step": "event-012",
+  "virtual_stage": 7,
+  "source_event_id": "S07_notif_job_rec",
+  "response": "The role and application monitoring plan remains active.",
+  "response_paraphrase": "Job-search and role monitoring remain on the tracking plan.",
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s7_quiet_monitor",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

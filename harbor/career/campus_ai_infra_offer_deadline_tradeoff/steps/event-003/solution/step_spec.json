@@ -1,0 +1,28 @@
+{
+  "step": "event-003",
+  "stage": 2,
+  "virtual_stage": 2,
+  "source_event_id": "evt_005",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "StarRidge AI, MatrixCloud, ByteLattice, and Qingyan Compute are recorded with their current statuses, and a reminder now reserves a review of role, offer, progress, and risk evidence.",
+  "response_paraphrase": "All four core opportunities have been added to the persistent tracker, with a scheduled checkpoint for reviewing their recruiting progress and documented terms.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_005",
+      "event_time": "2026-05-14T10:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_02_core_jobs_and_review_reminder_created",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

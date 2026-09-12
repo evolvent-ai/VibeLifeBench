@@ -1,0 +1,127 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        HTTP_PROXY: ${HTTP_PROXY:-}
+        HTTPS_PROXY: ${HTTPS_PROXY:-}
+        NO_PROXY: ${NO_PROXY:-},127.0.0.1,::1,banking,brokerage,calendar,email,job-board,job_board,legal-search,legal_search,localhost,notion,workspace-init,workspace_init,world-controller,world_controller
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      world-controller: {condition: service_healthy}
+      banking: {condition: service_healthy}
+      brokerage: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      email: {condition: service_healthy}
+      job-board: {condition: service_healthy}
+      legal-search: {condition: service_healthy}
+      notion: {condition: service_healthy}
+    volumes:
+      - workspace-state:/workspace
+      - eval-evidence:/harbor/evidence:ro
+      - world-clock:/world-clock:ro
+      - agent-logs:/logs/agent
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: 127.0.0.1,::1,banking,brokerage,calendar,email,job-board,job_board,legal-search,legal_search,localhost,notion,workspace-init,workspace_init,world-controller,world_controller
+      no_proxy: 127.0.0.1,::1,banking,brokerage,calendar,email,job-board,job_board,legal-search,legal_search,localhost,notion,workspace-init,workspace_init,world-controller,world_controller
+  workspace-init:
+    build: {context: ., dockerfile: workspace-init/Dockerfile}
+    volumes: [workspace-state:/target]
+    restart: "no"
+  banking:
+    build:
+      context: .
+      dockerfile: servers/banking_mock_task/Dockerfile
+      args: &proxy_args
+        HTTP_PROXY: ${HTTP_PROXY:-}
+        HTTPS_PROXY: ${HTTPS_PROXY:-}
+        NO_PROXY: ${NO_PROXY:-}
+    volumes: [./seeds/banking:/env-seed:ro, banking-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: &health {test: [CMD, python, -c, "import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()"], interval: 2s, timeout: 5s, retries: 30, start_period: 3s}
+  brokerage:
+    build: {context: ., dockerfile: servers/brokerage_mock_task/Dockerfile, args: *proxy_args}
+    volumes: [./seeds/brokerage:/env-seed:ro, brokerage-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *health
+  calendar:
+    build: {context: ., dockerfile: servers/calendar_mock_task/Dockerfile, args: *proxy_args}
+    volumes: [./seeds/calendar:/env-seed:ro, calendar-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *health
+  email:
+    build: {context: ., dockerfile: servers/email_mock_task/Dockerfile, args: *proxy_args}
+    volumes: [./seeds/email:/env-seed:ro, email-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *health
+  job-board:
+    build: {context: ., dockerfile: servers/job_board_mock_task/Dockerfile, args: *proxy_args}
+    volumes: [./seeds/job_board:/env-seed:ro, job-board-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *health
+  legal-search:
+    build: {context: ., dockerfile: servers/legal_search_mock_task/Dockerfile, args: *proxy_args}
+    volumes: [./seeds/legal_search:/env-seed:ro, legal-search-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *health
+  notion:
+    build: {context: ., dockerfile: servers/notion_mock_task/Dockerfile, args: *proxy_args}
+    volumes: [./seeds/notion:/env-seed:ro, notion-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *health
+  world-controller:
+    build:
+      context: .
+      dockerfile: world-controller/Dockerfile
+      args: *proxy_args
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      banking: {condition: service_healthy}
+      brokerage: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      email: {condition: service_healthy}
+      job-board: {condition: service_healthy}
+      legal-search: {condition: service_healthy}
+      notion: {condition: service_healthy}
+    volumes:
+      - banking-env:/banking-env
+      - brokerage-env:/brokerage-env
+      - calendar-env:/calendar-env
+      - email-env:/email-env
+      - job-board-env:/job-board-env
+      - legal-search-env:/legal-search-env
+      - notion-env:/notion-env
+      - controller-state:/controller-state
+      - eval-evidence:/evidence
+      - world-clock:/world-clock
+      - workspace-state:/workspace-source:ro
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      CLOCK_TOKEN: career_espp_refund_recovery_clock_token
+      HEALTH_TOKEN: career-espp-health-6fd1289b
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,brokerage,calendar,email,job-board,legal-search,notion
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,brokerage,calendar,email,job-board,legal-search,notion
+    expose: ["8090"]
+    healthcheck: {test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health',timeout=2).read()"], interval: 2s, timeout: 5s, retries: 30, start_period: 3s}
+volumes:
+  workspace-state: {}
+  banking-env: {}
+  brokerage-env: {}
+  calendar-env: {}
+  email-env: {}
+  job-board-env: {}
+  legal-search-env: {}
+  notion-env: {}
+  controller-state: {}
+  eval-evidence: {}
+  world-clock: {}
+  agent-logs: {}

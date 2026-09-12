@@ -1,0 +1,1 @@
+[2026-08-19T09:30:00+08:00] After refresh, qualifying Shanghai direct-hire applications remain in interview or entered an employment indication. The VectorBase noncompete-compensation gap remains unresolved; query applications and messages separately.

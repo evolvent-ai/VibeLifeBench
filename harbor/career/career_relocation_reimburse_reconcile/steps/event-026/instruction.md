@@ -1,0 +1,1 @@
+The formal Meituan offer has arrived. Create a structured comparison between the Meituan and Dewu offers covering total compensation, stability, employment arrangement, non-compete terms, and development prospects. Give me a recommendation, but I will decide whether to accept either one.

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "evt_021"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-05-29T12:00:00+08:00",
+  "previous": "release-006",
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-007-token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "offer",
+        "updated_at": "2026-05-29T03:30:00Z"
+      },
+      "where": {
+        "application_id": "app_starridge_001"
+      },
+      "source_event_id": "evt_021",
+      "operation_index": 0
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 212,
+        "folder_id": 1,
+        "message_id": "<20260529-starridge-offer@example.com>",
+        "subject": "StarRidge AI LLM Inference Optimization Engineer Offer Letter",
+        "from_addr": "hr-starridge-chen@example.com",
+        "to_addr_json": "[\"lin.che@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-05-29T03:30:00Z",
+        "body_text": "Hello Ethan, StarRidge AI offers a Shanghai LLM Inference Optimization Engineer written offer: monthly salary 31k, 14 salary payments, annual cash compensation 434k; RSUs 80k/4y listed separately, with vesting governed by the agreement; initial response deadline 2026-06-08 18:00. Acceptance still requires your confirmation in the system.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 820,
+        "created_at": "2026-05-29T03:30:00Z"
+      },
+      "source_event_id": "evt_021",
+      "operation_index": 1
+    }
+  ]
+}

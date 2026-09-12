@@ -1,0 +1,42 @@
+{
+  "release_id": "release-000a",
+  "token": "career_seed_017_sqe_to_supply_chain_data-release",
+  "previous": "release-000",
+  "source_stage": 3,
+  "source_event_stage": 3,
+  "source_time": "2026-07-03T10:00:00+08:00",
+  "source_event_ids": [
+    "evt_007"
+  ],
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "evt_007",
+      "conflict_keys": [
+        "id"
+      ],
+      "values": {
+        "id": 10,
+        "folder_id": 1,
+        "message_id": "<seed-10@career.example>",
+        "subject": "Orbit recruiter: Wuxi supply chain BI role lead",
+        "from_addr": "Ethan Lin <lin.recruiter@orbit.example>",
+        "to_addr_json": "[\"lin.che@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-03T09:30:00+08:00",
+        "body_text": "Hello Claire, I have a Wuxi supply chain BI role that may fit your quality-data background. Please send your resume first and I can share the detailed JD afterward.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 10,
+        "size": 177,
+        "created_at": "2026-07-03T09:30:00+08:00"
+      }
+    }
+  ]
+}

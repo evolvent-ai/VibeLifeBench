@@ -1,0 +1,32 @@
+{
+  "step": "event-004",
+  "stage": 3,
+  "virtual_stage": 3,
+  "source_event_id": "evt_006",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "evt_007"
+    ]
+  },
+  "response": "The resume fact boundary is recorded as vLLM performance evaluation, KV cache compression, and CUDA profiling only; ByteLattice is at referral_screen and no extra experience was invented.",
+  "response_paraphrase": "I verified the existing resume and recruiter chat, limited the profile to the three confirmed technical areas, and logged the ByteLattice referral screening status without embellishment.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_006",
+      "event_time": "2026-05-15T11:20:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_03_resume_boundary_and_bytelattice_status",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

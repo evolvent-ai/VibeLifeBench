@@ -1,0 +1,1 @@
+[2026-07-10T10:00:00+08:00] Read the Qingyuan Computing role's own description and prepare platform-reliability and distributed-systems interview points. Write job ID, evidence, and next step to the tracker.

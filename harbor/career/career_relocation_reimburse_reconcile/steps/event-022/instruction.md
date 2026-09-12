@@ -1,0 +1,1 @@
+My Meituan interview is approaching. Review the role requirements again, connect them to the technical points in the job description, and list the areas I should focus on preparing. Record them on the tracking board.

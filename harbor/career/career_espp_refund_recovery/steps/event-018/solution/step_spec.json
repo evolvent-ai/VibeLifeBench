@@ -1,0 +1,24 @@
+{
+ "step": "event-018",
+ "stage": 12,
+ "event_id": "S12_user_status_check",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 12
+  }
+ ],
+ "response_paraphrase": "I checked the application records and copied their server-issued identifiers into the tracker.",
+ "expected_env": {
+  "virtual_stage": 12,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s12_status_synced",
+   "weight": 2.0
+  }
+ ],
+ "expected_stage_weight": 2.0,
+ "source_event_id": "S12_user_status_check"
+}

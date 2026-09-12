@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "step_count": 31,
+  "steps": {
+    "event-000": {
+      "source_event_id": "S00_kickoff_user",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-08T11:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "S01_notif_hr_doc",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-09T08:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "S01_user_read_notice",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-09T09:30:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "S02_world_bank",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-10T08:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "S02_user_base_salary",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-10T10:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "S03_notif_legal",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-11T08:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "S03_user_legal_basis",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-11T15:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "S04_notif_inbox",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T10:00:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "S05_user_check_plan",
+      "before": [],
+      "virtual_stage": 5,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-15T14:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "S05_notif_deadline",
+      "before": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-16T09:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "S06_user_hr_pressure",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-17T14:00:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "S07_world_market",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-19T08:30:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "S07_notif_job_rec",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-19T09:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "S08_user_search_jobs",
+      "before": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-20T10:00:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "S09_user_authorize_apply",
+      "before": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-22T10:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "S10_user_negotiate",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-24T14:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "S11_user_schedule",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-29T14:00:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "S12_notif_app",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-02T09:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "S12_user_status_check",
+      "before": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T10:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "S13_user_dewu",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T14:00:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "S14_user_scam",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T14:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "S15_world_itw",
+      "before": [],
+      "virtual_stage": 15,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-10T08:00:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "S15_user_interview_prep",
+      "before": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-10T10:00:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "S16_user_probe",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T14:00:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "S17_notif_bank",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 17,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-16T09:00:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "S17_user_verify_paid",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-16T10:00:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "S18_user_compare",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-20T14:00:00+08:00"
+    },
+    "event-027": {
+      "source_event_id": "S19_world_market",
+      "before": [],
+      "virtual_stage": 19,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-24T09:00:00+08:00"
+    },
+    "event-028": {
+      "source_event_id": "S19_notif_quiet",
+      "before": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-24T09:30:00+08:00"
+    },
+    "event-029": {
+      "source_event_id": "S20_user_finalize_severance",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-30T10:00:00+08:00"
+    },
+    "event-030": {
+      "source_event_id": "S21_user_wrapup",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-10T10:00:00+08:00"
+    }
+  }
+}

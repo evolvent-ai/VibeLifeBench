@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "S11_mut_interview_invite"
+  ],
+  "source_time": "2026-06-01T00:00:00+08:00",
+  "previous": "release-002",
+  "token": "career-background-check-consent-release-token-03-x",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 104,
+        "folder_id": 1,
+        "message_id": "<20260629-itw@meituan.com>",
+        "subject": "Meituan Senior Backend Engineer Interview Invitation",
+        "from_addr": "MeituanRecruiting <campus@meituan.com>",
+        "to_addr_json": "[\"sang.wu@163.com\"]",
+        "date": "2026-06-29T09:55:00Z",
+        "created_at": "2026-06-29T09:55:00Z",
+        "body_text": "Sang WuHello，detailsSenior Backend Engineer(details)details，details，\ndetails 7/1（details）details 7/3（details）details，details。\n",
+        "is_read": 1,
+        "is_important": 1,
+        "size": 500
+      }
+    }
+  ]
+}

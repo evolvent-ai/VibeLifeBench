@@ -1,0 +1,1 @@
+Review the offer intent, clinic notice, and authorization separately. Record requester, data category, purpose, recipient, retention period, and whether authorization exists. Attending a physical does not authorize every vendor to receive complete medical records.

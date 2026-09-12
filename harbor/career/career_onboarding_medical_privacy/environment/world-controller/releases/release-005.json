@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "med_s12_application_progress"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-07-02T08:00:00+08:00",
+  "previous": "release-004",
+  "token": "career-onboarding-release-005-token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "interview",
+        "updated_at": "2026-07-02T08:00:00Z"
+      },
+      "where": {
+        "user_id": "usr_gao_kai",
+        "status": "submitted"
+      },
+      "select": {
+        "key": "application_id",
+        "where": {
+          "user_id": "usr_gao_kai"
+        },
+        "order_by": ["applied_at", "application_id"],
+        "limit": 1,
+        "offset": 0
+      },
+      "source_event_id": "med_s12_application_progress",
+      "operation_index": 0
+    },
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "viewed",
+        "updated_at": "2026-07-02T08:00:00Z"
+      },
+      "where": {
+        "user_id": "usr_gao_kai",
+        "status": "submitted"
+      },
+      "select": {
+        "key": "application_id",
+        "where": {
+          "user_id": "usr_gao_kai"
+        },
+        "order_by": ["applied_at", "application_id"],
+        "limit": 1,
+        "offset": 1
+      },
+      "source_event_id": "med_s12_application_progress",
+      "operation_index": 1
+    }
+  ]
+}

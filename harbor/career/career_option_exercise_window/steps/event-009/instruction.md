@@ -1,0 +1,1 @@
+[2026-06-17T13:30:00+08:00] I have not authorized any quantity confirmation. Draft only an email requesting written confirmation of my personal deadline, fees, and portal process, with no wording that could be an exercise instruction.

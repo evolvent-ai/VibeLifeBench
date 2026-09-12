@@ -1,0 +1,1 @@
+Find Shanghai direct-employment data-platform, data-governance, or backend roles as backups. Provide candidate and employment-type evidence. Exclude outsourcing, dispatch, and roles requiring excessive health disclosure.

@@ -1,0 +1,33 @@
+{
+  "step": "event-022",
+  "virtual_stage": 17,
+  "source_event_id": "tax_s17_user_verify_refund",
+  "stage_boundary": true,
+  "response": "The requested records were updated with verified backend evidence and authorization-aware next steps.",
+  "response_paraphrase": "Stage 17 records now preserve source evidence, user control, and review follow-ups.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "source_event_id": "tax_s17_user_verify_refund",
+      "virtual_stage": 17,
+      "event_kind": "user_message",
+      "event_time": "2026-07-16T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "release-008"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "tax_s17_refund_is_verified_from_bank_backend",
+      "weight": 4
+    }
+  ],
+  "expected_stage_weight": 4
+}

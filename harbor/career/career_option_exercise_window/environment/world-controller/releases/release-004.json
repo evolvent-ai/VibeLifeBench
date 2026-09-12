@@ -1,0 +1,33 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "b17748093729a0e39fbcca68b0518b0b",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "interview",
+        "updated_at": "2026-07-02T08:00:00Z"
+      },
+      "where": {
+        "application_id": "app_000001",
+        "status": "submitted"
+      }
+    },
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "viewed",
+        "updated_at": "2026-07-02T08:00:00Z"
+      },
+      "where": {
+        "application_id": "app_000002",
+        "status": "submitted"
+      }
+    }
+  ]
+}

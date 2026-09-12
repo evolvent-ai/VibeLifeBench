@@ -1,0 +1,38 @@
+{
+  "step": "event-023",
+  "stage": 20,
+  "virtual_stage": 20,
+  "source_event_id": "evt_034",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The final packet compares StarRidge, MatrixCloud, ByteLattice, and Qingyan by cash, equity, deadline, evidence, and risk. StarRidge is the current compliant first choice, but every final action remains Ethan's decision.",
+  "response_paraphrase": "I refreshed email, recruiting, calendar, and platform records into one decision brief; it favors StarRidge under the stated constraints while reserving acceptance and rejection for you.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_034",
+      "event_time": "2026-06-04T20:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_20_final_packet_complete",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "stage_20_final_refresh_four_services_with_packet",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "stage_20_recommendation_balances_constraints_and_decision_reserved",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

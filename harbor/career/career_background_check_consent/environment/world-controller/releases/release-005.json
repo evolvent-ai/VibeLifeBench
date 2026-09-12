@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "S13_mut_dewu_offer"
+  ],
+  "source_time": "2026-06-01T00:00:00+08:00",
+  "previous": "release-004",
+  "token": "career-background-check-consent-release-token-05-x",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 105,
+        "folder_id": 1,
+        "message_id": "<20260706-offer@dewu.com>",
+        "subject": "Dewu Senior Backend Engineer Offer",
+        "from_addr": "DewuRecruiting <hr@dewu.com>",
+        "to_addr_json": "[\"sang.wu@163.com\"]",
+        "date": "2026-07-06T09:55:00Z",
+        "created_at": "2026-07-06T09:55:00Z",
+        "body_text": "Sang Wu, the offer pays salary month x 16. Joining requires signing a two years noncompete agreement covering competing e-commerce transaction roles; no noncompete compensation is stated. Please review before acceptance.\n",
+        "is_read": 1,
+        "is_important": 1,
+        "size": 500
+      }
+    }
+  ]
+}

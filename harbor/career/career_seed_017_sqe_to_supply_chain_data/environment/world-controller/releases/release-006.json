@@ -1,0 +1,52 @@
+{
+  "release_id": "release-006",
+  "token": "career_seed_017_sqe_to_supply_chain_data-release",
+  "previous": "release-005",
+  "source_stage": 15,
+  "source_event_stage": 15,
+  "source_time": "2026-07-15T16:30:00+08:00",
+  "source_event_ids": ["evt_026"],
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "evt_026",
+      "conflict_keys": ["id"],
+      "values": {
+        "id": 102,
+        "folder_id": 1,
+        "message_id": "<20260715-lumei-offer@lumei.example>",
+        "subject": "Lumet Electronics Offer business recordconfirmation",
+        "from_addr": "Jason Chen <chen.hr@lumei.example>",
+        "to_addr_json": "[\"lin.che@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-15T16:30:00+08:00",
+        "body_text": "Claire Linbusiness record，Lumet Electronicssupply chain data analyticsrolewritten offer：fixed monthly base salary base 19,000 business record，business recordovertime pay 2,000 business record/business record，night-shift allowance 1,000 business record/business record，13 business record。business recordWuxi，business recordsupportnight shiftsproduction linebusiness record。business record 7/20 18:00 business recordaccept。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 420,
+        "created_at": "2026-07-15T16:30:00+08:00"
+      }
+    },
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "source_event_id": "evt_026",
+      "allow_no_match": true,
+      "where": {
+        "user_id": "usr_lin_che",
+        "job_id": "job_lumei_sqe_data_002"
+      },
+      "set": {
+        "status": "offer",
+        "updated_at": "2026-07-15T16:30:00+08:00"
+      }
+    }
+  ]
+}

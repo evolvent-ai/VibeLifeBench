@@ -1,0 +1,11 @@
+# notenotenotenote
+
+- **email**：notenotegrantnotenote、notenotenotenotenote、notenotenotenotenotenotenotenotenotenotenotenote；notenotenotenotenotenotenotenote、notenotenotenotenote。
+- **brokerage**：`get_quote` notenotenotenotenotenotenotenote；`list_orders` notenotenotenotenotenotenotenotenotenotenotenote。notenotenotenotenotenotenote `get_positions` note。
+- **banking**：notenotenotenotenotenotenotenotenotenotenote；notenotenotenotenotenote，notenotenotenotenotenotenotenote。
+- **legal_search**：notenotenotenotenotenotenotenotenotenote、notenotenotenotenotenotenotenotenotenotenote，notenotenotenotenotenotenotenote。
+- **job_board**：notenotenote JD notenotenotenote、outsourced rolenotenotenotenotenote；notenotenotenotenotenotenotenote application notenotenotenote。
+- **calendar**：notenotenotenote、notenotenotenotenotenotenotenotepersonal deadlinenotenote，notenotenotenotenotenote grant_id。
+- **notion**：notenotenotenotenotenotenote；workspace notenotenotenotenotenotenotenotenotenotenotenotenotenote。
+
+notenotenotenotenotenotenotenotenotenote；notenotenotenotenotenotenotenotenotenotenotenotenotenotenotenote。

@@ -1,0 +1,1 @@
+[2026-07-16T10:00:00+08:00] Recalculate full and partial scenarios using the latest official close while preserving prior valuation and the reason for change. Do not alter vested quantity, exercise price, or an unconfirmed deadline.

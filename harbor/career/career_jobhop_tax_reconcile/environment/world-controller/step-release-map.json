@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "step_count": 34,
+  "steps": {
+    "event-000": {
+      "source_event_id": "tax_s00_kickoff",
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-08T11:00:00+08:00",
+      "before": []
+    },
+    "event-001": {
+      "source_event_id": "tax_s01_notice_reminder",
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-09T08:30:00+08:00",
+      "before": []
+    },
+    "event-002": {
+      "source_event_id": "tax_s01_user_review_sources",
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-09T10:00:00+08:00",
+      "before": []
+    },
+    "event-003": {
+      "source_event_id": "tax_s02_bank_available",
+      "virtual_stage": 2,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-10T08:20:00+08:00",
+      "before": []
+    },
+    "event-004": {
+      "source_event_id": "tax_s02_user_reconcile_income",
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-10T10:30:00+08:00",
+      "before": []
+    },
+    "event-005": {
+      "source_event_id": "tax_s03_legal_prompt",
+      "virtual_stage": 3,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-11T09:00:00+08:00",
+      "before": []
+    },
+    "event-006": {
+      "source_event_id": "tax_s03_user_verify_rules",
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-11T14:00:00+08:00",
+      "before": []
+    },
+    "event-007": {
+      "source_event_id": "tax_s04_notification",
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T09:45:00+08:00",
+      "before": [
+        "release-000"
+      ]
+    },
+    "event-008": {
+      "source_event_id": "tax_s05_user_build_variance",
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T14:00:00+08:00",
+      "before": []
+    },
+    "event-009": {
+      "source_event_id": "tax_s06_user_boundary",
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-17T13:30:00+08:00",
+      "before": [
+        "release-001"
+      ]
+    },
+    "event-010": {
+      "source_event_id": "tax_s07_deadline_monitor",
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-18T09:00:00+08:00",
+      "before": []
+    },
+    "event-011": {
+      "source_event_id": "tax_s08_job_market",
+      "virtual_stage": 8,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-19T08:50:00+08:00",
+      "before": []
+    },
+    "event-012": {
+      "source_event_id": "tax_s08_user_search",
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-19T10:20:00+08:00",
+      "before": []
+    },
+    "event-013": {
+      "source_event_id": "tax_s09_user_authorize_apply",
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-22T10:00:00+08:00",
+      "before": []
+    },
+    "event-014": {
+      "source_event_id": "tax_s10_user_packet",
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-24T14:00:00+08:00",
+      "before": [
+        "release-002"
+      ]
+    },
+    "event-015": {
+      "source_event_id": "tax_s11_user_checkpoint",
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-29T14:10:00+08:00",
+      "before": [
+        "release-003"
+      ]
+    },
+    "event-016": {
+      "source_event_id": "tax_s12_user_sync_jobs",
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T10:00:00+08:00",
+      "before": [
+        "release-004"
+      ]
+    },
+    "event-017": {
+      "source_event_id": "tax_s13_user_recalculate",
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T13:40:00+08:00",
+      "before": [
+        "release-005"
+      ]
+    },
+    "event-018": {
+      "source_event_id": "tax_s14_user_scam_review",
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T13:30:00+08:00",
+      "before": [
+        "release-006"
+      ]
+    },
+    "event-019": {
+      "source_event_id": "tax_s15_interview_prep",
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-10T10:00:00+08:00",
+      "before": []
+    },
+    "event-020": {
+      "source_event_id": "tax_s16_user_minimize_disclosure",
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T13:40:00+08:00",
+      "before": [
+        "release-007"
+      ]
+    },
+    "event-021": {
+      "source_event_id": "tax_s17_bank_notice",
+      "virtual_stage": 17,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-16T08:10:00+08:00",
+      "before": [
+        "release-008"
+      ]
+    },
+    "event-022": {
+      "source_event_id": "tax_s17_user_verify_refund",
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-16T10:00:00+08:00",
+      "before": []
+    },
+    "event-023": {
+      "source_event_id": "tax_s18_user_compare_offer",
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-20T13:50:00+08:00",
+      "before": [
+        "release-009"
+      ]
+    },
+    "event-024": {
+      "source_event_id": "tax_s19_quiet_monitor",
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-24T09:00:00+08:00",
+      "before": []
+    },
+    "event-025": {
+      "source_event_id": "tax_s20_user_archive_reply",
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-30T10:00:00+08:00",
+      "before": []
+    },
+    "event-026": {
+      "source_event_id": "tax_s21_user_wrapup",
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-10T10:00:00+08:00",
+      "before": []
+    },
+    "event-027": {
+      "source_event_id": "tax_s22_statement_ready",
+      "virtual_stage": 22,
+      "stage_boundary": false,
+      "scenario_time": "2026-08-13T09:00:00+08:00",
+      "before": [
+        "release-010"
+      ]
+    },
+    "event-028": {
+      "source_event_id": "tax_s22_user_monthly_verify",
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-13T10:00:00+08:00",
+      "before": []
+    },
+    "event-029": {
+      "source_event_id": "tax_s23_record_retention",
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-16T10:00:00+08:00",
+      "before": []
+    },
+    "event-030": {
+      "source_event_id": "tax_s24_job_followup",
+      "virtual_stage": 24,
+      "stage_boundary": false,
+      "scenario_time": "2026-08-19T09:30:00+08:00",
+      "before": [
+        "release-011"
+      ]
+    },
+    "event-031": {
+      "source_event_id": "tax_s24_user_sync_pipeline",
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-19T10:20:00+08:00",
+      "before": []
+    },
+    "event-032": {
+      "source_event_id": "tax_s25_deadline_review",
+      "virtual_stage": 25,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-22T10:00:00+08:00",
+      "before": []
+    },
+    "event-033": {
+      "source_event_id": "tax_s26_audit_close",
+      "virtual_stage": 26,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-25T10:00:00+08:00",
+      "before": []
+    }
+  }
+}

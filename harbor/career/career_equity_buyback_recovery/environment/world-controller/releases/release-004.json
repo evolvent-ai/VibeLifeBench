@@ -1,0 +1,26 @@
+{
+  "release_id": "release-004",
+  "before_step": "event-017",
+  "previous": "release-003",
+  "token": "career-equity-release-4d7a2b91",
+  "operations": [
+    {
+      "source_event_id": "S12_mut_app_advance",
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "allow_zero": true,
+      "set": {"status": "viewed", "updated_at": "2026-07-02T00:00:00Z"},
+      "where": {"status": "submitted"}
+    },
+    {
+      "source_event_id": "S12_mut_app_advance",
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "allow_zero": true,
+      "set": {"status": "interview", "updated_at": "2026-07-02T00:00:00Z"},
+      "where": {"status": "viewed"}
+    }
+  ]
+}

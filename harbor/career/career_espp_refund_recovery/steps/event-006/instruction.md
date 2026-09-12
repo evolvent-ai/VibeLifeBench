@@ -1,0 +1,2 @@
+[2026-06-11T15:00:00+08:00] Research the basis for a dispute over redemption of an employee share plan at resignation. Verify the original share plan or grant terms, review Civil Code rules on contract performance, standard-form clauses, and manifest unfairness, and find anonymized case summaries explaining judicial reasoning. Do not use salary or years of service as the equity spread basis. Record sources and their limits of application.
+

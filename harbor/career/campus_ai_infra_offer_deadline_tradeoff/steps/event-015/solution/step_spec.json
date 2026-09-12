@@ -1,0 +1,42 @@
+{
+  "step": "event-015",
+  "stage": 13,
+  "virtual_stage": 13,
+  "source_event_id": "evt_024",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "evt_023"
+    ]
+  },
+  "response": "StarRidge's latest written deadline is shortened to 2026-06-04 18:00 from 2026-06-08 18:00. The single calendar deadline and tracker are updated, with an urgent reminder but no acceptance.",
+  "response_paraphrase": "I reconciled the newer HR message with the earlier offer and moved the existing reminder to June 4 at 18:00, leaving the decision for Ethan.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_024",
+      "event_time": "2026-05-31T18:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_13_deadline_shortening_discovered_and_calendar_updated",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "stage_13_deadline_email_and_calendar_args_exact",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "stage_13_user_alerted_without_accepting",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

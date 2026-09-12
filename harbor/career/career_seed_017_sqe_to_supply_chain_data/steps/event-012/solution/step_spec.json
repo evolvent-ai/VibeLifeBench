@@ -1,0 +1,33 @@
+{
+  "step": "event-012",
+  "virtual_stage": 8,
+  "source_event_id": "evt_016",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The career-search records were updated with verified evidence, privacy controls, and authorization-aware next steps.",
+  "response_paraphrase": "I updated the stage 8 career records while preserving evidence, privacy, and Claire Lin's approval gates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_016",
+      "virtual_stage": 8,
+      "event_kind": "notification",
+      "event_time": "2026-07-08T08:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "ck_16",
+      "weight": 1.5
+    },
+    {
+      "check_id": "ck_17",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

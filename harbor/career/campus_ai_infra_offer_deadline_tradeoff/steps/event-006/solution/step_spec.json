@@ -1,0 +1,42 @@
+{
+  "step": "event-006",
+  "stage": 5,
+  "virtual_stage": 5,
+  "source_event_id": "evt_010",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "evt_009"
+    ]
+  },
+  "response": "The 2026-05-19 15:30 ByteLattice interview conflicts with the thesis adviser's 15:00-17:00 lab meeting. A draft lists 20:30 that day or 2026-05-20 10:00 as alternatives pending confirmation.",
+  "response_paraphrase": "I checked the invitation against the calendar, ruled out the overlapping afternoon slot, and prepared two non-conflicting options without confirming either one.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_010",
+      "event_time": "2026-05-17T16:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_05_interview_invite_and_conflict_checked",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "stage_05_bytelattice_alternative_slots_bound",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "stage_05_no_unapproved_interview_confirmation",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

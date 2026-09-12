@@ -1,0 +1,27 @@
+{
+  "release": "release-006",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 106,
+        "folder_id": 1,
+        "message_id": "<20260708-scam@banqian-vip.com>",
+        "subject": "Relocation reimbursement dispute services - win arbitration, pay materials first",
+        "from_addr": "Relocation Reimbursement Services <vip@banqian-vip.com>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-07-08T09:55:00Z",
+        "created_at": "2026-07-08T09:55:00Z",
+        "body_text": "We are a labor-arbitration agency. Pay CNY 3,000 materials fee and add our contact to start immediately. Act before the limitation period expires.",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 500
+      }
+    }
+  ],
+  "release_id": "release-006",
+  "previous": "release-005",
+  "token": "career-relocation-reimburse-reconcile-release-006-token-000000"
+}

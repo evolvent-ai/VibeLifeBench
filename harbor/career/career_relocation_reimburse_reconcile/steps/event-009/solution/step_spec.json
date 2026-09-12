@@ -1,0 +1,24 @@
+{
+  "step": "event-009",
+  "virtual_stage": 5,
+  "source_event_id": "S05_notif_deadline",
+  "response": "The lawful CNY 297,800 amount and CNY 97,000 shortfall were reconciled item by item.",
+  "response_paraphrase": "The line-item comparison records the lawful amount and remaining difference.",
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s5_reconcile_diff",
+      "weight": 3.0
+    },
+    {
+      "check_id": "s5_n_plus_one",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

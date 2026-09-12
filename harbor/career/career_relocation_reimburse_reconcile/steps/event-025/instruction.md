@@ -1,0 +1,1 @@
+The company says it paid the compensation. Check whether it actually reached my payroll account and how much was deposited. Compare it with the amount we calculated as legally due and determine which calculation basis the payment reflects. Update the relocation reimbursement reconciliation record.

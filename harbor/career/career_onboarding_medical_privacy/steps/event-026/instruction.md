@@ -1,0 +1,1 @@
+Perform a stage review of every health-data request, authorization status, actual sending, written commitment, residual risk, Hanyu and backup-job status, owners, and next steps. Keep source emails, health-record IDs, and job IDs, but no readings in the handoff summary.

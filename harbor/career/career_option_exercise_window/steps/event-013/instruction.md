@@ -1,0 +1,1 @@
+[2026-06-22T10:00:00+08:00] I authorize applications to screened direct-hire roles. Cite each role's own technical requirements and record job ID, employment arrangement, and status. Do not disclose grant ID, quantity, exercise price, or funding plans.

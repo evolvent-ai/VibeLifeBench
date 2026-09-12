@@ -1,0 +1,26 @@
+{
+  "release_id": "release-005",
+  "previous": "release-004",
+  "token": "24149039e3eda9a99b4f9a54ddc52b5b",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 105,
+        "folder_id": 1,
+        "message_id": "<20260706-offer@vectorbase.example>",
+        "subject": "VectorBase senior backend engineer offer intent",
+        "from_addr": "VectorBaserecruiting <talent@vectorbase.example>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-07-06T09:30:00Z",
+        "created_at": "2026-07-06T09:30:00Z",
+        "body_text": "The offer includes a two-year noncompete restriction covering cloud computing and data infrastructure. The attachment does not specify post-termination compensation standards, payment cycle, or geographic boundary. Reply deadline: July 12.",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 452
+      }
+    }
+  ]
+}

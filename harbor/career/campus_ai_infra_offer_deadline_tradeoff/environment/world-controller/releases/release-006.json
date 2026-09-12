@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "evt_019"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-05-27T16:00:00+08:00",
+  "previous": "release-005",
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-006-token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "offer",
+        "updated_at": "2026-05-27T06:00:00Z"
+      },
+      "where": {
+        "application_id": "app_matrixcloud_001"
+      },
+      "source_event_id": "evt_019",
+      "operation_index": 0
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 211,
+        "folder_id": 1,
+        "message_id": "<20260527-matrixcloud-offer@example.com>",
+        "subject": "MatrixCloud Inference Platform Engineer campus offer",
+        "from_addr": "recruiter-matrixcloud-luo@example.com",
+        "to_addr_json": "[\"lin.che@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-05-27T06:00:00Z",
+        "body_text": "Congratulations on the MatrixCloud Inference Platform Engineer written offer. Shanghai, monthly salary 35k, 13 salary payments, annual cash compensation 455k. The attached terms state that client-site support is expected for 12-18 months, mainly for financial-client projects, requiring long-term placement at the client site. Please reply by 2026-06-06.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 760,
+        "created_at": "2026-05-27T06:00:00Z"
+      },
+      "source_event_id": "evt_019",
+      "operation_index": 1
+    }
+  ]
+}

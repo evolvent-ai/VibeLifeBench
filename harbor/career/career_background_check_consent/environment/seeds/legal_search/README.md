@@ -1,0 +1,3 @@
+# career_background_check_consent — legal_search
+
+translated textdisputetranslated text，translated textseverance、translated text、noncompete、salarytranslated text、《Labor Contract Lawtranslated text》translated text，and《Personal Information Protection Law》translated textpurposetranslated text、minimum necessity、healthcarehealthtranslated textseparate consenttranslated textarticle。materialstranslated text 77 translated textcasetranslated text；translated texthealthtranslated textbackground checkcasetranslated textdisputetranslated text、translated textarticle，translated textsubjecttranslated text。translated textrecordtranslated textSang Wutranslated text。

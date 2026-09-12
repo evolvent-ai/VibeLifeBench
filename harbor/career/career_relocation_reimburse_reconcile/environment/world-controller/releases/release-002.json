@@ -1,0 +1,27 @@
+{
+  "release": "release-002",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 103,
+        "folder_id": 1,
+        "message_id": "<20260624-revise@lishimfg.com>",
+        "subject": "Re: relocation reimbursement shortfall plan - further discussion",
+        "from_addr": "Lithic Manufacturing HR <hr.guolan@lishimfg.com>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-06-24T09:55:00Z",
+        "created_at": "2026-06-24T09:55:00Z",
+        "body_text": "We noted your objection to the basis. We can discuss, but need your written calculation basis and requested amount. Explain the reasonable basis and service period so we can submit an adjustment.",
+        "is_read": 1,
+        "is_important": 1,
+        "size": 500
+      }
+    }
+  ],
+  "release_id": "release-002",
+  "previous": "release-001",
+  "token": "career-relocation-reimburse-reconcile-release-002-token-000000"
+}

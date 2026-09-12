@@ -1,0 +1,34 @@
+{
+  "step": "event-015",
+  "virtual_stage": 10,
+  "source_event_id": "S10_user_negotiate",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "S10_mut_hr_revise"
+    ]
+  },
+  "response": "I drafted a severance demand memo: CNY 33,600 average monthly wage, eight years, an additional month and nine months total, CNY 302,400 lawful amount, CNY 97,000 difference remaining due. It cites Labor Contract Law Article 40, Article 46, Article 47, Implementing Regulation Article 27 (art_lcl_reg_027), and judg-2025-2nx6fcq7lw3ax.",
+  "response_paraphrase": "The stage 10 record now preserves the relevant evidence, authorization boundary, and next action in different wording.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S10_user_negotiate",
+      "virtual_stage": 10,
+      "event_kind": "user_message",
+      "event_time": "2026-06-24T14:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_demand_letter_drafted",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

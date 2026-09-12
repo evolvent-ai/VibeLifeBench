@@ -1,0 +1,29 @@
+{
+  "step": "event-032",
+  "virtual_stage": 25,
+  "source_event_id": "tax_s25_deadline_review",
+  "stage_boundary": true,
+  "response": "The requested records were updated with verified backend evidence and authorization-aware next steps.",
+  "response_paraphrase": "Stage 25 records now preserve source evidence, user control, and review follow-ups.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "tax_s25_deadline_review",
+      "virtual_stage": 25,
+      "event_kind": "notification",
+      "event_time": "2026-08-22T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "tax_s25_followups_have_owner_and_date",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 1
+}

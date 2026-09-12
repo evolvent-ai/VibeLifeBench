@@ -1,0 +1,20 @@
+{
+  "step": "event-007",
+  "virtual_stage": 4,
+  "source_event_id": "S04_notif_inbox",
+  "response": "The company's CNY 200,800 proposal and June 22 deadline were logged.",
+  "response_paraphrase": "The proposal amount and response deadline are captured for review.",
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s4_plan_logged",
+      "weight": 4
+    }
+  ],
+  "expected_stage_weight": 4
+}

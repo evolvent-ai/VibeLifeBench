@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "evt_027"
+  ],
+  "source_stage": 15,
+  "source_time": "2026-06-02T11:00:00+08:00",
+  "previous": "release-009",
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-010-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 215,
+        "folder_id": 1,
+        "message_id": "<20260602-advisor-defense@example.edu.cn>",
+        "subject": "Thesis-defense document review and near-term travel plans",
+        "from_addr": "advisor-prof-he@example.edu.cn",
+        "to_addr_json": "[\"lin.che@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-02T01:00:00Z",
+        "body_text": "Ethan, thesis-defense document review must be completed on 2026-06-03 from 09:00 to 16:00. Please avoid cross-city in-person or long interviews. Full-time onboarding before July 15 is not recommended; mid-to-late July is preferred.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 610,
+        "created_at": "2026-06-02T01:00:00Z"
+      },
+      "source_event_id": "evt_027",
+      "operation_index": 0
+    },
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "cal_defense_001",
+        "calendar_id": "cal_lin_primary",
+        "summary": "thesis-defense document review",
+        "description": "The thesis adviser requires availability from 09:00 to 16:00 on 2026-06-03; do not schedule cross-city in-person or long interviews.",
+        "location": "college building",
+        "start_dt": "2026-06-03T09:00:00+08:00",
+        "end_dt": "2026-06-03T16:00:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-06-02T01:00:00Z",
+        "updated_at": "2026-06-02T01:00:00Z"
+      },
+      "source_event_id": "evt_027",
+      "operation_index": 1
+    }
+  ]
+}

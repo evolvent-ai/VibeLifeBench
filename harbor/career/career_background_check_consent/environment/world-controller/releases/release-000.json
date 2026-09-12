@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "S04_mut_hr_plan_email"
+  ],
+  "source_time": "2026-06-01T00:00:00+08:00",
+  "previous": null,
+  "token": "career-background-check-consent-release-token-00-x",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 101,
+        "folder_id": 1,
+        "message_id": "<20260615-plan@yanmunet.com>",
+        "subject": "【details】position eliminationdetailsproposaldetailsbackground-check authorization（Please respond by  6/22  before confirm）",
+        "from_addr": "details HR details <hr.yihui@yanmunet.com>",
+        "to_addr_json": "[\"sang.wu@163.com\"]",
+        "date": "2026-06-15T09:55:00Z",
+        "created_at": "2026-06-15T09:55:00Z",
+        "body_text": "Sang WuHello：\ndetailsposition eliminationdetails，companydetailsproposaldetails 204500 details，detailscompanydetailsyeardetails。\ndetails；details、details、details、details，details。\nPlease respond by  2026-06-22  before detailsproposaldetails HR details《details》。detailsconfirmdetails，details；detailsconfirm，companydetails。\nHR details\n",
+        "is_read": 1,
+        "is_important": 1,
+        "size": 500
+      }
+    }
+  ]
+}

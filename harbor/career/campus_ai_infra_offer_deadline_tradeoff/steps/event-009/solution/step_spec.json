@@ -1,0 +1,28 @@
+{
+  "step": "event-009",
+  "stage": 7,
+  "virtual_stage": 7,
+  "source_event_id": "evt_013",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The highly viewed Qingyan post remains an unofficial anonymous rumor with low confidence, while the recruiting-system role is still open and requires written verification.",
+  "response_paraphrase": "Popularity did not change the evidence grade: the anonymous account supplies only a lead, so the tracker keeps the claim unconfirmed against the live job record.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_013",
+      "event_time": "2026-05-19T21:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_07_rumor_marked_low_confidence_and_reverified",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

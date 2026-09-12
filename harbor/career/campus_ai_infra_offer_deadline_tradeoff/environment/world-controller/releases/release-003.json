@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "evt_011a_qingyan_post"
+  ],
+  "source_stage": 7,
+  "source_time": "2026-05-19T20:30:00+08:00",
+  "previous": "release-002",
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-003-token",
+  "operations": [
+    {
+      "server": "content_platform",
+      "table": "notes",
+      "op": "insert",
+      "values": {
+        "note_id": "post_qingyan_salary_001",
+        "author_id": "usr_anon_salary",
+        "title": "Qingyan Compute campus compensation and headcount discussion",
+        "body": "An anonymous poster claimed to have heard that approval has slowed for some AI infrastructure teams and total-compensation definitions may change, but provided no official email, recruiting-system screenshot, or verifiable contact.",
+        "category": "Other",
+        "tags": "[\"Qingyan\",\"campus recruiting\",\"compensation\",\"HC\"]",
+        "image_captions": "[]",
+        "like_count": 420,
+        "collect_count": 120,
+        "comment_count": 0,
+        "view_count": 16000,
+        "published_at": "2026-05-19"
+      },
+      "source_event_id": "evt_011a_qingyan_post",
+      "operation_index": 0
+    }
+  ]
+}

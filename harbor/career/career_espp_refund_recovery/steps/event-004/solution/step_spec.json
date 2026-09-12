@@ -1,0 +1,28 @@
+{
+ "step": "event-004",
+ "stage": 2,
+ "event_id": "S02_user_base_salary",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 2
+  }
+ ],
+ "response_paraphrase": "I summarized the past twelve months of pay as supporting cash-flow evidence, apart from the equity calculation.",
+ "expected_env": {
+  "virtual_stage": 2,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s2_banking_income_evidence",
+   "weight": 1.5
+  },
+  {
+   "check_id": "s2_avg_income_side_evidence",
+   "weight": 2.0
+  }
+ ],
+ "expected_stage_weight": 3.5,
+ "source_event_id": "S02_user_base_salary"
+}

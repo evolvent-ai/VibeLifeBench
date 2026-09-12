@@ -1,0 +1,20 @@
+{
+  "step": "event-032",
+  "virtual_stage": 23,
+  "source_event_id": "S23_audit_reminder",
+  "response": "The audit journal now links key conclusions to backend transaction identifiers.",
+  "response_paraphrase": "The deep audit preserves transaction-level traceability.",
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s23_deep_audit_0",
+      "weight": 3
+    }
+  ],
+  "expected_stage_weight": 3
+}

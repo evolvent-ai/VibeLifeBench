@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "S11_mut_interview_invite"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-06-29T09:55:00+08:00",
+  "previous": "release-002",
+  "token": "career-release-03-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 104,
+        "folder_id": 1,
+        "message_id": "<20260629-itw@meituan.com>",
+        "subject": "English text English text English text",
+        "from_addr": "English text <campus@meituan.com>",
+        "to_addr_json": "[\"feng.yi@163.com\"]",
+        "date": "2026-06-29T09:55:00Z",
+        "created_at": "2026-06-29T09:55:00Z",
+        "body_text": "English text，English text(English text)English text，English text，\nEnglish text 7/1（English text）English text 7/3（English text）English text，English text。\n",
+        "is_read": 1,
+        "is_important": 1,
+        "size": 500
+      },
+      "source_event_id": "S11_mut_interview_invite"
+    }
+  ]
+}

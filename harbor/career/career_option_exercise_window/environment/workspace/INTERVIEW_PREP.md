@@ -1,0 +1,3 @@
+# interviewpreparation
+
+notepreparationnotenote STAR case: note“notenote A”“notenotenotenotenotenotenote”“notenotenotenote”notenote, nonotenotenotenote、notenote、accountnotenotenote、transactionstatement、notenotenotenoteornotenotenotenote. notenotenotenotenoteatnotenotenotenote、notenotenotenote、notenotenotenotenote、notenotenotenoteandnotenotenotenote. 

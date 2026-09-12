@@ -1,0 +1,1 @@
+Compare Hanyu Health and Jinghe Data on role, employment arrangement, privacy commitment, onboarding materials, stability, and open items. Recommend, but do not accept, reject, or promise a start date.

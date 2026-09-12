@@ -1,0 +1,124 @@
+services:
+  main:
+    build: {context: ., dockerfile: Dockerfile}
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      world-controller: {condition: service_healthy}
+      banking: {condition: service_healthy}
+      brokerage: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      email: {condition: service_healthy}
+      job-board: {condition: service_healthy}
+      legal-search: {condition: service_healthy}
+      notion: {condition: service_healthy}
+    volumes:
+      - workspace-state:/workspace
+      - eval-evidence:/harbor/evidence:ro
+      - world-clock:/world-clock:ro
+      - agent-logs:/logs/agent
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: .svc,.svc.cluster.local,127.0.0.1,::1,banking,brokerage,calendar,email,job-board,job_board,kubernetes.default.svc,legal-search,legal_search,localhost,notion,workspace-init,workspace_init,world-controller,world_controller
+      no_proxy: .svc,.svc.cluster.local,127.0.0.1,::1,banking,brokerage,calendar,email,job-board,job_board,kubernetes.default.svc,legal-search,legal_search,localhost,notion,workspace-init,workspace_init,world-controller,world_controller
+  workspace-init:
+    build: {context: ., dockerfile: workspace-init/Dockerfile}
+    volumes: [workspace-state:/target]
+    restart: "no"
+  banking:
+    build: {context: ./servers/banking_mock}
+    volumes: [./seeds/banking:/env-seed:ro, banking-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+      no_proxy: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+    healthcheck: &health {test: [CMD, python, -c, "import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()"], interval: 2s, timeout: 5s, retries: 30, start_period: 3s}
+  brokerage:
+    build: {context: ./servers/brokerage_mock}
+    volumes: [./seeds/brokerage:/env-seed:ro, brokerage-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+      no_proxy: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+    healthcheck: *health
+  calendar:
+    build: {context: ./servers/calendar_mock}
+    volumes: [./seeds/calendar:/env-seed:ro, calendar-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+      no_proxy: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+    healthcheck: *health
+  email:
+    build: {context: ./servers/email_mock}
+    volumes: [./seeds/email:/env-seed:ro, email-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+      no_proxy: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+    healthcheck: *health
+  job-board:
+    build: {context: ./servers/job_board_mock}
+    volumes: [./seeds/job_board:/env-seed:ro, job-board-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+      no_proxy: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+    healthcheck: *health
+  legal-search:
+    build: {context: ./servers/legal_search_mock}
+    volumes: [./seeds/legal_search:/env-seed:ro, legal-search-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+      no_proxy: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+    healthcheck: *health
+  notion:
+    build: {context: ./servers/notion_mock}
+    volumes: [./seeds/notion:/env-seed:ro, notion-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+      no_proxy: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+    healthcheck: *health
+  world-controller:
+    build: {context: ., dockerfile: world-controller/Dockerfile}
+    volumes:
+      - banking-env:/banking-env
+      - brokerage-env:/brokerage-env
+      - calendar-env:/calendar-env
+      - email-env:/email-env
+      - job-board-env:/job-board-env
+      - legal-search-env:/legal-search-env
+      - notion-env:/notion-env
+      - controller-state:/controller-state
+      - workspace-state:/workspace-source:ro
+      - eval-evidence:/evidence
+      - world-clock:/world-clock
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      CLOCK_TOKEN: career-equity-clock-7f4b91c2
+      RELEASE_TOKEN: career-equity-release-4d7a2b91
+      NO_PROXY: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+      no_proxy: localhost,127.0.0.1,::1,.svc,.svc.cluster.local,kubernetes.default.svc,banking,brokerage,calendar,email,job_board,job-board,legal_search,legal-search,notion
+    expose: ["8090"]
+    healthcheck: {test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health',timeout=2).read()"], interval: 2s, timeout: 5s, retries: 30, start_period: 3s}
+volumes:
+  workspace-state: {}
+  banking-env: {}
+  brokerage-env: {}
+  calendar-env: {}
+  email-env: {}
+  job-board-env: {}
+  legal-search-env: {}
+  notion-env: {}
+  controller-state: {}
+  eval-evidence: {}
+  world-clock: {}
+  agent-logs: {}

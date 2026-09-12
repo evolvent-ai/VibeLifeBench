@@ -1,0 +1,25 @@
+{
+  "release_id": "release-011",
+  "source_stage": 24,
+  "source_time": "2026-08-19T09:25:00+08:00",
+  "source_event_ids": ["tax_s24_pipeline_mutation"],
+  "token": "career_jobhop_tax_reconcile-release-token",
+  "previous": "release-010",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "rejected",
+        "updated_at": "2026-08-19T09:25:00+08:00"
+      },
+      "where": {
+        "application_id": "app_000001"
+      },
+      "source_stage": 24,
+      "source_time": "2026-08-19T09:25:00+08:00",
+      "source_event_id": "tax_s24_pipeline_mutation"
+    }
+  ]
+}

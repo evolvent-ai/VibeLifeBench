@@ -1,0 +1,22 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "virtual_stage": 1,
+  "source_event_id": "evt_003",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I checked Beijing and Shanghai full-time AI infrastructure and LLM inference searches, excluded long-term outsourced on-site work, and activated a watch covering both cities and the target discipline.",
+  "response_paraphrase": "The role scan and alert now span both target locations and the inference-infrastructure focus, while client-site placements and other incompatible arrangements remain filtered out.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_003",
+      "event_time": "2026-05-13T08:30:00+08:00"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "evt_007a_bytelattice_material_request"
+  ],
+  "source_stage": 4,
+  "source_time": "2026-05-16T09:40:00+08:00",
+  "previous": "release-000",
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-001-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 203,
+        "folder_id": 1,
+        "message_id": "<20260516-bytelattice-materials@example.com>",
+        "subject": "ByteLattice referral progress: Suggested additional materials",
+        "from_addr": "ref-bytelattice-wang@example.com",
+        "to_addr_json": "[\"lin.che@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-05-16T01:35:00Z",
+        "body_text": "Hello Ethan, to help the team understand your coursework and research background, you may consider providing a transcript and thesis adviser contact details. If you prefer not to provide them yet, you may send a public-facing resume and public project summary first.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 530,
+        "created_at": "2026-05-16T01:35:00Z"
+      },
+      "source_event_id": "evt_007a_bytelattice_material_request",
+      "operation_index": 0
+    }
+  ]
+}

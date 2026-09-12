@@ -1,0 +1,24 @@
+{
+ "step": "event-019",
+ "stage": 13,
+ "event_id": "S13_user_dewu",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 13
+  }
+ ],
+ "response_paraphrase": "I recorded Dewu's preliminary terms as non-binding, highlighted the uncompensated restriction concern, and made no promise.",
+ "expected_env": {
+  "virtual_stage": 13,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s13_no_uncompensated_noncompete",
+   "weight": 3.5
+  }
+ ],
+ "expected_stage_weight": 3.5,
+ "source_event_id": "S13_user_dewu"
+}

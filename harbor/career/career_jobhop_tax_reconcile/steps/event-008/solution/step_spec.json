@@ -1,0 +1,29 @@
+{
+  "step": "event-008",
+  "virtual_stage": 5,
+  "source_event_id": "tax_s05_user_build_variance",
+  "stage_boundary": true,
+  "response": "The requested records were updated with verified backend evidence and authorization-aware next steps.",
+  "response_paraphrase": "Stage 5 records now preserve source evidence, user control, and review follow-ups.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "source_event_id": "tax_s05_user_build_variance",
+      "virtual_stage": 5,
+      "event_kind": "user_message",
+      "event_time": "2026-06-15T14:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "tax_s05_variance_table_is_recomputable",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

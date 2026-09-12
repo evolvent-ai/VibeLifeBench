@@ -1,0 +1,32 @@
+{
+  "step": "event-021",
+  "stage": 18,
+  "virtual_stage": 18,
+  "source_event_id": "evt_032",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": [
+      "evt_031a_qingyan_alumni_post"
+    ]
+  },
+  "response": "The Qingyan follow-up raises credibility to medium but remains unofficial: approval has slowed, the LLM Runtime role is still open, and a freeze is not confirmed.",
+  "response_paraphrase": "An alumni account adds a second data point but no official verification, so the risk record notes slower approvals while rejecting any definitive headcount claim.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_032",
+      "event_time": "2026-06-04T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_18_evidence_confidence_updated_without_overclaim",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

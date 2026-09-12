@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "evt_031a_qingyan_alumni_post"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-06-04T09:00:00+08:00",
+  "previous": "release-011",
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-012-token",
+  "operations": [
+    {
+      "server": "content_platform",
+      "table": "notes",
+      "op": "insert",
+      "values": {
+        "note_id": "post_qingyan_alumni_001",
+        "author_id": "usr_qingyan_alumni",
+        "title": "Qingyan campus-recruiting update: approval slowed but role freeze unconfirmed",
+        "body": "I am a current campus hire and can only confirm slower approval for some teams. I have not seen a closure notice for the LLM Runtime role; candidates should rely on HR writing and recruiting-system status.",
+        "category": "Other",
+        "tags": "[\"Qingyan\",\"campus recruiting\",\"offer\"]",
+        "image_captions": "[]",
+        "like_count": 260,
+        "collect_count": 90,
+        "comment_count": 0,
+        "view_count": 9800,
+        "published_at": "2026-06-04"
+      },
+      "source_event_id": "evt_031a_qingyan_alumni_post",
+      "operation_index": 0
+    }
+  ]
+}

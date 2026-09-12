@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "S17_mut_severance_paid"
+  ],
+  "source_time": "2026-06-01T00:00:00+08:00",
+  "previous": "release-007",
+  "token": "career-background-check-consent-release-token-08-x",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "BKT-20260716-PAY-tvzlvguqcvx",
+        "account_id": "acct_sw_checking",
+        "posted_at": "2026-07-16T08:00:00Z",
+        "amount_minor": 20450000,
+        "kind": "deposit",
+        "counterparty": "Yanmu Network Technology (Shanghai) Co., Ltd.",
+        "memo": "Company proposal payment for disputed severance",
+        "balance_after_minor": 20450000
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+List unresolved pre-onboarding conditions: recipient, purpose, retention, deletion, withdrawal, whether a limited-purpose conclusion must be sent, and the backup-job next step. Do not mark unknown items as resolved.

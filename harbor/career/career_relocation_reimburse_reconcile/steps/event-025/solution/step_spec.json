@@ -1,0 +1,24 @@
+{
+  "step": "event-025",
+  "virtual_stage": 17,
+  "source_event_id": "S17_user_verify_paid",
+  "response": "The CNY 200,800 deposit was verified against the lawful calculation and remaining shortfall.",
+  "response_paraphrase": "The bank posting is confirmed, with the unpaid difference clearly reconciled.",
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s17_severance_paid_backend",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s17_paid_amount_reconciled",
+      "weight": 3.0
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

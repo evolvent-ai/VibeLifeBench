@@ -1,0 +1,1 @@
+[2026-08-10T10:00:00+08:00] Prepare a stage review of grant and vesting, window evolution, valuation and funding, tax sources, decision status, applications, interviews, offer risks, unresolved items, owners, and next steps. Write the three required workspace files, preserve traceability, and do not invent a submitted instruction.

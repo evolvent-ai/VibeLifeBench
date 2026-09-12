@@ -1,0 +1,37 @@
+{
+  "release_id": "release-007",
+  "token": "career_seed_017_sqe_to_supply_chain_data-release",
+  "previous": "release-006",
+  "source_stage": 17,
+  "source_event_stage": 17,
+  "source_time": "2026-07-17T10:10:00+08:00",
+  "source_event_ids": ["evt_032"],
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "evt_032",
+      "conflict_keys": ["id"],
+      "values": {
+        "id": 103,
+        "folder_id": 1,
+        "message_id": "<20260717-novaforge-deadline@novaforge.example>",
+        "subject": "NovaForgetechnical interviewassignmentdeadlinebusiness record",
+        "from_addr": "Mina Yu <yu.hr@novaforge.example>",
+        "to_addr_json": "[\"lin.che@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-17T10:10:00+08:00",
+        "body_text": "Claire Linbusiness record，technical interviewassignmentbusiness recordconfirmation deadline moved earlierbusiness record 2026-07-19 18:00。business recordconfirmationbusiness record，business recordsubmitassignmentbusiness recordround。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 360,
+        "created_at": "2026-07-17T10:10:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "release_id": "release-009",
+  "before_step": "event-026",
+  "previous": "release-008",
+  "token": "career-equity-release-4d7a2b91",
+  "operations": [
+    {
+      "source_event_id": "S18_mut_meituan_offer",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 108,
+        "folder_id": 1,
+        "message_id": "<20260720-offer@meituan.com>",
+        "subject": "Meituan Senior Backend Engineer offer",
+        "from_addr": "Meituan Recruiting <campus@meituan.com>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-07-20T01:55:00Z",
+        "body_text": "Hello Ji Chen, congratulations on passing all interviews. The Senior Backend Engineer (Transaction Platform) offer provides a monthly salary of CNY 32,000 with 16 pay periods, regular employment, statutory benefits, and supplemental medical coverage. Please reply by July 27 whether you accept.",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 500,
+        "headers_json": "{}",
+        "created_at": "2026-07-20T01:55:00Z"
+      }
+    },
+    {
+      "source_event_id": "S18_mut_meituan_offer",
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "allow_zero": true,
+      "set": {"status": "offer", "updated_at": "2026-07-20T01:55:00Z"},
+      "where": {"job_id": "job_gk_0001", "status": "interview"}
+    }
+  ]
+}

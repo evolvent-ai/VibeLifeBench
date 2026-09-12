@@ -1,0 +1,34 @@
+{
+  "release_id": "release-008",
+  "before_step": "event-024",
+  "previous": "release-007",
+  "token": "career_espp_refund_recovery_release-008_token",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_gk_severance",
+        "account_id": "acct_gk_checking",
+        "posted_at": "2026-07-16T08:00:00Z",
+        "amount_minor": 20030000,
+        "kind": "deposit",
+        "counterparty": "Ximing Semiconductor Technology (Shanghai) Co., Ltd.",
+        "memo": "ESPP redemption payment under company proposal",
+        "balance_after_minor": 81730000
+      }
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {
+        "balance_minor": 81730000
+      },
+      "where": {
+        "account_id": "acct_gk_checking"
+      }
+    }
+  ]
+}

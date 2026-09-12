@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "evt_030"
+  ],
+  "source_stage": 17,
+  "source_time": "2026-06-03T19:00:00+08:00",
+  "previous": "release-010",
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-011-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 217,
+        "folder_id": 1,
+        "message_id": "<20260603-starridge-extension-reply@example.com>",
+        "subject": "Re: StarRidge AI offer response deadline and start date",
+        "from_addr": "hr-starridge-chen@example.com",
+        "to_addr_json": "[\"lin.che@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-03T09:30:00Z",
+        "body_text": "The response deadline can be extended to 2026-06-05 12:00. The start date can be planned for 2026-07-20. Final acceptance still requires the candidate's confirmation in the system.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 520,
+        "created_at": "2026-06-03T09:30:00Z"
+      },
+      "source_event_id": "evt_030",
+      "operation_index": 0
+    }
+  ]
+}

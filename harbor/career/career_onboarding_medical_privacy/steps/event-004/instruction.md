@@ -1,0 +1,1 @@
+Within my account only, review recent health trends and distinguish raw measurements, a clinician conclusion, and fitness for general office work. Log source records and necessity; do not copy readings into HR or recruiter email.

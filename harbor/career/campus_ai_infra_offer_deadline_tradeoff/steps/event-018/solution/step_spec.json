@@ -1,0 +1,32 @@
+{
+  "step": "event-018",
+  "stage": 15,
+  "virtual_stage": 15,
+  "source_event_id": "evt_028",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "evt_027"
+    ]
+  },
+  "response": "Professor He's email and calendar reserve 2026-06-03 from 09:00 to 16:00 for thesis-defense documents. Full-time onboarding should be after July 15, preferably around 2026-07-20.",
+  "response_paraphrase": "The graduation review blocks June 3 daytime and makes mid-to-late July the practical start window; both constraints are now in the decision record.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_028",
+      "event_time": "2026-06-02T11:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_15_advisor_constraint_calendar_and_start_date_recorded",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

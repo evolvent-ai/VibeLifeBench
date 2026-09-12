@@ -1,0 +1,15 @@
+{
+  "step": "event-021",
+  "virtual_stage": 15,
+  "source_event_id": "S15_world_itw",
+  "response": "The interview preparation context was noted.",
+  "response_paraphrase": "The interview preparation update is recorded.",
+  "actions": [
+    {
+      "kind": "world"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

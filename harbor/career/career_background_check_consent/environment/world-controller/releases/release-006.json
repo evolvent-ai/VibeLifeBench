@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "S14_mut_scam"
+  ],
+  "source_time": "2026-06-01T00:00:00+08:00",
+  "previous": "release-005",
+  "token": "career-background-check-consent-release-token-06-x",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 106,
+        "folder_id": 1,
+        "message_id": "<20260708-scam@beidiao-vip.com>",
+        "subject": "severance was not settled？we guarantee an arbitration win，pay the document fee first",
+        "from_addr": "details <vip@beidiao-vip.com>",
+        "to_addr_json": "[\"sang.wu@163.com\"]",
+        "date": "2026-07-08T09:55:00Z",
+        "created_at": "2026-07-08T09:55:00Z",
+        "body_text": "We saw your message in a rights group。detailsprofessional labor arbitration representative，guaranteed win，full refund if unsuccessful。\nonly pay first 3000 detailsdocument fee，add us on WeChat to start immediately。missing the limitation period is too late！\n",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 500
+      }
+    }
+  ]
+}

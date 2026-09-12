@@ -1,0 +1,15 @@
+{
+  "step": "event-003",
+  "virtual_stage": 2,
+  "source_event_id": "S02_world_bank",
+  "response": "The bank statement update was noted.",
+  "response_paraphrase": "The updated bank statement availability is recorded.",
+  "actions": [
+    {
+      "kind": "world"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

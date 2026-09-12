@@ -1,0 +1,27 @@
+{
+  "release": "release-007",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 107,
+        "folder_id": 1,
+        "message_id": "<20260713-probe@meituan.com>",
+        "subject": "Interview follow-up: background questions",
+        "from_addr": "Meituan Recruiting <campus@meituan.com>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-07-13T09:55:00Z",
+        "created_at": "2026-07-13T09:55:00Z",
+        "body_text": "The interview feedback is positive. We would like the reason you left your prior employer, whether a relocation reimbursement dispute is involved, and your other offers and approximate compensation for leveling.",
+        "is_read": 1,
+        "is_important": 1,
+        "size": 500
+      }
+    }
+  ],
+  "release_id": "release-007",
+  "previous": "release-006",
+  "token": "career-relocation-reimburse-reconcile-release-007-token-000000"
+}

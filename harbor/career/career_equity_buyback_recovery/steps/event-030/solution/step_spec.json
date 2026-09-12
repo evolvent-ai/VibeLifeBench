@@ -1,0 +1,28 @@
+{
+  "step": "event-030",
+  "stage": 21,
+  "event_id": "S21_user_wrapup",
+  "source_event_id": "S21_user_wrapup",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 21
+    }
+  ],
+  "response_paraphrase": "The stage 30 review is complete; I updated evidence and left decisions with Ji Chen.",
+  "expected_env": {
+    "virtual_stage": 21,
+    "workspace": "/workspace"
+  },
+  "expected_checks": [
+    {
+      "check_id": "s21_wrapup_equity",
+      "weight": 2.0
+    },
+    {
+      "check_id": "s21_wrapup_reemploy",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

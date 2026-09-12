@@ -1,0 +1,93 @@
+services:
+  main:
+    build: {context: ., dockerfile: Dockerfile}
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      world-controller: {condition: service_healthy}
+      banking: {condition: service_healthy}
+      credit-card: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      email: {condition: service_healthy}
+      job-board: {condition: service_healthy}
+      legal-search: {condition: service_healthy}
+      notion: {condition: service_healthy}
+    volumes:
+      - workspace-state:/workspace
+      - eval-evidence:/harbor/evidence:ro
+      - world-clock:/world-clock:ro
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,credit-card,calendar,email,job-board,legal-search,notion
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,credit-card,calendar,email,job-board,legal-search,notion
+  workspace-init:
+    build: {context: ., dockerfile: workspace-init/Dockerfile}
+    volumes: [workspace-state:/target]
+    restart: "no"
+  banking: &mock
+    build: {context: ./servers/banking_mock}
+    volumes: [./seeds/banking:/env-seed:ro, banking-env:/env, world-clock:/world-clock:ro]
+    expose: [8000]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: &health {test: [CMD, python, -c, "import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()"], interval: 2s, timeout: 5s, retries: 30, start_period: 3s}
+  credit-card:
+    <<: *mock
+    build: {context: ./servers/credit_card_mock}
+    volumes: [./seeds/credit_card:/env-seed:ro, credit-card-env:/env, world-clock:/world-clock:ro]
+  calendar:
+    <<: *mock
+    build: {context: ./servers/calendar_mock}
+    volumes: [./seeds/calendar:/env-seed:ro, calendar-env:/env, world-clock:/world-clock:ro]
+  email:
+    <<: *mock
+    build: {context: ./servers/email_mock}
+    volumes: [./seeds/email:/env-seed:ro, email-env:/env, world-clock:/world-clock:ro]
+  job-board:
+    <<: *mock
+    build: {context: ./servers/job_board_mock}
+    volumes: [./seeds/job_board:/env-seed:ro, job-board-env:/env, world-clock:/world-clock:ro]
+  legal-search:
+    <<: *mock
+    build: {context: ./servers/legal_search_mock}
+    volumes: [./seeds/legal_search:/env-seed:ro, legal-search-env:/env, world-clock:/world-clock:ro]
+  notion:
+    <<: *mock
+    build: {context: ./servers/notion_mock}
+    volumes: [./seeds/notion:/env-seed:ro, notion-env:/env, world-clock:/world-clock:ro]
+  world-controller:
+    build: {context: ., dockerfile: world-controller/Dockerfile}
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      banking: {condition: service_healthy}
+      credit-card: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      email: {condition: service_healthy}
+      job-board: {condition: service_healthy}
+      legal-search: {condition: service_healthy}
+      notion: {condition: service_healthy}
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json, CLOCK_TOKEN: career_jobhop_tax_reconcile-clock-token, HEALTH_TOKEN: career_jobhop_tax_reconcile-health-token}
+    volumes:
+      - banking-env:/banking-env
+      - credit-card-env:/credit-card-env
+      - calendar-env:/calendar-env
+      - email-env:/email-env
+      - job-board-env:/job-board-env
+      - legal-search-env:/legal-search-env
+      - notion-env:/notion-env
+      - controller-state:/controller-state
+      - workspace-state:/workspace-source:ro
+      - eval-evidence:/evidence
+      - world-clock:/world-clock
+    expose: [8090]
+    healthcheck: {test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health', timeout=2).read()"], interval: 2s, timeout: 5s, retries: 30, start_period: 3s}
+volumes:
+  workspace-state: {}
+  banking-env: {}
+  credit-card-env: {}
+  calendar-env: {}
+  email-env: {}
+  job-board-env: {}
+  legal-search-env: {}
+  notion-env: {}
+  controller-state: {}
+  eval-evidence: {}
+  world-clock: {}

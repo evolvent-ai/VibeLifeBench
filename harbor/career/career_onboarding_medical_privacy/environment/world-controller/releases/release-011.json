@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "med_s24_pipeline_mutation"
+  ],
+  "source_stage": 24,
+  "source_time": "2026-08-19T09:25:00+08:00",
+  "previous": "release-010",
+  "token": "career-onboarding-release-011-token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "rejected",
+        "updated_at": "2026-08-19T01:30:00Z"
+      },
+      "where": {
+        "user_id": "usr_gao_kai",
+        "status": "viewed"
+      },
+      "select": {
+        "key": "application_id",
+        "where": {
+          "user_id": "usr_gao_kai",
+          "status": "viewed"
+        },
+        "order_by": ["applied_at", "application_id"],
+        "limit": 1,
+        "offset": 0
+      },
+      "source_event_id": "med_s24_pipeline_mutation",
+      "operation_index": 0
+    }
+  ]
+}

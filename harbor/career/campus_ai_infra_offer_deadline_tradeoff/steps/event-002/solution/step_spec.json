@@ -1,0 +1,28 @@
+{
+  "step": "event-002",
+  "stage": 1,
+  "virtual_stage": 1,
+  "source_event_id": "evt_004",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The latest search and active subscription cover Beijing, Shanghai, full-time AI Infra and LLM inference work; outsourced long-term on-site roles remain excluded pending verified written records.",
+  "response_paraphrase": "I refreshed the two-city role watch and confirmed that it tracks the intended full-time systems direction without treating client-placement jobs as suitable matches.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_004",
+      "event_time": "2026-05-13T08:35:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_01_filtered_jobs_and_subscription_active",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

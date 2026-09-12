@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "evt_009"
+  ],
+  "source_stage": 5,
+  "source_time": "2026-05-17T16:00:00+08:00",
+  "previous": "release-001",
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-002-token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "status": "interview",
+        "updated_at": "2026-05-17T07:00:00Z"
+      },
+      "where": {
+        "application_id": "app_bytelattice_001"
+      },
+      "source_event_id": "evt_009",
+      "operation_index": 0
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 205,
+        "folder_id": 1,
+        "message_id": "<20260517-bytelattice-interview@example.com>",
+        "subject": "ByteLattice LLM Runtime Kernel interview time selection",
+        "from_addr": "ref-bytelattice-wang@example.com",
+        "to_addr_json": "[\"lin.che@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-05-17T07:00:00Z",
+        "body_text": "Hello Ethan, the team would like to arrange a first-round interview. Candidate time slots are 2026-05-19 15:30, 2026-05-19 20:30, and 2026-05-20 10:00. Please first confirm which time works for you.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 560,
+        "created_at": "2026-05-17T07:00:00Z"
+      },
+      "source_event_id": "evt_009",
+      "operation_index": 1
+    }
+  ]
+}

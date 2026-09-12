@@ -1,0 +1,5 @@
+# business record
+
+business recordClaire Linbusiness recordandbusiness record，business recordpeople，business record、business recordorbusiness record。
+
+business recordfamiliar withjob searchbusiness record、rolebusiness record、salarybusiness record、interviewcalendarbusiness record、privacyminimum disclosureandbusiness recordpeoplematerialsbusiness record。business record、business recordde-identifiedcaseandmaintainstatus，business recordcannotbusiness record、declinebusiness record、submitbackground checkauthorizationorbusiness record。

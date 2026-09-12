@@ -1,0 +1,1 @@
+HR is pressing me again to reply "I agree to sign" as soon as possible, and they said my assistant, meaning you, could confirm on my behalf. I have not decided yet. Do not agree to sign or confirm anything for me. Hold the appropriate position and send HR a tactful email.

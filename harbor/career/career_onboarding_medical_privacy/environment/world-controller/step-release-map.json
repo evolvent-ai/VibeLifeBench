@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "step_count": 33,
+  "steps": {
+    "event-000": {
+      "source_event_id": "med_s00_kickoff",
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-08T11:00:00+08:00",
+      "before": []
+    },
+    "event-001": {
+      "source_event_id": "med_s01_inbox_notice",
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-09T08:30:00+08:00",
+      "before": []
+    },
+    "event-002": {
+      "source_event_id": "med_s01_user_map_requests",
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-09T10:00:00+08:00",
+      "before": []
+    },
+    "event-003": {
+      "source_event_id": "med_s02_health_data_available",
+      "virtual_stage": 2,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-10T08:20:00+08:00",
+      "before": []
+    },
+    "event-004": {
+      "source_event_id": "med_s02_user_review_personal_data",
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-10T10:30:00+08:00",
+      "before": []
+    },
+    "event-005": {
+      "source_event_id": "med_s03_legal_notice",
+      "virtual_stage": 3,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-11T09:00:00+08:00",
+      "before": []
+    },
+    "event-006": {
+      "source_event_id": "med_s03_user_verify_law",
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-11T14:00:00+08:00",
+      "before": []
+    },
+    "event-007": {
+      "source_event_id": "med_s04_notification",
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T09:45:00+08:00",
+      "before": [
+        "release-000"
+      ]
+    },
+    "event-008": {
+      "source_event_id": "med_s05_user_minimal_alternative",
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T14:00:00+08:00",
+      "before": []
+    },
+    "event-009": {
+      "source_event_id": "med_s06_user_refuse_upload",
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-17T13:30:00+08:00",
+      "before": [
+        "release-001"
+      ]
+    },
+    "event-010": {
+      "source_event_id": "med_s07_user_compare_options",
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-19T13:50:00+08:00",
+      "before": [
+        "release-002"
+      ]
+    },
+    "event-011": {
+      "source_event_id": "med_s08_fallback_market",
+      "virtual_stage": 8,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-20T08:50:00+08:00",
+      "before": []
+    },
+    "event-012": {
+      "source_event_id": "med_s08_user_search_backup",
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-20T10:20:00+08:00",
+      "before": []
+    },
+    "event-013": {
+      "source_event_id": "med_s09_user_authorize_apply",
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-22T10:00:00+08:00",
+      "before": []
+    },
+    "event-014": {
+      "source_event_id": "med_s10_user_update_log",
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-24T14:00:00+08:00",
+      "before": [
+        "release-003"
+      ]
+    },
+    "event-015": {
+      "source_event_id": "med_s11_user_schedule",
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-29T13:50:00+08:00",
+      "before": [
+        "release-004"
+      ]
+    },
+    "event-016": {
+      "source_event_id": "med_s12_user_sync_jobs",
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T10:00:00+08:00",
+      "before": [
+        "release-005"
+      ]
+    },
+    "event-017": {
+      "source_event_id": "med_s13_user_vendor_boundary",
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T13:40:00+08:00",
+      "before": [
+        "release-006"
+      ]
+    },
+    "event-018": {
+      "source_event_id": "med_s14_user_reject_scam",
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T13:30:00+08:00",
+      "before": [
+        "release-007"
+      ]
+    },
+    "event-019": {
+      "source_event_id": "med_s15_onboarding_checklist",
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-10T10:00:00+08:00",
+      "before": []
+    },
+    "event-020": {
+      "source_event_id": "med_s16_user_minimize_disclosure",
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T13:40:00+08:00",
+      "before": [
+        "release-008"
+      ]
+    },
+    "event-021": {
+      "source_event_id": "med_s17_notification",
+      "virtual_stage": 17,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-16T08:10:00+08:00",
+      "before": [
+        "release-009"
+      ]
+    },
+    "event-022": {
+      "source_event_id": "med_s17_user_verify_commitment",
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-16T10:00:00+08:00",
+      "before": []
+    },
+    "event-023": {
+      "source_event_id": "med_s18_user_compare_options",
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-20T13:50:00+08:00",
+      "before": [
+        "release-010"
+      ]
+    },
+    "event-024": {
+      "source_event_id": "med_s19_status_monitor",
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-24T09:00:00+08:00",
+      "before": []
+    },
+    "event-025": {
+      "source_event_id": "med_s20_user_conditional_response",
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-30T10:00:00+08:00",
+      "before": []
+    },
+    "event-026": {
+      "source_event_id": "med_s21_user_wrapup",
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-10T10:00:00+08:00",
+      "before": []
+    },
+    "event-027": {
+      "source_event_id": "med_s22_access_review",
+      "virtual_stage": 22,
+      "stage_boundary": false,
+      "scenario_time": "2026-08-13T09:00:00+08:00",
+      "before": []
+    },
+    "event-028": {
+      "source_event_id": "med_s22_user_verify_no_leak",
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-13T10:00:00+08:00",
+      "before": []
+    },
+    "event-029": {
+      "source_event_id": "med_s23_calendar_privacy",
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-16T10:00:00+08:00",
+      "before": []
+    },
+    "event-030": {
+      "source_event_id": "med_s24_pipeline_update",
+      "virtual_stage": 24,
+      "stage_boundary": false,
+      "scenario_time": "2026-08-19T09:30:00+08:00",
+      "before": [
+        "release-011"
+      ]
+    },
+    "event-031": {
+      "source_event_id": "med_s24_user_sync_pipeline",
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-19T10:20:00+08:00",
+      "before": []
+    },
+    "event-032": {
+      "source_event_id": "med_s25_audit_close",
+      "virtual_stage": 25,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-25T10:00:00+08:00",
+      "before": []
+    }
+  }
+}

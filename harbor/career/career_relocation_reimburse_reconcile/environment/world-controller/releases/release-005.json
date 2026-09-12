@@ -1,0 +1,27 @@
+{
+  "release": "release-005",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 105,
+        "folder_id": 1,
+        "message_id": "<20260706-offer@dewu.com>",
+        "subject": "Dewu senior backend engineer offer",
+        "from_addr": "Dewu Recruiting <hr@dewu.com>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-07-06T09:55:00Z",
+        "created_at": "2026-07-06T09:55:00Z",
+        "body_text": "Congratulations. Compensation is month x 16 and the base exceeds your current package. Joining requires a two-year non-compete covering e-commerce transaction roles. Confirm soon.",
+        "is_read": 1,
+        "is_important": 1,
+        "size": 500
+      }
+    }
+  ],
+  "release_id": "release-005",
+  "previous": "release-004",
+  "token": "career-relocation-reimburse-reconcile-release-005-token-000000"
+}

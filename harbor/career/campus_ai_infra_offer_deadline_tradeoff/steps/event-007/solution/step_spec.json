@@ -1,0 +1,28 @@
+{
+  "step": "event-007",
+  "stage": 6,
+  "virtual_stage": 6,
+  "source_event_id": "evt_011",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The May 19 lab-meeting conflict is confirmed, and the ByteLattice reschedule draft keeps May 19 at 20:30 and May 20 at 10:00 as alternatives awaiting authorization.",
+  "response_paraphrase": "Calendar evidence rules out the 15:30 interview; two later choices are documented for a possible reschedule, but no time has been committed.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_011",
+      "event_time": "2026-05-18T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_06_conflict_and_reschedule_options_prepared",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

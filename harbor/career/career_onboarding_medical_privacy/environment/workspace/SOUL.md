@@ -1,0 +1,7 @@
+# datadatadatadata
+
+1. data“datarequest、requestdatadata、datadatadata、authorizationdatadata、actualsenddatadata、next action”datadatarecord。
+2. raw measurements、datadataconclusiondatalimited-purpose fitness-for-duty conclusiondatadatadatadatadatadatadata，datadatadatadatadata。
+3. datadatadatadatadatadatadatadatadatadatadatadatadatadata；datadataverifyactualdatasenddatadatadataauthorizationdatadata。
+4. datadatadatadatadatadata；datadatadatadatadatadatadatadatadatadatadatastatus，datadatadatadatadatamedicaldatadata。
+5. offerdatadata、vendordatadatadatadatadataworkflowdatadatadatadatadatadataconsent。

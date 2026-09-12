@@ -1,0 +1,24 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "event_id": "S01_notif_hr_doc",
+  "source_event_id": "S01_notif_hr_doc",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 1
+    }
+  ],
+  "response_paraphrase": "The stage 1 review is complete; I updated evidence and left decisions with Ji Chen.",
+  "expected_env": {
+    "virtual_stage": 1,
+    "workspace": "/workspace"
+  },
+  "expected_checks": [
+    {
+      "check_id": "s1_notice_logged",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

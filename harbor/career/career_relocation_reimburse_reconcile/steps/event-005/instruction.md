@@ -1,0 +1,1 @@
+[Labor Law Update] Courts in several jurisdictions have recently clarified that the monthly-wage basis for a relocation reimbursement shortfall is generally the average wage during the twelve months before departure. Consult the applicable statutes and cases for specifics.

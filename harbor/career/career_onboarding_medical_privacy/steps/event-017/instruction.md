@@ -1,0 +1,1 @@
+I have not authorized the background vendor to receive a fitness conclusion, diagnoses, medication, or follow-up plans. Do not answer specific health questions; record the overreach and direct them to the HR-confirmed process.

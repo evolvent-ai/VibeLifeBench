@@ -1,0 +1,28 @@
+{
+ "step": "event-009",
+ "stage": 5,
+ "event_id": "S05_notif_deadline",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 5
+  }
+ ],
+ "response_paraphrase": "I matched the vested share count to the May 8 closing quote and worked out the remaining gap.",
+ "expected_env": {
+  "virtual_stage": 5,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s5_reconcile_diff",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s5_contract_valuation_method",
+   "weight": 2.5
+  }
+ ],
+ "expected_stage_weight": 4.5,
+ "source_event_id": "S05_notif_deadline"
+}

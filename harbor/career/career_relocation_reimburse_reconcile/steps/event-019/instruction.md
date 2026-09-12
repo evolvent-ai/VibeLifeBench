@@ -1,0 +1,1 @@
+Dewu has made an offer with a fairly high salary, but the job listing says I must sign a two-year non-compete. Assess the offer, especially how that non-compete could affect future job changes and whether it creates any risks. Do not respond on my behalf about accepting or rejecting it.

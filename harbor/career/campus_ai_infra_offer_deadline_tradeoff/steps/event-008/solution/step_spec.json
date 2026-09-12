@@ -1,0 +1,26 @@
+{
+  "step": "event-008",
+  "stage": 7,
+  "virtual_stage": 7,
+  "source_event_id": "evt_012",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "evt_011a_qingyan_post"
+    ]
+  },
+  "response": "The Qingyan claim is logged as an anonymous, low-credibility lead that needs verification; the open role was rechecked and the post is not treated as an official headcount fact.",
+  "response_paraphrase": "I opened the underlying post and compared it with the recruiting listing, recording the compensation and freeze story as unverified rather than authoritative.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_012",
+      "event_time": "2026-05-19T20:30:00+08:00"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

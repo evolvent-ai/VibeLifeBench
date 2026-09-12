@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "S10_mut_hr_revise"
+  ],
+  "source_time": "2026-06-01T00:00:00+08:00",
+  "previous": "release-001",
+  "token": "career-background-check-consent-release-token-02-x",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 103,
+        "folder_id": 1,
+        "message_id": "<20260624-revise@yanmunet.com>",
+        "subject": "Re: position eliminationdetailsbackground-check authorization——details",
+        "from_addr": "details HR details <hr.yihui@yanmunet.com>",
+        "to_addr_json": "[\"sang.wu@163.com\"]",
+        "date": "2026-06-24T09:55:00Z",
+        "created_at": "2026-06-24T09:55:00Z",
+        "body_text": "Sang Wu，details。companydetails，details。\ndetailsyeardetails，details。details。\n",
+        "is_read": 1,
+        "is_important": 1,
+        "size": 500
+      }
+    }
+  ]
+}

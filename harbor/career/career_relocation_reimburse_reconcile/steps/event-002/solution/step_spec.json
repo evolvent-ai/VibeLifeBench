@@ -1,0 +1,20 @@
+{
+  "step": "event-002",
+  "virtual_stage": 1,
+  "source_event_id": "S01_user_read_notice",
+  "response": "The Role Restructuring Notice and its Article 40 basis and final date were recorded.",
+  "response_paraphrase": "The restructuring notice details and last day are now captured.",
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s1_notice_logged",
+      "weight": 3.5
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

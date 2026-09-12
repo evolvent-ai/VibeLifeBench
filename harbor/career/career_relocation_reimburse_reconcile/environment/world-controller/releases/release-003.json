@@ -1,0 +1,27 @@
+{
+  "release": "release-003",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 104,
+        "folder_id": 1,
+        "message_id": "<20260629-itw@meituan.com>",
+        "subject": "Meituan senior backend engineer interview invitation",
+        "from_addr": "Meituan Recruiting <campus@meituan.com>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-06-29T09:55:00Z",
+        "created_at": "2026-06-29T09:55:00Z",
+        "body_text": "Your senior backend engineer (transaction platform) application passed screening. Choose a morning slot between July 1 and July 3 and reply with your availability.",
+        "is_read": 1,
+        "is_important": 1,
+        "size": 500
+      }
+    }
+  ],
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "career-relocation-reimburse-reconcile-release-003-token-000000"
+}

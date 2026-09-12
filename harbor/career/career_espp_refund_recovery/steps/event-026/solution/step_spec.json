@@ -1,0 +1,28 @@
+{
+ "step": "event-026",
+ "stage": 18,
+ "event_id": "S18_user_compare",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 18
+  }
+ ],
+ "response_paraphrase": "I set the formal Meituan terms beside Dewu's indicative message, using the linked application records.",
+ "expected_env": {
+  "virtual_stage": 18,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s18_offer_compare",
+   "weight": 2.5
+  },
+  {
+   "check_id": "s18_meituan_offer_value",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 4.0,
+ "source_event_id": "S18_user_compare"
+}

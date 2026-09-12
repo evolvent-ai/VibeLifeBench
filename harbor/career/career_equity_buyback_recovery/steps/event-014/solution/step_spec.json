@@ -1,0 +1,32 @@
+{
+  "step": "event-014",
+  "stage": 9,
+  "event_id": "S09_user_authorize_apply",
+  "source_event_id": "S09_user_authorize_apply",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 9
+    }
+  ],
+  "response_paraphrase": "The stage 14 review is complete; I updated evidence and left decisions with Ji Chen.",
+  "expected_env": {
+    "virtual_stage": 9,
+    "workspace": "/workspace"
+  },
+  "expected_checks": [
+    {
+      "check_id": "s9_applied_in_preference",
+      "weight": 2.5
+    },
+    {
+      "check_id": "s9_avoids_dispatch_trap",
+      "weight": 2.5
+    },
+    {
+      "check_id": "s9_cover_letter_cites_jd",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 6.5
+}

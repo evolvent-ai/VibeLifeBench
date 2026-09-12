@@ -1,0 +1,1 @@
+[2026-06-24T14:00:00+08:00] Update the equity ledger with status of the default rule, personal deadline, portal availability, and maintenance compensation. Do not turn a default 90-day rule or maintenance notice into a final date.

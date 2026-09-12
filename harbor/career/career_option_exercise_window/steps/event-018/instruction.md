@@ -1,0 +1,1 @@
+[2026-07-08T13:30:00+08:00] A service requests a deposit, portal code, and identity-card image for funded exercise. Assess risk and record the response. Do not pay, reply, share credentials, or sign a nominee arrangement; provide compliant funding options.

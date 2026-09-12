@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "evt_018"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-05-25T10:00:00+08:00",
+  "previous": "release-004",
+  "token": "campus_ai_infra_offer_deadline_tradeoff-release-005-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 210,
+        "folder_id": 1,
+        "message_id": "<20260525-school-tripartite@example.edu.cn>",
+        "subject": "First tripartite employment-agreement window and materials for 2026 graduates",
+        "from_addr": "career-admin@cs.example.edu.cn",
+        "to_addr_json": "[\"lin.che@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-05-25T01:50:00Z",
+        "body_text": "The first tripartite employment-agreement window is 2026-05-30 09:00 to 2026-06-05 17:00. The candidate must confirm in the system; the School Career Services Office does not accept proxy confirmation. Materials including the offer letter, identity document, and transcript require personal review before submission.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 640,
+        "created_at": "2026-05-25T01:50:00Z"
+      },
+      "source_event_id": "evt_018",
+      "operation_index": 0
+    }
+  ]
+}

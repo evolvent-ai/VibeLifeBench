@@ -1,0 +1,10 @@
+{
+  "mcp_servers": [
+    "job_board",
+    "email",
+    "calendar",
+    "content_platform",
+    "notion",
+    "notification_hub"
+  ]
+}

@@ -1,0 +1,1 @@
+[2026-07-06T13:40:00+08:00] Assess the employment indication, role, total compensation, and noncompete. If noncompete compensation is unspecified, do not accept it. List clarification questions and alternatives only.

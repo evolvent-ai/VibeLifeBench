@@ -1,0 +1,64 @@
+{
+  "release_id": "release-008",
+  "source_stage": 17,
+  "source_time": "2026-07-16T08:00:00+08:00",
+  "source_event_ids": ["tax_s17_official_refund_result", "tax_s17_refund_deposit"],
+  "token": "career_jobhop_tax_reconcile-release-token",
+  "previous": "release-007",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_stage": 17,
+      "source_time": "2026-07-16T07:45:00+08:00",
+      "source_event_id": "tax_s17_official_refund_result",
+      "values": {
+        "id": 8010,
+        "folder_id": 1,
+        "message_id": "<20260716-refund-result@tax-service.example>",
+      "subject": "2025 annual comprehensive-income tax refund result",
+      "from_addr": "Individual Tax Service <notice@tax-service.example>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-07-16T07:45:00+08:00",
+        "created_at": "2026-07-16T07:45:00+08:00",
+      "body_text": "The 2025 annual comprehensive-income settlement that you personally submitted and confirmed has been reviewed. The tax refund is CNY 8,465.00 to your registered salary account. Use the bank record for the actual credit time and transaction ID.",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 496
+      }
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "source_stage": 17,
+      "source_time": "2026-07-16T08:00:00+08:00",
+      "source_event_id": "tax_s17_refund_deposit",
+      "set": {
+        "balance_minor": 95094910
+      },
+      "where": {
+        "account_id": "acct_gk_checking"
+      }
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_gk_tax_refund_2025",
+        "account_id": "acct_gk_checking",
+        "posted_at": "2026-07-16T08:00:00+08:00",
+        "amount_minor": 846500,
+        "kind": "deposit",
+        "counterparty": "Shanghai Municipal Treasury",
+        "memo": "2025 annual comprehensive income tax refund",
+        "balance_after_minor": 95094910
+      },
+      "source_stage": 17,
+      "source_time": "2026-07-16T08:00:00+08:00",
+      "source_event_id": "tax_s17_refund_deposit"
+    }
+  ]
+}

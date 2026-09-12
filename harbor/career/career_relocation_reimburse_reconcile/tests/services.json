@@ -1,0 +1,11 @@
+{
+  "mcp_servers": [
+    "banking",
+    "calendar",
+    "credit_card",
+    "email",
+    "job_board",
+    "legal_search",
+    "notion"
+  ]
+}

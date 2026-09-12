@@ -1,0 +1,13 @@
+{
+  "step_count": 30,
+  "clock_file": "/world-clock/current.json",
+  "clock_token": "career_seed_017_sqe_to_supply_chain_data-clock",
+  "servers": [
+    "calendar",
+    "content_platform",
+    "email",
+    "job_board",
+    "notification_hub",
+    "notion"
+  ]
+}

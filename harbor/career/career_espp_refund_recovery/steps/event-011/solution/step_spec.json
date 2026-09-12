@@ -1,0 +1,24 @@
+{
+ "step": "event-011",
+ "stage": 7,
+ "event_id": "S07_world_market",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 7
+  }
+ ],
+ "response_paraphrase": "I added HR and inbox items to a quiet monitoring list and left pending actions visible.",
+ "expected_env": {
+  "virtual_stage": 7,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s7_quiet_monitor",
+   "weight": 1.0
+  }
+ ],
+ "expected_stage_weight": 1.0,
+ "source_event_id": "S07_world_market"
+}

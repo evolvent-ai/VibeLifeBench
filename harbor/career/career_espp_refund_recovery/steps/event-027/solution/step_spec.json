@@ -1,0 +1,24 @@
+{
+ "step": "event-027",
+ "stage": 19,
+ "event_id": "S19_world_market",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 19
+  }
+ ],
+ "response_paraphrase": "I maintained separate equity and employment workstreams with named owners and review checkpoints.",
+ "expected_env": {
+  "virtual_stage": 19,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s19_maintains_state",
+   "weight": 1.0
+  }
+ ],
+ "expected_stage_weight": 1.0,
+ "source_event_id": "S19_world_market"
+}

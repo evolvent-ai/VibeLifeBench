@@ -1,0 +1,33 @@
+{
+  "step": "event-031",
+  "virtual_stage": 24,
+  "source_event_id": "tax_s24_user_sync_pipeline",
+  "stage_boundary": true,
+  "response": "The requested records were updated with verified backend evidence and authorization-aware next steps.",
+  "response_paraphrase": "Stage 24 records now preserve source evidence, user control, and review follow-ups.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "source_event_id": "tax_s24_user_sync_pipeline",
+      "virtual_stage": 24,
+      "event_kind": "user_message",
+      "event_time": "2026-08-19T10:20:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": [
+      "release-011"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "tax_s24_pipeline_keeps_history_without_auto_accept",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

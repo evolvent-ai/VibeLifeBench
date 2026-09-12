@@ -1,0 +1,3 @@
+# career_background_check_consent — banking
+
+translated textaccounttranslated texttransactiontranslated text，translated textpayroll account、savingstranslated text、translated textsalary/translated textrecord。translated textmaytranslated textcompanytranslated text，translated textdatatranslated texttransaction。

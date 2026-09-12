@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "S12_mut_app_advance"
+  ],
+  "source_time": "2026-06-01T00:00:00+08:00",
+  "previous": "release-003",
+  "token": "career-background-check-consent-release-token-04-x",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update_many",
+      "where": {
+        "user_id": "usr_sang_wu",
+        "status": "submitted"
+      },
+      "set": {
+        "status": "interview",
+        "updated_at": "2026-07-02T08:00:00Z"
+      },
+      "limit": 1,
+      "order_by": [
+        "applied_at",
+        "application_id"
+      ]
+    },
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update_many",
+      "where": {
+        "user_id": "usr_sang_wu",
+        "status": "submitted"
+      },
+      "set": {
+        "status": "viewed",
+        "updated_at": "2026-07-02T08:00:00Z"
+      }
+    }
+  ]
+}

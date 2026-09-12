@@ -1,0 +1,15 @@
+{
+  "step": "event-008",
+  "virtual_stage": 5,
+  "source_event_id": "S05_user_check_plan",
+  "response": "The proposal comparison was prepared for reconciliation.",
+  "response_paraphrase": "The company proposal is queued for a detailed reconciliation.",
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

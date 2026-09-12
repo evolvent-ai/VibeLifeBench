@@ -1,0 +1,29 @@
+{
+  "release_id": "release-000",
+  "before_step": "event-007",
+  "previous": null,
+  "token": "career-equity-release-4d7a2b91",
+  "operations": [
+    {
+      "source_event_id": "S04_mut_hr_plan_email",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 101,
+        "folder_id": 1,
+        "message_id": "<20260615-plan@yiweicloud.com>",
+        "subject": "Yiwei Data: equity buyback shortfall plan and signing schedule (confirm by Jun 22)",
+        "from_addr": "Song Ke, Yiwei Data HR <hr.songke@yiweicloud.com>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-06-15T01:55:00Z",
+        "body_text": "Hello Ji Chen. For the vested equity buyback at your departure, the company proposes a fixed internal price totaling CNY 200,100 before tax. The company does not accept the fair market price basis and will use its proposal. Please reply by June 22, 2026 and sign the negotiated employment separation agreement with HR. If you do not reply, the proposal may expire under company procedure. The agreement also contains a two-year post-employment non-compete clause. Song Ke, HR",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 500,
+        "headers_json": "{}",
+        "created_at": "2026-06-15T01:55:00Z"
+      }
+    }
+  ]
+}

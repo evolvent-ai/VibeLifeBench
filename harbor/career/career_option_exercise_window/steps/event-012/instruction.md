@@ -1,0 +1,1 @@
+[2026-06-19T10:20:00+08:00] Find Shanghai platform or backend roles where the company is the direct employer. Report employment arrangement and fit evidence. Exclude outsourced, dispatched, and broad uncompensated noncompetes.

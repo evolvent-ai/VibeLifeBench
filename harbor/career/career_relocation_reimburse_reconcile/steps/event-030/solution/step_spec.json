@@ -1,0 +1,24 @@
+{
+  "step": "event-030",
+  "virtual_stage": 21,
+  "source_event_id": "S21_user_wrapup",
+  "response": "The closing review summarizes the payment reconciliation and job-search progress.",
+  "response_paraphrase": "The overall review covers compensation, applications, interviews, offers, and next steps.",
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s21_wrapup_severance",
+      "weight": 2.5
+    },
+    {
+      "check_id": "s21_wrapup_reemploy",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

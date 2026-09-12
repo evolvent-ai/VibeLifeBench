@@ -1,0 +1,37 @@
+{
+  "step": "event-014",
+  "stage": 12,
+  "virtual_stage": 12,
+  "source_event_id": "evt_022",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "evt_021"
+    ]
+  },
+  "response": "StarRidge's written offer is RMB 31k x 14, or 434k annual cash, with RSUs separate from cash. Its initial 2026-06-08 18:00 response deadline is on the calendar, with acceptance still pending.",
+  "response_paraphrase": "The StarRidge terms now separate salary from equity and include a reminder for the original June 8 evening cutoff; no offer action was taken.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_022",
+      "event_time": "2026-05-29T12:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_12_starridge_cash_equity_and_deadline_recorded",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "stage_12_no_acceptance",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

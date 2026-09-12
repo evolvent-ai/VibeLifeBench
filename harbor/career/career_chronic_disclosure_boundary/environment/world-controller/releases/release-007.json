@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "S16_mut_recruiter_probe"
+  ],
+  "source_stage": 16,
+  "source_time": "2026-07-13T09:55:00+08:00",
+  "previous": "release-006",
+  "token": "career-release-07-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 107,
+        "folder_id": 1,
+        "message_id": "<20260713-probe@meituan.com>",
+        "subject": "English text：English text",
+        "from_addr": "English text <campus@meituan.com>",
+        "to_addr_json": "[\"feng.yi@163.com\"]",
+        "date": "2026-07-13T09:55:00Z",
+        "created_at": "2026-07-13T09:55:00Z",
+        "body_text": "English text，English text。English text：English text？\nEnglish text？English text offer、English text？English text，English text。\n",
+        "is_read": 1,
+        "is_important": 1,
+        "size": 500
+      },
+      "source_event_id": "S16_mut_recruiter_probe"
+    }
+  ]
+}

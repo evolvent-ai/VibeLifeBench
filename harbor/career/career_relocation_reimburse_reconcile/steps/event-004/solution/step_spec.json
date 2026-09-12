@@ -1,0 +1,24 @@
+{
+  "step": "event-004",
+  "virtual_stage": 2,
+  "source_event_id": "S02_user_base_salary",
+  "response": "The payroll evidence supports a CNY 33,800 average monthly wage including bonuses and allowances.",
+  "response_paraphrase": "Payroll deposits were reconciled to an average monthly wage of CNY 33,800.",
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "expected_env": {},
+  "expected_checks": [
+    {
+      "check_id": "s2_base_backend",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s2_avg_salary_computed",
+      "weight": 4.0
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

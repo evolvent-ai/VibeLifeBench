@@ -1,0 +1,1 @@
+[Scheduled Reminder] The company requires confirmation of its relocation reimbursement shortfall proposal by June 22. Several days remain before the deadline; assess the proposal before making a decision.

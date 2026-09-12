@@ -1,0 +1,24 @@
+{
+ "step": "event-032",
+ "stage": 23,
+ "event_id": "S23_audit_reminder",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 23
+  }
+ ],
+ "response_paraphrase": "I audited the calculation by cross-checking transaction identifiers with the stored backend references.",
+ "expected_env": {
+  "virtual_stage": 23,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s23_deep_audit_0",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "source_event_id": "S23_audit_reminder"
+}

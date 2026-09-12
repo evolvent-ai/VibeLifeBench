@@ -1,0 +1,26 @@
+{
+  "release_id": "release-007",
+  "previous": "release-006",
+  "token": "7366c7509a5a4a8b020d2bbb63dc5379",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 107,
+        "folder_id": 1,
+        "message_id": "<20260713-equity-question@qingyuan.example>",
+        "subject": "Interview follow-up: information request",
+        "from_addr": "Qingyuan Computingrecruiting <talent@qingyuan.example>",
+        "to_addr_json": "[\"gaokai_dev@163.com\"]",
+        "date": "2026-07-13T09:30:00Z",
+        "created_at": "2026-07-13T09:30:00Z",
+        "body_text": "Please provide your former company's stock option quantity, exercise price, expected return, and funding pressure, as well as other offer salaries, so we can assess start date and salary range.",
+        "is_read": 0,
+        "is_important": 1,
+        "size": 436
+      }
+    }
+  ]
+}

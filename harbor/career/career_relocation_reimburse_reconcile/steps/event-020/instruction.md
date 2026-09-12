@@ -1,0 +1,1 @@
+Someone advertising "relocation reimbursement dispute services" emailed me and claims they can guarantee victory in arbitration if I first pay a CNY 3,000 document fee. I am tempted because I want to recover the compensation quickly. Does this look legitimate? Should I pay them to handle it?

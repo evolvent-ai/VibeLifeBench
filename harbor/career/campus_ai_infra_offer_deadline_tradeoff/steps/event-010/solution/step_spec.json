@@ -1,0 +1,32 @@
+{
+  "step": "event-010",
+  "stage": 8,
+  "virtual_stage": 8,
+  "source_event_id": "evt_014",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "evt_015"
+    ]
+  },
+  "response": "A quiet status review of the application and recruiter chat confirms StarRidge is in HR review, with no written offer or deadline yet; the tracker heartbeat and next step are updated.",
+  "response_paraphrase": "I refreshed StarRidge through the recruiting records without contacting anyone and logged the HR-review state while waiting for formal terms.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_014",
+      "event_time": "2026-05-21T08:30:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_08_starridge_status_and_quiet_tracker_updated",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

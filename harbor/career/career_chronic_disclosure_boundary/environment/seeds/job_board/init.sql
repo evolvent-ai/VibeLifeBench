@@ -1,0 +1,103 @@
+-- Curated Stage-0 seed for career_chronic_disclosure_boundary / job_board.
+
+BEGIN;
+
+INSERT INTO companies (company_id, name, industry, size, stage, city, intro, rating) VALUES
+  ('comp_meituan', 'Meituan', 'English text/English text', '10000English text', 'English text', 'Shanghai', 'English text、English text。', 4.1),
+  ('comp_xiaohongshu', 'English text', 'English text/English text', '5000-10000English text', 'DEnglish text', 'Shanghai', 'English text、English text。', 4.3),
+  ('comp_zhipu', 'English textAI', 'English text', '500-1000English text', 'CEnglish text', 'Shanghai', 'English text、English text。', 4.2),
+  ('comp_bilibili', 'English text', 'English text/English text', '5000-10000English text', 'English text', 'Shanghai', 'English text、English text、English text。', 4.1),
+  ('comp_borchina', 'English text', 'IToutsourcing', '1000-5000English text', 'English text', 'Shanghai', 'English text，English text。', 3.1),
+  ('comp_ruijietech', 'English text', 'ITEnglish text', '1000-5000English text', 'English text', 'Shanghai', 'English text。', 3.0),
+  ('comp_dewu', 'Poizon', 'English text/English text', '5000-10000English text', 'English text', 'Shanghai', 'English text、English text。', 3.9),
+  ('comp_pinduoduo', 'English text', 'English text/English text', '10000English text', 'English text', 'Shanghai', 'English text、English text。', 4.0),
+  ('comp_cainiao', 'English text', 'English text', '10000English text', 'English text', 'Shanghai', 'English text、English text。', 3.9),
+  ('comp_ctrip', 'English text', 'English text', '10000English text', 'English text', 'Shanghai', 'English text、English text。', 4.0),
+  ('comp_huolala', 'English text', 'English text', '5000-10000English text', 'DEnglish text', 'Shanghai', 'English text、English text。', 3.8),
+  ('comp_qiniu', 'English text', 'English text', '1000-5000English text', 'DEnglish text', 'Shanghai', 'English text、English text。', 4.0),
+  ('comp_pingan', 'English text', 'English text', '10000English text', 'English text', 'Shanghai', 'English text、English text。', 3.8),
+  ('comp_unionpay', 'English text', 'English text', '5000-10000English text', 'English text', 'Shanghai', 'English text、English text。', 4.0),
+  ('comp_lufax', 'English text', 'English text', '5000-10000English text', 'English text', 'Shanghai', 'English text、English text。', 3.7),
+  ('comp_transsion', 'English text', 'English text', '10000English text', 'English text', 'Shanghai', 'English text、English text。', 3.9),
+  ('comp_saic', 'English text', 'English text', '10000English text', 'English text', 'Shanghai', 'English text、English text。', 4.0),
+  ('comp_ximalaya', 'English text', 'English text/English text', '1000-5000English text', 'English text', 'Shanghai', 'English text、English text、English text。', 3.8),
+  ('comp_zhongtong', 'English text', 'English text', '5000-10000English text', 'English text', 'Shanghai', 'English text、English text。', 3.8),
+  ('comp_hellobike', 'English text', 'English text', '5000-10000English text', 'DEnglish text', 'Shanghai', 'English text、English text。', 3.9),
+  ('comp_ubicloud', 'English text', 'English text', '1000-5000English text', 'English text', 'Shanghai', 'English text、English text。', 3.8),
+  ('comp_sensetime', 'English text', 'English text', '5000-10000English text', 'English text', 'Shanghai', 'English text、English text AI English text。', 3.9),
+  ('comp_yitu', 'English text', 'English text', '1000-5000English text', 'DEnglish text', 'Shanghai', 'English text、English text。', 3.7),
+  ('comp_honeycomb', 'English text', 'English text', '5000-10000English text', 'English text', 'Shanghai', 'English text、English text。', 3.8),
+  ('comp_fosun', 'English text', 'English text', '1000-5000English text', 'English text', 'Shanghai', 'English text、English text。', 3.8),
+  ('comp_springair', 'English text', 'English text', '1000-5000English text', 'English text', 'Shanghai', 'English text、English text。', 4.0),
+  ('comp_baosight', 'English text', 'English text', '5000-10000English text', 'English text', 'Shanghai', 'English text、English text。', 4.1),
+  ('comp_mihoyo', 'English text', 'English text', '5000-10000English text', 'English text', 'Shanghai', 'English text、English text。', 4.4),
+  ('comp_lilith', 'English text', 'English text', '1000-5000English text', 'English text', 'Shanghai', 'English text、English text。', 4.2),
+  ('comp_epicmed', 'English text', 'English text', '1000-5000English text', 'CEnglish text', 'Shanghai', 'English text。', 4.0);
+
+INSERT INTO jobs (job_id, company_id, title, city, category, salary_min_minor, salary_max_minor, salary_months, experience, education, jd, requirements, tags, status, posted_at) VALUES
+  ('jb-4vxnibjsgwrdx', 'comp_meituan', 'English text（English text）', 'Shanghai', 'backend', 3000000, 4000000, 16, '5-10', 'master', 'English text，English text、English text、English text。', 'English text；English text Java、Spring Cloud English text，English text。', 'Java,English text,English text', 'open', '2026-05-02T09:00:00Z'),
+  ('jb-n3e27mxldw6bx', 'comp_xiaohongshu', 'English text（English text）', 'Shanghai', 'backend', 4000000, 6500000, 16, '3-5', 'bachelor', 'English text、English text，English text、English text。', 'English text；English text Java English text Go、English text、English text。', 'Go,English text,English text', 'open', '2026-05-03T09:00:00Z'),
+  ('jb-a3ltos7t5ortx', 'comp_zhipu', 'English text（English text）', 'Shanghai', 'backend', 5000000, 8000000, 15, '5-10', 'master', 'English text、GPU English text，English text。', 'English text GPU English text，English text Go/C++、Kubernetes、English text。', 'Go,AIEnglish text,English text', 'open', '2026-05-04T09:00:00Z'),
+  ('jb-tb2gjepdyi66x', 'comp_bilibili', 'English text（English text）', 'Shanghai', 'backend', 3800000, 6000000, 15, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text Go/Java、Netty、English text、English text。', 'Go,English text,English text', 'open', '2026-05-05T09:00:00Z'),
+  ('jb-2jzt2pu3dgjvx', 'comp_borchina', 'English text（English text）', 'Shanghai', 'backend', 5500000, 8500000, 14, '5-10', 'master', 'English text/English text，English text，English text，English text。', 'English text；English text Java/Go，English text。', 'Java,English text,English text', 'open', '2026-05-06T09:00:00Z'),
+  ('jb-2dwm2nq5ea3mx', 'comp_ruijietech', 'English text（English text）', 'Shanghai', 'backend', 5200000, 8000000, 14, '3-5', 'bachelor', 'English text，English text，English text，English text。', 'English text；English text Java English text。', 'Java,English text,English text', 'open', '2026-05-07T09:00:00Z'),
+  ('jb-ippyupc52h4qx', 'comp_dewu', 'English text（English text）', 'Shanghai', 'backend', 4800000, 7200000, 16, '5-10', 'master', 'English text；English text，English text，English text。', 'English text Java English text；English text，English text。', 'Java,English text,English text', 'open', '2026-05-08T09:00:00Z'),
+  ('jb-pbjxtacswkbkx', 'comp_pinduoduo', 'English text', 'Shanghai', 'backend', 4600000, 7200000, 16, '5-10', 'bachelor', 'English text、English text，English text。', 'English text，English text MySQL、Kafka、English text、English text。', 'English text,English text,Kafka', 'open', '2026-05-09T09:00:00Z'),
+  ('jb-23rg376hdmgdx', 'comp_pinduoduo', 'English text', 'Shanghai', 'backend', 4000000, 6200000, 16, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text Java、SQL English text。', 'English text,Java,English text', 'open', '2026-05-10T09:00:00Z'),
+  ('jb-jxw5ohelcmv2x', 'comp_cainiao', 'English text', 'Shanghai', 'backend', 3900000, 6100000, 15, '5-10', 'bachelor', 'English text、English text，English text。', 'English text，English text Java、English text。', 'English text,English text,English text', 'open', '2026-05-11T09:00:00Z'),
+  ('jb-q6wdazlnw3mlx', 'comp_cainiao', 'English text', 'Shanghai', 'backend', 3500000, 5600000, 15, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text、English text、English text。', 'English text,English text,English text', 'open', '2026-05-12T09:00:00Z'),
+  ('jb-5ryrkwdeqvyhx', 'comp_ctrip', 'English text', 'Shanghai', 'backend', 4300000, 6800000, 15, '5-10', 'bachelor', 'English text，English text。', 'English text，English text，English text Java、RPC English text、English text。', 'English text,English text,English text', 'open', '2026-05-13T09:00:00Z'),
+  ('jb-iq3vsr5r5ipdx', 'comp_ctrip', 'English text', 'Shanghai', 'backend', 3400000, 5300000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text、English text，English text。', 'English text,English text,English text', 'open', '2026-05-14T09:00:00Z'),
+  ('jb-5p6lww2xboxwx', 'comp_huolala', 'English text', 'Shanghai', 'backend', 3800000, 6000000, 15, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text Go/Java、Redis、English text、English text。', 'English text,English text,Go', 'open', '2026-05-15T09:00:00Z'),
+  ('jb-vbhyeuta37eyx', 'comp_huolala', 'English text', 'Shanghai', 'backend', 3300000, 5000000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text、English text、English text。', 'English text,English text,English text', 'open', '2026-05-16T09:00:00Z'),
+  ('jb-rxscnaawg22hx', 'comp_qiniu', 'English text', 'Shanghai', 'backend', 3900000, 5900000, 15, '5-10', 'bachelor', 'English text、English text、English text，English text。', 'English text，English text Go，English text、English text API English text。', 'English text,Go,English text', 'open', '2026-05-17T09:00:00Z'),
+  ('jb-jbquytryfmqjx', 'comp_qiniu', 'English text', 'Shanghai', 'backend', 3400000, 5400000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text Go/Java、English text、English text。', 'English text,English text,English text', 'open', '2026-05-18T09:00:00Z'),
+  ('jb-wsjxaxevoauyx', 'comp_pingan', 'English text', 'Shanghai', 'backend', 4000000, 6200000, 15, '5-10', 'bachelor', 'English text、English text，English text。', 'English text，English text Java、English text、English text、English text。', 'English text,English text,English text', 'open', '2026-05-19T09:00:00Z'),
+  ('jb-77ccw7vkskeyx', 'comp_pingan', 'English text', 'Shanghai', 'backend', 3700000, 5800000, 15, '5-10', 'bachelor', 'English text、English text，English text。', 'English text，English text、Kubernetes、English text。', 'English text,English text,SRE', 'open', '2026-05-20T09:00:00Z'),
+  ('jb-ilny4jojjuc3x', 'comp_unionpay', 'English text', 'Shanghai', 'backend', 3600000, 5400000, 14, '5-10', 'bachelor', 'English text、English text，English text。', 'English text，English text Java、English text、English text。', 'English text,English text,English text', 'open', '2026-05-21T09:00:00Z'),
+  ('jb-tnxxhnu3rq2wx', 'comp_unionpay', 'English text API English text', 'Shanghai', 'backend', 3200000, 4900000, 14, '3-5', 'bachelor', 'English text、English text、English text，English text。', 'English text，English text API English text、OAuth、English text，English text。', 'English text,API,English text', 'open', '2026-05-22T09:00:00Z'),
+  ('jb-nve3ntwnmnspx', 'comp_lufax', 'English text', 'Shanghai', 'backend', 3600000, 5600000, 15, '5-10', 'bachelor', 'English text、English text，English text。', 'English text，English text Java、English text、English text。', 'English text,English text,English text', 'open', '2026-05-23T09:00:00Z'),
+  ('jb-hmggjcbpaheyx', 'comp_lufax', 'English text', 'Shanghai', 'backend', 3800000, 5900000, 15, '3-5', 'master', 'English text、English text，English text。', 'English text，English text Flink、Kafka English text Java，English text。', 'English text,Flink,English text', 'open', '2026-05-24T09:00:00Z'),
+  ('jb-qxwhat2nvfuqx', 'comp_transsion', 'English text', 'Shanghai', 'backend', 3500000, 5400000, 14, '5-10', 'bachelor', 'English text、English text，English text。', 'English text，English text Java/Go、English text、English text。', 'English text,English text,English text', 'open', '2026-05-25T09:00:00Z'),
+  ('jb-xstjzy5uxpmxx', 'comp_transsion', 'English text', 'Shanghai', 'backend', 3200000, 5000000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text、English text、English text。', 'English text,English text,English text', 'open', '2026-05-26T09:00:00Z'),
+  ('jb-q72hqw6e53h4x', 'comp_saic', 'English text', 'Shanghai', 'backend', 3800000, 5800000, 15, '5-10', 'bachelor', 'English text、English text，English text。', 'English text，English text Java/Go、MQTT、English text、English text IoT English text。', 'English text,IoT,English text', 'open', '2026-05-27T09:00:00Z'),
+  ('jb-6ck4qqoc4du3x', 'comp_saic', 'English text', 'Shanghai', 'backend', 3100000, 4800000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text、English text；English text、English text、English text。', 'English text,English text,English text', 'open', '2026-05-01T09:00:00Z'),
+  ('jb-bre4pbcjmrrvx', 'comp_ximalaya', 'English text', 'Shanghai', 'backend', 3400000, 5200000, 15, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text Java、English text、English text、English text。', 'English text,English text,English text', 'open', '2026-05-02T09:00:00Z'),
+  ('jb-7athk5hmspyqx', 'comp_ximalaya', 'English text', 'Shanghai', 'backend', 3300000, 5100000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text Go/Java、English text。', 'English text,English text,English text', 'open', '2026-05-03T09:00:00Z'),
+  ('jb-gusc6pawfm5ux', 'comp_zhongtong', 'English text', 'Shanghai', 'backend', 3300000, 5100000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text；English text、English text、English text。', 'English text,English text,English text', 'open', '2026-05-04T09:00:00Z'),
+  ('jb-d3hxudeu2nfmx', 'comp_zhongtong', 'English text', 'Shanghai', 'backend', 3500000, 5400000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text Java/Go、English text，English text。', 'English text,English text,English text', 'open', '2026-05-05T09:00:00Z'),
+  ('jb-nrn2ga2kcqksx', 'comp_hellobike', 'English text', 'Shanghai', 'backend', 3500000, 5400000, 15, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text Go/Java English text，English text。', 'English text,English text,IoT', 'open', '2026-05-06T09:00:00Z'),
+  ('jb-in74bgaj3v2nx', 'comp_hellobike', 'English text', 'Shanghai', 'backend', 3400000, 5200000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text、English text、English text。', 'English text,English text,English text', 'open', '2026-05-07T09:00:00Z'),
+  ('jb-gvjx7u7p32gkx', 'comp_ubicloud', 'English text', 'Shanghai', 'backend', 3700000, 5700000, 15, '5-10', 'bachelor', 'English text、English text、English text，English text。', 'English text，English text Go/Python，English text。', 'English text,English text,Go', 'open', '2026-05-08T09:00:00Z'),
+  ('jb-z2pw5b7l6a5zx', 'comp_ubicloud', 'English text', 'Shanghai', 'backend', 3300000, 5000000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text、English text，English text。', 'English text,English text,English text', 'open', '2026-05-09T09:00:00Z'),
+  ('jb-wxt4cbhezactx', 'comp_sensetime', 'English text', 'Shanghai', 'backend', 4200000, 6600000, 15, '5-10', 'master', 'English text、English text、English text，English text。', 'English text GPU English text，English text Go/Python、Kubernetes English text API English text。', 'English text,Kubernetes,GPU', 'open', '2026-05-10T09:00:00Z'),
+  ('jb-jz77e5gyakk3x', 'comp_sensetime', 'English text', 'Shanghai', 'backend', 3600000, 5600000, 15, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text、English text、English text。', 'English text,English text,English text', 'open', '2026-05-11T09:00:00Z'),
+  ('jb-ohxq7mqkjefbx', 'comp_yitu', 'English text', 'Shanghai', 'backend', 3900000, 6000000, 15, '5-10', 'master', 'English text、English text、English text，English text。', 'English text，English text Java/Go，English text DICOM、English text。', 'English text,English text,English text', 'open', '2026-05-12T09:00:00Z'),
+  ('jb-nzo7pvcxrmkax', 'comp_yitu', 'English text', 'Shanghai', 'backend', 3500000, 5400000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text、English text、GIS English text。', 'English text,English text,English text', 'open', '2026-05-13T09:00:00Z'),
+  ('jb-llhutb4yfqi2x', 'comp_honeycomb', 'English text', 'Shanghai', 'backend', 3200000, 4900000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text Java、English text、English text。', 'MES,English text,English text', 'open', '2026-05-14T09:00:00Z'),
+  ('jb-v42k2t7azd44x', 'comp_honeycomb', 'English text', 'Shanghai', 'backend', 3300000, 5100000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text、English text、English text。', 'English text,English text,English text', 'open', '2026-05-15T09:00:00Z'),
+  ('jb-vnf7w6gkvh7ux', 'comp_fosun', 'English text', 'Shanghai', 'backend', 3300000, 5000000, 14, '5-10', 'bachelor', 'English text、English text，English text、English text。', 'English text，English text Java、English text、English text、English text。', 'English text,English text,English text', 'open', '2026-05-16T09:00:00Z'),
+  ('jb-dx7655b2cbayx', 'comp_fosun', 'English text', 'Shanghai', 'backend', 3500000, 5300000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text OAuth/OIDC、RBAC、English text，IAM English text。', 'IAM,English text,English text', 'open', '2026-05-17T09:00:00Z'),
+  ('jb-6yliemfwq3wlx', 'comp_springair', 'English text', 'Shanghai', 'backend', 3500000, 5300000, 14, '5-10', 'bachelor', 'English text、English text，English text。', 'English text，English text；English text Java、English text。', 'English text,English text,English text', 'open', '2026-05-18T09:00:00Z'),
+  ('jb-rswrqdlz4u7vx', 'comp_springair', 'English text', 'Shanghai', 'backend', 3300000, 5000000, 14, '3-5', 'master', 'English text、English text，English text。', 'English text，English text Python/Java，English text、English text、English text。', 'English text,English text,English text', 'open', '2026-05-19T09:00:00Z'),
+  ('jb-mbnkauemdh56x', 'comp_baosight', 'English text', 'Shanghai', 'backend', 3400000, 5200000, 14, '5-10', 'bachelor', 'English text、English text，English text。', 'English text，English text Java/Go、English text、English text。', 'English text,English text,English text', 'open', '2026-05-20T09:00:00Z'),
+  ('jb-uiruh7bh6rc3x', 'comp_baosight', 'English text', 'Shanghai', 'backend', 3200000, 4900000, 14, '3-5', 'bachelor', 'English text、English text，English text。', 'English text，English text Python/Go English text Kubernetes English text、English text。', 'DevOps,Kubernetes,English text', 'open', '2026-05-21T09:00:00Z'),
+  ('jb-ufhamljj2bjwx', 'comp_mihoyo', 'English text', 'Shanghai', 'backend', 4200000, 6500000, 16, '5-10', 'bachelor', 'English text、English text，English text。', 'English text，English text Go/Java、English text、English text。', 'English text,English text,English text', 'open', '2026-05-22T09:00:00Z'),
+  ('jb-mvpflsquwzhjx', 'comp_lilith', 'English text', 'Shanghai', 'backend', 3900000, 6100000, 15, '5-10', 'bachelor', 'English text、English text，English text。', 'English text，English text，English text Java/Go English text。', 'English text,English text,English text', 'open', '2026-05-23T09:00:00Z'),
+  ('jb-z6i6qngpxk3qx', 'comp_epicmed', 'English text', 'Shanghai', 'backend', 3700000, 5700000, 15, '5-10', 'master', 'English text、English text，English text。', 'English text，English text Java/Go，English text、English text。', 'English text,English text,English text', 'open', '2026-05-24T09:00:00Z');
+
+INSERT INTO resumes (resume_id, user_id, name, headline, years_exp, education, skills, summary, updated_at) VALUES
+  ('resume_feng_yi', 'usr_feng_yi', 'Evan Feng', 'English text（8English text / Java / Go / English text）', 8, 'master', 'Java,Go,Spring Cloud,Kafka,Redis,MySQL,English text,English text,English text', 'English text，English text；English text。', '2026-06-08T01:00:00Z');
+
+
+
+
+
+
+INSERT INTO _counters (key, value) VALUES
+  ('application_seq', 0),
+  ('chat_seq', 0),
+  ('message_seq', 0),
+  ('alert_seq', 0);
+
+COMMIT;

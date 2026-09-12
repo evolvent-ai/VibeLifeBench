@@ -1,0 +1,1 @@
+[2026-06-11T09:00:00+08:00] Formal policy guidance exists for equity-incentive tax treatment. The personal post-employment window still requires confirmation from plan documents and the administrator notice.

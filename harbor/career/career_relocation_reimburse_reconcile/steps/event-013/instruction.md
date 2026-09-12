@@ -1,0 +1,1 @@
+Leave the compensation matter unsigned for now, and start the job search in parallel. Look on the platform for roles that match my backend or platform-engineering focus and Shanghai location. I have eight years of experience and want a relatively stable, direct-employment position. Give me several credible options and explain why each one fits.

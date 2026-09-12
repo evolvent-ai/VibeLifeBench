@@ -1,0 +1,1 @@
+[2026-06-08T11:00:00+08:00] My employer set June 30, 2026 as my last working day. I hold vested but unexercised stock options in Lanqi Technology. Create an equity-window ledger, job-search tracker, and handoff records. Research and calculate, but without explicit confirmation do not submit exercise, sale, financing, transfer, or another irreversible instruction.
