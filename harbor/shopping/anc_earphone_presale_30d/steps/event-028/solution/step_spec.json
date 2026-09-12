@@ -1,0 +1,37 @@
+{
+  "step": "event-028",
+  "virtual_stage": 20,
+  "source_event_id": "S20_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-014"
+    ],
+    "released_mutations": []
+  },
+  "response": "The SonicPod Max presale records were reconciled across official systems, with evidence, funds, and approval boundaries kept separate.",
+  "response_paraphrase": "I refreshed the stage 20 presale review while preserving independent evidence, financial categories, and user approval gates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S20_world",
+      "virtual_stage": 20,
+      "event_kind": "world",
+      "event_time": "2026-07-11T16:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s20_result",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

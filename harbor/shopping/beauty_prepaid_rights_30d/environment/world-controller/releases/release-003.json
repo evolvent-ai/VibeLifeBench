@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_stage": 7,
+  "source_event_ids": [
+    "S07_mut"
+  ],
+  "source_time": "2026-06-21T15:00:00+08:00",
+  "previous": "release-002",
+  "token": "beauty_prepaid_rights_30d-release-003-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_ppbeauty_cp",
+        "user_id": "usr_shen_e",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Merchant proposed a settlement offer",
+        "body": "The merchant offered a low card-cancellation settlement. Use the evidence record to decide whether to accept or continue pursuing full card-cancellation refund recovery.",
+        "payload_json": "{\"order_id\": \"ord_ppbeauty_0001\", \"offer\": \"partial_refund\"}",
+        "created_at": "2026-06-21T15:00:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

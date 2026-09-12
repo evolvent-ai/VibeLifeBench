@@ -1,0 +1,45 @@
+{
+  "step": "event-014",
+  "virtual_stage": 10,
+  "source_event_id": "S10_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "S10_mut"
+    ]
+  },
+  "response": "A second SWAPPA US charge tx_andt_dup for 21200 matches the first merchant and amount. I marked it as a possible duplicate requiring reconciliation and dispute review, not as a normal charge to ignore.",
+  "response_paraphrase": "Transaction tx_andt_dup repeats the same SWAPPA merchant and 21200 amount, so it is flagged for duplicate-payment reconciliation instead of being dismissed as ordinary.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S10_world",
+      "virtual_stage": 10,
+      "event_kind": "world",
+      "event_time": "2026-06-24T09:20:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s10_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s10_result",
+      "weight": 3
+    },
+    {
+      "check_id": "s10_no_bad",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

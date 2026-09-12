@@ -1,0 +1,21 @@
+{
+  "step": "event-011",
+  "stage": 8,
+  "virtual_stage": 8,
+  "source_event_id": "S08_coupon_banner",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "actions": [
+    {
+      "kind": "world",
+      "source_event_id": "S08_coupon_banner"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0,
+  "response": "The camera resale evidence and records were updated from authoritative systems.",
+  "response_paraphrase": "Authoritative camera-sale records were refreshed, with decisions and funds still clearly separated."
+}

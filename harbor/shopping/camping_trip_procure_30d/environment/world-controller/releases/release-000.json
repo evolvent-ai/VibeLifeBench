@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "camp_destination_weather_release"
+  ],
+  "source_stage": 3,
+  "source_time": "2026-06-17T07:30",
+  "previous": null,
+  "token": "camping-trip-release-token-000-8f2a1c9d4e7b6a5c",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "upsert",
+      "conflict_keys": [
+        "alert_id"
+      ],
+      "values": {
+        "alert_id": "alr_camp_plateau_cold",
+        "kind": "cold_wave",
+        "severity": "yellow",
+        "start_dt": "2026-07-13T18:00:00+08:00",
+        "end_dt": "2026-07-16T10:00:00+08:00",
+        "areas_json": "[\"Diqing Tibetan Autonomous Prefecture\"]",
+        "description": "high-altitude campsitenighttimetemperature dropcamping business detailgusts，camping business detail、guylinecamping business detailtent stakecamping business detail。",
+        "active": 1,
+        "created_at": "2026-06-17T07:30:00+08:00",
+        "source_event": "plateau_forecast_update"
+      },
+      "source_event_id": "camp_destination_weather_release",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "upsert",
+      "conflict_keys": [
+        "notification_id"
+      ],
+      "values": {
+        "notification_id": "ntf_camp_plateau",
+        "user_id": "usr_ye_chen",
+        "source": "weather",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "camping business detailnighttimetemperature dropcamping business detailgustscamping business detail",
+        "body": "departure windowcamping business detailforecastcamping business detailnighttimetemperature dropcamping business detailgustsrisk，pleasecamping business detailsleeping bagcamping business detail、guylinecamping business detailtent stake，do notrely only oncamping business detailweathercamping business detail。",
+        "payload_json": "{\"geo_key\":\"geo_camp\",\"alert_id\":\"alr_camp_plateau_cold\"}",
+        "created_at": "2026-06-16T23:31:00Z",
+        "read": 0
+      },
+      "source_event_id": "camp_destination_weather_release",
+      "operation_index": 1
+    }
+  ]
+}

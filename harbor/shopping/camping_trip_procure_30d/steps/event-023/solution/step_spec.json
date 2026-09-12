@@ -1,0 +1,27 @@
+{
+  "step": "event-023",
+  "stage": 22,
+  "virtual_stage": 22,
+  "source_event_id": "camp_cross_service_reconcile",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the camping procurement review for this step and preserved the authorization boundaries.",
+  "response_paraphrase": "This camping workflow checkpoint was refreshed with current records while approval gates remained intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "camp_cross_service_reconcile"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_consistency",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2
+}

@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "task": "baby_stroller_safety_standard_30d",
+  "step_count": 25,
+  "steps": {
+    "event-000": {
+      "source_event_id": "S00_kickoff",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "S01_reconcile_request",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T09:30:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "S02_warranty",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-16T10:00:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "S03_refund_notice",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-17T14:05:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "S04_phishing",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-18T18:20:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "S05_evidence",
+      "before": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-19T09:10:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "S06_fx",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-20T11:20:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "S07_buyer_notice",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-21T15:05:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "S08_tradein",
+      "before": [],
+      "virtual_stage": 8,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-22T10:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "S08_bundle",
+      "before": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-22T15:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "S09_refund_evidence_notice",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-23T13:05:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "S10_duplicate_charge_notice",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-24T09:05:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "S11_lowball",
+      "before": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-25T10:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "S12_offp",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-26T16:20:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "S13_budget_review_notice",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-28T09:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "S14_dispute_notice",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-30T10:05:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "S15_window",
+      "before": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T09:00:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "S16_final_plan",
+      "before": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-04T10:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "S17_meet",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T14:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "S18_dispute_result_notice",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T18:05:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "S19_refund_approved_notice",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-10T11:05:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "S20_resale_settlement_notice",
+      "before": [
+        "release-011"
+      ],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-11T16:05:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "S21_window",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-12T10:00:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "S22_reconcile_request",
+      "before": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T10:00:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "S23_archive",
+      "before": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-14T10:00:00+08:00"
+    }
+  }
+}

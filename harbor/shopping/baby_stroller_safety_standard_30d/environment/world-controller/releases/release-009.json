@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "S18_mut"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-07-08T18:00:00+08:00",
+  "previous": "release-008",
+  "token": "baby-stroller-release-009-token-7d2f4c9a1b6e",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "disputes",
+      "op": "update",
+      "set": {
+        "status": "approved",
+        "resolved_at": "2026-07-08T18:00:00+08:00"
+      },
+      "where": {
+        "dispute_id": "disp_strr_01"
+      },
+      "source_event_id": "S18_mut",
+      "operation_index": 0
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_strr_rev",
+        "card_id": "card_strr_01",
+        "posted_at": "2026-07-08T18:00:00+08:00",
+        "amount_minor": -25800,
+        "merchant_name": "BABYJOGGER US (dispute reversal)",
+        "mcc": "4814",
+        "category": "baby and maternity goods",
+        "kind": "adjustment"
+      },
+      "source_event_id": "S18_mut",
+      "operation_index": 1
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 115400,
+        "available_credit_minor": 2200000
+      },
+      "where": {
+        "card_id": "card_strr_01"
+      },
+      "source_event_id": "S18_mut",
+      "operation_index": 2
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_strr_rev",
+        "user_id": "usr_yan_ting",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_strr_card",
+        "title": "duplicate-charge dispute approved; amount reversed",
+        "body": "the dispute was approved and the duplicate charge was reversed; check the statement。",
+        "payload_json": "{\"card_id\": \"card_strr_01\", \"dispute_id\": \"disp_strr_01\", \"status\": \"approved\"}",
+        "created_at": "2026-07-08T10:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S18_mut",
+      "operation_index": 3
+    }
+  ]
+}

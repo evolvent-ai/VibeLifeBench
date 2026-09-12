@@ -1,0 +1,26 @@
+{
+  "step": "event-005",
+  "stage": 5,
+  "event_id": "S05_evidence",
+  "source_event_id": "S05_evidence",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 5
+    }
+  ],
+  "response_paraphrase": "The retained-material checklist now has one section per workstream.",
+  "expected_env": {
+    "virtual_stage": 5,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s5_evidence",
+      "weight": 4
+    }
+  ],
+  "expected_stage_weight": 4
+}

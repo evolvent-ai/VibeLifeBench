@@ -1,0 +1,1 @@
+My credit-card statement contains a US-dollar charge that may be for an overseas purchase of an air-deflector accessory. The amount is confusing. Check whether this charge looks normal and advise what, if anything, should be done now.

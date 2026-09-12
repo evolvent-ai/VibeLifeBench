@@ -1,0 +1,1 @@
+The duplicate-charge dispute was approved and the extra charge has been reversed. The July 10 payment still needs to be made using the correct amount. When archiving, distinguish among reversed amounts, legitimate amounts due, and amounts already paid.

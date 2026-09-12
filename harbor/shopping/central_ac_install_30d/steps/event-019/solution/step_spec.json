@@ -1,0 +1,49 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-019",
+  "virtual_stage": 18,
+  "event_id": "S18_dispute_result_notice",
+  "source_event_id": "S18_dispute_result_notice",
+  "response": "Dispute disp_iscac_01 is approved and tx_iscac_rev reverses the 216 duplicate charge; the reversal remains separate from other funds.",
+  "response_paraphrase": "Dispute disp_iscac_01 is approved, and tx_iscac_rev reverses the 216 duplicate charge; that reversal stays separate from the other funds.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-019",
+    "HARBOR_EVENT_ID": "S18_dispute_result_notice",
+    "HARBOR_VIRTUAL_STAGE": "18",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009"
+    ]
+  },
+  "expected_checks": [
+    "s18_servers",
+    "s18_result"
+  ],
+  "expected_stage_weight": 2.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S18_dispute_result_notice"
+    }
+  ]
+}

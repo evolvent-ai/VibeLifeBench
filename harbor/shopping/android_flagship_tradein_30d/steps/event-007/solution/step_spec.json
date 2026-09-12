@@ -1,0 +1,24 @@
+{
+  "step": "event-007",
+  "virtual_stage": 5,
+  "source_event_id": "S05_evidence",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The evidence log now separates model, serial number, batch, invoice, and inspection ID for ord_andt_0001; inspection video, condition photos, chat records, recycler receipt, order ID, and deadline for ord_andt_0002; and estimate, appraisal fee, credit reference, difference, and funds received for lst_andt_0001.",
+  "response_paraphrase": "Each case now has its own evidence bundle: device identity and purchase proof; inspection media and recycler records; and credit, fee, difference, recovery, and receipt records.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S05_evidence",
+      "virtual_stage": 5,
+      "event_kind": "user_message",
+      "event_time": "2026-06-19T09:10:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0.0
+}

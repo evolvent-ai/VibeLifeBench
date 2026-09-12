@@ -1,0 +1,1 @@
+A third-party installation quality report has arrived by email. Use it together with the existing rework case to update the recommendation between accepting the partial refund and continuing the platform review, and explain why.

@@ -1,0 +1,37 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "S01_snapshot",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The cross-system snapshot ties SF3724520001CN to delivered order ord_andt_0001, YTOANDT5520002CN to the in-transit trade-in order, lst_andt_0001 to its active listing, and card ending 7426 with a 2026-07-10 due date.",
+  "response_paraphrase": "Cross-checking confirms the delivered and moving shipment references, the active 4300 listing, and the card ending 7426 with payment due July 10.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S01_snapshot",
+      "virtual_stage": 1,
+      "event_kind": "world",
+      "event_time": "2026-06-15T09:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s1_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s1_result",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 2
+}

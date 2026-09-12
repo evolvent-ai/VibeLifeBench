@@ -1,0 +1,1 @@
+This is the final cross-system reconciliation point. Confirm whether the store, logistics, credit card, notification, and other systems record the same facts consistently. Flag any conflict you find rather than pretending the records agree.

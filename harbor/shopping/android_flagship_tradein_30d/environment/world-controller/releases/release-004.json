@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_stage": 9,
+  "source_event_ids": [
+    "S09_mut",
+    "S09_world"
+  ],
+  "source_time": "2026-06-23T13:00:00+08:00",
+  "previous": "release-003",
+  "token": "android_flagship_tradein_30d-release-004",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "rejected",
+        "resolved_at": "2026-06-23T13:00:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_andt_b"
+      },
+      "source_event_id": "S09_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_andt_b2",
+        "user_id": "usr_pan_yu",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "Trade-in estimate review requires supplemental evidence",
+        "body": "The trade-in review was rejected because the recycler claims a suspected condition mismatch. Submit inspection video and photos before the deadline.",
+        "payload_json": "{\"order_id\": \"ord_andt_0001\", \"refund_id\": \"ref_andt_b\", \"status\": \"rejected\", \"next_step\": \"supplement_evidence\"}",
+        "created_at": "2026-06-23T13:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S09_mut"
+    }
+  ]
+}

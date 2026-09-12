@@ -1,0 +1,1 @@
+After reviewing the third-party report, the platform upheld the full appraisal value. The decisive factors were a complete evidence chain and timely submission, rather than allowing the condition-mismatch claim to run past the deadline or accepting the reduced estimate.

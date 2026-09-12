@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "S13_budget_review_mutation"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-06-28T08:55",
+  "previous": "release-007",
+  "token": "central-ac-release-008-20260824",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_iscac_budget_review",
+        "user_id": "usr_luo_wei",
+        "source": "calendar",
+        "type": "reminder",
+        "subscription_id": null,
+        "title": "Installation after-sales funds review day",
+        "body": "Today is the review day for installation after-sales fees and case progress.",
+        "payload_json": "{\"calendar_ref\": \"ac-service-budget-review\"}",
+        "created_at": "2026-06-28T00:55:00Z",
+        "read": 0
+      },
+      "source_event_id": "S13_budget_review_mutation",
+      "operation_index": 0
+    }
+  ]
+}

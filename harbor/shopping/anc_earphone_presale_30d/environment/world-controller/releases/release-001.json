@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "S03_mut"
+  ],
+  "source_stage": 3,
+  "source_time": "2026-06-17T14:30:00+08:00",
+  "previous": "release-000",
+  "token": "anc_earphone_presale_30d-d5e2246f1847e97adfbe55829e2c36e8",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "insert",
+      "source_event_id": "S03_mut",
+      "operation_index": 0,
+      "values": {
+        "refund_id": "ref_psea_b",
+        "order_id": "ord_psea_0001",
+        "item_id": "item_psea_a1",
+        "qty": 1,
+        "reason": "\u9884\u552e\u4ef7\u3001\u5b9a\u91d1\u81a8\u80c0\u91d1\u4e0e\u6ee1\u51cf\u53e0\u52a0\u53e3\u5f84\u4e89\u8bae",
+        "status": "submitted",
+        "opened_at": "2026-06-17T14:00:00+08:00",
+        "resolved_at": null,
+        "refund_amount_minor": 137940
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "S03_mut",
+      "operation_index": 1,
+      "values": {
+        "notification_id": "ntf_psea_b1",
+        "user_id": "usr_teng_qi",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "\u9884\u552e\u4ef7\u4e0e\u5c3e\u6b3e\u6838\u5bf9\u7533\u8bf7\u5df2\u63d0\u4ea4",
+        "body": "\u60a8\u7684\u9884\u552e\u4ef7\u3001\u81a8\u80c0\u91d1\u4e0e\u6ee1\u51cf\u53e0\u52a0\u6838\u5bf9\u7533\u8bf7\u5df2\u63d0\u4ea4\uff0c\u5ba2\u670d\u9700\u5728\u65f6\u9650\u5185\u54cd\u5e94\u3002\u8bf7\u4fdd\u7559\u9884\u552e\u9875\u622a\u56fe\u4e0e\u5b9a\u91d1\u51ed\u8bc1\u3002",
+        "payload_json": "{\"order_id\": \"ord_psea_0001\", \"refund_id\": \"ref_psea_b\", \"status\": \"submitted\"}",
+        "created_at": "2026-06-17T14:01:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

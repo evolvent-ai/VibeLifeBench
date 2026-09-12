@@ -1,0 +1,24 @@
+{
+  "step": "event-021",
+  "virtual_stage": 15,
+  "source_event_id": "S15_window",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The existing review can accept supplementary evidence until 2026-07-09. The orange rainstorm warning, heavy precipitation, and AQI were checked; ship early or use a backup route so evidence reaches the platform before the window and the 2026-07-15 closeout date.",
+  "response_paraphrase": "The July 9 proof cutoff remains usable. Because an orange storm alert and heavy rain threaten transit, evidence should travel early or by a fallback route before final closure.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S15_window",
+      "virtual_stage": 15,
+      "event_kind": "user_message",
+      "event_time": "2026-07-02T09:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0.0
+}

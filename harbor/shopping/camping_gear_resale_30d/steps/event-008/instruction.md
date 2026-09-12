@@ -1,0 +1,1 @@
+A foreign-currency charge from an overseas waterproof-coating inspection provider appeared on the credit card. Check the original-currency amount, merchant, authorization and posting status, and whether it matches my one and only inspection. Record an observation first; do not call it a duplicate merely because exchange-rate rounding creates a small difference.

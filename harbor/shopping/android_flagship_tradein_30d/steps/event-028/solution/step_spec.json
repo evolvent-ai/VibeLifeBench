@@ -1,0 +1,37 @@
+{
+  "step": "event-028",
+  "virtual_stage": 20,
+  "source_event_id": "S20_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": [
+      "S20_mut"
+    ]
+  },
+  "response": "Credit transaction tx_andt_pp shows the 430000 recovery adjustment. The 4300 compensation is recorded as funds received and reconciled separately from trade-in credit, price difference, appraisal fee, and card reversal.",
+  "response_paraphrase": "A negative 430000 adjustment under tx_andt_pp confirms actual recovery. It is reconciled apart from appraisal expense, price difference, trade-in credit, and the separate card reversal.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S20_world",
+      "virtual_stage": 20,
+      "event_kind": "world",
+      "event_time": "2026-07-11T16:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s20_result",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 3
+}

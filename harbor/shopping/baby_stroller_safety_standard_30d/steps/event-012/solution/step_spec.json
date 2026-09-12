@@ -1,0 +1,26 @@
+{
+  "step": "event-012",
+  "stage": 11,
+  "event_id": "S11_lowball",
+  "source_event_id": "S11_lowball",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 11
+    }
+  ],
+  "response_paraphrase": "After the lower trade-in quote, I documented why protected resale remains preferable.",
+  "expected_env": {
+    "virtual_stage": 11,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s11_decision",
+      "weight": 4
+    }
+  ],
+  "expected_stage_weight": 4
+}

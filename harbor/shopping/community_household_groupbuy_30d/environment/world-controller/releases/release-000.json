@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "groupbuy_threshold_progress"
+  ],
+  "source_stage": 3,
+  "source_time": "2026-06-17T14:00:00+08:00",
+  "previous": null,
+  "token": "community-household-groupbuy-30d-release-000-token-7f3a9b1c2d4e5f6a",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_homtg_threshold",
+        "user_id": "usr_xie_lin",
+        "source": "ecommerce",
+        "type": "order_update",
+        "subscription_id": "sub_homtg_log",
+        "title": "Community household group has paid 18  households\uff0cminimum group size 24  households",
+        "body": " households remain to reach the minimum; 6  households\uff1bunpaid intent and cancelled orders do not count toward tier pricing households\u3002",
+        "payload_json": "{\"order_id\":\"ord_homtg_0002\",\"paid_households\":18,\"minimum\":24}",
+        "created_at": "2026-06-17T06:01:00Z",
+        "read": 0
+      },
+      "postcondition": {
+        "sql": "SELECT COUNT(*) FROM notifications WHERE notification_id = ?",
+        "params": [
+          "ntf_homtg_threshold"
+        ],
+        "equals": 1
+      },
+      "source_event_id": "groupbuy_threshold_progress",
+      "operation_index": 0
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "task": "camping_trip_procure_30d",
+  "clock_file": "/world-clock/current.json",
+  "clock_token_env": "CLOCK_TOKEN",
+  "health_token_env": "HEALTH_TOKEN",
+  "step_count": 25,
+  "release_count": 10
+}

@@ -1,0 +1,37 @@
+{
+  "step": "event-026",
+  "virtual_stage": 18,
+  "source_event_id": "S18_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "S18_mut"
+    ]
+  },
+  "response": "Dispute disp_andt_01 is approved and tx_andt_rev records a negative 21200 reversal. I reconciled the reversal against the statement, kept the normal amount due separate, and archived the result.",
+  "response_paraphrase": "The issuer approved disp_andt_01 and posted tx_andt_rev for minus 21200; the correction is archived separately from the legitimate statement balance.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S18_world",
+      "virtual_stage": 18,
+      "event_kind": "world",
+      "event_time": "2026-07-08T18:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s18_result",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

@@ -1,0 +1,1 @@
+There are three days left before the case-closing deadline. Review everything that must be closed before I leave: repayment, the trade-in appraisal, the old-device verification plan, the price-difference funding workstream, and the dispute result. Tell me what is complete and what still needs my confirmation.

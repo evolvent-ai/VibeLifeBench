@@ -1,0 +1,1 @@
+After review, the platform rejected the buyer's reduction based on the inspection report, setup video, and accessory list. The listing closed as a platform-escrow sale. Whether the settlement has arrived must still be checked against the card and funds ledger.

@@ -1,0 +1,38 @@
+{
+  "step": "event-007",
+  "stage": 7,
+  "event_id": "S07_buyer_notice",
+  "source_event_id": "S07_buyer_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 7
+    }
+  ],
+  "response_paraphrase": "I captured the buyer message while preserving an escrow-only handoff.",
+  "expected_env": {
+    "virtual_stage": 7,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-003"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s7_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s7_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s7_result",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

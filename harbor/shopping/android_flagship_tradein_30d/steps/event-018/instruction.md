@@ -1,0 +1,1 @@
+[Scheduled review] It is time to review the rights-protection progress and finances. Check the status of all funds, including amounts paid, pending refunds, pending compensation, and estimated recovery. Update the ledger and mark anything that is not confirmed.

@@ -1,0 +1,53 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-021",
+  "virtual_stage": 20,
+  "event_id": "S20_compensation_posted_notice",
+  "source_event_id": "S20_compensation_posted_notice",
+  "response": "The card_iscac_01 posting tx_iscac_pp credited 224 through the original channel; the refund adjustment is credited and reconciled with the platform notice and net spend.",
+  "response_paraphrase": "Posting tx_iscac_pp on card_iscac_01 credited 224 through the original channel; I reconciled that refund adjustment with the platform notice and net spend.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-021",
+    "HARBOR_EVENT_ID": "S20_compensation_posted_notice",
+    "HARBOR_VIRTUAL_STAGE": "20",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009",
+      "release-011",
+      "release-012"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009",
+      "release-011",
+      "release-012"
+    ]
+  },
+  "expected_checks": [
+    "s20_servers",
+    "s20_result"
+  ],
+  "expected_stage_weight": 3,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S20_compensation_posted_notice"
+    }
+  ]
+}

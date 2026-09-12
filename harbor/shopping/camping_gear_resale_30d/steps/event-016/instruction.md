@@ -1,0 +1,1 @@
+The third-party valuation says the condition is good and the listing price is reasonable, which supports the sale. Relying on the report to pursue a full platform-escrow sale yields a higher net receipt but requires more evidence work and time; accepting a low offer is faster but pays less.

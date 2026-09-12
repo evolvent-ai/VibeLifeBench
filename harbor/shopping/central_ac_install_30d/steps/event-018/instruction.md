@@ -1,0 +1,1 @@
+I have decided to continue with the platform review and seek a remedy based on the quality report. Organize the confirmation process, rework acceptance, refund-adjustment receipt check, and every step that requires my own confirmation.

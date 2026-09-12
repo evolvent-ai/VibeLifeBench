@@ -1,0 +1,1 @@
+There are three days left before case closure. Review everything that must be closed before departure: payment, negotiated sale, valuation and listing plan, payout funds, and dispute outcome. Mark what is complete and what still needs my confirmation.

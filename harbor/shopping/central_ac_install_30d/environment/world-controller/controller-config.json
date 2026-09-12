@@ -1,0 +1,14 @@
+{
+  "task": "central_ac_install_30d",
+  "step_count": 25,
+  "clock_file": "/world-clock/current.json",
+  "servers": [
+    "calendar",
+    "credit_card",
+    "delivery_logistics",
+    "ecommerce",
+    "email",
+    "notification_hub",
+    "weather"
+  ]
+}

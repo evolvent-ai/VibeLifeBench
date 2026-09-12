@@ -1,0 +1,34 @@
+{
+  "step": "event-019",
+  "stage": 18,
+  "event_id": "S18_dispute_result_notice",
+  "source_event_id": "S18_dispute_result_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 18
+    }
+  ],
+  "response_paraphrase": "The approved card case and its offsetting entry are reconciled against the statement.",
+  "expected_env": {
+    "virtual_stage": 18,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": [
+      "release-009"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s18_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s18_result",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

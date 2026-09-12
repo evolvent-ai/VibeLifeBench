@@ -1,0 +1,31 @@
+{
+  "step": "event-026",
+  "stage": 19,
+  "virtual_stage": 19,
+  "source_event_id": "S19_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "release-010"
+    ]
+  },
+  "actions": [
+    {
+      "kind": "world",
+      "source_event_id": "S19_world"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_result",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5,
+  "response": "The camera resale evidence and records were updated from authoritative systems.",
+  "response_paraphrase": "Authoritative camera-sale records were refreshed, with decisions and funds still clearly separated."
+}

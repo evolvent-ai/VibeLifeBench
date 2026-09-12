@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "S19_mut"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-07-10T11:00",
+  "previous": "release-011",
+  "token": "central-ac-release-012-20260824",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "approved",
+        "resolved_at": "2026-07-10T11:00:00+08:00",
+        "refund_amount_minor": 22400
+      },
+      "where": {
+        "refund_id": "ref_iscac_b"
+      },
+      "source_event_id": "S19_mut",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_iscac_ship",
+        "user_id": "usr_luo_wei",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "Platform review result: CNY 224 compensation approved",
+        "body": "The platform approved a CNY 224 compensation refund based on the third-party quality report.",
+        "payload_json": "{\"order_id\": \"ord_iscac_0002\", \"refund_id\": \"ref_iscac_b\", \"status\": \"approved\", \"amount_minor\": 22400}",
+        "created_at": "2026-07-10T03:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S19_mut",
+      "operation_index": 1
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task": "baby_stroller_safety_standard_30d",
+  "clock_file": "/world-clock/current.json",
+  "clock_key": "world_now",
+  "clock_token": "baby-stroller-safety-standard-30d-clock-token",
+  "health_token": "baby-stroller-safety-health-token",
+  "step_count": 25,
+  "servers": [
+    "calendar",
+    "credit_card",
+    "delivery_logistics",
+    "ecommerce",
+    "email",
+    "listing_platform",
+    "notification_hub"
+  ]
+}

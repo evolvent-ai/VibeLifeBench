@@ -1,0 +1,1 @@
+Build a scenario budget for an immediate low-price sale versus continuing the platform review. List the sale price, platform fee, possible shipping, expected receipt date, and failure conditions for each. Mark unfinished waterproof testing as an evidence gap; do not assume it passes in order to recommend one path.

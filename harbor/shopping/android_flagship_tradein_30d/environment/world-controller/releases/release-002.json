@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_stage": 6,
+  "source_event_ids": [
+    "S06_mut",
+    "S06_fx"
+  ],
+  "source_time": "2026-06-20T11:00:00+08:00",
+  "previous": "release-001",
+  "token": "android_flagship_tradein_30d-release-002",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "statement_lines",
+      "op": "insert",
+      "values": {
+        "line_id": "SL-7426-260615-A7K2",
+        "statement_id": "stmt_andt",
+        "posted_at": "2026-06-15T19:20:05+08:00",
+        "amount_minor": 699900,
+        "merchant_name": "Android flagship official store",
+        "mcc": "5732",
+        "category": "数码手机",
+        "kind": "purchase"
+      },
+      "source_event_id": "S06_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_andt_1",
+        "card_id": "card_andt_01",
+        "posted_at": "2026-06-15T10:05:08+08:00",
+        "amount_minor": 108000,
+        "merchant_name": "安卓旗舰官方店",
+        "mcc": "5732",
+        "category": "数码手机",
+        "kind": "purchase"
+      },
+      "source_event_id": "S06_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_andt_fx",
+        "card_id": "card_andt_01",
+        "posted_at": "2026-06-15T11:30:00+08:00",
+        "amount_minor": 21200,
+        "merchant_name": "SWAPPA US",
+        "mcc": "4814",
+        "category": "数码手机",
+        "kind": "purchase"
+      },
+      "source_event_id": "S06_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_andt_fx",
+        "user_id": "usr_pan_yu",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_andt_card",
+        "title": "Foreign-currency transaction posting alert",
+        "body": "A foreign-currency transaction activity appeared on your card. Check the statement.",
+        "payload_json": "{\"card_id\": \"card_andt_01\"}",
+        "created_at": "2026-06-20T11:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S06_mut"
+    }
+  ]
+}

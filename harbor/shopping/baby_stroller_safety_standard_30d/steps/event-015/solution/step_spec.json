@@ -1,0 +1,38 @@
+{
+  "step": "event-015",
+  "stage": 14,
+  "event_id": "S14_dispute_notice",
+  "source_event_id": "S14_dispute_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 14
+    }
+  ],
+  "response_paraphrase": "The card review is open while the ordinary statement obligation remains separately scheduled.",
+  "expected_env": {
+    "virtual_stage": 14,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "release-008"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s14_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s14_result",
+      "weight": 3
+    },
+    {
+      "check_id": "s14_no_bad",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

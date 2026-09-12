@@ -1,0 +1,1 @@
+The recycler has made a reduced-value offer, with the amount shown in the notification, that is clearly below the full appraisal value. Accepting it would waive any further review. Use the evidence chain to weigh accepting it against continuing to pursue a full-value platform review.

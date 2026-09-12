@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "groupbuy_cold_chain_delay"
+  ],
+  "source_stage": 6,
+  "source_time": "2026-06-20T11:00:00+08:00",
+  "previous": "release-000",
+  "token": "community-household-groupbuy-30d-release-001-token-7f3a9b1c2d4e5f6a",
+  "operations": [
+    {
+      "server": "delivery_logistics",
+      "table": "issue_tickets",
+      "op": "insert",
+      "values": {
+        "ticket_id": "tkt_homtg_coldchain",
+        "shipment_id": "shp_homtg_0002",
+        "issue_type": "damaged",
+        "description": "the refrigerated carton containing the yogurt cleaning gift exceeded the promised transfer window\uff1bthe ambient household-goods carton is unaffected; accept cartons separately\u3002",
+        "status": "open",
+        "opened_at": "2026-06-20T11:00:00+08:00",
+        "expected_response_date": "2026-06-21"
+      },
+      "postcondition": {
+        "sql": "SELECT COUNT(*) FROM issue_tickets WHERE ticket_id = ? AND status = ?",
+        "params": [
+          "tkt_homtg_coldchain",
+          "open"
+        ],
+        "equals": 1
+      },
+      "source_event_id": "groupbuy_cold_chain_delay",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_homtg_coldchain",
+        "user_id": "usr_xie_lin",
+        "source": "delivery_logistics",
+        "type": "shipment_update",
+        "subscription_id": "sub_homtg_log",
+        "title": "group-purchase refrigerated carton has a temperature-control incident; the ambient carton remains normal",
+        "body": "on arrival, inspect refrigerated and ambient cartons separately; one carton cannot represent the whole group\u3002",
+        "payload_json": "{\"ticket_id\":\"tkt_homtg_coldchain\",\"order_id\":\"ord_homtg_0002\"}",
+        "created_at": "2026-06-20T03:01:00Z",
+        "read": 0
+      },
+      "postcondition": {
+        "sql": "SELECT COUNT(*) FROM notifications WHERE notification_id = ?",
+        "params": [
+          "ntf_homtg_coldchain"
+        ],
+        "equals": 1
+      },
+      "source_event_id": "groupbuy_cold_chain_delay",
+      "operation_index": 1
+    }
+  ]
+}

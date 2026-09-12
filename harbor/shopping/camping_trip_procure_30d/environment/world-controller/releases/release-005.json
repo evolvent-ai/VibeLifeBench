@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "camp_fire_restriction_release"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-06-26T16:00",
+  "previous": "release-004",
+  "token": "camping-trip-release-token-005-8f2a1c9d4e7b6a5c",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "conflict_keys": [
+        "id"
+      ],
+      "values": {
+        "id": 9002,
+        "folder_id": 1,
+        "message_id": "<camp-fire-rule-20260626@site.example>",
+        "subject": "camping business detailfire safety arrangement：use designated stoves only",
+        "from_addr": "camping business detailcampsite operations <ops@pinecamp.example>",
+        "to_addr_json": "[\"ye.chen.camp@gmail.com\"]",
+        "date": "2026-06-26T08:00:00Z",
+        "body_text": "camping business detaildry conditionscamping business detailgusts，camping business detailground fire。camping business detailpublic stovecamping business detailcompliantcamping business detail，camping business detailrulecamping business detail；camping business detailon-site noticecamping business detail。",
+        "is_read": 0,
+        "is_important": 1,
+        "headers_json": "{\"thread\":\"camp-site-rules\"}",
+        "size": 226,
+        "created_at": "2026-06-26T08:00:00Z"
+      },
+      "source_event_id": "camp_fire_restriction_release",
+      "operation_index": 0
+    }
+  ]
+}

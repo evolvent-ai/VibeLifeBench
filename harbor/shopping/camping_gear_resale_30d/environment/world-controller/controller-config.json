@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task": "camping_gear_resale_30d",
+  "clock_file": "/world-clock/current.json",
+  "clock_token_env": "CLOCK_TOKEN",
+  "step_count": 31,
+  "release_count": 12,
+  "database_aliases": {
+    "calendar": "svc_calendar",
+    "credit_card": "svc_credit_card",
+    "delivery_logistics": "svc_delivery_logistics",
+    "ecommerce": "svc_ecommerce",
+    "email": "svc_email",
+    "listing_platform": "svc_listing_platform",
+    "notification_hub": "svc_notification_hub",
+    "weather": "svc_weather"
+  }
+}

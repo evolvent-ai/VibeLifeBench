@@ -1,0 +1,24 @@
+{
+  "step": "event-011",
+  "virtual_stage": 8,
+  "source_event_id": "S08_tradein",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I enumerated all 27 accessory combinations and three coupons. The unique minimum is prod_andt_kit_a3, prod_andt_kit_b1, and prod_andt_kit_c1 with ANDT_ACC_85: subtotal 30800, discount 8500, final total 22300. The three items are added to the existing cart only; no order or payment was placed.",
+  "response_paraphrase": "After evaluating all 81 combination-and-coupon outcomes, the three selected SKUs with ANDT_ACC_85 produce 30800 before discount, 8500 savings, and 22300 payable; only the cart changed.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S08_tradein",
+      "virtual_stage": 8,
+      "event_kind": "user_message",
+      "event_time": "2026-06-22T10:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0.0
+}

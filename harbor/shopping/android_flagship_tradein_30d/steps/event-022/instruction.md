@@ -1,0 +1,1 @@
+Trade-in notice: additional materials may still be submitted to the existing review case, but the evidence must be completed by July 9. Otherwise, the recycler's estimate may be applied, which could jeopardize closure before the final deadline.

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "S18_mut"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-07-08T18:30:00+08:00",
+  "previous": "release-011",
+  "token": "anc_earphone_presale_30d-09958089c692f3975be40f14b9304535",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "disputes",
+      "op": "update",
+      "source_event_id": "S18_mut",
+      "operation_index": 0,
+      "where": {
+        "dispute_id": "disp_psea_01"
+      },
+      "set": {
+        "status": "approved",
+        "resolved_at": "2026-07-08T18:00:00+08:00"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "source_event_id": "S18_mut",
+      "operation_index": 1,
+      "values": {
+        "tx_id": "tx_psea_rev",
+        "card_id": "card_psea_01",
+        "posted_at": "2026-07-08T18:00:00+08:00",
+        "amount_minor": -10800,
+        "merchant_name": "PAYPAL US (\u4e89\u8bae\u51b2\u9500)",
+        "mcc": "4814",
+        "category": "\u6570\u7801\u5f71\u97f3",
+        "kind": "adjustment"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "S18_mut",
+      "operation_index": 2,
+      "values": {
+        "notification_id": "ntf_psea_rev",
+        "user_id": "usr_teng_qi",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_psea_card",
+        "title": "\u91cd\u590d\u6263\u8d39\u4e89\u8bae\u5df2\u901a\u8fc7\uff0c\u6b3e\u9879\u51b2\u9500",
+        "body": "\u4e89\u8bae\u5df2\u901a\u8fc7\uff0c\u91cd\u590d\u6263\u8d39\u5df2\u51b2\u9500\uff0c\u8bf7\u6838\u5bf9\u8d26\u5355\u3002",
+        "payload_json": "{\"card_id\": \"card_psea_01\", \"dispute_id\": \"disp_psea_01\", \"status\": \"approved\"}",
+        "created_at": "2026-07-08T18:01:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

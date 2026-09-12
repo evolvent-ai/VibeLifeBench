@@ -1,0 +1,1 @@
+The buyer proposes leaving the platform, sending a CNY 200 deposit by WeChat, and having a local courier collect the tent. Assess separately the loss of platform escrow, an unfamiliar payment source, disputes after pickup, and exposure of personal contact details. Do not collect a deposit or send an address.

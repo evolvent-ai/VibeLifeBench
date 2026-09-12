@@ -1,0 +1,1 @@
+Create a camping-equipment evidence index covering set identity and accessory counts; cleaning, drying, and waterproof tests; platform negotiation and shipping; and service fees and payout. Record the capture or acquisition time and the dispute addressed by each item, and avoid explaining the same photo twice.

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "camp_rental_hold_released",
+    "camp_duplicate_dispute_resolved"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-07-08T18:00",
+  "previous": "release-006",
+  "token": "camping-trip-release-token-007-8f2a1c9d4e7b6a5c",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "upsert",
+      "conflict_keys": [
+        "tx_id"
+      ],
+      "values": {
+        "tx_id": "tx_camp_rental_release",
+        "card_id": "card_camp_01",
+        "posted_at": "2026-07-08T18:00:00+08:00",
+        "amount_minor": -80000,
+        "merchant_name": "plateau campsite gear rentalauthorization holdreleased",
+        "mcc": "7394",
+        "category": "camping business detaildeposit",
+        "kind": "adjustment"
+      },
+      "source_event_id": "camp_rental_hold_released",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "upsert",
+      "conflict_keys": [
+        "notification_id"
+      ],
+      "values": {
+        "notification_id": "ntf_camp_rental_release",
+        "user_id": "usr_ye_chen",
+        "source": "credit_card",
+        "type": "transaction_update",
+        "subscription_id": "sub_camp_card",
+        "title": "camping business detailauthorization holdalreadyreleased",
+        "body": "800 camping business detailauthorization holdalreadyreleased，camping business detailuses available credit；this is not refund income。",
+        "payload_json": "{\"tx_id\":\"tx_camp_rental_release\",\"amount_minor\":80000}",
+        "created_at": "2026-07-08T10:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "camp_rental_hold_released",
+      "operation_index": 1
+    },
+    {
+      "server": "credit_card",
+      "table": "disputes",
+      "op": "update",
+      "set": {
+        "status": "approved",
+        "resolved_at": "2026-07-08T18:05:00+08:00"
+      },
+      "where": {
+        "dispute_id": "dsp_camp_duplicate"
+      },
+      "source_event_id": "camp_duplicate_dispute_resolved",
+      "operation_index": 2
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "upsert",
+      "conflict_keys": [
+        "tx_id"
+      ],
+      "values": {
+        "tx_id": "tx_camp_dup_reversal",
+        "card_id": "card_camp_01",
+        "posted_at": "2026-07-08T18:05:00+08:00",
+        "amount_minor": -24800,
+        "merchant_name": "REI US duplicate charge reversal",
+        "mcc": "4814",
+        "category": "outdoor camping refund",
+        "kind": "refund"
+      },
+      "source_event_id": "camp_duplicate_dispute_resolved",
+      "operation_index": 3
+    }
+  ]
+}

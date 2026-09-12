@@ -1,0 +1,45 @@
+{
+  "step": "event-024",
+  "virtual_stage": 16,
+  "source_event_id": "S16_final_plan",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": [
+      "S15_weather_mut"
+    ]
+  },
+  "response": "Using report ANDT-APP-0625 and gross value 4300, doorstep collection costs 780 for net 3520 in 1 day, store credit costs 450 for net 3850 in 3 days, and third-party evidence costs 600 for net 3700 in 7 days. Store credit has the highest net; doorstep is fastest. Recommendation is pending your confirmation and no irreversible action was executed.",
+  "response_paraphrase": "Against the confirmed 4300 basis, store credit yields 3850 after 450 over three days, doorstep collection yields 3520 after 780 in one day, and third-party handling yields 3700 after 600 in seven days. The store route is recommended but awaits approval.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S16_final_plan",
+      "virtual_stage": 16,
+      "event_kind": "user_message",
+      "event_time": "2026-07-04T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_options",
+      "weight": 2
+    },
+    {
+      "check_id": "s16_pick",
+      "weight": 2
+    },
+    {
+      "check_id": "s16_auth",
+      "weight": 1
+    },
+    {
+      "check_id": "s16_no_bad",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

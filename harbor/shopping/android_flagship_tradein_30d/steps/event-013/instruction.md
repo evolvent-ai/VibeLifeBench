@@ -1,0 +1,1 @@
+The recycler cited a suspected condition mismatch to reduce the estimate and requested additional inspection video and photos. The handling deadline is in the case record. The condition-mismatch claim does not establish that the estimate is valid; preserve complete evidence and pursue the platform review on time.

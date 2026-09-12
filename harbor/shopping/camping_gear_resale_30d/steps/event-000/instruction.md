@@ -1,0 +1,3 @@
+I am cataloging a WildNest 4P tent set retired after high-altitude camping. Build a record along three separate timelines: physical item, transaction, and funds. `ord_rstent_0001` links the original purchase and accessory list; focus on specifications, missing pieces, and signs of use. `ord_rstent_0002` is the buyer's negotiation about the waterproof layer and poles. `lst_rstent_0001` covers the listing, platform service fee, and final payout.
+
+First check the workspace and original records in each system. Keep tent condition, platform disputes, and receipt of funds separate. Do not treat the item as misdescribed just because the buyer says it leaks.

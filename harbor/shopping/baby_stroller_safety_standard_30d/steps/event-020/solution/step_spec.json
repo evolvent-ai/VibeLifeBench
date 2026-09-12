@@ -1,0 +1,30 @@
+{
+  "step": "event-020",
+  "stage": 19,
+  "event_id": "S19_refund_approved_notice",
+  "source_event_id": "S19_refund_approved_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 19
+    }
+  ],
+  "response_paraphrase": "The return decision is now favorable, with its amount and evidence references retained.",
+  "expected_env": {
+    "virtual_stage": 19,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "release-010"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s19_result",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

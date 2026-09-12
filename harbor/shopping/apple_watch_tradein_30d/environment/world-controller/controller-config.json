@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task": "apple_watch_tradein_30d",
+  "services": {
+    "calendar": {"db_path": "/calendar-env/runtime.db", "mcp_url": "http://calendar:8000/mcp"},
+    "credit_card": {"db_path": "/credit-card-env/runtime.db", "mcp_url": "http://credit-card:8000/mcp"},
+    "delivery_logistics": {"db_path": "/delivery-logistics-env/runtime.db", "mcp_url": "http://delivery-logistics:8000/mcp"},
+    "ecommerce": {"db_path": "/ecommerce-env/runtime.db", "mcp_url": "http://ecommerce:8000/mcp"},
+    "email": {"db_path": "/email-env/runtime.db", "mcp_url": "http://email:8000/mcp"},
+    "listing_platform": {"db_path": "/listing-platform-env/runtime.db", "mcp_url": "http://listing-platform:8000/mcp"},
+    "notification_hub": {"db_path": "/notification-hub-env/runtime.db", "mcp_url": "http://notification-hub:8000/mcp"},
+    "weather": {"db_path": "/weather-env/runtime.db", "mcp_url": "http://weather:8000/mcp"}
+  }
+}

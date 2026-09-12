@@ -1,0 +1,32 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-005",
+  "virtual_stage": 5,
+  "event_id": "S05_evidence",
+  "source_event_id": "S05_evidence",
+  "response": "The evidence register keeps ord_iscac_0001, ord_iscac_0002, and funds_iscac in separate source-backed sections for credentials, rework, and financial adjustments.",
+  "response_paraphrase": "I separated source-backed evidence sections for ord_iscac_0001, ord_iscac_0002, and funds_iscac, covering credentials, rework, and financial adjustments.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-005",
+    "HARBOR_EVENT_ID": "S05_evidence",
+    "HARBOR_VIRTUAL_STAGE": "5",
+    "preceding_releases": [
+      "release-000",
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001"
+    ]
+  },
+  "expected_checks": [
+    "s5_evidence"
+  ],
+  "expected_stage_weight": 4,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S05_evidence"
+    }
+  ]
+}

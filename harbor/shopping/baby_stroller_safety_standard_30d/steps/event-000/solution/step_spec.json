@@ -1,0 +1,38 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "event_id": "S00_kickoff",
+  "source_event_id": "S00_kickoff",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 0
+    }
+  ],
+  "response_paraphrase": "I created separate ledgers for the safety, return, and resale workstreams and assigned their next checks.",
+  "expected_env": {
+    "virtual_stage": 0,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s0_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s0_args",
+      "weight": 1
+    },
+    {
+      "check_id": "s0_result",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s0_files",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "S19_mut"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-07-10T11:00",
+  "previous": "release-009",
+  "token": "camping-gear-release-010-token-6f9a2c8d4e1b7a3c",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "where": {
+        "refund_id": "ref_rstent_b"
+      },
+      "set": {
+        "status": "rejected",
+        "resolved_at": "2026-07-10T11:00:00+08:00"
+      },
+      "source_event_id": "S19_mut",
+      "operation_index": 0
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "where": {
+        "listing_id": "lst_rstent_0001"
+      },
+      "set": {
+        "status": "delisted"
+      },
+      "source_event_id": "S19_mut",
+      "operation_index": 1
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_rstent_ship",
+        "user_id": "usr_yao_lin",
+        "source": "listing_platform",
+        "type": "dispute_resolution",
+        "subscription_id": null,
+        "title": "\u5e73\u53f0\u590d\u6838\uff1a\u4e70\u5bb6\u964d\u4ef7\u4e3b\u5f20\u672a\u6210\u7acb",
+        "body": "\u5e73\u53f0\u4f9d\u636e\u68c0\u6d4b\u62a5\u544a\u3001\u642d\u5efa\u89c6\u9891\u548c\u914d\u4ef6\u6e05\u5355\u9a73\u56de\u4e70\u5bb6\u964d\u4ef7\u4e3b\u5f20\uff0c\u5f53\u524d\u6302\u724c\u6309\u5e73\u53f0\u62c5\u4fdd\u6210\u4ea4\u5173\u95ed\uff1b\u7ed3\u7b97\u6b3e\u4ecd\u9700\u4ee5\u8d44\u91d1\u6d41\u6c34\u4e3a\u51c6\u3002",
+        "payload_json": "{\"listing_id\":\"lst_rstent_0001\",\"order_id\":\"ord_rstent_0001\",\"refund_id\":\"ref_rstent_b\",\"status\":\"rejected\",\"listing_status\":\"delisted\"}",
+        "created_at": "2026-07-10T11:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S19_mut",
+      "operation_index": 2
+    }
+  ]
+}

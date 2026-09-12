@@ -1,0 +1,1 @@
+The transaction review remains submitted and awaits additional evidence: the buyer is pressing for a reduction for alleged condition mismatch, and the platform requests inspection video and photos within the ticket deadline. No final outcome exists yet; preserve complete evidence and advance the review on time.

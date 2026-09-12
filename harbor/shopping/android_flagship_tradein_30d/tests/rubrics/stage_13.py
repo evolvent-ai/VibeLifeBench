@@ -1,0 +1,8 @@
+"""Stage 13 checks — Each check is an independent named function from checks.py."""
+from __future__ import annotations
+
+from .checks import s13_budget
+
+CHECKS = [
+    ("s13_budget", s13_budget, 3.0),
+]

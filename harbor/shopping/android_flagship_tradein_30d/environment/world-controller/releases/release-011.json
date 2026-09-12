@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_stage": 19,
+  "source_event_ids": [
+    "S19_mut",
+    "S19_world"
+  ],
+  "source_time": "2026-07-10T11:00:00+08:00",
+  "previous": "release-010",
+  "token": "android_flagship_tradein_30d-release-011",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "approved",
+        "resolved_at": "2026-07-10T11:00:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_andt_b"
+      },
+      "source_event_id": "S19_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_andt_ship",
+        "user_id": "usr_pan_yu",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "Platform ruling: full trade-in appraisal upheld",
+        "body": "The platform review upheld the full appraisal value and will credit the trade-in amount. Verify the amount.",
+        "payload_json": "{\"order_id\": \"ord_andt_0001\", \"refund_id\": \"ref_andt_b\", \"status\": \"approved\"}",
+        "created_at": "2026-07-10T11:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S19_mut"
+    }
+  ]
+}

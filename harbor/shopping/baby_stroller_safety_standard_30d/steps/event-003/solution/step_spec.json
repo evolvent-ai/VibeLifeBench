@@ -1,0 +1,38 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "event_id": "S03_refund_notice",
+  "source_event_id": "S03_refund_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 3
+    }
+  ],
+  "response_paraphrase": "I logged the submitted accessory claim and its merchant-response follow-up with the supporting references.",
+  "expected_env": {
+    "virtual_stage": 3,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s3_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s3_args",
+      "weight": 1
+    },
+    {
+      "check_id": "s3_result",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

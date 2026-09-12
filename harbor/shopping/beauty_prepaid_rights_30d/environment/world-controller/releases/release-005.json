@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_stage": 10,
+  "source_event_ids": [
+    "S10_mut"
+  ],
+  "source_time": "2026-06-24T09:00:00+08:00",
+  "previous": "release-004",
+  "token": "beauty_prepaid_rights_30d-release-005-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_ppbeauty_dup",
+        "card_id": "card_ppbeauty_01",
+        "posted_at": "2026-06-24T08:40:00+08:00",
+        "amount_minor": 16800,
+        "merchant_name": "PAYPAL US",
+        "mcc": "4814",
+        "category": "beauty service",
+        "kind": "purchase"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 117600,
+        "available_credit_minor": 1002400
+      },
+      "where": {
+        "card_id": "card_ppbeauty_01"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_ppbeauty_dup",
+        "user_id": "usr_shen_e",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_ppbeauty_card",
+        "title": "Duplicate merchant charge alert",
+        "body": "The same merchant generated another charge for the exact prior amount; check whether it is a duplicate.",
+        "payload_json": "{\"card_id\": \"card_ppbeauty_01\", \"tx_id\": \"tx_ppbeauty_dup\"}",
+        "created_at": "2026-06-24T09:01:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

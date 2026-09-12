@@ -1,0 +1,54 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-022",
+  "virtual_stage": 21,
+  "event_id": "S21_window",
+  "source_event_id": "S21_window",
+  "response": "The deadline checklist covers ord_iscac_0001, ord_iscac_0002, and funds_iscac, separating completed payment and dispute work from items awaiting confirmation.",
+  "response_paraphrase": "The pre-deadline checklist covers ord_iscac_0001, ord_iscac_0002, and funds_iscac, with completed payment and dispute work kept apart from items awaiting confirmation.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-022",
+    "HARBOR_EVENT_ID": "S21_window",
+    "HARBOR_VIRTUAL_STAGE": "21",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009",
+      "release-011",
+      "release-012",
+      "release-013"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009",
+      "release-011",
+      "release-012",
+      "release-013"
+    ]
+  },
+  "expected_checks": [
+    "s21_checklist"
+  ],
+  "expected_stage_weight": 2,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S21_window"
+    }
+  ]
+}

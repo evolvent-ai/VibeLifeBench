@@ -1,0 +1,1 @@
+A second foreign-currency charge from the same overseas merchant, for exactly the same amount, has appeared on the credit card. The merchant name and amount are in the statement. Only one original overseas replacement part was purchased, so this is likely a duplicate charge. Determine whether it is a normal pending charge, requires further verification, or should be disputed.

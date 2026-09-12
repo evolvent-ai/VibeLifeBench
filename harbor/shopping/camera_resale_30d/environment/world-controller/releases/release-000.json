@@ -1,0 +1,1035 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "S03_mut"
+  ],
+  "source_time": "2026-06-17T14:30:00+08:00",
+  "previous": null,
+  "token": "bike-commute-safety-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "insert",
+      "values": {
+        "product_id": "prod_cmp_b5ba76cd",
+        "title": "camera record",
+        "brand": "camera record",
+        "category": "camera record",
+        "description": "camera record、camera record，camera record。",
+        "rating": 4.3,
+        "rating_count": 26,
+        "sales_count": 12,
+        "base_price_minor": 3900,
+        "return_policy": "camera record；camera record。"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_cmp_2b9fb320",
+        "product_id": "prod_cmp_b5ba76cd",
+        "attrs_json": "{\"purpose\":\"camera_resale_evidence\",\"bundle_type\":\"camera record\",\"variant\":1}",
+        "price_minor": 3900
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_cmp_2b9fb320",
+        "quantity": 22
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "insert",
+      "values": {
+        "product_id": "prod_cmp_03b95c6e",
+        "title": "camera record",
+        "brand": "camera record",
+        "category": "camera record",
+        "description": "camera record，camera record、camera record。",
+        "rating": 4.4,
+        "rating_count": 29,
+        "sales_count": 13,
+        "base_price_minor": 6800,
+        "return_policy": "camera record，camera record。"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_cmp_c8b1a2f9",
+        "product_id": "prod_cmp_03b95c6e",
+        "attrs_json": "{\"purpose\":\"camera_resale_evidence\",\"bundle_type\":\"camera record\",\"variant\":2}",
+        "price_minor": 6800
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_cmp_c8b1a2f9",
+        "quantity": 23
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40301,
+        "folder_id": 1,
+        "message_id": "<638ca12b0aed67bb@jian-zhen.example>",
+        "subject": "camera record / RQ-6174",
+        "from_addr": "camera record <case@jian-zhen.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-17T12:36:00+08:00",
+        "body_text": "06-17 12:36\ncamera record，camera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 80301,
+        "size": 225,
+        "created_at": "2026-06-17T12:36:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40302,
+        "folder_id": 1,
+        "message_id": "<dc77a4893c9cc8bd@market.example>",
+        "subject": "camera record：camera record",
+        "from_addr": "camera record 47 <buyer47@market.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-17T12:43:00+08:00",
+        "body_text": "camera record，camera record。 / camera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 80302,
+        "size": 219,
+        "created_at": "2026-06-17T12:43:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40303,
+        "folder_id": 1,
+        "message_id": "<c9c96e0709376494@southphoto.example>",
+        "subject": "camera record",
+        "from_addr": "camera record <digest@southphoto.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-17T12:50:00+08:00",
+        "body_text": "camera record\ncamera record，camera record。\ncamera record CF8757F",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 80303,
+        "size": 224,
+        "created_at": "2026-06-17T12:50:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40304,
+        "folder_id": 1,
+        "message_id": "<773674163101e425@cloudbox.example>",
+        "subject": "camera record 71%",
+        "from_addr": "CloudBox <notice@cloudbox.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-17T12:57:00+08:00",
+        "body_text": "camera record：camera record；camera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 80304,
+        "size": 214,
+        "created_at": "2026-06-17T12:57:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40305,
+        "folder_id": 1,
+        "message_id": "<f5124e1a6aa46953@example.com>",
+        "subject": "camera record",
+        "from_addr": "camera record <lin.client@example.com>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-17T13:04:00+08:00",
+        "body_text": "camera record 36 camera record，camera record。\ncamera record，camera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 80305,
+        "size": 223,
+        "created_at": "2026-06-17T13:04:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40306,
+        "folder_id": 1,
+        "message_id": "<cadd252fc9c858f2@photolab.example>",
+        "subject": "camera record：camera record",
+        "from_addr": "camera record <invoice@photolab.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-17T13:11:00+08:00",
+        "body_text": "BZ8329T\ncamera record，camera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 80306,
+        "size": 210,
+        "created_at": "2026-06-17T13:11:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40307,
+        "folder_id": 1,
+        "message_id": "<96637e6b4d242a43@sf.example>",
+        "subject": "SF3521520001CN camera record",
+        "from_addr": "camera record <service@sf.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-17T13:18:00+08:00",
+        "body_text": "camera record。\ncamera record，camera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 80307,
+        "size": 219,
+        "created_at": "2026-06-17T13:18:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40308,
+        "folder_id": 1,
+        "message_id": "<fb2b6e2eeabd6e5e@mail.example>",
+        "subject": "camera record：camera record",
+        "from_addr": "camera record <security@mail.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-17T13:25:00+08:00",
+        "body_text": "camera record\n- camera record，camera record。\n- camera record：camera record <security@mail.example>",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 80308,
+        "size": 246,
+        "created_at": "2026-06-17T13:25:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40309,
+        "folder_id": 1,
+        "message_id": "<4d27850647312071@digital.example>",
+        "subject": "V90 camera record",
+        "from_addr": "camera record <promo@digital.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-17T13:32:00+08:00",
+        "body_text": "camera record，camera record，camera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 80309,
+        "size": 208,
+        "created_at": "2026-06-17T13:32:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40310,
+        "folder_id": 1,
+        "message_id": "<96d4005fa8a844e5@photo-forum.example>",
+        "subject": "camera record",
+        "from_addr": "camera record <notify@photo-forum.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-17T13:39:00+08:00",
+        "body_text": "camera record PV-3850-S\ncamera record：camera record、camera record。\ncamera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 80310,
+        "size": 227,
+        "created_at": "2026-06-17T13:39:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40311,
+        "folder_id": 1,
+        "message_id": "<d739db8f0792f235@studio.example>",
+        "subject": "camera record",
+        "from_addr": "camera record <hr@studio.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-17T13:46:00+08:00",
+        "body_text": "camera record，camera record。\n\ncamera record：DS-8833-N",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 80311,
+        "size": 221,
+        "created_at": "2026-06-17T13:46:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 40312,
+        "folder_id": 1,
+        "message_id": "<7e5e49706aed2ae0@park.example>",
+        "subject": "camera record",
+        "from_addr": "camera record <property@park.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-17T13:53:00+08:00",
+        "body_text": "camera record｜camera record，camera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 80312,
+        "size": 203,
+        "created_at": "2026-06-17T13:53:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "insert",
+      "values": {
+        "listing_id": "lst_cmp_33efa8c2",
+        "category": "secondhand",
+        "title": "camera record A7M3 camera record｜camera record",
+        "city": "camera record",
+        "district": "camera record",
+        "community": "camera record",
+        "price_minor": 792000,
+        "area_sqm": null,
+        "rooms": null,
+        "metro": null,
+        "attrs_json": "{\"model_family\":\"Sonar A7M3\",\"condition_grade\":\"camera record\",\"shutter_count\":22310,\"original_invoice\":true,\"escrow_required\":true,\"seller_profile\":\"camera record\"}",
+        "description": "camera record，camera record，camera record。",
+        "photos_json": "[\"camera record\", \"camera record 22310\", \"camera record\"]",
+        "agent_id": null,
+        "owner_user_id": null,
+        "status": "active",
+        "listed_at": "2026-06-17T11:49:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "insert",
+      "values": {
+        "listing_id": "lst_cmp_9a5e8d62",
+        "category": "secondhand",
+        "title": "camera record A7 III",
+        "city": "camera record",
+        "district": "camera record",
+        "community": "camera record",
+        "price_minor": 818000,
+        "area_sqm": null,
+        "rooms": null,
+        "metro": null,
+        "attrs_json": "{\"model_family\":\"Sonar A7M3\",\"condition_grade\":\"camera record\",\"shutter_count\":11840,\"original_invoice\":true,\"escrow_required\":true,\"seller_profile\":\"camera record\"}",
+        "description": "camera record，camera record；camera record。",
+        "photos_json": "[\"camera record\", \"camera record 11840\", \"camera record\"]",
+        "agent_id": null,
+        "owner_user_id": null,
+        "status": "active",
+        "listed_at": "2026-06-17T11:38:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "insert",
+      "values": {
+        "listing_id": "lst_cmp_6fcdf258",
+        "category": "secondhand",
+        "title": "A7M3 camera record",
+        "city": "camera record",
+        "district": "camera record",
+        "community": "camera record",
+        "price_minor": 688000,
+        "area_sqm": null,
+        "rooms": null,
+        "metro": null,
+        "attrs_json": "{\"model_family\":\"Sonar A7M3\",\"condition_grade\":\"camera record\",\"shutter_count\":76420,\"original_invoice\":false,\"escrow_required\":true,\"seller_profile\":\"camera record\"}",
+        "description": "camera record，camera record，camera record；camera record。",
+        "photos_json": "[\"camera record\", \"camera record 76420\", \"camera record\"]",
+        "agent_id": null,
+        "owner_user_id": null,
+        "status": "active",
+        "listed_at": "2026-06-17T11:27:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "insert",
+      "values": {
+        "listing_id": "lst_cmp_699440e3",
+        "category": "secondhand",
+        "title": "camera record A7M3 camera record",
+        "city": "camera record",
+        "district": "camera record",
+        "community": "camera record",
+        "price_minor": 806000,
+        "area_sqm": null,
+        "rooms": null,
+        "metro": null,
+        "attrs_json": "{\"model_family\":\"Sonar A7M3\",\"condition_grade\":\"camera record\",\"shutter_count\":17600,\"original_invoice\":true,\"escrow_required\":true,\"seller_profile\":\"camera record\"}",
+        "description": "camera record，camera record；camera record。",
+        "photos_json": "[\"camera record\", \"camera record 17600\", \"camera record\"]",
+        "agent_id": null,
+        "owner_user_id": null,
+        "status": "active",
+        "listed_at": "2026-06-17T11:16:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "insert",
+      "values": {
+        "listing_id": "lst_cmp_46613158",
+        "category": "secondhand",
+        "title": "SONAR A7M3 BODY / PANYU",
+        "city": "camera record",
+        "district": "camera record",
+        "community": "camera record",
+        "price_minor": 775000,
+        "area_sqm": null,
+        "rooms": null,
+        "metro": null,
+        "attrs_json": "{\"model_family\":\"Sonar A7M3\",\"condition_grade\":\"camera record\",\"shutter_count\":28560,\"original_invoice\":false,\"escrow_required\":true,\"seller_profile\":\"camera record\"}",
+        "description": "camera record，camera record；camera record。",
+        "photos_json": "[\"camera record\", \"camera record 28560\", \"camera record\"]",
+        "agent_id": null,
+        "owner_user_id": null,
+        "status": "active",
+        "listed_at": "2026-06-17T11:05:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "insert",
+      "values": {
+        "listing_id": "lst_cmp_0955674b",
+        "category": "secondhand",
+        "title": "A7M3 camera record，camera record",
+        "city": "camera record",
+        "district": "camera record",
+        "community": "camera record",
+        "price_minor": 748000,
+        "area_sqm": null,
+        "rooms": null,
+        "metro": null,
+        "attrs_json": "{\"model_family\":\"Sonar A7M3\",\"condition_grade\":\"camera record\",\"shutter_count\":33190,\"original_invoice\":true,\"escrow_required\":true,\"seller_profile\":\"camera record\"}",
+        "description": "camera record，camera record，camera record。",
+        "photos_json": "[\"camera record\", \"camera record 33190\", \"camera record\"]",
+        "agent_id": null,
+        "owner_user_id": null,
+        "status": "active",
+        "listed_at": "2026-06-17T10:54:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "insert",
+      "values": {
+        "listing_id": "lst_cmp_c9910ae7",
+        "category": "secondhand",
+        "title": "camera record A7M3 camera record",
+        "city": "camera record",
+        "district": "camera record",
+        "community": "camera record",
+        "price_minor": 842000,
+        "area_sqm": null,
+        "rooms": null,
+        "metro": null,
+        "attrs_json": "{\"model_family\":\"Sonar A7M3\",\"condition_grade\":\"camera record\",\"shutter_count\":8420,\"original_invoice\":true,\"escrow_required\":true,\"seller_profile\":\"camera record\"}",
+        "description": "camera record，camera record；camera record。",
+        "photos_json": "[\"camera record\", \"camera record 8420\", \"camera record\"]",
+        "agent_id": null,
+        "owner_user_id": null,
+        "status": "active",
+        "listed_at": "2026-06-17T10:43:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "insert",
+      "values": {
+        "listing_id": "lst_cmp_d5b03144",
+        "category": "secondhand",
+        "title": "A7 III camera record",
+        "city": "camera record",
+        "district": "camera record",
+        "community": "camera record",
+        "price_minor": 704000,
+        "area_sqm": null,
+        "rooms": null,
+        "metro": null,
+        "attrs_json": "{\"model_family\":\"Sonar A7M3\",\"condition_grade\":\"camera record\",\"shutter_count\":58980,\"original_invoice\":false,\"escrow_required\":true,\"seller_profile\":\"camera record\"}",
+        "description": "camera record，camera record，camera record；camera record。",
+        "photos_json": "[\"camera record\", \"camera record 58980\", \"camera record\"]",
+        "agent_id": null,
+        "owner_user_id": null,
+        "status": "active",
+        "listed_at": "2026-06-17T10:32:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "contacts",
+      "op": "insert",
+      "values": {
+        "contact_id": "ctc_cmp_88cd2a29",
+        "user_id": "usr_market_6927616d",
+        "listing_id": "lst_cmp_33efa8c2",
+        "agent_id": null,
+        "message": "camera record？",
+        "created_at": "2026-06-17T13:51:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "contacts",
+      "op": "insert",
+      "values": {
+        "contact_id": "ctc_cmp_937d9401",
+        "user_id": "usr_market_0d6d7963",
+        "listing_id": "lst_cmp_9a5e8d62",
+        "agent_id": null,
+        "message": "camera record",
+        "created_at": "2026-06-17T13:42:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "contacts",
+      "op": "insert",
+      "values": {
+        "contact_id": "ctc_cmp_1bb6d9f2",
+        "user_id": "usr_market_dda1e018",
+        "listing_id": "lst_cmp_6fcdf258",
+        "agent_id": null,
+        "message": "camera record，camera record",
+        "created_at": "2026-06-17T13:33:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "contacts",
+      "op": "insert",
+      "values": {
+        "contact_id": "ctc_cmp_e72f7b81",
+        "user_id": "usr_market_dd25b6d8",
+        "listing_id": "lst_cmp_699440e3",
+        "agent_id": null,
+        "message": "camera record JPEG camera record，camera record RAW camera record？",
+        "created_at": "2026-06-17T13:24:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "contacts",
+      "op": "insert",
+      "values": {
+        "contact_id": "ctc_cmp_420b26f0",
+        "user_id": "usr_market_3dd0ce5b",
+        "listing_id": "lst_cmp_46613158",
+        "agent_id": null,
+        "message": "camera record，camera record",
+        "created_at": "2026-06-17T13:15:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "contacts",
+      "op": "insert",
+      "values": {
+        "contact_id": "ctc_cmp_378f960f",
+        "user_id": "usr_market_0a57ce05",
+        "listing_id": "lst_cmp_0955674b",
+        "agent_id": null,
+        "message": "camera record，camera record",
+        "created_at": "2026-06-17T13:06:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "saved_listings",
+      "op": "insert",
+      "values": {
+        "user_id": "usr_watch_fb735609",
+        "listing_id": "lst_cmp_33efa8c2",
+        "saved_at": "2026-06-17T13:55:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "saved_listings",
+      "op": "insert",
+      "values": {
+        "user_id": "usr_watch_613e04f9",
+        "listing_id": "lst_cmp_9a5e8d62",
+        "saved_at": "2026-06-17T13:50:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "saved_listings",
+      "op": "insert",
+      "values": {
+        "user_id": "usr_watch_635e453e",
+        "listing_id": "lst_cmp_6fcdf258",
+        "saved_at": "2026-06-17T13:45:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "saved_listings",
+      "op": "insert",
+      "values": {
+        "user_id": "usr_watch_b1275900",
+        "listing_id": "lst_cmp_699440e3",
+        "saved_at": "2026-06-17T13:40:00+08:00"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "market_stats",
+      "op": "insert",
+      "values": {
+        "stat_id": "stat_cmp_9ca3b0cd",
+        "area": "camera record·camera record",
+        "city": "camera record",
+        "category": "secondhand",
+        "avg_price_minor": 719300,
+        "unit": "total",
+        "sample_size": 20,
+        "period": "2026-06-15"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "market_stats",
+      "op": "insert",
+      "values": {
+        "stat_id": "stat_cmp_bfa6b5e7",
+        "area": "camera record·camera record",
+        "city": "camera record",
+        "category": "secondhand",
+        "avg_price_minor": 734000,
+        "unit": "total",
+        "sample_size": 29,
+        "period": "2026-06-15"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "market_stats",
+      "op": "insert",
+      "values": {
+        "stat_id": "stat_cmp_451f1509",
+        "area": "camera record·camera record",
+        "city": "camera record",
+        "category": "secondhand",
+        "avg_price_minor": 748700,
+        "unit": "total",
+        "sample_size": 38,
+        "period": "2026-06-15"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "listing_platform",
+      "table": "market_stats",
+      "op": "insert",
+      "values": {
+        "stat_id": "stat_cmp_a75ddd6e",
+        "area": "camera record·camera record",
+        "city": "camera record",
+        "category": "secondhand",
+        "avg_price_minor": 763400,
+        "unit": "total",
+        "sample_size": 47,
+        "period": "2026-06-15"
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_de07d7ad",
+        "user_id": "usr_zhan_peng",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "06/17 camera record RQ-6174 camera record",
+        "body": "camera record\ncamera record，camera record。",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"ecommerce\",\"recorded_at\":\"2026-06-17T13:30:00+08:00\",\"headline\":\"camera record RQ-6174 camera record\",\"presentation\":\"expanded\"}",
+        "created_at": "2026-06-17T13:30:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_8cbb8be1",
+        "user_id": "usr_zhan_peng",
+        "source": "listing_platform",
+        "type": "new_content",
+        "subscription_id": null,
+        "title": "camera record · 13:33",
+        "body": "camera record。\ncamera record、camera record、camera record。",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"listing_platform\",\"recorded_at\":\"2026-06-17T13:33:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"plain\"}",
+        "created_at": "2026-06-17T13:33:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_58319bc1",
+        "user_id": "usr_zhan_peng",
+        "source": "email",
+        "type": "price_drop",
+        "subscription_id": null,
+        "title": "MAIL: CloudBox camera record",
+        "body": "MAIL / 06-17\ncamera record。",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"email\",\"recorded_at\":\"2026-06-17T13:36:00+08:00\",\"headline\":\"CloudBox camera record\",\"presentation\":\"compact\"}",
+        "created_at": "2026-06-17T13:36:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_daa4eab6",
+        "user_id": "usr_zhan_peng",
+        "source": "delivery_logistics",
+        "type": "account_activity",
+        "subscription_id": null,
+        "title": "camera record / LOG",
+        "body": "camera record。",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"delivery_logistics\",\"recorded_at\":\"2026-06-17T13:39:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"expanded\"}",
+        "created_at": "2026-06-17T13:39:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_5e32d180",
+        "user_id": "usr_zhan_peng",
+        "source": "calendar",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "[13:42] camera record",
+        "body": "camera record\ncamera record，camera record。",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"calendar\",\"recorded_at\":\"2026-06-17T13:42:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"plain\"}",
+        "created_at": "2026-06-17T13:42:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_4584217a",
+        "user_id": "usr_zhan_peng",
+        "source": "security",
+        "type": "new_content",
+        "subscription_id": null,
+        "title": "camera record｜camera record",
+        "body": "camera record。\ncamera record。",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"security\",\"recorded_at\":\"2026-06-17T13:45:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"compact\"}",
+        "created_at": "2026-06-17T13:45:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_ff7601bb",
+        "user_id": "usr_zhan_peng",
+        "source": "ecommerce",
+        "type": "price_drop",
+        "subscription_id": null,
+        "title": "SHOP -> camera record",
+        "body": "camera record：camera record。",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"ecommerce\",\"recorded_at\":\"2026-06-17T13:48:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"expanded\"}",
+        "created_at": "2026-06-17T13:48:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_d530103c",
+        "user_id": "usr_zhan_peng",
+        "source": "listing_platform",
+        "type": "account_activity",
+        "subscription_id": null,
+        "title": "camera record（06-17）",
+        "body": "camera record，camera record。 / camera record",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"listing_platform\",\"recorded_at\":\"2026-06-17T13:51:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"plain\"}",
+        "created_at": "2026-06-17T13:51:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_749a29ea",
+        "user_id": "usr_zhan_peng",
+        "source": "community",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "COMM.1354 camera record",
+        "body": "- camera record。\n- camera record",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"community\",\"recorded_at\":\"2026-06-17T13:54:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"compact\"}",
+        "created_at": "2026-06-17T13:54:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_50371174",
+        "user_id": "usr_zhan_peng",
+        "source": "property",
+        "type": "new_content",
+        "subscription_id": null,
+        "title": "camera record // 06/17",
+        "body": "13:57 camera record：camera record。",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"property\",\"recorded_at\":\"2026-06-17T13:57:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"expanded\"}",
+        "created_at": "2026-06-17T13:57:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "insert",
+      "values": {
+        "refund_id": "ref_rscam_b",
+        "order_id": "ord_rscam_0002",
+        "item_id": "item_rscam_b1",
+        "qty": 1,
+        "reason": "camera record",
+        "status": "submitted",
+        "opened_at": "2026-06-17T14:00:00+08:00",
+        "resolved_at": null,
+        "refund_amount_minor": 720000
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_rscam_b1",
+        "user_id": "usr_zhan_peng",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "camera record，camera record",
+        "body": "camera record，camera record。camera record。",
+        "payload_json": "{\"order_id\": \"ord_rscam_0002\", \"listing_id\": \"lst_rscam_0001\", \"refund_id\": \"ref_rscam_b\", \"status\": \"submitted\"}",
+        "created_at": "2026-06-17T14:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S03_mut"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "step": "event-017",
+  "stage": 16,
+  "event_id": "S16_final_plan",
+  "source_event_id": "S16_final_plan",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 16
+    }
+  ],
+  "response_paraphrase": "I compared the three stroller remedies and marked the free replacement as a recommendation awaiting approval.",
+  "expected_env": {
+    "virtual_stage": 16,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s16_options",
+      "weight": 2
+    },
+    {
+      "check_id": "s16_pick",
+      "weight": 2
+    },
+    {
+      "check_id": "s16_auth",
+      "weight": 1
+    },
+    {
+      "check_id": "s16_no_bad",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

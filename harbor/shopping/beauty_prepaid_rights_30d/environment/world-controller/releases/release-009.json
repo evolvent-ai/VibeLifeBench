@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_stage": 15,
+  "source_event_ids": [
+    "S15_reopen_mut"
+  ],
+  "source_time": "2026-07-02T08:55:00+08:00",
+  "previous": "release-008",
+  "token": "beauty_prepaid_rights_30d-release-009-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "submitted",
+        "reason": "additional local detailbalanceadditional local detail; alreadyadditional local detail, additional local detail, applicationadditional local detailreview",
+        "resolved_at": null
+      },
+      "where": {
+        "refund_id": "ref_ppbeauty_b"
+      }
+    },
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "set": {
+        "sim_now": "2026-07-02T09:00:00+08:00"
+      },
+      "where": {
+        "id": 1
+      }
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "alert_id": "alr_ppbeauty_storm"
+      }
+    }
+  ]
+}

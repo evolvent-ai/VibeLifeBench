@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "S13_budget_review_mutation"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-06-28T08:55:00+08:00",
+  "previous": "release-006",
+  "token": "baby-stroller-release-007-token-7d2f4c9a1b6e",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_strr_budget_review",
+        "user_id": "usr_yan_ting",
+        "source": "calendar",
+        "type": "reminder",
+        "subscription_id": null,
+        "title": "family travel budget review day",
+        "body": "today is the budget and after-sales review day in the family travel plan。",
+        "payload_json": "{\"calendar_ref\": \"family-travel-budget-review\"}",
+        "created_at": "2026-06-28T00:55:00Z",
+        "read": 0
+      },
+      "source_event_id": "S13_budget_review_mutation",
+      "operation_index": 0
+    }
+  ]
+}

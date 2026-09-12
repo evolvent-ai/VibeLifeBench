@@ -1,0 +1,54 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-023",
+  "virtual_stage": 22,
+  "event_id": "S22_reconcile_request",
+  "source_event_id": "S22_reconcile_request",
+  "response": "The final reconciliation keeps ord_iscac_0001, ord_iscac_0002, and funds_iscac distinct while preserving source timing differences and unresolved credits.",
+  "response_paraphrase": "The final reconciliation keeps ord_iscac_0001, ord_iscac_0002, and funds_iscac distinct while retaining source timing differences and unresolved credits.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-023",
+    "HARBOR_EVENT_ID": "S22_reconcile_request",
+    "HARBOR_VIRTUAL_STAGE": "22",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009",
+      "release-011",
+      "release-012",
+      "release-013"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009",
+      "release-011",
+      "release-012",
+      "release-013"
+    ]
+  },
+  "expected_checks": [
+    "s22_consistency"
+  ],
+  "expected_stage_weight": 2,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S22_reconcile_request"
+    }
+  ]
+}

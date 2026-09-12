@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_stage": 11,
+  "source_event_ids": [
+    "S11_report_mut"
+  ],
+  "source_time": "2026-06-25T09:50:00+08:00",
+  "previous": "release-005",
+  "token": "beauty_prepaid_rights_30d-release-006-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<glowspa-review-20260625@hz-consumer-check.cn>",
+        "subject": "GlowSpa prepaid-card service-performance and balance review report",
+        "from_addr": "Hangzhou Consumer Service Review Center <report@hz-consumer-check.cn>",
+        "to_addr_json": "[\"shen.e.prepaid@gmail.com\"]",
+        "date": "2026-06-25T01:45:00Z",
+        "body_text": "Review date: June 24, 2026. The subject was the GlowSpa prepaid beauty-care card and contracted store.\nCompared with the contract, on-site records show reduced services and fewer appointment slots, indicating that service performance had deteriorated; the official card system balance differs from the membership contract and top-up receipt. Report HZC-PP-20260624-17 may support the ecommerce platform review of card-cancellation liability and balance; it does not replace the platform's final ruling.",
+        "is_read": 0,
+        "is_important": 1,
+        "headers_json": "{\"authentication-results\": \"spf=pass; dkim=pass\", \"x-report-id\": \"HZC-PP-20260624-17\"}",
+        "size": 486,
+        "created_at": "2026-06-25T01:45:00Z"
+      }
+    }
+  ]
+}

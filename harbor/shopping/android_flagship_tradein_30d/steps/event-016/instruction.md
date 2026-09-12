@@ -1,0 +1,1 @@
+The third-party appraisal found that the old device is in better condition, which supports recovery of the full value. Continuing the platform review with the report offers higher net proceeds but carries evidence and time costs; accepting the reduced estimate is faster but pays less.

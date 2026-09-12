@@ -1,0 +1,37 @@
+{
+  "step": "event-018",
+  "stage": 17,
+  "virtual_stage": 17,
+  "source_event_id": "camp_authorize_price_protection",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the camping procurement review for this step and preserved the authorization boundaries.",
+  "response_paraphrase": "This camping workflow checkpoint was refreshed with current records while approval gates remained intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "camp_authorize_price_protection"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_platform",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s17_confirm",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s17_no_bad",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

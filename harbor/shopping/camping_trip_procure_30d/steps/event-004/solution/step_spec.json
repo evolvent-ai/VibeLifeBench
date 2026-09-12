@@ -1,0 +1,39 @@
+{
+  "step": "event-004",
+  "stage": 3,
+  "virtual_stage": 3,
+  "source_event_id": "camp_weather_explained",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "response": "I completed the camping procurement review for this step and preserved the authorization boundaries.",
+  "response_paraphrase": "This camping workflow checkpoint was refreshed with current records while approval gates remained intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "camp_weather_explained"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_args",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s3_result",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

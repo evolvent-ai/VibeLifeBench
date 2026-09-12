@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_stage": 20,
+  "source_event_ids": [
+    "S20_mut"
+  ],
+  "source_time": "2026-07-11T16:00:00+08:00",
+  "previous": "release-011",
+  "token": "beauty_prepaid_rights_30d-release-012-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_ppbeauty_pp",
+        "card_id": "card_ppbeauty_01",
+        "posted_at": "2026-07-11T16:00:00+08:00",
+        "amount_minor": -1880000,
+        "merchant_name": "additional local detail (additional local detailrefundadditional local detail)",
+        "mcc": "5732",
+        "category": "additional local detailrefund",
+        "kind": "adjustment"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": -1779200,
+        "available_credit_minor": 2899200
+      },
+      "where": {
+        "card_id": "card_ppbeauty_01"
+      }
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "status": "delisted"
+      },
+      "where": {
+        "listing_id": "lst_ppbeauty_0001"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_ppbeauty_funds",
+        "user_id": "usr_shen_e",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "additional local detailrefundcredited",
+        "body": "The CNY 18,800 card-cancellation recovery has been credited. Reconcile the refund, card balance, dispute reversal, contractual deduction, and other funds in the ledger.",
+        "payload_json": "{\"amount_minor\": 1880000, \"kind\": \"rights_refund\"}",
+        "created_at": "2026-07-11T16:01:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

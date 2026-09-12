@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "S10_mut"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-06-24T09:20:00+08:00",
+  "previous": "release-006",
+  "token": "anc_earphone_presale_30d-88130fbcb5ebf8bcfabdea4742190ca8",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "source_event_id": "S10_mut",
+      "operation_index": 0,
+      "values": {
+        "tx_id": "tx_psea_dup",
+        "card_id": "card_psea_01",
+        "posted_at": "2026-06-24T08:40:00+08:00",
+        "amount_minor": 10800,
+        "merchant_name": "PAYPAL US",
+        "mcc": "4814",
+        "category": "\u6570\u7801\u5f71\u97f3",
+        "kind": "purchase"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "S10_mut",
+      "operation_index": 1,
+      "values": {
+        "notification_id": "ntf_psea_dup",
+        "user_id": "usr_teng_qi",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_psea_card",
+        "title": "\u540c\u5546\u6237\u518d\u6b21\u6263\u8d39\u63d0\u9192",
+        "body": "\u540c\u4e00\u5546\u6237\u518d\u6b21\u4ea7\u751f\u4e00\u7b14\u4e0e\u4e0a\u6b21\u91d1\u989d\u76f8\u540c\u7684\u6263\u8d39\uff0c\u8bf7\u6838\u5bf9\u662f\u5426\u91cd\u590d\u3002",
+        "payload_json": "{\"card_id\": \"card_psea_01\", \"tx_id\": \"tx_psea_dup\"}",
+        "created_at": "2026-06-24T09:01:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

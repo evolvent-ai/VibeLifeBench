@@ -1,0 +1,27 @@
+{
+  "step": "event-012",
+  "stage": 11,
+  "virtual_stage": 11,
+  "source_event_id": "camp_old_tent_offer",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the camping procurement review for this step and preserved the authorization boundaries.",
+  "response_paraphrase": "This camping workflow checkpoint was refreshed with current records while approval gates remained intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "camp_old_tent_offer"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_decision",
+      "weight": 4,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4
+}

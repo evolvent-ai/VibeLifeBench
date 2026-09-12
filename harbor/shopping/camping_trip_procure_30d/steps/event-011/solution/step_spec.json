@@ -1,0 +1,44 @@
+{
+  "step": "event-011",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "camp_hold_question",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": [
+      "release-004"
+    ]
+  },
+  "response": "I completed the camping procurement review for this step and preserved the authorization boundaries.",
+  "response_paraphrase": "This camping workflow checkpoint was refreshed with current records while approval gates remained intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "camp_hold_question"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_result",
+      "weight": 3,
+      "expected": true
+    },
+    {
+      "check_id": "s10_no_bad",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

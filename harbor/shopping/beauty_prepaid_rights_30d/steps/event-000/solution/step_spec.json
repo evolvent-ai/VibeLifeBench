@@ -1,0 +1,40 @@
+{
+  "step": "event-000",
+  "source_event_id": "S00_kickoff",
+  "virtual_stage": 0,
+  "response": "Stage 0 record for S00_kickoff was refreshed from the official systems; workstreams remain separate and irreversible actions require user confirmation.",
+  "response_paraphrase": "I checked S00_kickoff at stage 0 and preserved separate records while leaving any irreversible action pending confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S00_kickoff",
+      "virtual_stage": 0,
+      "event_kind": "user_message",
+      "event_time": "2026-06-15T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s0_args",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s0_result",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s0_files",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 3.5,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "S11_report_mut"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-06-25T10:00:00+08:00",
+  "previous": "release-007",
+  "token": "anc_earphone_presale_30d-5a78ea17656870347ec727dd94b3fa4a",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "S11_report_mut",
+      "operation_index": 0,
+      "values": {
+        "folder_id": 1,
+        "message_id": "<psea-price-report-0625@priceproof.cn>",
+        "subject": "PSEA-COMP-0625\uff5cSonicPod Max \u9884\u552e\u5230\u624b\u4ef7\u590d\u6838\u62a5\u544a",
+        "from_addr": "\u4ef7\u8bc1\u6bd4\u4ef7\u670d\u52a1 <report@priceproof.cn>",
+        "to_addr_json": "[\"teng.qi.presale@gmail.com\"]",
+        "date": "2026-06-25T01:55:00Z",
+        "body_text": "\u62a5\u544a\u7f16\u53f7 PSEA-COMP-0625\u3002\u6838\u9a8c\u9884\u552e\u9875\u3001\u6821\u9a8c\u7801 VRF-PSEA-3957G \u4e0e\u540c\u671f\u6ee1\u51cf\u89c4\u5219\u540e\uff0c\u7ed3\u8bba\u4e3a\u9875\u9762\u5230\u624b\u4ef7\u5b58\u5728\u865a\u6807\uff0c\u6ee1\u51cf\u672c\u5e94\u53e0\u52a0\u3002\n\u5e73\u53f0\u8db3\u989d\u4ef7\u4fdd\u53e3\u5f84\u4e3a \u00a52299\uff1b\u5f53\u524d\u5ba2\u670d\u548c\u89e3\u62a5\u4ef7\u4e3a \u00a51899\u3002\u5efa\u8bae\u4fdd\u7559\u5b9a\u91d1\u51ed\u8bc1\u3001\u9884\u552e\u9875\u622a\u56fe\u548c\u89c4\u5219\u9875\uff0c\u7ee7\u7eed\u7533\u8bf7\u5e73\u53f0\u6838\u5bf9\u3002",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{\"x-report-id\": \"PSEA-COMP-0625\", \"x-source\": \"priceproof\"}",
+        "size": 420,
+        "created_at": "2026-06-25T01:55:00Z"
+      }
+    }
+  ]
+}

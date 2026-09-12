@@ -1,0 +1,26 @@
+{
+  "step": "event-022",
+  "stage": 21,
+  "event_id": "S21_window",
+  "source_event_id": "S21_window",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 21
+    }
+  ],
+  "response_paraphrase": "The departure review distinguishes finished work from items still awaiting confirmation or receipt.",
+  "expected_env": {
+    "virtual_stage": 21,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s21_checklist",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

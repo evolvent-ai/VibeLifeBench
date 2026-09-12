@@ -1,0 +1,1 @@
+Evidence for the trade-in review must be submitted by July 9. Check whether the evidence is complete, how to respond to the recycler's reduced estimate, whether a third-party appraisal is needed, and whether the deadline is at risk. Based on the existing case, decide whether to supplement the evidence and continue the platform review. Do not create a duplicate request.

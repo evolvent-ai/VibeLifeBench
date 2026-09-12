@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_stage": 15,
+  "source_event_ids": [
+    "S15_weather_mut",
+    "S15_window",
+    "S15_world",
+    "S15_weather_alert"
+  ],
+  "source_time": "2026-07-02T09:40:00+08:00",
+  "previous": "release-008",
+  "token": "android_flagship_tradein_30d-release-009",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_andt",
+        "date": "2026-07-02",
+        "tmin": 24,
+        "tmax": 29,
+        "condition": "heavy_rain",
+        "precip_mm": 38.0,
+        "precip_prob": 0.91,
+        "wind_kmh": 30
+      },
+      "source_event_id": "S15_weather_mut"
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_andt",
+        "date": "2026-07-03",
+        "tmin": 23,
+        "tmax": 28,
+        "condition": "rainstorm",
+        "precip_mm": 52.0,
+        "precip_prob": 0.96,
+        "wind_kmh": 36
+      },
+      "source_event_id": "S15_weather_mut"
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_andt",
+        "date": "2026-07-04",
+        "tmin": 24,
+        "tmax": 30,
+        "condition": "showers",
+        "precip_mm": 11.0,
+        "precip_prob": 0.7,
+        "wind_kmh": 22
+      },
+      "source_event_id": "S15_weather_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_andt",
+        "datetime": "2026-07-02T09:00:00+08:00",
+        "temp_c": 26.0,
+        "humidity": 87,
+        "condition": "heavy_rain",
+        "precip_mm": 5.0,
+        "wind_kmh": 25
+      },
+      "source_event_id": "S15_weather_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_andt",
+        "datetime": "2026-07-02T10:00:00+08:00",
+        "temp_c": 26.0,
+        "humidity": 89,
+        "condition": "rainstorm",
+        "precip_mm": 8.4,
+        "wind_kmh": 32
+      },
+      "source_event_id": "S15_weather_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_andt",
+        "datetime": "2026-07-02T11:00:00+08:00",
+        "temp_c": 25.0,
+        "humidity": 91,
+        "condition": "rainstorm",
+        "precip_mm": 10.2,
+        "wind_kmh": 35
+      },
+      "source_event_id": "S15_weather_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_andt",
+        "datetime": "2026-07-02T12:00:00+08:00",
+        "temp_c": 25.0,
+        "humidity": 90,
+        "condition": "heavy_rain",
+        "precip_mm": 7.1,
+        "wind_kmh": 30
+      },
+      "source_event_id": "S15_weather_mut"
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "alr_andt_stage15_storm",
+        "kind": "rainstorm",
+        "severity": "orange",
+        "start_dt": "2026-07-02T09:30:00+08:00",
+        "end_dt": "2026-07-03T20:00:00+08:00",
+        "areas_json": "[\"Hangzhou CityBinjiang District\", \"Hangzhou CityXihu District\"]",
+        "description": "Heavy precipitation may delay old-device shipment, trade-in delivery, and evidence deadlines; schedule around carrier cutoff times.",
+        "active": 1,
+        "created_at": "2026-07-02T09:35:00+08:00",
+        "source_event": "rainstorm_20260702"
+      },
+      "source_event_id": "S15_weather_mut"
+    },
+    {
+      "server": "weather",
+      "table": "daily_aqi",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_andt",
+        "date": "2026-07-02",
+        "aqi": 47,
+        "category": "good",
+        "dominant_pollutant": "pm2.5",
+        "observed_at": "2026-07-02T08:00:00+08:00"
+      },
+      "source_event_id": "S15_weather_mut"
+    },
+    {
+      "server": "weather",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "created_at": "2026-07-02T09:36:00+08:00",
+        "channel": "notification_hub",
+        "sub_id": "wsub_andt_main",
+        "alert_id": "alr_andt_stage15_storm",
+        "payload_json": "{\"title\":\"orange rainstorm warning\",\"geo_key\":\"geo_andt\",\"impact\":\"old-device shipment and delivery may be delayed\"}",
+        "delivered": 1
+      },
+      "source_event_id": "S15_weather_mut"
+    }
+  ]
+}

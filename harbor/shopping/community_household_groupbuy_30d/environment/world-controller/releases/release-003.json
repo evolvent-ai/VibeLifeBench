@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "groupbuy_pickup_point_change"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-06-23T13:00:00+08:00",
+  "previous": "release-002",
+  "token": "community-household-groupbuy-30d-release-003-token-7f3a9b1c2d4e5f6a",
+  "operations": [
+    {
+      "server": "delivery_logistics",
+      "table": "issue_tickets",
+      "op": "insert",
+      "values": {
+        "ticket_id": "tkt_homtg_pickup",
+        "shipment_id": "shp_homtg_0002",
+        "issue_type": "wrong_address",
+        "description": "the original lobby is under temporary construction; candidate pickup points are the community activity room or East Gate Convenience Store, with different hours and refrigeration\u3002",
+        "status": "open",
+        "opened_at": "2026-06-23T13:00:00+08:00",
+        "expected_response_date": "2026-06-24"
+      },
+      "postcondition": {
+        "sql": "SELECT COUNT(*) FROM issue_tickets WHERE ticket_id = ? AND status = ?",
+        "params": [
+          "tkt_homtg_pickup",
+          "open"
+        ],
+        "equals": 1
+      },
+      "source_event_id": "groupbuy_pickup_point_change",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_homtg_pickup",
+        "user_id": "usr_xie_lin",
+        "source": "delivery_logistics",
+        "type": "shipment_update",
+        "subscription_id": "sub_homtg_log",
+        "title": "the original pickup point is under construction; confirm one of two candidates",
+        "body": "the activity room has more space but is open for only two hours; East Gate Convenience Store is open longer but has limited refrigeration\u3002",
+        "payload_json": "{\"ticket_id\":\"tkt_homtg_pickup\",\"order_id\":\"ord_homtg_0002\"}",
+        "created_at": "2026-06-23T05:01:00Z",
+        "read": 0
+      },
+      "postcondition": {
+        "sql": "SELECT COUNT(*) FROM notifications WHERE notification_id = ?",
+        "params": [
+          "ntf_homtg_pickup"
+        ],
+        "equals": 1
+      },
+      "source_event_id": "groupbuy_pickup_point_change",
+      "operation_index": 1
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "step": "event-019",
+  "virtual_stage": 13,
+  "source_event_id": "S13_dispute_authorization",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The budget ledger distinguishes paid, pending refund, expected recovery, reduced offer, and the 22300 accessory plan. The duplicate charge tx_andt_dup is submitted for review, while ordinary repayment remains separate and pending user confirmation.",
+  "response_paraphrase": "The financial record now keeps spent, disputed, expected, reduced-offer, and unpurchased amounts separate; the card challenge does not alter ordinary repayment duties.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S13_dispute_authorization",
+      "virtual_stage": 13,
+      "event_kind": "user_message",
+      "event_time": "2026-06-28T09:20:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_budget",
+      "weight": 3
+    }
+  ],
+  "expected_stage_weight": 3
+}

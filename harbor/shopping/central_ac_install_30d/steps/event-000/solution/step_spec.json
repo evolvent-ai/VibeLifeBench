@@ -1,0 +1,29 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-000",
+  "virtual_stage": 0,
+  "event_id": "S00_kickoff",
+  "source_event_id": "S00_kickoff",
+  "response": "I opened ord_iscac_0001 and ord_iscac_0002 as separate workstreams, checked card_iscac_01 ending 2074, and reconciled the marketplace, delivery, and card records.",
+  "response_paraphrase": "I opened separate tracking threads for ord_iscac_0001 and ord_iscac_0002, checked card_iscac_01 ending in 2074, and reconciled the marketplace, delivery, and card records.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-000",
+    "HARBOR_EVENT_ID": "S00_kickoff",
+    "HARBOR_VIRTUAL_STAGE": "0",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "s0_servers",
+    "s0_args",
+    "s0_result",
+    "s0_files"
+  ],
+  "expected_stage_weight": 3.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S00_kickoff"
+    }
+  ]
+}

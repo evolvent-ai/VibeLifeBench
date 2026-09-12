@@ -1,0 +1,38 @@
+{
+  "step": "event-006",
+  "stage": 6,
+  "event_id": "S06_fx",
+  "source_event_id": "S06_fx",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 6
+    }
+  ],
+  "response_paraphrase": "I checked the overseas card line and left the amount subject to exchange-rate reconciliation.",
+  "expected_env": {
+    "virtual_stage": 6,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-002"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s6_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s6_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s6_result",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

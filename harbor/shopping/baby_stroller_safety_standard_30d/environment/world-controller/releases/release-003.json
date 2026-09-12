@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "S07_buyer_inquiry_mutation"
+  ],
+  "source_stage": 7,
+  "source_time": "2026-06-21T15:00:00+08:00",
+  "previous": "release-002",
+  "token": "baby-stroller-release-003-token-7d2f4c9a1b6e",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_strr_buyer_20260621",
+        "user_id": "usr_yan_ting",
+        "source": "listing_platform",
+        "type": "listing_message",
+        "subscription_id": null,
+        "title": "new message on a used-item listing",
+        "body": "the buyer asks for a lower price and an in-person transaction。",
+        "payload_json": "{\"listing_id\": \"lst_strr_0001\", \"channel\": \"in_app\"}",
+        "created_at": "2026-06-21T07:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S07_buyer_inquiry_mutation",
+      "operation_index": 0
+    }
+  ]
+}

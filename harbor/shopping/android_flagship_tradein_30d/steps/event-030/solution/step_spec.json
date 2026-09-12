@@ -1,0 +1,29 @@
+{
+  "step": "event-030",
+  "virtual_stage": 22,
+  "source_event_id": "S22_consistency",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The final cross-system reconciliation binds ord_andt_0001, SF3724520001CN, ref_andt_b, disp_andt_01, tx_andt_rev, and lst_andt_0001. Consistent states are recorded alongside any timing differences rather than being assumed identical.",
+  "response_paraphrase": "Store, carrier, issuer, notice, and marketplace records now tie the precise order, shipment, review, reversal, and listing identifiers together, with timing discrepancies explicitly noted.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S22_consistency",
+      "virtual_stage": 22,
+      "event_kind": "world",
+      "event_time": "2026-07-13T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_consistency",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

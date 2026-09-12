@@ -1,0 +1,42 @@
+{
+  "step": "event-011",
+  "stage": 10,
+  "event_id": "S10_duplicate_charge_notice",
+  "source_event_id": "S10_duplicate_charge_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 10
+    }
+  ],
+  "response_paraphrase": "I recorded the same-merchant posting and kept any repayment decision distinct from the review.",
+  "expected_env": {
+    "virtual_stage": 10,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-005"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s10_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s10_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s10_result",
+      "weight": 3
+    },
+    {
+      "check_id": "s10_no_bad",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

@@ -1,0 +1,72 @@
+{
+  "release_id": "release-012",
+  "source_event_id": "S20_mut",
+  "source_event_ids": ["S20_mut"],
+  "source_stage": 20,
+  "source_time": "2026-07-11T16:00:00+08:00",
+  "virtual_stage": 20,
+  "previous": "release-011",
+  "idempotency_key": "apple-watch-release-012",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_awch_pp",
+        "card_id": "card_awch_01",
+        "posted_at": "2026-07-11T16:00:00+08:00",
+        "amount_minor": -380000,
+        "merchant_name": "Official store ( translated text refund credited)",
+        "mcc": "5732",
+        "category": "rights refund",
+        "kind": "adjustment"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_awch_funds",
+        "user_id": "usr_mo_fan",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "rights refund translated text credited",
+        "body": " translated text trade-in credit ¥3800  translated text credited。 translated text focus translated text 、top-up payment translated text 、disputereversal、appraisal translated text ledger translated text verify translated text 。",
+        "payload_json": "{\"amount_minor\": 380000, \"kind\": \"rights_refund\"}",
+        "created_at": "2026-07-11T16:01:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "postconditions": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "where": {
+        "tx_id": "tx_awch_pp"
+      },
+      "expect": {
+        "card_id": "card_awch_01",
+        "amount_minor": -380000,
+        "kind": "adjustment"
+      },
+      "contains": []
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "where": {
+        "notification_id": "ntf_awch_funds"
+      },
+      "expect": {},
+      "contains": [
+        380000,
+        "rights_refund"
+      ]
+    }
+  ],
+  "token": "apple_watch_tradein_30d-release-token"
+}

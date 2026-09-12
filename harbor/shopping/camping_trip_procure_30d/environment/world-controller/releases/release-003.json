@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "camp_stock_substitution_release"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-06-23T13:00",
+  "previous": "release-002",
+  "token": "camping-trip-release-token-003-8f2a1c9d4e7b6a5c",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "conflict_keys": [
+        "id"
+      ],
+      "values": {
+        "id": 9001,
+        "folder_id": 1,
+        "message_id": "<camp-pole-substitution-20260623@shop.example>",
+        "subject": "tentcamping business detailout of stock，optioncamping business detailmaterialcamping business detail",
+        "from_addr": "Yechengcamping business detail <service@yecheng.example>",
+        "to_addr_json": "[\"ye.chen.camp@gmail.com\"]",
+        "date": "2026-06-23T05:00:00Z",
+        "body_text": "originalcamping business detailspare poleout of stock。optionheaviercamping business detailfiberglass poleships immediately，camping business detailwaitoriginalaluminum polecamping business detail 7 camping business detail 8 camping business detail；camping business detail、compatibilitycamping business detail，pleaseconfirmcamping business detailprocess。",
+        "is_read": 0,
+        "is_important": 1,
+        "headers_json": "{\"thread\":\"camp-gear-support\"}",
+        "size": 238,
+        "created_at": "2026-06-23T05:00:00Z"
+      },
+      "source_event_id": "camp_stock_substitution_release",
+      "operation_index": 0
+    }
+  ]
+}

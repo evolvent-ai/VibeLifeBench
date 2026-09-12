@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "camp_price_protection_paid"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-07-11T16:00",
+  "previous": "release-008",
+  "token": "camping-trip-release-token-009-8f2a1c9d4e7b6a5c",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "upsert",
+      "conflict_keys": [
+        "tx_id"
+      ],
+      "values": {
+        "tx_id": "tx_camp_price_protection",
+        "card_id": "card_camp_01",
+        "posted_at": "2026-07-11T16:00:00+08:00",
+        "amount_minor": -10000,
+        "merchant_name": "Yechengofficialmarketplaceprice protection",
+        "mcc": "5941",
+        "category": "camping business detailrefund",
+        "kind": "adjustment"
+      },
+      "source_event_id": "camp_price_protection_paid",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "upsert",
+      "conflict_keys": [
+        "notification_id"
+      ],
+      "values": {
+        "notification_id": "ntf_camp_price_protection",
+        "user_id": "usr_ye_chen",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "four-seasoncamping business detailprice protectioncamping business detail ¥100 alreadycredited",
+        "body": "ord_camp_0001 camping business detailprice protectioncamping business detailalreadycamping business detail。pleasecamping business detailordercamping business detail、discountcouponcamping business detailauthorization holdreleasedcamping business detail。",
+        "payload_json": "{\"order_id\":\"ord_camp_0001\",\"amount_minor\":10000}",
+        "created_at": "2026-07-11T08:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "camp_price_protection_paid",
+      "operation_index": 1
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-003",
+  "virtual_stage": 3,
+  "event_id": "S03_workorder_notice",
+  "source_event_id": "S03_workorder_notice",
+  "response": "For ord_iscac_0002, refund ref_iscac_b and notification ntf_iscac_b1 show a submitted case awaiting the provider response.",
+  "response_paraphrase": "For ord_iscac_0002, refund ref_iscac_b and notification ntf_iscac_b1 show a submitted case that is awaiting the provider response.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-003",
+    "HARBOR_EVENT_ID": "S03_workorder_notice",
+    "HARBOR_VIRTUAL_STAGE": "3",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "s3_servers",
+    "s3_args",
+    "s3_result"
+  ],
+  "expected_stage_weight": 3.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S03_workorder_notice"
+    }
+  ]
+}

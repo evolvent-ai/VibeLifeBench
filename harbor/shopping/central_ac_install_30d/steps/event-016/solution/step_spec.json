@@ -1,0 +1,50 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-016",
+  "virtual_stage": 15,
+  "event_id": "S15_weather_request",
+  "source_event_id": "S15_weather_request",
+  "response": "Weather alert alr_iscac_storm_20260702 affects ord_iscac_0002 and ref_iscac_b: heavy rain calls for rescheduling and online evidence first.",
+  "response_paraphrase": "Weather alert alr_iscac_storm_20260702 affects ord_iscac_0002 and ref_iscac_b; heavy rain calls for rescheduling and submitting online evidence first.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-016",
+    "HARBOR_EVENT_ID": "S15_weather_request",
+    "HARBOR_VIRTUAL_STAGE": "15",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009"
+    ]
+  },
+  "expected_checks": [
+    "s15_servers",
+    "s15_result",
+    "s15_weather"
+  ],
+  "expected_stage_weight": 6,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S15_weather_request"
+    }
+  ]
+}

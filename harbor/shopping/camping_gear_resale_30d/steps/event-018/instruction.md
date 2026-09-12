@@ -1,0 +1,1 @@
+[Scheduled review] It is time to review dispute progress and funds. Check each fund status (paid, pending refund, pending compensation, and estimated recovery), update the ledger, and mark anything unconfirmed.

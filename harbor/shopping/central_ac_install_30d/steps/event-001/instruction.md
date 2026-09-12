@@ -1,0 +1,1 @@
+The marketplace order, delivery and installation records, credit-card statement, and after-sales notices show different update times. Reconcile them again and record which states are confirmed, which conflict, and which still need supporting evidence.

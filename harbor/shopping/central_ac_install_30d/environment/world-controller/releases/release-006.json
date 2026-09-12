@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "S11_inspection_report_mutation"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-06-25T09:40",
+  "previous": "release-005",
+  "token": "central-ac-release-006-20260824",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<iscac-inspection-20260625@quality.example>",
+        "subject": "Third-party installation quality inspection report QI-SZ-0625",
+        "from_addr": "Shencheng Appliance Quality Service <report@quality.example>",
+        "to_addr_json": "[\"luo.wei.install@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-25T01:40:00Z",
+        "body_text": "Report QI-SZ-0625: refrigerant-pipe fixing and drainage slope do not meet acceptance requirements. Floor and materials fees exceed the published standard by CNY 224. See the attached photo and measurement list.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9011,
+        "size": 680,
+        "created_at": "2026-06-25T01:40:00Z"
+      },
+      "source_event_id": "S11_inspection_report_mutation",
+      "operation_index": 0
+    }
+  ]
+}

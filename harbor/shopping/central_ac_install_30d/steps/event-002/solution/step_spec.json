@@ -1,0 +1,29 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-002",
+  "virtual_stage": 2,
+  "event_id": "S02_spec",
+  "source_event_id": "S02_spec",
+  "response": "For prod_iscac_main I verified cmx-3r1-2074, batch 2025q4, and vrf-iscac-2074g, then compared the three licensed, third-party, and reimbursed repair routes.",
+  "response_paraphrase": "For prod_iscac_main, I verified model cmx-3r1-2074, batch 2025q4, and service code vrf-iscac-2074g, then compared official rework, licensed third-party, and self-remediation with reimbursement routes.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-002",
+    "HARBOR_EVENT_ID": "S02_spec",
+    "HARBOR_VIRTUAL_STAGE": "2",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "s2_servers",
+    "s2_args",
+    "s2_result",
+    "s2_options"
+  ],
+  "expected_stage_weight": 5.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S02_spec"
+    }
+  ]
+}

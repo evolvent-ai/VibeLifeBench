@@ -1,0 +1,1 @@
+The buyer added objections about coating aging and bent poles but has not uploaded complete unboxing material. The platform has accepted the review. Preserve the pre-trip setup video, close-ups of pole-joint connections, inside-fly photos, the accessory count, and the drying and storage time.

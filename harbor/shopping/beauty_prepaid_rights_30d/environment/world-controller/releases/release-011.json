@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_stage": 19,
+  "source_event_ids": [
+    "S19_mut"
+  ],
+  "source_time": "2026-07-10T11:00:00+08:00",
+  "previous": "release-010",
+  "token": "beauty_prepaid_rights_30d-release-011-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "approved",
+        "refund_amount_minor": 1880000,
+        "resolved_at": "2026-07-10T11:00:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_ppbeauty_b"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_ppbeauty_ship",
+        "user_id": "usr_shen_e",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "Platform intervention: card cancellation upheld",
+        "body": "The platform review upheld the card cancellation and will arrange the refund recovery. Check the refund amount and receipt.",
+        "payload_json": "{\"order_id\": \"ord_ppbeauty_0001\", \"refund_id\": \"ref_ppbeauty_b\", \"status\": \"approved\"}",
+        "created_at": "2026-07-10T11:01:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

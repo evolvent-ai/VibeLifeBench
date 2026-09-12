@@ -1,0 +1,41 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "S00_kickoff",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I opened separate records for order ord_andt_0001, trade-in order ord_andt_0002, and listing lst_andt_0001 after checking the store, logistics, and card account.",
+  "response_paraphrase": "I created independent long-running trackers for the two orders and the resale listing after reconciling store, courier, and card records.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S00_kickoff",
+      "virtual_stage": 0,
+      "event_kind": "user_message",
+      "event_time": "2026-06-15T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s0_args",
+      "weight": 1
+    },
+    {
+      "check_id": "s0_result",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s0_files",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

@@ -1,0 +1,38 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-010",
+  "virtual_stage": 9,
+  "event_id": "S09_evidence_notice",
+  "source_event_id": "S09_evidence_notice",
+  "response": "For ord_iscac_0002, ref_iscac_b and ntf_iscac_b2 mark the claim rejected pending on-site video, problem photos, and receipts before the deadline.",
+  "response_paraphrase": "For ord_iscac_0002, ref_iscac_b and ntf_iscac_b2 show the claim rejected pending on-site video, problem photos, and receipts before the deadline.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-010",
+    "HARBOR_EVENT_ID": "S09_evidence_notice",
+    "HARBOR_VIRTUAL_STAGE": "9",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ]
+  },
+  "expected_checks": [
+    "s9_servers",
+    "s9_args",
+    "s9_result"
+  ],
+  "expected_stage_weight": 3.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S09_evidence_notice"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "step": "event-026",
+  "source_event_id": "S18_world",
+  "virtual_stage": 18,
+  "response": "Stage 18 record for S18_world was refreshed from the official systems; workstreams remain separate and irreversible actions require user confirmation.",
+  "response_paraphrase": "I checked S18_world at stage 18 and preserved separate records while leaving any irreversible action pending confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S18_world",
+      "virtual_stage": 18,
+      "event_kind": "world",
+      "event_time": "2026-07-08T18:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s18_result",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 2.5,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "S18_mut"
+    ]
+  }
+}

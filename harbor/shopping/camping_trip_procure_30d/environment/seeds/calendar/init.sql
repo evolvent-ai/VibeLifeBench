@@ -1,0 +1,11 @@
+-- Generated calendar seed for camping_trip_procure_30d
+BEGIN;
+INSERT INTO calendars (calendar_id, user_id, name, color, timezone, is_primary, created_at) VALUES ('cal_camp_main', 'usr_ye_chen', 'Personal', '#4285F4', 'Asia/Shanghai', 1, '2024-01-01T00:00:00Z');
+INSERT INTO calendars (calendar_id, user_id, name, color, timezone, is_primary, created_at) VALUES ('cal_camp_task', 'usr_ye_chen', 'campingcamping business detail', '#0B8043', 'Asia/Shanghai', 0, '2026-05-01T00:00:00Z');
+INSERT INTO events (event_id, calendar_id, summary, description, location, start_dt, end_dt, all_day, status, created_at, updated_at, recurrence_rule, parent_event_id) VALUES ('evt_camp_c1', 'cal_camp_task', 'camping business detail', 'camping business detail，departurecamping business detail、return、camping business detail、camping business detail。', '', '2026-07-15T10:30:00+08:00', '2026-07-15T13:00:00+08:00', 0, 'confirmed', '2026-06-01T00:00:00Z', '2026-06-01T00:00:00Z', NULL, NULL);
+INSERT INTO events (event_id, calendar_id, summary, description, location, start_dt, end_dt, all_day, status, created_at, updated_at, recurrence_rule, parent_event_id) VALUES ('evt_camp_c2', 'cal_camp_main', 'camping business detail', 'camping business detail，departurecamping business detailarrangecamping business detail。', '', '2026-07-08T09:00:00+08:00', '2026-07-08T09:30:00+08:00', 0, 'confirmed', '2026-06-01T00:00:00Z', '2026-06-01T00:00:00Z', NULL, NULL);
+INSERT INTO events (event_id, calendar_id, summary, description, location, start_dt, end_dt, all_day, status, created_at, updated_at, recurrence_rule, parent_event_id) VALUES ('evt_camp_c3', 'cal_camp_task', 'camping business detail(camping business detail)', 'camping business detail，camping business detailpreviouslyconfirmcamping business detail。', 'camping business detail(online)', '2026-07-02T18:00:00+08:00', '2026-07-02T18:30:00+08:00', 0, 'tentative', '2026-06-01T00:00:00Z', '2026-06-01T00:00:00Z', NULL, NULL);
+INSERT INTO reminders (event_id,method,minutes_before) VALUES ('evt_camp_c1','popup',2880),('evt_camp_c2','popup',1440);
+INSERT INTO reminders (event_id,method,minutes_before) VALUES ('evt_camp_c3','popup',1440);
+INSERT INTO _counters (key,value) VALUES ('event_seq',3);
+COMMIT;

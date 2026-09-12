@@ -1,0 +1,34 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-006",
+  "virtual_stage": 6,
+  "event_id": "S06_fx",
+  "source_event_id": "S06_fx",
+  "response": "For card_iscac_01, tx_iscac_fx is a PAYPAL US overseas purchase of 216; I will reconcile the foreign currency and exchange rate before action.",
+  "response_paraphrase": "I reviewed card_iscac_01 and tx_iscac_fx as a 216 PAYPAL US overseas purchase and will reconcile the foreign currency and exchange rate before action.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-006",
+    "HARBOR_EVENT_ID": "S06_fx",
+    "HARBOR_VIRTUAL_STAGE": "6",
+    "preceding_releases": [
+      "release-000",
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001"
+    ]
+  },
+  "expected_checks": [
+    "s6_servers",
+    "s6_args",
+    "s6_result"
+  ],
+  "expected_stage_weight": 2.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S06_fx"
+    }
+  ]
+}

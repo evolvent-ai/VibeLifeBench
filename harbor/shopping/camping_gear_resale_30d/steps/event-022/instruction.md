@@ -1,0 +1,1 @@
+[Outdoor test reminder] Several days of rain may occur near the evidence window. Check the forecast and alerts before scheduling a dry period for setup photos and storage. Packing a wet tent changes its condition, and a weather summary alone cannot prove that a carrier stopped operating.

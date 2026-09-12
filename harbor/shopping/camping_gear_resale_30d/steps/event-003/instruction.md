@@ -1,0 +1,1 @@
+Outdoor-equipment dispute rules require the listing description, accessory list, pre-delivery images, and in-platform conversation to correspond. Payments outside platform escrow are outside the adjudication chain. Tent waterproofing also depends on setup tension, cleaning, and dryness, so a bare statement that it leaks cannot replace test conditions.

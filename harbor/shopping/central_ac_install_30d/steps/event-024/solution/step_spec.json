@@ -1,0 +1,55 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-024",
+  "virtual_stage": 23,
+  "event_id": "S23_archive",
+  "source_event_id": "S23_archive",
+  "response": "The July 14 archive separates ord_iscac_0001, ord_iscac_0002, and funds_iscac, with each record showing completed work, open follow-up, or a decision still waiting on Luo Wei.",
+  "response_paraphrase": "On July 14, archive sections for ord_iscac_0001, ord_iscac_0002, and funds_iscac preserve equipment validation, the corrective-service case, and financial adjustments while distinguishing completed work, active follow-up, and choices awaiting Luo Wei's approval.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-024",
+    "HARBOR_EVENT_ID": "S23_archive",
+    "HARBOR_VIRTUAL_STAGE": "23",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009",
+      "release-011",
+      "release-012",
+      "release-013"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009",
+      "release-011",
+      "release-012",
+      "release-013"
+    ]
+  },
+  "expected_checks": [
+    "s23_structured",
+    "s23_threads"
+  ],
+  "expected_stage_weight": 3,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S23_archive"
+    }
+  ]
+}

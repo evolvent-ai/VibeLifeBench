@@ -1,0 +1,1 @@
+The buyer said the platform fee is too high and asked me to add them on WeChat, take a CNY 500 deposit, and avoid platform escrow because it would be cheaper and faster. It sounds economical. Is it safe for me to do that?

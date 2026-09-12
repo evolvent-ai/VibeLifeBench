@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "task": "community_household_groupbuy_30d",
+  "steps": {
+    "event-000": {
+      "source_event_id": "groupbuy_opening_brief",
+      "virtual_stage": 0,
+      "scenario_time": "2026-06-15T08:30:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-001": {
+      "source_event_id": "groupbuy_seed_snapshot",
+      "virtual_stage": 1,
+      "scenario_time": "2026-06-15T09:10:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-002": {
+      "source_event_id": "groupbuy_leader_and_lot_check",
+      "virtual_stage": 2,
+      "scenario_time": "2026-06-16T10:00:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-003": {
+      "source_event_id": "groupbuy_product_context",
+      "virtual_stage": 2,
+      "scenario_time": "2026-06-16T10:25:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-004": {
+      "source_event_id": "groupbuy_threshold_world",
+      "virtual_stage": 3,
+      "scenario_time": "2026-06-17T14:20:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-000"
+      ]
+    },
+    "event-005": {
+      "source_event_id": "groupbuy_privacy_boundary",
+      "virtual_stage": 4,
+      "scenario_time": "2026-06-18T18:20:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-006": {
+      "source_event_id": "groupbuy_evidence_design",
+      "virtual_stage": 5,
+      "scenario_time": "2026-06-19T09:10:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-007": {
+      "source_event_id": "groupbuy_split_acceptance",
+      "virtual_stage": 6,
+      "scenario_time": "2026-06-20T11:25:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-001"
+      ]
+    },
+    "event-008": {
+      "source_event_id": "groupbuy_substitution_request",
+      "virtual_stage": 7,
+      "scenario_time": "2026-06-21T15:20:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-002"
+      ]
+    },
+    "event-009": {
+      "source_event_id": "groupbuy_tier_scenarios",
+      "virtual_stage": 8,
+      "scenario_time": "2026-06-22T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-010": {
+      "source_event_id": "groupbuy_pickup_analysis",
+      "virtual_stage": 9,
+      "scenario_time": "2026-06-23T13:25:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-003"
+      ]
+    },
+    "event-011": {
+      "source_event_id": "groupbuy_duplicate_question",
+      "virtual_stage": 10,
+      "scenario_time": "2026-06-24T09:20:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-004"
+      ]
+    },
+    "event-012": {
+      "source_event_id": "groupbuy_paid_count_update",
+      "virtual_stage": 11,
+      "scenario_time": "2026-06-25T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-013": {
+      "source_event_id": "groupbuy_offplatform_boundary",
+      "virtual_stage": 12,
+      "scenario_time": "2026-06-26T16:20:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-005"
+      ]
+    },
+    "event-014": {
+      "source_event_id": "groupbuy_settlement_checkpoint",
+      "virtual_stage": 13,
+      "scenario_time": "2026-06-28T09:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-015": {
+      "source_event_id": "groupbuy_dispute_world",
+      "virtual_stage": 14,
+      "scenario_time": "2026-06-30T10:25:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-006"
+      ]
+    },
+    "event-016": {
+      "source_event_id": "groupbuy_weather_pickup_window",
+      "virtual_stage": 15,
+      "scenario_time": "2026-07-02T09:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-017": {
+      "source_event_id": "groupbuy_final_decision",
+      "virtual_stage": 16,
+      "scenario_time": "2026-07-04T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-018": {
+      "source_event_id": "groupbuy_authorized_actions",
+      "virtual_stage": 17,
+      "scenario_time": "2026-07-06T14:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-019": {
+      "source_event_id": "groupbuy_dispute_resolved_world",
+      "virtual_stage": 18,
+      "scenario_time": "2026-07-08T18:25:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-007"
+      ]
+    },
+    "event-020": {
+      "source_event_id": "groupbuy_arrival_world",
+      "virtual_stage": 19,
+      "scenario_time": "2026-07-10T11:30:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-008"
+      ]
+    },
+    "event-021": {
+      "source_event_id": "groupbuy_rebate_world",
+      "virtual_stage": 20,
+      "scenario_time": "2026-07-11T16:20:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-009"
+      ]
+    },
+    "event-022": {
+      "source_event_id": "groupbuy_unclaimed_items",
+      "virtual_stage": 21,
+      "scenario_time": "2026-07-12T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-023": {
+      "source_event_id": "groupbuy_reconciliation",
+      "virtual_stage": 22,
+      "scenario_time": "2026-07-13T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-024": {
+      "source_event_id": "groupbuy_closeout",
+      "virtual_stage": 23,
+      "scenario_time": "2026-07-14T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    }
+  }
+}

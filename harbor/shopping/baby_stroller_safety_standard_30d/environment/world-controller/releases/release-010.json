@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "S19_mut"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-07-10T11:00:00+08:00",
+  "previous": "release-009",
+  "token": "baby-stroller-release-010-token-7d2f4c9a1b6e",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "approved",
+        "resolved_at": "2026-07-10T11:00:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_strr_b"
+      },
+      "source_event_id": "S19_mut",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_strr_ship",
+        "user_id": "usr_yan_ting",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "platform intervention: return approved",
+        "body": "platform intervention approved the return; a refund will be arranged。",
+        "payload_json": "{\"order_id\": \"ord_strr_0002\", \"refund_id\": \"ref_strr_b\", \"status\": \"approved\"}",
+        "created_at": "2026-07-10T03:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S19_mut",
+      "operation_index": 1
+    }
+  ]
+}

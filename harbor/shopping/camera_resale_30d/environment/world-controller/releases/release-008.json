@@ -1,0 +1,814 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "S15_mut"
+  ],
+  "source_time": "2026-07-02T09:00:00+08:00",
+  "previous": "release-007",
+  "token": "bike-commute-safety-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_cal_851704a7",
+        "calendar_id": "cal_rscam_task",
+        "summary": "camera record",
+        "description": "camera record、camera record、camera record。",
+        "location": "Sonar camera record",
+        "start_dt": "2026-07-08T10:00:00+08:00",
+        "end_dt": "2026-07-08T10:35:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-07-02T08:55:00+08:00",
+        "updated_at": "2026-07-02T08:55:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_cal_4dd28395",
+        "calendar_id": "cal_rscam_main",
+        "summary": "camera record",
+        "description": "camera record，camera record。",
+        "location": "camera record",
+        "start_dt": "2026-07-03T09:30:00+08:00",
+        "end_dt": "2026-07-03T10:30:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-07-02T08:55:00+08:00",
+        "updated_at": "2026-07-02T08:55:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "calendar",
+      "table": "reminders",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_cal_851704a7",
+        "method": "popup",
+        "minutes_before": 60
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "calendar",
+      "table": "reminders",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_cal_4dd28395",
+        "method": "email",
+        "minutes_before": 75
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "calendar",
+      "table": "attendees",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_cal_851704a7",
+        "email": "coord151@example.net",
+        "name": "camera record 15-1",
+        "response_status": "needsAction"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "calendar",
+      "table": "attendees",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_cal_4dd28395",
+        "email": "coord152@example.net",
+        "name": "camera record 15-2",
+        "response_status": "tentative"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "insert",
+      "values": {
+        "shipment_id": "shp_aux_808c1c06",
+        "user_id": "usr_zhan_peng",
+        "tracking_no": "MC1501785412CN",
+        "carrier": "camera record",
+        "service_level": "standard",
+        "status": "exception",
+        "sender_json": "{\"recipient\": \"camera record\", \"phone\": \"020-8000-0151\", \"province\": \"camera record\", \"city\": \"camera record\", \"district\": \"camera record\", \"detail\": \"camera record 15-1 camera record\"}",
+        "recipient_json": "{\"recipient\": \"camera record\", \"phone\": \"13900000151\", \"province\": \"camera record\", \"city\": \"camera record\", \"district\": \"camera record\", \"detail\": \"camera record 41 camera record\"}",
+        "weight_kg": 0.72,
+        "dimensions_json": "{\"length_cm\": 25, \"width_cm\": 19, \"height_cm\": 8}",
+        "declared_value_minor": 10000,
+        "fee_minor": 1080,
+        "created_at": "2026-07-01T07:55:00+08:00",
+        "eta_date": "2026-07-04",
+        "scheduled_pickup_at": null,
+        "updated_at": "2026-07-02T08:55:00+08:00",
+        "cancel_reason": null
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "insert",
+      "values": {
+        "shipment_id": "shp_aux_2a814dc5",
+        "user_id": "usr_zhan_peng",
+        "tracking_no": "MC1502785412CN",
+        "carrier": "camera record",
+        "service_level": "standard",
+        "status": "label_created",
+        "sender_json": "{\"recipient\": \"camera record\", \"phone\": \"020-8000-0152\", \"province\": \"camera record\", \"city\": \"camera record\", \"district\": \"camera record\", \"detail\": \"camera record 15-2 camera record\"}",
+        "recipient_json": "{\"recipient\": \"camera record\", \"phone\": \"13900000152\", \"province\": \"camera record\", \"city\": \"camera record\", \"district\": \"camera record\", \"detail\": \"camera record 42 camera record\"}",
+        "weight_kg": 0.94,
+        "dimensions_json": "{\"length_cm\": 26, \"width_cm\": 20, \"height_cm\": 9}",
+        "declared_value_minor": 15000,
+        "fee_minor": 1260,
+        "created_at": "2026-07-01T06:55:00+08:00",
+        "eta_date": "2026-07-03",
+        "scheduled_pickup_at": null,
+        "updated_at": "2026-07-02T08:55:00+08:00",
+        "cancel_reason": null
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_aux_98d52c65",
+        "shipment_id": "shp_aux_808c1c06",
+        "at": "2026-07-01T10:55:00+08:00",
+        "location": "camera record",
+        "status_code": "label_created",
+        "description": "camera record｜camera record，camera record。"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_aux_9e3ed86f",
+        "shipment_id": "shp_aux_808c1c06",
+        "at": "2026-07-01T14:55:00+08:00",
+        "location": "camera record",
+        "status_code": "in_transit",
+        "description": "MC1501785412CN camera record。"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_aux_e935feb2",
+        "shipment_id": "shp_aux_808c1c06",
+        "at": "2026-07-01T18:55:00+08:00",
+        "location": "camera record",
+        "status_code": "exception",
+        "description": "camera record｜camera record，camera record。"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_aux_ece84726",
+        "shipment_id": "shp_aux_2a814dc5",
+        "at": "2026-07-01T09:55:00+08:00",
+        "location": "camera record",
+        "status_code": "label_created",
+        "description": "camera record｜camera record，camera record。"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_aux_955ea4c8",
+        "shipment_id": "shp_aux_2a814dc5",
+        "at": "2026-07-01T13:55:00+08:00",
+        "location": "camera record",
+        "status_code": "label_created",
+        "description": "MC1502785412CN camera record。"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_aux_273362d5",
+        "shipment_id": "shp_aux_2a814dc5",
+        "at": "2026-07-01T17:55:00+08:00",
+        "location": "camera record",
+        "status_code": "label_created",
+        "description": "camera record｜camera record，camera record。"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_target_1e9675ca",
+        "shipment_id": "shp_rscam_0002",
+        "at": "2026-07-02T07:42:00+08:00",
+        "location": "camera record",
+        "status_code": "weather_review",
+        "description": "camera record，camera record。"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_target_44fecb30",
+        "shipment_id": "shp_rscam_0002",
+        "at": "2026-07-02T08:31:00+08:00",
+        "location": "camera record",
+        "status_code": "pickup_pending",
+        "description": "camera record，camera record。"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "issue_tickets",
+      "op": "insert",
+      "values": {
+        "ticket_id": "itk_aux_3b1b4e05",
+        "shipment_id": "shp_aux_808c1c06",
+        "issue_type": "delivery_failed",
+        "description": "camera record，camera record。",
+        "status": "in_review",
+        "opened_at": "2026-07-02T06:55:00+08:00",
+        "expected_response_date": "2026-07-04",
+        "resolved_at": null
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "pickups",
+      "op": "insert",
+      "values": {
+        "pickup_id": "pck_aux_32427bf8",
+        "shipment_id": "shp_aux_2a814dc5",
+        "scheduled_at": "2026-07-02T11:55:00+08:00",
+        "completed_at": null,
+        "status": "pending"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_678ba173",
+        "user_id": "usr_zhan_peng",
+        "source": "weather",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "07/02 camera record",
+        "body": "camera record\ncamera record。",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"weather\",\"recorded_at\":\"2026-07-02T08:37:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"expanded\"}",
+        "created_at": "2026-07-02T08:37:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_e42a0ebe",
+        "user_id": "usr_zhan_peng",
+        "source": "weather",
+        "type": "new_content",
+        "subscription_id": null,
+        "title": "camera record · 08:40",
+        "body": "camera record。\ncamera record、camera record、camera record。",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"weather\",\"recorded_at\":\"2026-07-02T08:40:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"plain\"}",
+        "created_at": "2026-07-02T08:40:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_8e9060b5",
+        "user_id": "usr_zhan_peng",
+        "source": "delivery_logistics",
+        "type": "price_drop",
+        "subscription_id": null,
+        "title": "LOG: camera record",
+        "body": "LOG / 07-02\ncamera record，camera record。",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"delivery_logistics\",\"recorded_at\":\"2026-07-02T08:43:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"compact\"}",
+        "created_at": "2026-07-02T08:43:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_09626c84",
+        "user_id": "usr_zhan_peng",
+        "source": "calendar",
+        "type": "account_activity",
+        "subscription_id": null,
+        "title": "camera record / CAL",
+        "body": "camera record。",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"calendar\",\"recorded_at\":\"2026-07-02T08:46:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"expanded\"}",
+        "created_at": "2026-07-02T08:46:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_0bc3faa2",
+        "user_id": "usr_zhan_peng",
+        "source": "weather",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "[08:49] camera record",
+        "body": "camera record\ncamera record。",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"weather\",\"recorded_at\":\"2026-07-02T08:49:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"plain\"}",
+        "created_at": "2026-07-02T08:49:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_cfdb5b6f",
+        "user_id": "usr_zhan_peng",
+        "source": "delivery_logistics",
+        "type": "new_content",
+        "subscription_id": null,
+        "title": "camera record｜camera record",
+        "body": "camera record。\ncamera record。",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"delivery_logistics\",\"recorded_at\":\"2026-07-02T08:52:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"compact\"}",
+        "created_at": "2026-07-02T08:52:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T05:00:00+08:00",
+        "temp_c": 27,
+        "humidity": 92,
+        "condition": "cloudy",
+        "precip_mm": 0.2,
+        "wind_kmh": 27
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T06:00:00+08:00",
+        "temp_c": 28,
+        "humidity": 72,
+        "condition": "cloudy",
+        "precip_mm": 0.2,
+        "wind_kmh": 30
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T07:00:00+08:00",
+        "temp_c": 29,
+        "humidity": 76,
+        "condition": "cloudy",
+        "precip_mm": 0.2,
+        "wind_kmh": 12
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T08:00:00+08:00",
+        "temp_c": 30,
+        "humidity": 80,
+        "condition": "cloudy",
+        "precip_mm": 0.2,
+        "wind_kmh": 15
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T09:00:00+08:00",
+        "temp_c": 31,
+        "humidity": 84,
+        "condition": "cloudy",
+        "precip_mm": 10.3,
+        "wind_kmh": 18
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T10:00:00+08:00",
+        "temp_c": 27,
+        "humidity": 88,
+        "condition": "cloudy",
+        "precip_mm": 3.5,
+        "wind_kmh": 21
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T11:00:00+08:00",
+        "temp_c": 28,
+        "humidity": 92,
+        "condition": "heavy_rain",
+        "precip_mm": 5.2,
+        "wind_kmh": 24
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T12:00:00+08:00",
+        "temp_c": 29,
+        "humidity": 72,
+        "condition": "heavy_rain",
+        "precip_mm": 6.9,
+        "wind_kmh": 27
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T13:00:00+08:00",
+        "temp_c": 30,
+        "humidity": 76,
+        "condition": "heavy_rain",
+        "precip_mm": 8.6,
+        "wind_kmh": 30
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T14:00:00+08:00",
+        "temp_c": 31,
+        "humidity": 80,
+        "condition": "heavy_rain",
+        "precip_mm": 10.3,
+        "wind_kmh": 12
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T15:00:00+08:00",
+        "temp_c": 27,
+        "humidity": 84,
+        "condition": "heavy_rain",
+        "precip_mm": 3.5,
+        "wind_kmh": 15
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T16:00:00+08:00",
+        "temp_c": 28,
+        "humidity": 88,
+        "condition": "heavy_rain",
+        "precip_mm": 5.2,
+        "wind_kmh": 18
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T17:00:00+08:00",
+        "temp_c": 29,
+        "humidity": 92,
+        "condition": "heavy_rain",
+        "precip_mm": 6.9,
+        "wind_kmh": 21
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T18:00:00+08:00",
+        "temp_c": 30,
+        "humidity": 72,
+        "condition": "heavy_rain",
+        "precip_mm": 8.6,
+        "wind_kmh": 24
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T19:00:00+08:00",
+        "temp_c": 31,
+        "humidity": 76,
+        "condition": "heavy_rain",
+        "precip_mm": 10.3,
+        "wind_kmh": 27
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T20:00:00+08:00",
+        "temp_c": 27,
+        "humidity": 80,
+        "condition": "thunderstorm",
+        "precip_mm": 3.5,
+        "wind_kmh": 30
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T21:00:00+08:00",
+        "temp_c": 28,
+        "humidity": 84,
+        "condition": "thunderstorm",
+        "precip_mm": 5.2,
+        "wind_kmh": 12
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T22:00:00+08:00",
+        "temp_c": 29,
+        "humidity": 88,
+        "condition": "thunderstorm",
+        "precip_mm": 6.9,
+        "wind_kmh": 15
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "datetime": "2026-07-02T23:00:00+08:00",
+        "temp_c": 30,
+        "humidity": 92,
+        "condition": "cloudy",
+        "precip_mm": 0.8,
+        "wind_kmh": 18
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "alr_aux_6101f518",
+        "kind": "gale",
+        "severity": "yellow",
+        "start_dt": "2026-07-02T15:00:00+08:00",
+        "end_dt": "2026-07-02T22:30:00+08:00",
+        "areas_json": "[\"geo_rscam\"]",
+        "description": "camera record，camera record。",
+        "active": 1,
+        "created_at": "2026-07-02T08:42:00+08:00",
+        "source_event": "local_convective_wind"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "alr_aux_78297699",
+        "kind": "flood",
+        "severity": "blue",
+        "start_dt": "2026-07-02T18:00:00+08:00",
+        "end_dt": "2026-07-03T02:00:00+08:00",
+        "areas_json": "[\"camera record\"]",
+        "description": "camera record，camera record。",
+        "active": 1,
+        "created_at": "2026-07-02T08:47:00+08:00",
+        "source_event": "urban_waterlogging_watch"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "created_at": "2026-07-02T08:48:00+08:00",
+        "channel": "notification_hub",
+        "sub_id": "wsub_camera_guangzhou",
+        "alert_id": "alr_aux_6101f518",
+        "payload_json": "{\"headline\":\"camera record\",\"route\":\"camera record\"}",
+        "delivered": 1
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "created_at": "2026-07-02T08:50:00+08:00",
+        "channel": "email",
+        "sub_id": "wsub_camera_guangzhou",
+        "alert_id": "alr_aux_78297699",
+        "payload_json": "{\"headline\":\"camera record\",\"packing\":\"camera record\"}",
+        "delivered": 1
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "created_at": "2026-07-02T08:52:00+08:00",
+        "channel": "notification_hub",
+        "sub_id": "wsub_camera_guangzhou",
+        "alert_id": "alr_rscam_storm",
+        "payload_json": "{\"headline\":\"camera record\",\"decision\":\"camera record\"}",
+        "delivered": 1
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "created_at": "2026-07-02T08:54:00+08:00",
+        "channel": "email",
+        "sub_id": "wsub_camera_guangzhou",
+        "alert_id": "alr_rscam_storm",
+        "payload_json": "{\"headline\":\"camera record\",\"packing\":\"camera record\"}",
+        "delivered": 1
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "daily_aqi",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_rscam",
+        "date": "2026-07-02",
+        "aqi": 47,
+        "category": "good",
+        "dominant_pollutant": "pm2.5",
+        "observed_at": "2026-07-02T08:30:00+08:00"
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "set": {
+        "sim_now": "2026-07-02T09:30:00+08:00"
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "S15_mut"
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "alert_id": "alr_rscam_storm"
+      },
+      "source_event_id": "S15_mut"
+    }
+  ]
+}

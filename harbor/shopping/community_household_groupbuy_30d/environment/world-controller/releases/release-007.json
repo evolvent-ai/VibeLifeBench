@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "groupbuy_dispute_refund"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-07-08T18:00:00+08:00",
+  "previous": "release-006",
+  "token": "community-household-groupbuy-30d-release-007-token-7f3a9b1c2d4e5f6a",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "disputes",
+      "op": "update",
+      "set": {
+        "status": "approved",
+        "resolved_at": "2026-07-08T18:00:00+08:00"
+      },
+      "where": {
+        "dispute_id": "disp_homtg_duplicate"
+      },
+      "postcondition": {
+        "sql": "SELECT status FROM disputes WHERE dispute_id = ?",
+        "params": [
+          "disp_homtg_duplicate"
+        ],
+        "equals": "approved"
+      },
+      "source_event_id": "groupbuy_dispute_refund",
+      "operation_index": 0
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_homtg_duplicate_reversal",
+        "card_id": "card_homtg_01",
+        "posted_at": "2026-07-08T18:00:00+08:00",
+        "amount_minor": -22900,
+        "merchant_name": "localized business label",
+        "mcc": "5399",
+        "category": "localized business label",
+        "kind": "adjustment"
+      },
+      "postcondition": {
+        "sql": "SELECT COUNT(*) FROM unbilled_transactions WHERE tx_id = ? AND amount_minor = ?",
+        "params": [
+          "tx_homtg_duplicate_reversal",
+          -22900
+        ],
+        "equals": 1
+      },
+      "source_event_id": "groupbuy_dispute_refund",
+      "operation_index": 1
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_homtg_duplicate_reversal",
+        "user_id": "usr_xie_lin",
+        "source": "credit_card",
+        "type": "transaction_update",
+        "subscription_id": "sub_homtg_card",
+        "title": "duplicate charge reversed",
+        "body": "duplicate-charge dispute approved; CNY 229 was reversed; do not count it as resident refund\u3002",
+        "payload_json": "{\"dispute_id\":\"disp_homtg_duplicate\",\"amount_minor\":22900}",
+        "created_at": "2026-07-08T10:01:00Z",
+        "read": 0
+      },
+      "postcondition": {
+        "sql": "SELECT COUNT(*) FROM notifications WHERE notification_id = ?",
+        "params": [
+          "ntf_homtg_duplicate_reversal"
+        ],
+        "equals": 1
+      },
+      "source_event_id": "groupbuy_dispute_refund",
+      "operation_index": 2
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-020",
+  "virtual_stage": 19,
+  "event_id": "S19_compensation_notice",
+  "source_event_id": "S19_compensation_notice",
+  "response": "Platform review approved ref_iscac_b for ord_iscac_0002 at 224 based on qi-sz-0625; the refund adjustment is approved while the card credit pending status remains separate.",
+  "response_paraphrase": "The platform review and quality report qi-sz-0625 approved refund adjustment ref_iscac_b for ord_iscac_0002 at 224; card credit pending remains a separate status.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-020",
+    "HARBOR_EVENT_ID": "S19_compensation_notice",
+    "HARBOR_VIRTUAL_STAGE": "19",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009",
+      "release-011"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009",
+      "release-011"
+    ]
+  },
+  "expected_checks": [
+    "s19_result"
+  ],
+  "expected_stage_weight": 2.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S19_compensation_notice"
+    }
+  ]
+}

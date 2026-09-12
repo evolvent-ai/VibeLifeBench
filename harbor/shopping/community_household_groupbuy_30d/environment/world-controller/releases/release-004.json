@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "groupbuy_duplicate_collection"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-06-24T09:00:00+08:00",
+  "previous": "release-003",
+  "token": "community-household-groupbuy-30d-release-004-token-7f3a9b1c2d4e5f6a",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_homtg_duplicate_collection",
+        "card_id": "card_homtg_01",
+        "posted_at": "2026-06-24T08:40:00+08:00",
+        "amount_minor": 22900,
+        "merchant_name": "localized business label",
+        "mcc": "5399",
+        "category": "localized business label",
+        "kind": "purchase"
+      },
+      "postcondition": {
+        "sql": "SELECT COUNT(*) FROM unbilled_transactions WHERE tx_id = ? AND amount_minor = ?",
+        "params": [
+          "tx_homtg_duplicate_collection",
+          22900
+        ],
+        "equals": 1
+      },
+      "source_event_id": "groupbuy_duplicate_collection",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_homtg_duplicate_collection",
+        "user_id": "usr_xie_lin",
+        "source": "credit_card",
+        "type": "transaction_update",
+        "subscription_id": "sub_homtg_card",
+        "title": "the community group-purchase platform charged again \u00a5229",
+        "body": "the same platform shows a second charge equal to the paid main product; check whether it is a new group order, a posted preauthorization, or a duplicate charge\u3002",
+        "payload_json": "{\"card_id\":\"card_homtg_01\",\"tx_id\":\"tx_homtg_duplicate_collection\"}",
+        "created_at": "2026-06-24T01:01:00Z",
+        "read": 0
+      },
+      "postcondition": {
+        "sql": "SELECT COUNT(*) FROM notifications WHERE notification_id = ?",
+        "params": [
+          "ntf_homtg_duplicate_collection"
+        ],
+        "equals": 1
+      },
+      "source_event_id": "groupbuy_duplicate_collection",
+      "operation_index": 1
+    }
+  ]
+}

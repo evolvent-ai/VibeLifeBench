@@ -1,0 +1,26 @@
+{
+  "step": "event-023",
+  "stage": 22,
+  "event_id": "S22_reconcile_request",
+  "source_event_id": "S22_reconcile_request",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 22
+    }
+  ],
+  "response_paraphrase": "I checked each service again and kept discrepancies and unsettled receipts visible.",
+  "expected_env": {
+    "virtual_stage": 22,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s22_consistency",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

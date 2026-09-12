@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "S20_mut"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-07-11T16:00",
+  "previous": "release-012",
+  "token": "central-ac-release-013-20260824",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_iscac_pp",
+        "card_id": "card_iscac_01",
+        "posted_at": "2026-07-11T16:00:00+08:00",
+        "amount_minor": -22400,
+        "merchant_name": "CoolMax official marketplace (installation compensation)",
+        "mcc": "5732",
+        "category": "installation after-sales",
+        "kind": "adjustment"
+      },
+      "source_event_id": "S20_mut",
+      "operation_index": 0
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 83200,
+        "available_credit_minor": 2222400
+      },
+      "where": {
+        "card_id": "card_iscac_01"
+      },
+      "source_event_id": "S20_mut",
+      "operation_index": 1
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_iscac_funds",
+        "user_id": "usr_luo_wei",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "installation compensation posted",
+        "body": "The CNY 224 installation compensation was posted to the original payment channel.",
+        "payload_json": "{\"amount_minor\": 22400, \"kind\": \"installation_compensation\", \"tx_id\": \"tx_iscac_pp\"}",
+        "created_at": "2026-07-11T08:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S20_mut",
+      "operation_index": 2
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-008",
+  "virtual_stage": 8,
+  "event_id": "S08_tradein",
+  "source_event_id": "S08_tradein",
+  "response": "The ord_iscac_0002 accessory review selects bsk_iscac_b2 with the eligible coupon set and a lowest final amount of 171.04, while checkout remains untouched.",
+  "response_paraphrase": "The ord_iscac_0002 accessory review selects bsk_iscac_b2 with the eligible coupons and a lowest final amount of 171.04; checkout remains untouched.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-008",
+    "HARBOR_EVENT_ID": "S08_tradein",
+    "HARBOR_VIRTUAL_STAGE": "8",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ]
+  },
+  "expected_checks": [
+    "s8_table",
+    "s8_optimal"
+  ],
+  "expected_stage_weight": 7,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S08_tradein"
+    }
+  ]
+}

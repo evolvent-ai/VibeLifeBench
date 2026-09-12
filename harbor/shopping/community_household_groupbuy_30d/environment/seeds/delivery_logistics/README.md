@@ -1,0 +1,1 @@
+# delivery_logistics seed for community_household_groupbuy_30d

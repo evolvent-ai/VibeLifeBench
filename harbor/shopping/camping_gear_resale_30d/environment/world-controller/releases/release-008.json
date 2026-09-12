@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "S15_weather_mut"
+  ],
+  "source_stage": 15,
+  "source_time": "2026-07-02T08:55",
+  "previous": "release-007",
+  "token": "camping-gear-release-008-token-6f9a2c8d4e1b7a3c",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "where": {
+        "id": 1
+      },
+      "set": {
+        "sim_now": "2026-07-02T09:40:00+08:00"
+      },
+      "source_event_id": "S15_weather_mut",
+      "operation_index": 0
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "where": {
+        "alert_id": "alr_rstent_storm"
+      },
+      "set": {
+        "active": 1
+      },
+      "source_event_id": "S15_weather_mut",
+      "operation_index": 1
+    }
+  ]
+}

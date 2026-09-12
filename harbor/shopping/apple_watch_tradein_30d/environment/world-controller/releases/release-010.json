@@ -1,0 +1,100 @@
+{
+  "release_id": "release-010",
+  "source_event_id": "S18_mut",
+  "source_event_ids": ["S18_mut"],
+  "source_stage": 18,
+  "source_time": "2026-07-08T18:00:00+08:00",
+  "virtual_stage": 18,
+  "previous": "release-009",
+  "idempotency_key": "apple-watch-release-010",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "disputes",
+      "op": "update",
+      "set": {
+        "status": "approved",
+        "resolved_at": "2026-07-08T18:00:00+08:00"
+      },
+      "where": {
+        "dispute_id": "disp_awch_01"
+      },
+      "values": {
+        "status": "approved",
+        "resolved_at": "2026-07-08T18:00:00+08:00"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_awch_rev",
+        "card_id": "card_awch_01",
+        "posted_at": "2026-07-08T18:00:00+08:00",
+        "amount_minor": -14800,
+        "merchant_name": "GAZELLE US (disputereversal)",
+        "mcc": "4814",
+        "category": "wearable electronics",
+        "kind": "adjustment"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_awch_rev",
+        "user_id": "usr_mo_fan",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_awch_card",
+        "title": "duplicate chargedispute translated text approved， translated text reversal",
+        "body": "dispute translated text approved，duplicate charge translated text reversal， translated text verifystatement。",
+        "payload_json": "{\"card_id\": \"card_awch_01\", \"dispute_id\": \"disp_awch_01\", \"status\": \"approved\"}",
+        "created_at": "2026-07-08T18:01:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "postconditions": [
+    {
+      "server": "credit_card",
+      "table": "disputes",
+      "where": {
+        "dispute_id": "disp_awch_01"
+      },
+      "expect": {
+        "status": "approved",
+        "resolved_at": "2026-07-08T18:00:00+08:00"
+      },
+      "contains": []
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "where": {
+        "tx_id": "tx_awch_rev"
+      },
+      "expect": {
+        "card_id": "card_awch_01",
+        "amount_minor": -14800,
+        "kind": "adjustment"
+      },
+      "contains": []
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "where": {
+        "notification_id": "ntf_awch_rev"
+      },
+      "expect": {},
+      "contains": [
+        "disp_awch_01",
+        "approved"
+      ]
+    }
+  ],
+  "token": "apple_watch_tradein_30d-release-token"
+}

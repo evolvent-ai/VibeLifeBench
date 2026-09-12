@@ -1,0 +1,30 @@
+{
+  "step": "event-009",
+  "stage": 8,
+  "event_id": "S08_bundle",
+  "source_event_id": "S08_bundle",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 8
+    }
+  ],
+  "response_paraphrase": "I compared both resale routes and placed the least-cost accessory combination in the cart for review.",
+  "expected_env": {
+    "virtual_stage": 8,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s8_table",
+      "weight": 4
+    },
+    {
+      "check_id": "s8_optimal",
+      "weight": 3
+    }
+  ],
+  "expected_stage_weight": 7
+}

@@ -1,0 +1,29 @@
+{
+  "step": "event-018",
+  "virtual_stage": 13,
+  "source_event_id": "S13_budget",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The camping-equipment resale records now reflect verified backend evidence, separate item, transaction, and funds timelines, and confirmation-aware next steps.",
+  "response_paraphrase": "I refreshed the durable resale file for S13_budget from the available systems while keeping decisions and money movements separately evidenced.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S13_budget",
+      "virtual_stage": 13,
+      "event_kind": "notification",
+      "event_time": "2026-06-28T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_budget",
+      "weight": 3.0
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

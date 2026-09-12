@@ -1,0 +1,41 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-011",
+  "virtual_stage": 10,
+  "event_id": "S10_duplicate_charge_notice",
+  "source_event_id": "S10_duplicate_charge_notice",
+  "response": "The card_iscac_01 record contains tx_iscac_dup, a second 216 charge from the same merchant; I flagged the duplicate charge for review, will reconcile it before action, and require user confirmation.",
+  "response_paraphrase": "The card_iscac_01 record shows tx_iscac_dup as a second 216 charge from the same merchant; I flagged the duplicate charge, will reconcile it, and require user confirmation.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-011",
+    "HARBOR_EVENT_ID": "S10_duplicate_charge_notice",
+    "HARBOR_VIRTUAL_STAGE": "10",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ]
+  },
+  "expected_checks": [
+    "s10_servers",
+    "s10_args",
+    "s10_result",
+    "s10_no_bad"
+  ],
+  "expected_stage_weight": 4.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S10_duplicate_charge_notice"
+    }
+  ]
+}

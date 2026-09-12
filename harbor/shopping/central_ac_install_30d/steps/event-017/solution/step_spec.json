@@ -1,0 +1,51 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-017",
+  "virtual_stage": 16,
+  "event_id": "S16_final_plan",
+  "source_event_id": "S16_final_plan",
+  "response": "For ord_iscac_0001, ord_iscac_0002, and qi-sz-0625, I compared 780, 450, and 600 remedies; acceptance and payment await confirmation.",
+  "response_paraphrase": "For ord_iscac_0001, ord_iscac_0002, and qi-sz-0625, I compared the 780, 450, and 600 remedies. My recommendation is recorded, but user confirmation required before acceptance or payment.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-017",
+    "HARBOR_EVENT_ID": "S16_final_plan",
+    "HARBOR_VIRTUAL_STAGE": "16",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009"
+    ]
+  },
+  "expected_checks": [
+    "s16_options",
+    "s16_pick",
+    "s16_auth",
+    "s16_no_bad"
+  ],
+  "expected_stage_weight": 5.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S16_final_plan"
+    }
+  ]
+}

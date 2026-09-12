@@ -1,0 +1,34 @@
+{
+  "step": "event-021",
+  "stage": 20,
+  "event_id": "S20_resale_settlement_notice",
+  "source_event_id": "S20_resale_settlement_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 20
+    }
+  ],
+  "response_paraphrase": "The completed escrow settlement is reflected in the listing and funds ledger.",
+  "expected_env": {
+    "virtual_stage": 20,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": [
+      "release-011"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s20_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s20_result",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

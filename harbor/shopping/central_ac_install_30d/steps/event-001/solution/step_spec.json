@@ -1,0 +1,28 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-001",
+  "virtual_stage": 1,
+  "event_id": "S01_reconcile_request",
+  "source_event_id": "S01_reconcile_request",
+  "response": "The records for ord_iscac_0001 and ord_iscac_0002 now separate confirmed facts, timing conflicts, and missing evidence; delivery tracking sf2074520001cn and the card ending 2074 were checked.",
+  "response_paraphrase": "I reconciled ord_iscac_0001 and ord_iscac_0002 by separating confirmed facts, timing conflicts, and missing evidence; delivery IDs sf2074520001cn and ytoscac5520002cn and card ending 2074 were checked.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-001",
+    "HARBOR_EVENT_ID": "S01_reconcile_request",
+    "HARBOR_VIRTUAL_STAGE": "1",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "s1_servers",
+    "s1_args",
+    "s1_result"
+  ],
+  "expected_stage_weight": 2,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S01_reconcile_request"
+    }
+  ]
+}

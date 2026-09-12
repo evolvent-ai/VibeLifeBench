@@ -1,0 +1,11 @@
+{
+  "mcp_servers": [
+    "calendar",
+    "credit_card",
+    "delivery_logistics",
+    "ecommerce",
+    "email",
+    "notification_hub",
+    "weather"
+  ]
+}

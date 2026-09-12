@@ -1,0 +1,40 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-012",
+  "virtual_stage": 11,
+  "event_id": "S11_report_request",
+  "source_event_id": "S11_report_request",
+  "response": "Quality report qi-sz-0625 for ord_iscac_0002 cites drainage slope and a CNY 224 issue, so I updated the recommendation toward platform review.",
+  "response_paraphrase": "The qi-sz-0625 quality report for ord_iscac_0002 notes drainage slope and a CNY 224 issue, leading me to update the recommendation toward platform review.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-012",
+    "HARBOR_EVENT_ID": "S11_report_request",
+    "HARBOR_VIRTUAL_STAGE": "11",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005"
+    ]
+  },
+  "expected_checks": [
+    "s11_decision"
+  ],
+  "expected_stage_weight": 4,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S11_report_request"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-009",
+  "virtual_stage": 8,
+  "event_id": "S08_bundle",
+  "source_event_id": "S08_bundle",
+  "response": "The ord_iscac_0002 bundle review retains bsk_iscac_b2 and the minimum payable total of 171.04; no order was submitted.",
+  "response_paraphrase": "The ord_iscac_0002 bundle review keeps bsk_iscac_b2 and the minimum payable total of 171.04, while no order is submitted.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-009",
+    "HARBOR_EVENT_ID": "S08_bundle",
+    "HARBOR_VIRTUAL_STAGE": "8",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ]
+  },
+  "expected_checks": [
+    "s8_table",
+    "s8_optimal"
+  ],
+  "expected_stage_weight": 7,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S08_bundle"
+    }
+  ]
+}

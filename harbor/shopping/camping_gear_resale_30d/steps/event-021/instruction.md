@@ -1,0 +1,1 @@
+The transaction notice says a platform review can still be submitted, but the evidence must be completed by 2026-07-09. Otherwise the platform may apply the buyer's reduction or let the sale lapse, affecting payout before the case-closure deadline.

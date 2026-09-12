@@ -1,0 +1,1 @@
+Before final archiving, reconcile the marketplace, delivery records, credit-card data, email, and notifications again. Keep any item with a time mismatch or missing credit in its original state; do not mark it complete early.

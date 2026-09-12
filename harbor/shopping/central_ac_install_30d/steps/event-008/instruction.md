@@ -1,0 +1,1 @@
+The provider has offered a partial refund. I am deciding between accepting the settlement and continuing to submit evidence for a platform review. Compare the net amount received, processing time, evidence cost, and risk that the case will be closed.

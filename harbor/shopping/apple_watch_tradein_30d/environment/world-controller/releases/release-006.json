@@ -1,0 +1,52 @@
+{
+  "release_id": "release-006",
+  "source_event_id": "S11_report_mut",
+  "source_event_ids": ["S11_report_mut"],
+  "source_stage": 11,
+  "source_time": "2026-06-25T09:55:00+08:00",
+  "virtual_stage": 11,
+  "previous": "release-005",
+  "idempotency_key": "apple-watch-release-006",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<awch-appraisal-report-0625@devicecheck.cn>",
+        "subject": "AWCH-APP-0625｜Apple Watch Ultra  translated text appraisal translated text ",
+        "from_addr": " translated text  <report@devicecheck.cn>",
+        "to_addr_json": "[\"mo.fan.tradein@gmail.com\"]",
+        "date": "2026-06-25T01:55:00Z",
+        "body_text": " translated text  AWCH-APP-0625。serial number AWU-1-8259、inspection reference INS-AWCH-8259G  translated text consistent；battery health translated text table translated text condition translated text recycler translated text 。\n translated text full value translated text  ¥3800；currentrecyclersettlement translated text  ¥1800。recommendationretain translated text 、 translated text video、conditionphotos translated text purchase receipt， translated text requestplatform review。",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{\"x-report-id\": \"AWCH-APP-0625\", \"x-source\": \"devicecheck\"}",
+        "size": 440,
+        "created_at": "2026-06-25T01:55:00Z"
+      }
+    }
+  ],
+  "postconditions": [
+    {
+      "server": "email",
+      "table": "messages",
+      "where": {
+        "message_id": "<awch-appraisal-report-0625@devicecheck.cn>"
+      },
+      "expect": {
+        "folder_id": 1,
+        "is_important": 1
+      },
+      "contains": [
+        "AWCH-APP-0625",
+        "INS-AWCH-8259G",
+        "3800",
+        "1800"
+      ]
+    }
+  ],
+  "token": "apple_watch_tradein_30d-release-token"
+}

@@ -1,0 +1,1 @@
+The duplicate-charge dispute is under review with an expected result on 2026-07-08, while the card payment due date of 2026-07-10 still requires normal handling. Keep the disputed amount separate from the normal amount due; a dispute is not a reason to skip payment.

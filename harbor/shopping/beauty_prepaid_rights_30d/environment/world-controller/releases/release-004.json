@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_stage": 9,
+  "source_event_ids": [
+    "S09_mut"
+  ],
+  "source_time": "2026-06-23T13:00:00+08:00",
+  "previous": "release-003",
+  "token": "beauty_prepaid_rights_30d-release-004-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "rejected",
+        "resolved_at": "2026-06-23T13:00:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_ppbeauty_b"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_ppbeauty_b2",
+        "user_id": "usr_shen_e",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "Additional materials required for card cancellation",
+        "body": "Card-cancellation review rejected: the merchant cites \"provided as contracted\" and requests the in-store visit video and photos; submit additional evidence by the deadline.",
+        "payload_json": "{\"order_id\": \"ord_ppbeauty_0001\", \"refund_id\": \"ref_ppbeauty_b\", \"status\": \"need_more_evidence\"}",
+        "created_at": "2026-06-23T13:01:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

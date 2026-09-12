@@ -1,0 +1,38 @@
+{
+  "step": "event-002",
+  "stage": 2,
+  "event_id": "S02_warranty",
+  "source_event_id": "S02_warranty",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 2
+    }
+  ],
+  "response_paraphrase": "The batch and verification code are recorded, with three safety remedies compared by price, effort, and timing.",
+  "expected_env": {
+    "virtual_stage": 2,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s2_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s2_args",
+      "weight": 1
+    },
+    {
+      "check_id": "s2_result",
+      "weight": 2
+    },
+    {
+      "check_id": "s2_options",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

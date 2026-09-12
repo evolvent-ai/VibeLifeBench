@@ -1,0 +1,30 @@
+{
+  "step": "event-024",
+  "stage": 23,
+  "event_id": "S23_archive",
+  "source_event_id": "S23_archive",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 23
+    }
+  ],
+  "response_paraphrase": "The archive is organized by status, funds, lessons, and reusable evidence templates.",
+  "expected_env": {
+    "virtual_stage": 23,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s23_structured",
+      "weight": 2
+    },
+    {
+      "check_id": "s23_threads",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 3
+}

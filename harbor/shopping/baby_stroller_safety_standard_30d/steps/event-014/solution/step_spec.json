@@ -1,0 +1,30 @@
+{
+  "step": "event-014",
+  "stage": 13,
+  "event_id": "S13_budget_review_notice",
+  "source_event_id": "S13_budget_review_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 13
+    }
+  ],
+  "response_paraphrase": "I refreshed the cash sheet with actual, estimated, pending, and reversal categories.",
+  "expected_env": {
+    "virtual_stage": 13,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "release-007"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s13_budget",
+      "weight": 3
+    }
+  ],
+  "expected_stage_weight": 3
+}

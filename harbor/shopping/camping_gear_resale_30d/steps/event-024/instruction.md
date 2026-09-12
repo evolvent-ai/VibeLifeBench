@@ -1,0 +1,1 @@
+For the payout line, I have decided to accept a full-price sale with platform escrow. I plan to sign the sale confirmation today. Lay out the process and precautions, including how to verify receipt of funds. Flag every irreversible step that requires my own approval.

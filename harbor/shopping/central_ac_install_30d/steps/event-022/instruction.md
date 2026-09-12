@@ -1,0 +1,1 @@
+There are three days until the case-closure deadline. Close out each item: statement payment, installer-credential verification, the rework case, receipt of the refund adjustment, and the duplicate-charge dispute. Separate completed items from those that still require my confirmation.

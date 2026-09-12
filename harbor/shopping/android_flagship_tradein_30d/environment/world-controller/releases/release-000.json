@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_stage": 3,
+  "source_event_ids": [
+    "S03_mut",
+    "S03_world"
+  ],
+  "source_time": "2026-06-17T14:00:00+08:00",
+  "previous": null,
+  "token": "android_flagship_tradein_30d-release-000",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "insert",
+      "values": {
+        "refund_id": "ref_andt_b",
+        "order_id": "ord_andt_0001",
+        "item_id": "item_andt_a1",
+        "qty": 1,
+        "reason": "Old-device condition dispute and official trade-in estimate review",
+        "status": "submitted",
+        "opened_at": "2026-06-17T14:00:00+08:00",
+        "resolved_at": null,
+        "refund_amount_minor": 258000
+      },
+      "source_event_id": "S03_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_andt_b1",
+        "user_id": "usr_pan_yu",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "Old-device trade-in estimate review submitted",
+        "body": "The old-device trade-in review was submitted. The recycler must respond within the deadline. Retain inspection video and condition photos.",
+        "payload_json": "{\"order_id\": \"ord_andt_0001\", \"refund_id\": \"ref_andt_b\", \"status\": \"submitted\"}",
+        "created_at": "2026-06-17T14:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S03_mut"
+    }
+  ]
+}

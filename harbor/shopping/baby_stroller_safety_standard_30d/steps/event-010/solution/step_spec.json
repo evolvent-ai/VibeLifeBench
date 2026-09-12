@@ -1,0 +1,38 @@
+{
+  "step": "event-010",
+  "stage": 9,
+  "event_id": "S09_refund_evidence_notice",
+  "source_event_id": "S09_refund_evidence_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 9
+    }
+  ],
+  "response_paraphrase": "The rejected claim now has a focused evidence and escalation checklist.",
+  "expected_env": {
+    "virtual_stage": 9,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-004"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s9_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s9_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s9_result",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

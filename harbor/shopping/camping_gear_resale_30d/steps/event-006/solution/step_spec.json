@@ -1,0 +1,24 @@
+{
+  "step": "event-006",
+  "virtual_stage": 5,
+  "source_event_id": "S05_evidence",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The camping-equipment resale records now reflect verified backend evidence, separate item, transaction, and funds timelines, and confirmation-aware next steps.",
+  "response_paraphrase": "I refreshed the durable resale file for S05_evidence from the available systems while keeping decisions and money movements separately evidenced.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S05_evidence",
+      "virtual_stage": 5,
+      "event_kind": "user_message",
+      "event_time": "2026-06-19T09:10:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

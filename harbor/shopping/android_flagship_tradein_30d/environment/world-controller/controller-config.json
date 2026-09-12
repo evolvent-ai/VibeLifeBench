@@ -1,0 +1,18 @@
+{
+  "task": "android_flagship_tradein_30d",
+  "step_count": 32,
+  "clock_file": "/world-clock/current.json",
+  "clock_token": "android_flagship_tradein_30d-clock-token",
+  "health_token": "android_flagship_tradein_30d-health-token",
+  "release_token_prefix": "android_flagship_tradein_30d-release-",
+  "servers": {
+    "calendar": "/calendar-env/runtime.db",
+    "credit_card": "/credit-card-env/runtime.db",
+    "delivery_logistics": "/delivery-logistics-env/runtime.db",
+    "ecommerce": "/ecommerce-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "listing_platform": "/listing-platform-env/runtime.db",
+    "notification_hub": "/notification-hub-env/runtime.db",
+    "weather": "/weather-env/runtime.db"
+  }
+}

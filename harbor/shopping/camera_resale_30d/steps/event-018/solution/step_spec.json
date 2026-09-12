@@ -1,0 +1,27 @@
+{
+  "step": "event-018",
+  "stage": 13,
+  "virtual_stage": 13,
+  "source_event_id": "S13_budget",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "S13_budget"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_budget",
+      "weight": 3,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3,
+  "response": "The camera resale evidence and records were updated from authoritative systems.",
+  "response_paraphrase": "Authoritative camera-sale records were refreshed, with decisions and funds still clearly separated."
+}

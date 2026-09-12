@@ -1,0 +1,34 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "event_id": "S01_reconcile_request",
+  "source_event_id": "S01_reconcile_request",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 1
+    }
+  ],
+  "response_paraphrase": "I compared the four service views and placed settled facts, conflicts, and missing proof in separate columns.",
+  "expected_env": {
+    "virtual_stage": 1,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s1_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s1_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s1_result",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

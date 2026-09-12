@@ -1,0 +1,1 @@
+The duplicate-charge dispute is under review, with a result expected on July 8, but the July 10 statement due date still applies. Treat the disputed amount separately from the legitimate amount due; an open dispute is not a reason to skip payment.

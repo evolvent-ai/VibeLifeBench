@@ -1,0 +1,1 @@
+A new email says that CNY 320 of installation fees can be refunded, but it first asks me to verify a bank card and pay a CNY 15 processing fee. Check the risk for me. Do not open the link or make a payment on my behalf.

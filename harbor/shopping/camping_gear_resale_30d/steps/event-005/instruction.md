@@ -1,0 +1,1 @@
+An email claiming to offer a green camping-equipment recycling subsidy promises a CNY 150 rebate but asks for an application fee and a bank-card verification code. Verify the sender domain and the platform's in-app messages, and give only containment steps. Do not click, pay, or include this fictitious subsidy in the payout forecast.

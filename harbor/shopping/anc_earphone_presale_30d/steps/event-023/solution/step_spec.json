@@ -1,0 +1,40 @@
+{
+  "step": "event-023",
+  "virtual_stage": 15,
+  "source_event_id": "S15_weather_alert",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The SonicPod Max presale records were reconciled across official systems, with evidence, funds, and approval boundaries kept separate.",
+  "response_paraphrase": "I refreshed the stage 15 presale review while preserving independent evidence, financial categories, and user approval gates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S15_weather_alert",
+      "virtual_stage": 15,
+      "event_kind": "notification",
+      "event_time": "2026-07-02T09:40:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s15_result",
+      "weight": 3,
+      "expected": true
+    },
+    {
+      "check_id": "s15_weather",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

@@ -1,0 +1,36 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-007",
+  "virtual_stage": 7,
+  "event_id": "S07_partial_offer_notice",
+  "source_event_id": "S07_partial_offer_notice",
+  "response": "Notification ntf_iscac_cp offers 140 for ord_iscac_0002; I compared that partial refund and settlement closure with continued evidence review.",
+  "response_paraphrase": "Notification ntf_iscac_cp offers 140 for ord_iscac_0002; I compared the partial refund and settlement closure with continuing to reconcile and submit evidence.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-007",
+    "HARBOR_EVENT_ID": "S07_partial_offer_notice",
+    "HARBOR_VIRTUAL_STAGE": "7",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ]
+  },
+  "expected_checks": [
+    "s7_servers",
+    "s7_args",
+    "s7_result"
+  ],
+  "expected_stage_weight": 2,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S07_partial_offer_notice"
+    }
+  ]
+}

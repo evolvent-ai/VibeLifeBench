@@ -1,0 +1,36 @@
+{
+  "step": "event-001",
+  "source_event_id": "S01_snapshot",
+  "virtual_stage": 1,
+  "response": "Stage 1 record for S01_snapshot was refreshed from the official systems; workstreams remain separate and irreversible actions require user confirmation.",
+  "response_paraphrase": "I checked S01_snapshot at stage 1 and preserved separate records while leaving any irreversible action pending confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S01_snapshot",
+      "virtual_stage": 1,
+      "event_kind": "world",
+      "event_time": "2026-06-15T09:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s1_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s1_result",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 2.0,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  }
+}

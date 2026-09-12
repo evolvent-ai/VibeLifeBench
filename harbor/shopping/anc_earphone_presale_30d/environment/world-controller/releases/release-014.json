@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "release_id": "release-014",
+  "source_event_ids": [
+    "S20_mut"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-07-11T16:30:00+08:00",
+  "previous": "release-013",
+  "token": "anc_earphone_presale_30d-07596b119310b8a9dae10e0cd3a2036e",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "source_event_id": "S20_mut",
+      "operation_index": 0,
+      "values": {
+        "tx_id": "tx_psea_pp",
+        "card_id": "card_psea_01",
+        "posted_at": "2026-07-11T16:00:00+08:00",
+        "amount_minor": -229900,
+        "merchant_name": "\u5b98\u65b9\u5546\u57ce (\u7ef4\u6743\u9000\u6b3e\u5230\u8d26)",
+        "mcc": "5732",
+        "category": "\u7ef4\u6743\u9000\u6b3e",
+        "kind": "adjustment"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "S20_mut",
+      "operation_index": 1,
+      "values": {
+        "notification_id": "ntf_psea_funds",
+        "user_id": "usr_teng_qi",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "\u7ef4\u6743\u9000\u6b3e\u5df2\u5230\u8d26",
+        "body": "\u4ef7\u4fdd\u5dee\u4ef7 \u00a52299 \u5df2\u5230\u8d26\u3002\u73b0\u5728\u91cd\u70b9\u662f\u628a\u4ef7\u4fdd\u3001\u5b9a\u91d1\u62b5\u6263\u3001\u4e89\u8bae\u51b2\u9500\u3001\u8865\u5dee\u7b49\u8d44\u91d1\u53e3\u5f84\u5728\u53f0\u8d26\u91cc\u6838\u5bf9\u6e05\u695a\u3002",
+        "payload_json": "{\"amount_minor\": 229900, \"kind\": \"rights_refund\"}",
+        "created_at": "2026-07-11T16:01:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+There is a severe rain warning for Shenzhen, and heavy rain may affect the planned rework visit and outdoor-unit inspection. Consider the weather together with the case deadline: should the visit be rescheduled, and which evidence can be submitted online first?

@@ -1,0 +1,932 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "S10_mut"
+  ],
+  "source_time": "2026-06-24T09:20:00+08:00",
+  "previous": "release-003",
+  "token": "bike-commute-safety-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_cal_d4e8e7ae",
+        "calendar_id": "cal_rscam_task",
+        "summary": "camera record",
+        "description": "camera record，camera record。",
+        "location": "camera record",
+        "start_dt": "2026-06-25T19:30:00+08:00",
+        "end_dt": "2026-06-25T20:10:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-06-24T09:00:00+08:00",
+        "updated_at": "2026-06-24T09:00:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_cal_06bfeca9",
+        "calendar_id": "cal_rscam_main",
+        "summary": "camera record",
+        "description": "camera record，camera record。",
+        "location": "camera record",
+        "start_dt": "2026-06-27T10:00:00+08:00",
+        "end_dt": "2026-06-27T10:30:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-06-24T09:00:00+08:00",
+        "updated_at": "2026-06-24T09:00:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "calendar",
+      "table": "reminders",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_cal_d4e8e7ae",
+        "method": "popup",
+        "minutes_before": 60
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "calendar",
+      "table": "reminders",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_cal_06bfeca9",
+        "method": "email",
+        "minutes_before": 75
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_d4f3b17e",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T02:12:00+08:00",
+        "amount_minor": 15600,
+        "merchant_name": "PAYPAL HK DIGITAL",
+        "mcc": "4814",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_12aed2a4",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T02:29:00+08:00",
+        "amount_minor": 15598,
+        "merchant_name": "PAYPAL US",
+        "mcc": "4814",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_4a85bc71",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T02:46:00+08:00",
+        "amount_minor": 15600,
+        "merchant_name": "ADOBE*PHOTO PLAN",
+        "mcc": "5734",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_2df3c50b",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T03:03:00+08:00",
+        "amount_minor": 31200,
+        "merchant_name": "PAYPAL US",
+        "mcc": "4814",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_500baf90",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T03:20:00+08:00",
+        "amount_minor": -100,
+        "merchant_name": "PAYPAL AUTH RELEASE",
+        "mcc": "4814",
+        "category": "camera record",
+        "kind": "adjustment"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_27bbdbf2",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T03:37:00+08:00",
+        "amount_minor": 15722,
+        "merchant_name": "PIXELMEND LAB",
+        "mcc": "7399",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_26145f51",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T03:54:00+08:00",
+        "amount_minor": 800,
+        "merchant_name": "camera record NFC",
+        "mcc": "4111",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_021663cf",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T04:11:00+08:00",
+        "amount_minor": 3900,
+        "merchant_name": "camera record",
+        "mcc": "5814",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_929889d5",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T04:28:00+08:00",
+        "amount_minor": 2600,
+        "merchant_name": "SF EXPRESS 0624",
+        "mcc": "4215",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_411b073d",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T04:45:00+08:00",
+        "amount_minor": 1200,
+        "merchant_name": "ALIYUN DRIVE",
+        "mcc": "7372",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_cdab73f4",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T05:02:00+08:00",
+        "amount_minor": 4500,
+        "merchant_name": "CANVA PRO",
+        "mcc": "5734",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_fc9b3701",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T05:19:00+08:00",
+        "amount_minor": 15630,
+        "merchant_name": "PAYPAL SG",
+        "mcc": "4814",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_c8873a52",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T05:36:00+08:00",
+        "amount_minor": 6800,
+        "merchant_name": "camera record",
+        "mcc": "7399",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_da1d1106",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T05:53:00+08:00",
+        "amount_minor": 3290,
+        "merchant_name": "camera record",
+        "mcc": "5411",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_2fc5faa3",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T06:10:00+08:00",
+        "amount_minor": 3000,
+        "merchant_name": "camera record",
+        "mcc": "7372",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_e434e920",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T06:27:00+08:00",
+        "amount_minor": 2440,
+        "merchant_name": "GZ TAXI E246",
+        "mcc": "4121",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_905cd352",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T06:44:00+08:00",
+        "amount_minor": 4980,
+        "merchant_name": "MICROSOFT 365",
+        "mcc": "5734",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_183f6b1a",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T07:01:00+08:00",
+        "amount_minor": 220,
+        "merchant_name": "PAYPAL US FX FEE",
+        "mcc": "6012",
+        "category": "camera record",
+        "kind": "fee"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_8f83ce6a",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T07:18:00+08:00",
+        "amount_minor": 15260,
+        "merchant_name": "FOTOBOOK ASIA",
+        "mcc": "5942",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_5ae35cb8",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T07:35:00+08:00",
+        "amount_minor": 1600,
+        "merchant_name": "WECOM STORAGE",
+        "mcc": "7372",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_ad7c5ead",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T07:52:00+08:00",
+        "amount_minor": 15600,
+        "merchant_name": "LENS CLEAN BAR",
+        "mcc": "7699",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_4b5ba753",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T08:09:00+08:00",
+        "amount_minor": 1990,
+        "merchant_name": "camera record",
+        "mcc": "7999",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_9059de3e",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T08:26:00+08:00",
+        "amount_minor": 8800,
+        "merchant_name": "CHINA MOBILE",
+        "mcc": "4814",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aux_b143ce05",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T08:43:00+08:00",
+        "amount_minor": 156,
+        "merchant_name": "PAYPAL US TIP",
+        "mcc": "4814",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "rewards_ledger",
+      "op": "insert",
+      "values": {
+        "ledger_id": "rl_aux_de59cc99",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T08:52:00+08:00",
+        "kind": "earn",
+        "delta": 17,
+        "balance_after": 18655,
+        "note": "camera record｜camera record 10-1"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "rewards_ledger",
+      "op": "insert",
+      "values": {
+        "ledger_id": "rl_aux_c0481f8d",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T08:44:00+08:00",
+        "kind": "earn",
+        "delta": 28,
+        "balance_after": 18683,
+        "note": "camera record｜camera record 10-2"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "rewards_ledger",
+      "op": "insert",
+      "values": {
+        "ledger_id": "rl_aux_7c8ae19a",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T08:36:00+08:00",
+        "kind": "earn",
+        "delta": 166,
+        "balance_after": 18849,
+        "note": "camera record｜camera record 10-3"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "rewards_ledger",
+      "op": "insert",
+      "values": {
+        "ledger_id": "rl_aux_7ceff496",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T08:28:00+08:00",
+        "kind": "adjust",
+        "delta": 13,
+        "balance_after": 18862,
+        "note": "camera record｜camera record 10-4"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "rewards_ledger",
+      "op": "insert",
+      "values": {
+        "ledger_id": "rl_aux_d0319bfa",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T08:20:00+08:00",
+        "kind": "redeem",
+        "delta": -70,
+        "balance_after": 18792,
+        "note": "camera record｜camera record 10-5"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "rewards_ledger",
+      "op": "insert",
+      "values": {
+        "ledger_id": "rl_aux_d5c74674",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T08:12:00+08:00",
+        "kind": "earn",
+        "delta": 52,
+        "balance_after": 18844,
+        "note": "camera record｜camera record 10-6"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 41001,
+        "folder_id": 1,
+        "message_id": "<815482e3f5950882@cmb.example>",
+        "subject": "camera record TX-624",
+        "from_addr": "camera record <alerts@cmb.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-24T08:18:00+08:00",
+        "body_text": "camera record\n- camera record，camera record。\n- camera record：camera record <alerts@cmb.example>",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 81001,
+        "size": 252,
+        "created_at": "2026-06-24T08:18:00+08:00"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 41002,
+        "folder_id": 1,
+        "message_id": "<dc9bd3924dfc0828@paypal.example>",
+        "subject": "PAYPAL camera record：PHOTO SERVICE",
+        "from_addr": "PayPal <service@paypal.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-24T08:25:00+08:00",
+        "body_text": "camera record，camera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 81002,
+        "size": 209,
+        "created_at": "2026-06-24T08:25:00+08:00"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 41003,
+        "folder_id": 1,
+        "message_id": "<592cb5bbe2ce0339@adobe.example>",
+        "subject": "Adobe camera record",
+        "from_addr": "Adobe Billing <mail@adobe.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-24T08:32:00+08:00",
+        "body_text": "camera record RQ4065F\ncamera record，camera record。\ncamera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 81003,
+        "size": 227,
+        "created_at": "2026-06-24T08:32:00+08:00"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 41004,
+        "folder_id": 1,
+        "message_id": "<f671b57a7db247a1@studio.example>",
+        "subject": "camera record",
+        "from_addr": "camera record <finance@studio.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-24T08:39:00+08:00",
+        "body_text": "camera record、camera record、camera record，camera record。\n\ncamera record：CF7207W",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 81004,
+        "size": 224,
+        "created_at": "2026-06-24T08:39:00+08:00"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 41005,
+        "folder_id": 1,
+        "message_id": "<f46da791cd14b2a7@audio.example>",
+        "subject": "camera record",
+        "from_addr": "AudioCast <billing@audio.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-24T08:46:00+08:00",
+        "body_text": "camera record｜camera record，camera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 81005,
+        "size": 207,
+        "created_at": "2026-06-24T08:46:00+08:00"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 41006,
+        "folder_id": 1,
+        "message_id": "<79790df341f2fd53@bean.example>",
+        "subject": "camera record",
+        "from_addr": "Bean Square <receipt@bean.example>",
+        "to_addr_json": "[\"zhan.peng.resale@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-24T08:53:00+08:00",
+        "body_text": "06-24 08:53\ncamera record。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 81006,
+        "size": 210,
+        "created_at": "2026-06-24T08:53:00+08:00"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_91e5363a",
+        "user_id": "usr_zhan_peng",
+        "source": "credit_card",
+        "type": "account_activity",
+        "subscription_id": null,
+        "title": "[08:30] camera record",
+        "body": "camera record：camera record。",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"credit_card\",\"recorded_at\":\"2026-06-24T08:30:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"plain\"}",
+        "created_at": "2026-06-24T08:30:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_925af132",
+        "user_id": "usr_zhan_peng",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "camera record｜camera record",
+        "body": "camera record。\ncamera record。",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"credit_card\",\"recorded_at\":\"2026-06-24T08:33:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"compact\"}",
+        "created_at": "2026-06-24T08:33:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_df57d6c1",
+        "user_id": "usr_zhan_peng",
+        "source": "email",
+        "type": "new_content",
+        "subscription_id": null,
+        "title": "MAIL -> Adobe camera record",
+        "body": "camera record\n1) camera record。\n2) camera record",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"email\",\"recorded_at\":\"2026-06-24T08:36:00+08:00\",\"headline\":\"Adobe camera record\",\"presentation\":\"expanded\"}",
+        "created_at": "2026-06-24T08:36:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_a11e445c",
+        "user_id": "usr_zhan_peng",
+        "source": "credit_card",
+        "type": "price_drop",
+        "subscription_id": null,
+        "title": "PAYPAL camera record（06-24）",
+        "body": "HK、SG camera record US camera record。；camera record，camera record。",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"credit_card\",\"recorded_at\":\"2026-06-24T08:39:00+08:00\",\"headline\":\"PAYPAL camera record\",\"presentation\":\"plain\"}",
+        "created_at": "2026-06-24T08:39:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_6de46497",
+        "user_id": "usr_zhan_peng",
+        "source": "calendar",
+        "type": "account_activity",
+        "subscription_id": null,
+        "title": "CAL.0842 camera record",
+        "body": "camera record\ncamera record。",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"calendar\",\"recorded_at\":\"2026-06-24T08:42:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"compact\"}",
+        "created_at": "2026-06-24T08:42:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_04f40824",
+        "user_id": "usr_zhan_peng",
+        "source": "rewards",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "camera record // 06/24",
+        "body": "camera record。\ncamera record、camera record、camera record。",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"rewards\",\"recorded_at\":\"2026-06-24T08:45:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"expanded\"}",
+        "created_at": "2026-06-24T08:45:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_5e4b150d",
+        "user_id": "usr_zhan_peng",
+        "source": "ecommerce",
+        "type": "new_content",
+        "subscription_id": null,
+        "title": "06-24 SHOP｜camera record",
+        "body": "SHOP / 06-24\ncamera record。",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"ecommerce\",\"recorded_at\":\"2026-06-24T08:48:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"plain\"}",
+        "created_at": "2026-06-24T08:48:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_49c8e24a",
+        "user_id": "usr_zhan_peng",
+        "source": "security",
+        "type": "price_drop",
+        "subscription_id": null,
+        "title": "【SAFE】camera record",
+        "body": "camera record、camera record。",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"security\",\"recorded_at\":\"2026-06-24T08:51:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"compact\"}",
+        "created_at": "2026-06-24T08:51:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_2d3e561c",
+        "user_id": "usr_zhan_peng",
+        "source": "community",
+        "type": "account_activity",
+        "subscription_id": null,
+        "title": "06/24 camera record",
+        "body": "camera record\ncamera record。",
+        "payload_json": "{\"channel\":\"activity_feed\",\"source\":\"community\",\"recorded_at\":\"2026-06-24T08:54:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"expanded\"}",
+        "created_at": "2026-06-24T08:54:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_aux_b8e90f52",
+        "user_id": "usr_zhan_peng",
+        "source": "mobility",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "camera record · 08:57",
+        "body": "camera record、camera record。\ncamera record。",
+        "payload_json": "{\"channel\":\"summary_card\",\"source\":\"mobility\",\"recorded_at\":\"2026-06-24T08:57:00+08:00\",\"headline\":\"camera record\",\"presentation\":\"plain\"}",
+        "created_at": "2026-06-24T08:57:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_rscam_dup",
+        "card_id": "card_rscam_01",
+        "posted_at": "2026-06-24T08:40:00+08:00",
+        "amount_minor": 15600,
+        "merchant_name": "PAYPAL US",
+        "mcc": "4814",
+        "category": "camera record",
+        "kind": "purchase"
+      },
+      "source_event_id": "S10_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_rscam_dup",
+        "user_id": "usr_zhan_peng",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_rscam_card",
+        "title": "camera record",
+        "body": "camera record，camera record。",
+        "payload_json": "{\"card_id\": \"card_rscam_01\", \"tx_id\": \"tx_rscam_dup\"}",
+        "created_at": "2026-06-24T09:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S10_mut"
+    }
+  ]
+}

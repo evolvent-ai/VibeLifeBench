@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "camp_split_shipment_exception"
+  ],
+  "source_stage": 6,
+  "source_time": "2026-06-20T11:00",
+  "previous": "release-000",
+  "token": "camping-trip-release-token-001-8f2a1c9d4e7b6a5c",
+  "operations": [
+    {
+      "server": "delivery_logistics",
+      "table": "issue_tickets",
+      "op": "upsert",
+      "conflict_keys": [
+        "ticket_id"
+      ],
+      "values": {
+        "ticket_id": "tkt_camp_sleepbag_split",
+        "shipment_id": "shp_camp_0002",
+        "issue_type": "missing_item",
+        "description": "camping business detailsleeping bagsplit warehouse shipment，among themcold-weathercamping business detailremains incamping business detailtransit；camping business detail 7 camping business detail 9 camping business detaildirectly operated locationpickupcamping business detailcontinuecamping business detail。",
+        "status": "open",
+        "opened_at": "2026-06-20T11:00:00+08:00",
+        "expected_response_date": "2026-06-22"
+      },
+      "source_event_id": "camp_split_shipment_exception",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "upsert",
+      "conflict_keys": [
+        "notification_id"
+      ],
+      "values": {
+        "notification_id": "ntf_camp_split",
+        "user_id": "usr_ye_chen",
+        "source": "delivery_logistics",
+        "type": "shipment_update",
+        "subscription_id": "sub_camp_log",
+        "title": "sleeping bagordercamping business detail，among themone itemcamping business detailconfirmcamping business detail",
+        "body": "cold-weathersleeping bagremains intransit，camping business detailbefore the deadlinechoosedirectly operated locationpickupcamping business detailcontinuecamping business detail；camping business detailsleeping bagstatusunaffected。",
+        "payload_json": "{\"order_id\":\"ord_camp_0002\",\"ticket_id\":\"tkt_camp_sleepbag_split\"}",
+        "created_at": "2026-06-20T03:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "camp_split_shipment_exception",
+      "operation_index": 1
+    }
+  ]
+}

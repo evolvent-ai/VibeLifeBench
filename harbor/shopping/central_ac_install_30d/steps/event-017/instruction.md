@@ -1,0 +1,1 @@
+It is time to choose the final installation remedy. Compare official rework, a licensed third-party installation, and self-remediation with reimbursement using net cost, completion time, acceptance confidence, and the quality evidence already available. I will decide before any acceptance, payment, or case closure.

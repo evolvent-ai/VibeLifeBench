@@ -1,0 +1,1 @@
+The credit card shows a second foreign-currency charge for the same overseas merchant and exactly the same amount; the merchant and amount are in the statement. The overseas inspection fee was purchased only once. Decide whether this is a normal pending posting, something to reconcile, or grounds for opening a dispute.

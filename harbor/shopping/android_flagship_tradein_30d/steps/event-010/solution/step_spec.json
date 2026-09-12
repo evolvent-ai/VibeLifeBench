@@ -1,0 +1,41 @@
+{
+  "step": "event-010",
+  "virtual_stage": 7,
+  "source_event_id": "S07_buyer",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "S07_mut"
+    ]
+  },
+  "response": "Notification ntf_andt_cp confirms a 2100 reduced estimate that would end review if accepted. I recorded the credit, reduced estimate, full appraisal path, appraisal fee, and funds-received implications; no acceptance was made.",
+  "response_paraphrase": "The 2100 settlement notice would terminate the appraisal challenge if taken. Its effect on credit, full-value recovery, fees, and receipt timing is logged without accepting it.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S07_buyer",
+      "virtual_stage": 7,
+      "event_kind": "world",
+      "event_time": "2026-06-21T15:10:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s7_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s7_result",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 2
+}

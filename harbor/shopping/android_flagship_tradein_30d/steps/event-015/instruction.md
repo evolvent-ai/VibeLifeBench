@@ -1,0 +1,1 @@
+I obtained a third-party appraisal, and it concludes that the old device is in substantially better condition than the recycler assessed. Update your recommendation: should I accept the recycler's reduced estimate or use the third-party report to insist on the full appraisal value? Give me a clear recommendation and reasons.

@@ -1,0 +1,1 @@
+The platform-escrow sale has a deadline of 2026-07-09. Confirm whether the condition evidence is complete, how to respond to the buyer's reduction request, whether platform inspection is worthwhile, and whether the process could time out. Apply for a platform review if needed.

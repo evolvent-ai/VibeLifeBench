@@ -1,0 +1,1 @@
+I am worried that the evidence will get mixed up. Separate what I need to preserve for each of the three workstreams: old-device verification, the trade-in estimate, and the price-difference funding. Do not combine them.

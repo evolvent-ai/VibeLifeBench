@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_stage": 7,
+  "source_event_ids": [
+    "S07_mut",
+    "S07_buyer"
+  ],
+  "source_time": "2026-06-21T15:00:00+08:00",
+  "previous": "release-002",
+  "token": "android_flagship_tradein_30d-release-003",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_andt_cp",
+        "user_id": "usr_pan_yu",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Merchant settlement offer",
+        "body": "The recycler offers a CNY 2,100 reduced-estimate settlement; accepting ends this review. Use the evidence chain to decide whether to continue platform review for the full appraisal value.",
+        "payload_json": "{\"order_id\": \"ord_andt_0001\", \"offer\": \"partial_refund\", \"offer_amount_minor\": 210000}",
+        "created_at": "2026-06-21T15:00:00Z",
+        "read": 0
+      },
+      "source_event_id": "S07_mut"
+    }
+  ]
+}

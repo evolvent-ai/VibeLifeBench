@@ -1,0 +1,1 @@
+The platform forwarded a buyer offer to reduce the price, again citing unqualified waterproofing concerns. This is only a pending offer. Before accepting, recalculate the net amount after service fee and shipping, and confirm whether acceptance would end the current review. If rejecting, assess whether retaken test evidence can meet the deadline.

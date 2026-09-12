@@ -1,0 +1,46 @@
+{
+  "step": "event-014",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "S10_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-004"
+    ]
+  },
+  "actions": [
+    {
+      "kind": "world",
+      "source_event_id": "S10_world"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_result",
+      "weight": 3,
+      "expected": true
+    },
+    {
+      "check_id": "s10_no_bad",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.5,
+  "response": "The camera resale evidence and records were updated from authoritative systems.",
+  "response_paraphrase": "Authoritative camera-sale records were refreshed, with decisions and funds still clearly separated."
+}

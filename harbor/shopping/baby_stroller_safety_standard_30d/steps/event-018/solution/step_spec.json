@@ -1,0 +1,34 @@
+{
+  "step": "event-018",
+  "stage": 17,
+  "event_id": "S17_meet",
+  "source_event_id": "S17_meet",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 17
+    }
+  ],
+  "response_paraphrase": "The escrow checklist identifies inspection, payment receipt, and every user-controlled irreversible step.",
+  "expected_env": {
+    "virtual_stage": 17,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s17_platform",
+      "weight": 2
+    },
+    {
+      "check_id": "s17_confirm",
+      "weight": 2
+    },
+    {
+      "check_id": "s17_no_bad",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

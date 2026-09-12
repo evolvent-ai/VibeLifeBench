@@ -1,0 +1,48 @@
+{
+  "task": "central_ac_install_30d",
+  "step": "event-015",
+  "virtual_stage": 14,
+  "event_id": "S14_dispute_notice",
+  "source_event_id": "S14_dispute_notice",
+  "response": "Dispute disp_iscac_01 for tx_iscac_dup is under review; the displayed amount remains due on its date while regular payment continues. I will reconcile the statement, and user confirmation is required before any change.",
+  "response_paraphrase": "Dispute disp_iscac_01 for tx_iscac_dup is under review; the displayed amount remains due on its date while regular payment continues, and user confirmation is required before any change.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-015",
+    "HARBOR_EVENT_ID": "S14_dispute_notice",
+    "HARBOR_VIRTUAL_STAGE": "14",
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008"
+    ]
+  },
+  "expected_checks": [
+    "s14_servers",
+    "s14_result",
+    "s14_no_bad"
+  ],
+  "expected_stage_weight": 4,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "S14_dispute_notice"
+    }
+  ]
+}

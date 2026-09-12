@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "groupbuy_tier_rebate_paid"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-07-11T16:00:00+08:00",
+  "previous": "release-008",
+  "token": "community-household-groupbuy-30d-release-009-token-7f3a9b1c2d4e5f6a",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_homtg_tier_rebate",
+        "card_id": "card_homtg_01",
+        "posted_at": "2026-07-11T16:00:00+08:00",
+        "amount_minor": -7200,
+        "merchant_name": "localized business label",
+        "mcc": "5399",
+        "category": "localized business label",
+        "kind": "adjustment"
+      },
+      "postcondition": {
+        "sql": "SELECT COUNT(*) FROM unbilled_transactions WHERE tx_id = ? AND amount_minor = ?",
+        "params": [
+          "tx_homtg_tier_rebate",
+          -7200
+        ],
+        "equals": 1
+      },
+      "source_event_id": "groupbuy_tier_rebate_paid",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_homtg_tier_rebate",
+        "user_id": "usr_xie_lin",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "CNY 72 tier rebate for 24 households has arrived",
+        "body": "rebate is calculated from 24 households that paid and were not refunded; keep it separate from paper replacement refunds and duplicate-charge reversal\u3002",
+        "payload_json": "{\"amount_minor\":7200,\"paid_households\":24}",
+        "created_at": "2026-07-11T08:01:00Z",
+        "read": 0
+      },
+      "postcondition": {
+        "sql": "SELECT COUNT(*) FROM notifications WHERE notification_id = ?",
+        "params": [
+          "ntf_homtg_tier_rebate"
+        ],
+        "equals": 1
+      },
+      "source_event_id": "groupbuy_tier_rebate_paid",
+      "operation_index": 1
+    }
+  ]
+}

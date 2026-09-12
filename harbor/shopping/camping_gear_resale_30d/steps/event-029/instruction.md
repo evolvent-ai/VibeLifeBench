@@ -1,0 +1,1 @@
+This is the final cross-system reconciliation point. Check whether the marketplace, logistics, credit card, and notification systems agree on each shared fact, and flag conflicts instead of pretending they are consistent.

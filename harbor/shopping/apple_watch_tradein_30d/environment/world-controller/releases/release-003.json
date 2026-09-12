@@ -1,0 +1,48 @@
+{
+  "release_id": "release-003",
+  "source_event_id": "S07_mut",
+  "source_event_ids": ["S07_mut"],
+  "source_stage": 7,
+  "source_time": "2026-06-21T15:00:00+08:00",
+  "virtual_stage": 7,
+  "previous": "release-002",
+  "idempotency_key": "apple-watch-release-003",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_awch_cp",
+        "user_id": "usr_mo_fan",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": " translated text Home translated text settlement translated text option",
+        "body": "recycler translated text  ¥1800  translated text lowappraisaloption；accept translated text review。 translated text evidence chain translated text accept translated text platform reviewfull valueappraisal。",
+        "payload_json": "{\"order_id\": \"ord_awch_0001\", \"offer\": \"partial_refund\", \"offer_amount_minor\": 180000}",
+        "created_at": "2026-06-21T15:00:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "postconditions": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "where": {
+        "notification_id": "ntf_awch_cp"
+      },
+      "expect": {
+        "source": "ecommerce",
+        "type": "policy_update",
+        "read": 0
+      },
+      "contains": [
+        "partial_refund",
+        "ord_awch_0001"
+      ]
+    }
+  ],
+  "token": "apple_watch_tradein_30d-release-token"
+}

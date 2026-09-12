@@ -1,0 +1,42 @@
+{
+  "step": "event-003",
+  "stage": 2,
+  "virtual_stage": 2,
+  "source_event_id": "S02_spec_terms",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "actions": [
+    {
+      "kind": "world",
+      "source_event_id": "S02_spec_terms"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s2_args",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s2_result",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s2_options",
+      "weight": 2,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.5,
+  "response": "The camera resale evidence and records were updated from authoritative systems.",
+  "response_paraphrase": "Authoritative camera-sale records were refreshed, with decisions and funds still clearly separated."
+}

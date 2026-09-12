@@ -1,0 +1,1 @@
+The duplicate-charge dispute was approved and the extra charge was reversed. The 2026-07-10 payment due date still requires the correct amount to be handled. In the archive, distinguish reversed funds, the normal amount due, and amounts already paid.

@@ -1,0 +1,29 @@
+{
+  "step": "event-029",
+  "virtual_stage": 21,
+  "source_event_id": "S21_window",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The closeout checklist covers the approved recovery, approved card dispute and reversal, 4300 funds received, card repayment due 2026-07-10, all three workstreams, and remaining items awaiting user confirmation.",
+  "response_paraphrase": "The closeout review now links the approved appraisal, approved card correction, received 4300, July 10 repayment record, all three cases, and any action still requiring approval.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S21_window",
+      "virtual_stage": 21,
+      "event_kind": "user_message",
+      "event_time": "2026-07-12T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_checklist",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

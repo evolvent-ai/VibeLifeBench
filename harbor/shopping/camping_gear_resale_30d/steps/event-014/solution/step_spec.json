@@ -1,0 +1,45 @@
+{
+  "step": "event-014",
+  "virtual_stage": 10,
+  "source_event_id": "S10_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "S10_mut"
+    ]
+  },
+  "response": "The camping-equipment resale records now reflect verified backend evidence, separate item, transaction, and funds timelines, and confirmation-aware next steps.",
+  "response_paraphrase": "I refreshed the durable resale file for S10_world from the available systems while keeping decisions and money movements separately evidenced.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S10_world",
+      "virtual_stage": 10,
+      "event_kind": "world",
+      "event_time": "2026-06-24T09:20:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s10_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s10_result",
+      "weight": 3.0
+    },
+    {
+      "check_id": "s10_no_bad",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "S07_mut"
+  ],
+  "source_stage": 7,
+  "source_time": "2026-06-21T15:00",
+  "previous": "release-002",
+  "token": "central-ac-release-003-20260824",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_iscac_cp",
+        "user_id": "usr_luo_wei",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Service provider proposed a partial refund",
+        "body": "The service provider offered a CNY 140 partial refund; accepting it will close the installation case as a settlement.",
+        "payload_json": "{\"order_id\": \"ord_iscac_0002\", \"offer_minor\": 14000, \"effect\": \"close_workorder\"}",
+        "created_at": "2026-06-21T07:00:00Z",
+        "read": 0
+      },
+      "source_event_id": "S07_mut",
+      "operation_index": 0
+    }
+  ]
+}

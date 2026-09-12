@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "S09_mut"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-06-23T13:00",
+  "previous": "release-003",
+  "token": "central-ac-release-004-20260824",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "rejected",
+        "resolved_at": null
+      },
+      "where": {
+        "refund_id": "ref_iscac_b"
+      },
+      "source_event_id": "S09_mut",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_iscac_b2",
+        "user_id": "usr_luo_wei",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "Rework case requires additional evidence",
+        "body": "The service provider disputes the installation issue. The platform requests an on-site video, problem photos, and fee receipts.",
+        "payload_json": "{\"order_id\": \"ord_iscac_0002\", \"refund_id\": \"ref_iscac_b\", \"status\": \"rejected\"}",
+        "created_at": "2026-06-23T05:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "S09_mut",
+      "operation_index": 1
+    }
+  ]
+}

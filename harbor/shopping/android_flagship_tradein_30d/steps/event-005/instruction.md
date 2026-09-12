@@ -1,0 +1,1 @@
+After the old device was shipped, the official estimate came back low and its condition may have been misclassified. A review has been requested, but the recycler has not responded promptly. Preserve the inspection video and condition photos and follow the evidence-submission deadline.

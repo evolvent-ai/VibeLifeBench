@@ -1,0 +1,1 @@
+I am torn about the trade-in workstream: should I accept the recycler's reduced estimate or continue submitting evidence to pursue a full-value platform review? Do not just say that both have advantages and disadvantages. Clearly compare their net proceeds, timing, evidence risk, and effect on the case-closing date.

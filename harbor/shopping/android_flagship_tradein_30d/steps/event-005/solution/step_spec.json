@@ -1,0 +1,41 @@
+{
+  "step": "event-005",
+  "virtual_stage": 3,
+  "source_event_id": "S03_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "S03_mut"
+    ]
+  },
+  "response": "The existing review request ref_andt_b for ord_andt_0001 is submitted and linked to the received notice; I will monitor the recycler response and deadline without filing a duplicate request.",
+  "response_paraphrase": "I found the existing submitted appraisal case for ord_andt_0001 and its acknowledgement, so the next action is deadline monitoring rather than another filing.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S03_world",
+      "virtual_stage": 3,
+      "event_kind": "world",
+      "event_time": "2026-06-17T14:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s3_args",
+      "weight": 1
+    },
+    {
+      "check_id": "s3_result",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

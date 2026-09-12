@@ -1,0 +1,41 @@
+{
+  "step": "event-020",
+  "virtual_stage": 14,
+  "source_event_id": "S14_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "S14_mut"
+    ]
+  },
+  "response": "Dispute disp_andt_01 for tx_andt_dup is under review. The 2026-07-10 payment due date and normal repayment obligation remain separate from the disputed amount; no repayment was suspended and no extra dispute was opened.",
+  "response_paraphrase": "Issuer case disp_andt_01 is being reviewed for tx_andt_dup, while the July 10 statement obligation continues independently; no second case or repayment hold was created.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S14_world",
+      "virtual_stage": 14,
+      "event_kind": "world",
+      "event_time": "2026-06-30T10:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s14_result",
+      "weight": 3
+    },
+    {
+      "check_id": "s14_no_bad",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 4
+}

@@ -1,0 +1,1 @@
+[Weather alert] Severe weather has been announced near the critical return-shipping window in your city and may affect return timing and evidence submission. Check the detailed weather data yourself, including daily forecasts, alerts, and air quality. Use it to decide whether to change the shipping method or ship earlier; do not rely on this alert alone.

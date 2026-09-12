@@ -1,0 +1,124 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      world-controller: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      credit-card: {condition: service_healthy}
+      delivery-logistics: {condition: service_healthy}
+      ecommerce: {condition: service_healthy}
+      email: {condition: service_healthy}
+      listing-platform: {condition: service_healthy}
+      notification-hub: {condition: service_healthy}
+    volumes:
+      - workspace-state:/workspace
+      - eval-evidence:/harbor/evidence:ro
+      - world-clock:/world-clock:ro
+      - agent-logs:/logs/agent
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: world-controller,calendar,credit-card,delivery-logistics,ecommerce,email,listing-platform,notification-hub,localhost,127.0.0.1,::1
+      no_proxy: world-controller,calendar,credit-card,delivery-logistics,ecommerce,email,listing-platform,notification-hub,localhost,127.0.0.1,::1
+
+  workspace-init:
+    build: {context: ., dockerfile: workspace-init/Dockerfile}
+    volumes: [workspace-state:/target]
+    restart: "no"
+
+  calendar:
+    build: {context: ./servers/calendar_mock_task}
+    volumes: [./seeds/calendar:/env-seed:ro, calendar-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: &health {test: [CMD, python, -c, "import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()"], interval: 2s, timeout: 5s, retries: 30, start_period: 3s}
+
+  credit-card:
+    build: {context: ./servers/credit_card_mock_task}
+    volumes: [./seeds/credit_card:/env-seed:ro, credit-card-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *health
+
+  delivery-logistics:
+    build: {context: ./servers/delivery_logistics_mock_task}
+    volumes: [./seeds/delivery_logistics:/env-seed:ro, delivery-logistics-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *health
+
+  ecommerce:
+    build: {context: ./servers/ecommerce_mock_task}
+    volumes: [./seeds/ecommerce:/env-seed:ro, ecommerce-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *health
+
+  email:
+    build: {context: ./servers/email_mock_task}
+    volumes: [./seeds/email:/env-seed:ro, email-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *health
+
+  listing-platform:
+    build: {context: ./servers/listing_platform_mock_task}
+    volumes: [./seeds/listing_platform:/env-seed:ro, listing-platform-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *health
+
+  notification-hub:
+    build: {context: ./servers/notification_hub_mock_task}
+    volumes: [./seeds/notification_hub:/env-seed:ro, notification-hub-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *health
+
+  world-controller:
+    build:
+      context: .
+      dockerfile: world-controller/Dockerfile
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      calendar: {condition: service_healthy}
+      credit-card: {condition: service_healthy}
+      delivery-logistics: {condition: service_healthy}
+      ecommerce: {condition: service_healthy}
+      email: {condition: service_healthy}
+      listing-platform: {condition: service_healthy}
+      notification-hub: {condition: service_healthy}
+    volumes:
+      - calendar-env:/calendar-env
+      - credit-card-env:/credit-card-env
+      - delivery-logistics-env:/delivery-logistics-env
+      - ecommerce-env:/ecommerce-env
+      - email-env:/email-env
+      - listing-platform-env:/listing-platform-env
+      - notification-hub-env:/notification-hub-env
+      - controller-state:/controller-state
+      - eval-evidence:/evidence
+      - world-clock:/world-clock
+      - workspace-state:/workspace-source:ro
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      CLOCK_TOKEN: baby-stroller-safety-standard-30d-clock-token
+      HEALTH_TOKEN: baby-stroller-safety-health-token
+    expose: ["8090"]
+    healthcheck: {test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health',timeout=2).read()"], interval: 2s, timeout: 5s, retries: 30, start_period: 3s}
+
+volumes:
+  workspace-state: {}
+  calendar-env: {}
+  credit-card-env: {}
+  delivery-logistics-env: {}
+  ecommerce-env: {}
+  email-env: {}
+  listing-platform-env: {}
+  notification-hub-env: {}
+  controller-state: {}
+  eval-evidence: {}
+  world-clock: {}
+  agent-logs: {}

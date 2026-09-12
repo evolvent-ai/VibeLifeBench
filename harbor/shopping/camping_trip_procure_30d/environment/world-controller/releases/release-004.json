@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "camp_rental_hold_release",
+    "camp_duplicate_charge_detected"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-06-24T09:00",
+  "previous": "release-003",
+  "token": "camping-trip-release-token-004-8f2a1c9d4e7b6a5c",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "upsert",
+      "conflict_keys": [
+        "tx_id"
+      ],
+      "values": {
+        "tx_id": "tx_camp_rental_hold",
+        "card_id": "card_camp_01",
+        "posted_at": "2026-06-24T08:40:00+08:00",
+        "amount_minor": 80000,
+        "merchant_name": "plateau campsite gear rentalauthorization hold",
+        "mcc": "7394",
+        "category": "camping business detaildeposit",
+        "kind": "adjustment"
+      },
+      "source_event_id": "camp_rental_hold_release",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "upsert",
+      "conflict_keys": [
+        "notification_id"
+      ],
+      "values": {
+        "notification_id": "ntf_camp_rental_hold",
+        "user_id": "usr_ye_chen",
+        "source": "credit_card",
+        "type": "transaction_update",
+        "subscription_id": "sub_camp_card",
+        "title": "camping business detailauthorization hold ¥800",
+        "body": "cardcamping business detailauthorization hold，uses available creditcamping business detailnot a final charge；pleaseverifycamping business detailconfirmcamping business detail。",
+        "payload_json": "{\"card_id\":\"card_camp_01\",\"tx_id\":\"tx_camp_rental_hold\"}",
+        "created_at": "2026-06-24T01:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "camp_rental_hold_release",
+      "operation_index": 1
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "upsert",
+      "conflict_keys": [
+        "tx_id"
+      ],
+      "values": {
+        "tx_id": "tx_camp_dup",
+        "card_id": "card_camp_01",
+        "posted_at": "2026-06-24T08:45:00+08:00",
+        "amount_minor": 24800,
+        "merchant_name": "REI US",
+        "mcc": "4814",
+        "category": "outdoor camping",
+        "kind": "purchase"
+      },
+      "source_event_id": "camp_duplicate_charge_detected",
+      "operation_index": 2
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "steps": {
+    "event-000": {
+      "scenario_time": "2026-06-15T09:00:00+08:00",
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "source_event_id": "camp_kickoff_inventory",
+      "before": []
+    },
+    "event-001": {
+      "scenario_time": "2026-06-15T09:35:00+08:00",
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "source_event_id": "camp_world_existing_gear",
+      "before": []
+    },
+    "event-002": {
+      "scenario_time": "2026-06-16T10:00:00+08:00",
+      "virtual_stage": 2,
+      "stage_boundary": false,
+      "source_event_id": "camp_verify_shelter",
+      "before": []
+    },
+    "event-003": {
+      "scenario_time": "2026-06-16T10:20:00+08:00",
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "source_event_id": "camp_spec_context",
+      "before": []
+    },
+    "event-004": {
+      "scenario_time": "2026-06-17T08:00:00+08:00",
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "source_event_id": "camp_weather_explained",
+      "before": [
+        "release-000"
+      ]
+    },
+    "event-005": {
+      "scenario_time": "2026-06-18T18:20:00+08:00",
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "source_event_id": "camp_rent_or_buy",
+      "before": []
+    },
+    "event-006": {
+      "scenario_time": "2026-06-19T09:10:00+08:00",
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "source_event_id": "camp_evidence_split",
+      "before": []
+    },
+    "event-007": {
+      "scenario_time": "2026-06-20T11:20:00+08:00",
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "source_event_id": "camp_split_shipment_request",
+      "before": [
+        "release-001"
+      ]
+    },
+    "event-008": {
+      "scenario_time": "2026-06-21T15:15:00+08:00",
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "source_event_id": "camp_coupon_analysis",
+      "before": [
+        "release-002"
+      ]
+    },
+    "event-009": {
+      "scenario_time": "2026-06-22T10:00:00+08:00",
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "source_event_id": "camp_party_change",
+      "before": []
+    },
+    "event-010": {
+      "scenario_time": "2026-06-23T13:20:00+08:00",
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "source_event_id": "camp_substitution_decision",
+      "before": [
+        "release-003"
+      ]
+    },
+    "event-011": {
+      "scenario_time": "2026-06-24T09:20:00+08:00",
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "source_event_id": "camp_hold_question",
+      "before": [
+        "release-004"
+      ]
+    },
+    "event-012": {
+      "scenario_time": "2026-06-25T10:00:00+08:00",
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "source_event_id": "camp_old_tent_offer",
+      "before": []
+    },
+    "event-013": {
+      "scenario_time": "2026-06-26T16:20:00+08:00",
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "source_event_id": "camp_fire_rule_request",
+      "before": [
+        "release-005"
+      ]
+    },
+    "event-014": {
+      "scenario_time": "2026-06-28T09:00:00+08:00",
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "source_event_id": "camp_budget_checkpoint",
+      "before": []
+    },
+    "event-015": {
+      "scenario_time": "2026-06-30T10:20:00+08:00",
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "source_event_id": "camp_pack_check_world",
+      "before": [
+        "release-006"
+      ]
+    },
+    "event-016": {
+      "scenario_time": "2026-07-02T09:00:00+08:00",
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "source_event_id": "camp_delivery_window",
+      "before": []
+    },
+    "event-017": {
+      "scenario_time": "2026-07-04T10:00:00+08:00",
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "source_event_id": "camp_final_gear_plan",
+      "before": []
+    },
+    "event-018": {
+      "scenario_time": "2026-07-06T14:00:00+08:00",
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "source_event_id": "camp_authorize_price_protection",
+      "before": []
+    },
+    "event-019": {
+      "scenario_time": "2026-07-08T18:25:00+08:00",
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "source_event_id": "camp_release_world",
+      "before": [
+        "release-007"
+      ]
+    },
+    "event-020": {
+      "scenario_time": "2026-07-10T11:30:00+08:00",
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "source_event_id": "camp_delivery_world",
+      "before": [
+        "release-008"
+      ]
+    },
+    "event-021": {
+      "scenario_time": "2026-07-11T16:20:00+08:00",
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "source_event_id": "camp_price_protection_world",
+      "before": [
+        "release-009"
+      ]
+    },
+    "event-022": {
+      "scenario_time": "2026-07-12T10:00:00+08:00",
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "source_event_id": "camp_three_day_closeout",
+      "before": []
+    },
+    "event-023": {
+      "scenario_time": "2026-07-13T10:00:00+08:00",
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "source_event_id": "camp_cross_service_reconcile",
+      "before": []
+    },
+    "event-024": {
+      "scenario_time": "2026-07-14T10:00:00+08:00",
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "source_event_id": "camp_final_archive",
+      "before": []
+    }
+  }
+}
