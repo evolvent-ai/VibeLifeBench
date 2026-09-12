@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "task": "ev_auto_balloon_refi_guard_30d",
+  "steps": {
+    "event-000": {
+      "source_event_id": "ev_kickoff",
+      "virtual_stage": 0,
+      "scenario_time": "2026-07-30T09:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-001": {
+      "source_event_id": "ev_inventory_request",
+      "virtual_stage": 1,
+      "scenario_time": "2026-07-30T14:30:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-002": {
+      "source_event_id": "ev_payoff_notice",
+      "virtual_stage": 2,
+      "scenario_time": "2026-07-31T08:35:00-04:00",
+      "stage_boundary": true,
+      "before": [
+        "release-000"
+      ]
+    },
+    "event-003": {
+      "source_event_id": "ev_quote_plan",
+      "virtual_stage": 3,
+      "scenario_time": "2026-07-31T13:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-004": {
+      "source_event_id": "ev_dealer_quote_notice",
+      "virtual_stage": 4,
+      "scenario_time": "2026-08-03T10:05:00-04:00",
+      "stage_boundary": true,
+      "before": [
+        "release-001"
+      ]
+    },
+    "event-005": {
+      "source_event_id": "ev_reserve_boundary",
+      "virtual_stage": 5,
+      "scenario_time": "2026-08-03T16:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-006": {
+      "source_event_id": "ev_credit_union_ack_notice",
+      "virtual_stage": 6,
+      "scenario_time": "2026-08-04T09:05:00-04:00",
+      "stage_boundary": true,
+      "before": [
+        "release-002"
+      ]
+    },
+    "event-007": {
+      "source_event_id": "ev_candidate_review",
+      "virtual_stage": 7,
+      "scenario_time": "2026-08-05T11:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-008": {
+      "source_event_id": "ev_credit_union_quote_notice",
+      "virtual_stage": 8,
+      "scenario_time": "2026-08-06T09:20:00-04:00",
+      "stage_boundary": true,
+      "before": [
+        "release-003"
+      ]
+    },
+    "event-009": {
+      "source_event_id": "ev_addon_review",
+      "virtual_stage": 9,
+      "scenario_time": "2026-08-06T15:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-010": {
+      "source_event_id": "ev_insurance_notice",
+      "virtual_stage": 10,
+      "scenario_time": "2026-08-07T10:05:00-04:00",
+      "stage_boundary": true,
+      "before": [
+        "release-004"
+      ]
+    },
+    "event-011": {
+      "source_event_id": "ev_calendar_request",
+      "virtual_stage": 11,
+      "scenario_time": "2026-08-10T09:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-012": {
+      "source_event_id": "ev_clarification_authorization",
+      "virtual_stage": 12,
+      "scenario_time": "2026-08-10T13:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-013": {
+      "source_event_id": "ev_clarification_check",
+      "virtual_stage": 13,
+      "scenario_time": "2026-08-10T17:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-014": {
+      "source_event_id": "ev_dealer_reply_notice",
+      "virtual_stage": 14,
+      "scenario_time": "2026-08-12T09:35:00-04:00",
+      "stage_boundary": true,
+      "before": [
+        "release-005"
+      ]
+    },
+    "event-015": {
+      "source_event_id": "ev_comparison_request",
+      "virtual_stage": 15,
+      "scenario_time": "2026-08-12T14:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-016": {
+      "source_event_id": "ev_payoff_update_notice",
+      "virtual_stage": 16,
+      "scenario_time": "2026-08-14T08:50:00-04:00",
+      "stage_boundary": true,
+      "before": [
+        "release-006"
+      ]
+    },
+    "event-017": {
+      "source_event_id": "ev_application_boundary",
+      "virtual_stage": 17,
+      "scenario_time": "2026-08-14T13:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-018": {
+      "source_event_id": "ev_credit_union_followup_authorization",
+      "virtual_stage": 18,
+      "scenario_time": "2026-08-17T10:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-019": {
+      "source_event_id": "ev_card_interest_notice",
+      "virtual_stage": 19,
+      "scenario_time": "2026-08-18T08:05:00-04:00",
+      "stage_boundary": true,
+      "before": [
+        "release-007"
+      ]
+    },
+    "event-020": {
+      "source_event_id": "ev_final_plan_request",
+      "virtual_stage": 20,
+      "scenario_time": "2026-08-20T14:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-021": {
+      "source_event_id": "ev_advertisement_warning",
+      "virtual_stage": 21,
+      "scenario_time": "2026-08-21T11:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-022": {
+      "source_event_id": "ev_credit_union_reply_notice",
+      "virtual_stage": 22,
+      "scenario_time": "2026-08-24T09:05:00-04:00",
+      "stage_boundary": true,
+      "before": [
+        "release-008"
+      ]
+    },
+    "event-023": {
+      "source_event_id": "ev_closeout",
+      "virtual_stage": 23,
+      "scenario_time": "2026-08-28T16:00:00-04:00",
+      "stage_boundary": true,
+      "before": []
+    }
+  }
+}

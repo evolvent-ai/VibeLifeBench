@@ -1,0 +1,35 @@
+{
+  "release_id": "release-004",
+  "before_step": "event-017",
+  "previous": "release-003",
+  "token": "college_529_room_board_guard_30d-release-004-token",
+  "operations": [
+    {
+      "server": "brokerage",
+      "table": "quotes_daily",
+      "op": "insert",
+      "values": {
+        "symbol": "SGOV",
+        "date": "2026-06-26",
+        "open_minor": 10025,
+        "close_minor": 10031,
+        "high_minor": 10035,
+        "low_minor": 10024,
+        "volume": 5400000
+      }
+    },
+    {
+      "server": "notion",
+      "table": "database_rows",
+      "op": "insert",
+      "values": {
+        "row_id": "row_20260628_education_source_review_c8r5",
+        "database_id": "db_finance_ledger",
+        "properties_json": "{\"title\":\"Education funding source recheck\",\"topic\":\"education funding liquidity\",\"source_url\":\"https://www.irs.gov/publications/p970\",\"market_date\":\"2026-06-26\",\"status\":\"reviewed\",\"no_distribution\":true}",
+        "created_time": "2026-06-28T08:00:00Z",
+        "last_edited_time": "2026-06-28T08:00:00Z",
+        "archived": 0
+      }
+    }
+  ]
+}

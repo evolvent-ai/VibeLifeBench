@@ -1,0 +1,38 @@
+{
+  "step": "event-022",
+  "virtual_stage": 22,
+  "source_event_id": "ira_s22_final_source_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "IRS beneficiary guidance, estimated-tax dates, and account-specific custodian instructions were rechecked and kept in a clear source hierarchy.",
+  "response_paraphrase": "Refreshed the source hierarchy and kept official IRS dates distinct from custodian processing instructions.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s22_final_source_check",
+      "virtual_stage": 22
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_irs_general_rule",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s22_estimated_tax_source",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s22_custodian_specific",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s22_source_requery",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 5
+}

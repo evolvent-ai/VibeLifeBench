@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "dli_leave_approval_insert"
+  ],
+  "source_time": "2026-07-31T08:00:00-07:00",
+  "token": "disability-leave-income-gap-30d-release-000-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<leave-approval-20260731@northstar.example>",
+        "subject": "Leave approval and payroll handoff",
+        "from_addr": "leave-team@northstar.example",
+        "to_addr_json": "[\"priya.singh@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-31T08:00:00-07:00",
+        "body_text": "Your leave is approved from August 3 through August 28. The first five workdays are unpaid under the employer plan. Payroll will issue a final regular-pay deposit on July 31; the disability administrator will send a separate claim schedule.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9301,
+        "size": 612,
+        "created_at": "2026-07-31T08:00:00-07:00"
+      },
+      "source_event_id": "dli_leave_approval_insert"
+    }
+  ]
+}

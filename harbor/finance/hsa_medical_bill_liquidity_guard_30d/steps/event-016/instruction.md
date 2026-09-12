@@ -1,0 +1,1 @@
+I authorize one payment from the ordinary cash account only: the verified medical-bill amount you recommend, up to 87500 minor units. Keep the deductible reserve untouched and archive the supporting receipt information.

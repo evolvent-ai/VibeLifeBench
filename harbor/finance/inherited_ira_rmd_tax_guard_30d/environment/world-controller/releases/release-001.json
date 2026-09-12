@@ -1,0 +1,25 @@
+{
+  "release_id": "release-001",
+  "previous": "release-000",
+  "token": "inherited-ira-rmd-tax-guard-30d-release-001",
+  "source_stage": 11,
+  "source_time": "2026-06-23T08:00:00-04:00",
+  "source_event_ids": ["ira_s11_bill_mutation"],
+  "operations": [
+    {
+      "server": "banking",
+      "table": "pending_payments",
+      "op": "insert",
+      "values": {
+        "pending_id": "pp_mut_iirtg_bill",
+        "account_id": "acct_checking_main",
+        "payee_id": "payee_card",
+        "amount_minor": 52000,
+        "memo": "Card autopay scheduled from checking; verify statement balance before changing",
+        "scheduled_for": "2026-06-25",
+        "status": "pending"
+      },
+      "source_event_id": "ira_s11_bill_mutation"
+    }
+  ]
+}

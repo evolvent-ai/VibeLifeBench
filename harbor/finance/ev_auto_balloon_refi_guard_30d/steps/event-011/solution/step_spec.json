@@ -1,0 +1,38 @@
+{
+  "step": "event-011",
+  "stage": 11,
+  "virtual_stage": 11,
+  "source_event_id": "ev_calendar_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Created the five requested non-duplicate review reminders.",
+  "response_paraphrase": "Five distinct review reminders are on the finance calendar.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_calendar_request"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s11_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s11_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}
+

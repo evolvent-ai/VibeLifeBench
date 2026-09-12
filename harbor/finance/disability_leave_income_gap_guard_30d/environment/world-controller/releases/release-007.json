@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "dli_claim_schedule_insert"
+  ],
+  "source_time": "2026-08-20T09:00:00-07:00",
+  "previous": "release-006",
+  "token": "disability-leave-income-gap-30d-release-007-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<claim-schedule-8472@harborbenefits.example>",
+        "subject": "Claim 8472 next payment review",
+        "from_addr": "claims@harborbenefits.example",
+        "to_addr_json": "[\"priya.singh@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-20T09:00:00-07:00",
+        "body_text": "The next claim review is August 25. No second payment has been approved. If the leave extension is certified, we will issue a separate determination.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "<claim-delay-8472@harborbenefits.example>",
+        "references_header": "<claim-received-8472@harborbenefits.example> <claim-delay-8472@harborbenefits.example>",
+        "headers_json": "{}",
+        "uid": 9304,
+        "size": 411,
+        "created_at": "2026-08-20T09:00:00-07:00"
+      },
+      "source_event_id": "dli_claim_schedule_insert"
+    }
+  ]
+}

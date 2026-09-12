@@ -1,0 +1,30 @@
+{
+  "release_id": "release-007",
+  "before_step": "event-019",
+  "previous": "release-006",
+  "token": "ev_auto_balloon_refi_guard_30d-release-007-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "statement_lines",
+      "op": "insert",
+      "values": {
+        "line_id": "sl_ev_interest_20260818",
+        "statement_id": "stmt_y_2025_12",
+        "posted_at": "2026-08-18T08:00:00-04:00",
+        "amount_minor": 3100,
+        "merchant_name": "Periodic interest charge",
+        "mcc": "6012",
+        "category": "finance",
+        "kind": "interest"
+      },
+      "postcondition": {
+        "table": "statement_lines",
+        "where": {
+          "line_id": "sl_ev_interest_20260818"
+        },
+        "count": 1
+      }
+    }
+  ]
+}

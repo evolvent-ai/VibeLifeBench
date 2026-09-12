@@ -1,0 +1,41 @@
+{
+  "step": "event-006",
+  "stage": 6,
+  "virtual_stage": 6,
+  "source_event_id": "ev_credit_union_ack_notice",
+  "stage_boundary": true,
+    "expected_env": {
+      "preceding_releases": [
+        "release-002"
+      ],
+      "released_mutations": [
+        "ev_credit_union_ack_insert"
+      ]
+  },
+  "response": "Recorded the Harbor Community Credit Union acknowledgment as pending with missing documents.",
+  "response_paraphrase": "The credit-union acknowledgment is retained as a pending request rather than an approval.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_credit_union_ack_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s6_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s6_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}

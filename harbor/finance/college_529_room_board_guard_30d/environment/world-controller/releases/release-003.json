@@ -1,0 +1,46 @@
+{
+  "release_id": "release-003",
+  "before_step": "event-015",
+  "previous": "release-002",
+  "token": "college_529_room_board_guard_30d-release-003-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<bursar.revised.allowance.20260626@university.example>",
+        "subject": "Revised room-and-board allowance and scholarship treatment",
+        "from_addr": "bursar@northlake.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-26T13:20:00Z",
+        "body_text": "Northlake confirmed half-time-or-greater enrollment and revised the academic-period room-and-board allowance to $8,460. The $1,200 housing scholarship reduces the family-supported housing amount; parking, deposits, furniture rental, and premium services remain outside the published allowance.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": "<bursar.allowance.20260625@university.example>",
+        "references_header": "<bursar.allowance.20260625@university.example>",
+        "headers_json": "{\"thread\":\"bursar-eligibility\",\"record_type\":\"allowance_revision\"}",
+        "uid": 8201,
+        "size": 704,
+        "created_at": "2026-06-26T13:20:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 66,
+        "unread_count": 12
+      },
+      "where": {
+        "id": 2
+      }
+    }
+  ]
+}

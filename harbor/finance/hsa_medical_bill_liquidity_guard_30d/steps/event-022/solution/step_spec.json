@@ -1,0 +1,36 @@
+{
+ "step": "event-022",
+ "stage": 21,
+ "event_id": "S21_wrong_sheet",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 21
+  }
+ ],
+ "response_paraphrase": "Unsupported worksheet claims were rejected after checking official source and plan records, and they were removed from the archive.",
+ "expected_env": {
+  "virtual_stage": 21,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s21_addressed",
+   "weight": 1.0
+  },
+  {
+   "check_id": "s21_tool_or_number",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s21_durable_gate",
+   "weight": 5.0
+  },
+  {
+   "check_id": "s21_crosslink",
+   "weight": 3.0
+  }
+ ],
+ "expected_stage_weight": 11.0,
+ "source_event_id": "S21_wrong_sheet"
+}

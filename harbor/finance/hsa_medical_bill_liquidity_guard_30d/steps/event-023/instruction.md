@@ -1,0 +1,1 @@
+Notification: Before closeout, reconcile the latest balances, card data, HSA records, source notes, calendar dates, and any action actually taken. Keep the deductible reserve and the authorization limit explicit in the user-facing summary.

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "S05_cashflow_mutation",
+    "S05_card_reversal"
+  ],
+  "source_stage": 5,
+  "source_time": "2026-06-18T08:00:00+08:00",
+  "previous": null,
+  "token": "credit_card_minimum_payment_escape_guard_30d-release-000-token",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_20260618_payrolladj_q7m2v",
+        "account_id": "acct_checking_main",
+        "posted_at": "2026-06-18T08:00:00Z",
+        "amount_minor": 146000,
+        "kind": "deposit",
+        "counterparty": "Northline Payroll",
+        "memo": "Payroll correction for a missed on-call premium; reconciled to the revised pay statement.",
+        "balance_after_minor": 2212000
+      }
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {
+        "balance_minor": 2212000
+      },
+      "where": {
+        "account_id": "acct_checking_main",
+        "balance_minor": 2066000
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "ub_20260618_feereversal_x8k4p",
+        "card_id": "card_primary",
+        "posted_at": "2026-06-18T08:05:00Z",
+        "amount_minor": -3900,
+        "merchant_name": "Card Bank late-fee reversal",
+        "mcc": "6012",
+        "category": "finance",
+        "kind": "adjustment"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 89520,
+        "available_credit_minor": 891480
+      },
+      "where": {
+        "card_id": "card_primary",
+        "unbilled_balance_minor": 93420
+      }
+    }
+  ]
+}

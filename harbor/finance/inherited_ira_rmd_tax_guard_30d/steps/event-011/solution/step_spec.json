@@ -1,0 +1,42 @@
+{
+  "step": "event-011",
+  "virtual_stage": 11,
+  "source_event_id": "ira_s11_bill_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "pp_mut_iirtg_bill"
+    ]
+  },
+  "response": "The 52000 minor-unit card autopay is visible as pending for 2026-06-25; pending money is not cash and not proof of settlement.",
+  "response_paraphrase": "Verified the 52000 scheduled outflow as pending rather than completed or available cash.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s11_bill_notice",
+      "virtual_stage": 11
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_pending_row_visible",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s11_banking_requery",
+      "weight": 1
+    },
+    {
+      "check_id": "s11_cashflow_pending",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s11_not_false_execution",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 5.25
+}

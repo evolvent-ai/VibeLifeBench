@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "dar_mortgage_quote_insert"
+  ],
+  "source_time": "2026-08-03 15:00:00+08:00",
+  "source_stage": 5,
+  "previous": "release-000",
+  "token": "divorce-asset-rebuild-30d-release-001-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "dar_mortgage_quote_insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<mortgage-review-5520@eastlake-bank.example>",
+        "subject": "Joint mortgage prepayment estimate",
+        "from_addr": "mortgage@eastlake-bank.example",
+        "to_addr_json": "[\"zhou.nan@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-03 15:00:00+08:00",
+        "body_text": "As of August 3, remaining principal is RMB 1,260,000 at a 4.10% contract annual rate, with a monthly payment of RMB 9,860. Partial prepayment requires at least RMB 50,000 and seven business days notice; no penalty appeared in this estimate. Any change to joint-borrower responsibility needs separate approval.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 6102,
+        "size": 309,
+        "created_at": "2026-08-03 15:00:00+08:00"
+      }
+    }
+  ]
+}

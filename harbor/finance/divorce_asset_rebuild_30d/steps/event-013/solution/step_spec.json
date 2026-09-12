@@ -1,0 +1,46 @@
+{
+  "step": "event-013",
+  "virtual_stage": 13,
+  "source_event_id": "dar_card_payment_authorization",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ]
+  },
+  "response": "Executed exactly the two authorized card payments, RMB 31,800 and RMB 12,800 from acct_checking_main, with no other payment or transfer.",
+  "response_paraphrase": "Only the approved RMB 31,800 and RMB 12,800 card settlements were made from the named checking source; nothing else moved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_card_payment_authorization",
+      "event_kind": "user_message",
+      "event_time": "2026-08-10T13:00:00+08:00",
+      "virtual_stage": 13,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s13_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

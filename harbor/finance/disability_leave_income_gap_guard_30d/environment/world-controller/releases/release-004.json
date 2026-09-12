@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "dli_medical_invoice_insert"
+  ],
+  "source_time": "2026-08-10T09:00:00-07:00",
+  "previous": "release-003",
+  "token": "disability-leave-income-gap-30d-release-004-release-token",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "pending_payments",
+      "op": "insert",
+      "values": {
+        "pending_id": "pp_dli_clinic_20260818",
+        "account_id": "acct_checking_main",
+        "payee_id": "payee_medical",
+        "amount_minor": 28600,
+        "memo": "Clinic invoice due after leave follow-up",
+        "scheduled_for": "2026-08-18",
+        "status": "pending"
+      },
+      "source_event_id": "dli_medical_invoice_insert"
+    }
+  ]
+}

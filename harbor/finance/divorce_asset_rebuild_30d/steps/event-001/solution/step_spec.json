@@ -1,0 +1,34 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "dar_inventory_request",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Built the asset, debt and cash-status inventory with received money, receivables, restricted reserves, emergency cash and both card statements kept separate.",
+  "response_paraphrase": "The opening balance sheet now distinguishes posted cash, money still due, protected and emergency pools, and each credit-card obligation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_inventory_request",
+      "event_kind": "user_message",
+      "event_time": "2026-07-30T14:00:00+08:00",
+      "virtual_stage": 1,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s1_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

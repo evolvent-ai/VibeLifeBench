@@ -1,0 +1,38 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "ira_s02_household_baseline",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Checking, card, brokerage cash, and the protected estate reserve were reconciled; ordinary cash remains the first liquidity lane.",
+  "response_paraphrase": "Compared everyday cash, card obligations, brokerage liquidity, and the restricted reserve before considering any distribution.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s02_household_baseline",
+      "virtual_stage": 2
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_cash_lanes",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s2_accounts_queried",
+      "weight": 1
+    },
+    {
+      "check_id": "s2_reserve_flag",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s2_backend_links",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

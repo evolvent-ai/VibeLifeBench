@@ -1,0 +1,1 @@
+I need help managing medical bills, HSA contribution room, card interest, and the deductible reserve without draining the medical deductible reserve. Please maintain a working archive and a Notion journal named "Elena HSA Medical 2026 - Journal". Use user_id usr_fin where a tool requires it.

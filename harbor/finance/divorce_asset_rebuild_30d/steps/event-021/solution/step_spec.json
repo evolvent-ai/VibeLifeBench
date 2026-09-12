@@ -1,0 +1,52 @@
+{
+  "step": "event-021",
+  "virtual_stage": 21,
+  "source_event_id": "dar_final_review",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007"
+    ]
+  },
+  "response": "Completed the 30-day backend-consistent summary of receipts, card payments, reserves, insurance, mortgage, pension and next review.",
+  "response_paraphrase": "The month-end report now agrees with service records for receipts, repayments, protected cash, coverage, housing debt, retirement funding and follow-up timing.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_final_review",
+      "event_kind": "user_message",
+      "event_time": "2026-08-26T14:00:00+08:00",
+      "virtual_stage": 21,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s21_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

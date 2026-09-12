@@ -1,0 +1,35 @@
+{
+  "step": "event-019",
+  "virtual_stage": 18,
+  "source_event_id": "S18_liquidity_shock",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "S18_email_mutation"
+    ]
+  },
+  "response": "The medical copay, $26 card interest, and removed $185 housing charge were reconciled while the tuition reserve stayed protected.",
+  "response_paraphrase": "The medical copay, $26 card interest, and removed $185 housing charge were reconciled while the tuition reserve stayed kept separate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S18_liquidity_shock"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s18_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

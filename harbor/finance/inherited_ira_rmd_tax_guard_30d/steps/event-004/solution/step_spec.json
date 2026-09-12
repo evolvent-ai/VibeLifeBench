@@ -1,0 +1,38 @@
+{
+  "step": "event-004",
+  "virtual_stage": 4,
+  "source_event_id": "ira_s04_card_due_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Card due, minimum payment, interest-bearing purchases, and the second card's not-yet-due expenses are recorded as separate lanes.",
+  "response_paraphrase": "Captured the due-date and interest picture while keeping the other card's unbilled travel and memorial charges separate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s04_card_due_notice",
+      "virtual_stage": 4
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s4_card_lane",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s4_card_queried",
+      "weight": 1
+    },
+    {
+      "check_id": "s4_pending_distinction",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s4_evidence",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

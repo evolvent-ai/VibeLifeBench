@@ -1,0 +1,1 @@
+A scheduled source update says the mortgage reference folder was refreshed with the June 11 Freddie Mac PMMS release and CFPB guidance on ARM indexes, margins, and rate caps. Verify those records and distinguish market reference rates from the servicer-specific ARM calculation.

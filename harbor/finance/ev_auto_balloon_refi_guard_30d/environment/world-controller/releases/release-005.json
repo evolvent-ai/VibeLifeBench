@@ -1,0 +1,41 @@
+{
+  "release_id": "release-005",
+  "before_step": "event-014",
+  "previous": "release-004",
+  "token": "ev_auto_balloon_refi_guard_30d-release-005-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<dealer-reply-3307@greenline.example>",
+        "subject": "Re: GreenLine payment illustration 3307",
+        "from_addr": "finance@greenline.example",
+        "to_addr_json": "[\"jordan.ellis@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-12T09:30:00-04:00",
+        "body_text": "The service contract and GAP product are optional. Removing both lowers amount financed to $20,840. The revised estimate is 7.45% APR for 48 months, $503 per month, $3,304 finance charge, and $24,144 total of payments. The $95 title fee remains.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9406,
+        "size": 528,
+        "created_at": "2026-08-12T09:30:00-04:00"
+      },
+      "postcondition": {
+        "table": "messages",
+        "where": {
+          "message_id": "<dealer-reply-3307@greenline.example>"
+        },
+        "count": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "release_id": "release-006",
+  "previous": "release-005",
+  "source_stage": 18,
+  "source_time": "2026-11-26T15:05:00+08:00",
+  "source_event_ids": ["s18_market_crash_mutation"],
+  "token": "finance-task-release-token",
+  "operations": [
+    {
+      "server": "brokerage",
+      "table": "quotes_daily",
+      "op": "insert",
+      "values": {
+        "symbol": "600519",
+        "date": "2026-11-26",
+        "open_minor": 145000,
+        "close_minor": 137000,
+        "high_minor": 146000,
+        "low_minor": 135000,
+        "volume": 3200000
+      }
+    },
+    {
+      "server": "brokerage",
+      "table": "quotes_daily",
+      "op": "insert",
+      "values": {
+        "symbol": "000333",
+        "date": "2026-11-26",
+        "open_minor": 6100,
+        "close_minor": 5600,
+        "high_minor": 6150,
+        "low_minor": 5520,
+        "volume": 8500000
+      }
+    },
+    {
+      "server": "brokerage",
+      "table": "quotes_daily",
+      "op": "insert",
+      "values": {
+        "symbol": "600036",
+        "date": "2026-11-26",
+        "open_minor": 3600,
+        "close_minor": 3300,
+        "high_minor": 3650,
+        "low_minor": 3280,
+        "volume": 7600000
+      }
+    },
+    {
+      "server": "brokerage",
+      "table": "portfolio_snapshots",
+      "op": "insert",
+      "values": {
+        "account_id": "brk_tang_master",
+        "date": "2026-11-26",
+        "cash_minor": 3500000000,
+        "positions_value_minor": 45200000000,
+        "total_value_minor": 48700000000
+      }
+    },
+    {
+      "server": "brokerage",
+      "table": "funds",
+      "op": "update",
+      "set": {
+        "current_nav_minor": 93
+      },
+      "where": {
+        "fund_code": "FAM004"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": "(SELECT id FROM folders WHERE name='INBOX')",
+        "message_id": "msg_s18_margin",
+        "subject": "Margin buffer notice for Tang family office portfolio",
+        "from_addr": "risk@huazheng.example",
+        "to_addr_json": "[\"shen.zhixing@lanshi.fo\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-11-26T15:05:00+08:00",
+        "body_text": "Preliminary LTV calculation shows buffer narrowed. If market remains weak, 24-hour collateral top-up may be requested. Short duration bonds and cash are acceptable collateral.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 9300,
+        "size": 175,
+        "created_at": "2026-11-26T15:05:00+08:00"
+      }
+    }
+  ]
+}

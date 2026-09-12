@@ -1,0 +1,31 @@
+{
+  "step": "event-011",
+  "virtual_stage": 10,
+  "source_event_id": "S10_scheduled_deadline",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The housing and bursar dates were verified for June 22 and June 29 and entered in the semester schedule.",
+  "response_paraphrase": "The housing and bursar dates were confirmed for June 22 and June 29 and entered in the semester schedule.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S10_scheduled_deadline"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s10_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

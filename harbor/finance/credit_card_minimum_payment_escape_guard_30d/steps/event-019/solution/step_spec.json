@@ -1,0 +1,39 @@
+{
+  "step": "event-019",
+  "virtual_stage": 18,
+  "source_event_id": "S18_liquidity_shock",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "S18_email_mutation"
+    ]
+  },
+  "response": "The 46500 utility repair and 2600 interest adjustment were verified, while checking and the protected 1580000 Rent and Emergency Reserve remain available.",
+  "response_paraphrase": "The 46500 utility repair obligation and 2600 interest line were verified alongside checking and the 1580000 protected reserve balance.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S18_liquidity_shock",
+      "virtual_stage": 18,
+      "event_kind": "world",
+      "event_time": "2026-06-30T10:15:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s18_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

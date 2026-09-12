@@ -1,0 +1,20 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "S00_kickoff",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Room-and-board scope is recorded, the Tuition Reserve Bucket remains protected, and the opening account, card, and journal evidence was verified.",
+  "response_paraphrase": "Room-and-board scope is documented, the Tuition Reserve Bucket remains kept separate, and the opening account, card, and journal evidence was confirmed.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S00_kickoff"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

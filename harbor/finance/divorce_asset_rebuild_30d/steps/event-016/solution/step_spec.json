@@ -1,0 +1,48 @@
+{
+  "step": "event-016",
+  "virtual_stage": 16,
+  "source_event_id": "dar_calendar_request",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005"
+    ]
+  },
+  "response": "Created the seven non-duplicated policy, school, mortgage, support, pension and 30-day review reminders.",
+  "response_paraphrase": "One reminder per required policy and financial milestone now exists, including the month-end and annual review points.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_calendar_request",
+      "event_kind": "user_message",
+      "event_time": "2026-08-12T14:00:00+08:00",
+      "virtual_stage": 16,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s16_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

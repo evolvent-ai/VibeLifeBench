@@ -1,0 +1,36 @@
+{
+ "step": "event-006",
+ "stage": 5,
+ "event_id": "S05_mutation_notice",
+ "response_paraphrase": "I verified the updated banking and card records and marked their new amounts as reconciled facts.",
+ "expected_env": {
+  "virtual_stage": 5,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s5_addressed",
+   "weight": 1.0
+  },
+  {
+   "check_id": "s5_tool_or_number",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s5_durable_gate",
+   "weight": 5.0
+  },
+  {
+   "check_id": "s5_crosslink",
+   "weight": 3.0
+  }
+ ],
+ "expected_stage_weight": 11.0,
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 5
+  }
+ ],
+ "source_event_id": "S05_mutation_notice"
+}

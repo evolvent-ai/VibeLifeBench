@@ -1,0 +1,41 @@
+{
+  "step": "event-016",
+  "stage": 16,
+  "virtual_stage": 16,
+  "source_event_id": "ev_payoff_update_notice",
+  "stage_boundary": true,
+    "expected_env": {
+      "preceding_releases": [
+        "release-006"
+      ],
+      "released_mutations": [
+        "ev_payoff_update_insert"
+      ]
+  },
+  "response": "Refreshed the comparison using the updated MetroDrive payoff and decision deadline.",
+  "response_paraphrase": "The newer payoff supersedes the earlier amount for the decision timeline.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_payoff_update_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s16_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s16_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}

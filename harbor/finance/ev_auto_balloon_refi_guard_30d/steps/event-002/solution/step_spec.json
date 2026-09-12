@@ -1,0 +1,41 @@
+{
+  "step": "event-002",
+  "stage": 2,
+  "virtual_stage": 2,
+  "source_event_id": "ev_payoff_notice",
+  "stage_boundary": true,
+    "expected_env": {
+      "preceding_releases": [
+        "release-000"
+      ],
+      "released_mutations": [
+        "ev_payoff_insert"
+      ]
+  },
+  "response": "Captured the MetroDrive payoff validity window and distinguished it from the scheduled balloon.",
+  "response_paraphrase": "The servicing statement is logged with its expiration and separate balloon amount.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_payoff_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s2_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s2_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}

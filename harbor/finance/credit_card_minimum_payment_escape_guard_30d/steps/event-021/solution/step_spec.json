@@ -1,0 +1,24 @@
+{
+  "step": "event-021",
+  "virtual_stage": 20,
+  "source_event_id": "S20_final_plan_request",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The final plan records the 519000 balance, 12975 minimum, 24.99% APR, and the executed 90000 extra payment; executed choices are recorded, deferred steps remain distinct, and the 1580000 Rent and Emergency Reserve is protected.",
+  "response_paraphrase": "The closeout plan confirms 519000 balance, 12975 minimum, 24.99% APR, and the executed 90000 payment; executed choices are recorded, deferred steps remain distinct, and the 1580000 reserve is protected.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S20_final_plan_request",
+      "virtual_stage": 20,
+      "event_kind": "user_message",
+      "event_time": "2026-07-02T18:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

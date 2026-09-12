@@ -1,0 +1,38 @@
+{
+  "step": "event-017",
+  "virtual_stage": 17,
+  "source_event_id": "ira_s17_reconciliation_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Authorization, the pending banking row, checking, card state, and protected reserve were reconciled; a pending item is not described as executed.",
+  "response_paraphrase": "Matched the authorization and live balances to backend state and left pending status described accurately.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s17_reconciliation_request",
+      "virtual_stage": 17
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_multiservice_requery",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s17_status_matches_backend",
+      "weight": 2
+    },
+    {
+      "check_id": "s17_reserve_still_protected",
+      "weight": 2
+    },
+    {
+      "check_id": "s17_authorization_result_separate",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 6.75
+}

@@ -1,0 +1,35 @@
+{
+  "step": "event-015",
+  "virtual_stage": 14,
+  "source_event_id": "S14_official_compare",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "S14_allowance_mutation"
+    ]
+  },
+  "response": "The revised $8,460 allowance and $1,200 scholarship leave $1,010 of headroom after $6,250 of family-supported room and meals; current optional charges total $1,560.",
+  "response_paraphrase": "The official update leaves $6,250 family-supported with $1,010 remaining, while optional charges total $1,560 at this stage.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S14_official_compare"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s14_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

@@ -1,0 +1,38 @@
+{
+  "step": "event-020",
+  "virtual_stage": 20,
+  "source_event_id": "ira_s20_closeout_draft",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The draft separates verified facts, estimates, authorized actions, executed actions, pending items, and forbidden reserve uses, with CPA and custodian reviews.",
+  "response_paraphrase": "Organized the draft into fact, estimate, authority, outcome, pending, and prohibited-use sections with review dates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s20_closeout_draft",
+      "virtual_stage": 20
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_verified_and_estimated",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s20_authorized_and_executed",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s20_pending_and_prohibited",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s20_review_dates",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 5.25
+}

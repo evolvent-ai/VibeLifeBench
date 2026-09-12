@@ -1,0 +1,36 @@
+{
+ "step": "event-018",
+ "stage": 17,
+ "event_id": "S17_tool_audit",
+ "response_paraphrase": "I verified the account and card review, changed facts, protected state, and locations of supporting notes.",
+ "expected_env": {
+  "virtual_stage": 17,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s17_addressed",
+   "weight": 1.0
+  },
+  {
+   "check_id": "s17_tool_or_number",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s17_durable_gate",
+   "weight": 5.0
+  },
+  {
+   "check_id": "s17_crosslink",
+   "weight": 3.0
+  }
+ ],
+ "expected_stage_weight": 11.0,
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 17
+  }
+ ],
+ "source_event_id": "S17_tool_audit"
+}

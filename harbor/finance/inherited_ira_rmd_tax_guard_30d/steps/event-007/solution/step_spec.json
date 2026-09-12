@@ -1,0 +1,38 @@
+{
+  "step": "event-007",
+  "virtual_stage": 7,
+  "source_event_id": "ira_s07_distribution_scenarios",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Conservative distribution and federal withholding scenarios were recorded as estimates only; no custodian election or sale was authorized.",
+  "response_paraphrase": "Set out conservative taxable-distribution and withholding ranges without turning them into an election or sale.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s07_distribution_scenarios",
+      "virtual_stage": 7
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_scenarios",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s7_finance_query",
+      "weight": 1
+    },
+    {
+      "check_id": "s7_not_executed",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s7_source_link",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

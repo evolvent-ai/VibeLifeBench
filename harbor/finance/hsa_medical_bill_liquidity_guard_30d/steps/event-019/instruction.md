@@ -1,0 +1,1 @@
+Notification: A same-week household expense has arrived alongside the hospital bill and card due date. Re-rank the plan using verified due dates, interest cost, HSA rules, and available non-reserve cash.

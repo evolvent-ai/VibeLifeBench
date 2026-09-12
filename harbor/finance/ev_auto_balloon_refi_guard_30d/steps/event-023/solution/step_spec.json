@@ -1,0 +1,38 @@
+{
+  "step": "event-023",
+  "stage": 23,
+  "virtual_stage": 23,
+  "source_event_id": "ev_closeout",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Closed the review with verified costs, sent communications, pending decisions, protected funds, and the next authorization.",
+  "response_paraphrase": "The 30-day review closes with evidence, communications, protection, and a personal next step.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_closeout"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s23_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s23_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}
+

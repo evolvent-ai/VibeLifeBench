@@ -1,0 +1,51 @@
+{
+  "step": "event-020",
+  "virtual_stage": 20,
+  "source_event_id": "dar_policy_confirmation_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007"
+    ]
+  },
+  "response": "Marked the daughter's medical policy renewed while the critical-illness premium and relationship change remain pending.",
+  "response_paraphrase": "Medical coverage for the daughter is confirmed continuous, whereas the other premium and the policy-party amendment are still open.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_policy_confirmation_notice",
+      "event_kind": "notification",
+      "event_time": "2026-08-21T10:05:00+08:00",
+      "virtual_stage": 20,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s20_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

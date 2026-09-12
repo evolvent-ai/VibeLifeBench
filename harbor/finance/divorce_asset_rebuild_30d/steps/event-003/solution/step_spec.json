@@ -1,0 +1,38 @@
+{
+  "step": "event-003",
+  "virtual_stage": 3,
+  "source_event_id": "dar_card_review",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "response": "Verified both current card statements, unbilled charges, minimum payments, due dates and APRs without making a payment.",
+  "response_paraphrase": "Both cards were reviewed for billed and pending amounts, minimums, deadlines and borrowing cost, and neither card was paid.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_card_review",
+      "event_kind": "user_message",
+      "event_time": "2026-07-31T13:00:00+08:00",
+      "virtual_stage": 3,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s3_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

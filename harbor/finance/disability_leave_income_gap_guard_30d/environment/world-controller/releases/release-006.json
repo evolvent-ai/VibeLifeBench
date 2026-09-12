@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "dli_refund_insert"
+  ],
+  "source_time": "2026-08-17T10:00:00-07:00",
+  "previous": "release-005",
+  "token": "disability-leave-income-gap-30d-release-006-release-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "source_event_id": "dli_refund_insert",
+      "values": {
+        "tx_id": "ub_dli_pharmacy_refund_20260817",
+        "card_id": "card_primary",
+        "posted_at": "2026-08-17T10:00:00-07:00",
+        "amount_minor": -7200,
+        "merchant_name": "Cedar Pharmacy refund",
+        "mcc": "5912",
+        "category": "medical",
+        "kind": "refund"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "source_event_id": "dli_refund_insert",
+      "where": {
+        "card_id": "card_primary"
+      },
+      "set": {
+        "unbilled_balance_minor": 139800,
+        "available_credit_minor": 1053631
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "step": "event-010",
+  "virtual_stage": 9,
+  "source_event_id": "S09_user_numbers",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The qualified ceiling, scholarship offset, supported costs, and unsupported excess were calculated from school records.",
+  "response_paraphrase": "The review reached this result: the qualified ceiling, scholarship offset, supported costs, and unsupported excess were calculated from school records.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S09_user_numbers"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s9_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

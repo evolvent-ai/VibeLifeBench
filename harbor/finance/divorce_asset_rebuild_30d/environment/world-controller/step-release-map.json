@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "step_count": 23,
+  "steps": {
+    "event-000": {
+      "source_event_id": "dar_kickoff",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-30T09:00:00+08:00",
+      "after": []
+    },
+    "event-001": {
+      "source_event_id": "dar_inventory_request",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-30T14:00:00+08:00",
+      "after": []
+    },
+    "event-002": {
+      "source_event_id": "dar_support_delay_notice",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-31T08:35:00+08:00",
+      "after": []
+    },
+    "event-003": {
+      "source_event_id": "dar_card_review",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-31T13:00:00+08:00",
+      "after": []
+    },
+    "event-004": {
+      "source_event_id": "dar_lpr_review",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-03T09:00:00+08:00",
+      "after": []
+    },
+    "event-005": {
+      "source_event_id": "dar_mortgage_quote_notice",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-03T15:05:00+08:00",
+      "after": []
+    },
+    "event-006": {
+      "source_event_id": "dar_mortgage_choice",
+      "before": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-04T10:00:00+08:00",
+      "after": []
+    },
+    "event-007": {
+      "source_event_id": "dar_policy_review",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-04T15:00:00+08:00",
+      "after": []
+    },
+    "event-008": {
+      "source_event_id": "dar_policy_notice",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-05T09:35:00+08:00",
+      "after": []
+    },
+    "event-009": {
+      "source_event_id": "dar_child_fund_boundary",
+      "before": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-06T11:00:00+08:00",
+      "after": []
+    },
+    "event-010": {
+      "source_event_id": "dar_school_notice",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-07T10:05:00+08:00",
+      "after": []
+    },
+    "event-011": {
+      "source_event_id": "dar_cashflow_plan",
+      "before": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-07T15:00:00+08:00",
+      "after": []
+    },
+    "event-012": {
+      "source_event_id": "dar_support_deposit_notice",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-10T08:25:00+08:00",
+      "after": []
+    },
+    "event-013": {
+      "source_event_id": "dar_card_payment_authorization",
+      "before": [],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-10T13:00:00+08:00",
+      "after": []
+    },
+    "event-014": {
+      "source_event_id": "dar_payment_verification",
+      "before": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-10T17:30:00+08:00",
+      "after": []
+    },
+    "event-015": {
+      "source_event_id": "dar_card_interest_notice",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-12T08:05:00+08:00",
+      "after": []
+    },
+    "event-016": {
+      "source_event_id": "dar_calendar_request",
+      "before": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-12T14:00:00+08:00",
+      "after": []
+    },
+    "event-017": {
+      "source_event_id": "dar_pension_review",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-14T10:00:00+08:00",
+      "after": []
+    },
+    "event-018": {
+      "source_event_id": "dar_mortgage_update_notice",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-17T09:35:00+08:00",
+      "after": []
+    },
+    "event-019": {
+      "source_event_id": "dar_decision_review",
+      "before": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-19T15:00:00+08:00",
+      "after": []
+    },
+    "event-020": {
+      "source_event_id": "dar_policy_confirmation_notice",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-21T10:05:00+08:00",
+      "after": []
+    },
+    "event-021": {
+      "source_event_id": "dar_final_review",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-26T14:00:00+08:00",
+      "after": []
+    },
+    "event-022": {
+      "source_event_id": "dar_closeout",
+      "before": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-28T16:00:00+08:00",
+      "after": []
+    }
+  }
+}

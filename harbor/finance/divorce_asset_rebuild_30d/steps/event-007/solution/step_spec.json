@@ -1,0 +1,40 @@
+{
+  "step": "event-007",
+  "virtual_stage": 7,
+  "source_event_id": "dar_policy_review",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001"
+    ]
+  },
+  "response": "Reviewed both policy records, premium timing, payment accounts and the still-incomplete policyholder or beneficiary change.",
+  "response_paraphrase": "The two insurance contracts, debit arrangements, renewal dates and unfinished party-change request have been checked independently.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_policy_review",
+      "event_kind": "user_message",
+      "event_time": "2026-08-04T15:00:00+08:00",
+      "virtual_stage": 7,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s7_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

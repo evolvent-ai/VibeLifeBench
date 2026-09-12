@@ -1,0 +1,46 @@
+{
+  "release_id": "release-004",
+  "before_step": "event-015",
+  "previous": "release-003",
+  "token": "auto_loan_gap_refi_guard_30d-release-004-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<ridgeview.worksheet.20260626@lender.example>",
+        "subject": "Revised refinance cost worksheet",
+        "from_addr": "loan-team@ridgeviewcu.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-26T13:20:00Z",
+        "body_text": "The revised worksheet uses a verified payoff of $18,801.10 through June 26. With the separate $195 origination fee, base amount financed is $18,996.10 at 8.49% APR for 48 months; estimated payment is $468.13, total payments are $22,470.33, and estimated interest plus fee is $3,669.23. GAP and the service contract remain excluded unless separately requested and approved.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": "<ridgeview.payoff.20260625@lender.example>",
+        "references_header": "<ridgeview.payoff.20260625@lender.example>",
+        "headers_json": "{\"thread\":\"ridgeview-refi\",\"record_type\":\"cost_worksheet\"}",
+        "uid": 8201,
+        "size": 645,
+        "created_at": "2026-06-26T13:20:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 68,
+        "unread_count": 16
+      },
+      "where": {
+        "id": 2
+      }
+    }
+  ]
+}

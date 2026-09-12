@@ -1,0 +1,40 @@
+{
+  "step": "event-025",
+  "virtual_stage": 22,
+  "source_event_id": "S22_constraint_recap",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The protected Rent and Emergency Reserve and rent reserve were rechecked; pending and completed payments remain distinct, with no cash advance and no investment trade.",
+  "response_paraphrase": "The protected rent reserve and card records were rechecked; pending versus completed payments remain separate, with no cash advance or investment trade.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S22_constraint_recap",
+      "virtual_stage": 22,
+      "event_kind": "notification",
+      "event_time": "2026-07-04T12:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s22_evidence",
+      "weight": 4.0,
+      "expected": true
+    },
+    {
+      "check_id": "s22_boundary",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 10.0
+}

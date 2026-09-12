@@ -1,0 +1,24 @@
+{
+  "step": "event-026",
+  "virtual_stage": 23,
+  "source_event_id": "S23_closeout",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Closeout records show the 519000 balance and 12975 minimum payment at 24.99% APR. The payoff plan uses an extra payment of 90000, preserves the 1580000 rent reserve, and rechecks cashflow and the due date. The 90000 card payment was executed and completed. Pending bills and deferred steps remain distinct, and rejected choices are documented.",
+  "response_paraphrase": "Final notes reconcile the 519000 balance, 12975 minimum payment, and 24.99% APR. The payoff plan keeps the 1580000 rent reserve protected, uses an extra payment of 90000, and checks cashflow and the due date. The 90000 card payment was executed and completed; pending bills, deferred steps, and rejected choices remain separate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S23_closeout",
+      "virtual_stage": 23,
+      "event_kind": "user_message",
+      "event_time": "2026-07-05T16:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

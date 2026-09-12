@@ -1,0 +1,38 @@
+{
+  "step": "event-008",
+  "virtual_stage": 8,
+  "source_event_id": "ira_s08_market_move",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Market and equity movement was checked in the household brokerage account; no sale order was placed and the inherited account remains separate.",
+  "response_paraphrase": "Reviewed the brokerage move and preserved the separation between household holdings and the inherited account.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s08_market_move",
+      "virtual_stage": 8
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_market_record",
+      "weight": 1
+    },
+    {
+      "check_id": "s8_brokerage_query",
+      "weight": 1
+    },
+    {
+      "check_id": "s8_account_separation",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s8_no_order_claim",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

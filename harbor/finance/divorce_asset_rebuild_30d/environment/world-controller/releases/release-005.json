@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "dar_card_interest_insert"
+  ],
+  "source_time": "2026-08-12 08:00:00+08:00",
+  "source_stage": 15,
+  "previous": "release-004",
+  "token": "divorce-asset-rebuild-30d-release-005-release-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 548600,
+        "available_credit_minor": 7451400
+      },
+      "where": {
+        "card_id": "card_cmb_family"
+      },
+      "source_event_id": "dar_card_interest_insert"
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "ub_dar_interest_20260812",
+        "card_id": "card_cmb_family",
+        "posted_at": "2026-08-12T08:00:00+08:00",
+        "amount_minor": 48600,
+        "merchant_name": "Revolving interest adjustment",
+        "mcc": "6012",
+        "category": "Finance",
+        "kind": "interest"
+      },
+      "source_event_id": "dar_card_interest_insert"
+    }
+  ]
+}

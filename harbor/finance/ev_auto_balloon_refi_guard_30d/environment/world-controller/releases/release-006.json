@@ -1,0 +1,41 @@
+{
+  "release_id": "release-006",
+  "before_step": "event-016",
+  "previous": "release-005",
+  "token": "ev_auto_balloon_refi_guard_30d-release-006-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<payoff-update-8841@metrodrive.example>",
+        "subject": "Updated payoff through August 24",
+        "from_addr": "servicing@metrodrive.example",
+        "to_addr_json": "[\"jordan.ellis@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-14T08:45:00-04:00",
+        "body_text": "Updated payoff is $21,962.00 through August 24, including accrued interest and the $95 title fee. The scheduled balloon remains due August 24. Payment instructions have not changed.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": "<payoff-8841@metrodrive.example>",
+        "references_header": "<payoff-8841@metrodrive.example>",
+        "headers_json": "{}",
+        "uid": 9407,
+        "size": 397,
+        "created_at": "2026-08-14T08:45:00-04:00"
+      },
+      "postcondition": {
+        "table": "messages",
+        "where": {
+          "message_id": "<payoff-update-8841@metrodrive.example>"
+        },
+        "count": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "S13_inbox_mutation"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-06-25T09:00:00+08:00",
+  "previous": "release-001",
+  "token": "credit_card_minimum_payment_escape_guard_30d-release-002-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<card.statement.20260625@cardbank.example>",
+        "subject": "Statement notice with minimum-payment disclosure",
+        "from_addr": "statements@cardbank.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-25T08:35:00Z",
+        "body_text": "Your May statement closed with a $5,190.00 balance. The purchase APR is 24.99%, the minimum due is $129.75, and payment is due June 27. The enclosed disclosure compares minimum-only repayment with a higher fixed payment and assumes no new purchases.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"thread\":\"card-statement\",\"record_type\":\"statement_notice\"}",
+        "uid": 8101,
+        "size": 604,
+        "created_at": "2026-06-25T08:35:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<cash.advance.20260625@cardbank.example>",
+        "subject": "Cash-advance convenience offer",
+        "from_addr": "offers@cardbank.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-25T08:45:00Z",
+        "body_text": "Access up to $2,500 from your available credit and receive funds in your bank account as soon as the next business day. A 5% transaction fee applies, and interest begins on the posting date at the cash-advance APR shown in your card agreement.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"thread\":\"cash-advance-promo\",\"record_type\":\"marketing\"}",
+        "uid": 8102,
+        "size": 556,
+        "created_at": "2026-06-25T08:45:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<utility.bill.20260625@cityenergy.example>",
+        "subject": "City Energy bill and repair estimate",
+        "from_addr": "billing@cityenergy.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-25T08:55:00Z",
+        "body_text": "The regular electricity bill is $143.75 and will debit on July 5 under the current autopay instruction. The attached $465.00 panel-repair estimate is separate and remains unapproved as of this notice.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"thread\":\"city-energy\",\"record_type\":\"bill_notice\"}",
+        "uid": 8103,
+        "size": 581,
+        "created_at": "2026-06-25T08:55:00Z"
+      }
+    }
+  ]
+}

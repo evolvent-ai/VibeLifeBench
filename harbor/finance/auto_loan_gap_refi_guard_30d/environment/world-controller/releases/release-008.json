@@ -1,0 +1,46 @@
+{
+  "release_id": "release-008",
+  "before_step": "event-022",
+  "previous": "release-007",
+  "token": "auto_loan_gap_refi_guard_30d-release-008-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<dealer.blended.payment.20260703@dealer.example>",
+        "subject": "Dealer payment comparison worksheet",
+        "from_addr": "finance-desk@northgateauto.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-03T08:55:00Z",
+        "body_text": "The dealer worksheet folds the $1,240 warranty into principal and highlights a lower monthly payment from a longer term. It omits total interest and does not identify the warranty as optional, so it is not a complete total-cost comparison.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": "<dealer.addons.20260625@dealer.example>",
+        "references_header": "<dealer.addons.20260625@dealer.example>",
+        "headers_json": "{\"thread\":\"northgate-addons\",\"record_type\":\"dealer_worksheet\"}",
+        "uid": 9101,
+        "size": 632,
+        "created_at": "2026-07-03T08:55:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 70,
+        "unread_count": 18
+      },
+      "where": {
+        "id": 2
+      }
+    }
+  ]
+}

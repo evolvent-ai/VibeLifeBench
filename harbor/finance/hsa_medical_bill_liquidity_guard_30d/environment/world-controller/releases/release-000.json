@@ -1,0 +1,60 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "token": "hsa_medical_bill_liquidity_guard_30d-release-000-token-2026",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_payroll_adj_20260618",
+        "account_id": "acct_checking_main",
+        "posted_at": "2026-06-18T08:00:00Z",
+        "amount_minor": 146000,
+        "kind": "deposit",
+        "counterparty": "Payroll adjustment",
+        "memo": "Payroll correction posted after the regular pay cycle",
+        "balance_after_minor": 1072000
+      }
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {
+        "balance_minor": 1072000
+      },
+      "where": {
+        "account_id": "acct_checking_main"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "ub_card_adj_20260618",
+        "card_id": "card_primary",
+        "posted_at": "2026-06-18T08:05:00Z",
+        "amount_minor": 3900,
+        "merchant_name": "Card account adjustment pending review",
+        "mcc": "6012",
+        "category": "finance",
+        "kind": "adjustment"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 114060,
+        "available_credit_minor": 884100
+      },
+      "where": {
+        "card_id": "card_primary"
+      }
+    }
+  ]
+}

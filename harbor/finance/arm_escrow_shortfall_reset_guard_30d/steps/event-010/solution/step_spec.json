@@ -1,0 +1,36 @@
+{
+ "step": "event-010",
+ "stage": 9,
+ "event_id": "S09_user_numbers",
+ "response_paraphrase": "I verified the official rate anchors, servicer terms, and account figures while keeping assumptions separate.",
+ "expected_env": {
+  "virtual_stage": 9,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s9_addressed",
+   "weight": 1.0
+  },
+  {
+   "check_id": "s9_tool_or_number",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s9_durable_gate",
+   "weight": 5.0
+  },
+  {
+   "check_id": "s9_crosslink",
+   "weight": 3.0
+  }
+ ],
+ "expected_stage_weight": 11.0,
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 9
+  }
+ ],
+ "source_event_id": "S09_user_numbers"
+}

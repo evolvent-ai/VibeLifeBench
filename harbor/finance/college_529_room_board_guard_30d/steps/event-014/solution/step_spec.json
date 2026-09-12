@@ -1,0 +1,35 @@
+{
+  "step": "event-014",
+  "virtual_stage": 13,
+  "source_event_id": "S13_email_probe",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "S13_inbox_mutation"
+    ]
+  },
+  "response": "The housing invoice, bursar request, and lender marketing message were separated using official school evidence.",
+  "response_paraphrase": "The review reached this result: the housing invoice, bursar request, and lender marketing message were separated using official school evidence.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S13_email_probe"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s13_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

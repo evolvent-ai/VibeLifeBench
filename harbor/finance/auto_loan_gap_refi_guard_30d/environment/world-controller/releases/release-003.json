@@ -1,0 +1,72 @@
+{
+  "release_id": "release-003",
+  "before_step": "event-014",
+  "previous": "release-002",
+  "token": "auto_loan_gap_refi_guard_30d-release-003-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<ridgeview.payoff.20260625@lender.example>",
+        "subject": "Payoff verification received for refinance review",
+        "from_addr": "loan-team@ridgeviewcu.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-25T08:45:00Z",
+        "body_text": "Ridgeview Credit Union received the servicer payoff letter. The 8.49% quote remains subject to the stated term, a $195 origination fee, title work, and final payoff verification; no GAP or service contract is included.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"thread\":\"ridgeview-refi\",\"record_type\":\"lender_update\"}",
+        "uid": 8101,
+        "size": 612,
+        "created_at": "2026-06-25T08:45:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<dealer.addons.20260625@dealer.example>",
+        "subject": "Optional protection products for the proposed refinance",
+        "from_addr": "finance-desk@northgateauto.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-25T08:55:00Z",
+        "body_text": "Northgate Auto listed GAP at $895 and a tire-and-wheel service contract at $1,240. Both would be added to principal and interest if selected; the email does not compare existing insurance coverage or total refinance cost.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"thread\":\"northgate-addons\",\"record_type\":\"marketing\"}",
+        "uid": 8102,
+        "size": 571,
+        "created_at": "2026-06-25T08:55:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 67,
+        "unread_count": 15
+      },
+      "where": {
+        "id": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "step": "event-008",
+  "virtual_stage": 7,
+  "source_event_id": "S07_card_pressure",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The card statement shows balance 519000, minimum 12975, APR 24.99%, and due date 2026-06-27; minimum-only is too slow.",
+  "response_paraphrase": "The live card terms are 519000 balance, 12975 minimum, 24.99% APR, and a 2026-06-27 due date; minimum-only is inadequate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S07_card_pressure",
+      "virtual_stage": 7,
+      "event_kind": "notification",
+      "event_time": "2026-06-19T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s7_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

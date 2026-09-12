@@ -1,0 +1,36 @@
+{
+ "step": "event-017",
+ "stage": 16,
+ "event_id": "S16_market_notice",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 16
+  }
+ ],
+ "response_paraphrase": "The updated cash-equivalent quote and journal row were verified and reconciled before any investment decision.",
+ "expected_env": {
+  "virtual_stage": 16,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s16_addressed",
+   "weight": 1.0
+  },
+  {
+   "check_id": "s16_tool_or_number",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s16_durable_gate",
+   "weight": 5.0
+  },
+  {
+   "check_id": "s16_crosslink",
+   "weight": 3.0
+  }
+ ],
+ "expected_stage_weight": 11.0,
+ "source_event_id": "S16_market_notice"
+}

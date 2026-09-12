@@ -1,0 +1,41 @@
+{
+  "step": "event-008",
+  "virtual_stage": 8,
+  "source_event_id": "dar_policy_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ]
+  },
+  "response": "Updated the RMB 7,200 and RMB 9,600 policy lanes for August 16 and 22 while leaving the relationship change unsubmitted.",
+  "response_paraphrase": "The two August premiums now occupy separate cash-flow slots, while the administrative relationship amendment remains outstanding.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_policy_notice",
+      "event_kind": "notification",
+      "event_time": "2026-08-05T09:35:00+08:00",
+      "virtual_stage": 8,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s8_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

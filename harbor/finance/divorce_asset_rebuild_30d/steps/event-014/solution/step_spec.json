@@ -1,0 +1,46 @@
+{
+  "step": "event-014",
+  "virtual_stage": 14,
+  "source_event_id": "dar_payment_verification",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ]
+  },
+  "response": "Verified both payment objects and reconciled their separately applied amounts and current balances in the backend.",
+  "response_paraphrase": "The two resulting payment records were checked one by one against their applied sums and the cards' updated positions.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_payment_verification",
+      "event_kind": "user_message",
+      "event_time": "2026-08-10T17:30:00+08:00",
+      "virtual_stage": 14,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s14_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

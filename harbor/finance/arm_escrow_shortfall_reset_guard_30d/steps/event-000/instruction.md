@@ -1,0 +1,1 @@
+Maya Chen said: I need help managing the ARM reset, escrow shortage, card interest, and home reserve without draining the home reserve. Maintain a working archive and a Notion journal named "Maya ARM Escrow Shortfall Reset 2026 - Journal". Use user ID `usr_fin` when a tool requires it.

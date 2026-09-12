@@ -1,0 +1,35 @@
+{
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "inherited-ira-rmd-tax-guard-30d-release-003",
+  "source_stage": 18,
+  "source_time": "2026-06-30T08:30:00-04:00",
+  "source_event_ids": ["ira_s18_email_mutation"],
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<mut_iirtg_liquidity@example.com>",
+        "subject": "Beneficiary distribution processing timeline",
+        "from_addr": "distributions@northstarcustody.example",
+        "to_addr_json": "[\"leah.morgan@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-30T12:30:00Z",
+        "body_text": "Northstar Custody requires a signed election and withholding instruction; ordinary processing begins after both are accepted. This message is not a distribution confirmation.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 9901,
+        "size": 226,
+        "created_at": "2026-06-30T12:30:00Z"
+      },
+      "source_event_id": "ira_s18_email_mutation"
+    }
+  ]
+}

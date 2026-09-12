@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "S18_email_mutation"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-06-30T08:30:00+08:00",
+  "previous": "release-004",
+  "token": "credit_card_minimum_payment_escape_guard_30d-release-005-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<utility.repair.20260630@cityenergy.example>",
+        "subject": "Electrical repair approval and payment date",
+        "from_addr": "billing@cityenergy.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-30T08:30:00Z",
+        "body_text": "City Energy approved the electrical panel repair at $465.00. Payment is due July 2, and the regular July 5 utility bill remains on its existing autopay schedule.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": "<utility.bill.20260625@cityenergy.example>",
+        "references_header": "<utility.bill.20260625@cityenergy.example>",
+        "headers_json": "{\"thread\":\"city-energy\",\"record_type\":\"liquidity_change\"}",
+        "uid": 9001,
+        "size": 621,
+        "created_at": "2026-06-30T08:30:00Z"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "ub_20260630_interest_n5t7q",
+        "card_id": "card_primary",
+        "posted_at": "2026-06-30T08:30:00Z",
+        "amount_minor": 2600,
+        "merchant_name": "Card Bank periodic interest",
+        "mcc": "6012",
+        "category": "finance",
+        "kind": "interest"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 92120,
+        "available_credit_minor": 888880
+      },
+      "where": {
+        "card_id": "card_primary",
+        "unbilled_balance_minor": 89520
+      }
+    }
+  ]
+}

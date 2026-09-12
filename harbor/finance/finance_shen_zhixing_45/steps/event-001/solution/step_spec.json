@@ -1,0 +1,33 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "s1_scheduled_baseline",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The Tang family-office controls were reviewed and the relevant risk, authorization, liquidity, and succession records were updated.",
+  "response_paraphrase": "Stage 1 records now reflect the reviewed control decisions, with approvals and unresolved risks preserved for the Tang family office.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s1_scheduled_baseline",
+      "virtual_stage": 1,
+      "event_kind": "notification",
+      "event_time": "2026-11-02T08:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_auth_hardcode_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s1_core_backend_and_log",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

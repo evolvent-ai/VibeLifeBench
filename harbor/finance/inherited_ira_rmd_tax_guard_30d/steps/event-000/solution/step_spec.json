@@ -1,0 +1,38 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "ira_s00_kickoff",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Scope recorded: the inherited IRA, beneficiary facts, taxes, household bills, and protected estate reserve are now tracked with explicit confirmation gates.",
+  "response_paraphrase": "Opened an evidence-led record for the inherited account, taxes, household obligations, and the reserve boundary.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s00_kickoff",
+      "virtual_stage": 0
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_scope",
+      "weight": 1
+    },
+    {
+      "check_id": "s0_initial_query",
+      "weight": 1
+    },
+    {
+      "check_id": "s0_reserve_boundary",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s0_trace_link",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

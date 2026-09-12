@@ -1,0 +1,38 @@
+{
+  "step": "event-003",
+  "virtual_stage": 3,
+  "source_event_id": "ira_s03_cpa_questions",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The CPA fact list covers date of death, RMD history, beneficiary registration, year-of-death amount, and 2026 income; no distribution amount was guessed.",
+  "response_paraphrase": "Prepared the requested CPA questions and left the distribution figure open until the missing documents arrive.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s03_cpa_questions",
+      "virtual_stage": 3
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_questions",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s3_records_checked",
+      "weight": 1
+    },
+    {
+      "check_id": "s3_no_guessed_amount",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s3_next_action",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

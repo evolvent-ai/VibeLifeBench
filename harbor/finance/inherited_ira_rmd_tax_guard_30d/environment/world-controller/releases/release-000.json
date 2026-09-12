@@ -1,0 +1,26 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "token": "inherited-ira-rmd-tax-guard-30d-release-000",
+  "source_stage": 5,
+  "source_time": "2026-06-18T08:00:00-04:00",
+  "source_event_ids": ["ira_s05_income_mutation"],
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_mut_iirtg_income",
+        "account_id": "acct_checking_main",
+        "posted_at": "2026-06-18T12:00:00Z",
+        "amount_minor": 146000,
+        "kind": "deposit",
+        "counterparty": "Harbor Design Consulting",
+        "memo": "June consulting invoice paid; taxable self-employment income, not an IRA distribution",
+        "balance_after_minor": 2772000
+      },
+      "source_event_id": "ira_s05_income_mutation"
+    }
+  ]
+}

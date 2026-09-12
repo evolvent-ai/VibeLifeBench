@@ -1,0 +1,38 @@
+{
+  "step": "event-021",
+  "stage": 21,
+  "virtual_stage": 21,
+  "source_event_id": "ev_advertisement_warning",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Recorded the advertisement as an unverified lead and kept personal information out of it.",
+  "response_paraphrase": "The advertisement remains an unverified lead with no personal-data disclosure.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_advertisement_warning"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s21_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s21_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}
+

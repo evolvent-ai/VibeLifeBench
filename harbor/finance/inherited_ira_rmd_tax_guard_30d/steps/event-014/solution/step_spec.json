@@ -1,0 +1,38 @@
+{
+  "step": "event-014",
+  "virtual_stage": 14,
+  "source_event_id": "ira_s14_cpa_preliminary_view",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The CPA note supports a taxable distribution estimate and withholding discussion, but does not confirm immediate necessity or authorize an amount.",
+  "response_paraphrase": "Kept the CPA's taxable-income and withholding estimate distinct from any immediate obligation or authorized amount.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s14_cpa_preliminary_view",
+      "virtual_stage": 14
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_taxable_estimate",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s14_no_immediate_requirement",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s14_no_amount_authorized",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s14_source_checked",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 5.25
+}

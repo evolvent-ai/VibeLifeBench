@@ -1,0 +1,38 @@
+{
+  "step": "event-009",
+  "stage": 9,
+  "virtual_stage": 9,
+  "source_event_id": "ev_addon_review",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Separated each dealer fee and optional product from the refinance principal.",
+  "response_paraphrase": "Dealer fees and products are itemized independently of principal.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_addon_review"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s9_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s9_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}
+

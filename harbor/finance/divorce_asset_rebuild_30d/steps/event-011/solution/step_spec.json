@@ -1,0 +1,44 @@
+{
+  "step": "event-011",
+  "virtual_stage": 11,
+  "source_event_id": "dar_cashflow_plan",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ]
+  },
+  "response": "Completed a conservative 30-day cash-flow view that separates received cash, receivables, bills, reserves and the no-prepayment mortgage lane.",
+  "response_paraphrase": "The next month's conservative liquidity schedule now isolates posted and expected inflows, fixed bills, buffers and restricted money without mortgage reduction.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_cashflow_plan",
+      "event_kind": "user_message",
+      "event_time": "2026-08-07T15:00:00+08:00",
+      "virtual_stage": 11,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s11_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

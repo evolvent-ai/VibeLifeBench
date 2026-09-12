@@ -1,0 +1,61 @@
+{
+  "release_id": "release-000",
+  "before_step": "event-006",
+  "previous": null,
+  "token": "college_529_room_board_guard_30d-release-000-token",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_20260618_northline_payroll_adj_h7q2",
+        "account_id": "acct_checking_main",
+        "posted_at": "2026-06-18T08:00:00Z",
+        "amount_minor": 146000,
+        "kind": "deposit",
+        "counterparty": "Northline Payroll",
+        "memo": "Payroll correction for an omitted weekend shift differential; reconciled to the revised pay statement.",
+        "balance_after_minor": 2772000
+      }
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {
+        "balance_minor": 2772000
+      },
+      "where": {
+        "account_id": "acct_checking_main"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "ub_20260618_cardbank_fee_reversal_k4m8",
+        "card_id": "card_primary",
+        "posted_at": "2026-06-18T08:05:00Z",
+        "amount_minor": -3900,
+        "merchant_name": "Card Bank late-fee reversal",
+        "mcc": "6012",
+        "category": "finance",
+        "kind": "adjustment"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 89520,
+        "available_credit_minor": 891480
+      },
+      "where": {
+        "card_id": "card_primary"
+      }
+    }
+  ]
+}

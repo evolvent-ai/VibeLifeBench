@@ -1,0 +1,34 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "dar_kickoff",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Opened the 30-day asset-rebuilding record and verified the live banking, card, email and calendar services before using any amount.",
+  "response_paraphrase": "The month-long financial reset is underway after checking the live account, card, mailbox and schedule records that support its figures.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_kickoff",
+      "event_kind": "user_message",
+      "event_time": "2026-07-30T09:00:00+08:00",
+      "virtual_stage": 0,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s0_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

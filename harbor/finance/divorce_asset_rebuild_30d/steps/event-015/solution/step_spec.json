@@ -1,0 +1,47 @@
+{
+  "step": "event-015",
+  "virtual_stage": 15,
+  "source_event_id": "dar_card_interest_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005"
+    ]
+  },
+  "response": "Refreshed the CMB card after the RMB 486 revolving-interest adjustment and preserved the new balance as the current fact.",
+  "response_paraphrase": "The later RMB 486 finance charge is now reflected in the family card's current amount instead of relying on the earlier snapshot.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_card_interest_notice",
+      "event_kind": "notification",
+      "event_time": "2026-08-12T08:05:00+08:00",
+      "virtual_stage": 15,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s15_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

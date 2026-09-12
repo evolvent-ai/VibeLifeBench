@@ -1,0 +1,52 @@
+{
+  "release_id": "release-008",
+  "previous": "release-007",
+  "source_stage": 23,
+  "source_time": "2026-12-05T02:20:00+08:00",
+  "source_event_ids": ["s23_card_mutation"],
+  "token": "finance-task-release-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "ub_tcy_highrisk_001",
+        "card_id": "card_tang_chengyu_black",
+        "posted_at": "2026-12-05T02:20:00+08:00",
+        "amount_minor": 6800000,
+        "merchant_name": "Crown Dice Digital Entertainment",
+        "mcc": "7995",
+        "category": "high_risk",
+        "kind": "purchase"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "ub_tcy_highrisk_002",
+        "card_id": "card_tang_chengyu_black",
+        "posted_at": "2026-12-05T02:22:00+08:00",
+        "amount_minor": 4200000,
+        "merchant_name": "Offshore Token Desk Service",
+        "mcc": "6051",
+        "category": "quasi_cash",
+        "kind": "purchase"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 12800000,
+        "available_credit_minor": 174000000
+      },
+      "where": {
+        "card_id": "card_tang_chengyu_black"
+      }
+    }
+  ]
+}

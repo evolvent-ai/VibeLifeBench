@@ -1,0 +1,126 @@
+services:
+  main:
+    build: {context: ., dockerfile: Dockerfile}
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      world-controller: {condition: service_healthy}
+      banking: {condition: service_healthy}
+      brokerage: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      credit-card: {condition: service_healthy}
+      email: {condition: service_healthy}
+      notion: {condition: service_healthy}
+    volumes:
+      - workspace-state:/workspace
+      - eval-evidence:/harbor/evidence:ro
+      - world-clock:/world-clock:ro
+      - agent-logs:/logs/agent
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: &no-proxy localhost,127.0.0.1,::1,world-controller,banking,brokerage,calendar,credit-card,email,notion
+      no_proxy: *no-proxy
+
+  workspace-init:
+    build: {context: ., dockerfile: workspace-init/Dockerfile}
+    volumes: [workspace-state:/target]
+    restart: "no"
+
+  banking: &mock
+    build: {context: ./servers/banking_mock}
+    volumes: [./seeds/banking:/env-seed:ro, ./runtime-patches:/runtime-patches:ro, banking-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: &mock-env
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      PYTHONPATH: /runtime-patches
+      NO_PROXY: *no-proxy
+      no_proxy: *no-proxy
+    healthcheck: &health
+      test: [CMD, python, -c, "import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+
+  brokerage:
+    <<: *mock
+    build: {context: ./servers/brokerage_mock}
+    volumes: [./seeds/brokerage:/env-seed:ro, ./runtime-patches:/runtime-patches:ro, brokerage-env:/env, world-clock:/world-clock:ro]
+    environment: *mock-env
+    healthcheck: *health
+
+  calendar:
+    <<: *mock
+    build: {context: ./servers/calendar_mock}
+    volumes: [./seeds/calendar:/env-seed:ro, ./runtime-patches:/runtime-patches:ro, calendar-env:/env, world-clock:/world-clock:ro]
+    environment: *mock-env
+    healthcheck: *health
+
+  credit-card:
+    <<: *mock
+    build: {context: ./servers/credit_card_mock}
+    volumes: [./seeds/credit_card:/env-seed:ro, ./runtime-patches:/runtime-patches:ro, credit-card-env:/env, world-clock:/world-clock:ro]
+    environment: *mock-env
+    healthcheck: *health
+
+  email:
+    <<: *mock
+    build: {context: ./servers/email_mock}
+    volumes: [./seeds/email:/env-seed:ro, ./runtime-patches:/runtime-patches:ro, email-env:/env, world-clock:/world-clock:ro]
+    environment: *mock-env
+    healthcheck: *health
+
+  notion:
+    <<: *mock
+    build: {context: ./servers/notion_mock}
+    volumes: [./seeds/notion:/env-seed:ro, notion-env:/env, world-clock:/world-clock:ro]
+    environment: *mock-env
+    healthcheck: *health
+
+  world-controller:
+    build: {context: ., dockerfile: world-controller/Dockerfile}
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      CLOCK_TOKEN: divorce-asset-rebuild-30d-clock
+      HEALTH_TOKEN: divorce-asset-rebuild-30d-health
+      RELEASE_TOKEN: divorce-asset-rebuild-30d-release
+      NO_PROXY: *no-proxy
+      no_proxy: *no-proxy
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      banking: {condition: service_healthy}
+      brokerage: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      credit-card: {condition: service_healthy}
+      email: {condition: service_healthy}
+      notion: {condition: service_healthy}
+    volumes:
+      - world-clock:/world-clock
+      - workspace-state:/workspace-source:ro
+      - eval-evidence:/evidence
+      - controller-state:/controller-state
+      - banking-env:/banking-env
+      - brokerage-env:/brokerage-env
+      - calendar-env:/calendar-env
+      - credit-card-env:/credit-card-env
+      - email-env:/email-env
+      - notion-env:/notion-env
+    expose: ["8090"]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health',timeout=2).read()"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+
+volumes:
+  workspace-state: {}
+  eval-evidence: {}
+  world-clock: {}
+  controller-state: {}
+  agent-logs: {}
+  banking-env: {}
+  brokerage-env: {}
+  calendar-env: {}
+  credit-card-env: {}
+  email-env: {}
+  notion-env: {}

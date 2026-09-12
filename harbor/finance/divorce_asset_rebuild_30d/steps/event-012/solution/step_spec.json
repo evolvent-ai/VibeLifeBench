@@ -1,0 +1,45 @@
+{
+  "step": "event-012",
+  "virtual_stage": 12,
+  "source_event_id": "dar_support_deposit_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ]
+  },
+  "response": "Verified the RMB 8,000 child-support posting, changed it to received and retained the earlier delay as history.",
+  "response_paraphrase": "The bank's RMB 8,000 receipt now closes the support receivable, while the prior late-payment evidence remains in the record.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_support_deposit_notice",
+      "event_kind": "notification",
+      "event_time": "2026-08-10T08:25:00+08:00",
+      "virtual_stage": 12,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s12_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s12_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

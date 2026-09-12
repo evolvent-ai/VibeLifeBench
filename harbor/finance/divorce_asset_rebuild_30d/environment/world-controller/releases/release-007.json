@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "dar_policy_confirmation_insert"
+  ],
+  "source_time": "2026-08-21 10:00:00+08:00",
+  "source_stage": 20,
+  "previous": "release-006",
+  "token": "divorce-asset-rebuild-30d-release-007-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "dar_policy_confirmation_insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<policy-medical-paid@harbor-life.example>",
+        "subject": "Daughter medical policy renewal confirmation",
+        "from_addr": "service@harbor-life.example",
+        "to_addr_json": "[\"zhou.nan@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-21 10:00:00+08:00",
+        "body_text": "The RMB 7,200 daughter medical-policy premium was paid from the existing debit account and coverage continues. The critical-illness premium remains due August 22; policyholder and beneficiary relationship changes have not been submitted.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "<policy-renewal-20260805@harbor-life.example>",
+        "references_header": "<policy-renewal-20260805@harbor-life.example>",
+        "headers_json": "{}",
+        "uid": 6106,
+        "size": 237,
+        "created_at": "2026-08-21 10:00:00+08:00"
+      }
+    }
+  ]
+}

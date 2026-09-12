@@ -1,0 +1,28 @@
+{
+  "step": "event-023",
+  "virtual_stage": 21,
+  "source_event_id": "S21_wrong_sheet",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "S21_worksheet_mutation"
+    ]
+  },
+  "response": "The imported worksheet is wrong: its interest-free claim and cash advance are rejected, skipping a bill is rejected, and the official source was rechecked.",
+  "response_paraphrase": "The downloaded worksheet is wrong; its interest-free claim was rejected, its cash advance was rejected, and skipping a bill was rejected before the official recheck.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S21_wrong_sheet",
+      "virtual_stage": 21,
+      "event_kind": "world",
+      "event_time": "2026-07-03T09:30:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

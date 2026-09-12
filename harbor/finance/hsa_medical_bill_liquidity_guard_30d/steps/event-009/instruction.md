@@ -1,0 +1,1 @@
+World update: A brokerage newsletter recommends selling the HSA cash-equivalent holding and buying a volatile stock before paying the bill. I want your view on whether that fits the near-term medical-liquidity plan.

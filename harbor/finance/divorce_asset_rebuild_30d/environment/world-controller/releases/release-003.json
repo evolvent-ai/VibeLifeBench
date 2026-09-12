@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "dar_school_notice_insert"
+  ],
+  "source_time": "2026-08-07 10:00:00+08:00",
+  "source_stage": 10,
+  "previous": "release-002",
+  "token": "divorce-asset-rebuild-30d-release-003-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "dar_school_notice_insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<autumn-fee-2026@river-school.example>",
+        "subject": "Official autumn care and meal notice",
+        "from_addr": "billing@river-school.example",
+        "to_addr_json": "[\"zhou.nan@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-07 10:00:00+08:00",
+        "body_text": "Autumn after-school care and meals total RMB 18,600, payable August 17-21. The annual English course is excluded; the earlier RMB 18,500 was a parent-group estimate, not a school bill.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 6104,
+        "size": 184,
+        "created_at": "2026-08-07 10:00:00+08:00"
+      }
+    }
+  ]
+}

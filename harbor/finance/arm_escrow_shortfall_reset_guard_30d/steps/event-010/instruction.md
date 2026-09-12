@@ -1,0 +1,1 @@
+Maya Chen asked: Give me a quantified comparison using the official mortgage references, the servicer-specific ARM terms, and the current account and card data. Show assumptions separately from verified figures.

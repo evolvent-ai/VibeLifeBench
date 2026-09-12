@@ -1,0 +1,184 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      workspace-init:
+        condition: service_completed_successfully
+      world-controller:
+        condition: service_healthy
+      banking:
+        condition: service_healthy
+      email:
+        condition: service_healthy
+      calendar:
+        condition: service_healthy
+      brokerage:
+        condition: service_healthy
+      notion:
+        condition: service_healthy
+      credit-card:
+        condition: service_healthy
+    volumes:
+    - workspace-state:/workspace
+    - eval-evidence:/harbor/evidence:ro
+    - world-clock:/world-clock:ro
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+      NO_PROXY: banking,email,calendar,brokerage,notion,credit-card,world-controller,localhost,127.0.0.1,::1
+      no_proxy: banking,email,calendar,brokerage,notion,credit-card,world-controller,localhost,127.0.0.1,::1
+  workspace-init:
+    build:
+      context: .
+      dockerfile: workspace-init/Dockerfile
+    volumes:
+    - workspace-state:/target
+    restart: 'no'
+  banking:
+    build:
+      context: ./servers/banking_mock
+    volumes:
+    - ./seeds/banking:/env-seed:ro
+    - banking-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: &id001
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  email:
+    build:
+      context: ./servers/email_mock
+    volumes:
+    - ./seeds/email:/env-seed:ro
+    - email-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: *id001
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  calendar:
+    build:
+      context: ./servers/calendar_mock
+    volumes:
+    - ./seeds/calendar:/env-seed:ro
+    - calendar-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: *id001
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  brokerage:
+    build:
+      context: ./servers/brokerage_mock
+    volumes:
+    - ./seeds/brokerage:/env-seed:ro
+    - brokerage-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: *id001
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  notion:
+    build:
+      context: ./servers/notion_mock
+    volumes:
+    - ./seeds/notion:/env-seed:ro
+    - notion-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: *id001
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  credit-card:
+    build:
+      context: ./servers/credit_card_mock
+    volumes:
+    - ./seeds/credit_card:/env-seed:ro
+    - credit-card-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck: *id001
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+  world-controller:
+    build:
+      context: .
+      dockerfile: world-controller/Dockerfile
+    environment:
+      HEALTH_TOKEN: finance-task-health-token
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+      CLOCK_TOKEN: finance-task-clock-token
+    depends_on:
+      workspace-init:
+        condition: service_completed_successfully
+      banking:
+        condition: service_healthy
+      email:
+        condition: service_healthy
+      calendar:
+        condition: service_healthy
+      brokerage:
+        condition: service_healthy
+      notion:
+        condition: service_healthy
+      credit-card:
+        condition: service_healthy
+    volumes:
+    - banking-env:/banking-env
+    - email-env:/email-env
+    - calendar-env:/calendar-env
+    - brokerage-env:/brokerage-env
+    - notion-env:/notion-env
+    - credit-card-env:/credit-card-env
+    - controller-state:/controller-state
+    - workspace-state:/workspace-source:ro
+    - eval-evidence:/evidence
+    - world-clock:/world-clock
+    expose:
+    - '8090'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health',
+        timeout=2).read()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+volumes:
+  workspace-state: null
+  banking-env: null
+  email-env: null
+  calendar-env: null
+  brokerage-env: null
+  notion-env: null
+  credit-card-env: null
+  controller-state: null
+  eval-evidence: null
+  world-clock: null

@@ -1,0 +1,38 @@
+{
+  "step": "event-021",
+  "virtual_stage": 21,
+  "source_event_id": "ira_s21_card_status_review",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The real card statement and backend payment state were re-queried; authorization alone is not execution.",
+  "response_paraphrase": "Used the live card backend to determine the payment result instead of inferring it from authorization.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s21_card_status_review",
+      "virtual_stage": 21
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_card_requery",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s21_backend_payment_state",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s21_ledger_matches_state",
+      "weight": 2
+    },
+    {
+      "check_id": "s21_no_inference_from_authorization",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 6.25
+}

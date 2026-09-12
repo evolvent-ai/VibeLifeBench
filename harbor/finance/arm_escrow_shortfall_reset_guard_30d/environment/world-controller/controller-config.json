@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "task": "arm_escrow_shortfall_reset_guard_30d",
+  "step_count": 26,
+  "clock": {
+    "file": "/world-clock/current.json",
+    "key": "world_now",
+    "required": true
+  },
+  "database_paths": {
+    "banking": "/banking-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "calendar": "/calendar-env/runtime.db",
+    "brokerage": "/brokerage-env/runtime.db",
+    "notion": "/notion-env/runtime.db",
+    "credit_card": "/credit_card-env/runtime.db"
+  },
+  "database_aliases": {
+    "banking": "svc_banking",
+    "email": "svc_email",
+    "calendar": "svc_calendar",
+    "brokerage": "svc_brokerage",
+    "notion": "svc_notion",
+    "credit_card": "svc_credit_card"
+  },
+  "release_directory": "/opt/world-controller/releases",
+  "step_release_map": "/opt/world-controller/step-release-map.json"
+}

@@ -1,0 +1,48 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "source_stage": 13,
+  "source_time": "2026-11-19T08:50:00+08:00",
+  "source_event_ids": ["s13_foundation_mutation"],
+  "token": "finance-task-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": "(SELECT id FROM folders WHERE name='INBOX')",
+        "message_id": "msg_s13_foundation",
+        "subject": "\u661f\u91ce\u73af\u4fdd\u91ce\u751f\u52a8\u7269\u57fa\u91d1\u4f1a\u8865\u5145\u8d44\u6599",
+        "from_addr": "admin.he@xingye-foundation.example",
+        "to_addr_json": "[\"shen.zhixing@lanshi.fo\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-11-19T08:50:00+08:00",
+        "body_text": "Attached receipt template and filing screenshot. Public registry screenshot date differs from bank account opening date; collecting account shares phone contact with Chengyu Esports finance desk.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 9300,
+        "size": 195,
+        "created_at": "2026-11-19T08:50:00+08:00"
+      }
+    },
+    {
+      "server": "banking",
+      "table": "payees",
+      "op": "insert",
+      "values": {
+        "payee_id": "payee_xingye_foundation",
+        "user_id": "usr_shen_zhixing",
+        "name": "\u661f\u91ce\u73af\u4fdd\u91ce\u751f\u52a8\u7269\u57fa\u91d1\u4f1a",
+        "account_no": "6222880000001888",
+        "account_no_masked": "****1888",
+        "bank_name": "\u5357\u57ce\u519c\u5546\u884c",
+        "added_at": "2026-11-19"
+      }
+    }
+  ]
+}

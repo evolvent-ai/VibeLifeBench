@@ -1,0 +1,31 @@
+{
+  "step": "event-007",
+  "virtual_stage": 6,
+  "source_event_id": "S06_cross_checkpoint",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The school allowance, scholarship offset, enrollment, and supported room-and-board calculation were reconciled while preserving the tuition reserve.",
+  "response_paraphrase": "The review reached this result: the school allowance, scholarship offset, enrollment, and supported room-and-board calculation were reconciled while preserving the tuition reserve.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S06_cross_checkpoint"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s6_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

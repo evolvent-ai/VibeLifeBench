@@ -1,0 +1,43 @@
+{
+  "step": "event-010",
+  "virtual_stage": 10,
+  "source_event_id": "dar_school_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ]
+  },
+  "response": "Replaced the school estimate with the official RMB 18,600 August 17-21 payment window and left it unpaid.",
+  "response_paraphrase": "The official RMB 18,600 school charge replaced the informal estimate and is scheduled for its payment window rather than prepaid.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_school_notice",
+      "event_kind": "notification",
+      "event_time": "2026-08-07T10:05:00+08:00",
+      "virtual_stage": 10,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s10_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

@@ -1,0 +1,39 @@
+{
+  "step": "event-017",
+  "virtual_stage": 16,
+  "source_event_id": "S16_market_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "S16_market_mutation"
+    ]
+  },
+  "response": "The SGOV cash-equivalent quote and liquidity note were reviewed as information only; no trade was executed.",
+  "response_paraphrase": "The SGOV cash-equivalent quote and liquidity note were inspected for context only; no trade or redemption was executed.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S16_market_notice",
+      "virtual_stage": 16,
+      "event_kind": "notification",
+      "event_time": "2026-06-28T11:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s16_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

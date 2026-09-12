@@ -1,0 +1,36 @@
+{
+  "step": "event-022",
+  "virtual_stage": 20,
+  "source_event_id": "S20_late_conflict_override",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The final plan supports $6,250, leaves $1,375 unsupported, applies the $1,200 scholarship, and keeps $13,250 protected; the card payment is deferred and not executed.",
+  "response_paraphrase": "The closing plan identifies $6,250 as supported and $1,375 as unsupported after the $1,200 scholarship, preserves $13,250, and leaves the card payment unmade.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S20_late_conflict_override"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s20_evidence",
+      "weight": 4.0,
+      "expected": true
+    },
+    {
+      "check_id": "s20_boundary",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 10.0
+}

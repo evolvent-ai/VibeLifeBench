@@ -1,0 +1,36 @@
+{
+  "step": "event-027",
+  "virtual_stage": 23,
+  "source_event_id": "S23_action_state_closeout",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The qualified-cost review is completed: the authorized $520 card payment from checking was deferred and not executed, the existing item remains pending, unsupported costs were declined, and $13,250 stays protected.",
+  "response_paraphrase": "The eligibility decision is finished; checking authority is documented, but the $520 card payment is unmade, the other item is pending, unsupported costs are declined, and $13,250 remains separate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S23_action_state_closeout"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s23_evidence",
+      "weight": 4.0,
+      "expected": true
+    },
+    {
+      "check_id": "s23_boundary",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 10.0
+}

@@ -1,0 +1,39 @@
+{
+  "step": "event-005",
+  "virtual_stage": 5,
+  "source_event_id": "dar_mortgage_quote_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001"
+    ]
+  },
+  "response": "Reconciled the mortgage estimate: RMB 1,260,000 principal, 4.10% contract rate, RMB 50,000 minimum prepayment and separate joint-borrower responsibility.",
+  "response_paraphrase": "The lender quote has been separated into principal, contractual rate, partial-payment threshold and the independently approved co-borrower issue.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_mortgage_quote_notice",
+      "event_kind": "notification",
+      "event_time": "2026-08-03T15:05:00+08:00",
+      "virtual_stage": 5,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s5_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

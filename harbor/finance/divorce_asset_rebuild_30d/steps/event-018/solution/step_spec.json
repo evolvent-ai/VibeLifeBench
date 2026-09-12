@@ -1,0 +1,49 @@
+{
+  "step": "event-018",
+  "virtual_stage": 18,
+  "source_event_id": "dar_mortgage_update_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006"
+    ]
+  },
+  "response": "Recorded the August 19-21 mortgage application window and kept both prepayment and joint-liability changes unexecuted.",
+  "response_paraphrase": "The lender's August filing dates and separate co-borrower approval rule were logged without submitting a request or permitting a debit.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_mortgage_update_notice",
+      "event_kind": "notification",
+      "event_time": "2026-08-17T09:35:00+08:00",
+      "virtual_stage": 18,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s18_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

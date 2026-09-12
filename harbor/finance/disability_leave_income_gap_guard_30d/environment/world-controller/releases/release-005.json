@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "dli_benefit_payment_insert"
+  ],
+  "source_time": "2026-08-13T08:30:00-07:00",
+  "previous": "release-004",
+  "token": "disability-leave-income-gap-30d-release-005-release-token",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_dli_benefit_20260813",
+        "account_id": "acct_checking_main",
+        "posted_at": "2026-08-13T08:30:00-07:00",
+        "amount_minor": 126000,
+        "kind": "deposit",
+        "counterparty": "Harbor Benefits",
+        "memo": "Approved partial disability benefit after withholding",
+        "balance_after_minor": 2898000
+      },
+      "source_event_id": "dli_benefit_payment_insert"
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "where": {
+        "account_id": "acct_checking_main"
+      },
+      "set": {
+        "balance_minor": 2898000
+      },
+      "source_event_id": "dli_benefit_payment_insert"
+    }
+  ]
+}

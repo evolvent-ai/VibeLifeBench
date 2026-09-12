@@ -1,0 +1,38 @@
+{
+  "step": "event-023",
+  "virtual_stage": 23,
+  "source_event_id": "ira_s23_closeout",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Closeout states what was paid, what remains pending, why the protected reserve stayed untouched, and which distribution facts still require confirmation.",
+  "response_paraphrase": "Completed the archive handoff with the paid amount, pending work, protected reserve rationale, and open distribution questions.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s23_closeout",
+      "virtual_stage": 23
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_all_files_present",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s23_final_sections",
+      "weight": 2
+    },
+    {
+      "check_id": "s23_reserve_untouched",
+      "weight": 2
+    },
+    {
+      "check_id": "s23_distribution_open_questions",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 7
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "dar_mortgage_update_insert"
+  ],
+  "source_time": "2026-08-17 09:30:00+08:00",
+  "source_stage": 18,
+  "previous": "release-005",
+  "token": "divorce-asset-rebuild-30d-release-006-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "dar_mortgage_update_insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<mortgage-review-update@eastlake-bank.example>",
+        "subject": "Prepayment application window and joint-borrower responsibility",
+        "from_addr": "mortgage@eastlake-bank.example",
+        "to_addr_json": "[\"zhou.nan@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-17 09:30:00+08:00",
+        "body_text": "The August application window is August 19-21. Partial prepayment does not automatically release joint-borrower responsibility; a change requires both parties materials and independent approval. No payment will be taken without a formal application.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": "<mortgage-review-5520@eastlake-bank.example>",
+        "references_header": "<mortgage-review-5520@eastlake-bank.example>",
+        "headers_json": "{}",
+        "uid": 6105,
+        "size": 249,
+        "created_at": "2026-08-17 09:30:00+08:00"
+      }
+    }
+  ]
+}

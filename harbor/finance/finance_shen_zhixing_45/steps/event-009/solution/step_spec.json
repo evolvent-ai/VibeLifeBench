@@ -1,0 +1,35 @@
+{
+  "step": "event-009",
+  "virtual_stage": 9,
+  "source_event_id": "s9_credit_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": []
+  },
+  "response": "The Tang family-office controls were reviewed and the relevant risk, authorization, liquidity, and succession records were updated.",
+  "response_paraphrase": "Stage 9 records now reflect the reviewed control decisions, with approvals and unresolved risks preserved for the Tang family office.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s9_credit_notice",
+      "virtual_stage": 9,
+      "event_kind": "notification",
+      "event_time": "2026-11-13T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_factory_email_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s9_liquidity_updated",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

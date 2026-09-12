@@ -1,0 +1,35 @@
+{
+  "step": "event-024",
+  "virtual_stage": 22,
+  "source_event_id": "s22_wanqing_delay_user",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": []
+  },
+  "response": "The Tang family-office controls were reviewed and the relevant risk, authorization, liquidity, and succession records were updated.",
+  "response_paraphrase": "Stage 22 records now reflect the reviewed control decisions, with approvals and unresolved risks preserved for the Tang family office.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s22_wanqing_delay_user",
+      "virtual_stage": 22,
+      "event_kind": "user_message",
+      "event_time": "2026-12-03T21:20:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_disclosure_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s22_counsel_only",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

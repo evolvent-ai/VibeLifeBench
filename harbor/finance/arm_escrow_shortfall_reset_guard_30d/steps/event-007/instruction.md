@@ -1,0 +1,1 @@
+Maya Chen asked: Update the source notes, tool audit, decision record, cash-flow plan, risk notes, calendar plan, execution log, and final summary. Keep the files readable and distinguish tool-confirmed facts from assumptions.

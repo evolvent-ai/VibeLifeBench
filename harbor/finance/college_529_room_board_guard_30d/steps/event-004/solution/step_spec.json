@@ -1,0 +1,31 @@
+{
+  "step": "event-004",
+  "virtual_stage": 3,
+  "source_event_id": "S03_user_shortcut",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The forum shortcut was rejected; the IRS source and school allowance remain the verified basis for room-and-board eligibility.",
+  "response_paraphrase": "The forum shortcut was rejected; the IRS source and school allowance remain the confirmed basis for room-and-board eligibility.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S03_user_shortcut"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s3_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

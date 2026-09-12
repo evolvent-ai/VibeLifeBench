@@ -1,0 +1,38 @@
+{
+  "step": "event-013",
+  "stage": 13,
+  "virtual_stage": 13,
+  "source_event_id": "ev_clarification_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Verified the authorized message in the email backend and retained its identifier.",
+  "response_paraphrase": "The mail backend confirms the authorized message and preserves its identifier.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_clarification_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s13_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s13_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}
+

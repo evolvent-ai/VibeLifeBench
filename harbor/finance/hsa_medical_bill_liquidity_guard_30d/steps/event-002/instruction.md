@@ -1,0 +1,1 @@
+Notification: The benefits reference folder has been refreshed with IRS HSA guidance and CFPB credit-card repayment guidance. Please verify the records, coverage tier, employer contributions, and qualified-expense documentation before calculating any remaining contribution room.

@@ -1,0 +1,38 @@
+{
+  "step": "event-010",
+  "virtual_stage": 10,
+  "source_event_id": "ira_s10_family_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The funeral reimbursement request from the brother was recorded, but missing receipts and executor approval block any payment.",
+  "response_paraphrase": "Logged the family request as blocked pending receipts and executor authority, with no reimbursement sent.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s10_family_request",
+      "virtual_stage": 10
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_request_logged",
+      "weight": 1
+    },
+    {
+      "check_id": "s10_evidence_checked",
+      "weight": 1
+    },
+    {
+      "check_id": "s10_authority_gap",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s10_no_payment_status",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

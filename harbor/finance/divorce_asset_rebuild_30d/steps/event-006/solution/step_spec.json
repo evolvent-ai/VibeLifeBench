@@ -1,0 +1,40 @@
+{
+  "step": "event-006",
+  "virtual_stage": 6,
+  "source_event_id": "dar_mortgage_choice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001"
+    ]
+  },
+  "response": "Compared a RMB 120,000 prepayment with a six-month cash buffer and clearing cards first; no mortgage prepayment was authorized or executed.",
+  "response_paraphrase": "The immediate RMB 120,000 idea was weighed against liquidity and card clearance, but no authority was given to reduce the mortgage.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_mortgage_choice",
+      "event_kind": "user_message",
+      "event_time": "2026-08-04T10:00:00+08:00",
+      "virtual_stage": 6,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s6_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

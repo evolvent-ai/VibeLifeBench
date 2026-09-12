@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task": "college_529_room_board_guard_30d",
+  "step_count": 28,
+  "clock": {"file": "/world-clock/current.json", "key": "world_now", "required": true},
+  "database_paths": {
+    "banking": "/banking-env/runtime.db",
+    "brokerage": "/brokerage-env/runtime.db",
+    "calendar": "/calendar-env/runtime.db",
+    "credit_card": "/credit_card-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "notion": "/notion-env/runtime.db"
+  },
+  "database_aliases": {
+    "banking": "svc_banking",
+    "brokerage": "svc_brokerage",
+    "calendar": "svc_calendar",
+    "credit_card": "svc_credit_card",
+    "email": "svc_email",
+    "notion": "svc_notion"
+  },
+  "release_directory": "/opt/world-controller/releases",
+  "step_release_map": "/opt/world-controller/step-release-map.json"
+}

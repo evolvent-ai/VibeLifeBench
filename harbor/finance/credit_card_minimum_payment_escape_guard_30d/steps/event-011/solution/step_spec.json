@@ -1,0 +1,35 @@
+{
+  "step": "event-011",
+  "virtual_stage": 10,
+  "source_event_id": "S10_scheduled_deadline",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The card statement review and rent review are scheduled for 2026-06-22; I checked the calendar and official evidence before the due date.",
+  "response_paraphrase": "Calendar evidence places the card statement review and rent review on 2026-06-22, ahead of the due date.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S10_scheduled_deadline",
+      "virtual_stage": 10,
+      "event_kind": "notification",
+      "event_time": "2026-06-22T08:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s10_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

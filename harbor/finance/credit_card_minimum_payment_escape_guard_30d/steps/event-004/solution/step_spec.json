@@ -1,0 +1,35 @@
+{
+  "step": "event-004",
+  "virtual_stage": 3,
+  "source_event_id": "S03_user_shortcut",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The social post was checked and I verify it against official guidance: minimum payments are not interest-free, so the shortcut is not a reliable payoff basis.",
+  "response_paraphrase": "I verify the social-media shortcut against official guidance; minimum payments still accrue interest and do not guarantee a quick payoff.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S03_user_shortcut",
+      "virtual_stage": 3,
+      "event_kind": "user_message",
+      "event_time": "2026-06-16T17:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s3_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

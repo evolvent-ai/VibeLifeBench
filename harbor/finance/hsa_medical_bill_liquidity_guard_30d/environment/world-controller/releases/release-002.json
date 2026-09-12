@@ -1,0 +1,34 @@
+{
+  "release_id": "release-002",
+  "previous": "release-001",
+  "token": "hsa_medical_bill_liquidity_guard_30d-release-002-token-2026",
+  "operations": [
+    {
+      "server": "brokerage",
+      "table": "quotes_daily",
+      "op": "insert",
+      "values": {
+        "symbol": "SGOV",
+        "date": "2026-06-28",
+        "open_minor": 10025,
+        "close_minor": 10031,
+        "high_minor": 10035,
+        "low_minor": 10024,
+        "volume": 5400000
+      }
+    },
+    {
+      "server": "notion",
+      "table": "database_rows",
+      "op": "insert",
+      "values": {
+        "row_id": "row_hsa_source_20260628",
+        "database_id": "db_finance_ledger",
+        "properties_json": "{\"date\": \"2026-06-28\", \"kind\": \"source review\", \"source\": \"IRS HSA guidance and plan records\", \"note\": \"Contribution-room review refreshed; reconcile coverage tier, employer deposits, payroll contributions, and qualified-expense documents before adding funds.\", \"status\": \"review\"}",
+        "created_time": "2026-06-28T08:00:00Z",
+        "last_edited_time": "2026-06-28T08:00:00Z",
+        "archived": 0
+      }
+    }
+  ]
+}

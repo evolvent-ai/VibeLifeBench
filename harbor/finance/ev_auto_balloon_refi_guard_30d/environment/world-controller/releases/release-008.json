@@ -1,0 +1,41 @@
+{
+  "release_id": "release-008",
+  "before_step": "event-022",
+  "previous": "release-007",
+  "token": "ev_auto_balloon_refi_guard_30d-release-008-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<soft-quote-expiry-4612@harborcu.example>",
+        "subject": "Re: Conditional soft-pull estimate 4612",
+        "from_addr": "auto@harborcu.example",
+        "to_addr_json": "[\"jordan.ellis@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-24T09:00:00-04:00",
+        "body_text": "The soft quote can be honored through August 26 if the complete application arrives by noon August 25. There is no origination fee and no prepayment penalty. Approval and final APR remain subject to hard inquiry and title review.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": "<soft-quote-4612@harborcu.example>",
+        "references_header": "<quote-request-ack@harborcu.example> <soft-quote-4612@harborcu.example>",
+        "headers_json": "{}",
+        "uid": 9408,
+        "size": 484,
+        "created_at": "2026-08-24T09:00:00-04:00"
+      },
+      "postcondition": {
+        "table": "messages",
+        "where": {
+          "message_id": "<soft-quote-expiry-4612@harborcu.example>"
+        },
+        "count": 1
+      }
+    }
+  ]
+}

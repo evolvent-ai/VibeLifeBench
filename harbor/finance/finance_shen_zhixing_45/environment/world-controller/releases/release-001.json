@@ -1,0 +1,65 @@
+{
+  "release_id": "release-001",
+  "previous": "release-000",
+  "source_stage": 5,
+  "source_time": "2026-11-07T10:00:00+08:00",
+  "source_event_ids": ["s5_web3_cap_mutation"],
+  "token": "finance-task-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": "(SELECT id FROM folders WHERE name='INBOX')",
+        "message_id": "msg_s05_web3",
+        "subject": "MetaLand cap table, token wallet and preference terms",
+        "from_addr": "ken@metaland.example",
+        "to_addr_json": "[\"shen.zhixing@lanshi.fo\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-11-07T10:00:00+08:00",
+        "body_text": "Supplement: founder SPV NovelOrbit owns advisory wallet 0xC1B0; side letter grants founder vehicle 2.0x liquidation preference before new investors; advisory shareholders include Chengyu Esports Network nominee.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 9300,
+        "size": 211,
+        "created_at": "2026-11-07T10:00:00+08:00"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "pages",
+      "op": "insert",
+      "values": {
+        "page_id": "pg_web3_dataroom",
+        "parent_type": "workspace",
+        "parent_id": "ws_lanshi",
+        "title": "MetaLand dataroom cap table and wallet notes",
+        "archived": 0,
+        "created_time": "2026-11-07T10:00:00+08:00",
+        "last_edited_time": "2026-11-07T10:00:00+08:00",
+        "properties_json": "{}"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "blk_web3_001",
+        "parent_page_id": "pg_web3_dataroom",
+        "type": "paragraph",
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"NovelOrbit and Chengyu Esports nominee appear in related-party footnotes.\"}}]}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 1,
+        "created_time": "2026-11-07T10:00:00+08:00",
+        "last_edited_time": "2026-11-07T10:00:00+08:00"
+      }
+    }
+  ]
+}

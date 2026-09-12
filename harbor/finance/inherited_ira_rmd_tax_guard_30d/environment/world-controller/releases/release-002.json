@@ -1,0 +1,25 @@
+{
+  "release_id": "release-002",
+  "previous": "release-001",
+  "token": "inherited-ira-rmd-tax-guard-30d-release-002",
+  "source_stage": 16,
+  "source_time": "2026-06-28T08:00:00-04:00",
+  "source_event_ids": ["ira_s16_market_mutation"],
+  "operations": [
+    {
+      "server": "brokerage",
+      "table": "quotes_daily",
+      "op": "insert",
+      "values": {
+        "symbol": "SGOV",
+        "date": "2026-06-28",
+        "open_minor": 10025,
+        "close_minor": 10031,
+        "high_minor": 10033,
+        "low_minor": 10024,
+        "volume": 1834100
+      },
+      "source_event_id": "ira_s16_market_mutation"
+    }
+  ]
+}

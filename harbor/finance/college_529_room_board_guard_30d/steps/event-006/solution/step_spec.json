@@ -1,0 +1,35 @@
+{
+  "step": "event-006",
+  "virtual_stage": 5,
+  "source_event_id": "S05_mutation_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "S05_cashflow_mutation"
+    ]
+  },
+  "response": "The payroll contribution and card adjustment were rechecked against backend records and added to semester cashflow.",
+  "response_paraphrase": "The review reached this result: the payroll contribution and card adjustment were rechecked against backend records and added to semester cashflow.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S05_mutation_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s5_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

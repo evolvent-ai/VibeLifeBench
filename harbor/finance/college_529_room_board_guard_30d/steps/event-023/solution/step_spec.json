@@ -1,0 +1,24 @@
+{
+  "step": "event-023",
+  "virtual_stage": 21,
+  "source_event_id": "S21_wrong_sheet",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "S21_worksheet_mutation"
+    ]
+  },
+  "response": "The landlord worksheet was rejected as eligibility evidence; parking and furniture remain unsupported under the IRS and school-allowance record.",
+  "response_paraphrase": "The review reached this result: the landlord worksheet was rejected as eligibility evidence; parking and furniture remain unsupported under the IRS and school-allowance record.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S21_wrong_sheet"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

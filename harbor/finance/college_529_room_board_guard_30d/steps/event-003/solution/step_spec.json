@@ -1,0 +1,31 @@
+{
+  "step": "event-003",
+  "virtual_stage": 2,
+  "source_event_id": "S02_backend_inventory",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The checking balance, protected tuition balance, card exposure, and brokerage positions were inventoried without moving funds.",
+  "response_paraphrase": "The checking balance, kept separate tuition balance, card exposure, and brokerage positions were inventoried without moving funds.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S02_backend_inventory"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s2_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

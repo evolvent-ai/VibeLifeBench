@@ -1,0 +1,1 @@
+A downloaded comparison sheet claims the ARM can reset to zero, escrow can be ignored, and refinancing is always free. Check those claims against the official source records and remove unsupported assumptions from the working files.

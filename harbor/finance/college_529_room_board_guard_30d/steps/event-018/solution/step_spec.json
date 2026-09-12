@@ -1,0 +1,31 @@
+{
+  "step": "event-018",
+  "virtual_stage": 17,
+  "source_event_id": "S17_tool_audit",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Enrollment, the revised $8,460 allowance, the $1,200 scholarship, and IRS evidence were verified with the recommendation updated.",
+  "response_paraphrase": "Enrollment, the revised $8,460 allowance, the $1,200 scholarship, and IRS evidence were confirmed with the recommendation updated.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S17_tool_audit"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s17_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

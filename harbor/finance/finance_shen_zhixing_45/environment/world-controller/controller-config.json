@@ -1,0 +1,8 @@
+{
+  "task": "finance_shen_\u007ahixing_45",
+  "step_count": 32,
+  "clock_file": "/world-clock/current.json",
+  "clock_token_env": "CLOCK_TOKEN",
+  "release_token_header": "X-Release-Token",
+  "services": ["banking", "brokerage", "calendar", "credit_card", "email", "notion"]
+}

@@ -1,0 +1,36 @@
+{
+  "step": "event-005",
+  "virtual_stage": 4,
+  "source_event_id": "S04_protected_trap",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Parking, furniture, deposits, and premium services remain unsupported; the meal and room figures were recorded while protecting the tuition reserve.",
+  "response_paraphrase": "Parking, furniture, deposits, and premium services remain unsupported; the meal and room figures were documented while protecting the tuition reserve.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S04_protected_trap"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s4_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s4_evidence",
+      "weight": 4.0,
+      "expected": true
+    },
+    {
+      "check_id": "s4_boundary",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 10.0
+}

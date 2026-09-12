@@ -1,0 +1,35 @@
+{
+  "step": "event-012",
+  "virtual_stage": 11,
+  "source_event_id": "S11_bill_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "S11_bill_mutation"
+    ]
+  },
+  "response": "The existing $520 pending payment and bursar review were verified; no new payment was executed at this stage.",
+  "response_paraphrase": "The existing $520 pending payment and bursar review were confirmed; no new payment was executed at this stage.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S11_bill_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s11_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

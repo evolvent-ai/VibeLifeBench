@@ -1,0 +1,38 @@
+{
+  "step": "event-019",
+  "virtual_stage": 19,
+  "source_event_id": "ira_s19_wrong_spreadsheet",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The family spreadsheet claims were compared with IRS and custodian evidence; universal immediate-emptying and automatic withholding claims are rejected.",
+  "response_paraphrase": "Refuted the spreadsheet's blanket tax claims using refreshed IRS and custodian-specific evidence.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s19_wrong_spreadsheet",
+      "virtual_stage": 19
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_claims_logged",
+      "weight": 1
+    },
+    {
+      "check_id": "s19_official_comparison",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s19_account_specific_boundary",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s19_sources_requeried",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 5
+}

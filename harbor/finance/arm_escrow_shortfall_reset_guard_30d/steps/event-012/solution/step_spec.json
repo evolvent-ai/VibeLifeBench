@@ -1,0 +1,36 @@
+{
+ "step": "event-012",
+ "stage": 11,
+ "event_id": "S11_bill_notice",
+ "response_paraphrase": "I verified the recurring payment and calendar event after the update and reconciled their amount, date, and status.",
+ "expected_env": {
+  "virtual_stage": 11,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s11_addressed",
+   "weight": 1.0
+  },
+  {
+   "check_id": "s11_tool_or_number",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s11_durable_gate",
+   "weight": 5.0
+  },
+  {
+   "check_id": "s11_crosslink",
+   "weight": 3.0
+  }
+ ],
+ "expected_stage_weight": 11.0,
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 11
+  }
+ ],
+ "source_event_id": "S11_bill_notice"
+}

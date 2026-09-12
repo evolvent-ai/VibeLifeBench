@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "S16_market_mutation"
+  ],
+  "source_stage": 16,
+  "source_time": "2026-06-28T08:00:00+08:00",
+  "previous": "release-001",
+  "token": "arm-escrow-shortfall-release-002-9c4e7b2a",
+  "operations": [
+    {
+      "server": "brokerage",
+      "table": "quotes_daily",
+      "op": "insert",
+      "values": {
+        "symbol": "SGOV",
+        "date": "2026-06-28",
+        "open_minor": 10025,
+        "close_minor": 10031,
+        "high_minor": 10035,
+        "low_minor": 10024,
+        "volume": 5400000
+      },
+      "source_event_id": "S16_market_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "notion",
+      "table": "database_rows",
+      "op": "insert",
+      "values": {
+        "row_id": "row_arm_source_20260628",
+        "database_id": "db_finance_ledger",
+        "properties_json": "{\"date\": \"2026-06-28\", \"kind\": \"source review\", \"source\": \"Freddie Mac PMMS and CFPB ARM guidance\", \"note\": \"Rate comparison refreshed; confirm the ARM index, margin, caps, and servicer estimate before choosing an option.\", \"status\": \"review\"}",
+        "created_time": "2026-06-28T08:00:00Z",
+        "last_edited_time": "2026-06-28T08:00:00Z",
+        "archived": 0
+      },
+      "source_event_id": "S16_market_mutation",
+      "operation_index": 1
+    }
+  ]
+}

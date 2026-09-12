@@ -1,0 +1,36 @@
+{
+ "step": "event-015",
+ "stage": 14,
+ "event_id": "S14_official_compare",
+ "response_paraphrase": "I verified the official comparison material for index, margin, caps, escrow, and alternatives.",
+ "expected_env": {
+  "virtual_stage": 14,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s14_addressed",
+   "weight": 1.0
+  },
+  {
+   "check_id": "s14_tool_or_number",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s14_durable_gate",
+   "weight": 5.0
+  },
+  {
+   "check_id": "s14_crosslink",
+   "weight": 3.0
+  }
+ ],
+ "expected_stage_weight": 11.0,
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 14
+  }
+ ],
+ "source_event_id": "S14_official_compare"
+}

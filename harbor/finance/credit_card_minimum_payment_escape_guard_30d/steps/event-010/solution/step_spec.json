@@ -1,0 +1,35 @@
+{
+  "step": "event-010",
+  "virtual_stage": 9,
+  "source_event_id": "S09_user_numbers",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The minimum-only path uses minimum payment 12975; an extra payment of 90000 reduces principal, interest, and payoff time without risking bills.",
+  "response_paraphrase": "Compared with minimum-only repayment of 12975, a controlled extra payment of 90000 reduces principal and interest and shortens payoff time while cashflow remains covered; the extra payment is feasible.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S09_user_numbers",
+      "virtual_stage": 9,
+      "event_kind": "user_message",
+      "event_time": "2026-06-21T16:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s9_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

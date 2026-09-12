@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "S18_email_mutation"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-06-30T08:30:00+08:00",
+  "previous": "release-002",
+  "token": "arm-escrow-shortfall-release-003-9c4e7b2a",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<arm-escrow-update-20260630@cascade-ridge.example>",
+        "subject": "Updated escrow analysis and payment-change notice",
+        "from_addr": "servicing@cascade-ridge.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-30T08:30:00Z",
+        "body_text": "Your updated escrow analysis is available. The payment-change estimate and shortage options should be compared with the current account and card records before any payment decision.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9001,
+        "size": 1200,
+        "created_at": "2026-06-30T08:30:00Z"
+      },
+      "source_event_id": "S18_email_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "ub_card_interest_20260630",
+        "card_id": "card_primary",
+        "posted_at": "2026-06-30T08:30:00Z",
+        "amount_minor": 2600,
+        "merchant_name": "Purchase interest accrual",
+        "mcc": "6012",
+        "category": "finance",
+        "kind": "interest"
+      },
+      "source_event_id": "S18_email_mutation",
+      "operation_index": 1
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 86780,
+        "available_credit_minor": 1047500
+      },
+      "where": {
+        "card_id": "card_primary"
+      },
+      "source_event_id": "S18_email_mutation",
+      "operation_index": 2
+    }
+  ]
+}

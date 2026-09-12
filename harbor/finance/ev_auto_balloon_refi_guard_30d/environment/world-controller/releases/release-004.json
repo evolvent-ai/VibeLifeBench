@@ -1,0 +1,41 @@
+{
+  "release_id": "release-004",
+  "before_step": "event-010",
+  "previous": "release-003",
+  "token": "ev_auto_balloon_refi_guard_30d-release-004-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<renewal-ev-2026@pioneerins.example>",
+        "subject": "EV policy renewal estimate",
+        "from_addr": "service@pioneerins.example",
+        "to_addr_json": "[\"jordan.ellis@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-07T10:00:00-04:00",
+        "body_text": "The six-month renewal estimate is $1,164, up $132. The lender-loss-payee change is included at no fee. The premium is due August 21; autopay is not currently enabled.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9405,
+        "size": 399,
+        "created_at": "2026-08-07T10:00:00-04:00"
+      },
+      "postcondition": {
+        "table": "messages",
+        "where": {
+          "message_id": "<renewal-ev-2026@pioneerins.example>"
+        },
+        "count": 1
+      }
+    }
+  ]
+}

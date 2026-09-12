@@ -1,0 +1,38 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "virtual_stage": 0,
+  "source_event_id": "ev_kickoff",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Completed the initial evidence review and opened the protected EV refinance comparison.",
+  "response_paraphrase": "Initial EV refinancing evidence is now organized with the reserve boundary preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_kickoff"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s0_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s0_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}
+

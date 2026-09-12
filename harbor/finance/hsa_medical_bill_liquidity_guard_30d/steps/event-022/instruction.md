@@ -1,0 +1,1 @@
+World update: A downloaded worksheet says the HSA limit is $10,000, any bill qualifies, and receipts are optional. Check those claims against the official and plan records, then remove unsupported assumptions from the working files.

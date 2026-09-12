@@ -1,0 +1,41 @@
+{
+  "step": "event-010",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "ev_insurance_notice",
+  "stage_boundary": true,
+    "expected_env": {
+      "preceding_releases": [
+        "release-004"
+      ],
+      "released_mutations": [
+        "ev_insurance_insert"
+      ]
+  },
+  "response": "Recorded the Pioneer Insurance premium and due date as a separate liquidity obligation.",
+  "response_paraphrase": "Insurance cash timing is logged separately from vehicle financing.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_insurance_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s10_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s10_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}

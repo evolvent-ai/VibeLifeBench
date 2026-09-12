@@ -1,0 +1,38 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "ira_s01_custodian_packet_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Northstar Custody packet evidence was logged; beneficiary registration, distribution election, withholding, and transfer instructions remain separate.",
+  "response_paraphrase": "Recorded the custodian packet and kept registration, election, withholding, and transfer instructions as distinct evidence.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s01_custodian_packet_notice",
+      "virtual_stage": 1
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_packet_recorded",
+      "weight": 1
+    },
+    {
+      "check_id": "s1_email_read",
+      "weight": 1
+    },
+    {
+      "check_id": "s1_source_separated",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s1_audit_link",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

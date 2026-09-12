@@ -1,0 +1,39 @@
+{
+  "step": "event-006",
+  "virtual_stage": 5,
+  "source_event_id": "S05_mutation_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "S05_cashflow_mutation"
+    ]
+  },
+  "response": "The payroll adjustment and card fee reversal are recorded as changed backend facts, with the adjustment and pending card state reconciled.",
+  "response_paraphrase": "Backend updates include the corrected payroll adjustment and pending fee reversal, both reconciled from source records.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S05_mutation_notice",
+      "virtual_stage": 5,
+      "event_kind": "notification",
+      "event_time": "2026-06-18T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s5_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

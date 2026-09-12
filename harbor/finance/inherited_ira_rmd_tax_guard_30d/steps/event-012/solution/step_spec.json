@@ -1,0 +1,38 @@
+{
+  "step": "event-012",
+  "virtual_stage": 12,
+  "source_event_id": "ira_s12_custodian_reply",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Northstar Custody confirmed a non-spouse inherited IRA; a separate election and withholding instruction remain pending.",
+  "response_paraphrase": "Logged the non-spouse classification and preserved a separate, not-yet-authorized election and withholding step.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s12_custodian_reply",
+      "virtual_stage": 12
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s12_nonspouse_fact",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s12_election_separate",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s12_withholding_irreversible",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s12_source_requery",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 5.25
+}

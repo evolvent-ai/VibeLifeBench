@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "dar_support_deposit_insert"
+  ],
+  "source_time": "2026-08-10 08:20:00+08:00",
+  "source_stage": 12,
+  "previous": "release-003",
+  "token": "divorce-asset-rebuild-30d-release-004-release-token",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "source_event_id": "dar_support_deposit_insert",
+      "values": {
+        "tx_id": "tx_dar_support_20260810",
+        "account_id": "acct_checking_main",
+        "posted_at": "2026-08-10 08:20:00+08:00",
+        "amount_minor": 800000,
+        "kind": "deposit",
+        "counterparty": "Joint child support",
+        "memo": "July 2026 child support actually posted",
+        "balance_after_minor": 23600000
+      }
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "source_event_id": "dar_support_deposit_insert",
+      "where": {
+        "account_id": "acct_checking_main"
+      },
+      "set": {
+        "balance_minor": 23600000
+      }
+    }
+  ]
+}

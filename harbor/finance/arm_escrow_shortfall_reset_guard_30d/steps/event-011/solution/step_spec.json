@@ -1,0 +1,36 @@
+{
+ "step": "event-011",
+ "stage": 10,
+ "event_id": "S10_scheduled_deadline",
+ "response_paraphrase": "I verified the scheduled review date and logged one follow-up reminder in the calendar plan.",
+ "expected_env": {
+  "virtual_stage": 10,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s10_addressed",
+   "weight": 1.0
+  },
+  {
+   "check_id": "s10_tool_or_number",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s10_durable_gate",
+   "weight": 5.0
+  },
+  {
+   "check_id": "s10_crosslink",
+   "weight": 3.0
+  }
+ ],
+ "expected_stage_weight": 11.0,
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 10
+  }
+ ],
+ "source_event_id": "S10_scheduled_deadline"
+}

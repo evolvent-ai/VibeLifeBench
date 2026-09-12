@@ -1,0 +1,39 @@
+{
+  "step": "event-012",
+  "virtual_stage": 11,
+  "source_event_id": "S11_bill_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "S11_bill_mutation"
+    ]
+  },
+  "response": "The 90000 card payment is pending and the payoff review is on the calendar; neither record is a completed payment.",
+  "response_paraphrase": "The 90000 item remains a pending payment and the review appointment exists; neither should be described as completed.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S11_bill_notice",
+      "virtual_stage": 11,
+      "event_kind": "notification",
+      "event_time": "2026-06-23T11:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s11_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

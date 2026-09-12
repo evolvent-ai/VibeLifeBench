@@ -1,0 +1,38 @@
+{
+  "step": "event-007",
+  "stage": 7,
+  "virtual_stage": 7,
+  "source_event_id": "ev_candidate_review",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Compared the available records and identified the next information-gathering step.",
+  "response_paraphrase": "The three records are compared and the lawful next information step is identified.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_candidate_review"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s7_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s7_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}
+

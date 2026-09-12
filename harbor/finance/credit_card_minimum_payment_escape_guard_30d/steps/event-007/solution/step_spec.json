@@ -1,0 +1,35 @@
+{
+  "step": "event-007",
+  "virtual_stage": 6,
+  "source_event_id": "S06_cross_checkpoint",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Verified statement balance 519000, minimum due 12975, and 24.99% APR plus fixed bills and cashflow support a safe plan with the protected reserve.",
+  "response_paraphrase": "The 519000 balance, 12975 minimum, 24.99% APR, bills, cashflow, and protected reserve support the written safe-payment plan.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S06_cross_checkpoint",
+      "virtual_stage": 6,
+      "event_kind": "user_message",
+      "event_time": "2026-06-18T18:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s6_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

@@ -1,0 +1,41 @@
+{
+  "release_id": "release-003",
+  "before_step": "event-008",
+  "previous": "release-002",
+  "token": "ev_auto_balloon_refi_guard_30d-release-003-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<soft-quote-4612@harborcu.example>",
+        "subject": "Conditional soft-pull estimate 4612",
+        "from_addr": "auto@harborcu.example",
+        "to_addr_json": "[\"jordan.ellis@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-06T09:15:00-04:00",
+        "body_text": "Conditional estimate: $21,935 amount financed, 6.89% APR, 36 months, estimated $676 monthly payment, $2,401 finance charge, and $24,336 total of payments. No service contract or GAP product is included. Final approval requires a hard inquiry and title review.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": "<quote-request-ack@harborcu.example>",
+        "references_header": "<quote-request-ack@harborcu.example>",
+        "headers_json": "{}",
+        "uid": 9404,
+        "size": 563,
+        "created_at": "2026-08-06T09:15:00-04:00"
+      },
+      "postcondition": {
+        "table": "messages",
+        "where": {
+          "message_id": "<soft-quote-4612@harborcu.example>"
+        },
+        "count": 1
+      }
+    }
+  ]
+}

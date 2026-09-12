@@ -1,0 +1,1 @@
+Maya Chen said: Keep estimates, posted amounts, pending items, authorized actions, and completed actions separate. Check the connected financial, email, calendar, and journal records instead of relying on memory.

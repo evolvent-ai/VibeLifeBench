@@ -1,0 +1,46 @@
+{
+  "release_id": "release-005",
+  "previous": "release-004",
+  "source_stage": 17,
+  "source_time": "2026-11-25T08:10:00+08:00",
+  "source_event_ids": ["s17_citybond_mutation"],
+  "token": "finance-task-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": "(SELECT id FROM folders WHERE name='INBOX')",
+        "message_id": "msg_s17_citybond",
+        "subject": "\u6c5f\u5357\u57ce\u6295\u76f8\u5173\u503a\u5238\u8bc4\u7ea7\u5c55\u671b\u66f4\u65b0",
+        "from_addr": "research@huazheng.example",
+        "to_addr_json": "[\"shen.zhixing@lanshi.fo\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-11-25T08:10:00+08:00",
+        "body_text": "Rating outlook moved to negative for refinancing watch. Liquidity reserve and exposure cap should be reviewed before any concentration increase.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 9300,
+        "size": 144,
+        "created_at": "2026-11-25T08:10:00+08:00"
+      }
+    },
+    {
+      "server": "brokerage",
+      "table": "funds",
+      "op": "update",
+      "set": {
+        "ytd_return_bp": 120,
+        "risk_level": 4
+      },
+      "where": {
+        "fund_code": "FAM001"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "step": "event-018",
+  "virtual_stage": 18,
+  "source_event_id": "ira_s18_email_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "<mut_iirtg_liquidity@example.com>"
+    ]
+  },
+  "response": "The custodian processing timeline requires a signed election and withholding instruction; it is prerequisite evidence, not distribution confirmation.",
+  "response_paraphrase": "Recorded the signed-election and withholding prerequisites without treating processing language as settlement.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s18_email_notice",
+      "virtual_stage": 18
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_email_requery",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s18_prerequisites_recorded",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s18_not_distribution_confirmation",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s18_timeline_risk",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

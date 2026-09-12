@@ -1,0 +1,38 @@
+{
+  "step": "event-015",
+  "stage": 15,
+  "virtual_stage": 15,
+  "source_event_id": "ev_comparison_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Compared both complete estimates against payoff and insurance needs and recorded the tradeoff.",
+  "response_paraphrase": "The two complete options are compared against current needs with their tradeoff.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_comparison_request"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s15_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s15_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}
+

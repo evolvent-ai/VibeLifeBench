@@ -1,0 +1,73 @@
+{
+  "release_id": "release-005",
+  "before_step": "event-019",
+  "previous": "release-004",
+  "token": "college_529_room_board_guard_30d-release-005-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<housing.correction.20260630@northlake.example>",
+        "subject": "Housing charge correction and family cash update",
+        "from_addr": "housing@northlake.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-30T08:30:00Z",
+        "body_text": "Housing removed a $185 premium-services charge and retained the required meal-plan charge. A $310 medical copay is due this week, so the supported housing payment must be reconciled without drawing from the tuition reserve.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": "<housing.invoice.20260625@campus.example>",
+        "references_header": "<housing.invoice.20260625@campus.example>",
+        "headers_json": "{\"thread\":\"fall-housing\",\"record_type\":\"charge_correction\"}",
+        "uid": 9001,
+        "size": 649,
+        "created_at": "2026-06-30T08:30:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 67,
+        "unread_count": 13
+      },
+      "where": {
+        "id": 2
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "ub_20260630_card_interest_p3v7",
+        "card_id": "card_primary",
+        "posted_at": "2026-06-30T08:30:00Z",
+        "amount_minor": 2600,
+        "merchant_name": "Card Bank periodic interest",
+        "mcc": "6012",
+        "category": "finance",
+        "kind": "interest"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 92120,
+        "available_credit_minor": 888880
+      },
+      "where": {
+        "card_id": "card_primary"
+      }
+    }
+  ]
+}

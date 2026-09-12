@@ -1,0 +1,42 @@
+{
+  "step": "event-005",
+  "virtual_stage": 5,
+  "source_event_id": "ira_s05_income_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "tx_mut_iirtg_income"
+    ]
+  },
+  "response": "The consulting deposit was verified as ordinary cash and taxable income, not an inherited IRA distribution; estimated tax treatment remains separate.",
+  "response_paraphrase": "Classified the 146000 minor-unit consulting deposit as ordinary taxable income rather than IRA proceeds.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s05_income_notice",
+      "virtual_stage": 5
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_income_lane",
+      "weight": 1
+    },
+    {
+      "check_id": "s5_banking_query",
+      "weight": 1
+    },
+    {
+      "check_id": "s5_backend_income",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s5_not_ira",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

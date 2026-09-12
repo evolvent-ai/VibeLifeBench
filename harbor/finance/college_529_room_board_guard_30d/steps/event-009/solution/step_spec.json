@@ -1,0 +1,31 @@
+{
+  "step": "event-009",
+  "virtual_stage": 8,
+  "source_event_id": "S08_brokerage_pitch",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Brokerage positions and cancelled orders were checked; no sale was placed and tuition timing remains protected.",
+  "response_paraphrase": "Brokerage positions and cancelled orders were checked; no sale was placed and tuition timing remains kept separate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S08_brokerage_pitch"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s8_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

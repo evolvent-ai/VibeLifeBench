@@ -1,0 +1,36 @@
+{
+ "step": "event-020",
+ "stage": 19,
+ "event_id": "S19_calendar_alert",
+ "response_paraphrase": "I verified the closeout dates and refreshed the calendar plan and summary with the next review points.",
+ "expected_env": {
+  "virtual_stage": 19,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s19_addressed",
+   "weight": 1.0
+  },
+  {
+   "check_id": "s19_tool_or_number",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s19_durable_gate",
+   "weight": 5.0
+  },
+  {
+   "check_id": "s19_crosslink",
+   "weight": 3.0
+  }
+ ],
+ "expected_stage_weight": 11.0,
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 19
+  }
+ ],
+ "source_event_id": "S19_calendar_alert"
+}

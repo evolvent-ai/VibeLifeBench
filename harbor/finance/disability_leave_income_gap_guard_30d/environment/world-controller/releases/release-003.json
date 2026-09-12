@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "dli_payroll_adjustment_insert"
+  ],
+  "source_time": "2026-08-07T08:00:00-07:00",
+  "previous": "release-002",
+  "token": "disability-leave-income-gap-30d-release-003-release-token",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_dli_payroll_adjustment_20260807",
+        "account_id": "acct_checking_main",
+        "posted_at": "2026-08-07T08:00:00-07:00",
+        "amount_minor": 146000,
+        "kind": "deposit",
+        "counterparty": "Northstar Payroll",
+        "memo": "Final leave-period payroll adjustment",
+        "balance_after_minor": 2772000
+      },
+      "source_event_id": "dli_payroll_adjustment_insert"
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "where": {
+        "account_id": "acct_checking_main"
+      },
+      "set": {
+        "balance_minor": 2772000
+      },
+      "source_event_id": "dli_payroll_adjustment_insert"
+    }
+  ]
+}

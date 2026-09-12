@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task": "credit_card_minimum_payment_escape_guard_30d",
+  "step_count": 28,
+  "clock_file": "/world-clock/current.json",
+  "clock_token_env": "CLOCK_TOKEN",
+  "services": {
+    "banking": "/banking-env/runtime.db",
+    "brokerage": "/brokerage-env/runtime.db",
+    "calendar": "/calendar-env/runtime.db",
+    "credit_card": "/credit-card-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "notion": "/notion-env/runtime.db"
+  }
+}

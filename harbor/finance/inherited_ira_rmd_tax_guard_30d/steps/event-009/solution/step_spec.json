@@ -1,0 +1,38 @@
+{
+  "step": "event-009",
+  "virtual_stage": 9,
+  "source_event_id": "ira_s09_tax_calendar_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "CPA, custodian, card, and estimated-tax review events were placed on the calendar; the distribution election is pending.",
+  "response_paraphrase": "Scheduled the four follow-ups and labeled the election as pending until the custodian facts are complete.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s09_tax_calendar_request",
+      "virtual_stage": 9
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_calendar_plan",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s9_calendar_tool",
+      "weight": 1
+    },
+    {
+      "check_id": "s9_pending_label",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s9_calendar_ids",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

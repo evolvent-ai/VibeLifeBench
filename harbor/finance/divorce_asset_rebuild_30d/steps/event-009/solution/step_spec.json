@@ -1,0 +1,42 @@
+{
+  "step": "event-009",
+  "virtual_stage": 9,
+  "source_event_id": "dar_child_fund_boundary",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ]
+  },
+  "response": "Recorded the education-fund idea as an irreversible option and confirmed the existing RMB 50,000 daughter reserve remains protected.",
+  "response_paraphrase": "A daughter-owned education fund remains only a liquidity-sensitive proposal; her existing restricted RMB 50,000 pool was left intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_child_fund_boundary",
+      "event_kind": "user_message",
+      "event_time": "2026-08-06T11:00:00+08:00",
+      "virtual_stage": 9,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s9_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

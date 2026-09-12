@@ -1,0 +1,36 @@
+{
+ "step": "event-025",
+ "stage": 23,
+ "event_id": "S23_closeout",
+ "response_paraphrase": "I closed the review after verifying official sources and account records. Completed and executed work is separated from pending approvals; rejected options and deferred items remain recorded, the protected reserve is preserved, and the next review dates are listed.",
+ "expected_env": {
+  "virtual_stage": 23,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s23_addressed",
+   "weight": 1.0
+  },
+  {
+   "check_id": "s23_tool_or_number",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s23_durable_gate",
+   "weight": 5.0
+  },
+  {
+   "check_id": "s23_crosslink",
+   "weight": 3.0
+  }
+ ],
+ "expected_stage_weight": 11.0,
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 23
+  }
+ ],
+ "source_event_id": "S23_closeout"
+}

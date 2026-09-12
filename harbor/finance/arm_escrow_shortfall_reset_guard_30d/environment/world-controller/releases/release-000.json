@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "S05_cashflow_mutation"
+  ],
+  "source_stage": 5,
+  "source_time": "2026-06-18T08:00:00+08:00",
+  "previous": null,
+  "token": "arm-escrow-shortfall-release-000-9c4e7b2a",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_payroll_adj_20260618",
+        "account_id": "acct_checking_main",
+        "posted_at": "2026-06-18T08:00:00Z",
+        "amount_minor": 146000,
+        "kind": "deposit",
+        "counterparty": "Payroll adjustment",
+        "memo": "Payroll correction posted after the regular pay cycle",
+        "balance_after_minor": 2772000
+      },
+      "source_event_id": "S05_cashflow_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {
+        "balance_minor": 2772000
+      },
+      "where": {
+        "account_id": "acct_checking_main"
+      },
+      "source_event_id": "S05_cashflow_mutation",
+      "operation_index": 1
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "ub_card_adj_20260618",
+        "card_id": "card_primary",
+        "posted_at": "2026-06-18T08:05:00Z",
+        "amount_minor": 3900,
+        "merchant_name": "Card account adjustment pending review",
+        "mcc": "6012",
+        "category": "finance",
+        "kind": "adjustment"
+      },
+      "source_event_id": "S05_cashflow_mutation",
+      "operation_index": 2
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 84180,
+        "available_credit_minor": 1050100
+      },
+      "where": {
+        "card_id": "card_primary"
+      },
+      "source_event_id": "S05_cashflow_mutation",
+      "operation_index": 3
+    }
+  ]
+}

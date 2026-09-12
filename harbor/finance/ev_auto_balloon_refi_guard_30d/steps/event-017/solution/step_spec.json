@@ -1,0 +1,38 @@
+{
+  "step": "event-017",
+  "stage": 17,
+  "virtual_stage": 17,
+  "source_event_id": "ev_application_boundary",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Recorded ready and missing documents while keeping both financing choices pending.",
+  "response_paraphrase": "Document readiness and the exact deadline are recorded while choices remain pending.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_application_boundary"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s17_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s17_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}
+

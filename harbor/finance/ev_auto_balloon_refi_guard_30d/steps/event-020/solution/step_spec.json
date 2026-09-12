@@ -1,0 +1,38 @@
+{
+  "step": "event-020",
+  "stage": 20,
+  "virtual_stage": 20,
+  "source_event_id": "ev_final_plan_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Prepared the decision packet with verified costs, status, protection, and dated actions.",
+  "response_paraphrase": "The decision packet contains the verified fields, open decisions, and dated actions.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ev_final_plan_request"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_addressed",
+      "weight": 1,
+      "expected": true
+    },
+    {
+      "check_id": "s20_tool_or_number",
+      "weight": 2,
+      "expected": true
+    },
+    {
+      "check_id": "s20_durable_gate",
+      "weight": 5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8
+}
+

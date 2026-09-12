@@ -1,0 +1,31 @@
+{
+  "step": "event-002",
+  "virtual_stage": 1,
+  "source_event_id": "S01_source_brief",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The IRS Publication 970 source and Northlake official school enrollment evidence were verified and separated from secondary material.",
+  "response_paraphrase": "The IRS Publication 970 source and Northlake official school enrollment evidence were confirmed and separated from secondary material.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S01_source_brief"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s1_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

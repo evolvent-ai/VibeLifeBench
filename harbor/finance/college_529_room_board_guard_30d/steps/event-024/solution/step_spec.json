@@ -1,0 +1,31 @@
+{
+  "step": "event-024",
+  "virtual_stage": 21,
+  "source_event_id": "S21_source_recrawl_gate",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The landlord worksheet was rejected as eligibility evidence; parking and furniture remain unsupported under the IRS and school-allowance record.",
+  "response_paraphrase": "The review reached this result: the landlord worksheet was rejected as eligibility evidence; parking and furniture remain unsupported under the IRS and school-allowance record.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S21_source_recrawl_gate"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s21_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

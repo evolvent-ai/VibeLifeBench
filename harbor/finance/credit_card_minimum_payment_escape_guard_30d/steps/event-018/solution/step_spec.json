@@ -1,0 +1,35 @@
+{
+  "step": "event-018",
+  "virtual_stage": 17,
+  "source_event_id": "S17_tool_audit",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I verified balances, statement terms, bills, dates, and official CFPB guidance, separating changed records from recommendations.",
+  "response_paraphrase": "A fresh review verifies and records verified balances, terms, bills, dates, and CFPB guidance, with changed backend records distinguished from advice.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S17_tool_audit",
+      "virtual_stage": 17,
+      "event_kind": "user_message",
+      "event_time": "2026-06-29T17:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s17_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

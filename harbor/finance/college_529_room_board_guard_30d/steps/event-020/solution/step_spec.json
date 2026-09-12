@@ -1,0 +1,31 @@
+{
+  "step": "event-020",
+  "virtual_stage": 19,
+  "source_event_id": "S19_calendar_alert",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The July 2 semester decision review and June 29 housing review were verified in the calendar.",
+  "response_paraphrase": "The July 2 semester decision review and June 29 housing review were confirmed in the calendar.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S19_calendar_alert"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s19_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

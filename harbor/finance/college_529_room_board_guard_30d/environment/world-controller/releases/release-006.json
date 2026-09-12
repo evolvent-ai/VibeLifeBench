@@ -1,0 +1,46 @@
+{
+  "release_id": "release-006",
+  "before_step": "event-023",
+  "previous": "release-005",
+  "token": "college_529_room_board_guard_30d-release-006-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<landlord.bundle.20260703@housing.example>",
+        "subject": "Lease package eligibility worksheet",
+        "from_addr": "leasing@campuslofts.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-03T08:55:00Z",
+        "body_text": "The landlord worksheet labels the entire lease package as education housing, including parking, furniture rental, the security deposit, and premium services. It does not apply the school allowance or scholarship reduction and is not an eligibility determination.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": "<housing.invoice.20260625@campus.example>",
+        "references_header": "<housing.invoice.20260625@campus.example>",
+        "headers_json": "{\"thread\":\"fall-housing\",\"record_type\":\"landlord_worksheet\"}",
+        "uid": 9101,
+        "size": 664,
+        "created_at": "2026-07-03T08:55:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 68,
+        "unread_count": 14
+      },
+      "where": {
+        "id": 2
+      }
+    }
+  ]
+}

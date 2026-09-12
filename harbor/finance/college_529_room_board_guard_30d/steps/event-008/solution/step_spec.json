@@ -1,0 +1,31 @@
+{
+  "step": "event-008",
+  "virtual_stage": 7,
+  "source_event_id": "S07_card_pressure",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The card APR and current borrowing cost were verified; card interest is not treated as a qualified education cost.",
+  "response_paraphrase": "The card APR and current borrowing cost were confirmed; card interest is not treated as a qualified education cost.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S07_card_pressure"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s7_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "dli_interest_insert"
+  ],
+  "source_time": "2026-08-25T08:00:00-07:00",
+  "previous": "release-007",
+  "token": "disability-leave-income-gap-30d-release-008-release-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "statement_lines",
+      "op": "insert",
+      "source_event_id": "dli_interest_insert",
+      "values": {
+        "line_id": "sl_dli_interest_20260825",
+        "statement_id": "stmt_y_2025_12",
+        "posted_at": "2026-08-25T08:00:00-07:00",
+        "amount_minor": 2600,
+        "merchant_name": "Periodic interest charge",
+        "mcc": "6012",
+        "category": "finance",
+        "kind": "interest"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "statements",
+      "op": "update",
+      "source_event_id": "dli_interest_insert",
+      "where": {
+        "statement_id": "stmt_y_2025_12"
+      },
+      "set": {
+        "closing_balance_minor": 309169
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "source_event_id": "dli_interest_insert",
+      "where": {
+        "card_id": "card_primary"
+      },
+      "set": {
+        "statement_balance_minor": 309169,
+        "available_credit_minor": 1051031
+      }
+    }
+  ]
+}

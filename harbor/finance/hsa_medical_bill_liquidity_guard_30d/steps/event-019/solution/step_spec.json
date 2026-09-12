@@ -1,0 +1,36 @@
+{
+ "step": "event-019",
+ "stage": 18,
+ "event_id": "S18_liquidity_shock",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 18
+  }
+ ],
+ "response_paraphrase": "The hospital bill, card deadline, and household expense were ranked using verified dates, interest, HSA rules, and ordinary cash.",
+ "expected_env": {
+  "virtual_stage": 18,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s18_addressed",
+   "weight": 1.0
+  },
+  {
+   "check_id": "s18_tool_or_number",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s18_durable_gate",
+   "weight": 5.0
+  },
+  {
+   "check_id": "s18_crosslink",
+   "weight": 3.0
+  }
+ ],
+ "expected_stage_weight": 11.0,
+ "source_event_id": "S18_liquidity_shock"
+}

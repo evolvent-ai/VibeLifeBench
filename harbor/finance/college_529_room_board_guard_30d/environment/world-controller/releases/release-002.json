@@ -1,0 +1,98 @@
+{
+  "release_id": "release-002",
+  "before_step": "event-014",
+  "previous": "release-001",
+  "token": "college_529_room_board_guard_30d-release-002-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<housing.invoice.20260625@campus.example>",
+        "subject": "Campus housing invoice with required and optional charges",
+        "from_addr": "housing@northlake.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-25T08:35:00Z",
+        "body_text": "The fall housing invoice lists standard room rent of $5,100 and the required residence meal plan of $2,350. It separately lists a $600 refundable security deposit, $425 parking permit, $350 optional furniture package, and $185 premium-services charge. Only the billed room and required meals are confirmed academic-period living costs.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"thread\":\"fall-housing\",\"record_type\":\"housing_invoice\"}",
+        "uid": 8101,
+        "size": 661,
+        "created_at": "2026-06-25T08:35:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<bursar.allowance.20260625@university.example>",
+        "subject": "Bursar evidence request for room-and-board review",
+        "from_addr": "bursar@northlake.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-25T08:45:00Z",
+        "body_text": "The bursar asked the family to retain enrollment status, the published room-and-board allowance, scholarship posting, lease dates, and meal invoices. The note does not authorize a 529 distribution or transfer from the tuition reserve.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"thread\":\"bursar-eligibility\",\"record_type\":\"evidence_request\"}",
+        "uid": 8102,
+        "size": 623,
+        "created_at": "2026-06-25T08:45:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<private.loan.promo.20260625@lender.example>",
+        "subject": "Private education line promotional offer",
+        "from_addr": "offers@brightpathlending.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-25T08:55:00Z",
+        "body_text": "BrightPath Lending advertises immediate cash for housing and lifestyle costs but does not determine 529 qualification, compare the school allowance, or preserve the family tuition reserve. Rates depend on underwriting.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"thread\":\"private-loan-promo\",\"record_type\":\"marketing\"}",
+        "uid": 8103,
+        "size": 578,
+        "created_at": "2026-06-25T08:55:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 65,
+        "unread_count": 11
+      },
+      "where": {
+        "id": 2
+      }
+    }
+  ]
+}

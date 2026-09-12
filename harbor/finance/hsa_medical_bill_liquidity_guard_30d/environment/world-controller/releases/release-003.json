@@ -1,0 +1,60 @@
+{
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "hsa_medical_bill_liquidity_guard_30d-release-003-token-2026",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<medical-balance-update-20260630@desert-valley-health.example>",
+        "subject": "Updated hospital balance and HSA documentation notice",
+        "from_addr": "billing@desert-valley-health.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-30T08:30:00Z",
+        "body_text": "The hospital balance and documentation request were updated. Verify the itemized bill, insurance status, HSA eligibility, and current card activity before choosing a payment or reimbursement step.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9001,
+        "size": 1200,
+        "created_at": "2026-06-30T08:30:00Z"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "ub_card_interest_20260630",
+        "card_id": "card_primary",
+        "posted_at": "2026-06-30T08:30:00Z",
+        "amount_minor": 2600,
+        "merchant_name": "Purchase interest accrual",
+        "mcc": "6012",
+        "category": "finance",
+        "kind": "interest"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 116660,
+        "available_credit_minor": 881500
+      },
+      "where": {
+        "card_id": "card_primary"
+      }
+    }
+  ]
+}

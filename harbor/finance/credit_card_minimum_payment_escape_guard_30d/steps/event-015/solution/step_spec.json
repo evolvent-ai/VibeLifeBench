@@ -1,0 +1,39 @@
+{
+  "step": "event-015",
+  "virtual_stage": 14,
+  "source_event_id": "S14_official_compare",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "S14_disclosure_mutation"
+    ]
+  },
+  "response": "The updated disclosure says minimum-only repayment costs more interest and takes longer than an optional extra payment.",
+  "response_paraphrase": "The revised disclosure confirms that a higher fixed payment shortens payoff and limits interest compared with minimum-only.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S14_official_compare",
+      "virtual_stage": 14,
+      "event_kind": "world",
+      "event_time": "2026-06-26T14:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_business",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s14_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

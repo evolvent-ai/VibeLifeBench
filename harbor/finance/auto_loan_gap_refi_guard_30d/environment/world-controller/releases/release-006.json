@@ -1,0 +1,73 @@
+{
+  "release_id": "release-006",
+  "before_step": "event-019",
+  "previous": "release-005",
+  "token": "auto_loan_gap_refi_guard_30d-release-006-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 2,
+        "message_id": "<auto-payoff-update.20260630@servicing.autofinance.example>",
+        "subject": "Updated payoff and same-week repair expense",
+        "from_addr": "servicing@autofinance.example",
+        "to_addr_json": "[\"finance.owner@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-30T08:30:00Z",
+        "body_text": "The servicer payoff is $18,849.05 through July 3, with $6.85 of daily interest after that date. A $742 tire replacement is due this week, reducing available checking cash; the insurance deductible reserve remains separate.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"thread\":\"auto-payoff-update\",\"record_type\":\"liquidity_change\"}",
+        "uid": 9001,
+        "size": 668,
+        "created_at": "2026-06-30T08:30:00Z"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "cc_txn_f619b4a2e375",
+        "card_id": "card_primary",
+        "posted_at": "2026-06-30T08:30:00Z",
+        "amount_minor": 2600,
+        "merchant_name": "Card Bank periodic interest",
+        "mcc": "6012",
+        "category": "finance",
+        "kind": "interest"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 92120,
+        "available_credit_minor": 888880
+      },
+      "where": {
+        "card_id": "card_primary"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 69,
+        "unread_count": 17
+      },
+      "where": {
+        "id": 2
+      }
+    }
+  ]
+}

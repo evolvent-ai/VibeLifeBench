@@ -1,0 +1,38 @@
+{
+  "step": "event-006",
+  "virtual_stage": 6,
+  "source_event_id": "ira_s06_source_review",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "IRS Publication 590-B and estimated-tax guidance were reviewed as general guidance while account-specific beneficiary facts remain unconfirmed.",
+  "response_paraphrase": "Refreshed the official IRS material and marked beneficiary category and year-of-death requirements as account-specific open facts.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "ira_s06_source_review",
+      "virtual_stage": 6
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_official_sources",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s6_source_query",
+      "weight": 1
+    },
+    {
+      "check_id": "s6_scope_limit",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s6_open_fact",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

@@ -1,0 +1,36 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "dar_support_delay_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "response": "Kept the RMB 8,000 July child support as an unreceived receivable and preserved the expected date without treating it as cash.",
+  "response_paraphrase": "July's RMB 8,000 support remains due rather than available, with its tentative arrival date retained only as an expectation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "dar_support_delay_notice",
+      "event_kind": "notification",
+      "event_time": "2026-07-31T08:35:00+08:00",
+      "virtual_stage": 2,
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_evidence",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s2_business_result",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}
