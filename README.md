@@ -3,7 +3,8 @@
 # Vibelifebench
 
 [![Tasks](https://img.shields.io/badge/tasks-200-blue)](#tasks)
-[![Open subset](https://img.shields.io/badge/open_subset-20-06b6d4)](#tasks)
+[![Open tasks](https://img.shields.io/badge/open_tasks-100-06b6d4)](#tasks)
+[![Harbor format](https://img.shields.io/badge/harbor_format-100-10b981)](#harbor-format-subset)
 [![Domains](https://img.shields.io/badge/domains-10-8b5cf6)](#tasks)
 [![Services](https://img.shields.io/badge/services-21-f59e0b)](#service-coverage)
 [![Language](https://img.shields.io/badge/lang-zh%20%2B%20en-lightgrey)](#tasks)
@@ -46,15 +47,19 @@ Run it yourself in about fifteen minutes of setup &mdash; [Quickstart](#quicksta
 
 ## Tasks
 
-The full benchmark is **200 tasks** across 10 domains. This repository ships a
-**20-task open subset**, two per domain, that is complete and runnable on its own.
-Every task ships bilingual (zh/en) documentation and is fully self-contained.
+The full benchmark is **200 tasks** across 10 domains. This repository
+open-sources **100 of them** — 10 per domain — as one self-contained subset in
+[Harbor](https://github.com/laude-institute/harbor) task format, runnable
+through the Harbor CLI (see [Harbor-format subset](#harbor-format-subset)). The
+20 tasks of the earlier open subset — two per domain, bilingual zh/en task
+cards — are all part of this 100 and additionally ship in native format under
+`eval_set/` for the Terrarium harness below.
 
 To evaluate against all 200, email
 **[vibelife@evolvent.co](mailto:vibelife@evolvent.co)** &mdash; see
 [Want us to run it instead?](#want-us-to-run-it-instead).
 
-### The open subset
+### The native-format subset
 
 | Domain | Task ID | Title | Stages | Envs | Checks | Weight | Difficulty |
 |---|---|---|---:|---:|---:|---:|---|
@@ -80,13 +85,35 @@ To evaluate against all 200, email
 | Travel / 差旅与出行 | `galapagos_no_us_transit` | Galapagos Travel Without U.S. Transit | 25 | 7 | 41 | 100 | `hard` |
 
 
-> **Difficulty labels are audited for v1.0.0.** The open subset contains 16 tasks
+> **Difficulty labels are audited for v1.0.0.** The native-format subset contains 16 tasks
 > labelled `hard`, 4 labelled `medium`, and 0 labelled `easy`. Scores are normalized
 > independently per task under the `flat_pool` scoring contract.
 
 `Envs` counts the task's service-environment bindings. `Weight` is the task's declared
 total scoring weight; scores are normalized per task, so weights are not comparable
 across tasks.
+
+### Harbor-format subset
+
+The **100-task Harbor-format subset** under [`harbor/`](harbor/README.md) is
+the open benchmark — 10 tasks per domain, including the 20 native-format tasks
+above. Each task is a self-contained
+[Harbor](https://github.com/laude-institute/harbor) task: its own docker compose
+stack of mock services, a 20–33 stage timeline with per-stage instructions and
+world mutations, an oracle reference trajectory, and a rubric-based final
+verifier that scores backend state. Same domains, same services, same scoring
+philosophy — a different runner.
+
+```bash
+# smoke test — one task
+scripts/run_harbor.sh --domain career --include '*espp*'
+
+# all 100 tasks
+scripts/run_harbor.sh --model anthropic/claude-opus-4-8 --agent claude-code
+```
+
+See [`harbor/README.md`](harbor/README.md) for layout, requirements, and the
+full task inventory.
 
 ### What a task looks like
 
@@ -128,7 +155,7 @@ Stages are checkpoints, not calendar days. Event types include `user_message`,
 
 ### Service Coverage
 
-Task counts are for the 20-task open subset in this repository. These tasks use
+Task counts are for the 20-task native-format subset in this repository. These tasks use
 21 services; `servers/` ships 22 mock-server packages because `car_rental_mock` is
 included for runtime completeness but is not referenced by the open subset.
 
@@ -153,8 +180,11 @@ Vibelifebench/
 │       ├── Dockerfile           # image the capability layer launches
 │       └── SPEC.md              # tool surface and schema
 ├── capabilities/                # Terrarium capability per service + shared base
+├── harbor/                      # 100-task Harbor-format subset (see harbor/README.md)
 ├── scripts/
-│   └── materialize_envs.py      # build the top-level envs/ tree (run this first)
+│   ├── materialize_envs.py      # build the top-level envs/ tree (run this first)
+│   ├── run_eval.py              # run the native-format open subset
+│   └── run_harbor.sh            # run the Harbor-format subset
 └── eval_set/
     └── <domain>/
         └── <task>/
@@ -231,7 +261,7 @@ Key flags: `--list` (all task ids), `--tasks ID [ID ...]`, `--domains D [D ...]`
 
 ### Want us to run it instead?
 
-The 20 tasks here are an open subset. To evaluate against the **full 200-task
+Everything published here is an open subset. To evaluate against the **full 200-task
 benchmark** &mdash; or if you would rather not stand up the harness at all &mdash; email
 **[vibelife@evolvent.co](mailto:vibelife@evolvent.co)** with the model name, an endpoint
 we can reach, and any inference settings you want used. We run it and send back the

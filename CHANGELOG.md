@@ -2,6 +2,18 @@
 
 All notable changes to the public VibeLifeBench release are documented here.
 
+## [Unreleased]
+
+### Added
+
+- `harbor/` — a 100-task Harbor-format subset (10 tasks × 10 domains) that runs
+  through the [Harbor](https://github.com/laude-institute/harbor) CLI. Each task
+  carries its own docker compose environment, per-stage instructions and world
+  mutations, an oracle reference trajectory, and a rubric-based final verifier.
+- `scripts/run_harbor.sh` — one-command runner for the Harbor-format subset
+  (per-domain or all-domain, with agent/model/env-file passthrough).
+- `harbor/README.md` — layout, requirements, quickstart, and task inventory.
+
 ## [1.0.0] - 2026-07-31
 
 ### Added
