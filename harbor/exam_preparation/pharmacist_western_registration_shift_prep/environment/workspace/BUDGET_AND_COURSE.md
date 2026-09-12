@@ -1,0 +1,3 @@
+﻿# BUDGET_AND_COURSE
+
+coursebudgettranslated business text CNY 1800。translated business textlegitimatefour Western medicine subjectscourse，regulationstranslated business textofficialnoticetranslated business textold recorded course、translated business textemployment shell arrangementtranslated business textservice。

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "evt_s17_course_cancel_mutation"
+  ],
+  "source_stage": 17,
+  "source_time": "2026-09-26T09:30:00+08:00",
+  "previous": "release-004",
+  "token": "release-005-token-20260901-abcdef1234567890",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "update",
+      "set": {
+        "description": "regular DI live course; cancelled_by_vendor=2026-09-26; refund_path=not_needed_if_not_ordered",
+        "return_policy": "cancelled and cannot be ordered"
+      },
+      "where": {
+        "product_id": "prod_di_live_course_0925_003"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "set": {
+        "quantity": 0
+      },
+      "where": {
+        "sku_id": "sku_di_live_course_0925_003"
+      }
+    }
+  ]
+}

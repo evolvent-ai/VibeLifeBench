@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "S6_mutation"
+  ],
+  "source_stage": 6,
+  "source_time": "2026-08-15T21:00:00+08:00",
+  "previous": "release-003",
+  "token": "pharmacist-western-release-004-20260824-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_schema_v2",
+        "user_id": "user_zhou",
+        "source": "provincial_pharmacist_office",
+        "type": "portal_status",
+        "subscription_id": null,
+        "title": "Registration material fields updated",
+        "body": "The materials checklist adds the employer unified social credit code field.",
+        "payload_json": "{\"portal_state\":\"schema_v2\",\"field\":\"employer_unified_social_credit_code\"}",
+        "created_at": "2026-08-15T08:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S6_mutation"
+    }
+  ]
+}

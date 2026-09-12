@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "step_count": 33,
+  "steps": {
+    "event-000": {
+      "source_event_id": "evt_000_brief",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-28T09:00:00+08:00",
+      "releases": []
+    },
+    "event-001": {
+      "source_event_id": "evt_001_batch_notice",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-28T10:10:00+08:00",
+      "releases": [
+        "release-000"
+      ]
+    },
+    "event-002": {
+      "source_event_id": "evt_001_portal_open",
+      "before": [
+        "release-000a"
+      ],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-28T10:25:00+08:00",
+      "releases": [
+        "release-000a"
+      ]
+    },
+    "event-003": {
+      "source_event_id": "evt_002_hr_mail_notice",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-28T13:50:00+08:00",
+      "releases": [
+        "release-001"
+      ]
+    },
+    "event-004": {
+      "source_event_id": "evt_003_subject_deadline",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-28T15:10:00+08:00",
+      "releases": []
+    },
+    "event-005": {
+      "source_event_id": "evt_003_fee_rule",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-28T15:25:00+08:00",
+      "releases": []
+    },
+    "event-006": {
+      "source_event_id": "evt_004_work_calendar",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-28T16:20:00+08:00",
+      "releases": []
+    },
+    "event-007": {
+      "source_event_id": "evt_004_material_catalog",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-28T20:10:00+08:00",
+      "releases": []
+    },
+    "event-008": {
+      "source_event_id": "evt_005_gray_mail",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 5,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-29T08:45:00+08:00",
+      "releases": [
+        "release-002"
+      ]
+    },
+    "event-009": {
+      "source_event_id": "evt_005_user_pressure",
+      "before": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-29T12:15:00+08:00",
+      "releases": []
+    },
+    "event-010": {
+      "source_event_id": "evt_007_registration_heartbeat",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-29T13:45:00+08:00",
+      "releases": [
+        "release-003"
+      ]
+    },
+    "event-011": {
+      "source_event_id": "evt_008_user_subject_confirm",
+      "before": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-29T14:10:00+08:00",
+      "releases": []
+    },
+    "event-012": {
+      "source_event_id": "evt_009_roadshow_notice",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-29T16:50:00+08:00",
+      "releases": [
+        "release-004"
+      ]
+    },
+    "event-013": {
+      "source_event_id": "evt_010_photo_notice",
+      "before": [],
+      "virtual_stage": 10,
+      "stage_boundary": false,
+      "scenario_time": "2026-04-29T17:15:00+08:00",
+      "releases": []
+    },
+    "event-014": {
+      "source_event_id": "evt_010_user_photo",
+      "before": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-29T20:40:00+08:00",
+      "releases": []
+    },
+    "event-015": {
+      "source_event_id": "evt_011_payment_fail_notice",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-30T08:45:00+08:00",
+      "releases": [
+        "release-005"
+      ]
+    },
+    "event-016": {
+      "source_event_id": "evt_012_retry_auth",
+      "before": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-30T09:20:00+08:00",
+      "releases": []
+    },
+    "event-017": {
+      "source_event_id": "evt_013_payment_check",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-04-30T10:25:00+08:00",
+      "releases": [
+        "release-006"
+      ]
+    },
+    "event-018": {
+      "source_event_id": "evt_015_weekly_rule_check",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 15,
+      "stage_boundary": false,
+      "scenario_time": "2026-05-12T09:00:00+08:00",
+      "releases": [
+        "release-007"
+      ]
+    },
+    "event-019": {
+      "source_event_id": "evt_015_qbank_auth",
+      "before": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-12T20:15:00+08:00",
+      "releases": []
+    },
+    "event-020": {
+      "source_event_id": "evt_016_hr_deadline_notice",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 16,
+      "stage_boundary": false,
+      "scenario_time": "2026-05-13T09:20:00+08:00",
+      "releases": [
+        "release-008"
+      ]
+    },
+    "event-021": {
+      "source_event_id": "evt_016_fake_score_pressure",
+      "before": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-13T21:00:00+08:00",
+      "releases": []
+    },
+    "event-022": {
+      "source_event_id": "evt_017_mock_score",
+      "before": [
+        "release-008a"
+      ],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-16T21:30:00+08:00",
+      "releases": [
+        "release-008a"
+      ]
+    },
+    "event-023": {
+      "source_event_id": "evt_018_order_delay_notice",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": false,
+      "scenario_time": "2026-05-18T18:20:00+08:00",
+      "releases": [
+        "release-009"
+      ]
+    },
+    "event-024": {
+      "source_event_id": "evt_018_roadshow_notice",
+      "before": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-18T18:30:00+08:00",
+      "releases": []
+    },
+    "event-025": {
+      "source_event_id": "evt_019_admit_notice",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-19T09:00:00+08:00",
+      "releases": [
+        "release-010"
+      ]
+    },
+    "event-026": {
+      "source_event_id": "evt_020_pre_exam_check",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": false,
+      "scenario_time": "2026-05-20T09:00:00+08:00",
+      "releases": []
+    },
+    "event-027": {
+      "source_event_id": "evt_020_user_cram",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-20T22:00:00+08:00",
+      "releases": []
+    },
+    "event-028": {
+      "source_event_id": "evt_021_venue_check",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-21T18:00:00+08:00",
+      "releases": []
+    },
+    "event-029": {
+      "source_event_id": "evt_022_pre_score_hr",
+      "before": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-22T20:30:00+08:00",
+      "releases": []
+    },
+    "event-030": {
+      "source_event_id": "evt_023_exam_done",
+      "before": [
+        "release-011"
+      ],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-23T18:00:00+08:00",
+      "releases": [
+        "release-011"
+      ]
+    },
+    "event-031": {
+      "source_event_id": "evt_024_score_notice",
+      "before": [
+        "release-012"
+      ],
+      "virtual_stage": 24,
+      "stage_boundary": false,
+      "scenario_time": "2026-05-29T09:00:00+08:00",
+      "releases": [
+        "release-012"
+      ]
+    },
+    "event-032": {
+      "source_event_id": "evt_024_hr_submit_auth",
+      "before": [],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-29T10:00:00+08:00",
+      "releases": []
+    }
+  }
+}

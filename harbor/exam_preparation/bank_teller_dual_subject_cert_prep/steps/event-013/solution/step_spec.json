@@ -1,0 +1,41 @@
+{
+  "step": "event-013",
+  "stage": 11,
+  "virtual_stage": 11,
+  "source_event_id": "evt_013_payment_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "evt_012_payment_mut"
+    ]
+  },
+  "response": "已核验缴费、报名科目、考试日期和日历事件保持一致。",
+  "response_paraphrase": "工作流已核验缴费、报名科目、考试日期和日历事件保持一致。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_013_payment_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r21_no_batch_changed_on_pay",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "r22_payment_confirmed_by_scheduled",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "r23_expense_ledger_complete",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.25
+}

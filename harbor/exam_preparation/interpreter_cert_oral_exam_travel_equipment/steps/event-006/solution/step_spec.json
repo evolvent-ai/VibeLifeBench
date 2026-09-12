@@ -1,0 +1,31 @@
+{
+  "step": "event-006",
+  "stage": 6,
+  "virtual_stage": 6,
+  "source_event_id": "evt_006_delivery_delay",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "mut_006_delivery_delay"
+    ]
+  },
+  "response": "The headset shipment exception was checked and a non-purchase backup plan was recorded.",
+  "response_paraphrase": "I reviewed the delivery problem and prepared a borrowing or laptop-microphone fallback without committing funds.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_006_delivery_delay"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s06_delivery_delay_recovery",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

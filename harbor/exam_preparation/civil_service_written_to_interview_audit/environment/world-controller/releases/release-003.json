@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "mut_course_reviews"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-07-23T09:00:00+08:00",
+  "previous": "release-002",
+  "token": "civil-service-release-003-token",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rv_cs_course_complaint_0723",
+        "merchant_id": "merchant_cs_training_anchor",
+        "user_id": "reviewer_0723",
+        "rating": 1,
+        "body": "coursetranslated source textquestionstranslated source textandnottranslated source text，translated source textonlytranslated source textexaggeratedtranslated source text，after-salesrefuseexplanationmaterial source。",
+        "image_captions": "[]",
+        "created_at": "2026-07-23T08:40:00+08:00"
+      },
+      "source_event_id": "mut_course_reviews",
+      "operation_index": 0
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+My mentor sent recommendations about the professional subject, with a reminder to follow the official subject description. Compare the available subjects using the mentor guidance and official sources, and keep the final choice pending my confirmation.

@@ -1,0 +1,15 @@
+{
+  "mcp_servers": [
+    "calendar",
+    "content_platform",
+    "delivery_logistics",
+    "ecommerce",
+    "email",
+    "health_tracker",
+    "hotel_booking",
+    "maps",
+    "notification_hub",
+    "notion",
+    "rail_booking"
+  ]
+}

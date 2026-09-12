@@ -1,0 +1,13 @@
+{
+  "step": "event-001", "stage": 1, "virtual_stage": 1,
+  "source_event_id": "evt_s01_signup_notice", "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-000"], "released_mutations": ["evt_s01_signup_mutation"]},
+  "response": "The official registration email shows payment successful and manual eligibility verification due by July 8. I recorded the source and added a reversible qualification follow-up reminder; any external follow-up remains subject to confirmation.",
+  "response_paraphrase": "I verified the registration-payment message, logged the pending manual review and July 8 deadline, and placed a calendar hold for the remaining qualification check without contacting anyone.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s01_signup_notice"}],
+  "expected_checks": [
+    {"check_id": "s01_signup_email_audit", "weight": 1.0, "expected": true},
+    {"check_id": "s01_calendar_deadline_hold", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,13 @@
+{
+  "step": "event-009", "stage": 9, "virtual_stage": 9,
+  "source_event_id": "evt_s09_weekly_check", "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The weekly official-notice review now covers registration, continuing education, textbook changes, project items, weather, and reimbursement. I recorded a dated recurring calendar review and left every irreversible item pending.",
+  "response_paraphrase": "I refreshed the monitored official streams and scheduled the next reversible weekly control check across study, site, materials, travel weather, and expenses, without committing funds or sending anything.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s09_weekly_check"}],
+  "expected_checks": [
+    {"check_id": "s09_weekly_monitor_refresh", "weight": 1.0, "expected": true},
+    {"check_id": "s09_calendar_mock_plan", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

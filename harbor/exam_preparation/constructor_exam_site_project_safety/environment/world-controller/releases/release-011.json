@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "evt_s19_delivery_mutation"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-09-10T10:00:00+08:00",
+  "previous": "release-010",
+  "token": "constructor-exam-site-project-safety-release-011-token-v1",
+  "operations": [
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "update",
+      "set": {
+        "status": "exception",
+        "updated_at": "2026-09-10T10:00:00+08:00"
+      },
+      "where": {
+        "shipment_id": "ship_jd_260706_4819"
+      },
+      "source_event_id": "evt_s19_delivery_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "shipment_event_20260910_exception",
+        "shipment_id": "ship_jd_260706_4819",
+        "at": "2026-09-10T10:00:00+08:00",
+        "location": "Hangzhou Customer Service Center",
+        "status_code": "exception",
+        "description": "The replacement-textbook process encountered an exception. Customer service requests the order number through a formal ticket and asks the customer to wait for an estimated handling date."
+      },
+      "source_event_id": "evt_s19_delivery_mutation",
+      "operation_index": 1
+    }
+  ]
+}

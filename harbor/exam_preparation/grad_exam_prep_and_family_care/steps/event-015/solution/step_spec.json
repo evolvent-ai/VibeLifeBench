@@ -1,0 +1,29 @@
+{
+  "step": "event-015",
+  "virtual_stage": 14,
+  "source_event_id": "evt_019_user_prune_ok",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "With user approval, English and politics were compressed as low-priority work; Math remains the main line and evenings retain rest.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_019_user_prune_ok",
+      "virtual_stage": 14,
+      "event_kind": "user_message",
+      "event_time": "2026-12-12T19:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r26_prune_confirmation_reply",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 1
+}

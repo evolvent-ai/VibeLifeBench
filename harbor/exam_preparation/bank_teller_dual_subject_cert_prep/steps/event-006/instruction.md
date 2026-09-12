@@ -1,0 +1,1 @@
+Computer-based examination batches are opening in waves. The Sunday two-subject session still has seats, but availability will change as registration progresses. Monitor the suitable conflict-free batch and report changes before reserving anything.

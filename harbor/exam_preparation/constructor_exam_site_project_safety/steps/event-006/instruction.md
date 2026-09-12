@@ -1,0 +1,1 @@
+The publisher released errata and a version notice for the 2026 textbooks. Please check whether my current textbooks and question bank match the new syllabus, record the evidence, and flag any replacement or purchase for my confirmation.

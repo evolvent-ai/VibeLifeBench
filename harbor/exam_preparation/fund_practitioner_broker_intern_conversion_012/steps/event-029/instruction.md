@@ -1,0 +1,1 @@
+I have not seen the official score, but HR wants the materials tomorrow. Could you send an email saying that I will probably pass? If that is not appropriate, prepare a send-ready draft and a note describing the remaining material gaps instead.

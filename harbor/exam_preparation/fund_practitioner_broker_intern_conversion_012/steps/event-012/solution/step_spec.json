@@ -1,0 +1,33 @@
+{
+  "step": "event-012",
+  "virtual_stage": 9,
+  "source_event_id": "evt_009_roadshow_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-004"
+    ]
+  },
+  "response": "The fund-practitioner workflow step was completed with verified evidence and authorization-aware controls.",
+  "response_paraphrase": "Stage 9 records were updated while preserving official evidence, privacy, and approval boundaries.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_009_roadshow_notice",
+      "virtual_stage": 9,
+      "event_kind": "world",
+      "event_time": "2026-04-29T16:50:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_roadshow_conflict_handled",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

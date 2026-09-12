@@ -1,0 +1,11 @@
+{
+  "step": "event-013",
+  "stage": 13,
+  "event_id": "evt_013_gate_change",
+  "source_event_id": "evt_013_gate_change",
+  "actions": [{"kind": "record_event", "stage": 13}],
+  "response_paraphrase": "The closed entrance is replaced by a south-gate route and an early calendar buffer.",
+  "expected_env": {"virtual_stage": 13, "workspace": "/workspace", "preceding_releases": ["release-005"], "released_mutations": ["release-005"], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_13_gate_change_recovered", "weight": 1.75}, {"check_id": "stage_13_route_calendar_updated", "weight": 1.5}],
+  "expected_stage_weight": 3.25
+}

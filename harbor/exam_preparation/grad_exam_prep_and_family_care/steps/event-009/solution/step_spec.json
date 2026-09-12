@@ -1,0 +1,29 @@
+{
+  "step": "event-009",
+  "virtual_stage": 8,
+  "source_event_id": "evt_010_quiet_health_baseline",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Quiet heartbeat completed: health baseline and ecommerce order/shipment status were checked, with no unsolicited message sent.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_010_quiet_health_baseline",
+      "virtual_stage": 8,
+      "event_kind": "notification",
+      "event_time": "2026-11-30T20:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r34_quiet_health_and_order_heartbeat",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

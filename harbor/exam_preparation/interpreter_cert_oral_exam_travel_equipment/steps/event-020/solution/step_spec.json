@@ -1,0 +1,42 @@
+{
+  "step": "event-020",
+  "stage": 20,
+  "virtual_stage": 20,
+  "source_event_id": "evt_020_final_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The final refresh checked equipment delivery, rail, route, lodging, health, and calendar evidence; three commitments still await confirmation.",
+  "response_paraphrase": "I completed the pre-exam service review and compiled the equipment, travel, health, and pending-decision checklist.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_020_final_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_final_scheduled_refresh",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s20_open_confirmations_compiled",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s20_final_refresh_trace_matrix",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s20_multi_service_trace_anchor",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.25
+}

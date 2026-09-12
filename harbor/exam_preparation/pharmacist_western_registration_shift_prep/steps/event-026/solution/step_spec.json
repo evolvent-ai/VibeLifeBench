@@ -1,0 +1,31 @@
+{
+  "step": "event-026",
+  "stage": 24,
+  "event_id": "S24_event",
+  "source_event_id": "S24_event",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 24
+    }
+  ],
+  "response_paraphrase": "The open ticket window was checked while the missing site and seat remained explicit.",
+  "expected_env": {
+    "virtual_stage": 24,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-017"
+    ],
+    "released_mutations": [
+      "release-017"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "r41_weekly_calendar_audit",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

@@ -1,0 +1,33 @@
+{
+  "step": "event-015",
+  "virtual_stage": 15,
+  "source_event_id": "mock_score_digest",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ],
+    "released_mutations": []
+  },
+  "response": "Stage 15 (mock score digest) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for mock score digest and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "mock_score_digest"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_mock_log_maintained",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

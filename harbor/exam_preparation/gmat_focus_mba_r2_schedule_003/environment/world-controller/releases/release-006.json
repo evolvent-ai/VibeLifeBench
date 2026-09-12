@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "evt_s19_unofficial_score_mutation"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-09-30T12:10:00+08:00",
+  "previous": "release-005",
+  "token": "release-006-token-20260901-abcdef1234567890",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "jd": "object_kind=score_report; exam_date=2026-09-30; unofficial_total=655; q=86; v=82; di=80; official_status=pending",
+        "requirements": "unofficial_total=655; official_status=pending; score_send_allowed=no; official_available_at=not_yet"
+      },
+      "where": {
+        "job_id": "score_gmat_20260930_record_003"
+      }
+    }
+  ]
+}

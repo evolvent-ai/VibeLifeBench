@@ -1,0 +1,37 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "virtual_stage": 1,
+  "source_event_id": "evt_001_registration_mail",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The official registration email was checked and an oral-exam calendar hold was created for advance planning.",
+  "response_paraphrase": "I verified the registration message and placed a provisional calendar reminder for the exam window.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_001_registration_mail"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s01_registration_email_captured",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s01_registration_trace_anchor",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s01_calendar_oral_exam_hold",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

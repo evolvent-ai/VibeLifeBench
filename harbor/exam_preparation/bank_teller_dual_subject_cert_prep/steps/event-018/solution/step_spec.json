@@ -1,0 +1,25 @@
+{
+  "step": "event-018",
+  "stage": 16,
+  "virtual_stage": 16,
+  "source_event_id": "evt_018_wrongbook_reheat",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "evt_018_mentor_email_mut"
+    ]
+  },
+  "response": "已记录带教回炉建议，并为每个薄弱点安排考前复习时段。",
+  "response_paraphrase": "工作流已记录带教回炉建议，并为每个薄弱点安排考前复习时段。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_018_wrongbook_reheat"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

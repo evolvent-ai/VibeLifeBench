@@ -1,0 +1,27 @@
+{
+  "step": "event-002",
+  "stage": 2,
+  "virtual_stage": 2,
+  "source_event_id": "evt_002_roster",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "已复核网点固定排班，并围绕临柜、培训和扎账安排学习计划。",
+  "response_paraphrase": "工作流已复核网点固定排班，并围绕临柜、培训和扎账安排学习计划。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_002_roster"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r05_initial_calendar_no_conflict",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

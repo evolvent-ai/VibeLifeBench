@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "mut_013_rail_seats"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-08-15T12:00:00+08:00",
+  "previous": "release-004",
+  "token": "interpreter-cert-oral-exam-travel-equipment-clock-7d3f9a-release-005",
+  "operations": [
+    {
+      "server": "rail_booking",
+      "table": "train_offers",
+      "op": "update",
+      "where": {
+        "offer_id": "RAIL_HZ_NJ_0821_G7610"
+      },
+      "set": {
+        "adult_seats_remaining": 3,
+        "route_notes": "Fewer seats remain; still refundable/changeable, arriving afternoon before the exam"
+      },
+      "source_event_id": "mut_013_rail_seats"
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "step_count": 21,
+  "steps": {
+    "event-000": {
+      "source_event_id": "ev_000_initial_brief",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-01T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "ev_001_makeup_notice",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-02T09:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "ev_002_rule_portal_open",
+      "before": [
+        "release-000a"
+      ],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-02T15:00:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "ev_003_class_monitor_room_rumor",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-03T20:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "ev_004_user_asks_counselor",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-04T21:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "ev_006_weekly_rule_recheck",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-05T10:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "ev_007_lab_makeup_notice",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-07T11:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "ev_008_room_table_v1",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-08T09:30:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "ev_009_user_family_detail",
+      "before": [
+        "release-004a"
+      ],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-09T20:30:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "ev_011_room_update_world",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-10T16:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "ev_013_counselor_email_notice",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-10T18:00:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "ev_014_math_outline_release",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-11T09:00:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "ev_016_mock_quiz_release",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-12T21:30:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "ev_018_user_internal_questions",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-13T10:00:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "ev_020_pre_exam_recheck",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-14T09:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "ev_022_family_delay_checkin",
+      "before": [
+        "release-011"
+      ],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-14T20:20:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "ev_024_preexam_24h_recheck",
+      "before": [
+        "release-012"
+      ],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-15T19:30:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "ev_025_exam_day_privacy",
+      "before": [
+        "release-013"
+      ],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-16T18:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "ev_027_score_published",
+      "before": [
+        "release-014"
+      ],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-21T10:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "ev_028_final_review_request",
+      "before": [
+        "release-015"
+      ],
+      "virtual_stage": 24,
+      "stage_boundary": false,
+      "scenario_time": "2026-09-26T20:00:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "ev_029_review_window_closed",
+      "before": [],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-26T20:05:00+08:00"
+    }
+  }
+}

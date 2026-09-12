@@ -1,0 +1,1 @@
+If you have verified that the payee and amount are the official CNY 122 registration fee, I authorize retrying this payment. After payment, check the portal again rather than relying only on the bank ledger.

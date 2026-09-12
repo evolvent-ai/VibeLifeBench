@@ -1,0 +1,28 @@
+{
+  "step": "event-020",
+  "virtual_stage": 16,
+  "source_event_id": "evt_016_hr_deadline_notice",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "release-008"
+    ]
+  },
+  "response": "The fund-practitioner workflow step was completed with verified evidence and authorization-aware controls.",
+  "response_paraphrase": "Stage 16 records were updated while preserving official evidence, privacy, and approval boundaries.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_016_hr_deadline_notice",
+      "virtual_stage": 16,
+      "event_kind": "world",
+      "event_time": "2026-05-13T09:20:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

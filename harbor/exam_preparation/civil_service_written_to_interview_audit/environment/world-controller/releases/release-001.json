@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "mut_career_mail_initial"
+  ],
+  "source_stage": 2,
+  "source_time": "2026-07-09T09:50:00+08:00",
+  "previous": "release-000",
+  "token": "civil-service-release-001-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1001,
+        "folder_id": 1,
+        "message_id": "<career-office-0709@example.test>",
+        "subject": "General Managementrecruitmentqualification reviewandmajorinquiryreminder",
+        "from_addr": "Jiangdong Universitytranslated source textcenter <career@jiangdong.example>",
+        "to_addr_json": "[\"zhou.muyang@example.test\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-09T09:50:00+08:00",
+        "body_text": "translated source textapplytranslated source textoftranslated source text：positionmajortranslated source textaccording toofficialofficial position table、professional catalogandsupplementary noticeprevails，schoolandtranslated source textofexplanationonlytranslated source text。major nameandcataloglabel boundarynottranslated source textof（for examplePublic Data GovernanceandData Governancetrack），recommendatregistrationbeforetranslated source textrecruiting unitwritten inquiry，translated source textretain reply recordtranslated source textqualification review。inquirytranslated source textdo not uploadidentity card、transcriptoriginal image，firsttranslated source texttext descriptionmajorandcourse detailstranslated source textcan。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"object_id\": \"em_career_0709\"}",
+        "uid": 1001,
+        "size": 625,
+        "created_at": "2026-07-09T09:50:00+08:00"
+      },
+      "source_event_id": "mut_career_mail_initial",
+      "operation_index": 0
+    }
+  ]
+}

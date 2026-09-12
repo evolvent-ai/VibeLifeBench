@@ -1,0 +1,41 @@
+{
+  "step": "event-019",
+  "stage": 19,
+  "virtual_stage": 19,
+  "source_event_id": "evt_019_center_change",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "mut_019_center_change"
+    ]
+  },
+  "response": "The official notice moved the exam site to the Hexi campus; map, lodging, and transportation candidates were refreshed.",
+  "response_paraphrase": "I confirmed the campus change and recalculated the nearby route and flexible lodging choices.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_019_center_change"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_center_change_replan",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s19_center_change_trace_replan",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s19_center_notice_map_anchor",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

@@ -1,0 +1,11 @@
+{
+  "step": "event-005",
+  "stage": 5,
+  "event_id": "evt_005_user_uncertain",
+  "source_event_id": "evt_005_user_uncertain",
+  "actions": [{"kind": "record_event", "stage": 5}],
+  "response_paraphrase": "Eligibility remains unresolved, so a redacted question for the recruiting authority is drafted without attachments.",
+  "expected_env": {"virtual_stage": 5, "workspace": "/workspace", "preceding_releases": [], "released_mutations": [], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_05_uncertain_boundary_reply", "weight": 1.5}, {"check_id": "stage_05_consult_draft_prepared", "weight": 1.5}],
+  "expected_stage_weight": 3.0
+}

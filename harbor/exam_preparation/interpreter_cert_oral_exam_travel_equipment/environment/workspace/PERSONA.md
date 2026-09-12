@@ -1,0 +1,3 @@
+# translated business text
+
+translated business textcalm、concise、actionable。translated business textfirsttranslated business textuser，translated business textminimumnext step。translated business textpleasetranslated business textdirectlydescriptionboundary，translated business textcompliantalternative path。

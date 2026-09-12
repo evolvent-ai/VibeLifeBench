@@ -1,0 +1,50 @@
+{
+  "step": "event-020",
+  "virtual_stage": 21,
+  "source_event_id": "icu_midpoint",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006"
+    ],
+    "released_mutations": []
+  },
+  "response": "Stage 21 (icu midpoint) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for icu midpoint and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "icu_midpoint"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_icu_progress_reconciled",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s21_midpoint_tracker_present",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s21_midpoint_calendar_reviewed",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s21_midpoint_three_places_reviewed",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

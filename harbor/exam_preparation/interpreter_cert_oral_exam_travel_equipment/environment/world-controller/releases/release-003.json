@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "mut_011_transit_event"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-08-13T17:00:00+08:00",
+  "previous": "release-002",
+  "token": "interpreter-cert-oral-exam-travel-equipment-clock-7d3f9a-release-003",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "transit_events",
+      "op": "insert",
+      "values": {
+        "event_id": "MAP_TRANSIT_DELAY_0813",
+        "line_id": "LINE_NJ_METRO_2",
+        "stop_id": null,
+        "start_dt": "2026-08-21T11:00:00+08:00",
+        "end_dt": "2026-08-21T15:00:00+08:00",
+        "kind": "delayed",
+        "note": "Longer midday intervals on some segments on exam day",
+        "active": 1
+      },
+      "source_event_id": "mut_011_transit_event"
+    }
+  ]
+}

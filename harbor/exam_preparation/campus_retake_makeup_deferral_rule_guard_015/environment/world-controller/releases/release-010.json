@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "ev_019_review_deadline_mutation",
+    "ev_020_pre_exam_recheck_mutation"
+  ],
+  "source_time": "2026-09-14T09:00:00+08:00",
+  "previous": "release-009",
+  "token": "campus-retake-release-010-20260901-token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "requirements": "review_deadline=2026-09-23T12:00:00+08:00; require_user_confirm=true; scope=grade entry/omitted grading/bonus-point errors; submit_channel=campus_portal; version=v2",
+        "jd": "Grade reviews check only grade-entry, omitted-grading, and bonus-point errors; changes to grades are not guaranteed. The window has been shortened to before 2026-09-23 12:00.",
+        "posted_at": "2026-09-13T16:30:00+08:00"
+      },
+      "where": {
+        "job_id": "portal_grade_review_rules_2026"
+      },
+      "source_event_id": "ev_019_review_deadline_mutation"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_pre_exam_recheck_0914",
+        "user_id": "user_lin_zeyu",
+        "source": "personal_reminder",
+        "type": "scheduled_reminder",
+        "subscription_id": null,
+        "title": "Pre-exam rules and location recheck",
+        "body": "The time for the pre-exam recheck for Calculus A2 has arrived. The relevant scope includes the seating chart, grade review rules, and the current review schedule.",
+        "payload_json": "{\"course\":\"Calculus A2\",\"scope\":[\"seating chart\",\"grade review rules\",\"review schedule\"],\"scheduled_for\":\"2026-09-14T09:00:00+08:00\"}",
+        "created_at": "2026-09-14T09:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "ev_020_pre_exam_recheck_mutation"
+    }
+  ]
+}

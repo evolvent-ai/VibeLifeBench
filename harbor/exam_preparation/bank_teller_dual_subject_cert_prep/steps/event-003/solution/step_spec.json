@@ -1,0 +1,26 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "virtual_stage": 3,
+  "source_event_id": "evt_003_subject_sources",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "evt_003_mentor_email_mut",
+      "evt_003_subject_post_mut"
+    ]
+  },
+  "response": "已对照官方科目范围和带教经验比较选科，没有代用户选择专业科目。",
+  "response_paraphrase": "工作流已对照官方科目范围和带教经验比较选科，没有代用户选择专业科目。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_003_subject_sources"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

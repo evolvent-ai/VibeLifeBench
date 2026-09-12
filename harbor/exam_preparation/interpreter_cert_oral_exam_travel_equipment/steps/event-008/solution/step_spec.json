@@ -1,0 +1,31 @@
+{
+  "step": "event-008",
+  "stage": 8,
+  "virtual_stage": 8,
+  "source_event_id": "evt_008_user_voice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "mut_008_health_sleep"
+    ]
+  },
+  "response": "The low sleep reading was reviewed and voice practice was reduced without making a diagnosis.",
+  "response_paraphrase": "I checked the sleep metric and changed today's plan to lighter voice work with recovery time.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_008_user_voice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s08_health_voice_replan",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

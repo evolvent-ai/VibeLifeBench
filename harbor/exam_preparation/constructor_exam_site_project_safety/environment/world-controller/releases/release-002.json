@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "evt_s06_material_mutation"
+  ],
+  "source_stage": 6,
+  "source_time": "2026-07-09T08:40:00+08:00",
+  "previous": "release-001",
+  "token": "constructor-exam-site-project-safety-release-002-token-v1",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "user_id": "user_lu_jing",
+        "type": "new_content",
+        "read": 0,
+        "notification_id": "ntf_material_20260709_errata",
+        "source": "publisher",
+        "subscription_id": "sub_exam_policy",
+        "title": "2026 textbook errata and edition notice",
+        "body": "The publisher released errata for project management and construction safety topics. Verify current textbooks and question banks by edition page, errata date, and licensed source.",
+        "payload_json": "{\"edition\":\"2026\",\"verification\":[\"version_page\",\"errata_date\",\"licensed_source\"]}",
+        "created_at": "2026-07-09T08:40:00+08:00"
+      },
+      "source_event_id": "evt_s06_material_mutation",
+      "operation_index": 0
+    }
+  ]
+}

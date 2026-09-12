@@ -1,0 +1,11 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "event_id": "evt_001_post_table",
+  "source_event_id": "evt_001_post_table",
+  "actions": [{"kind": "record_event", "stage": 1}],
+  "response_paraphrase": "The official notice is recorded and both position rows are initialized for later verification.",
+  "expected_env": {"virtual_stage": 1, "workspace": "/workspace", "preceding_releases": ["release-000"], "released_mutations": ["release-000"], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_01_post_source_recorded", "weight": 1.5}, {"check_id": "stage_01_matrix_initialized", "weight": 1.75}],
+  "expected_stage_weight": 3.25
+}

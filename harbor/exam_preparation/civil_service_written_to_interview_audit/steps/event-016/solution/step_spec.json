@@ -1,0 +1,11 @@
+{
+  "step": "event-016",
+  "stage": 16,
+  "event_id": "evt_016_score_notice",
+  "source_event_id": "evt_016_score_notice",
+  "actions": [{"kind": "record_event", "stage": 16}],
+  "response_paraphrase": "A single review reminder is set for the official score publication window on August 23.",
+  "expected_env": {"virtual_stage": 16, "workspace": "/workspace", "preceding_releases": ["release-006"], "released_mutations": ["release-006"], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_16_score_calendar_created", "weight": 1.5}],
+  "expected_stage_weight": 1.5
+}

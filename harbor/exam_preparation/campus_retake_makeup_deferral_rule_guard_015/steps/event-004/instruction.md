@@ -1,0 +1,1 @@
+I am worried that accompanying my family member after discharge could affect the exam. Could you draft an explanatory email to my counselor first? Save it only as a draft; I have not decided whether to send it and I have no supporting documents yet.

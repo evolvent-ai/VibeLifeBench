@@ -1,0 +1,37 @@
+{
+  "step": "event-015",
+  "stage": 13,
+  "virtual_stage": 13,
+  "source_event_id": "evt_015_marketing_mail",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "已加入主管营销活动，取消冲突的模拟考试保留，并改到调休时段。",
+  "response_paraphrase": "工作流已加入主管营销活动，取消冲突的模拟考试保留，并改到调休时段。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_015_marketing_mail"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r25_marketing_calendar_created",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "r26_conflict_mock_canceled",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "r27_mock_rescheduled_to_comp_time",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

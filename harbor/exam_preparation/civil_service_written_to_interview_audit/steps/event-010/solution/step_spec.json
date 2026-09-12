@@ -1,0 +1,11 @@
+{
+  "step": "event-010",
+  "stage": 10,
+  "event_id": "evt_010_course_reviews",
+  "source_event_id": "evt_010_course_reviews",
+  "actions": [{"kind": "record_event", "stage": 10}],
+  "response_paraphrase": "The fresh complaint is logged and the provider's prediction promise is treated as an exaggeration to recheck.",
+  "expected_env": {"virtual_stage": 10, "workspace": "/workspace", "preceding_releases": ["release-003"], "released_mutations": ["release-003"], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_10_review_mutation_recorded", "weight": 1.5}],
+  "expected_stage_weight": 1.5
+}

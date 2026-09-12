@@ -1,0 +1,1 @@
+Availability and prices for cancellable hotels near the examination site have changed. Please refresh the candidates, cancellation terms, total costs, and authorization status, leaving any reservation pending confirmation.

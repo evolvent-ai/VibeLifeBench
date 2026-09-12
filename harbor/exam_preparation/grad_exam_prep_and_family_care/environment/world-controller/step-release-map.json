@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "step_count": 27,
+  "steps": {
+    "event-000": {
+      "source_event_id": "evt_000_kickoff",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-11-18T08:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "evt_001_scheduled_setup",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-11-18T20:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "evt_002_initial_supplies",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-11-19T10:00:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "evt_003_discharge_instruction",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-11-20T09:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "evt_004_mock1_score",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": false,
+      "scenario_time": "2026-11-23T21:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "evt_004b_user_mock1_note",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-11-23T21:20:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "evt_006_stock_watch",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-11-24T10:30:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "evt_008_email_heartbeat",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-11-26T09:30:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "evt_009_user_reschedule_ok",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-11-27T21:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "evt_010_quiet_health_baseline",
+      "before": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-11-30T20:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "evt_012_progress_watch",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-03T19:00:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "evt_013_user_makeup_ok",
+      "before": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-05T08:00:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "evt_015_health_watch",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-08T20:15:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "evt_016_doctor_reply",
+      "before": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-09T09:00:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "evt_018_low_progress_notice",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-11T22:20:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "evt_019_user_prune_ok",
+      "before": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-12T19:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "evt_020_pre_exam_audit",
+      "before": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-14T21:00:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "evt_021_seat_email",
+      "before": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-15T10:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "evt_022_user_stationery",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-16T14:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "evt_024_syllabus_notice",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-17T09:00:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "evt_025_health_stable",
+      "before": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-18T20:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "evt_026_promo_noise",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": false,
+      "scenario_time": "2026-12-19T21:00:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "evt_027_pre_exam_quiet",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-19T22:00:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "evt_028_user_day1_done",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-20T17:00:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "evt_029_user_exam_finished",
+      "before": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-21T18:00:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "evt_030_health_export",
+      "before": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-22T10:00:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "evt_031_final_closure",
+      "before": [],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-12-23T18:00:00+08:00"
+    }
+  }
+}

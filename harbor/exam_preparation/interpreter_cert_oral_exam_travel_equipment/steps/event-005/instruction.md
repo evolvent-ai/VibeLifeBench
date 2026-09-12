@@ -1,0 +1,1 @@
+Please shortlist a headset suitable for an online oral-exam equipment check. I would prefer a wired, noise-reducing model that works with my laptop. Keep the equipment budget at or below CNY 500, and do not place an order yet.

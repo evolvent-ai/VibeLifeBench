@@ -1,0 +1,1 @@
+My mailbox received a training seller's message claiming to offer confidential internal question banks and leaked pre-exam questions. Treat it as a risk signal. Do not open links, buy the materials, or expose account information.

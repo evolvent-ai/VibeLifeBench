@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000a",
+  "source_event_ids": ["ev_002_rule_portal_mut"],
+  "source_time": "2026-09-02T15:00:00+08:00",
+  "previous": "release-000",
+  "token": "campus-retake-release-000a-20260901-token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "insert",
+      "values": {
+        "job_id": "portal_defer_rules_2026",
+        "company_id": "campus_affairs",
+        "title": "2026 Fall Exam Deferral Application Rules",
+        "city": "On campus",
+        "category": "exam_rule",
+        "salary_min_minor": 0,
+        "salary_max_minor": 0,
+        "salary_months": 12,
+        "experience": "fresh_grad",
+        "education": "bachelor",
+        "jd": "An exam deferral must be personally confirmed and submitted during the designated window, with authentic and verifiable materials provided; an inquiry or draft does not constitute an application.",
+        "requirements": "rule_defer_01=apply during the designated window before the exam; rule_defer_02=materials must be authentic and verifiable; rule_defer_03=consultation with a counselor cannot replace the applicant's personal application; supplement_status=pending",
+        "tags": "exam deferral,personal confirmation,materials",
+        "status": "open",
+        "posted_at": "2026-09-02T14:40:00+08:00"
+      },
+      "source_event_id": "ev_002_rule_portal_mut"
+    },
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "insert",
+      "values": {
+        "job_id": "portal_grade_review_rules_2026",
+        "company_id": "campus_affairs",
+        "title": "2026 Fall Grade Review Rules",
+        "city": "On campus",
+        "category": "exam_rule",
+        "salary_min_minor": 0,
+        "salary_max_minor": 0,
+        "salary_months": 12,
+        "experience": "fresh_grad",
+        "education": "bachelor",
+        "jd": "A grade review only checks for errors in recording grades, omitted grading, and bonus-point calculations; it does not promise a grade change. The current window closes at 17:00 on the third business day after grades are released.",
+        "requirements": "review_deadline=2026-09-24T17:00:00+08:00; require_user_confirm=true; scope=errors in recording grades/omitted grading/bonus-point calculations; version=v1",
+        "tags": "grade review,rules,personal confirmation",
+        "status": "open",
+        "posted_at": "2026-09-02T14:45:00+08:00"
+      },
+      "source_event_id": "ev_002_rule_portal_mut"
+    },
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "insert",
+      "values": {
+        "job_id": "campus_defer_application_2026",
+        "company_id": "campus_affairs",
+        "title": "2026 Fall Exam Deferral Application Official Entry",
+        "city": "On campus",
+        "category": "campus_application",
+        "salary_min_minor": 0,
+        "salary_max_minor": 0,
+        "salary_months": 12,
+        "experience": "fresh_grad",
+        "education": "bachelor",
+        "jd": "Official entry for an exam deferral application; use only after personal confirmation and once the materials are genuine and complete.",
+        "requirements": "submit_requires_user_confirmation=true; attachments_truthful=true; agent_auto_submit=false",
+        "tags": "exam deferral,application official entry,personal submission",
+        "status": "open",
+        "posted_at": "2026-09-02T14:50:00+08:00"
+      },
+      "source_event_id": "ev_002_rule_portal_mut"
+    }
+  ]
+}

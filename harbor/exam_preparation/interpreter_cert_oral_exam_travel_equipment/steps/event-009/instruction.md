@@ -1,0 +1,1 @@
+If the exam site is still in Nanjing, I plan to travel there from Hangzhou. Please first review high-speed rail options, nearby lodging, and local routes. Everything must be refundable or changeable, and do not book anything directly.

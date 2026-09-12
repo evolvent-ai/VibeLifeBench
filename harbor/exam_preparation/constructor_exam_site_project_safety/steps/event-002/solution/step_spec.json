@@ -1,0 +1,13 @@
+{
+  "step": "event-002", "stage": 2, "virtual_stage": 2,
+  "source_event_id": "evt_s02_project_conflict", "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "I cross-checked the basement and tower-crane milestones against the project email and calendar. The conflict record now protects site attendance and safety witness inspection first, with only study time left adjustable.",
+  "response_paraphrase": "The project message and schedule were reconciled for both milestones. Safety-critical attendance remains fixed, while preparation blocks can move around the verified dates.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s02_project_conflict"}],
+  "expected_checks": [
+    {"check_id": "s02_project_conflict_refresh", "weight": 1.0, "expected": true},
+    {"check_id": "s02_site_email_cross_source", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

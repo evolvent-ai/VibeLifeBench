@@ -1,0 +1,1 @@
+The academic affairs office says the grade-review intake window has closed. The rules and score report are now retained only as read-only archives. After checking existing subscriptions, close only this task's monitoring subscription and leave unrelated subscriptions unchanged.

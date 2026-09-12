@@ -1,0 +1,11 @@
+{
+  "step": "event-006",
+  "stage": 6,
+  "event_id": "evt_006_thesis_calendar",
+  "source_event_id": "evt_006_thesis_calendar",
+  "actions": [{"kind": "record_event", "stage": 6}],
+  "response_paraphrase": "The study block is moved around defense and duty commitments, with a deliberately light workload.",
+  "expected_env": {"virtual_stage": 6, "workspace": "/workspace", "preceding_releases": [], "released_mutations": [], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_06_thesis_conflict_adjusted", "weight": 1.5}],
+  "expected_stage_weight": 1.5
+}

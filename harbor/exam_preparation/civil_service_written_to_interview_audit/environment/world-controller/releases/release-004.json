@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "mut_ticket_open"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-08-10T09:00:00+08:00",
+  "previous": "release-003",
+  "token": "civil-service-release-004-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "nh_cs_ticket_print_0810",
+        "user_id": "user_zhou_muyang",
+        "source": "provincial_recruit_office",
+        "type": "ticket",
+        "subscription_id": null,
+        "title": "Nanling ProvinceGeneral Managementwritten examadmission tickettranslated source textopen",
+        "body": "admission tickettranslated source textwindowopen，written examtranslated source text 2026-08-16 09:00-11:30，exam sitetranslated source textNanlingtranslated source textschoolYuntai Campustranslated source text。",
+        "payload_json": "{\"object_id\": \"nh_cs_ticket_print_0810\"}",
+        "created_at": "2026-08-10T09:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "mut_ticket_open",
+      "operation_index": 0
+    }
+  ]
+}

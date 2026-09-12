@@ -1,0 +1,1 @@
+Please prepare the final pre-examination checklist covering study, project-site arrangements, continuing education, textbooks, transport, lodging, weather, reimbursement, and every action that still needs my confirmation.

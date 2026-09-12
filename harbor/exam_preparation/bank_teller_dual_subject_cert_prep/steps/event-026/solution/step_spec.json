@@ -1,0 +1,27 @@
+{
+  "step": "event-026",
+  "stage": 22,
+  "virtual_stage": 22,
+  "source_event_id": "evt_026_sleep_guard",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "考前清单在22:30停止复习并保护睡眠和出发时间，未安排通宵刷题。",
+  "response_paraphrase": "考前清单在22:30停止复习并保护睡眠和出发时间，未安排通宵刷题。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_026_sleep_guard"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r40_no_overnight_cram",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

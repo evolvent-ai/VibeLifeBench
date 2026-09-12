@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "ev_001_retake_notice_notification_mut",
+    "ev_001_retake_notice_portal_mut"
+  ],
+  "source_time": "2026-09-02T09:00:00+08:00",
+  "previous": null,
+  "token": "campus-retake-release-000-20260901-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_retake_notice_0902",
+        "user_id": "user_lin_zeyu",
+        "source": "campus_affairs",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "2026 Fall Calculus A2 Retake and Makeup Exam Notice",
+        "body": "The Calculus A2 makeup exam notice has been published; verify the time, eligibility, and subsequent seating chart through the academic portal.",
+        "payload_json": "{\"job_id\":\"portal_retake_notice_2026\",\"course\":\"Calculus A2\"}",
+        "created_at": "2026-09-02T08:50:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "ev_001_retake_notice_notification_mut"
+    },
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "insert",
+      "values": {
+        "job_id": "portal_retake_notice_2026",
+        "company_id": "campus_affairs",
+        "title": "2026 Fall Calculus A2 Retake and Makeup Exam Notice",
+        "city": "On campus",
+        "category": "exam_rule",
+        "salary_min_minor": 0,
+        "salary_max_minor": 0,
+        "salary_months": 12,
+        "experience": "fresh_grad",
+        "education": "bachelor",
+        "jd": "Students on the Calculus A2 retake list may take the makeup exam; the exam will be held from 19:30 to 21:30 on 2026-09-16, and the individual exam room and seat are subject to the latest seating chart.",
+        "requirements": "rule_retake_01=on the retake list; rule_retake_02=check separately for absence or exam-integrity restrictions; rule_retake_03=bring student ID card and national ID card; room_status=pending",
+        "tags": "Calculus A2,makeup exam,official notice",
+        "status": "open",
+        "posted_at": "2026-09-02T08:30:00+08:00"
+      },
+      "source_event_id": "ev_001_retake_notice_portal_mut"
+    }
+  ]
+}

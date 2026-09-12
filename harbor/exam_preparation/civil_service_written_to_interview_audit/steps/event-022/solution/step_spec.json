@@ -1,0 +1,11 @@
+{
+  "step": "event-022",
+  "stage": 22,
+  "event_id": "evt_022_scheduled_review",
+  "source_event_id": "evt_022_scheduled_review",
+  "actions": [{"kind": "record_event", "stage": 22}],
+  "response_paraphrase": "The scheduled materials recheck records the gap and the CHSI validity question for follow-up.",
+  "expected_env": {"virtual_stage": 22, "workspace": "/workspace", "preceding_releases": [], "released_mutations": [], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_22_material_check_completed", "weight": 1.0}],
+  "expected_stage_weight": 1.0
+}

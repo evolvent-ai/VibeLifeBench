@@ -1,0 +1,1 @@
+Only two days remain before the examination. Please organize a complete checklist for identification documents, route, lunch break, and examination-day reminders. Account for the known schedule and travel constraints.

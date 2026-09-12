@@ -1,0 +1,35 @@
+{
+  "step": "event-005",
+  "stage": 5,
+  "event_id": "S5_event",
+  "source_event_id": "S5_event",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 5
+    }
+  ],
+  "response_paraphrase": "Legitimate Western course choices were compared with unsafe and mismatched listings.",
+  "expected_env": {
+    "virtual_stage": 5,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-003"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "r10_course_candidates_official",
+      "weight": 1.5
+    },
+    {
+      "check_id": "r11_gray_sku_excluded_initial",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3
+}

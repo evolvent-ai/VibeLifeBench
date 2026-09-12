@@ -1,0 +1,1 @@
+The admission-ticket page says that the examination classroom has changed. Please recheck the official entry point and calendar reminder, update the travel record, and flag anything that still needs my confirmation.

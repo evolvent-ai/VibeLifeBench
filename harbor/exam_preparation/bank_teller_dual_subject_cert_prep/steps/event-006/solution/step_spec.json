@@ -1,0 +1,37 @@
+{
+  "step": "event-006",
+  "stage": 5,
+  "virtual_stage": 5,
+  "source_event_id": "evt_005_slot_open",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "已将开放的周日双科批次与排班、通勤和备考账户核对，未锁位或缴费。",
+  "response_paraphrase": "工作流已将开放的周日双科批次与排班、通勤和备考账户核对，未锁位或缴费。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_005_slot_open"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r09_slot_conflict_matrix",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "r10_nearest_non_conflict_slot",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "r11_no_slot_lock_before_auth",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

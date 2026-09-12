@@ -1,0 +1,1 @@
+After the site milestones compressed my time, I want to reschedule the mock examination and construction-safety topic review. Please rebuild the study plan around site safety and preserve the project attendance obligations.

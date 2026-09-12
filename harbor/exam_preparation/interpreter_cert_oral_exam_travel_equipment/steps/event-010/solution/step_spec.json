@@ -1,0 +1,46 @@
+{
+  "step": "event-010",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "evt_010_time_change",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "mut_010_time_mail"
+    ]
+  },
+  "response": "The official time-change email was refreshed, the afternoon 13:30 exam time was recorded, and the calendar plan was updated.",
+  "response_paraphrase": "I reread the official notice and moved the calendar reminder to the revised afternoon schedule.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_010_time_change"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_time_change_official_refresh",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s10_time_change_trace_refresh",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s10_official_time_mail_anchor",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s10_calendar_travel_updated",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

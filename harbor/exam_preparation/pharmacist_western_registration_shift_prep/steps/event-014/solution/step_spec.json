@@ -1,0 +1,31 @@
+{
+  "step": "event-014",
+  "stage": 14,
+  "event_id": "S14_event",
+  "source_event_id": "S14_event",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 14
+    }
+  ],
+  "response_paraphrase": "The HR reply and sealed certificate source were logged for possible correction.",
+  "expected_env": {
+    "virtual_stage": 14,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": [
+      "release-009"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "r27_hr_cert_tracked",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 1
+}

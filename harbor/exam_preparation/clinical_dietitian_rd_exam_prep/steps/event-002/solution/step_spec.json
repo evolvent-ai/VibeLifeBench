@@ -1,0 +1,27 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "user_outpatient_confirm",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Stage 2 (user outpatient confirm) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for user outpatient confirm and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "user_outpatient_confirm"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_outpatient_auth_request_sent",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

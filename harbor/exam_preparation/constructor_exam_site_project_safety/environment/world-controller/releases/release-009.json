@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "evt_s16_route_mutation"
+  ],
+  "source_stage": 16,
+  "source_time": "2026-09-09T07:10:00+08:00",
+  "previous": "release-008",
+  "token": "constructor-exam-site-project-safety-release-009-token-v1",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "transit_events",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "event_id": "transit_evt_nb_exam_0912"
+      },
+      "source_event_id": "evt_s16_route_mutation",
+      "operation_index": 0
+    }
+  ]
+}

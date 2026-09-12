@@ -1,0 +1,14 @@
+{
+  "step": "event-013", "stage": 13, "virtual_stage": 13,
+  "source_event_id": "evt_s13_weather_world", "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-007"], "released_mutations": ["evt_s13_weather_mutation"]},
+  "response": "Source verification confirms an orange Rainstorm warning for Hangzhou. Project safety takes priority: the ordinary study block is Paused, a single safety review is scheduled for July 16, and the Next step is to adjust only after site verification.",
+  "response_paraphrase": "The official Source shows a Rainstorm warning, so project safety comes first. I Paused routine study, created one July 16 review hold, and will adjust the next step after conditions are verified.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s13_weather_world"}],
+  "expected_checks": [
+    {"check_id": "s13_weather_alert_refresh", "weight": 1.0, "expected": true},
+    {"check_id": "s13_weather_alert_calendar_unique", "weight": 1.0, "expected": true},
+    {"check_id": "s13_weather_safety_hold", "weight": 2.0, "expected": true}
+  ],
+  "expected_stage_weight": 4.0
+}

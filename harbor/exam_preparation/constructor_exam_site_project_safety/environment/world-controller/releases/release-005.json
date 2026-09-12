@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "evt_s11_project_delay_mutation"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-07-15T07:30:00+08:00",
+  "previous": "release-004",
+  "token": "constructor-exam-site-project-safety-release-005-token-v1",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "update",
+      "set": {
+        "start_dt": "2026-07-20T08:30:00+08:00",
+        "end_dt": "2026-07-20T12:00:00+08:00",
+        "description": "A high-risk project-site milestone requiring Lu Jing to attend and verify the safety briefing. Postponed due to site conditions; recheck the conflict between safety witness inspection and study.",
+        "updated_at": "2026-07-15T07:30:00+08:00"
+      },
+      "where": {
+        "event_id": "evt_site_basement_check"
+      },
+      "source_event_id": "evt_s11_project_delay_mutation",
+      "operation_index": 0
+    }
+  ]
+}

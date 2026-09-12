@@ -1,0 +1,1 @@
+The official subject-description page lists Personal Finance, Corporate Credit, Risk Management, and other professional subjects, with their intended audiences and examination scopes. Use the page to complete the comparison matrix and keep source provenance visible.

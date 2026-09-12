@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "evt_s01_signup_mutation"
+  ],
+  "source_stage": 1,
+  "source_time": "2026-07-03T10:45:00+08:00",
+  "previous": null,
+  "token": "constructor-exam-site-project-safety-release-000-token-v1",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "user_id": "user_lu_jing",
+        "type": "policy_update",
+        "read": 0,
+        "notification_id": "ntf_exam_20260703_signup",
+        "source": "exam_committee",
+        "subscription_id": "sub_exam_policy",
+        "title": "Constructor examination registration payment and eligibility status",
+        "body": "The registration window status has changed. Verify payment success and eligibility review separately against the official notice and email record.",
+        "payload_json": "{\"stage\":\"registration\",\"status\":\"review_required\"}",
+        "created_at": "2026-07-03T10:45:00+08:00"
+      },
+      "source_event_id": "evt_s01_signup_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "to_addr_json": "[\"lu.jing@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "id": 9001,
+        "message_id": "<exam-qualification-20260703@exam.zj.example.test>",
+        "subject": "First-Class Constructor Examination payment and eligibility review result",
+        "from_addr": "notice@exam.zj.example.test",
+        "date": "2026-07-03T10:45:00+08:00",
+        "body_text": "The registration system confirms successful payment for this year's First-Class Constructor Examination. The eligibility materials are under manual review, with feedback expected by 18:00 on July 8. The examination is September 12-13, 2026; the examination site and room remain subject to the later admission ticket.",
+        "headers_json": "{\"source\":\"official_registration_system\",\"status\":\"manual_review\"}",
+        "uid": 9001,
+        "size": 560,
+        "created_at": "2026-07-03T10:45:00+08:00"
+      },
+      "source_event_id": "evt_s01_signup_mutation",
+      "operation_index": 1
+    }
+  ]
+}

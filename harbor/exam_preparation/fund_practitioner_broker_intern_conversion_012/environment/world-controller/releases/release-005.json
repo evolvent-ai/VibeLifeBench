@@ -1,0 +1,29 @@
+{
+  "release_id": "release-005",
+  "token": "fund-conversion-005-clock-token-7d3a9e",
+  "previous": "release-004",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "txn_fund_reg_failed_001",
+        "account_id": "acct_lin_main",
+        "posted_at": "2026-04-30T08:35:00+08:00",
+        "amount_minor": 0,
+        "kind": "fee",
+        "counterparty": "Fund Practitioner Exam Center",
+        "memo": "failed_limit; registration fee payment unsuccessful",
+        "balance_after_minor": 180000
+      },
+      "source_event_id": "evt_011_payment_fail_mutation"
+    }
+  ],
+  "schema_version": 1,
+  "source_stage": 11,
+  "source_time": "2026-04-30T08:35:00+08:00",
+  "source_event_ids": [
+    "evt_011_payment_fail_mutation"
+  ]
+}

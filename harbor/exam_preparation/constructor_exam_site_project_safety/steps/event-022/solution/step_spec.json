@@ -1,0 +1,13 @@
+{
+  "step": "event-022", "stage": 22, "virtual_stage": 22,
+  "source_event_id": "evt_s22_final_refresh", "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The 48-hour refresh confirms the official Ningbo site and Building B change, sunny 33 C weather for September 12, and the Line 2 route's 25-minute delay risk. Travel remains unbooked and all pending authorizations stay open.",
+  "response_paraphrase": "I completed the final official-notice, forecast, and transit check: the corrected classroom, warm clear weather, and extra route buffer are logged, with no irreversible travel action taken.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s22_final_refresh"}],
+  "expected_checks": [
+    {"check_id": "s22_final_official_refresh", "weight": 1.0, "expected": true},
+    {"check_id": "s22_weather_route_refresh", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,32 @@
+{
+  "step": "event-017",
+  "stage": 15,
+  "virtual_stage": 15,
+  "source_event_id": "evt_017_mock_feedback",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "已记录模拟成绩，并在错题账本中分开记录四个薄弱点。",
+  "response_paraphrase": "工作流已记录模拟成绩，并在错题账本中分开记录四个薄弱点。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_017_mock_feedback"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r29_mock_scores_recorded",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "r30_error_categories_created",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

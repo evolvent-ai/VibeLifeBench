@@ -1,0 +1,33 @@
+{
+  "release_id": "release-010",
+  "token": "fund-conversion-010-clock-token-7d3a9e",
+  "previous": "release-009",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "to_addr_json": "[\"lin.che@example.test\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "message_id": "<qbank-delay-001@mail.test>",
+        "subject": "Question bank shipment delayed",
+        "from_addr": "service@qiming.test",
+        "date": "2026-05-18T18:12:00+08:00",
+        "body_text": "The licensed question-bank shipment is expected to be delayed by two days; digital access remains available.",
+        "uid": 305,
+        "size": 108,
+        "created_at": "2026-05-18T18:12:00+08:00"
+      }
+    }
+  ]
+}

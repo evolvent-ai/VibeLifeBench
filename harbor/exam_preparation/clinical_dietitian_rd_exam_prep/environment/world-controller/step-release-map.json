@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "task": "clinical_dietitian_rd_exam_prep",
+  "steps": {
+    "event-000": {
+      "virtual_stage": 0,
+      "scenario_time": "2026-08-01T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "kickoff_user",
+      "before": []
+    },
+    "event-001": {
+      "virtual_stage": 1,
+      "scenario_time": "2026-08-03T08:30:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "outpatient_end_digest",
+      "before": []
+    },
+    "event-002": {
+      "virtual_stage": 2,
+      "scenario_time": "2026-08-04T19:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "user_outpatient_confirm",
+      "before": []
+    },
+    "event-003": {
+      "virtual_stage": 3,
+      "scenario_time": "2026-08-05T10:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "outpatient_approved_notice",
+      "before": [
+        "release-000"
+      ]
+    },
+    "event-004": {
+      "virtual_stage": 4,
+      "scenario_time": "2026-08-07T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "pediatrics_start",
+      "before": []
+    },
+    "event-005": {
+      "virtual_stage": 5,
+      "scenario_time": "2026-08-09T20:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "scam_email_notice",
+      "before": [
+        "release-001"
+      ]
+    },
+    "event-006": {
+      "virtual_stage": 6,
+      "scenario_time": "2026-08-10T21:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "user_privacy_pressure",
+      "before": []
+    },
+    "event-007": {
+      "virtual_stage": 7,
+      "scenario_time": "2026-08-15T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "weekly_peds_heartbeat",
+      "before": []
+    },
+    "event-008": {
+      "virtual_stage": 8,
+      "scenario_time": "2026-08-20T08:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "official_template_heartbeat",
+      "before": [
+        "release-002"
+      ]
+    },
+    "event-009": {
+      "virtual_stage": 9,
+      "scenario_time": "2026-08-20T12:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "template_update_notice",
+      "before": []
+    },
+    "event-010": {
+      "virtual_stage": 11,
+      "scenario_time": "2026-08-26T08:30:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "preceptor_leave_email",
+      "before": [
+        "release-003"
+      ]
+    },
+    "event-011": {
+      "virtual_stage": 12,
+      "scenario_time": "2026-08-27T19:30:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "user_gap_anxiety",
+      "before": []
+    },
+    "event-012": {
+      "virtual_stage": 13,
+      "scenario_time": "2026-08-29T09:00:00+08:00",
+      "stage_boundary": false,
+      "source_event_id": "icu_planning_heartbeat",
+      "before": []
+    },
+    "event-013": {
+      "virtual_stage": 13,
+      "scenario_time": "2026-08-31T18:30:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "pediatrics_approved_notice",
+      "before": [
+        "release-004"
+      ]
+    },
+    "event-014": {
+      "virtual_stage": 14,
+      "scenario_time": "2026-09-01T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "icu_starts",
+      "before": []
+    },
+    "event-015": {
+      "virtual_stage": 15,
+      "scenario_time": "2026-09-05T08:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "mock_score_digest",
+      "before": []
+    },
+    "event-016": {
+      "virtual_stage": 17,
+      "scenario_time": "2026-09-11T07:30:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "health_check_heartbeat",
+      "before": [
+        "release-005"
+      ]
+    },
+    "event-017": {
+      "virtual_stage": 18,
+      "scenario_time": "2026-09-15T12:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "training_ad_notice",
+      "before": [
+        "release-006"
+      ]
+    },
+    "event-018": {
+      "virtual_stage": 19,
+      "scenario_time": "2026-09-21T23:10:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "late_mock_low_score",
+      "before": []
+    },
+    "event-019": {
+      "virtual_stage": 20,
+      "scenario_time": "2026-09-22T00:05:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "late_mock_calendar",
+      "before": []
+    },
+    "event-020": {
+      "virtual_stage": 21,
+      "scenario_time": "2026-09-28T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "icu_midpoint",
+      "before": []
+    },
+    "event-021": {
+      "virtual_stage": 22,
+      "scenario_time": "2026-10-03T08:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "icu_end_notice",
+      "before": []
+    },
+    "event-022": {
+      "virtual_stage": 23,
+      "scenario_time": "2026-10-05T10:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "icu_approved_notice",
+      "before": [
+        "release-007"
+      ]
+    },
+    "event-023": {
+      "virtual_stage": 25,
+      "scenario_time": "2026-10-07T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "registration_heartbeat",
+      "before": [
+        "release-008"
+      ]
+    },
+    "event-024": {
+      "virtual_stage": 26,
+      "scenario_time": "2026-10-08T18:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "user_register_auth",
+      "before": []
+    },
+    "event-025": {
+      "virtual_stage": 27,
+      "scenario_time": "2026-10-15T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "mock_recovery",
+      "before": []
+    },
+    "event-026": {
+      "virtual_stage": 29,
+      "scenario_time": "2026-10-28T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "exam_location_watch",
+      "before": [
+        "release-009"
+      ]
+    },
+    "event-027": {
+      "virtual_stage": 30,
+      "scenario_time": "2026-11-03T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "admission_ticket",
+      "before": []
+    },
+    "event-028": {
+      "virtual_stage": 31,
+      "scenario_time": "2026-11-05T08:30:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "pre_exam_check",
+      "before": []
+    },
+    "event-029": {
+      "virtual_stage": 33,
+      "scenario_time": "2026-11-19T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "user_score_review",
+      "before": [
+        "release-010"
+      ]
+    },
+    "event-030": {
+      "virtual_stage": 34,
+      "scenario_time": "2026-11-20T17:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "user_final_review",
+      "before": []
+    }
+  }
+}

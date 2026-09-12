@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "ev_005_defer_rule_supplement_mutation",
+    "ev_006_weekly_rule_recheck_mutation"
+  ],
+  "source_time": "2026-09-05T10:00:00+08:00",
+  "previous": "release-001",
+  "token": "campus-retake-release-002-20260901-token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "requirements": "rule_defer_01=apply within the prescribed pre-exam window; rule_defer_02=materials must be authentic and verifiable; rule_defer_03=consulting a counselor cannot substitute for the student's own application; rule_defer_04=accompanying a family member after discharge or transportation risks require supplementary authentic proof and the student's own confirmation; version=v2",
+        "jd": "An exam deferral requires the student to personally confirm and submit the application, along with authentic and verifiable proof; family matters occurring close to the exam do not automatically constitute eligibility, so first check for missing materials and the risk of getting to the exam on time.",
+        "posted_at": "2026-09-05T09:40:00+08:00"
+      },
+      "where": {
+        "job_id": "portal_defer_rules_2026"
+      },
+      "source_event_id": "ev_005_defer_rule_supplement_mutation"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_rule_recheck_0905",
+        "user_id": "user_lin_zeyu",
+        "source": "personal_reminder",
+        "type": "scheduled_reminder",
+        "subscription_id": null,
+        "title": "Weekly Retake and Makeup Exam Rule Review",
+        "body": "The weekly review of the retake and makeup exam, exam deferral, and materials requirements rules is due; the publication date and version number of the academic portal entry may have changed.",
+        "payload_json": "{\"topic\":\"Calculus A2 retake and makeup exam\",\"scope\":[\"retake and makeup exam\",\"exam deferral\",\"materials requirements\"],\"scheduled_for\":\"2026-09-05T10:00:00+08:00\"}",
+        "created_at": "2026-09-05T10:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "ev_006_weekly_rule_recheck_mutation"
+    }
+  ]
+}

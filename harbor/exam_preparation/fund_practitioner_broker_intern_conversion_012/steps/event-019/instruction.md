@@ -1,0 +1,1 @@
+If you confirm that a study product is genuine, clearly licensed, and suitable for the May 23 exam, you may buy a question bank or paper materials for no more than CNY 300. Record the expense in the ledger.

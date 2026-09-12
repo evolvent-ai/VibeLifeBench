@@ -1,0 +1,33 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "evt_002_initial_supplies",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Routine initial supplies were purchased within budget: the Math final-review book, ice pack, and stationery. Banking and ecommerce records were checked; the CNY 1200 physical therapy device was not purchased and still requires confirmation.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_002_initial_supplies",
+      "virtual_stage": 2,
+      "event_kind": "world",
+      "event_time": "2026-11-19T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r07_initial_purchase",
+      "weight": 2.0
+    },
+    {
+      "check_id": "r08_budget_log",
+      "weight": 3.0
+    }
+  ],
+  "expected_stage_weight": 5
+}

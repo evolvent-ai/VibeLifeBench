@@ -1,0 +1,31 @@
+{
+  "step": "event-011",
+  "stage": 11,
+  "virtual_stage": 11,
+  "source_event_id": "evt_011_route_issue",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "mut_011_transit_event"
+    ]
+  },
+  "response": "Transit disruption data was checked and a driving contingency to the original exam center was retained.",
+  "response_paraphrase": "I reviewed the affected public-transport route and added extra-time and alternate-transport guidance.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_011_route_issue"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_route_disruption_recovery",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

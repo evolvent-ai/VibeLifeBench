@@ -1,0 +1,37 @@
+{
+  "step": "event-025",
+  "virtual_stage": 27,
+  "source_event_id": "mock_recovery",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008"
+    ],
+    "released_mutations": []
+  },
+  "response": "Stage 27 (mock recovery) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for mock recovery and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "mock_recovery"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s27_recovery_plan_daytime",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

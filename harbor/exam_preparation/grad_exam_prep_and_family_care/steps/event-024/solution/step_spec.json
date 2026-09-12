@@ -1,0 +1,29 @@
+{
+  "step": "event-024",
+  "virtual_stage": 22,
+  "source_event_id": "evt_029_user_exam_finished",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "After the examinations, study reminders were paused while rehabilitation follow-up, budget, orders, and archive work were retained.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_029_user_exam_finished",
+      "virtual_stage": 22,
+      "event_kind": "user_message",
+      "event_time": "2026-12-21T18:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r39_study_reminders_stopped_and_care_followup_retained",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

@@ -1,0 +1,38 @@
+{
+  "step": "event-014",
+  "virtual_stage": 14,
+  "source_event_id": "icu_starts",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ],
+    "released_mutations": []
+  },
+  "response": "Stage 14 (icu starts) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for icu starts and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "icu_starts"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_icu_makeup_request_sent",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s14_calendar_makeup_added",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

@@ -1,0 +1,29 @@
+{
+  "step": "event-014",
+  "virtual_stage": 10,
+  "source_event_id": "evt_010_user_photo",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The fund-practitioner workflow step was completed with verified evidence and authorization-aware controls.",
+  "response_paraphrase": "Stage 10 records were updated while preserving official evidence, privacy, and approval boundaries.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_010_user_photo",
+      "virtual_stage": 10,
+      "event_kind": "user_message",
+      "event_time": "2026-04-29T20:40:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_photo_privacy_official_only",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

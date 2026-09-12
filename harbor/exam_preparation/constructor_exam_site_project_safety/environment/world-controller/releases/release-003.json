@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "evt_s08_delivery_mutation"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-07-10T07:50:00+08:00",
+  "previous": "release-002",
+  "token": "constructor-exam-site-project-safety-release-003-token-v1",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "status": "delivered"
+      },
+      "where": {
+        "order_id": "order_20260706_4819"
+      },
+      "source_event_id": "evt_s08_delivery_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "ecommerce",
+      "table": "order_status_history",
+      "op": "insert",
+      "values": {
+        "order_id": "order_20260706_4819",
+        "status": "delivered",
+        "set_at": "2026-07-10"
+      },
+      "source_event_id": "evt_s08_delivery_mutation",
+      "operation_index": 1
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "update",
+      "set": {
+        "status": "delivered",
+        "updated_at": "2026-07-10T07:50:00+08:00"
+      },
+      "where": {
+        "shipment_id": "ship_jd_260706_4819"
+      },
+      "source_event_id": "evt_s08_delivery_mutation",
+      "operation_index": 2
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "shipment_event_20260710_delivered",
+        "shipment_id": "ship_jd_260706_4819",
+        "at": "2026-07-10T07:50:00+08:00",
+        "location": "East City Complex project office receiving area",
+        "status_code": "delivered",
+        "description": "The textbook package was signed for. The outer label says 2025 edition and must be checked against the order requirement for the 2026 edition."
+      },
+      "source_event_id": "evt_s08_delivery_mutation",
+      "operation_index": 3
+    }
+  ]
+}

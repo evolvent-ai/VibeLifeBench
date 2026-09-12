@@ -1,0 +1,1 @@
+The branch manager's email schedules a full-day marketing outing on July 26 and compensatory time off on the afternoon of July 28. This does not automatically change the calendar. Reconcile the schedule with study and mock-examination plans before proposing any change.

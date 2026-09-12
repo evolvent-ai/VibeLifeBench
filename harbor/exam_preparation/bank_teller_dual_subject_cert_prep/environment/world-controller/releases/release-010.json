@@ -1,0 +1,24 @@
+{
+  "release_id": "release-010",
+  "token": "bank-teller-333014ce68ca6bd09c6507fab63d7d56",
+  "previous": "release-009",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_score_001",
+        "user_id": "user_chen",
+        "source": "bank_exam_service",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "\u53cc\u79d1\u673a\u8003\u6210\u7ee9\u53ef\u67e5",
+        "body": "\u6cd5\u5f8b\u6cd5\u89c4\u4e0e\u7efc\u5408\u80fd\u529b 68 \u5206\uff0c\u4e2a\u4eba\u7406\u8d22 72 \u5206\uff1b\u4e24\u79d1\u5747\u901a\u8fc7\u3002\u8bc1\u4e66\u7f16\u53f7\u5c1a\u672a\u751f\u6210\u3002",
+        "payload_json": "{\"score_status\":\"available\",\"law_score\":68,\"pf_score\":72,\"passed\":true,\"certificate_number\":null}",
+        "created_at": "2026-08-16T16:10:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_stage": 11,
+  "source_event_ids": [
+    "peds_cut_mutation",
+    "preceptor_leave_mutation"
+  ],
+  "source_time": "2026-08-26T06:30:00+08:00",
+  "previous": "release-002",
+  "token": "clinical-dietitian-rd-exam-prep-release-token",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "update",
+      "set": {
+        "status": "cancelled",
+        "updated_at": "2026-08-26T06:30:00+08:00",
+        "description": "Dr. Lee attended a regional meeting; the August 31 pediatrics ward nutrition assessment shift was cancelled. These 10 hours do not count toward hours actually completed."
+      },
+      "where": {
+        "event_id": "rd_activity_061"
+      },
+      "source_event_id": "peds_cut_mutation"
+    },
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "update",
+      "set": {
+        "status": "cancelled",
+        "updated_at": "2026-08-26T06:30:00+08:00",
+        "description": "Dr. Lee attended a regional meeting; the September 2 pediatrics outpatient follow-up shift was cancelled. These 10 hours do not count toward hours actually completed."
+      },
+      "where": {
+        "event_id": "rd_activity_062"
+      },
+      "source_event_id": "peds_cut_mutation"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": "1",
+        "message_id": "msg_li_leave_20260826",
+        "subject": "next weekpediatricspreceptormeetingpleaseclinical nutrition recordexplanation",
+        "from_addr": "dr.li@example.test",
+        "to_addr_json": "[\"chen.yiran@example.test\"]",
+        "date": "2026-08-26T08:00:00+08:00",
+        "body_text": "clinical nutrition recordnext weekclinical nutrition recorddayattendregional meeting,pediatricspreceptorclinical nutrition recordtwo 10 hoursclinical nutrition record.pleaseclinical nutrition recordactual calendarcalculate,do notclinical nutrition recordplannedclinical nutrition record.",
+        "is_read": "0",
+        "created_at": "2026-08-26T08:00:00+08:00"
+      },
+      "source_event_id": "preceptor_leave_mutation"
+    }
+  ]
+}

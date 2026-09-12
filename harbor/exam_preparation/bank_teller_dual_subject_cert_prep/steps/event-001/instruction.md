@@ -1,0 +1,1 @@
+The Banking Examination Service Account has published the second-half junior registration notice. The notice covers the two-subject rule, examination fee, examination dates, and when admission-ticket printing will open. Review it and update the registration and deadline records, while preserving the requirement to ask me before any registration or payment.

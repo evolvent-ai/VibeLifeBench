@@ -1,0 +1,35 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "event_id": "S1_event",
+  "source_event_id": "S1_event",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 1
+    }
+  ],
+  "response_paraphrase": "The provincial notice was checked and the Western medicine eligibility record was refreshed.",
+  "expected_env": {
+    "virtual_stage": 1,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "r04_official_notice_read",
+      "weight": 1.5
+    },
+    {
+      "check_id": "r05_requirement_matrix_western",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

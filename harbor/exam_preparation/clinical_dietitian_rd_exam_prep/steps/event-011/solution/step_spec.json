@@ -1,0 +1,37 @@
+{
+  "step": "event-011",
+  "virtual_stage": 12,
+  "source_event_id": "user_gap_anxiety",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ],
+    "released_mutations": []
+  },
+  "response": "Stage 12 (user gap anxiety) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for user gap anxiety and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "user_gap_anxiety"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s12_peds_gap_recorded",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s12_no_peds_overclaim",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

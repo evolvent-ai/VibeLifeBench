@@ -1,0 +1,1 @@
+The two results are confirmed. Complete the final archive for this registration, payment, materials, authorizations, risks, and certificate-download follow-up. Keep confirmed facts, pending items, and any unavailable certificate number clearly separated.

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_stage": 25,
+  "source_event_ids": [
+    "registration_open_mutation"
+  ],
+  "source_time": "2026-10-07T06:00:00+08:00",
+  "previous": "release-007",
+  "token": "clinical-dietitian-rd-exam-prep-release-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "official_account_posts",
+      "op": "insert",
+      "values": {
+        "post_id": "post_registration_open_20261007",
+        "account_id": "cdr_exam_updates",
+        "title": "eligibilitysubmitted:waiting Authorization to Test clinical nutrition recordbooking",
+        "summary": "trainingprogram directorsubmitted eligibility(submitted);Authorization to Test stillclinical nutrition record pending,Pearson VUE not booked yet(not_booked).receive formal authorizationclinical nutrition recordonly then mayselectexam appointmentandpay exam fee.",
+        "url": "offline://rd/authorization-to-test",
+        "published_at": "2026-10-07T06:00:00+08:00"
+      },
+      "source_event_id": "registration_open_mutation"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_registration_open_20261007",
+        "user_id": "user_chen",
+        "source": "cdr_exam_updates",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "eligibilityclinical nutrition recordenterawaiting authorizationstage",
+        "body": "program directorsubmitted eligibility;currentwaiting Authorization to Test,Pearson VUE not booked yet.",
+        "payload_json": "{\"eligibility\":\"submitted\",\"authorization_to_test\":\"pending\",\"pearson_vue_status\":\"not_booked\"}",
+        "created_at": "2026-10-07T06:05:00+08:00",
+        "read": "0"
+      },
+      "source_event_id": "registration_open_mutation"
+    }
+  ]
+}

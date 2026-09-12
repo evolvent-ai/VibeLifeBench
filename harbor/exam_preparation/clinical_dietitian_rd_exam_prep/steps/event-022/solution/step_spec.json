@@ -1,0 +1,43 @@
+{
+  "step": "event-022",
+  "virtual_stage": 23,
+  "source_event_id": "icu_approved_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007"
+    ],
+    "released_mutations": [
+      "icu_approved_mutation"
+    ]
+  },
+  "response": "Stage 23 (icu approved notice) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for icu approved notice and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "icu_approved_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_exact_1200_chain_submitted",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s23_all_three_approvals_present",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

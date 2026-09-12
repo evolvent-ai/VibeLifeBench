@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-014",
+  "source_event_ids": [
+    "S21_payment_complete_mutation"
+  ],
+  "source_stage": 23,
+  "source_time": "2026-09-18T21:12:00+08:00",
+  "previous": "release-013",
+  "token": "pharmacist-western-release-014-20260824-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_payment_complete",
+        "user_id": "user_zhou",
+        "source": "provincial_pharmacist_office",
+        "type": "portal_status",
+        "subscription_id": null,
+        "title": "Western medicine registration fee paid successfully",
+        "body": "Yun Zhou paid the official CNY 244 registration fee through the official registration portal; status is paid.",
+        "payload_json": "{\"application_id\":\"pharm_2026_user_zhou\",\"application_status\":\"paid\",\"direction\":\"western_pharmacist\",\"fee_minor\":24400,\"paid_minor\":24400,\"paid_by\":\"user_zhou\",\"channel\":\"official_portal\",\"receipt_id\":\"receipt_pharm_2026_user_zhou\"}",
+        "created_at": "2026-09-18T21:11:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S21_payment_complete_mutation"
+    }
+  ]
+}

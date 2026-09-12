@@ -1,0 +1,27 @@
+{
+  "step": "event-019",
+  "stage": 16,
+  "virtual_stage": 16,
+  "source_event_id": "evt_018b_mentor_note",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "已记录带教回炉建议，并为每个薄弱点安排考前复习时段。",
+  "response_paraphrase": "工作流已记录带教回炉建议，并为每个薄弱点安排考前复习时段。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_018b_mentor_note"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r31_weak_area_calendar_scheduled",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

@@ -1,0 +1,39 @@
+{
+  "step": "event-007",
+  "virtual_stage": 6,
+  "source_event_id": "evt_008_email_heartbeat",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": []
+  },
+  "response": "The follow-up notice was read: Ms. Li's appointment moved to 2026-11-29 morning. The Calendar was updated, the conflicting old review was deleted, and Math review was split with a rest buffer.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_008_email_heartbeat",
+      "virtual_stage": 6,
+      "event_kind": "notification",
+      "event_time": "2026-11-26T09:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r13_read_reschedule",
+      "weight": 3.0
+    },
+    {
+      "check_id": "r14_move_visit",
+      "weight": 4.0
+    },
+    {
+      "check_id": "r15_calendar_no_4h_violate",
+      "weight": 5.0
+    }
+  ],
+  "expected_stage_weight": 12
+}

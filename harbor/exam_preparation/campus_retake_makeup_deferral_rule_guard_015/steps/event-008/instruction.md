@@ -1,0 +1,1 @@
+My family has confirmed that I must accompany my grandfather after discharge on September 16, approximately from 15:00 to 18:00. Do not apply for a deferral directly; first examine the rules and the risk of returning to campus in time.

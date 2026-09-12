@@ -1,0 +1,37 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "kickoff_user",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Stage 0 (kickoff user) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for kickoff user and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "kickoff_user"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_notion_started",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s0_calendar_seeded",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s0_official_watch_created",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

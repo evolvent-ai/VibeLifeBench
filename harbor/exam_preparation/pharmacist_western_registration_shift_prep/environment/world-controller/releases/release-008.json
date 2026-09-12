@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "S13_submission_pending_mutation"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-08-30T20:52:00+08:00",
+  "previous": "release-007",
+  "token": "pharmacist-western-release-008-20260824-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_registration_pending",
+        "user_id": "user_zhou",
+        "source": "provincial_pharmacist_office",
+        "type": "portal_status",
+        "subscription_id": null,
+        "title": "Western medicine registration submitted and pending review",
+        "body": "Yun Zhou submitted through the official registration portal under the Western medicine track; current status is pending_review.",
+        "payload_json": "{\"application_id\":\"pharm_2026_user_zhou\",\"application_status\":\"pending_review\",\"direction\":\"western_pharmacist\",\"submitted_by\":\"user_zhou\",\"channel\":\"official_portal\"}",
+        "created_at": "2026-08-30T20:51:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S13_submission_pending_mutation"
+    }
+  ]
+}

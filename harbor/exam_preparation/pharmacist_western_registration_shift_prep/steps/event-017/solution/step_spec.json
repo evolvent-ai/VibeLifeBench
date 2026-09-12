@@ -1,0 +1,39 @@
+{
+  "step": "event-017",
+  "stage": 16,
+  "event_id": "S16_official_resubmitted_notice",
+  "source_event_id": "S16_official_resubmitted_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 16
+    }
+  ],
+  "response_paraphrase": "The temporary night duty was read and a later rested review time was chosen.",
+  "expected_env": {
+    "virtual_stage": 16,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": [
+      "release-011"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "r28_rejection_found_by_scheduled",
+      "weight": 2
+    },
+    {
+      "check_id": "r29_sealed_cert_packet_prepared",
+      "weight": 2
+    },
+    {
+      "check_id": "r30_resubmission_status_verified",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

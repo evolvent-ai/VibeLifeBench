@@ -1,0 +1,37 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "evt_001_scheduled_setup",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Setup recorded in Notion and Calendar: the Math mock plan, Ms. Li follow-up placeholder, rest buffers, and four monitoring subscriptions are in place; the budget ledger and health log remain linked to the Control Center.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_001_scheduled_setup",
+      "virtual_stage": 1,
+      "event_kind": "notification",
+      "event_time": "2026-11-18T20:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r04_notion_init",
+      "weight": 3.0
+    },
+    {
+      "check_id": "r05_calendar_seed",
+      "weight": 3.0
+    },
+    {
+      "check_id": "r06_subscribe_watch",
+      "weight": 3.0
+    }
+  ],
+  "expected_stage_weight": 9
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "mut_012_hotel_window"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-08-14T10:00:00+08:00",
+  "previous": "release-003",
+  "token": "interpreter-cert-oral-exam-travel-equipment-clock-7d3f9a-release-004",
+  "operations": [
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "where": {
+        "hotel_id": "HTL_NJ_REFUNDABLE_01",
+        "date": "2026-08-20",
+        "room_type": "quiet_single",
+        "flavor": "flex"
+      },
+      "set": {
+        "nightly_price": 36800,
+        "inventory_remaining": 2,
+        "refundable_until": "2026-08-19T18:00:00+08:00"
+      },
+      "source_event_id": "mut_012_hotel_window"
+    }
+  ]
+}

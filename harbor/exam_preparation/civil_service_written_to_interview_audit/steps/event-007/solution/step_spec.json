@@ -1,0 +1,11 @@
+{
+  "step": "event-007",
+  "stage": 7,
+  "event_id": "evt_007_scheduled_policy_watch",
+  "source_event_id": "evt_007_scheduled_policy_watch",
+  "actions": [{"kind": "record_event", "stage": 7}],
+  "response_paraphrase": "The new supplement is recovered, catalog scope is rechecked, and NL-14380 is flagged as risky.",
+  "expected_env": {"virtual_stage": 7, "workspace": "/workspace", "preceding_releases": ["release-002"], "released_mutations": ["release-002"], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_07_supplement_recovered", "weight": 1.75}, {"check_id": "stage_07_nl14380_risk_marked", "weight": 1.75}],
+  "expected_stage_weight": 3.5
+}

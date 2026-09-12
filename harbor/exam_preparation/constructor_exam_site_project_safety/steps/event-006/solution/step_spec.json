@@ -1,0 +1,13 @@
+{
+  "step": "event-006", "stage": 6, "virtual_stage": 6,
+  "source_event_id": "evt_s06_material_notice", "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-002"], "released_mutations": ["evt_s06_material_mutation"]},
+  "response": "The publisher notice and product details distinguish the official 2026 textbook from the legacy 2025 version, including the version page and errata. I logged the mismatch risk; replacement or purchase still needs confirmation.",
+  "response_paraphrase": "I matched the publisher update to both catalogue records and documented which book follows the 2026 syllabus and which is obsolete. No replacement order was placed.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s06_material_notice"}],
+  "expected_checks": [
+    {"check_id": "s06_material_product_filter", "weight": 1.0, "expected": true},
+    {"check_id": "s06_publisher_notice_crosscheck", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

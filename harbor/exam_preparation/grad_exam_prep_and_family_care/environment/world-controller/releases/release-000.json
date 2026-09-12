@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_stage": 5,
+  "source_event_ids": [
+    "evt_005_stockout_mutation"
+  ],
+  "source_time": "2026-11-24T10:00:00+08:00",
+  "previous": null,
+  "token": "grad-exam-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "set": {
+        "quantity": 0
+      },
+      "where": {
+        "sku_id": "sku_math_book_01"
+      }
+    }
+  ]
+}

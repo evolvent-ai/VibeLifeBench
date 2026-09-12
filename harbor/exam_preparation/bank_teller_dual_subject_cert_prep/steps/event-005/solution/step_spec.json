@@ -1,0 +1,27 @@
+{
+  "step": "event-005",
+  "stage": 4,
+  "virtual_stage": 4,
+  "source_event_id": "evt_004_subject_auth",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "已记录用户明确确认的专业科目为个人理财；报名、批次和缴费仍需另行确认。",
+  "response_paraphrase": "工作流已记录用户明确确认的专业科目为个人理财；报名、批次和缴费仍需另行确认。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_004_subject_auth"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r08_personal_finance_authorized",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

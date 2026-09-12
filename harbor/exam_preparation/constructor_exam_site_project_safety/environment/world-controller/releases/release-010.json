@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "evt_s18_hotel_mutation"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-09-10T09:00:00+08:00",
+  "previous": "release-009",
+  "token": "constructor-exam-site-project-safety-release-010-token-v1",
+  "operations": [
+    {
+      "server": "hotel_booking",
+      "table": "rate_plans",
+      "op": "update",
+      "set": {
+        "nightly_price": 32800,
+        "inventory_remaining": 1,
+        "cancellation_policy": "Free cancellation until 18:00 on the day before check-in; after the deadline, the first night's room charge applies.",
+        "refundable_until": "2026-09-10T18:00:00+08:00"
+      },
+      "where": {
+        "hotel_id": "hotel_nb_hs_031",
+        "date": "2026-09-11"
+      },
+      "source_event_id": "evt_s18_hotel_mutation",
+      "operation_index": 0
+    }
+  ]
+}

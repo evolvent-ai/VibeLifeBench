@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "mut_019_center_change"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-08-19T16:00:00+08:00",
+  "previous": "release-007",
+  "token": "interpreter-cert-oral-exam-travel-equipment-clock-7d3f9a-release-008",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "NH_INTERP_CENTER_CHANGE_2026",
+        "user_id": "user_lin_qiaoxi",
+        "source": "exam_office",
+        "type": "official_notice",
+        "subscription_id": null,
+        "title": "Oral-exam campus change",
+        "body": "The oral-exam site moved to Area B of Nanjing Hexi Foreign Language Examination Center; Area A is no longer the entrance. Follow the refreshed admission ticket.",
+        "payload_json": "{\"place_hint\": \"Barea\", \"city\": \"Nanjing\"}",
+        "created_at": "2026-08-19T16:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "mut_019_center_change"
+    }
+  ]
+}

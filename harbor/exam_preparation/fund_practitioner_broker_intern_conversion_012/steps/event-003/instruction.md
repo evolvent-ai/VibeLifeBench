@@ -1,0 +1,1 @@
+HRBP Xin Yi sent a conversion-materials email describing the wealth-management team's basic fund-business proof requirement and submission window. Use it together with the official subject rules when assessing the plan.

@@ -1,0 +1,37 @@
+{
+  "step": "event-028",
+  "stage": 24,
+  "virtual_stage": 24,
+  "source_event_id": "evt_029_final_archive",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "考试记录已完整归档，安排后续证书下载复查，未虚构证书编号。",
+  "response_paraphrase": "考试记录工作流已完整归档，安排后续证书下载复查，未虚构证书编号。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_029_final_archive"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r44_final_review_closed_passed",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "r45_risk_and_auth_logs_archived",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "r46_certificate_followup_reminder",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "ev_010_room_update_notification_mutation",
+    "ev_010_room_update_portal_mutation"
+  ],
+  "source_time": "2026-09-10T16:00:00+08:00",
+  "previous": "release-004a",
+  "token": "campus-retake-release-005-20260901-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_room_update_b214",
+        "user_id": "user_lin_zeyu",
+        "source": "campus_affairs",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Calculus A2 exam room summary maintenance record",
+        "body": "The exam room summary has been updated to the second version. Please follow the current version in the academic portal and retain it for pre-exam review.",
+        "payload_json": "{\"job_id\":\"portal_room_table_2026\",\"version\":\"v2\",\"room\":\"B2-214\"}",
+        "created_at": "2026-09-10T10:10:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "ev_010_room_update_notification_mutation"
+    },
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "jd": "Second-version exam room summary: Calculus A2 is tentatively assigned to B2-214; the final arrangement remains subject to the latest seating chart issued before the exam.",
+        "requirements": "room_version=v2; room_current=B2-214; previous_room=B2-A305; final_source=latest_seat_table; tail37_room=pending",
+        "posted_at": "2026-09-10T10:10:00+08:00"
+      },
+      "where": {
+        "job_id": "portal_room_table_2026"
+      },
+      "source_event_id": "ev_010_room_update_portal_mutation"
+    }
+  ]
+}

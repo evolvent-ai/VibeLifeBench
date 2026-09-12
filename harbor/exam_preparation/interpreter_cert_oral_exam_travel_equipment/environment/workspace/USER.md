@@ -1,0 +1,3 @@
+# userpreference
+
+Lin Qiaoxipreferenceevidencetranslated business text、pending confirmationitemstranslated business text、budgettranslated business text、privacytranslated business textfirstoftranslated business textconcisetranslated business text。translated business textfirsttranslated business textemailandtranslated business textreminder，translated business textdoes not wanttranslated business textpurchase、booking、ticketingorsendtranslated business textfile。

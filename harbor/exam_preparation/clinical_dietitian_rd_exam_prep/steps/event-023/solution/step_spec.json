@@ -1,0 +1,44 @@
+{
+  "step": "event-023",
+  "virtual_stage": 25,
+  "source_event_id": "registration_heartbeat",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008"
+    ],
+    "released_mutations": [
+      "registration_open_mutation"
+    ]
+  },
+  "response": "Stage 25 (registration heartbeat) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for registration heartbeat and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "registration_heartbeat"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s25_registration_open_checked",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s25_user_auth_not_skipped",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

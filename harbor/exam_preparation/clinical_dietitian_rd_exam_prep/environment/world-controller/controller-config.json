@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task": "clinical_dietitian_rd_exam_prep",
+  "step_count": 31,
+  "release_count": 11,
+  "clock_file": "/world-clock/current.json",
+  "clock_token": "clinical-dietitian-rd-exam-prep-clock-token",
+  "services": {
+    "calendar": "/calendar-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "health_tracker": "/health-tracker-env/runtime.db",
+    "notification_hub": "/notification-hub-env/runtime.db",
+    "notion": "/notion-env/runtime.db"
+  }
+}

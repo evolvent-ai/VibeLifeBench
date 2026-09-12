@@ -1,0 +1,22 @@
+{
+  "step": "event-022",
+  "stage": 21,
+  "event_id": "S21_user_paid",
+  "source_event_id": "S21_user_paid",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 21
+    }
+  ],
+  "response_paraphrase": "The new regulations patch was inspected and given a dedicated review slot.",
+  "expected_env": {
+    "virtual_stage": 21,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": false
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

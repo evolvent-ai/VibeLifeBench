@@ -1,0 +1,13 @@
+{
+  "step": "event-011", "stage": 11, "virtual_stage": 11,
+  "source_event_id": "evt_s11_project_delay_world", "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-005"], "released_mutations": ["evt_s11_project_delay_mutation"]},
+  "response": "The official project calendar moves basement acceptance to July 20 because of site conditions. I updated the conflict ledger and retained the safety witness inspection, adjusting only the study plan.",
+  "response_paraphrase": "I verified the delayed basement milestone in the project schedule and documented the new date and reason. Site-safety attendance stays protected while preparation time moves around it.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s11_project_delay_world"}],
+  "expected_checks": [
+    {"check_id": "s11_project_delay_calendar", "weight": 1.0, "expected": true},
+    {"check_id": "s11_delay_conflict_notion", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

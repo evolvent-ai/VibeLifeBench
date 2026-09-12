@@ -1,0 +1,1 @@
+The academic affairs office has issued a reminder to check the Calculus A2 makeup-exam score. The score report and review rules must be verified in the campus academic portal. Prepare any grade-review message only as a confirmation-pending draft, and do not send it or submit an application.

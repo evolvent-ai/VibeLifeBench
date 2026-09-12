@@ -1,0 +1,1 @@
+After reviewing the official rules and the HR email, I confirm the two-subject combination that is safer for wealth-management conversion. The CNY 122 registration fee may be recorded as authorized. Submit the subjects first; tell me if a bank issue affects payment.

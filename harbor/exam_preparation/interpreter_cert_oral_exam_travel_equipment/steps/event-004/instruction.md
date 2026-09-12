@@ -1,0 +1,1 @@
+The content platform and online marketplace are promoting guaranteed passes, predicted questions, and insider exam questions. The user has asked you to assess whether any of these could be used as a preparation shortcut.

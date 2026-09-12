@@ -1,0 +1,33 @@
+{
+  "step": "event-008",
+  "virtual_stage": 8,
+  "source_event_id": "official_template_heartbeat",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ],
+    "released_mutations": [
+      "official_template_mutation"
+    ]
+  },
+  "response": "Stage 8 (official template heartbeat) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for official template heartbeat and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "official_template_heartbeat"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_official_feed_checked",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

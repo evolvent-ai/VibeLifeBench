@@ -1,0 +1,1 @@
+Traffic around the examination site is expected to be heavy on weekend afternoons, adding about 20 to 30 minutes to the normal journey. Update the route buffer and arrival reminder without changing the examination appointment.

@@ -1,0 +1,13 @@
+{
+  "step": "event-021", "stage": 21, "virtual_stage": 21,
+  "source_event_id": "evt_s21_room_notice", "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-013"], "released_mutations": ["evt_s21_room_mutation"]},
+  "response": "The official admission update moves the examination classroom to Building B and confirms the revised entrance. I recorded the source and created a September 12 calendar reminder at the Ningbo Haishu examination center.",
+  "response_paraphrase": "I rechecked the exam-committee notice, updated the travel record to Building B, and placed a reversible arrival reminder for the corrected campus entry point.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s21_room_notice"}],
+  "expected_checks": [
+    {"check_id": "s21_room_change_notice", "weight": 1.0, "expected": true},
+    {"check_id": "s21_calendar_room_update", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

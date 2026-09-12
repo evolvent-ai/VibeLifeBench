@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "mut_010_time_mail"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-08-12T09:10:00+08:00",
+  "previous": "release-001",
+  "token": "interpreter-cert-oral-exam-travel-equipment-clock-7d3f9a-release-002",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1104,
+        "folder_id": 1,
+        "message_id": "<oral-exam-time-change-20260812@example.test>",
+        "subject": "Oral exam schedule adjustment notice",
+        "from_addr": "notice@oral.exam.example",
+        "to_addr_json": "[\"lin.qiaoxi@example.test\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-12T09:10:00+08:00",
+        "body_text": "Official notice: Lin Qiaoxi oral exam moved to 2026-08-21 13:30; equipment check window remains 2026-08-18 through 2026-08-20.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 1104,
+        "size": 610,
+        "created_at": "2026-08-12T09:10:00+08:00"
+      },
+      "source_event_id": "mut_010_time_mail"
+    }
+  ]
+}

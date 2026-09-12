@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "S16_resubmitted_mutation"
+  ],
+  "source_stage": 17,
+  "source_time": "2026-09-04T21:27:00+08:00",
+  "previous": "release-010",
+  "token": "pharmacist-western-release-011-20260824-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_review_resubmitted",
+        "user_id": "user_zhou",
+        "source": "provincial_pharmacist_office",
+        "type": "portal_status",
+        "subscription_id": null,
+        "title": "Corrected registration materials resubmitted",
+        "body": "Yun Zhou uploaded the genuine HR-stamped work certificate through the official registration portal; status is resubmitted_pending_review.",
+        "payload_json": "{\"application_id\":\"pharm_2026_user_zhou\",\"application_status\":\"resubmitted_pending_review\",\"direction\":\"western_pharmacist\",\"required_doc\":\"sealed_work_cert\",\"uploaded_by\":\"user_zhou\",\"channel\":\"official_portal\"}",
+        "created_at": "2026-09-04T21:26:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S16_resubmitted_mutation"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "step": "event-016", "stage": 16, "virtual_stage": 16,
+  "source_event_id": "evt_s16_route_check", "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-009"], "released_mutations": ["evt_s16_route_mutation"]},
+  "response": "I refreshed the Ningbo Station route and the September 11 Hangzhou-Ningbo train offers. The travel record includes the Line 2 disruption and a 25-minute buffer, with refundable rail choices compared but no ticket booked.",
+  "response_paraphrase": "Current transit and high-speed-rail results are logged for the examination trip, including the known delay exposure and extra arrival time. All rail options remain unpurchased.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s16_route_check"}],
+  "expected_checks": [
+    {"check_id": "s16_route_disruption_refresh", "weight": 1.0, "expected": true},
+    {"check_id": "s16_rail_offer_compare", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

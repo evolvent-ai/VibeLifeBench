@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_stage": 17,
+  "source_event_ids": [
+    "health_fatigue_mutation"
+  ],
+  "source_time": "2026-09-10T22:00:00+08:00",
+  "previous": "release-004",
+  "token": "clinical-dietitian-rd-exam-prep-release-token",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "met_fatigue_sleep_001",
+        "user_id": "user_chen",
+        "type": "sleep_minutes",
+        "value": "205",
+        "value_text": null,
+        "unit": "min",
+        "recorded_at": "2026-09-10T07:00:00+08:00"
+      },
+      "source_event_id": "health_fatigue_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "met_fatigue_hr_001",
+        "user_id": "user_chen",
+        "type": "heart_rate",
+        "value": "104",
+        "value_text": null,
+        "unit": "bpm",
+        "recorded_at": "2026-09-10T23:00:00+08:00"
+      },
+      "source_event_id": "health_fatigue_mutation"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Today's mock-examination scores were 56 in Laws and Regulations and 62 in Personal Finance. The main wrong-answer areas are anti-money-laundering, consumer-rights protection, present value of annuities, and risk matching. Update the wrong-answer ledger and use it to prioritize the next review cycle.

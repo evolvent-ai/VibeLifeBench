@@ -1,0 +1,45 @@
+{
+  "release_id": "release-007",
+  "token": "fund-conversion-007-clock-token-7d3a9e",
+  "previous": "release-006",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "official_account_posts",
+      "op": "insert",
+      "values": {
+        "post_id": "post_syllabus_errata_001",
+        "account_id": "acct_fund_exam",
+        "title": "Subject 2 valuation chapter errata",
+        "summary": "Valuation examples and fund-fee definitions were corrected; update the question bank and wrong-question plan.",
+        "url": "offline://fund/errata",
+        "published_at": "2026-05-11T10:00:00+08:00"
+      },
+      "source_event_id": "evt_014_errata_mutation"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notice_syllabus_errata_001",
+        "user_id": "user_lin_che",
+        "source": "fund_exam_official",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Subject 2 valuation chapter errata",
+        "body": "Valuation examples and fund-fee definitions were corrected; update the question bank and wrong-question plan.",
+        "payload_json": "{\"post_id\":\"post_syllabus_errata_001\"}",
+        "created_at": "2026-05-11T10:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "evt_014_errata_mutation"
+    }
+  ],
+  "schema_version": 1,
+  "source_stage": 15,
+  "source_time": "2026-05-11T10:00:00+08:00",
+  "source_event_ids": [
+    "evt_014_errata_mutation"
+  ]
+}

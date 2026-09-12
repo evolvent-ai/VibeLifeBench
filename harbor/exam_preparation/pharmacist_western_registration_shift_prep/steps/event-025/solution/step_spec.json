@@ -1,0 +1,31 @@
+{
+  "step": "event-025",
+  "stage": 23,
+  "event_id": "S23_event",
+  "source_event_id": "S23_event",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 23
+    }
+  ],
+  "response_paraphrase": "Mock feedback changed the emphasis without adding an overnight study block.",
+  "expected_env": {
+    "virtual_stage": 23,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-016"
+    ],
+    "released_mutations": [
+      "release-016"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "r40_second_shift_conflict_moved",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

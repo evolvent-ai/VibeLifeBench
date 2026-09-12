@@ -1,0 +1,24 @@
+{
+  "release_id": "release-002",
+  "token": "bank-teller-b0f6d013426b7130ca9a996c79e13512",
+  "previous": "release-001",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_slot_open_20260711",
+        "user_id": "user_chen",
+        "source": "bank_exam_service",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "\u673a\u8003\u6279\u6b21\u5f00\u59cb\u653e\u91cf",
+        "body": "8 \u6708 16 \u65e5\u5468\u65e5\u53cc\u79d1\u6279\u6b21\u6709\u4f59\u4f4d\uff1b\u9501\u4f4d\u4e0d\u7b49\u4e8e\u7f34\u8d39\uff0c\u6700\u7ec8\u79d1\u76ee\u4e0e\u6279\u6b21\u987b\u672c\u4eba\u786e\u8ba4\u3002",
+        "payload_json": "{\"slot_status\":\"open\",\"exam_date\":\"2026-08-16\",\"dual_subject\":true}",
+        "created_at": "2026-07-11T09:30:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

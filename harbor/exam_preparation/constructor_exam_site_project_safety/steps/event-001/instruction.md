@@ -1,0 +1,1 @@
+My email has received confirmation of the constructor examination registration payment and an eligibility-verification message. Please review this notification, record its source and status, and identify any follow-up that requires my confirmation.

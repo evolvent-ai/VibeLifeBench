@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_stage": 13,
+  "source_event_ids": [
+    "evt_017_low_progress_mutation"
+  ],
+  "source_time": "2026-12-11T22:00:00+08:00",
+  "previous": "release-003",
+  "token": "grad-exam-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "notion",
+      "table": "database_rows",
+      "op": "insert",
+      "values": {
+        "row_id": "row_completion",
+        "database_id": "db_exam_progress",
+        "properties_json": "{\"name\": \"three_day_completion\", \"completion_rate\": 0.4, \"days\": 3, \"priority\": \"math_first\"}",
+        "created_time": "2026-12-11T22:00:00+08:00",
+        "last_edited_time": "2026-12-11T22:00:00+08:00",
+        "archived": 0
+      }
+    }
+  ]
+}

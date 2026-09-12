@@ -1,0 +1,1 @@
+The continuing-education platform sent a request for missing training-hour evidence and asked me to verify the authentic course records. Please review the notice, record the gap, and prepare a compliant follow-up based only on genuine records.

@@ -1,0 +1,1 @@
+The weekly review is due. Refresh the official notices, the project calendar, textbook logistics, weather, and reimbursement items that still need confirmation. Record sources, timestamps, changes, and next actions without taking any unconfirmed irreversible action.

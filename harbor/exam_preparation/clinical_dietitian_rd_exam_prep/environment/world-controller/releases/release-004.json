@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_stage": 13,
+  "source_event_ids": [
+    "pediatrics_approved_mutation"
+  ],
+  "source_time": "2026-08-31T18:00:00+08:00",
+  "previous": "release-003",
+  "token": "clinical-dietitian-rd-exam-prep-release-token",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "update",
+      "set": {
+        "summary": "ICU rotationclinical nutrition recordplanned",
+        "description": "ICU clinical nutrition record 500 hours;clinical nutrition recordgapclinical nutrition record,andclinical nutrition record ICU preceptorclinical nutrition recordapproval.",
+        "location": "ICU clinical nutrition record",
+        "start_dt": "2026-09-01T08:00:00+08:00",
+        "end_dt": "2026-09-01T08:30:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-08-31T18:00:00+08:00",
+        "updated_at": "2026-08-31T18:00:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      },
+      "where": {
+        "event_id": "cal_cert_icu_plan"
+      },
+      "source_event_id": "pediatrics_approved_mutation"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": "1",
+        "message_id": "msg_pediatrics_approved_20260831",
+        "subject": "Approved: pediatricsrotationactually completed 380 hours",
+        "from_addr": "pediatrics.preceptor@example.test",
+        "to_addr_json": "[\"chen.yiran@example.test\"]",
+        "date": "2026-08-31T18:00:00+08:00",
+        "body_text": "Approved. pediatricsclinical nutrition recordplanned 400 hours;clinical nutrition record 8 clinical nutrition record 31 clinical nutrition record 9 clinical nutrition record 2 clinical nutrition recordtwoclinical nutrition record 10 hoursclinical nutrition recordcancelled,actually completedandapproved 380 hours.clinical nutrition record 20 hoursclinical nutrition recordfollow-up ICU realclinical nutrition recordmake up,andclinical nutrition record ICU preceptorconfirmed.",
+        "is_read": "0",
+        "created_at": "2026-08-31T18:00:00+08:00"
+      },
+      "source_event_id": "pediatrics_approved_mutation"
+    }
+  ]
+}

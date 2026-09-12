@@ -1,0 +1,11 @@
+{
+  "step": "event-023",
+  "stage": 23,
+  "event_id": "evt_023_material_attachment",
+  "source_event_id": "evt_023_material_attachment",
+  "actions": [{"kind": "record_event", "stage": 23}],
+  "response_paraphrase": "The validity requirement is updated through August 31 and the report remains an unsent, user-controlled attachment.",
+  "expected_env": {"virtual_stage": 23, "workspace": "/workspace", "preceding_releases": ["release-010"], "released_mutations": ["release-010"], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_23_xuexin_validity_updated", "weight": 1.75}],
+  "expected_stage_weight": 1.75
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_stage": 9,
+  "source_event_ids": [
+    "evt_011_mock2_score_mutation"
+  ],
+  "source_time": "2026-12-03T18:00:00+08:00",
+  "previous": "release-001",
+  "token": "grad-exam-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "notion",
+      "table": "database_rows",
+      "op": "insert",
+      "values": {
+        "row_id": "row_mock2",
+        "database_id": "db_exam_progress",
+        "properties_json": "{\"name\": \"mock2\", \"score\": 105, \"status\": \"needs_recovery\", \"subject\": \"math\"}",
+        "created_time": "2026-12-03T18:00:00+08:00",
+        "last_edited_time": "2026-12-03T18:00:00+08:00",
+        "archived": 0
+      }
+    }
+  ]
+}

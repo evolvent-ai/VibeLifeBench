@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_stage": 18,
+  "source_event_ids": [
+    "evt_023_syllabus_email_mutation"
+  ],
+  "source_time": "2026-12-17T08:30:00+08:00",
+  "previous": "release-004",
+  "token": "grad-exam-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "msg_exam_syllabus",
+        "subject": "Math I syllabus supplement",
+        "from_addr": "exam_office@example.test",
+        "to_addr_json": "[\"zhangming@example.test\"]",
+        "date": "2026-12-17T08:30:00+08:00",
+        "body_text": "Supplement: the Math I notice adds partial-differential applications in analytic geometry and basic stochastic-process concepts. Review only 1-2 hours according to the exam notice.",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "created_at": "2026-12-17T08:30:00+08:00"
+      }
+    }
+  ]
+}

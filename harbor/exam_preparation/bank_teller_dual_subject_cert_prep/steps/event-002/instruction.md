@@ -1,0 +1,1 @@
+The basic branch roster has synchronized to the calendar. Evening training and Friday reconciliation are fixed commitments. Use these commitments when planning study sessions and checking for schedule conflicts.

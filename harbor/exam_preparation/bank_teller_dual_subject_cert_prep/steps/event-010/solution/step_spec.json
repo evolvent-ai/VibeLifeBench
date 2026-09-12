@@ -1,0 +1,36 @@
+{
+  "step": "event-010",
+  "stage": 9,
+  "virtual_stage": 9,
+  "source_event_id": "evt_010_material_auth",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "evt_009_secret_email_mut"
+    ]
+  },
+  "response": "已在不超过300元预算内一次购买获授权的正版教材和个人理财官方题库。",
+  "response_paraphrase": "工作流已在不超过300元预算内一次购买获授权的正版教材和个人理财官方题库。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_010_material_auth"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r17_official_material_order_authorized",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "r18_material_budget_within_limit",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

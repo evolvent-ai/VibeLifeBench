@@ -1,0 +1,1 @@
+The official notice for the May 2026 national fund-practitioner exam is available. The Shanghai registration rules, subjects, fees, and admission-ticket window can be checked in the official notice source.

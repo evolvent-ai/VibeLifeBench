@@ -1,0 +1,1 @@
+The replacement textbook shipment has an exception. Customer service left only a status code and an expected handling date. Please investigate the logistics status, preserve the evidence, and prepare a non-committal follow-up.

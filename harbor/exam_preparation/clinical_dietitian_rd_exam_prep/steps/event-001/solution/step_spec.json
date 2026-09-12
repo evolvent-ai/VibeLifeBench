@@ -1,0 +1,27 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "outpatient_end_digest",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Stage 1 (outpatient end digest) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for outpatient end digest and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "outpatient_end_digest"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_outpatient_email_checked",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

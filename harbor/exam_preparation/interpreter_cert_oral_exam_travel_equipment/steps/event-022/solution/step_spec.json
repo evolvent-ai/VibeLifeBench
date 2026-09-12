@@ -1,0 +1,27 @@
+{
+  "step": "event-022",
+  "stage": 22,
+  "virtual_stage": 22,
+  "source_event_id": "evt_022_exam_done",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The post-exam archive was started and the score-query follow-up was retained.",
+  "response_paraphrase": "I opened the archive for the completed oral exam and kept the later result inquiry on record.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_022_exam_done"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_post_exam_archive",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

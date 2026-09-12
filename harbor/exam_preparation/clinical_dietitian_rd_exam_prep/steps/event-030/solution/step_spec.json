@@ -1,0 +1,44 @@
+{
+  "step": "event-030",
+  "virtual_stage": 34,
+  "source_event_id": "user_final_review",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009",
+      "release-010"
+    ],
+    "released_mutations": []
+  },
+  "response": "Stage 34 (user final review) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for user final review and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "user_final_review"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s34_final_review_created",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s34_subscriptions_paused",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

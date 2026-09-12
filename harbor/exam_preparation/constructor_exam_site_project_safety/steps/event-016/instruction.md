@@ -1,0 +1,1 @@
+The scheduled review of examination-site transport and remaining high-speed-rail seats has triggered. Please refresh routes, seat availability, travel buffers, and source timestamps, keeping all bookings pending my confirmation.

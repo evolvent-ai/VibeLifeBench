@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "evidence": {
+    "session_started": false,
+    "notion_hub_created": false
+  },
+  "equipment": {},
+  "travel": {
+    "booking_status": "none"
+  },
+  "practice": {
+    "uses_client_material": false
+  },
+  "health": {},
+  "authorization": {},
+  "calendar": {},
+  "post_exam": {}
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000a",
+  "source_event_ids": [
+    "evt_001_release_mutation"
+  ],
+  "source_stage": 1,
+  "source_time": "2026-04-28T10:05:00+08:00",
+  "previous": "release-000",
+  "token": "fund-conversion-000a-clock-token-7d3a9e",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "status": "open",
+        "posted_at": "2026-04-28T10:25:00+08:00"
+      },
+      "where": {
+        "job_id": "fund_reg_s1_s2_202605_lc"
+      },
+      "source_event_id": "evt_001_release_mutation"
+    },
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "status": "open",
+        "posted_at": "2026-04-28T10:25:00+08:00"
+      },
+      "where": {
+        "job_id": "fund_reg_s1_s3_202605_lc"
+      },
+      "source_event_id": "evt_001_release_mutation"
+    }
+  ]
+}

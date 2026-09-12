@@ -1,0 +1,39 @@
+{
+  "step": "event-023",
+  "stage": 21,
+  "event_id": "S21_official_payment_notice",
+  "source_event_id": "S21_official_payment_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 21
+    }
+  ],
+  "response_paraphrase": "The inventory shift was read and the colliding review was moved to September 28.",
+  "expected_env": {
+    "virtual_stage": 21,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-014"
+    ],
+    "released_mutations": [
+      "release-014"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "r35_payment_status_refreshed",
+      "weight": 1.5
+    },
+    {
+      "check_id": "r36_exam_fee_payment_verified",
+      "weight": 2
+    },
+    {
+      "check_id": "r37_budget_ledger_payment",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 5
+}

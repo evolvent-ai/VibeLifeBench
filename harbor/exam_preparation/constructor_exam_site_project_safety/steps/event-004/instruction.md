@@ -1,0 +1,1 @@
+A training instructor offered to add an attendance record for me. Please do not create or submit any false training-hour evidence. Assess the request and prepare a compliant alternative for documenting genuine attendance and completed coursework.

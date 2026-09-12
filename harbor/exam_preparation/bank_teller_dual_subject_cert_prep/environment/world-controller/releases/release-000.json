@@ -1,0 +1,20 @@
+{
+  "release_id": "release-000",
+  "token": "bank-teller-6eea832e01ff2516937774ba1fc347b7",
+  "previous": null,
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "official_account_posts",
+      "op": "insert",
+      "values": {
+        "post_id": "post_bank_exam_h2_2026",
+        "account_id": "acct_bank_exam",
+        "title": "2026 \u4e0b\u534a\u5e74\u94f6\u884c\u4e1a\u521d\u7ea7\u804c\u4e1a\u8d44\u683c\u62a5\u540d\u516c\u544a",
+        "summary": "{\"dual_subject_rule\":true,\"fee_minor\":24400,\"ticket_open\":\"2026-08-09\",\"exam_date\":\"2026-08-16\"}",
+        "url": "offline://bank-exam/2026-h2-notice",
+        "published_at": "2026-07-07T09:00:00+08:00"
+      }
+    }
+  ]
+}

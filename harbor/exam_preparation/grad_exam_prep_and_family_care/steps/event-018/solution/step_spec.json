@@ -1,0 +1,29 @@
+{
+  "step": "event-018",
+  "virtual_stage": 17,
+  "source_event_id": "evt_022_user_stationery",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "An inexpensive examination stationery set with 2B pencils and an eraser was ordered and paid; its order ID and budget entry were recorded.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_022_user_stationery",
+      "virtual_stage": 17,
+      "event_kind": "user_message",
+      "event_time": "2026-12-16T14:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r35_stationery_order_and_budget_recorded",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

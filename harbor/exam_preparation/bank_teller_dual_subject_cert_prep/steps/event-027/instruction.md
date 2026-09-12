@@ -1,0 +1,1 @@
+I have just finished the examination, and the venue indicated that scores are available. Verify the results for both subjects and archive them. If the certificate number is not available, leave that field blank rather than inventing one.

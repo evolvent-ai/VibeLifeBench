@@ -1,0 +1,29 @@
+{
+  "step": "event-005",
+  "virtual_stage": 4,
+  "source_event_id": "evt_004b_user_mock1_note",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Mock 1 is recorded in the Control Center: Math I score 120, with incorrect problems in series and multivariable differentiation. Error-review sessions are scheduled with rest buffers.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_004b_user_mock1_note",
+      "virtual_stage": 4,
+      "event_kind": "user_message",
+      "event_time": "2026-11-23T21:20:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r10_mock1_score_recorded",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 2
+}

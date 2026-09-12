@@ -1,0 +1,13 @@
+{
+  "step": "event-008", "stage": 8, "virtual_stage": 8,
+  "source_event_id": "evt_s08_delivery_notice", "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-003"], "released_mutations": ["evt_s08_delivery_mutation"]},
+  "response": "Order order_20260706_4819 and shipment JD-ZJ-260706-4819 confirm delivery of the 2025 legacy edition rather than the required 2026 book. I preserved the discrepancy and left return or replacement as a non-committal option.",
+  "response_paraphrase": "The order and courier records agree that the delivered textbook is the obsolete edition. The evidence is logged, with no refund, repurchase, or payment initiated.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s08_delivery_notice"}],
+  "expected_checks": [
+    {"check_id": "s08_delivery_wrong_item_trace", "weight": 1.0, "expected": true},
+    {"check_id": "s08_order_status_crosscheck", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,1 @@
+I am Lu Jing. This year I am preparing for the First-Class Constructor Examination while managing work at the East City Complex project site. Please build a long-term control center covering the examination, continuing education, project milestones, textbook logistics, examination travel, and reimbursement. Do not make payments or send anything externally without my confirmation.

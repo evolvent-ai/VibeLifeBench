@@ -1,0 +1,11 @@
+{
+  "step": "event-011",
+  "stage": 11,
+  "event_id": "evt_011_ticket_open",
+  "source_event_id": "evt_011_ticket_open",
+  "actions": [{"kind": "record_event", "stage": 11}],
+  "response_paraphrase": "Ticket printing and the written-exam appointment are placed on the calendar at the official site and time.",
+  "expected_env": {"virtual_stage": 11, "workspace": "/workspace", "preceding_releases": ["release-004"], "released_mutations": ["release-004"], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_11_ticket_print_calendar", "weight": 1.5}, {"check_id": "stage_11_exam_day_calendar", "weight": 1.5}],
+  "expected_stage_weight": 3.0
+}

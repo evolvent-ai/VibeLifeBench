@@ -1,0 +1,26 @@
+{
+  "step": "event-012",
+  "virtual_stage": 13,
+  "source_event_id": "icu_planning_heartbeat",
+  "stage_boundary": false,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ],
+    "released_mutations": []
+  },
+  "response": "Stage 13 (icu planning heartbeat) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for icu planning heartbeat and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "icu_planning_heartbeat"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

@@ -1,0 +1,27 @@
+{
+  "step": "event-015",
+  "stage": 15,
+  "virtual_stage": 15,
+  "source_event_id": "evt_015_material_update",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The official public practice note was opened and selected as the authorized listening and interpreting material.",
+  "response_paraphrase": "I checked the updated feed and chose the official public audio practice note.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_015_material_update"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_authorized_practice_material_selected",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

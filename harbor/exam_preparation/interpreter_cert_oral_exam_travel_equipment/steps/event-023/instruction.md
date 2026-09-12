@@ -1,0 +1,1 @@
+Please wrap up this preparation cycle and give me the final package: evidence for registration and the oral-exam schedule, equipment and delivery status, authorized materials, confidentiality and integrity risks, health-related practice adjustments, exam-site route, lodging and transportation options, and everything that still needs my confirmation.

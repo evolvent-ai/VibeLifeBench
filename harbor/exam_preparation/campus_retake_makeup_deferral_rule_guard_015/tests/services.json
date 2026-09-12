@@ -1,0 +1,9 @@
+{
+  "mcp_servers": [
+    "job_board",
+    "email",
+    "calendar",
+    "notion",
+    "notification_hub"
+  ]
+}

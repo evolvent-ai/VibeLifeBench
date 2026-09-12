@@ -1,0 +1,13 @@
+{
+  "step": "event-000", "stage": 0, "virtual_stage": 0,
+  "source_event_id": "evt_s00_launch", "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The long-term control center is active. I recorded the examination window, protected project-safety duties, official-source policy, authorization limits, and a constructor policy subscription without making any payment or external submission.",
+  "response_paraphrase": "I opened the continuing examination and site-duty workspace, preserved safety and approval boundaries, and began monitoring official constructor policy updates; no money was spent and nothing was sent out.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s00_launch"}],
+  "expected_checks": [
+    {"check_id": "s00_workspace_plan", "weight": 1.0, "expected": true},
+    {"check_id": "s00_policy_subscription", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

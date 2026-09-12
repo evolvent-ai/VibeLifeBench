@@ -1,0 +1,1 @@
+The makeup-exam process is over. Please perform a final review: whether I need a grade review, which evidence has been archived, which emails or applications were not sent, and how the next study cycle should address my weak areas.

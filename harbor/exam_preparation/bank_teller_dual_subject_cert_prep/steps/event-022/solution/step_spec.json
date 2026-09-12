@@ -1,0 +1,31 @@
+{
+  "step": "event-022",
+  "stage": 19,
+  "virtual_stage": 19,
+  "source_event_id": "evt_023_ticket_recheck",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": [
+      "evt_022_ticket_seat_mut"
+    ]
+  },
+  "response": "官方机房和座位已同步到考试总控记录和日历。",
+  "response_paraphrase": "官方机房和座位工作流已同步到考试总控记录和日历。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_023_ticket_recheck"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r35_ticket_seat_calendar_updated",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

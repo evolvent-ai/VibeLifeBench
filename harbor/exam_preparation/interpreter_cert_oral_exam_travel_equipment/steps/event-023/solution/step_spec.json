@@ -1,0 +1,32 @@
+{
+  "step": "event-023",
+  "stage": 23,
+  "virtual_stage": 23,
+  "source_event_id": "evt_023_final_close",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The final package is complete with equipment, route and transport, confidentiality, health practice, and pending confirmation evidence.",
+  "response_paraphrase": "I closed the preparation cycle with a complete handoff covering the headset, travel plan, privacy, health-aware practice, and outstanding approvals.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_023_final_close"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_final_handoff_complete",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s23_final_reply_consistent",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

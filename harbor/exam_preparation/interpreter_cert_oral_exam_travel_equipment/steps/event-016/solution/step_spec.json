@@ -1,0 +1,32 @@
+{
+  "step": "event-016",
+  "stage": 16,
+  "virtual_stage": 16,
+  "source_event_id": "evt_016_delivery_done",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "mut_016_delivery_done",
+      "mut_016_delivery_event"
+    ]
+  },
+  "response": "The headset delivery is confirmed as delivered and the equipment-check checklist is updated.",
+  "response_paraphrase": "I verified the completed shipment scan and marked the headset ready for the equipment review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_016_delivery_done"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_equipment_delivered_check",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

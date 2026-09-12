@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "S11_mutation"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-08-26T21:30:00+08:00",
+  "previous": "release-006",
+  "token": "pharmacist-western-release-007-20260824-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "update",
+      "set": {
+        "title": "2026 Licensed Pharmacist Pharmaceutical Affairs and Regulations General Intensive Course"
+      },
+      "where": {
+        "product_id": "prod_law_old_2025"
+      },
+      "source_event_id": "S11_mutation"
+    }
+  ]
+}

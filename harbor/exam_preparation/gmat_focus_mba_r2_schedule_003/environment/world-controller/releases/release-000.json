@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "evt_s06_harbor_deadline_mutation"
+  ],
+  "source_stage": 6,
+  "source_time": "2026-09-09T09:00:00+08:00",
+  "previous": null,
+  "token": "release-000-token-20260901-abcdef1234567890",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "requirements": "official_score_after_available; score_code=HBR-MBA-26R2; r2_deadline_local=2026-10-06T17:00:00-04:00; timezone=America/New_York; essay_policy=applicant_written_only; status=deadline_advanced",
+        "tags": "mba_program;deadline_updated;harbor"
+      },
+      "where": {
+        "job_id": "prog_harbor_mba_r2_003"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+My family says the discharge process may run later than planned. I am afraid the trip to the exam will be too tight; please recheck my calendar and make the risks explicit. When a fixed commitment threatens arrival, reserve the travel interval on the calendar while leaving a 10-minute check-in margin before the exam.

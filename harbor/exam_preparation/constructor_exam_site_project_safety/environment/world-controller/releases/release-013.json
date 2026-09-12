@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "evt_s21_room_mutation"
+  ],
+  "source_stage": 21,
+  "source_time": "2026-09-11T07:30:00+08:00",
+  "previous": "release-012",
+  "token": "constructor-exam-site-project-safety-release-013-token-v1",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "user_id": "user_lu_jing",
+        "type": "policy_update",
+        "read": 0,
+        "notification_id": "ntf_exam_20260911_room",
+        "source": "exam_committee",
+        "subscription_id": "sub_exam_policy",
+        "title": "Live admission-ticket room-change notice",
+        "body": "The admission ticket page shows that the room has moved to Building B of the Haishu campus. Reconfirm the entrance and bus stop.",
+        "payload_json": "{\"room\":\"Building B\",\"source\":\"admission_ticket\",\"exam_date\":\"2026-09-12\"}",
+        "created_at": "2026-09-11T07:30:00+08:00"
+      },
+      "source_event_id": "evt_s21_room_mutation",
+      "operation_index": 0
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "step": "event-018", "stage": 18, "virtual_stage": 18,
+  "source_event_id": "evt_s18_hotel_notice", "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-010"], "released_mutations": ["evt_s18_hotel_mutation"]},
+  "response": "The selected Haishu hotel shows current king-room prices of 32800 and 36500 minor units with one refundable inventory option and its cancellation deadline. I updated travel and budget records without reserving a room.",
+  "response_paraphrase": "I refreshed the exact hotel's two-night availability, price window, remaining stock, and refund cutoff, then left the candidate pending approval rather than booking it.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s18_hotel_notice"}],
+  "expected_checks": [
+    {"check_id": "s18_hotel_price_window", "weight": 1.0, "expected": true},
+    {"check_id": "s18_budget_reimbursement_update", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release_id": "release-016",
+  "source_event_ids": [
+    "S23_inventory_mutation"
+  ],
+  "source_stage": 25,
+  "source_time": "2026-09-27T17:40:00+08:00",
+  "previous": "release-015",
+  "token": "pharmacist-western-release-016-20260824-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "msg_inventory_shift",
+        "subject": "Inventory-count shift change notice",
+        "from_addr": "manager@anmin.example",
+        "to_addr_json": "[\"zhou.yun@example.test\"]",
+        "date": "2026-09-26T17:05:00+08:00",
+        "body_text": "Full-store inventory count on September 28. The shift is uniformly changed to 14:00-22:00; you are responsible for Western and Chinese patent medicine areas. Reconcile counts with colleagues in advance.",
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "created_at": "2026-09-26T17:05:00+08:00"
+      },
+      "source_event_id": "S23_inventory_mutation"
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 221,
+        "unread_count": 56
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "S23_inventory_mutation"
+    }
+  ]
+}

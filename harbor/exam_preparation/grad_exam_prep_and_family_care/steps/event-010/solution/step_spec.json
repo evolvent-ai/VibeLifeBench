@@ -1,0 +1,35 @@
+{
+  "step": "event-010",
+  "virtual_stage": 9,
+  "source_event_id": "evt_012_progress_watch",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": []
+  },
+  "response": "Mock 2 is recorded at 105, a drop needing remediation. Series and multivariable differentiation error review is scheduled for Sunday 2026-12-06 in split sessions with rest.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_012_progress_watch",
+      "virtual_stage": 9,
+      "event_kind": "notification",
+      "event_time": "2026-12-03T19:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r17_mock2_score",
+      "weight": 3.0
+    },
+    {
+      "check_id": "r18_add_makeup_study",
+      "weight": 4.0
+    }
+  ],
+  "expected_stage_weight": 7
+}

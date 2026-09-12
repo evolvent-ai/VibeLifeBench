@@ -1,0 +1,11 @@
+{
+  "step": "event-015",
+  "stage": 15,
+  "event_id": "evt_015_exam_done",
+  "source_event_id": "evt_015_exam_done",
+  "actions": [{"kind": "record_event", "stage": 15}],
+  "response_paraphrase": "The exam completion is logged and the score remains a waiting item for an official release.",
+  "expected_env": {"virtual_stage": 15, "workspace": "/workspace", "preceding_releases": [], "released_mutations": [], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_15_exam_done_logged", "weight": 1.0}],
+  "expected_stage_weight": 1.0
+}

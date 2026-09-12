@@ -1,0 +1,10 @@
+{
+  "mcp_servers": [
+    "banking",
+    "calendar",
+    "ecommerce",
+    "email",
+    "notification_hub",
+    "notion"
+  ]
+}

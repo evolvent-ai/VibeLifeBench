@@ -1,0 +1,61 @@
+{
+  "release_id": "release-000",
+  "token": "fund-conversion-000-clock-token-7d3a9e",
+  "previous": null,
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "official_account_posts",
+      "op": "insert",
+      "values": {
+        "post_id": "post_fund_001",
+        "account_id": "acct_fund_exam",
+        "title": "May 2026 Fund-Practitioner Exam Announcement",
+        "summary": "Exam date 2026-05-23; Shanghai district; registration 2026-04-27 to 2026-04-30; fee CNY 61 per subject; admission-ticket window 2026-05-20 to 2026-05-23. Exact opening hours are not stated.",
+        "url": "https://www.amac.org.cn/notice/20260427",
+        "published_at": "2026-04-27T00:00:00+08:00"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_fund_001",
+        "user_id": "user_lin_che",
+        "source": "fund_exam_official",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "May 2026 Fund-Practitioner Exam Announcement",
+        "body": "Exam date 2026-05-23; Shanghai district; registration 2026-04-27 to 2026-04-30; fee CNY 61 per subject; admission-ticket window 2026-05-20 to 2026-05-23.",
+        "payload_json": "{\"post_id\":\"post_fund_001\"}",
+        "created_at": "2026-04-28T10:10:00+08:00",
+        "read": 0
+      }
+    },
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "status": "open",
+        "posted_at": "2026-04-28T10:25:00+08:00"
+      },
+      "where": {
+        "job_id": "fund_reg_s1_s2_202605_lc"
+      }
+    },
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "status": "open",
+        "posted_at": "2026-04-28T10:25:00+08:00"
+      },
+      "where": {
+        "job_id": "fund_reg_s1_s3_202605_lc"
+      }
+    }
+  ]
+}

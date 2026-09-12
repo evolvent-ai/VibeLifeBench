@@ -1,0 +1,1 @@
+Calendar conflict review is due because the new email may affect the planned mock examination. Recheck the calendar and preserve the reason for any proposed adjustment; do not silently modify fixed commitments.

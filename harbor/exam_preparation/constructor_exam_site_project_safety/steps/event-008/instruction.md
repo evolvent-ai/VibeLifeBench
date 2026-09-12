@@ -1,0 +1,1 @@
+The textbook package status has changed, and the delivery note says that its edition may not match the order. Please verify the order and shipment details, record the discrepancy, and prepare a safe return or replacement option without placing an order or payment.

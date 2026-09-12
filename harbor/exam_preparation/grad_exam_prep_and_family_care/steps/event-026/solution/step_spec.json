@@ -1,0 +1,29 @@
+{
+  "step": "event-026",
+  "virtual_stage": 24,
+  "source_event_id": "evt_031_final_closure",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Final closeout is complete: budget and orders were reconciled, rehabilitation notes were retained, temporary study/health/ecommerce/email subscriptions were paused, and routine follow-up remains the next action.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_031_final_closure",
+      "virtual_stage": 24,
+      "event_kind": "notification",
+      "event_time": "2026-12-23T18:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r40_final_closure_persisted",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 2
+}

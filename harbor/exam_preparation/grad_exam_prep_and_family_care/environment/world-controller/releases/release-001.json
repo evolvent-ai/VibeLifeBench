@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_stage": 6,
+  "source_event_ids": [
+    "evt_007_reschedule_email_mutation"
+  ],
+  "source_time": "2026-11-26T09:00:00+08:00",
+  "previous": "release-000",
+  "token": "grad-exam-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "msg_doctor_reschedule",
+        "subject": "Clinic follow-up rescheduling notice",
+        "from_addr": "doctor_wang@hospital.test",
+        "to_addr_json": "[\"zhangming@example.test\"]",
+        "date": "2026-11-26T09:00:00+08:00",
+        "body_text": "The follow-up appointment moved from November 28 afternoon to November 29 at 09:00. Please bring the postoperative record and steps/pain log.",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "created_at": "2026-11-26T09:00:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "step": "event-014", "stage": 14, "virtual_stage": 14,
+  "source_event_id": "evt_s14_mock_exam", "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "I rebuilt the July mock-examination and construction-safety review around the verified project responsibilities. The revised calendar preserves safety witness inspection and moves only the practice block.",
+  "response_paraphrase": "The preparation schedule now places the mock test and safety-topic study outside required site attendance, based on the checked responsibilities note; project duties were not displaced.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s14_mock_exam"}],
+  "expected_checks": [
+    {"check_id": "s14_mock_exam_reschedule", "weight": 1.0, "expected": true},
+    {"check_id": "s14_study_note_filter", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

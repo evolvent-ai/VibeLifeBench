@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_stage": 8,
+  "source_event_ids": [
+    "official_template_mutation"
+  ],
+  "source_time": "2026-08-20T07:00:00+08:00",
+  "previous": "release-001",
+  "token": "clinical-dietitian-rd-exam-prep-release-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "official_account_posts",
+      "op": "insert",
+      "values": {
+        "post_id": "post_template_matrix_20260820",
+        "account_id": "cdr_exam_updates",
+        "title": "coordinated program rotation signature matrix v2026-08",
+        "summary": "program director requirement: each clinical rotation record requires preceptor confirmation; competency items and hours must be consistent; 1200 hours actually completed is the program requirement; CDR eligibility still follows formal eligibility process submission.",
+        "url": "offline://rd/template-matrix",
+        "published_at": "2026-08-20T07:00:00+08:00"
+      },
+      "source_event_id": "official_template_mutation"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "virtual_stage": 0,
+  "source_event_id": "evt_000_kickoff",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "已建立银行业初级双科考试总控，并记录用户授权、诚信、资料、学习和归档边界。",
+  "response_paraphrase": "工作流已建立银行业初级双科考试总控，并记录用户授权、诚信、资料、学习和归档边界。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_000_kickoff"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r01_exam_hub_created",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "r02_auth_boundaries_logged",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

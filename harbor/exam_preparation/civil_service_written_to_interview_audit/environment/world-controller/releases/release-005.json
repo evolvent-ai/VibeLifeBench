@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "mut_gate_change"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-08-12T18:00:00+08:00",
+  "previous": "release-004",
+  "token": "civil-service-release-005-token",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "road_exam_east_gate_0812",
+        "road_id": "road_yuntai_east_gate",
+        "start_dt": "2026-08-12T18:00:00+08:00",
+        "end_dt": "2026-08-16T12:00:00+08:00",
+        "kind": "closure",
+        "magnitude": 1.0,
+        "note": "Yuntai Campuseast gatemaintain，written examcandidateuniformlyfromsouth gateentry。",
+        "active": 1
+      },
+      "source_event_id": "mut_gate_change",
+      "operation_index": 0
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "mut_008_health_sleep"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-08-10T07:30:00+08:00",
+  "previous": "release-000",
+  "token": "interpreter-cert-oral-exam-travel-equipment-clock-7d3f9a-release-001",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "HM_SLEEP_LOW_0810",
+        "user_id": "user_lin_qiaoxi",
+        "type": "sleep_minutes",
+        "value": 268,
+        "value_text": "sleep low; voice strain (sleep_low_voice_strain)",
+        "unit": "min",
+        "recorded_at": "2026-08-10T07:20:00+08:00"
+      },
+      "source_event_id": "mut_008_health_sleep"
+    }
+  ]
+}

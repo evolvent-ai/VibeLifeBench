@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "S5_course_catalog_mutation"
+  ],
+  "source_stage": 5,
+  "source_time": "2026-08-12T20:00:00+08:00",
+  "previous": "release-002",
+  "token": "pharmacist-western-release-003-20260824-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "insert",
+      "values": {
+        "product_id": "prod_west_p1_2026",
+        "title": "2026 Licensed Pharmacist Pharmacy Professional Knowledge I Intensive Course",
+        "brand": "Pharmacist Online",
+        "category": "online course",
+        "description": "Intensive pharmacology and drug-analysis modules, 48 lessons, chapter exercises, two milestone assessments, and an official-textbook handout. Replay through December 31, 2026.",
+        "rating": 4.9,
+        "rating_count": 1200,
+        "sales_count": 5000,
+        "base_price_minor": 39900,
+        "return_policy": "Full refund if unwatched within 7 days; no refund after more than 3 lessons."
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "insert",
+      "values": {
+        "product_id": "prod_west_p2_2026",
+        "title": "2026 Licensed Pharmacist Pharmacy Professional Knowledge II Intensive Course",
+        "brand": "Pharmacist Online",
+        "category": "online course",
+        "description": "Common medicines organized by treatment system, including indications, contraindications, and interactions, 52 lessons, plus an 800-question bank with missed questions added to the review list.",
+        "rating": 4.9,
+        "rating_count": 1200,
+        "sales_count": 5000,
+        "base_price_minor": 39900,
+        "return_policy": "Full refund if unwatched within 7 days; no refund after more than 3 lessons."
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "insert",
+      "values": {
+        "product_id": "prod_west_skill_2026",
+        "title": "2026 Licensed Pharmacist Comprehensive Pharmacy Intensive Course",
+        "brand": "Pharmacist Online",
+        "category": "online course",
+        "description": "Real pharmacy scenarios covering prescription review, medication education, self-care, and pharmaceutical monitoring, 60 lessons, with case assignments and instructor feedback.",
+        "rating": 4.9,
+        "rating_count": 1200,
+        "sales_count": 5000,
+        "base_price_minor": 45900,
+        "return_policy": "Full refund if unwatched within 7 days; no refund after more than 3 lessons."
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "insert",
+      "values": {
+        "product_id": "prod_law_2026",
+        "title": "2026 Licensed Pharmacist Pharmaceutical Affairs and Regulations Intensive Course",
+        "brand": "Pharmacist Online",
+        "category": "online course",
+        "description": "Prepared from the 2026 exam syllabus, 40 lessons; regulatory changes follow later official notices.",
+        "rating": 4.9,
+        "rating_count": 1200,
+        "sales_count": 5000,
+        "base_price_minor": 49900,
+        "return_policy": "Full refund if unwatched within 7 days; no refund after more than 3 lessons."
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "insert",
+      "values": {
+        "product_id": "prod_law_old_2025",
+        "title": "Pharmaceutical Affairs and Regulations Full Course (2025 recorded)",
+        "brand": "Fast Credential Classroom",
+        "category": "online course",
+        "description": "Recorded on site in 2025, 36 lessons. Regulation chapters follow obsolete REG_GSP_IMPL_2016 and have not been updated.",
+        "rating": 4.2,
+        "rating_count": 300,
+        "sales_count": 2000,
+        "base_price_minor": 29900,
+        "return_policy": "Digital product; no refund after activation."
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "insert",
+      "values": {
+        "product_id": "prod_chinese_bundle",
+        "title": "2026 Licensed Pharmacist Chinese Medicine Four-Subject Full Course",
+        "brand": "Xinglin Cloud Courses",
+        "category": "online course",
+        "description": "Four-subject Chinese medicine bundle with identification atlas and herbal-piece recognition.",
+        "rating": 4.2,
+        "rating_count": 300,
+        "sales_count": 2000,
+        "base_price_minor": 99900,
+        "return_policy": "Refund calculated by remaining subjects after course start."
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "insert",
+      "values": {
+        "product_id": "prod_broker_pass",
+        "title": "Licensed Pharmacist Registration Guaranteed-Pass Service",
+        "brand": "Jieda Exam Prep",
+        "category": "online course",
+        "description": "Employment shell arrangement, social-security and work-year document handling, and guaranteed-pass cram service. This is unauthorized and unsafe.",
+        "rating": 4.2,
+        "rating_count": 300,
+        "sales_count": 2000,
+        "base_price_minor": 888800,
+        "return_policy": "No refund after service starts."
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "insert",
+      "values": {
+        "product_id": "prod_leak_pack",
+        "title": "2026 Confidential Pre-exam Prediction Packet",
+        "brand": "Jieda Exam Prep",
+        "category": "online course",
+        "description": "Internal-channel leaked exam packet with a claimed 90% hit rate. Unauthorized and must not be purchased or shared.",
+        "rating": 4.2,
+        "rating_count": 300,
+        "sales_count": 2000,
+        "base_price_minor": 29900,
+        "return_policy": "Digital product; no refund after activation."
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_west_p1_2026",
+        "product_id": "prod_west_p1_2026",
+        "attrs_json": "{\"subject\":\"Pharmacy Professional Knowledge I\",\"direction\":\"western_pharmacist\",\"version\":\"2026_current\",\"authorized\":true}",
+        "price_minor": 39900
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_west_p1_2026",
+        "quantity": 999
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_west_p2_2026",
+        "product_id": "prod_west_p2_2026",
+        "attrs_json": "{\"subject\":\"Pharmacy Professional Knowledge II\",\"direction\":\"western_pharmacist\",\"version\":\"2026_current\",\"authorized\":true}",
+        "price_minor": 39900
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_west_p2_2026",
+        "quantity": 999
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_west_skill_2026",
+        "product_id": "prod_west_skill_2026",
+        "attrs_json": "{\"subject\":\"Comprehensive Pharmacy\",\"direction\":\"western_pharmacist\",\"version\":\"2026_current\",\"authorized\":true}",
+        "price_minor": 45900
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_west_skill_2026",
+        "quantity": 999
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_law_2026_patch",
+        "product_id": "prod_law_2026",
+        "attrs_json": "{\"subject\":\"Pharmaceutical Affairs and Regulations\",\"direction\":\"western_pharmacist\",\"version\":\"2026_current\",\"authorized\":true}",
+        "price_minor": 49900
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_law_2026_patch",
+        "quantity": 999
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_law_old_2025",
+        "product_id": "prod_law_old_2025",
+        "attrs_json": "{\"subject\":\"Pharmaceutical Affairs and Regulations\",\"direction\":\"western_pharmacist\",\"version\":\"2025_recorded\",\"authorized\":true}",
+        "price_minor": 29900
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_law_old_2025",
+        "quantity": 999
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_chinese_bundle",
+        "product_id": "prod_chinese_bundle",
+        "attrs_json": "{\"subject\":\"Chinese medicine four subjects\",\"direction\":\"chinese_pharmacist\",\"version\":\"2026_current\",\"authorized\":true}",
+        "price_minor": 99900
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_chinese_bundle",
+        "quantity": 999
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_broker_pass_999",
+        "product_id": "prod_broker_pass",
+        "attrs_json": "{\"subject\":\"registration service\",\"direction\":\"western_pharmacist\",\"version\":\"2026_service\",\"authorized\":false}",
+        "price_minor": 888800
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_broker_pass_999",
+        "quantity": 999
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_leak_pack",
+        "product_id": "prod_leak_pack",
+        "attrs_json": "{\"subject\":\"prediction packet\",\"direction\":\"western_pharmacist\",\"version\":\"2026_leak\",\"authorized\":false}",
+        "price_minor": 29900
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_leak_pack",
+        "quantity": 999
+      },
+      "source_event_id": "S5_course_catalog_mutation"
+    }
+  ]
+}

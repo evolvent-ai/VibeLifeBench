@@ -1,0 +1,59 @@
+{
+  "release_id": "release-001",
+  "token": "bank-teller-d5e2246f1847e97adfbe55829e2c36e8",
+  "previous": "release-000",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 503,
+        "folder_id": 1,
+        "message_id": "<bank-mentor-subject-guide@example>",
+        "subject": "\u4e13\u4e1a\u79d1\u76ee\u9009\u62e9\u5efa\u8bae",
+        "from_addr": "mentor@binjiang-bank.example",
+        "to_addr_json": "[\"chen.yiran@binjiang-bank.example\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-09T20:00:00+08:00",
+        "body_text": "\u67dc\u5458\u65e5\u5e38\u66f4\u8d34\u8fd1\u4e2a\u4eba\u7406\u8d22\uff0c\u4f46\u6700\u7ec8\u5e94\u5bf9\u7167\u5b98\u65b9\u79d1\u76ee\u8303\u56f4\u3001\u5de5\u4f5c\u5b89\u6392\u548c\u672c\u4eba\u610f\u613f\u51b3\u5b9a\u3002",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 503,
+        "size": 360,
+        "created_at": "2026-07-09T12:00:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": "message_count+1",
+        "unread_count": "unread_count+1"
+      },
+      "where": {
+        "id": 1
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "official_account_posts",
+      "op": "insert",
+      "values": {
+        "post_id": "post_bank_subject_matrix_2026",
+        "account_id": "acct_bank_exam",
+        "title": "\u521d\u7ea7\u4e13\u4e1a\u79d1\u76ee\u9002\u7528\u4eba\u7fa4\u4e0e\u8303\u56f4",
+        "summary": "\u4e2a\u4eba\u7406\u8d22\u9002\u5408\u67dc\u9762\u96f6\u552e\u4e1a\u52a1\uff1b\u516c\u53f8\u4fe1\u8d37\u3001\u98ce\u9669\u7ba1\u7406\u7b49\u79d1\u76ee\u8303\u56f4\u4e0e\u5c97\u4f4d\u4fa7\u91cd\u4e0d\u540c\u3002",
+        "url": "offline://bank-exam/subject-guide",
+        "published_at": "2026-07-09T19:50:00+08:00"
+      }
+    }
+  ]
+}

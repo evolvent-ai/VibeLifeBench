@@ -1,0 +1,1 @@
+The continuing-education platform and my email contain a reply about the missing evidence. Please review it and confirm that the process still uses genuine training hours and attendance. Record any unresolved item and ask before making an external submission.

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "ev_021_family_delay_mutation"
+  ],
+  "source_time": "2026-09-14T20:20:00+08:00",
+  "previous": "release-010",
+  "token": "campus-retake-release-011-20260901-token",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "update",
+      "set": {
+        "end_dt": "2026-09-16T18:40:00+08:00",
+        "description": "The ward has notified us that discharge settlement, medication pickup, and the handover upon leaving the hospital are expected to be completed by 18:40, and the location remains the inpatient department of City First Hospital.",
+        "updated_at": "2026-09-14T19:00:00+08:00"
+      },
+      "where": {
+        "event_id": "cal_family_care_0916"
+      },
+      "source_event_id": "ev_021_family_delay_mutation"
+    }
+  ]
+}

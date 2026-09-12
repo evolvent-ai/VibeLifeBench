@@ -1,0 +1,37 @@
+{
+  "step": "event-017",
+  "virtual_stage": 13,
+  "source_event_id": "evt_013_payment_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "release-006"
+    ]
+  },
+  "response": "The fund-practitioner workflow step was completed with verified evidence and authorization-aware controls.",
+  "response_paraphrase": "Stage 13 records were updated while preserving official evidence, privacy, and approval boundaries.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_013_payment_check",
+      "virtual_stage": 13,
+      "event_kind": "notification",
+      "event_time": "2026-04-30T10:25:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_portal_paid_verified_with_bank",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s13_budget_ledger_updated",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

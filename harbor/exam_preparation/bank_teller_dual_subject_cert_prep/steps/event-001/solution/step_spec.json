@@ -1,0 +1,36 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "virtual_stage": 1,
+  "source_event_id": "evt_001_official_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "evt_001_official_mut"
+    ]
+  },
+  "response": "已阅读官方报名公告，记录双科规则、考试日期、考试费和专业科目选项。",
+  "response_paraphrase": "工作流已阅读官方报名公告，记录双科规则、考试日期、考试费和专业科目选项。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_001_official_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r03_official_notice_read",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "r04_dual_subject_rule_recorded",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

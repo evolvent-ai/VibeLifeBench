@@ -1,0 +1,1 @@
+The project office says the basement formwork inspection may be delayed, and the project assistant has updated the official calendar. Please verify the changed milestone, update the conflict plan, and protect the project's safety responsibilities when adjusting study time.

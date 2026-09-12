@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008a",
+  "source_event_ids": [
+    "evt_017_mock_score_mutation"
+  ],
+  "source_stage": 17,
+  "source_time": "2026-05-16T21:30:00+08:00",
+  "previous": "release-008",
+  "token": "fund-conversion-009a-clock-token-7d3a9e",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notice_mock_score_001",
+        "user_id": "user_lin_che",
+        "source": "learning_platform",
+        "type": "new_content",
+        "subscription_id": null,
+        "title": "Weekend mock exam diagnosis is ready",
+        "body": "Subject 1 score 76; Subject 2 score 58; review valuation steps, fund fees, and bond duration by error category.",
+        "payload_json": "{\"assessment_id\":\"mock-20260516-lc\",\"score_s1\":76,\"score_s2\":58}",
+        "created_at": "2026-05-16T21:30:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "evt_017_mock_score_mutation"
+    }
+  ]
+}

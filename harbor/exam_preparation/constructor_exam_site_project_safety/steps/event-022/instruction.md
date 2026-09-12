@@ -1,0 +1,1 @@
+The final review 48 hours before the examination is due. Refresh official notices, weather, routes, textbook status, reimbursement, and every pending authorization item. Record verified facts and unresolved risks without taking unconfirmed irreversible actions.

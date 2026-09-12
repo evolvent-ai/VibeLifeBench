@@ -1,0 +1,11 @@
+{
+  "step": "event-020",
+  "stage": 20,
+  "event_id": "evt_020_interview_deadline",
+  "source_event_id": "evt_020_interview_deadline",
+  "actions": [{"kind": "record_event", "stage": 20}],
+  "response_paraphrase": "The changed deadline is recovered, one early reminder is set, and confirmation remains personal.",
+  "expected_env": {"virtual_stage": 20, "workspace": "/workspace", "preceding_releases": ["release-009"], "released_mutations": ["release-009"], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_20_deadline_mutation_recovered", "weight": 1.75}, {"check_id": "stage_20_auth_log_pending_confirm", "weight": 1.5}],
+  "expected_stage_weight": 3.25
+}

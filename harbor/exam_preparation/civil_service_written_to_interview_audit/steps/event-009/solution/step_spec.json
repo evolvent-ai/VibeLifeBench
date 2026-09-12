@@ -1,0 +1,11 @@
+{
+  "step": "event-009",
+  "stage": 9,
+  "event_id": "evt_009_user_course",
+  "source_event_id": "evt_009_user_course",
+  "actions": [{"kind": "record_event", "stage": 9}],
+  "response_paraphrase": "Ordinary study options are compared against the 800 CNY ceiling and improper claims are excluded.",
+  "expected_env": {"virtual_stage": 9, "workspace": "/workspace", "preceding_releases": [], "released_mutations": [], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_09_course_compared", "weight": 1.75}],
+  "expected_stage_weight": 1.75
+}

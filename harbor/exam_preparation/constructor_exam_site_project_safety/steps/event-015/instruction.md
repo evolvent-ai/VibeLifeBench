@@ -1,0 +1,1 @@
+The official examination administration notice has published the Ningbo examination site, and nearby places have similar names. Please verify the official site identity and record the source before planning travel.

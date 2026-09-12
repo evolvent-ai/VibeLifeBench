@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "S20_mutation"
+  ],
+  "source_stage": 21,
+  "source_time": "2026-09-18T20:50:00+08:00",
+  "previous": "release-012",
+  "token": "pharmacist-western-release-013-20260824-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_payment_open",
+        "user_id": "user_zhou",
+        "source": "provincial_pharmacist_office",
+        "type": "portal_status",
+        "subscription_id": null,
+        "title": "Preliminary review approved; payment is open",
+        "body": "Western medicine registration status is approved_unpaid. The official registration fee is CNY 244.",
+        "payload_json": "{\"application_status\":\"approved_unpaid\",\"fee_minor\":24400,\"direction\":\"western_pharmacist\"}",
+        "created_at": "2026-09-18T09:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S20_mutation"
+    }
+  ]
+}

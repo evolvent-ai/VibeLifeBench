@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "evt_s13_weather_mutation"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-07-16T12:00:00+08:00",
+  "previous": "release-006",
+  "token": "constructor-exam-site-project-safety-release-007-token-v1",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "alert_id": "alert_hz_heavy_rain_0716"
+      },
+      "source_event_id": "evt_s13_weather_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "event_id": "road_evt_hz_rain_0716"
+      },
+      "source_event_id": "evt_s13_weather_mutation",
+      "operation_index": 1
+    }
+  ]
+}

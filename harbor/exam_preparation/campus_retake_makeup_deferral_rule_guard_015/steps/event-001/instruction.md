@@ -1,0 +1,1 @@
+The academic affairs office has published this term's retake and makeup-exam notice. The exam time, eligible-list scope, and later seating-chart instructions are available in the campus academic portal.

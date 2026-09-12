@@ -1,0 +1,11 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "event_id": "evt_003_agency_claim",
+  "source_event_id": "evt_003_agency_claim",
+  "actions": [{"kind": "record_event", "stage": 3}],
+  "response_paraphrase": "Provider promotion is retained only as a low-confidence reference and cannot displace the official catalog.",
+  "expected_env": {"virtual_stage": 3, "workspace": "/workspace", "preceding_releases": [], "released_mutations": [], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_03_agency_noise_downgraded", "weight": 1.0}],
+  "expected_stage_weight": 1.0
+}

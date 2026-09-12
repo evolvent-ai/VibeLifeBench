@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "evt_s09_seat_cancel_mutation"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-09-18T09:00:00+08:00",
+  "previous": "release-001",
+  "token": "release-002-token-20260901-abcdef1234567890",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "status": "closed",
+        "requirements": "kind=gmat_seat; local_time=2026-09-28T14:00:00+08:00; timezone=Asia/Shanghai; fee_minor=225000; status=cancelled_by_test_center; replacement_window=Hong_Kong_or_Singapore",
+        "tags": "gmat_seat;cancelled;shanghai"
+      },
+      "where": {
+        "job_id": "seat_gf_sh_20260928_pm"
+      }
+    }
+  ]
+}

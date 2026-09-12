@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "ev_003_class_monitor_room_rumor_mutation"
+  ],
+  "source_time": "2026-09-03T20:00:00+08:00",
+  "previous": "release-000a",
+  "token": "campus-retake-release-001-20260901-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_class_group_room_forward_0903",
+        "user_id": "user_lin_zeyu",
+        "source": "class_group",
+        "type": "group_forward",
+        "subscription_id": null,
+        "title": "Class committee forward: Calculus A2 exam room information",
+        "body": "Someone in the class group said that the Calculus A2 exam is still being held in the old teaching building, but the forwarded information includes neither a link to the academic affairs office nor a seating chart version number.",
+        "payload_json": "{\"course\":\"Calculus A2\",\"claim\":\"old teaching building\",\"official_source\":false,\"source_link\":null}",
+        "created_at": "2026-09-03T20:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "ev_003_class_monitor_room_rumor_mutation"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "step": "event-015",
+  "stage": 16,
+  "event_id": "S16_review_patrol",
+  "source_event_id": "S16_review_patrol",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 16
+    }
+  ],
+  "response_paraphrase": "The review patrol result was left pending while the correction path remained controlled.",
+  "expected_env": {
+    "virtual_stage": 16,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "release-010"
+    ],
+    "stage_boundary": false
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

@@ -1,0 +1,11 @@
+{
+  "step": "event-004",
+  "stage": 4,
+  "event_id": "evt_004_legal_dir",
+  "source_event_id": "evt_004_legal_dir",
+  "actions": [{"kind": "record_event", "stage": 4}],
+  "response_paraphrase": "The current directory articles are checked and the source matrix now shows authority and recheck status.",
+  "expected_env": {"virtual_stage": 4, "workspace": "/workspace", "preceding_releases": [], "released_mutations": [], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_04_legal_directory_checked", "weight": 1.75}, {"check_id": "stage_04_source_evidence_extended", "weight": 1.5}],
+  "expected_stage_weight": 3.25
+}

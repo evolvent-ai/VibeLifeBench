@@ -1,0 +1,11 @@
+{
+  "step": "event-002",
+  "stage": 2,
+  "event_id": "evt_002_career_mail",
+  "source_event_id": "evt_002_career_mail",
+  "actions": [{"kind": "record_event", "stage": 2}],
+  "response_paraphrase": "The career office message is reviewed and its conservative materials path is added to the checklist.",
+  "expected_env": {"virtual_stage": 2, "workspace": "/workspace", "preceding_releases": ["release-001"], "released_mutations": ["release-001"], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_02_career_mail_material_risk", "weight": 1.5}],
+  "expected_stage_weight": 1.5
+}

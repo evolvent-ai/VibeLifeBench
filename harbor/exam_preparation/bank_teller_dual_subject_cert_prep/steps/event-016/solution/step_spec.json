@@ -1,0 +1,31 @@
+{
+  "step": "event-016",
+  "stage": 14,
+  "virtual_stage": 14,
+  "source_event_id": "evt_016_calendar_recheck",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "evt_015_marketing_mail_mut"
+    ]
+  },
+  "response": "日历复核确认营销冲突已解决，并记录取消和替换时段。",
+  "response_paraphrase": "日历复核确认营销冲突工作流已解决，并记录取消和替换时段。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_016_calendar_recheck"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r28_calendar_change_logged",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

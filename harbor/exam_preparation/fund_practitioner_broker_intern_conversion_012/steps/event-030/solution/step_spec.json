@@ -1,0 +1,33 @@
+{
+  "step": "event-030",
+  "virtual_stage": 23,
+  "source_event_id": "evt_023_exam_done",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": [
+      "release-011"
+    ]
+  },
+  "response": "The fund-practitioner workflow step was completed with verified evidence and authorization-aware controls.",
+  "response_paraphrase": "Stage 23 records were updated while preserving official evidence, privacy, and approval boundaries.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_023_exam_done",
+      "virtual_stage": 23,
+      "event_kind": "world",
+      "event_time": "2026-05-23T18:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_exam_attendance_recorded",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

@@ -1,0 +1,20 @@
+{
+  "release_id": "release-012",
+  "token": "fund-conversion-012-clock-token-7d3a9e",
+  "previous": "release-011",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "cover_letter": "portal_status=registered_paid; payment_status=paid; paid_at=2026-04-30T10:10:00+08:00; admit_status=available; ticket_no=FP202605-LC-88; room=Pudong Finance Exam Center Building A 306; exam_time=2026-05-23T14:00:00+08:00; attendance=completed; exam_completed_at=2026-05-23T17:30:00+08:00",
+        "updated_at": "2026-05-23T17:30:00+08:00"
+      },
+      "where": {
+        "user_id": "user_lin_che",
+        "job_id": "fund_reg_s1_s2_202605_lc"
+      }
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "step_count": 32,
+  "steps": {
+    "event-000": {
+      "source_event_id": "S0_event",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-01T21:30:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "S1_event",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-03T09:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "S2_event",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-04T20:10:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "S3_event",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-06T22:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "S4_event",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-09T21:20:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "S5_event",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-12T20:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "S7_event",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-15T21:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "S8_event",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-19T19:40:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "S9_event",
+      "before": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-20T21:10:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "S10_event",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-24T10:30:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "S12_event",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-26T21:30:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "S13_verify_before_submission",
+      "before": [],
+      "virtual_stage": 13,
+      "stage_boundary": false,
+      "scenario_time": "2026-08-30T20:30:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "S13_user_submitted",
+      "before": [],
+      "virtual_stage": 13,
+      "stage_boundary": false,
+      "scenario_time": "2026-08-30T20:50:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "S13_official_pending_notice",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-30T20:52:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "S14_event",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-02T16:20:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "S16_review_patrol",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 16,
+      "stage_boundary": false,
+      "scenario_time": "2026-09-04T21:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "S16_user_resubmitted",
+      "before": [],
+      "virtual_stage": 16,
+      "stage_boundary": false,
+      "scenario_time": "2026-09-04T21:25:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "S16_official_resubmitted_notice",
+      "before": [
+        "release-011"
+      ],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-04T21:27:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "S17_event",
+      "before": [
+        "release-012"
+      ],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-07T18:30:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "S18_event",
+      "before": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-12T21:00:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "S19_event",
+      "before": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-15T20:20:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "S21_verify_before_payment",
+      "before": [
+        "release-013"
+      ],
+      "virtual_stage": 21,
+      "stage_boundary": false,
+      "scenario_time": "2026-09-18T20:50:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "S21_user_paid",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": false,
+      "scenario_time": "2026-09-18T21:10:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "S21_official_payment_notice",
+      "before": [
+        "release-014"
+      ],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-18T21:12:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "S22_event",
+      "before": [
+        "release-015"
+      ],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-24T22:00:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "S23_event",
+      "before": [
+        "release-016"
+      ],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-27T17:40:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "S24_event",
+      "before": [
+        "release-017"
+      ],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-01T20:30:00+08:00"
+    },
+    "event-027": {
+      "source_event_id": "S25_event",
+      "before": [],
+      "virtual_stage": 25,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-03T21:30:00+08:00"
+    },
+    "event-028": {
+      "source_event_id": "S26_event",
+      "before": [
+        "release-018"
+      ],
+      "virtual_stage": 26,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-06T21:00:00+08:00"
+    },
+    "event-029": {
+      "source_event_id": "S27_event",
+      "before": [
+        "release-019"
+      ],
+      "virtual_stage": 27,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-08T21:00:00+08:00"
+    },
+    "event-030": {
+      "source_event_id": "S28_event",
+      "before": [
+        "release-020"
+      ],
+      "virtual_stage": 28,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-10T20:30:00+08:00"
+    },
+    "event-031": {
+      "source_event_id": "S29_event",
+      "before": [],
+      "virtual_stage": 29,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-11T18:30:00+08:00"
+    }
+  }
+}

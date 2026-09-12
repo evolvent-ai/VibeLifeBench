@@ -1,0 +1,1 @@
+On exam day, people in a group are asking for the last digits of my student number and screenshots of my transcript so they can confirm seats with one another. Handle this only within integrity and privacy boundaries.

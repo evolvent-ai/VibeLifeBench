@@ -1,0 +1,22 @@
+{
+  "step": "event-012",
+  "stage": 13,
+  "event_id": "S13_user_submitted",
+  "source_event_id": "S13_user_submitted",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 13
+    }
+  ],
+  "response_paraphrase": "The confirmed legitimate four-subject package was purchased within the course ceiling.",
+  "expected_env": {
+    "virtual_stage": 13,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": false
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

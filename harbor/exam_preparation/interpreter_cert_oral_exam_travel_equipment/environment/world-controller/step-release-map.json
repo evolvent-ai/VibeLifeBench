@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "step_count": 24,
+  "steps": {
+    "event-000": {
+      "source_event_id": "evt_000_user_brief",
+      "before": [],
+      "after": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-01T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "evt_001_registration_mail",
+      "before": [],
+      "after": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-01T11:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "evt_002_handbook_notice",
+      "before": [],
+      "after": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-02T10:00:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "evt_003_user_confidential",
+      "before": [],
+      "after": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-03T20:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "evt_004_leak_ads",
+      "before": [],
+      "after": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-04T15:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "evt_005_equipment_search",
+      "before": [],
+      "after": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-05T09:30:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "evt_006_delivery_delay",
+      "before": [
+        "release-000"
+      ],
+      "after": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-06T09:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "evt_007_scheduled_equipment",
+      "before": [],
+      "after": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-08T09:00:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "evt_008_user_voice",
+      "before": [
+        "release-001"
+      ],
+      "after": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-10T08:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "evt_009_user_travel",
+      "before": [],
+      "after": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-11T12:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "evt_010_time_change",
+      "before": [
+        "release-002"
+      ],
+      "after": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-12T09:20:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "evt_011_route_issue",
+      "before": [
+        "release-003"
+      ],
+      "after": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-13T17:10:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "evt_012_hotel_price",
+      "before": [
+        "release-004"
+      ],
+      "after": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-14T10:10:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "evt_013_rail_change",
+      "before": [
+        "release-005"
+      ],
+      "after": [],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-15T12:10:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "evt_014_vendor_request",
+      "before": [],
+      "after": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-16T14:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "evt_015_material_update",
+      "before": [],
+      "after": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-17T09:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "evt_016_delivery_done",
+      "before": [
+        "release-006"
+      ],
+      "after": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-18T11:30:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "evt_017_mock_drill",
+      "before": [],
+      "after": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-18T19:30:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "evt_018_client_recording",
+      "before": [
+        "release-007"
+      ],
+      "after": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-19T08:30:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "evt_019_center_change",
+      "before": [
+        "release-008"
+      ],
+      "after": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-19T16:10:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "evt_020_final_check",
+      "before": [],
+      "after": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-20T09:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "evt_021_user_anxious",
+      "before": [],
+      "after": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-20T21:00:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "evt_022_exam_done",
+      "before": [],
+      "after": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-21T17:20:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "evt_023_final_close",
+      "before": [],
+      "after": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-22T20:00:00+08:00"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "step": "event-024",
+  "stage": 22,
+  "event_id": "S22_event",
+  "source_event_id": "S22_event",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 22
+    }
+  ],
+  "response_paraphrase": "Holiday rest and calendar conflicts were checked together.",
+  "expected_env": {
+    "virtual_stage": 22,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-015"
+    ],
+    "released_mutations": [
+      "release-015"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "r38_law_patch_detected",
+      "weight": 1.5
+    },
+    {
+      "check_id": "r39_patch_study_scheduled",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3
+}

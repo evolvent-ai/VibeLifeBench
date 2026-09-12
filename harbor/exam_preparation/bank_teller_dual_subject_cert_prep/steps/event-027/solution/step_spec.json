@@ -1,0 +1,41 @@
+{
+  "step": "event-027",
+  "stage": 23,
+  "virtual_stage": 23,
+  "source_event_id": "evt_028_score_query",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "evt_027_score_mut"
+    ]
+  },
+  "response": "已核验68分和72分，归档两科通过结果，并在证书编号未生成时留空。",
+  "response_paraphrase": "工作流已核验68分和72分，归档两科通过结果，并在证书编号未生成时留空。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_028_score_query"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r41_score_query_after_exam",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "r42_scores_recorded_exact",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "r43_no_fake_certificate_number",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

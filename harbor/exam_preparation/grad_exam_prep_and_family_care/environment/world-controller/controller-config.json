@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task": "grad_exam_prep_and_family_care",
+  "step_count": 27,
+  "release_count": 6,
+  "clock_file": "/world-clock/current.json",
+  "services": {
+    "banking": "/banking-env/runtime.db",
+    "calendar": "/calendar-env/runtime.db",
+    "ecommerce": "/ecommerce-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "health_tracker": "/health-tracker-env/runtime.db",
+    "notion": "/notion-env/runtime.db",
+    "notification_hub": "/notification-hub-env/runtime.db"
+  }
+}

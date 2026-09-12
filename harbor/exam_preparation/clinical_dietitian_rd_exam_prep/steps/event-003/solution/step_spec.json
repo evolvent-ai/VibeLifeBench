@@ -1,0 +1,36 @@
+{
+  "step": "event-003",
+  "virtual_stage": 3,
+  "source_event_id": "outpatient_approved_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "outpatient_approved_mutation"
+    ]
+  },
+  "response": "Stage 3 (outpatient approved notice) was completed from authoritative backend evidence, and the resulting credentialing, privacy, or scheduling state was recorded.",
+  "response_paraphrase": "I checked the live systems for outpatient approved notice and persisted the verified outcome while keeping the workflow's approval and safety limits intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "outpatient_approved_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_outpatient_record_after_approval",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s3_no_early_hours_submission",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

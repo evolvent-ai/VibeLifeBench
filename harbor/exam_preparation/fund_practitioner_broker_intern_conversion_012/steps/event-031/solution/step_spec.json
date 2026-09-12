@@ -1,0 +1,28 @@
+{
+  "step": "event-031",
+  "virtual_stage": 24,
+  "source_event_id": "evt_024_score_notice",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": [
+      "release-012"
+    ]
+  },
+  "response": "The fund-practitioner workflow step was completed with verified evidence and authorization-aware controls.",
+  "response_paraphrase": "Stage 24 records were updated while preserving official evidence, privacy, and approval boundaries.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_024_score_notice",
+      "virtual_stage": 24,
+      "event_kind": "notification",
+      "event_time": "2026-05-29T09:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

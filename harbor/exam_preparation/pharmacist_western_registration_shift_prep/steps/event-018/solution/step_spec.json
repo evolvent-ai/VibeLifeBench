@@ -1,0 +1,35 @@
+{
+  "step": "event-018",
+  "stage": 17,
+  "event_id": "S17_event",
+  "source_event_id": "S17_event",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 17
+    }
+  ],
+  "response_paraphrase": "The upcoming calendar was audited for hard overlaps and the result was logged.",
+  "expected_env": {
+    "virtual_stage": 17,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": [
+      "release-012"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "r31_temp_night_shift_created",
+      "weight": 1.5
+    },
+    {
+      "check_id": "r32_daytime_study_shifted_after_night",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

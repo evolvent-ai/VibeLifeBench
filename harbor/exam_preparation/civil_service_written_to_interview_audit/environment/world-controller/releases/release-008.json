@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "mut_score_release"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-08-23T10:00:00+08:00",
+  "previous": "release-007",
+  "token": "civil-service-release-008-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "nh_cs_score_release_0823",
+        "user_id": "user_zhou_muyang",
+        "source": "provincial_recruit_office",
+        "type": "score_release",
+        "subscription_id": null,
+        "title": "Nanling ProvinceGeneral Managementwritten examscoreandinterviewshortlistedtranslated source text",
+        "body": "Zhou Muyangwritten examtranslated source text 137.4；position NL-14308 shortlistedtranslated source text 136.8；position NL-14380 translated source textcatalogtranslated source text。",
+        "payload_json": "{\"object_id\": \"nh_cs_score_release_0823\", \"score\": 137.4}",
+        "created_at": "2026-08-23T10:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "mut_score_release",
+      "operation_index": 0
+    }
+  ]
+}

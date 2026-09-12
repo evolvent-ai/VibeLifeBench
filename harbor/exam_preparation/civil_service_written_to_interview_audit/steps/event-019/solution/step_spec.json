@@ -1,0 +1,11 @@
+{
+  "step": "event-019",
+  "stage": 19,
+  "event_id": "evt_019_score_release",
+  "source_event_id": "evt_019_score_release",
+  "actions": [{"kind": "record_event", "stage": 19}],
+  "response_paraphrase": "The released score clears the NL-14308 line, while the other position stays on the high-risk review path.",
+  "expected_env": {"virtual_stage": 19, "workspace": "/workspace", "preceding_releases": ["release-008"], "released_mutations": ["release-008"], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_19_score_line_processed", "weight": 1.75}, {"check_id": "stage_19_nl14308_interview_priority", "weight": 1.75}],
+  "expected_stage_weight": 3.5
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "S14_hr_cert_mutation"
+  ],
+  "source_stage": 14,
+  "source_time": "2026-09-02T16:20:00+08:00",
+  "previous": "release-008",
+  "token": "pharmacist-western-release-009-20260824-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "msg_hr_cert",
+        "subject": "Yun Zhou stamped work certificate",
+        "from_addr": "hr@anmin.example",
+        "to_addr_json": "[\"zhou.yun@example.test\"]",
+        "date": "2026-09-02T15:40:00+08:00",
+        "body_text": "Attached is the officially stamped work-year certificate. Dates match social-security records. Use it only for correction of official registration materials; do not share externally.",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "created_at": "2026-09-02T15:40:00+08:00"
+      },
+      "source_event_id": "S14_hr_cert_mutation"
+    },
+    {
+      "server": "email",
+      "table": "attachments",
+      "op": "insert",
+      "values": {
+        "message_id": 219,
+        "filename": "cert_sealed_v1.pdf",
+        "content_type": "application/pdf",
+        "size": 204800,
+        "content_b64": "UERG"
+      },
+      "source_event_id": "S14_hr_cert_mutation"
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 219,
+        "unread_count": 54
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "S14_hr_cert_mutation"
+    }
+  ]
+}

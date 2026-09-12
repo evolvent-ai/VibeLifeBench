@@ -1,0 +1,13 @@
+{
+  "step": "event-019", "stage": 19, "virtual_stage": 19,
+  "source_event_id": "evt_s19_delivery_world", "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-011"], "released_mutations": ["evt_s19_delivery_mutation"]},
+  "response": "Shipment JD-ZJ-260706-4819 is in exception handling. I opened a non-committal missing-item issue documenting the wrong 2025 edition and subscribed Lu Jing's email to status updates; no replacement purchase was made.",
+  "response_paraphrase": "I verified the courier exception, preserved the edition discrepancy in an open service ticket, and enabled email tracking for the existing shipment without ordering another book.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s19_delivery_world"}],
+  "expected_checks": [
+    {"check_id": "s19_delivery_exception_issue", "weight": 1.0, "expected": true},
+    {"check_id": "s19_delivery_status_subscription", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "evt_s15_mock_report_mutation"
+  ],
+  "source_stage": 15,
+  "source_time": "2026-09-24T21:00:00+08:00",
+  "previous": "release-003",
+  "token": "release-004-token-20260901-abcdef1234567890",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "delete",
+      "where": {
+        "message_id": "<mail_mock_score_20260924_003@example.test>"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<mail_mock_score_20260924_003@example.test>",
+        "subject": "GMAT Focus mock exam report 2026-09-24",
+        "from_addr": "mock-report@prepbridge.invalid",
+        "to_addr_json": "[\"lin.che@example.test\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-24T20:45:00+08:00",
+        "body_text": "Mock exam total 585, Quant 84, Verbal 79, DI 72. Multi-source tables and chart reasoning took notably longer in DI.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 3002,
+        "size": 1700,
+        "created_at": "2026-09-24T20:45:00+08:00"
+      }
+    }
+  ]
+}

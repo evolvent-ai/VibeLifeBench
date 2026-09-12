@@ -1,0 +1,13 @@
+{
+  "step": "event-023", "stage": 23, "virtual_stage": 23,
+  "source_event_id": "evt_s23_final_request", "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The Final handover records each Source, risk, and Next step across study, project safety, education, materials, travel, weather, and Reimbursement. External actions remain unconfirmed pending Confirm Authorization, and only low-sensitivity information is in the unsent draft.",
+  "response_paraphrase": "I completed the Final checklist and Source archive with every remaining risk and Next step. Authorization is still unconfirmed for external commitments; the saved draft is low-sensitivity and awaits Confirm action.",
+  "actions": [{"kind": "record_event", "source_event_id": "evt_s23_final_request"}],
+  "expected_checks": [
+    {"check_id": "s23_final_notion_handover", "weight": 1.0, "expected": true},
+    {"check_id": "s23_final_email_draft", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.0
+}

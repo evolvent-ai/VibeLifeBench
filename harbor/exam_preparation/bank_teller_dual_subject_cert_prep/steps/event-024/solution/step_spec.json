@@ -1,0 +1,21 @@
+{
+  "step": "event-024",
+  "stage": 21,
+  "virtual_stage": 21,
+  "source_event_id": "evt_025_checklist",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "最终考试日计划已覆盖证件、路线和拥堵缓冲、确认的机房座位及午休。",
+  "response_paraphrase": "最终考试日计划工作流已覆盖证件、路线和拥堵缓冲、确认的机房座位及午休。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_025_checklist"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

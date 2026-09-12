@@ -1,0 +1,1 @@
+Pre-exam rule and location review reminder: refresh the official room summary, grade-review rules, and review-plan entries. For an official deadline, reserve a 30-minute calendar reminder ending at that deadline.

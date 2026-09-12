@@ -1,0 +1,29 @@
+{
+  "step": "event-016",
+  "virtual_stage": 15,
+  "source_event_id": "evt_020_pre_exam_audit",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The pre-exam audit accounts for four full-length mocks before December 20, including Mock 1 score 120 and Mock 2 score 105; all study and mock blocks stay within four hours with rest.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_020_pre_exam_audit",
+      "virtual_stage": 15,
+      "event_kind": "notification",
+      "event_time": "2026-12-14T21:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r27_four_mocks_before_exam",
+      "weight": 3.0
+    }
+  ],
+  "expected_stage_weight": 3
+}

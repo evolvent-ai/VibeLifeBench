@@ -1,0 +1,302 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      workspace-init:
+        condition: service_completed_successfully
+      world-controller:
+        condition: service_healthy
+      calendar:
+        condition: service_healthy
+      content-platform:
+        condition: service_healthy
+      ecommerce:
+        condition: service_healthy
+      email:
+        condition: service_healthy
+      legal-search:
+        condition: service_healthy
+      maps:
+        condition: service_healthy
+      notification-hub:
+        condition: service_healthy
+      notion:
+        condition: service_healthy
+      review-platform:
+        condition: service_healthy
+    volumes:
+    - workspace-state:/workspace
+    - eval-evidence:/harbor/evidence:ro
+    - world-clock:/world-clock:ro
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: calendar,content-platform,ecommerce,email,legal-search,maps,notification-hub,notion,review-platform,world-controller,localhost,127.0.0.1,::1
+      no_proxy: calendar,content-platform,ecommerce,email,legal-search,maps,notification-hub,notion,review-platform,world-controller,localhost,127.0.0.1,::1
+  workspace-init:
+    build:
+      context: .
+      dockerfile: workspace-init/Dockerfile
+    volumes:
+    - workspace-state:/target
+    restart: 'no'
+  calendar:
+    build:
+      context: ./servers/calendar_mock
+    volumes:
+    - ./seeds/calendar:/env-seed:ro
+    - calendar-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+  content-platform:
+    build:
+      context: ./servers/content_platform_mock
+    volumes:
+    - ./seeds/content_platform:/env-seed:ro
+    - content-platform-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+  ecommerce:
+    build:
+      context: ./servers/ecommerce_mock
+    volumes:
+    - ./seeds/ecommerce:/env-seed:ro
+    - ecommerce-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+  email:
+    build:
+      context: ./servers/email_mock
+    volumes:
+    - ./seeds/email:/env-seed:ro
+    - email-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+  legal-search:
+    build:
+      context: ./servers/legal_search_mock
+    volumes:
+    - ./seeds/legal_search:/env-seed:ro
+    - legal-search-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+  maps:
+    build:
+      context: ./servers/maps_mock
+    volumes:
+    - ./seeds/maps:/env-seed:ro
+    - maps-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+  notification-hub:
+    build:
+      context: ./servers/notification_hub_mock
+    volumes:
+    - ./seeds/notification_hub:/env-seed:ro
+    - notification-hub-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+  notion:
+    build:
+      context: ./servers/notion_mock
+    volumes:
+    - ./seeds/notion:/env-seed:ro
+    - notion-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+  review-platform:
+    build:
+      context: ./servers/review_platform_mock
+    volumes:
+    - ./seeds/review_platform:/env-seed:ro
+    - review-platform-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+  world-controller:
+    build:
+      context: .
+      dockerfile: world-controller/Dockerfile
+    environment:
+      HEALTH_TOKEN: civil-service-health-token
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+      CLOCK_TOKEN: civil-service-clock-token
+    depends_on:
+      workspace-init:
+        condition: service_completed_successfully
+      calendar:
+        condition: service_healthy
+      content-platform:
+        condition: service_healthy
+      ecommerce:
+        condition: service_healthy
+      email:
+        condition: service_healthy
+      legal-search:
+        condition: service_healthy
+      maps:
+        condition: service_healthy
+      notification-hub:
+        condition: service_healthy
+      notion:
+        condition: service_healthy
+      review-platform:
+        condition: service_healthy
+    volumes:
+    - calendar-env:/calendar-env
+    - content-platform-env:/content-platform-env
+    - ecommerce-env:/ecommerce-env
+    - email-env:/email-env
+    - legal-search-env:/legal-search-env
+    - maps-env:/maps-env
+    - notification-hub-env:/notification-hub-env
+    - notion-env:/notion-env
+    - review-platform-env:/review-platform-env
+    - controller-state:/controller-state
+    - workspace-state:/workspace-source:ro
+    - eval-evidence:/evidence
+    - world-clock:/world-clock
+    expose:
+    - '8090'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health',timeout=2).read()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+volumes:
+  workspace-state: null
+  eval-evidence: null
+  world-clock: null
+  controller-state: null
+  calendar-env: null
+  content-platform-env: null
+  ecommerce-env: null
+  email-env: null
+  legal-search-env: null
+  maps-env: null
+  notification-hub-env: null
+  notion-env: null
+  review-platform-env: null

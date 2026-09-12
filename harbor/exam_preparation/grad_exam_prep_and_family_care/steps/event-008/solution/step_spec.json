@@ -1,0 +1,29 @@
+{
+  "step": "event-008",
+  "virtual_stage": 7,
+  "source_event_id": "evt_009_user_reschedule_ok",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The 2026-11-29 follow-up and split Math plan are confirmed in Calendar; no continuous study block exceeds four hours and rest is retained.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_009_user_reschedule_ok",
+      "virtual_stage": 7,
+      "event_kind": "user_message",
+      "event_time": "2026-11-27T21:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r16_reschedule_reply",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 1
+}

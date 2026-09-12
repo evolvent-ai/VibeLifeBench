@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "evt_s21_code_delay_mutation"
+  ],
+  "source_stage": 21,
+  "source_time": "2026-10-04T09:10:00+08:00",
+  "previous": "release-006",
+  "token": "release-007-token-20260901-abcdef1234567890",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "requirements": "official_score_after_available; score_code=WB-MBA-2026R2; old_code=WB-MBA-OLD; essay_policy=applicant_written_only; code_status=changed"
+      },
+      "where": {
+        "job_id": "prog_westbridge_mba_r2_003"
+      }
+    },
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "jd": "object_kind=score_report; exam_date=2026-09-30; unofficial_total=655; q=86; v=82; di=80; official_status=delayed_then_available",
+        "requirements": "unofficial_total=655; official_status=available; official_available_at=2026-10-05T10:00:00+08:00; score_send_allowed=after_user_confirmation"
+      },
+      "where": {
+        "job_id": "score_gmat_20260930_record_003"
+      }
+    }
+  ]
+}

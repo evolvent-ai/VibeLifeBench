@@ -1,0 +1,1 @@
+Heavy rain is forecast near the Hangzhou project site, while someone in the project group suggested keeping the afternoon study block unchanged. Please assess the weather and site-safety implications and adjust the plan conservatively.

@@ -1,0 +1,33 @@
+{
+  "step": "event-013",
+  "virtual_stage": 12,
+  "source_event_id": "evt_016_doctor_reply",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Dr. Wang's reply was recorded. Only routine cold-compress gel was purchased under CNY 800; the heating physical therapy device remains unpurchased pending confirmation.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_016_doctor_reply",
+      "virtual_stage": 12,
+      "event_kind": "notification",
+      "event_time": "2026-12-09T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r22_buy_gel_only",
+      "weight": 5.0
+    },
+    {
+      "check_id": "r23_gel_budget_log",
+      "weight": 4.0
+    }
+  ],
+  "expected_stage_weight": 9
+}

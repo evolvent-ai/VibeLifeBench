@@ -1,0 +1,40 @@
+{
+  "release_id": "release-001",
+  "token": "fund-conversion-001-clock-token-7d3a9e",
+  "previous": "release-000a",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "to_addr_json": "[\"lin.che@example.test\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "message_id": "<hr-conversion-001@mail.test>",
+        "subject": "Employment conversion materials and fund-business proof",
+        "from_addr": "xinyi.hr@broker.test",
+        "date": "2026-04-28T13:40:00+08:00",
+        "body_text": "Submit wealth-management employment-conversion materials by 2026-06-03 12:00. Company-related fund-practitioner subject combinations are preferred; after scores are published, provide an official score result.",
+        "uid": 301,
+        "size": 209,
+        "created_at": "2026-04-28T13:40:00+08:00"
+      },
+      "source_event_id": "evt_002_hr_mail_mutation"
+    }
+  ],
+  "schema_version": 1,
+  "source_stage": 2,
+  "source_time": "2026-04-28T13:40:00+08:00",
+  "source_event_ids": [
+    "evt_002_hr_mail_mutation"
+  ]
+}

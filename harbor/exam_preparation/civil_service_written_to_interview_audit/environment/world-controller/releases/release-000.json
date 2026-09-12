@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "mut_post_table_initial"
+  ],
+  "source_stage": 1,
+  "source_time": "2026-07-08T09:00:00+08:00",
+  "previous": null,
+  "token": "civil-service-release-000-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "nh_cs_post_table_0708",
+        "user_id": "user_zhou_muyang",
+        "source": "provincial_recruit_office",
+        "type": "official_notice",
+        "subscription_id": null,
+        "title": "Nanling Province 2026 yeartranslated source textGeneral Managementrecruitmentofficial position table",
+        "body": "official position tabletranslated source textexit NL-14308（Yuntai DistrictGovernment Service Center·translated source text）translated source text B12 public administration，NL-14380（Nanling ProvinceBig Data Development Administration·Data Governancetranslated source text）translated source text B12-03 Data Governancetrack；major matchingaccording totranslated source textprofessional catalogandsubsequentsupplementary noticeprevails，registrationbeforepleaseverify independently。",
+        "payload_json": "{\"object_id\": \"nh_cs_post_table_0708\"}",
+        "created_at": "2026-07-08T09:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "mut_post_table_initial",
+      "operation_index": 0
+    }
+  ]
+}

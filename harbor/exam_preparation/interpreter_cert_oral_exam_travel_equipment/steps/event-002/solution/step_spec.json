@@ -1,0 +1,32 @@
+{
+  "step": "event-002",
+  "stage": 2,
+  "virtual_stage": 2,
+  "source_event_id": "evt_002_handbook_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The official handbook notice and equipment guidance were reviewed, and the equipment check window is recorded.",
+  "response_paraphrase": "I refreshed the handbook evidence and logged a reminder for the headset and laptop check period.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_002_handbook_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s02_official_handbook_equipment",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s02_equipment_check_window_logged",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

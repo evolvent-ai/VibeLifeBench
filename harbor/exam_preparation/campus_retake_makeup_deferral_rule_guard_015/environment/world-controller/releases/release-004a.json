@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004a",
+  "source_event_ids": ["ev_009_family_confirmed_mutation"],
+  "source_time": "2026-09-09T20:30:00+08:00",
+  "previous": "release-004",
+  "token": "campus-retake-release-004a-20260901-token",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "update",
+      "set": {
+        "start_dt": "2026-09-16T15:00:00+08:00",
+        "end_dt": "2026-09-16T18:00:00+08:00",
+        "status": "confirmed",
+        "description": "The family confirmed accompanying a family member after discharge to the inpatient department of Municipal No. 1 Hospital on September 16 at 15:00 to complete the grandfather's discharge procedures, expected to end at 18:00.",
+        "updated_at": "2026-09-09T20:30:00+08:00"
+      },
+      "where": {
+        "event_id": "cal_family_care_0916"
+      },
+      "source_event_id": "ev_009_family_confirmed_mutation"
+    }
+  ]
+}

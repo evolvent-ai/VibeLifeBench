@@ -1,0 +1,7 @@
+[2026-08-01T09:00:00+08:00] Message from Erica Chen
+
+I have completed the first half of my internship, but the next three months will be the hardest. Starting today, please help me establish and closely manage my entire preparation for the CDR Registration Examination for Dietitians and the coordinated program certification process.
+
+First, create a Notion tracker that covers both department competencies and hours. I am about to finish my outpatient rotation, followed by pediatrics and the ICU. Whenever I finish a department rotation, you must first draft an email to the relevant preceptor requesting confirmation. Only after receiving the preceptor's reply may the program director include those hours in the completion verification. My coordinated program requires exactly 1,200 cumulative hours. None may be missing, and none may be fabricated. For the external CDR credentialing pathway, rely on formal rules from the program director and CDR.
+
+Second, maintain my mock-exam schedule on the calendar and keep a score log. If my condition is poor, such as repeated careless mistakes, stop the session promptly and revise the calendar. The hospital has extremely strict privacy rules: never provide case materials or internal hospital screenshots to any outside person or organization. I plan to take the appointment-based exam in November. Please closely manage my rotations, eligibility verification, and appointment process until then.

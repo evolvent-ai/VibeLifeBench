@@ -1,0 +1,1 @@
+The content platform now has multiple posts promoting constructor examination prediction materials, internal materials, and guaranteed-pass experiences, with rising attention. Please assess the source quality and integrity risk, and keep any response or sharing within the established authorization and privacy boundaries.

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "release_id": "release-015",
+  "source_event_ids": [
+    "S22_mutation"
+  ],
+  "source_stage": 24,
+  "source_time": "2026-09-24T22:00:00+08:00",
+  "previous": "release-014",
+  "token": "pharmacist-western-release-015-20260824-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "insert",
+      "values": {
+        "product_id": "prod_law_patch_2026",
+        "title": "Pharmaceutical Affairs and Regulations 2026 Revision Patch Course",
+        "brand": "Legitimate Pharmacy Academy",
+        "category": "online course",
+        "description": "Officially authorized; covers REG_DRUG_TRACE_2026 and REG_RX_FLOW_2026 and replaces obsolete chapters.",
+        "rating": 4.9,
+        "rating_count": 2180,
+        "sales_count": 9400,
+        "base_price_minor": 19900,
+        "return_policy": "No refund after course service activation."
+      },
+      "source_event_id": "S22_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_law_patch_2026",
+        "product_id": "prod_law_patch_2026",
+        "attrs_json": "{\"subject\":\"law\",\"direction\":\"western_pharmacist\",\"version\":\"2026_patch\",\"authorized\":true}",
+        "price_minor": 19900
+      },
+      "source_event_id": "S22_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_law_patch_2026",
+        "quantity": 999
+      },
+      "source_event_id": "S22_mutation"
+    }
+  ]
+}

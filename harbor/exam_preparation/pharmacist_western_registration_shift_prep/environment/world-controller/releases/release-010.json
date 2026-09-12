@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "S15_mutation"
+  ],
+  "source_stage": 15,
+  "source_time": "2026-09-04T21:00:00+08:00",
+  "previous": "release-009",
+  "token": "pharmacist-western-release-010-20260824-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_review_reject",
+        "user_id": "user_zhou",
+        "source": "provincial_pharmacist_office",
+        "type": "portal_status",
+        "subscription_id": null,
+        "title": "Registration preliminary review returned for correction",
+        "body": "Status changed to rejected_need_sealed_cert; upload the HR-stamped work certificate.",
+        "payload_json": "{\"application_status\":\"rejected_need_sealed_cert\",\"required_doc\":\"sealed_work_cert\"}",
+        "created_at": "2026-09-04T09:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S15_mutation"
+    }
+  ]
+}

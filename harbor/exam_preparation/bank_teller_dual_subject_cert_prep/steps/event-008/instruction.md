@@ -1,0 +1,1 @@
+The materials platform has added a new section showing official-edition textbooks, authorized question banks, and third-party products advertised with high scores. Separate legitimate options from prohibited or irrelevant products and keep purchases within my stated authorization.

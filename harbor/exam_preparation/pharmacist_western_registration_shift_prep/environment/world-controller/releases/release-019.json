@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-019",
+  "source_event_ids": [
+    "S27_mutation"
+  ],
+  "source_stage": 29,
+  "source_time": "2026-10-08T21:00:00+08:00",
+  "previous": "release-018",
+  "token": "pharmacist-western-release-019-20260824-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_ticket_ready",
+        "user_id": "user_zhou",
+        "source": "provincial_pharmacist_office",
+        "type": "portal_status",
+        "subscription_id": null,
+        "title": "Admission-ticket exam site and seat recorded",
+        "body": "Admission-ticket status is ready: exam date October 11, 2026; City Vocational Education Center A Building, seat 12-08. Bring the admission ticket and ID.",
+        "payload_json": "{\"ticket_status\":\"ready\",\"exam_date\":\"2026-10-11\",\"site\":\"City Vocational Education Center A Building\",\"seat\":\"12-08\"}",
+        "created_at": "2026-10-08T09:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S27_mutation"
+    }
+  ]
+}

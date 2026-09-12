@@ -1,0 +1,39 @@
+{
+  "step": "event-013",
+  "stage": 13,
+  "event_id": "S13_official_pending_notice",
+  "source_event_id": "S13_official_pending_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 13
+    }
+  ],
+  "response_paraphrase": "The official submission checklist and user-only boundary were recorded before review.",
+  "expected_env": {
+    "virtual_stage": 13,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "release-008"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "r24_submission_preflight_completed",
+      "weight": 2
+    },
+    {
+      "check_id": "r25_pending_review_western_verified",
+      "weight": 2
+    },
+    {
+      "check_id": "r26_docs_only_official_portal",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 6
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_stage": 11,
+  "source_event_ids": [
+    "evt_014_pain_mutation"
+  ],
+  "source_time": "2026-12-08T20:00:00+08:00",
+  "previous": "release-002",
+  "token": "grad-exam-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "met_mother_pain_20261208",
+        "user_id": "mother_li",
+        "type": "heart_rate",
+        "value": 108,
+        "value_text": "knee_pain_level=7/10; swelling=noticeable; steps=920",
+        "unit": "bpm",
+        "recorded_at": "2026-12-08T20:00:00+08:00"
+      },
+      "conflict_keys": [
+        "metric_id"
+      ]
+    }
+  ]
+}

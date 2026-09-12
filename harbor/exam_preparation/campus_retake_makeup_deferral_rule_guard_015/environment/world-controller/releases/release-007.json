@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "ev_014_math_outline_mut"
+  ],
+  "source_time": "2026-09-11T09:00:00+08:00",
+  "previous": "release-006",
+  "token": "campus-retake-release-007-20260901-token",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "insert",
+      "values": {
+        "job_id": "portal_math_outline_v2",
+        "company_id": "math_department",
+        "title": "Calculus A2 makeup exam review outline v2",
+        "city": "On campus",
+        "category": "learning_support",
+        "salary_min_minor": 0,
+        "salary_max_minor": 0,
+        "salary_months": 12,
+        "experience": "fresh_grad",
+        "education": "bachelor",
+        "jd": "The final publicly released scope includes limits and continuity, applications of derivatives, substitution in integration, convergence of series, and the writing of proof steps.",
+        "requirements": "version=v2; public=true; focus=substitution in integration,convergence of series,proof steps; internal_questions=false",
+        "tags": "Calculus A2,public review outline,substitution in integration",
+        "status": "open",
+        "posted_at": "2026-09-11T08:45:00+08:00"
+      },
+      "source_event_id": "ev_014_math_outline_mut"
+    }
+  ]
+}

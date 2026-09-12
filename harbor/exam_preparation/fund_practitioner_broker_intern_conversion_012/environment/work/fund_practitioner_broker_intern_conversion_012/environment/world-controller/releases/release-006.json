@@ -1,0 +1,20 @@
+{
+  "release_id": "release-006",
+  "token": "fund-conversion-006-clock-token-7d3a9e",
+  "previous": "release-005",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "applications",
+      "op": "update",
+      "set": {
+        "cover_letter": "portal_status=registered_paid; payment_status=paid; paid_at=2026-04-30T10:10:00+08:00",
+        "updated_at": "2026-04-30T10:10:00+08:00"
+      },
+      "where": {
+        "user_id": "user_lin_che",
+        "job_id": "fund_reg_s1_s2_202605_lc"
+      }
+    }
+  ]
+}

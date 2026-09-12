@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "S17_temp_shift_mutation"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-09-07T18:30:00+08:00",
+  "previous": "release-011",
+  "token": "pharmacist-western-release-012-20260824-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "msg_temp_shift",
+        "subject": "September temporary night-shift adjustment",
+        "from_addr": "manager@anmin.example",
+        "to_addr_json": "[\"zhou.yun@example.test\"]",
+        "date": "2026-09-06T18:10:00+08:00",
+        "body_text": "A night shift is added on September 8 and closes at 22:00. Rest on the morning of September 9; do not schedule a shift. Adjust other plans yourself.",
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "created_at": "2026-09-06T18:10:00+08:00"
+      },
+      "source_event_id": "S17_temp_shift_mutation"
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 220,
+        "unread_count": 55
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "S17_temp_shift_mutation"
+    }
+  ]
+}

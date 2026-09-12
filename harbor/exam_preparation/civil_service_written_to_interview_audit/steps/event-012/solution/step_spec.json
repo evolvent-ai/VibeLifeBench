@@ -1,0 +1,11 @@
+{
+  "step": "event-012",
+  "stage": 12,
+  "event_id": "evt_012_scheduled_ticket",
+  "source_event_id": "evt_012_scheduled_ticket",
+  "actions": [{"kind": "record_event", "stage": 12}],
+  "response_paraphrase": "The scheduled ticket check confirms the exam site and preserves a practical checklist.",
+  "expected_env": {"virtual_stage": 12, "workspace": "/workspace", "preceding_releases": [], "released_mutations": [], "stage_boundary": true},
+  "expected_checks": [{"check_id": "stage_12_scheduled_ticket_recheck", "weight": 1.5}],
+  "expected_stage_weight": 1.5
+}

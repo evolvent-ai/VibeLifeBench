@@ -1,0 +1,1 @@
+The project manager says that the basement and tower-crane milestones will overlap in mid to late July. Please check whether they conflict with my study, registration, or examination schedule, while preserving the priority of site safety and project responsibilities.

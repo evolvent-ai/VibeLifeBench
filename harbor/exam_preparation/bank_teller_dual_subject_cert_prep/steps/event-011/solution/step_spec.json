@@ -1,0 +1,21 @@
+{
+  "step": "event-011",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "evt_011_fee_auth",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "已从备考账户一次支付获明确授权的244元官方双科考试费并记录。",
+  "response_paraphrase": "工作流已从备考账户一次支付获明确授权的244元官方双科考试费并记录。",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_011_fee_auth"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

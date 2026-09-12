@@ -1,0 +1,27 @@
+{
+  "step": "event-007",
+  "stage": 7,
+  "virtual_stage": 7,
+  "source_event_id": "evt_007_scheduled_equipment",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The scheduled equipment review refreshed shipment tracking and the calendar, with the backup plan retained.",
+  "response_paraphrase": "I revisited delivery status and the equipment reminder, keeping the contingency option available.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_007_scheduled_equipment"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s07_scheduled_equipment_check",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

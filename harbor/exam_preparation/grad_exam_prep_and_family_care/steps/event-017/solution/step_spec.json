@@ -1,0 +1,29 @@
+{
+  "step": "event-017",
+  "virtual_stage": 16,
+  "source_event_id": "evt_021_seat_email",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Exam logistics recorded: Math I is in room A2-031 at Pudong Graduate Admissions Test Center. Bring the admission ticket, identity card, 2B pencils, and black-ink pens, and arrive 45 minutes early.",
+  "response_paraphrase": "The completed stage is reflected in backend records and durable notes with the study, care, authorization, and monitoring boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_021_seat_email",
+      "virtual_stage": 16,
+      "event_kind": "notification",
+      "event_time": "2026-12-15T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r28_exam_seat_update",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 2
+}
