@@ -1,0 +1,1 @@
+The dairy shipment had a temperature-control anomaly when it reached the store. We took photographs that day and raised the issue with the sales representative. Handle this shipment separately and reconcile its logistics temperature records, inspection materials, and communication timeline. Do not mix it into the ordinary price discrepancy.

@@ -1,0 +1,36 @@
+{
+  "step": "event-013",
+  "stage": 13,
+  "virtual_stage": 13,
+  "source_event_id": "evt_s13_lab_recheck",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": [
+      "mut_s13_supplement_lab"
+    ]
+  },
+  "response": "I linked the supplemental Kunlun page to the original lots and expanded the redaction log for telephone, lot, and signature data.",
+  "response_paraphrase": "The added laboratory sheet is cross-referenced to the earlier report and its personal identifiers are queued for masking.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s13_lab_recheck"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_supplement_lab_redacted",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s13_privacy_log_documents",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

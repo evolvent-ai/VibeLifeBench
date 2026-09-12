@@ -1,0 +1,38 @@
+{
+  "release_id": "release-005",
+  "source_stage": 11,
+  "source_time": "2026-04-11T08:50:00+08:00",
+  "source_event_ids": ["S11_mutation"],
+  "previous": "release-004",
+  "token": "estate-release-005-token-7f9a31c2d4e5",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "S11_mutation",
+      "values": {
+        "id": 9811,
+        "folder_id": 1,
+        "message_id": "<estate-live-9811@example.test>",
+        "subject": "Notary follow-up N-2022-0318",
+        "from_addr": "notary@example.com",
+        "to_addr_json": "[\"chenyu@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-04-11T08:30:00+08:00",
+        "body_text": "Notary follow-up: N-2022-0318 file contains identity check, signature, interview video, and no revocation filed at the notary office. Notary cannot confirm later private handwritten papers.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9811,
+        "size": 1600,
+        "created_at": "2026-04-11T00:30:00Z"
+      }
+    }
+  ]
+}

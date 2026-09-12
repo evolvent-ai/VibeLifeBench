@@ -1,0 +1,21 @@
+{
+  "release_id": "release-008",
+  "previous": "release-007",
+  "token": "litigation-han-yushan-57-release-008-token",
+  "operations": [
+    {
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_kangyuan_scope_0826",
+        "merchant_id": "mer_home_kangyuan_025",
+        "user_id": "usr_case_assistant",
+        "question": "case materialcause of water leakappraisal opinion？",
+        "answer": "case materialprimarily provides repair surveys and leak-detection plans，does not promise to issue an appraisal opinion。",
+        "answered_by": "merchant",
+        "created_at": "2026-08-26T08:15:00Z"
+      },
+      "server": "review_platform"
+    }
+  ]
+}

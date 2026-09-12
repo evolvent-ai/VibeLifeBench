@@ -1,0 +1,36 @@
+{
+  "step": "event-005",
+  "virtual_stage": 4,
+  "source_event_id": "evt_s4_card_noise_notice",
+  "event_id": "evt_s4_card_noise_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "response": "The course charge and installment account were reconciled using read-only card records.",
+  "response_paraphrase": "The stage 4 review is documented, with unresolved commitments still waiting for confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s4_card_noise_notice",
+      "event_kind": "notification",
+      "event_time": "2026-07-04T18:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s4_card_payment_baseline",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s4_no_credit_card_write",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

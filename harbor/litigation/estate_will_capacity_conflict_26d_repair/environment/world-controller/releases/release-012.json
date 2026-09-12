@@ -1,0 +1,38 @@
+{
+  "release_id": "release-012",
+  "source_stage": 21,
+  "source_time": "2026-04-21T08:50:00+08:00",
+  "source_event_ids": ["S21_mutation"],
+  "previous": "release-011",
+  "token": "estate-release-012-token-7f9a31c2d4e5",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "S21_mutation",
+      "values": {
+        "id": 9821,
+        "folder_id": 1,
+        "message_id": "<estate-live-9821@example.test>",
+        "subject": "Registry notation response",
+        "from_addr": "registry@example.com",
+        "to_addr_json": "[\"chenyu@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-04-21T08:30:00+08:00",
+        "body_text": "Registry response: transfer remains registered to Chen Jun, but dispute notation will be accepted with court case acceptance notice or preservation ruling; private family letter alone is insufficient.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9821,
+        "size": 1600,
+        "created_at": "2026-04-21T00:30:00Z"
+      }
+    }
+  ]
+}

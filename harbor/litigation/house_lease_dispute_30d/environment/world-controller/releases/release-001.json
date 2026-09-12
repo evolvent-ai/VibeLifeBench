@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "D5_filing_reminder_mut"
+  ],
+  "source_stage": 5,
+  "source_time": "2026-05-24T09:55:00+08:00",
+  "previous": "release-000",
+  "token": "house_lease_dispute_30d-release-01-token-abcdef1234567890",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_case_0505",
+        "user_id": "usr_chen_yue",
+        "source": "case_scheduler",
+        "type": "reminder",
+        "subscription_id": "sub_000002",
+        "title": "case filingmaterialsverifyreminder",
+        "body": "pleaseverifycomplaintcase record、case recordmaterials、lease contract、security depositandcase recordreceipt、renovationevidence、case record、servedaddress，andcase recordclaimscase recordcasecase acceptance fee。case recordmaterialsshouldcase record，case recordChen Yueconfirm。",
+        "payload_json": "{\"case\":\"Chen Yuecase recordWang Jianguoresidential lease contract dispute\",\"action\":\"filing_checklist\"}",
+        "created_at": "2026-05-24T09:55:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "D5_filing_reminder_mut",
+      "operation_index": 0
+    }
+  ]
+}

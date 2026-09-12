@@ -1,0 +1,39 @@
+{
+  "step": "event-023",
+  "virtual_stage": 19,
+  "source_event_id": "evt_s19_reserved_state_notice",
+  "event_id": "evt_s19_reserved_state_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "response": "The academy reservation is recorded as unilateral and not accepted by the user.",
+  "response_paraphrase": "The stage 19 review is documented, with unresolved commitments still waiting for confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s19_reserved_state_notice",
+      "event_kind": "notification",
+      "event_time": "2026-08-01T10:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ],
+    "released_mutations": [
+      "mut_s10_refund_rejected",
+      "mut_s11_coupon_offer_email",
+      "mut_s14_installment_statement"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s19_reserved_offer_remains_unaccepted",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

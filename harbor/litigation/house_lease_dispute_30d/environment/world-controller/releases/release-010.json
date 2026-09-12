@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "D15_hearing_record_mut"
+  ],
+  "source_stage": 15,
+  "source_time": "2026-06-10T07:50:00+08:00",
+  "previous": "release-009",
+  "token": "house_lease_dispute_30d-release-10-token-abcdef1234567890",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_case_1515",
+        "user_id": "usr_chen_yue",
+        "source": "gov_policy",
+        "type": "case_update",
+        "subscription_id": "sub_000002",
+        "title": "【hearing record】case recordsummary",
+        "body": "case record。case record：lease contractcannocase recordvacate the propertycounterclaim、tenant's right of first refusalcase recordafterofcase record、security depositreturn、renovationcase recordamountandcase recordshouldevidence。casewilljudgment will be announced on a later date。 The announced issues are recorded in the hearing record.",
+        "payload_json": "{\"case_number\":\"(2026)case record0112case record18426No.\",\"action\":\"hearing_record\",\"status\":\"awaiting_judgment\"}",
+        "created_at": "2026-06-10T07:50:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "D15_hearing_record_mut",
+      "operation_index": 0
+    }
+  ]
+}

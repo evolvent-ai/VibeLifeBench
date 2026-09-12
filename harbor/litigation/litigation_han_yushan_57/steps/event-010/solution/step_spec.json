@@ -1,0 +1,29 @@
+{
+  "step": "event-010",
+  "virtual_stage": 8,
+  "source_event_id": "evt_s8_mediation_route_tick",
+  "stage_boundary": true,
+  "response": "The pre-litigation mediation route, its evidence notes, and an internal pending calendar item were recorded.",
+  "response_paraphrase": "Mediation preparation and its follow-on contingency route are documented without external submission.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s8_mediation_route_tick"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s8_mediation_route_notes_saved",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s8_mediation_calendar_pending",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

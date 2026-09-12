@@ -1,0 +1,35 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-027",
+  "stage": 20,
+  "virtual_stage": 20,
+  "event_id": "s20_archive",
+  "source_event_id": "s20_archive",
+  "response": "The case archive now indexes the evidence, testing report, order, medical records, first-instance judgment, and appeal; remaining second-instance defense deadlines stay on the calendar.",
+  "response_paraphrase": "The archive indexes the core evidence, inspection report, order, medical records, judgment, and appeal while retaining open second-instance deadlines.",
+  "expected_env": {
+    "virtual_stage": 20,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s20_persisted_case_archive",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s20_remaining_deadlines_tracked",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 1.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s20_archive",
+      "stage": 20
+    }
+  ]
+}

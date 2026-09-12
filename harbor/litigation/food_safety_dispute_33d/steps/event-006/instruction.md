@@ -1,0 +1,1 @@
+The Pudong District People's Court advises consumers in online food-safety disputes to preserve the food in its original condition where possible, along with the order and payment records, product-page screenshots, customer-service chats, and unboxing video. Whether food meets safety standards is a technical issue, so a qualified food-inspection agency may be needed.

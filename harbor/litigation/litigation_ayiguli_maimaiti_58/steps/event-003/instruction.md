@@ -1,0 +1,1 @@
+The supplier has sent scanned copies of the contract, invoices, and account statement. Invoice numbers and store information require redaction. First create a version directory, and keep the supplier's claims separate from our reconciliation findings.

@@ -1,0 +1,33 @@
+{
+  "step": "event-027",
+  "virtual_stage": 22,
+  "source_event_id": "evt_s22_candidate_matrix_tick",
+  "stage_boundary": true,
+  "response": "The candidate scope Q&A was checked and the repair-survey-only institution was reclassified accordingly.",
+  "response_paraphrase": "The institution's own scope response now separates repair surveying from an appraisal opinion.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s22_candidate_matrix_tick"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "release-008"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s22_candidate_scope_qa_detected",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s22_candidate_scope_reclassified",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

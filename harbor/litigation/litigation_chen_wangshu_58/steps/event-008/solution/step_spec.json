@@ -1,0 +1,36 @@
+{
+  "step": "event-008",
+  "virtual_stage": 7,
+  "source_event_id": "evt_s7_legal_baseline",
+  "event_id": "evt_s7_legal_baseline",
+  "stage_boundary": true,
+  "synthetic": false,
+  "response": "The relevant consumer-contract case was saved as research material without legal advice.",
+  "response_paraphrase": "The stage 7 review is documented, with unresolved commitments still waiting for confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s7_legal_baseline",
+      "event_kind": "notification",
+      "event_time": "2026-07-08T09:40:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s7_legal_format_notes_saved",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s7_legal_route_note_json",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

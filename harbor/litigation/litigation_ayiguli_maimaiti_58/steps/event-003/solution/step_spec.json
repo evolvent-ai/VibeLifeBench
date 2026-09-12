@@ -1,0 +1,36 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "virtual_stage": 3,
+  "source_event_id": "evt_s3_supplier_docs",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "mut_s3_supplier_documents"
+    ]
+  },
+  "response": "I indexed the supplier's contract, invoice, and first statement as source materials, separated the claimed figures from reconciliation findings, and recorded the required redactions.",
+  "response_paraphrase": "The supplier documents were versioned and privacy-marked, with allegations kept distinct from the store's own review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s3_supplier_docs"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_invoice_pack_redacted",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_invoice_dispute_amount",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

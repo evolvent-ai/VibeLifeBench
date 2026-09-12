@@ -1,0 +1,36 @@
+{
+  "step": "event-011",
+  "stage": 11,
+  "virtual_stage": 11,
+  "source_event_id": "evt_s11_logistics_watch",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "mut_s11_delivery_status"
+    ]
+  },
+  "response": "I refreshed the beverage shipment, recorded the shortage and signatory mismatch, and opened a missing-item evidence-continuity issue.",
+  "response_paraphrase": "The latest carrier state and quantity mismatch were preserved, and a support record now maintains the shortage trail.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s11_logistics_watch"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_delivery_mutation_detected",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s11_delivery_issue_created",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

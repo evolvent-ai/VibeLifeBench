@@ -1,0 +1,1 @@
+I remember making another payment in mid-July that appears to be missing from the supplier's statement. Verify the transaction date, amount, counterparty, and description from the account records, then list it as a discrepancy pending reconciliation. Do not use it to confirm any remaining debt on my behalf.

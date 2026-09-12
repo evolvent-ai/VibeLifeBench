@@ -1,0 +1,31 @@
+{
+ "step": "event-007",
+ "stage": 5,
+ "event_id": "s5_filing_prep",
+ "response_paraphrase": "The official filing checklist and tiered litigation-fee rule are recorded, with no filing performed. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s5_filing_checklist",
+   "weight": 0.5
+  },
+  {
+   "check_id": "d_litigation_fee_tiered",
+   "weight": 1
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s5_filing_prep"
+  }
+ ],
+ "source_event_id": "s5_filing_prep"
+}

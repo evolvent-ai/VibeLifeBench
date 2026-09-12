@@ -1,0 +1,31 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-007",
+  "stage": 4,
+  "virtual_stage": 4,
+  "event_id": "s4_evidence",
+  "source_event_id": "s4_evidence",
+  "response": "I organized the evidence chain: keep each food in original condition, seal the physical samples, and retain the order, payment record, product page, unboxing video, and medical receipts for testing and filing.",
+  "response_paraphrase": "The evidence list keeps the foods sealed and preserves the order, payment, page, video, and medical records for later use.",
+  "expected_env": {
+    "virtual_stage": 4,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "d_preserve_evidence_safety",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s4_evidence",
+      "stage": 4
+    }
+  ]
+}

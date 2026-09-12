@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003-mut_s19_coupon_reserved",
+  "source_event_ids": [
+    "mut_s19_coupon_reserved"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-08-01T10:20:00+08:00",
+  "previous": "release-002-mut_s14_installment_statement",
+  "token": "litigation-chen-wangshu-58-release-003",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "退款审核仍为拒绝；平台单方保留学习权益方案；未见用户领取、兑换或接受；现金退款争议未解决"
+      },
+      "where": {
+        "order_id": "ord_xq_course_0701"
+      }
+    }
+  ]
+}

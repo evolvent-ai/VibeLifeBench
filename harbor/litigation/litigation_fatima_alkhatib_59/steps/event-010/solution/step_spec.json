@@ -1,0 +1,33 @@
+{
+  "step": "event-010",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "evt_s10_return_stalled",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The returned sample shipment was rechecked and follow-up monitoring was recorded.",
+  "response_paraphrase": "Return tracking was checked again and a status subscription or issue follow-up was preserved.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_s10_return_stalled",
+      "stage": 10
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_return_shipment_tracked",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_return_issue_or_subscription",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

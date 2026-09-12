@@ -1,0 +1,33 @@
+{
+  "step": "event-009",
+  "virtual_stage": 7,
+  "source_event_id": "evt_s7_property_email_notice",
+  "stage_boundary": true,
+  "response": "The property contract packet was indexed as sensitive and the property-management role was added.",
+  "response_paraphrase": "Internal indexing now covers the sensitive contract materials and the property-management lead.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s7_property_email_notice"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-002"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s7_property_contract_indexed_sensitive",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s7_property_role_added",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

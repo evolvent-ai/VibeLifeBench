@@ -1,0 +1,35 @@
+{
+  "step": "event-013",
+  "virtual_stage": 11,
+  "source_event_id": "evt_s11_coupon_offer_notice",
+  "event_id": "evt_s11_coupon_offer_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "response": "The 8000 CNY training-benefit offer was recorded without user acceptance.",
+  "response_paraphrase": "The stage 11 review is documented, with unresolved commitments still waiting for confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s11_coupon_offer_notice",
+      "event_kind": "notification",
+      "event_time": "2026-07-16T10:05:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "mut_s10_refund_rejected"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s11_learning_offer_indexed_without_acceptance",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

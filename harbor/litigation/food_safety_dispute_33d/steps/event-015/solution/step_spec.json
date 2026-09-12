@@ -1,0 +1,35 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-015",
+  "stage": 10,
+  "virtual_stage": 10,
+  "event_id": "s10_heartbeat",
+  "source_event_id": "s10_heartbeat",
+  "response": "The served defense is logged, and the follow-up plan separates points to accept, rebut, or support with additional evidence and cross-examination.",
+  "response_paraphrase": "The served defense is recorded with a follow-up split between accepted points, rebuttal, and supporting material.",
+  "expected_env": {
+    "virtual_stage": 10,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "release-006"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s10_defense_notice_and_followup",
+      "weight": 0.75
+    }
+  ],
+  "expected_stage_weight": 0.75,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s10_heartbeat",
+      "stage": 10
+    }
+  ]
+}

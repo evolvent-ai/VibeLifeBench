@@ -1,0 +1,1 @@
+The supplier's reconciliation materials show signs of revision. Read the latest attachment again and compare it item by item with the earlier version and the completed payments in the business account.

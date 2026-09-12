@@ -1,0 +1,1 @@
+Different versions of the invoice summary and the supplier's account statement exist for the same shipment. Verify price differences, duplicate lines, payment attribution, and version dates. Produce only a dispute explanation, not a payment plan.

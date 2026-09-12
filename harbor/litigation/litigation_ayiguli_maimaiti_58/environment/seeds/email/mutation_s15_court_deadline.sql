@@ -1,0 +1,3 @@
+INSERT OR IGNORE INTO messages (id,folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,headers_json,uid,size,created_at)
+VALUES (9003,1,'email_court_deadline_0808','evidence record：evidence record','court-clerk@example.invalid','["aygul.store@example.invalid"]','[]','[]','2026-08-08T08:15:00+08:00','evidence record、evidence record。evidence record，evidence record。',NULL,0,1,1,'{"source":"court_procedure_notice"}',9003,176,'2026-08-08T08:15:00+08:00');
+UPDATE folders SET message_count=(SELECT COUNT(*) FROM messages WHERE folder_id=folders.id), unread_count=(SELECT COUNT(*) FROM messages WHERE folder_id=folders.id AND is_read=0);

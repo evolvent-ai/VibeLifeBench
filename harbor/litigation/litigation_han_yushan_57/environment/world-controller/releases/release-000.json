@@ -1,0 +1,46 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "token": "litigation-han-yushan-57-release-000-token",
+  "operations": [
+    {
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 30,
+        "folder_id": 1,
+        "message_id": "email_client_packet_0707",
+        "subject": "Mia Qiao：water leakphotographs、repaircommunicationscase materialloss schedule",
+        "from_addr": "client.qiao@example.invalid",
+        "to_addr_json": "[\"han.yushan@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-07T08:18:00+08:00",
+        "body_text": "material packetcase material、case material、case materialphotographsstatement，case materialrepaircommunicationscase materialloss schedule。attachmentcase materialoriginal photo filenamescase materialneighborunit number，needsredaction。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{}",
+        "uid": 5030,
+        "size": 183,
+        "created_at": "2026-07-07T08:18:00+08:00"
+      },
+      "server": "email"
+    },
+    {
+      "table": "attachments",
+      "op": "insert",
+      "values": {
+        "id": 330,
+        "message_id": 30,
+        "filename": "client_packet_index.txt",
+        "content_type": "text/plain",
+        "size": 93,
+        "content_b64": "54Wn54mH57uE44CB57u05L+u5rKf6YCa44CB5o2f5aSx6KGo44CC5ZCr5Liq5Lq65L+h5oGv5ZKM57K+56Gu6Zeo54mM77yM5LuF5L6b5YaF6YOo57Si5byV44CC",
+        "content_id": "cid_330"
+      },
+      "server": "email"
+    }
+  ]
+}

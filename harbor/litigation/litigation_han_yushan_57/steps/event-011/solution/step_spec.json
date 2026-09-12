@@ -1,0 +1,33 @@
+{
+  "step": "event-011",
+  "virtual_stage": 9,
+  "source_event_id": "evt_s9_upstairs_defense_notice",
+  "stage_boundary": true,
+  "response": "The upstairs occupant's competing defenses were indexed and preserved with evidence questions.",
+  "response_paraphrase": "Both the opposing explanations and the client's loss material remain versioned for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s9_upstairs_defense_notice"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-003"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s9_upstairs_defense_indexed",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s9_defense_preserved_not_erased",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

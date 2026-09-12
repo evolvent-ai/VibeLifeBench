@@ -1,0 +1,61 @@
+{
+  "release_id": "release-009",
+  "previous": "release-008",
+  "token": "litigation-ayiguli-009-token-9f2e7a6c4b8d1e0f",
+  "source_stage": 13,
+  "source_time": "2026-08-02T08:30:00+08:00",
+  "source_event_ids": ["mut_s13_supplement_lab"],
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9002,
+        "folder_id": 1,
+        "message_id": "email_lab_report_supp_0802",
+        "subject": "\u6606\u4ed1\u8d28\u68c0\uff1a\u8865\u53d1\u6279\u6b21\u68c0\u9a8c\u62a5\u544a\u9644\u9875",
+        "from_addr": "lab@kunlun-qc.example",
+        "to_addr_json": "[\"aygul.store@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-02T08:40:00+08:00",
+        "body_text": "\u8865\u53d1\u9644\u9875\u5206\u522b\u5bf9\u5e94\u575a\u679c\u6279\u6b21 NT-0712 \u548c\u4e73\u5236\u54c1\u6279\u6b21 ML-0705\uff1b\u539f\u4ef6\u542b\u59d4\u6258\u4eba\u7535\u8bdd\u3001\u5b8c\u6574\u6279\u53f7\u4e0e\u6837\u54c1\u4ea4\u63a5\u7b7e\u540d\uff0c\u5916\u90e8\u4f7f\u7528\u524d\u9700\u6700\u5c0f\u5316\u5904\u7406\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{\"source\":\"lab_supplement\"}",
+        "uid": 9002,
+        "size": 196,
+        "created_at": "2026-08-02T08:40:00+08:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "attachments",
+      "op": "insert",
+      "values": {
+        "id": 9102,
+        "message_id": 9002,
+        "filename": "lab_supplement_full.txt",
+        "content_type": "text/plain",
+        "size": 180,
+        "content_b64": "TlQtMDcxMiDljp/ku7Yg5ZCr5a6i5oi357S755S1IDM5MDAwMDExMTE7IE1MLTA3MDUg5rip5o6n5byC5bi4OyBzbmFwc2hvdCBvbmx5Lg==",
+        "content_id": "cid_9102"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 215,
+        "unread_count": 209
+      },
+      "where": {
+        "id": 1
+      }
+    }
+  ]
+}

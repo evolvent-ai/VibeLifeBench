@@ -1,0 +1,32 @@
+{
+  "step": "event-018",
+  "stage": 17,
+  "virtual_stage": 17,
+  "source_event_id": "evt_s17_return_damage_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "mut_s17_return_damage"
+    ]
+  },
+  "response": "The returned sample damage and resulting evidence gap were recorded.",
+  "response_paraphrase": "The return package exception and possible sample-integrity gap are captured for review.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_s17_return_damage_notice",
+      "stage": 17
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_return_sample_damage_logged",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

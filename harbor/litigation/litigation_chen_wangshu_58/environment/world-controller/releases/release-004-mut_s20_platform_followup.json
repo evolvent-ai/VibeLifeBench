@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004-mut_s20_platform_followup",
+  "source_event_ids": [
+    "mut_s20_platform_followup_email"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-08-03T09:30:00+08:00",
+  "previous": "release-003-mut_s19_coupon_reserved",
+  "token": "litigation-chen-wangshu-58-release-004",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<refund-followup-20260803@xingqiao.example>",
+        "subject": "Learning-benefit offer reservation reminder",
+        "from_addr": "refund@xingqiao.example",
+        "to_addr_json": "[\"chen.wangshu@example.test\"]",
+        "date": "2026-08-03T09:30:00+08:00",
+        "body_text": "Customer service says the learning-benefit offer is reserved, but there is no record of user claiming, redeeming, or accepting it. The cash-refund dispute remains unresolved.",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 190,
+        "created_at": "2026-08-03T09:30:00+08:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {"message_count": 202, "unread_count": 202},
+      "where": {"id": 1}
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {"message_count": 0, "unread_count": 0},
+      "where": {"id": 2}
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {"message_count": 0, "unread_count": 0},
+      "where": {"id": 3}
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {"message_count": 0, "unread_count": 0},
+      "where": {"id": 4}
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {"message_count": 24, "unread_count": 24},
+      "where": {"id": 5}
+      }
+  ]
+}

@@ -1,0 +1,1 @@
+The case is accepted. Please put all key deadlines into my calendar with reminders so I do not miss them. Also explain how to request food testing, who pays first, and how important the report is to deciding whether the tea contains unlawful additives and whether the formula label complies.

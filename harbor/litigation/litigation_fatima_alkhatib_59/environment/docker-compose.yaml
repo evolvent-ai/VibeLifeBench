@@ -1,0 +1,90 @@
+services:
+  main:
+    build: {context: ., dockerfile: Dockerfile}
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      world-controller: {condition: service_healthy}
+      delivery-logistics: {condition: service_healthy}
+      ecommerce: {condition: service_healthy}
+      email: {condition: service_healthy}
+      legal-search: {condition: service_healthy}
+      notion: {condition: service_healthy}
+    volumes: [workspace-state:/workspace, eval-evidence:/harbor/evidence:ro, world-clock:/world-clock:ro, agent-logs:/logs/agent]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: "1"
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,delivery-logistics,ecommerce,email,legal-search,notion
+      no_proxy: localhost,127.0.0.1,::1,world-controller,delivery-logistics,ecommerce,email,legal-search,notion
+  workspace-init:
+    build: {context: ., dockerfile: workspace-init/Dockerfile}
+    volumes: [workspace-state:/target]
+    restart: "no"
+  delivery-logistics:
+    build: {context: ./servers/delivery_logistics_mock}
+    volumes: [./seeds/delivery_logistics:/env-seed:ro, delivery-logistics-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json, WORLD_CLOCK_REQUIRED: "1"}
+    healthcheck: &health {test: [CMD, python, -c, "import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()"], interval: 2s, timeout: 5s, retries: 30, start_period: 3s}
+  ecommerce:
+    build: {context: ./servers/ecommerce_mock}
+    volumes: [./seeds/ecommerce:/env-seed:ro, ecommerce-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json, WORLD_CLOCK_REQUIRED: "1"}
+    healthcheck: *health
+  email:
+    build: {context: ./servers/email_mock}
+    volumes: [./seeds/email:/env-seed:ro, email-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json, WORLD_CLOCK_REQUIRED: "1"}
+    healthcheck: *health
+  legal-search:
+    build: {context: ./servers/legal_search_mock}
+    volumes: [./seeds/legal_search:/env-seed:ro, legal-search-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json, WORLD_CLOCK_REQUIRED: "1"}
+    healthcheck: *health
+  notion:
+    build: {context: ./servers/notion_mock}
+    volumes: [./seeds/notion:/env-seed:ro, notion-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json, WORLD_CLOCK_REQUIRED: "1"}
+    healthcheck: *health
+  world-controller:
+    build: {context: ., dockerfile: world-controller/Dockerfile}
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      delivery-logistics: {condition: service_healthy}
+      ecommerce: {condition: service_healthy}
+      email: {condition: service_healthy}
+      legal-search: {condition: service_healthy}
+      notion: {condition: service_healthy}
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: "1"
+      CLOCK_TOKEN: litigation-fatima-alkhatib-59-clock-v1
+      HEALTH_TOKEN: litigation-fatima-alkhatib-59-health-v1
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,delivery-logistics,ecommerce,email,legal-search,notion
+      no_proxy: localhost,127.0.0.1,::1,world-controller,delivery-logistics,ecommerce,email,legal-search,notion
+    volumes:
+      - delivery-logistics-env:/delivery-logistics-env
+      - ecommerce-env:/ecommerce-env
+      - email-env:/email-env
+      - legal-search-env:/legal-search-env
+      - notion-env:/notion-env
+      - controller-state:/controller-state
+      - workspace-state:/workspace-source:ro
+      - eval-evidence:/evidence
+      - world-clock:/world-clock
+    expose: ["8090"]
+    healthcheck: {test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health', timeout=2).read()"], interval: 2s, timeout: 5s, retries: 30, start_period: 3s}
+volumes:
+  workspace-state: {}
+  eval-evidence: {}
+  world-clock: {}
+  controller-state: {}
+  agent-logs: {}
+  delivery-logistics-env: {}
+  ecommerce-env: {}
+  email-env: {}
+  legal-search-env: {}
+  notion-env: {}

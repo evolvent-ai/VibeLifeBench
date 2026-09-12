@@ -1,0 +1,37 @@
+{
+  "release_id": "release-005",
+  "previous": "release-004",
+  "source_stage": 19,
+  "source_time": "2026-08-14T08:30:00+08:00",
+  "source_event_ids": ["mut_s19_platform_scope_mail"],
+  "token": "litigation-fatima-release-005-token-abcdef123456",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 303,
+        "folder_id": 1,
+        "message_id": "<msg-fatima-0303@mock>",
+        "subject": "Platform safety team: potential scope update",
+        "from_addr": "safety@platform.example.invalid",
+        "to_addr_json": "[\"fatima.noor@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-14T08:30:00+08:00",
+        "body_text": "The platform safety team reports an update to the potential recall scope. The seller should review the backend and prepare an internal notice draft; confirmation is required before sending.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 303,
+        "size": 45,
+        "created_at": "2026-08-14T08:30:00+08:00"
+      }
+    }
+  ]
+}

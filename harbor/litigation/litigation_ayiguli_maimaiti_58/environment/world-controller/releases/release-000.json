@@ -1,0 +1,61 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "token": "litigation-ayiguli-000-token-9f2e7a6c4b8d1e0f",
+  "source_stage": 2,
+  "source_time": "2026-07-03T10:00:00+08:00",
+  "source_event_ids": ["mut_s2_court_claim"],
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 8001,
+        "folder_id": 1,
+        "message_id": "msg_court_claim_0703",
+        "subject": "\u4ea4\u6cb3\u57fa\u5c42\u6cd5\u9662\uff1a\u4f9b\u8d27\u5408\u540c\u7ea0\u7eb7\u7b80\u6613\u7a0b\u5e8f\u6750\u6599\u5305",
+        "from_addr": "court-clerk@example.invalid",
+        "to_addr_json": "[\"aygul.store@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-03T09:20:00+08:00",
+        "body_text": "\u968f\u9644\u8d77\u8bc9\u72b6\u526f\u672c\u3001\u4e3e\u8bc1\u901a\u77e5\u548c\u7b80\u6613\u7a0b\u5e8f\u63d0\u793a\u3002\u6750\u6599\u5217\u6709\u6848\u53f7\uff082026\uff09\u4ea4\u6c11\u521d1842\u53f7\u3001\u95e8\u5e97\u5730\u5740\u4ee5\u53ca\u4f9b\u5e94\u5546\u4e3b\u5f20\u91d1\u989d\uff1b\u8bf7\u5f53\u4e8b\u4eba\u81ea\u884c\u6838\u5bf9\u9001\u8fbe\u5185\u5bb9\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{\"source\":\"court_service\"}",
+        "uid": 8001,
+        "size": 78,
+        "created_at": "2026-07-03T09:20:00+08:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "attachments",
+      "op": "insert",
+      "values": {
+        "id": 8101,
+        "message_id": 8001,
+        "filename": "court_claim_packet.txt",
+        "content_type": "text/plain",
+        "size": 140,
+        "content_b64": "5qGI55Sx77ya5L6b6LSn5ZCI5ZCM57qg57q344CC5Y6f5ZGK5Li75byg6LSn5qy+5pys6YeRIDY2ODQwLjAwIOWFg+WPiui/nee6pumHkSA0NjAwLjAwIOWFg++8jOWQiOiuoSA3MTQ0MC4wMCDlhYPjgILnqIvluo/vvJrnroDmmJPnqIvluo/jgII=",
+        "content_id": "cid_court_claim_0703"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 208,
+        "unread_count": 202
+      },
+      "where": {
+        "id": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "step": "event-006",
+  "stage": 6,
+  "virtual_stage": 6,
+  "source_event_id": "evt_s6_legal_route",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Ordinary civil procedure research was saved as preparatory material without a legal conclusion.",
+  "response_paraphrase": "Research on the ordinary route is retained for counsel and expressly stops short of advice.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_s6_legal_route",
+      "stage": 6
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_legal_route_saved",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s6_legal_route_json",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s6_no_legal_certainty",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

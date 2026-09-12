@@ -1,0 +1,35 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-000",
+  "stage": 0,
+  "virtual_stage": 0,
+  "event_id": "s0_kickoff",
+  "source_event_id": "s0_kickoff",
+  "response": "I opened a case journal separating the imported formula, wellness tea, payment record, and medical expense, while leaving Zhao Meng's decisions under her control.",
+  "response_paraphrase": "The case log now distinguishes the formula, tea, payment, and medical records and leaves Zhao Meng's choices to her.",
+  "expected_env": {
+    "virtual_stage": 0,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s0_grasps_facts",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 0.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s0_kickoff",
+      "stage": 0
+    }
+  ]
+}

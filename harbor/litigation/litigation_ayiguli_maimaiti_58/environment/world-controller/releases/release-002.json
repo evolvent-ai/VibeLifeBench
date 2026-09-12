@@ -1,0 +1,210 @@
+{
+  "release_id": "release-002",
+  "previous": "release-001",
+  "token": "litigation-ayiguli-002-token-9f2e7a6c4b8d1e0f",
+  "source_stage": 4,
+  "source_time": "2026-07-05T09:00:00+08:00",
+  "source_event_ids": ["mut_s4_delivery_baseline"],
+  "operations": [
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "insert",
+      "values": {
+        "shipment_id": "shp_b7ca8fd45e",
+        "user_id": "user_aygul_mamt",
+        "tracking_no": "DL-AXG-0705",
+        "carrier": "\u897f\u7ebf\u5feb\u8fd0",
+        "service_level": "cold_chain",
+        "status": "delivered",
+        "sender_json": "{\"name\":\"\u5929\u5c71\u79be\u6da6\u5546\u8d38\u6709\u9650\u516c\u53f8\u4e73\u54c1\u4ed3\",\"city\":\"\u4e4c\u9c81\u6728\u9f50\"}",
+        "recipient_json": "{\"name\":\"\u8461\u8404\u67b6\u793e\u533a\u5c0f\u5e97\",\"contact_role\":\"\u5e97\u4e3b\u672c\u4eba\",\"district\":\"\u65b0\u5e02\u533a\"}",
+        "weight_kg": 13.0,
+        "dimensions_json": "{}",
+        "declared_value_minor": 558000,
+        "fee_minor": 2860,
+        "created_at": "2026-06-05T08:20:00+08:00",
+        "eta_date": "2026-06-05",
+        "scheduled_pickup_at": null,
+        "updated_at": "2026-06-05T16:20:00+08:00",
+        "cancel_reason": null
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "insert",
+      "values": {
+        "shipment_id": "shp_aecf94bd71",
+        "user_id": "user_aygul_mamt",
+        "tracking_no": "DL-AXG-0712",
+        "carrier": "\u897f\u7ebf\u5feb\u8fd0",
+        "service_level": "next_day",
+        "status": "delivered",
+        "sender_json": "{\"name\":\"\u5929\u5c71\u79be\u6da6\u5546\u8d38\u6709\u9650\u516c\u53f8\u5e72\u679c\u4ed3\",\"city\":\"\u4e4c\u9c81\u6728\u9f50\"}",
+        "recipient_json": "{\"name\":\"\u8461\u8404\u67b6\u793e\u533a\u5c0f\u5e97\",\"contact_role\":\"\u4e34\u65f6\u5e97\u5458\",\"district\":\"\u65b0\u5e02\u533a\"}",
+        "weight_kg": 14.0,
+        "dimensions_json": "{}",
+        "declared_value_minor": 936000,
+        "fee_minor": 3740,
+        "created_at": "2026-06-12T09:10:00+08:00",
+        "eta_date": "2026-06-12",
+        "scheduled_pickup_at": null,
+        "updated_at": "2026-06-12T16:20:00+08:00",
+        "cancel_reason": null
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "insert",
+      "values": {
+        "shipment_id": "shp_f4d8be2ca9",
+        "user_id": "user_aygul_mamt",
+        "tracking_no": "DL-AXG-0720",
+        "carrier": "\u897f\u7ebf\u5feb\u8fd0",
+        "service_level": "economy",
+        "status": "delivered",
+        "sender_json": "{\"name\":\"\u5929\u5c71\u79be\u6da6\u5546\u8d38\u6709\u9650\u516c\u53f8\u996e\u6599\u4ed3\",\"city\":\"\u4e4c\u9c81\u6728\u9f50\"}",
+        "recipient_json": "{\"name\":\"\u8461\u8404\u67b6\u793e\u533a\u5c0f\u5e97\",\"contact_role\":\"\u5e97\u4e3b\u672c\u4eba\",\"district\":\"\u65b0\u5e02\u533a\"}",
+        "weight_kg": 15.0,
+        "dimensions_json": "{}",
+        "declared_value_minor": 384000,
+        "fee_minor": 3180,
+        "created_at": "2026-06-20T08:50:00+08:00",
+        "eta_date": "2026-06-20",
+        "scheduled_pickup_at": null,
+        "updated_at": "2026-06-20T16:20:00+08:00",
+        "cancel_reason": null
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "insert",
+      "values": {
+        "shipment_id": "shp_cabef75d4a",
+        "user_id": "user_aygul_mamt",
+        "tracking_no": "DL-AXG-0728",
+        "carrier": "\u897f\u7ebf\u5feb\u8fd0",
+        "service_level": "scheduled",
+        "status": "delivered",
+        "sender_json": "{\"name\":\"\u5929\u5c71\u79be\u6da6\u5546\u8d38\u6709\u9650\u516c\u53f8\u5e38\u6e29\u4ed3\",\"city\":\"\u4e4c\u9c81\u6728\u9f50\"}",
+        "recipient_json": "{\"name\":\"\u8461\u8404\u67b6\u793e\u533a\u5c0f\u5e97\",\"contact_role\":\"\u5e97\u4e3b\u672c\u4eba\",\"district\":\"\u65b0\u5e02\u533a\"}",
+        "weight_kg": 16.0,
+        "dimensions_json": "{}",
+        "declared_value_minor": 420000,
+        "fee_minor": 2920,
+        "created_at": "2026-06-28T11:20:00+08:00",
+        "eta_date": "2026-06-28",
+        "scheduled_pickup_at": null,
+        "updated_at": "2026-06-28T16:20:00+08:00",
+        "cancel_reason": null
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_milk_created_6fca",
+        "shipment_id": "shp_b7ca8fd45e",
+        "at": "2026-06-05T08:20:00+08:00",
+        "location": "\u5929\u5c71\u79be\u6da6\u4e73\u54c1\u4ed3",
+        "status_code": "created",
+        "description": "\u4e73\u5236\u54c1\u51b7\u94fe\u6279\u6b21 ML-0705 \u51fa\u5e93\uff0c\u88c5\u8f66\u6e29\u5ea6\u8bb0\u5f55\u4e3a 4.6\u2103"
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_milk_delivered_baec",
+        "shipment_id": "shp_b7ca8fd45e",
+        "at": "2026-06-05T16:20:00+08:00",
+        "location": "\u8461\u8404\u67b6\u793e\u533a\u5c0f\u5e97",
+        "status_code": "delivered",
+        "description": "\u5230\u5e97\u5916\u7bb1\u51dd\u6c34\uff0c\u6e29\u63a7\u8d34\u989c\u8272\u5f02\u5e38\uff1b\u95e8\u5e97\u5148\u9694\u79bb\u672a\u4e0a\u67b6\u5e76\u7559\u5b58\u7167\u7247"
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_nut_created_d4af",
+        "shipment_id": "shp_aecf94bd71",
+        "at": "2026-06-12T09:10:00+08:00",
+        "location": "\u5929\u5c71\u79be\u6da6\u5e72\u679c\u4ed3",
+        "status_code": "created",
+        "description": "\u575a\u679c\u6279\u6b21 NT-0712 \u6309\u5341\u7bb1\u51fa\u5e93\uff0c\u968f\u8f66\u5355\u8bb0\u8f7d\u62bd\u6837\u51c0\u91cd"
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_nut_delivered_ecab",
+        "shipment_id": "shp_aecf94bd71",
+        "at": "2026-06-12T16:20:00+08:00",
+        "location": "\u8461\u8404\u67b6\u793e\u533a\u5c0f\u5e97",
+        "status_code": "delivered",
+        "description": "\u4e34\u65f6\u5e97\u5458\u52aa\u5c14\u53e4\u4e3d\u4ee3\u6536\uff0c\u5916\u7bb1\u53d7\u6f6e\uff1b\u590d\u79f0\u548c\u5c01\u7b7e\u7167\u7247\u6b21\u65e5\u4e0a\u5348\u8865\u9f50"
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_drink_created_afce",
+        "shipment_id": "shp_f4d8be2ca9",
+        "at": "2026-06-20T08:50:00+08:00",
+        "location": "\u5929\u5c71\u79be\u6da6\u996e\u6599\u4ed3",
+        "status_code": "created",
+        "description": "\u996e\u6599\u6279\u6b21 DR-0720 \u4f9d\u51fa\u5e93\u5355\u88c5\u8f7d\u4e8c\u5341\u56db\u7bb1\uff0c\u53e6\u5e26\u7a7a\u7b50\u56de\u6536\u5355"
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_drink_delivered_cafe",
+        "shipment_id": "shp_f4d8be2ca9",
+        "at": "2026-06-20T16:20:00+08:00",
+        "location": "\u8461\u8404\u67b6\u793e\u533a\u5c0f\u5e97",
+        "status_code": "delivered",
+        "description": "\u521d\u59cb\u7535\u5b50\u8bb0\u5f55\u5199\u5e97\u4e3b\u672c\u4eba\u7b7e\u6536\uff0c\u7cfb\u7edf\u4ef6\u6570\u4e3a\u4e8c\u5341\u56db\u7bb1"
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_biscuit_created_bdfa",
+        "shipment_id": "shp_cabef75d4a",
+        "at": "2026-06-28T11:20:00+08:00",
+        "location": "\u5929\u5c71\u79be\u6da6\u5e38\u6e29\u4ed3",
+        "status_code": "created",
+        "description": "\u997c\u5e72\u6279\u6b21 SN-0728 \u51fa\u5e93\uff0c\u7bb1\u551b\u663e\u793a\u4e24\u4e2a\u4fdd\u8d28\u671f\u6279\u53f7"
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_biscuit_delivered_feca",
+        "shipment_id": "shp_cabef75d4a",
+        "at": "2026-06-28T16:20:00+08:00",
+        "location": "\u8461\u8404\u67b6\u793e\u533a\u5c0f\u5e97",
+        "status_code": "delivered",
+        "description": "\u95e8\u5e97\u53d1\u73b0\u90e8\u5206\u7bb1\u5269\u4f59\u4fdd\u8d28\u671f\u4e0d\u8db3\u91c7\u8d2d\u7ea6\u5b9a\uff0c\u7b7e\u6536\u5907\u6ce8\u4fdd\u7559\u6298\u4ef7\u590d\u6838"
+      }
+    }
+  ]
+}

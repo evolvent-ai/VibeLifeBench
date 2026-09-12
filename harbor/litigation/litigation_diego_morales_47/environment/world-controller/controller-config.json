@@ -1,0 +1,7 @@
+{
+  "task": "litigation_diego_morales_47",
+  "step_count": 37,
+  "clock_file": "/world-clock/current.json",
+  "clock_schema": {"world_now": "ISO-8601 timestamp with timezone"},
+  "servers": ["delivery_logistics", "email", "legal_search", "maps", "notion"]
+}

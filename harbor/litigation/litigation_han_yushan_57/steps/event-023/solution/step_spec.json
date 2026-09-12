@@ -1,0 +1,25 @@
+{
+  "step": "event-023",
+  "virtual_stage": 19,
+  "source_event_id": "evt_s19_candidate_followup_tick",
+  "stage_boundary": true,
+  "response": "Candidate reviews, questions, and qualification follow-up were reconciled and the matrix was refreshed.",
+  "response_paraphrase": "The candidate comparison has been revisited with current reputation and qualification evidence.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s19_candidate_followup_tick"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s19_candidate_followup_refreshed",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

@@ -1,0 +1,36 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "evt_s1_initial_digest",
+  "event_id": "evt_s1_initial_digest",
+  "stage_boundary": true,
+  "synthetic": false,
+  "response": "All five evidence services were checked and the Course Refund Control page was created.",
+  "response_paraphrase": "The stage 1 review is documented, with unresolved commitments still waiting for confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s1_initial_digest",
+      "event_kind": "notification",
+      "event_time": "2026-07-02T15:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s1_all_required_servers_touched",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s1_notion_control_page",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

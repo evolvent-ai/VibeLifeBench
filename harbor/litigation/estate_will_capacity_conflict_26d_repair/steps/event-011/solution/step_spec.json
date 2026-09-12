@@ -1,0 +1,7 @@
+{
+  "step": "event-011", "virtual_stage": 10, "source_event_id": "S10_notification", "stage_boundary": false, "synthetic": false,
+  "expected_env": {"preceding_releases": ["release-004"], "released_mutations": ["S10_mutation"]},
+  "response": "The estate evidence was reviewed and recorded with verification, preservation, and authorization limits kept explicit.",
+  "response_paraphrase": "The neighbor account was held for comparison rather than treated as direct execution-date proof.",
+  "actions": [{"kind": "record_event", "event_id": "S10_notification", "event_kind": "notification"}], "expected_checks": [], "expected_stage_weight": 0.0
+}

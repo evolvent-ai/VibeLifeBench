@@ -1,0 +1,1 @@
+The pretrial workspace has not yet been created. Existing email, legal research materials, business account records, and logistics records can be used to build an object index. Also document the authorization boundaries and the actions that require Aygul Mamat's confirmation.

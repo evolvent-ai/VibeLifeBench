@@ -1,0 +1,25 @@
+{
+  "step": "event-029",
+  "virtual_stage": 24,
+  "source_event_id": "evt_s24_final_handoff_request",
+  "stage_boundary": true,
+  "response": "The internal preliminary-review handoff package is complete with gaps, parties, candidate checks, and ordinary-procedure preparations.",
+  "response_paraphrase": "The handoff record consolidates unresolved evidence, role-based parties, qualification checks, and contingency preparation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s24_final_handoff_request"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s24_final_gap_party_candidate_complete",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

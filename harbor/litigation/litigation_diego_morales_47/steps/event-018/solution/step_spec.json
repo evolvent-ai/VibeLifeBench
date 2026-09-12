@@ -1,0 +1,33 @@
+{
+  "step": "event-018",
+  "virtual_stage": 13,
+  "source_event_id": "s13_refresh_delivery",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": []
+  },
+  "response": "The newly added automatic-completion event is refreshed and placed beside the original manual handoff.",
+  "response_paraphrase": "The refreshed backend view shows the system addition alongside, rather than over, the manual delivery event.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s13_refresh_delivery"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_delivery_refresh_after_mutation",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s13_auto_event_distinguished",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

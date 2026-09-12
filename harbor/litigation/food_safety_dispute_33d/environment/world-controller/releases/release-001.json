@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "s1_court_notice_mutation"
+  ],
+  "source_stage": "1",
+  "source_time": "2026-05-21T08:55:00+08:00",
+  "previous": "release-000",
+  "token": "food-safety-release-001-33d-token-7f4e9b2a1c6d",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_food_s1_court",
+        "user_id": "usr_zhao_meng",
+        "source": "gov_policy",
+        "type": "policy_update",
+        "subscription_id": "sub_000002",
+        "title": "The Pudong Court Updates Its Guide to Litigation Services for Online Food Safety Disputes",
+        "body": "The litigation service guidance has been updated, covering jurisdiction based on the place where goods purchased online are received, filing materials, food testing, platform liability, and evidence submission.",
+        "payload_json": "{\"account_id\":\"oa_pudong_court\",\"post_id\":\"oap_food_s1_20260521\"}",
+        "created_at": "2026-05-21T08:55:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s1_court_notice_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "official_account_posts",
+      "op": "insert",
+      "values": {
+        "post_id": "oap_food_s1_20260521",
+        "account_id": "oa_pudong_court",
+        "title": "Update on litigation services for food-safety online shopping disputes",
+        "summary": "The Pudong Court has compiled information on jurisdiction, filing materials, punitive damages, platform liability, evidence preservation, and applications for testing in online food disputes for the parties to check when filing cases and submitting evidence.",
+        "url": "https://court.pudong.gov.cn/notice/food-20260521",
+        "published_at": "2026-05-21T08:50:00+08:00"
+      },
+      "source_event_id": "s1_court_notice_mutation",
+      "operation_index": 1
+    }
+  ]
+}

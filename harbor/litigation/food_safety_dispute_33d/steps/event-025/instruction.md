@@ -1,0 +1,1 @@
+The Shanghai First Intermediate People's Court has docketed case (2026) Hu 01 Min Zhong XXXX, the second-instance food-safety online-shopping dispute between appellant Global Select and respondent Zhao Meng, and will form a collegiate panel.

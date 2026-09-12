@@ -1,0 +1,26 @@
+{
+  "step": "event-019",
+  "stage": 18,
+  "virtual_stage": 18,
+  "source_event_id": "evt_s18_scope_recheck",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "mut_s18_recall_scope_expand"
+    ]
+  },
+  "response": "The potential recall scope review was held for the next backend update.",
+  "response_paraphrase": "Scope monitoring remains internal until the next platform record is available.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_s18_scope_recheck",
+      "stage": 18
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

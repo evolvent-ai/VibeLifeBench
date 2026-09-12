@@ -1,0 +1,37 @@
+{
+  "step": "event-022",
+  "stage": 21,
+  "virtual_stage": 21,
+  "source_event_id": "evt_s21_qc_version_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "mut_s21_qc_restricted_mail"
+    ]
+  },
+  "response": "The supplemental QC explanation was versioned as summary-only and restricted.",
+  "response_paraphrase": "The new thermal-cycle material is tracked by version as a restricted summary.",
+  "actions": [
+    {
+      "kind": "world",
+      "source_event_id": "evt_s21_qc_version_notice",
+      "stage": 21
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_qc_addendum_logged",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s21_qc_addendum_not_sent",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

@@ -1,0 +1,279 @@
+{
+  "release_id": "release-002",
+  "token": "chengdu-0878d9e70c2e4dc075b88370b58e29ba",
+  "previous": "release-001",
+  "operations": [
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "where": {
+        "id": 1
+      },
+      "set": {
+        "message_count": 70,
+        "unread_count": 8
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 4,
+        "folder_id": 1,
+        "message_id": "<chengdu-0004@example.com>",
+        "subject": "detailwithcleaningquote（unit 502）",
+        "from_addr": "wang.lei@example.com",
+        "to_addr_json": "[\"chen.rui@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-05T08:00:00+08:00",
+        "body_text": "detailquotedetail：walldetail400RMB；deep cleaning600RMB，includingcurtain cleaning150RMB；detailmonthutilities480RMB；sofa depreciation800RMB；detailglass doormoredetail350RMB；detailceilingpainting11detail，per square meter45RMB；access-card replacement120RMB。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 2004,
+        "size": 480,
+        "created_at": "2026-06-05T08:00:00+08:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 6,
+        "folder_id": 1,
+        "message_id": "<chengdu-0006@example.com>",
+        "subject": "ceilingpartialpaintingdetail",
+        "from_addr": "fix.c@example.com",
+        "to_addr_json": "[\"chen.rui@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-05T08:04:00+08:00",
+        "body_text": "technicianperon-sitedetailceilingneedspartialprocessingdetail11detail，detaillabormaterialsdetail45RMB/detail；whetherworkdetailon-sitereviewisdetail。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 2006,
+        "size": 270,
+        "created_at": "2026-06-05T08:04:00+08:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 5,
+        "folder_id": 1,
+        "message_id": "<chengdu-0005@example.com>",
+        "subject": "cleaningdetailon-sitescopedescription",
+        "from_addr": "clean.b@example.com",
+        "to_addr_json": "[\"chen.rui@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-05T08:02:00+08:00",
+        "body_text": "cleaningdetailreview：basic cleaningalreadydetail；detail，needsdetailconfirmdetailanddetailconditions，detailwithbasic cleaningduplicatedetail。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 2005,
+        "size": 260,
+        "created_at": "2026-06-05T08:02:00+08:00"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "pages",
+      "op": "insert",
+      "values": {
+        "page_id": "page-quote-502",
+        "parent_type": "workspace",
+        "parent_id": "ws_chenrui",
+        "title": "detailwithcleaningdetailquote archive（unit 502）",
+        "archived": 0,
+        "created_time": "2026-06-05T07:50:00.000Z",
+        "last_edited_time": "2026-06-05T07:50:00.000Z",
+        "properties_json": "{\"title\":{\"id\":\"title\",\"type\":\"title\",\"title\":[{\"type\":\"text\",\"text\":{\"content\":\"detailwithcleaningdetailquote archive（unit 502）\",\"link\":null},\"plain_text\":\"detailwithcleaningdetailquote archive（unit 502）\"}]}}",
+        "icon": null,
+        "cover": null
+      }
+    },
+    {
+      "server": "notion",
+      "table": "database_rows",
+      "op": "insert",
+      "values": {
+        "row_id": "row-502-fob",
+        "database_id": "db-settlement-502",
+        "properties_json": "{\"Item\":{\"id\":\"title\",\"type\":\"title\",\"title\":[{\"type\":\"text\",\"text\":{\"content\":\"access-card replacement\",\"link\":null},\"plain_text\":\"access-card replacement\"}]},\"AmountMinor\":{\"id\":\"amt\",\"type\":\"number\",\"number\":12000},\"Status\":{\"id\":\"st\",\"type\":\"select\",\"select\":{\"name\":\"claimed\",\"color\":\"yellow\"}},\"DisputeStatus\":{\"id\":\"ds\",\"type\":\"select\",\"select\":{\"name\":\"open\",\"color\":\"blue\"}}}",
+        "created_time": "2026-06-05T07:50:00.000Z",
+        "last_edited_time": "2026-06-05T07:50:00.000Z",
+        "archived": 0
+      }
+    },
+    {
+      "server": "notion",
+      "table": "database_rows",
+      "op": "insert",
+      "values": {
+        "row_id": "row-502-ceiling",
+        "database_id": "db-settlement-502",
+        "properties_json": "{\"Item\":{\"id\":\"title\",\"type\":\"title\",\"title\":[{\"type\":\"text\",\"text\":{\"content\":\"detailceilingpainting\",\"link\":null},\"plain_text\":\"detailceilingpainting\"}]},\"AmountMinor\":{\"id\":\"amt\",\"type\":\"number\",\"number\":49500},\"Status\":{\"id\":\"st\",\"type\":\"select\",\"select\":{\"name\":\"claimed\",\"color\":\"yellow\"}},\"DisputeStatus\":{\"id\":\"ds\",\"type\":\"select\",\"select\":{\"name\":\"open\",\"color\":\"blue\"}}}",
+        "created_time": "2026-06-05T07:50:00.000Z",
+        "last_edited_time": "2026-06-05T07:50:00.000Z",
+        "archived": 0
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "c078e0a6-b2b5-5584-8088-94eae986e961",
+        "parent_block_id": null,
+        "parent_page_id": "page-quote-502",
+        "type": "paragraph",
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"detailglass doormoredetail quote350RMB。\",\"link\":null},\"plain_text\":\"detailglass doormoredetail quote350RMB。\"}],\"color\":\"default\"}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 5,
+        "created_time": "2026-06-05T07:50:00.000Z",
+        "last_edited_time": "2026-06-05T07:50:00.000Z"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "c6c58678-752f-59e3-81a5-b41a2b1883fb",
+        "parent_block_id": null,
+        "parent_page_id": "page-quote-502",
+        "type": "paragraph",
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"detailceilingsmoke yellowingdetailpainting area11detail，unit price45RMBper square meter。\",\"link\":null},\"plain_text\":\"detailceilingsmoke yellowingdetailpainting area11detail，unit price45RMBper square meter。\"}],\"color\":\"default\"}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 7,
+        "created_time": "2026-06-05T07:50:00.000Z",
+        "last_edited_time": "2026-06-05T07:50:00.000Z"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "327f5cb1-77d4-522d-89e3-47ae5c81f180",
+        "parent_block_id": null,
+        "parent_page_id": "page-quote-502",
+        "type": "paragraph",
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"water and electricity charges 480RMB。\",\"link\":null},\"plain_text\":\"water and electricity charges 480RMB。\"}],\"color\":\"default\"}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 3,
+        "created_time": "2026-06-05T07:50:00.000Z",
+        "last_edited_time": "2026-06-05T07:50:00.000Z"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "86f2e790-0625-53b6-8c80-9f7b66922ce8",
+        "parent_block_id": null,
+        "parent_page_id": "page-quote-502",
+        "type": "paragraph",
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"access-card replacementdetailthisdetail 120RMB。\",\"link\":null},\"plain_text\":\"access-card replacementdetailthisdetail 120RMB。\"}],\"color\":\"default\"}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 6,
+        "created_time": "2026-06-05T07:50:00.000Z",
+        "last_edited_time": "2026-06-05T07:50:00.000Z"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "0abc48e2-25f3-519d-bba2-4560a697eb40",
+        "parent_block_id": null,
+        "parent_page_id": "page-quote-502",
+        "type": "paragraph",
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"deep cleaning quote600RMB（includingcurtain cleaning150RMB）。\",\"link\":null},\"plain_text\":\"deep cleaning quote600RMB（includingcurtain cleaning150RMB）。\"}],\"color\":\"default\"}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 2,
+        "created_time": "2026-06-05T07:50:00.000Z",
+        "last_edited_time": "2026-06-05T07:50:00.000Z"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "e83c2de6-6171-555e-81cf-5f7128560dd5",
+        "parent_block_id": null,
+        "parent_page_id": "page-quote-502",
+        "type": "heading_1",
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"detailwithcleaningdetailquote（detailshoulddetail，unit 502）\",\"link\":null},\"plain_text\":\"detailwithcleaningdetailquote（detailshoulddetail，unit 502）\"}],\"color\":\"default\"}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 0,
+        "created_time": "2026-06-05T07:50:00.000Z",
+        "last_edited_time": "2026-06-05T07:50:00.000Z"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "1012e18d-d896-5e6f-aaba-ce83162ee5e3",
+        "parent_block_id": null,
+        "parent_page_id": "page-quote-502",
+        "type": "paragraph",
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"walldetail quote400RMB。\",\"link\":null},\"plain_text\":\"walldetail quote400RMB。\"}],\"color\":\"default\"}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 1,
+        "created_time": "2026-06-05T07:50:00.000Z",
+        "last_edited_time": "2026-06-05T07:50:00.000Z"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "4b284b73-9afe-5d30-b1ca-f96111080905",
+        "parent_block_id": null,
+        "parent_page_id": "page-quote-502",
+        "type": "paragraph",
+        "content_json": "{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"sofa depreciation 800RMB。\",\"link\":null},\"plain_text\":\"sofa depreciation 800RMB。\"}],\"color\":\"default\"}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 4,
+        "created_time": "2026-06-05T07:50:00.000Z",
+        "last_edited_time": "2026-06-05T07:50:00.000Z"
+      }
+    }
+  ]
+}

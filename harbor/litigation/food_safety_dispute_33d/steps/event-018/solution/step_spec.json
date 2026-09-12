@@ -1,0 +1,35 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-018",
+  "stage": 12,
+  "virtual_stage": 12,
+  "event_id": "s12_courtlist",
+  "source_event_id": "s12_courtlist",
+  "response": "The June 12 trial hearing and originals checklist cover identity documents, sealed food samples, orders, payments, and testing materials.",
+  "response_paraphrase": "The June 12 hearing entry is paired with a checklist for identity, sealed food, order and payment records, and inspection materials.",
+  "expected_env": {
+    "virtual_stage": 12,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s12_assistant_hearing_calendar",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s12_persisted_originals_checklist",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 1.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s12_courtlist",
+      "stage": 12
+    }
+  ]
+}

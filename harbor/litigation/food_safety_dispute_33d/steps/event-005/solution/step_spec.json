@@ -1,0 +1,47 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-005",
+  "stage": 3,
+  "virtual_stage": 3,
+  "event_id": "s3_claims",
+  "source_event_id": "s3_claims",
+  "response": "I reviewed the claims draft: refund plus tenfold compensation, the medical expense, platform responsibility, and the effect of negative reviews are separated; mental-distress damages remain unsupported.",
+  "response_paraphrase": "The draft separates the refund, punitive amount, medical expense, platform route, and the weak mental-distress item.",
+  "expected_env": {
+    "virtual_stage": 3,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "d_refund_plus_penalty",
+      "weight": 1
+    },
+    {
+      "check_id": "d_ten_vs_three_higher",
+      "weight": 1
+    },
+    {
+      "check_id": "d_medical_loss_separate",
+      "weight": 1
+    },
+    {
+      "check_id": "d_no_mental_damages",
+      "weight": 2
+    },
+    {
+      "check_id": "d_platform_liability",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 7.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s3_claims",
+      "stage": 3
+    }
+  ]
+}

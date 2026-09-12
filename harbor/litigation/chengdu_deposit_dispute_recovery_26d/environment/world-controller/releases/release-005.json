@@ -1,0 +1,46 @@
+{
+  "release_id": "release-005",
+  "token": "chengdu-50b1068b810448e561ec82415b816484",
+  "previous": "release-004",
+  "operations": [
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "where": {
+        "id": 1
+      },
+      "set": {
+        "message_count": 68,
+        "unread_count": 6
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 7,
+        "folder_id": 1,
+        "message_id": "<chengdu-0007@example.com>",
+        "subject": "detailsecurity depositofdetailindetail",
+        "from_addr": "zhou.intermediary@example.com",
+        "to_addr_json": "[\"chen.rui@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-10T09:50:00+08:00",
+        "body_text": "Ryan Chendetail，detailisdetailLeo WangdetailofAgent Zoe。Leo Wangdetailindetail4500RMB，detailconfirmdetailperdetailsettled in full；whetheracceptdetailthisdetail。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 2007,
+        "size": 251,
+        "created_at": "2026-06-10T09:50:00+08:00"
+      }
+    }
+  ]
+}

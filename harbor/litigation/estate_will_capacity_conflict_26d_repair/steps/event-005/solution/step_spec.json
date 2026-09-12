@@ -1,0 +1,7 @@
+{
+  "step": "event-005", "virtual_stage": 5, "source_event_id": "S05_notification", "stage_boundary": false, "synthetic": false,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The estate evidence was reviewed and recorded with verification, preservation, and authorization limits kept explicit.",
+  "response_paraphrase": "The asset review continued with separate tracking and no unauthorized disposition.",
+  "actions": [{"kind": "record_event", "event_id": "S05_notification", "event_kind": "notification"}], "expected_checks": [], "expected_stage_weight": 0.0
+}

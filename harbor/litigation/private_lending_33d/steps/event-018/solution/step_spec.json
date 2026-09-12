@@ -1,0 +1,35 @@
+{
+ "step": "event-018",
+ "stage": 13,
+ "event_id": "s13_reselect_lawyer",
+ "response_paraphrase": "The withdrawal notice is acknowledged, LD-008 is selected as the replacement, and the existing hearing date remains protected. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s13_withdrawal_notice_and_followup",
+   "weight": 0.5
+  },
+  {
+   "check_id": "s13_hearing_continuity_persisted",
+   "weight": 0.5
+  },
+  {
+   "check_id": "d_lawyer_reselect",
+   "weight": 3.667
+  }
+ ],
+ "expected_stage_weight": 4.667,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s13_reselect_lawyer"
+  }
+ ],
+ "source_event_id": "s13_reselect_lawyer"
+}

@@ -1,0 +1,32 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "virtual_stage": 1,
+  "source_event_id": "evt_s1_system_digest",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I established the case-control workspace and indexed the available email, legal, banking, logistics, and evidence streams, with Aygul's confirmation requirements recorded.",
+  "response_paraphrase": "A central workspace now ties together the five source systems and states which decisions still belong to Aygul.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s1_system_digest"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_all_required_servers_touched",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s1_notion_control_page",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

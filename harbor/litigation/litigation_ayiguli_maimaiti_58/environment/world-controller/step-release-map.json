@@ -1,0 +1,205 @@
+{
+  "steps": {
+    "event-000": {
+      "virtual_stage": 0,
+      "scenario_time": "2026-07-02T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s0_user_kickoff",
+      "before": []
+    },
+    "event-001": {
+      "virtual_stage": 1,
+      "scenario_time": "2026-07-02T15:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s1_system_digest",
+      "before": []
+    },
+    "event-002": {
+      "virtual_stage": 2,
+      "scenario_time": "2026-07-03T10:10:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s2_court_email_notice",
+      "before": [
+        "release-000"
+      ]
+    },
+    "event-003": {
+      "virtual_stage": 3,
+      "scenario_time": "2026-07-04T11:20:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s3_supplier_docs",
+      "before": [
+        "release-001"
+      ]
+    },
+    "event-004": {
+      "virtual_stage": 4,
+      "scenario_time": "2026-07-05T09:30:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s4_delivery_baseline",
+      "before": [
+        "release-002"
+      ]
+    },
+    "event-005": {
+      "virtual_stage": 5,
+      "scenario_time": "2026-07-06T16:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s5_bank_baseline",
+      "before": []
+    },
+    "event-006": {
+      "virtual_stage": 6,
+      "scenario_time": "2026-07-07T10:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s6_legal_route",
+      "before": []
+    },
+    "event-007": {
+      "virtual_stage": 7,
+      "scenario_time": "2026-07-08T18:30:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s7_cold_chain_question",
+      "before": [
+        "release-003"
+      ]
+    },
+    "event-008": {
+      "virtual_stage": 8,
+      "scenario_time": "2026-07-10T09:30:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s8_invoice_statement_check",
+      "before": [
+        "release-004"
+      ]
+    },
+    "event-009": {
+      "virtual_stage": 9,
+      "scenario_time": "2026-07-12T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s9_scheduled_recheck",
+      "before": [
+        "release-005"
+      ]
+    },
+    "event-010": {
+      "virtual_stage": 10,
+      "scenario_time": "2026-07-16T14:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s10_lab_initial",
+      "before": [
+        "release-006"
+      ]
+    },
+    "event-011": {
+      "virtual_stage": 11,
+      "scenario_time": "2026-07-20T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s11_logistics_watch",
+      "before": [
+        "release-007"
+      ]
+    },
+    "event-012": {
+      "virtual_stage": 12,
+      "scenario_time": "2026-07-24T11:10:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s12_bank_user_question",
+      "before": [
+        "release-008"
+      ]
+    },
+    "event-013": {
+      "virtual_stage": 13,
+      "scenario_time": "2026-08-02T10:30:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s13_lab_recheck",
+      "before": [
+        "release-009"
+      ]
+    },
+    "event-014": {
+      "virtual_stage": 14,
+      "scenario_time": "2026-08-05T15:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s14_materials_request",
+      "before": []
+    },
+    "event-015": {
+      "virtual_stage": 15,
+      "scenario_time": "2026-08-08T09:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s15_deadline_notice",
+      "before": [
+        "release-010"
+      ]
+    },
+    "event-016": {
+      "virtual_stage": 16,
+      "scenario_time": "2026-08-12T10:20:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s16_supplier_pressure",
+      "before": [
+        "release-011"
+      ]
+    },
+    "event-017": {
+      "virtual_stage": 17,
+      "scenario_time": "2026-08-14T19:30:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s17_user_wants_short_reply",
+      "before": []
+    },
+    "event-018": {
+      "virtual_stage": 18,
+      "scenario_time": "2026-08-17T09:40:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s18_lawyer_packet",
+      "before": []
+    },
+    "event-019": {
+      "virtual_stage": 19,
+      "scenario_time": "2026-08-20T13:20:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s19_pretrial_reconcile",
+      "before": []
+    },
+    "event-020": {
+      "virtual_stage": 20,
+      "scenario_time": "2026-08-22T09:10:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s20_delivery_followup",
+      "before": []
+    },
+    "event-021": {
+      "virtual_stage": 21,
+      "scenario_time": "2026-08-24T10:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s21_legal_refresh",
+      "before": []
+    },
+    "event-022": {
+      "virtual_stage": 22,
+      "scenario_time": "2026-08-25T10:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s22_settlement_watch",
+      "before": [
+        "release-012"
+      ]
+    },
+    "event-023": {
+      "virtual_stage": 23,
+      "scenario_time": "2026-08-27T16:00:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s23_final_review",
+      "before": []
+    },
+    "event-024": {
+      "virtual_stage": 24,
+      "scenario_time": "2026-08-28T19:30:00+08:00",
+      "stage_boundary": true,
+      "source_event_id": "evt_s24_user_handoff",
+      "before": []
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-011",
+  "stage": 7,
+  "virtual_stage": 7,
+  "event_id": "s7_heartbeat",
+  "source_event_id": "s7_heartbeat",
+  "response": "The store is unreachable and may close; the platform advance-compensation route is assessed using case_f05, case_f14, Article 44, and the seller real-information issue, with Zhao Meng deciding.",
+  "response_paraphrase": "The store-risk notice and the possible platform-first recovery route are recorded for Zhao Meng's decision.",
+  "expected_env": {
+    "virtual_stage": 7,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-004"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s7_platform_advance_safety",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s7_heartbeat",
+      "stage": 7
+    }
+  ]
+}

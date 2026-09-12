@@ -1,0 +1,1 @@
+Historical transactions for the business account are available. Verify only completed payments to the supplier and their descriptions. Do not add a recipient, initiate a transfer, or describe a transaction discrepancy as an admission of debt.

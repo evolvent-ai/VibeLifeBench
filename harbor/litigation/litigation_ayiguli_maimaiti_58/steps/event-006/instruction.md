@@ -1,0 +1,1 @@
+Search public rules concerning quality objections in sales contracts, electronic evidence indexes, evidence submission in simplified proceedings, and preparation for setoff. Save the sources, scope of application, and matters that still require a lawyer's judgment separately.

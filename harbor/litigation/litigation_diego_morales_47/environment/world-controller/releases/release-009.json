@@ -1,0 +1,31 @@
+{
+  "release_id": "release-009",
+  "previous": "release-008",
+  "token": "litigation-diego-morales-47-release-token",
+  "operations": [
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "ev_dgm_backend_review",
+        "shipment_id": "ship_diego_1842",
+        "at": "2026-08-27T10:00:00+08:00",
+        "location": "FoodPath record",
+        "status_code": "backend_review",
+        "description": "recordmanual handofftimesource，recordconfirmation。"
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "update",
+      "set": {
+        "updated_at": "2026-08-27T10:00:00+08:00"
+      },
+      "where": {
+        "shipment_id": "ship_diego_1842"
+      }
+    }
+  ]
+}

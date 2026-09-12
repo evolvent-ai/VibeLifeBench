@@ -1,0 +1,20 @@
+{
+  "step": "event-019",
+  "virtual_stage": 16,
+  "source_event_id": "evt_s16_mediator_format_notice",
+  "stage_boundary": false,
+  "response": "Mediation format requirements and permitted evidence-source categories were indexed.",
+  "response_paraphrase": "The format and attachment-scope requirements are separated in the internal plan.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s16_mediator_format_notice"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

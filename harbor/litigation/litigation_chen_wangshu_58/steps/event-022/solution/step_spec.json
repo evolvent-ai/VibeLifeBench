@@ -1,0 +1,59 @@
+{
+  "step": "event-022",
+  "virtual_stage": 18,
+  "source_event_id": "evt_s18_refund_amount_calc",
+  "event_id": "evt_s18_refund_amount_calc",
+  "stage_boundary": true,
+  "synthetic": false,
+  "response": "The refund amount breakdown separates cash paid, coupon discount, card fees, and benefit value.",
+  "response_paraphrase": "The stage 18 review is documented, with unresolved commitments still waiting for confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s18_refund_amount_calc",
+      "event_kind": "notification",
+      "event_time": "2026-07-28T11:15:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ],
+    "released_mutations": [
+      "mut_s10_refund_rejected",
+      "mut_s11_coupon_offer_email",
+      "mut_s14_installment_statement"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s18_cash_paid_component_correct",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s18_original_coupon_separate",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s18_installment_fee_separate",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s18_voucher_not_cash_component",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s18_deductions_marked_disputed",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8.0
+}

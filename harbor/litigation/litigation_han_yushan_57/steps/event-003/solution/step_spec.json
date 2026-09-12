@@ -1,0 +1,33 @@
+{
+  "step": "event-003",
+  "virtual_stage": 2,
+  "source_event_id": "evt_s2_client_packet_notice",
+  "stage_boundary": true,
+  "response": "The client packet was indexed by source and sensitivity, including the photograph privacy flag.",
+  "response_paraphrase": "The newly received packet is catalogued by origin and sensitivity, with photographs marked for redaction.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s2_client_packet_notice"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s2_client_packet_indexed",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s2_sensitive_evidence_flagged",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

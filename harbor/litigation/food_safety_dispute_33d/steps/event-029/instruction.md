@@ -1,0 +1,1 @@
+Please make a retrospective from buying the problematic food through the present: (1) write a Notion summary of the entire rights-protection process, key milestones, evidence and legal provisions used, and total costs; (2) record lessons that could help someone facing a similar issue; and (3) give me a direction for what to prepare next in the second-instance phase.

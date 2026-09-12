@@ -1,0 +1,21 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "litigation-han-yushan-57-release-004-token",
+  "operations": [
+    {
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_haize_expired_0805",
+        "merchant_id": "mer_home_haize_025",
+        "user_id": "usr_owner_recheck",
+        "rating": 2,
+        "body": "case materialcommunicationscase materialvalidity periodneedscase materialverify，cannotcase materialsample report。",
+        "image_captions": "[]",
+        "created_at": "2026-07-24T08:10:00Z"
+      },
+      "server": "review_platform"
+    }
+  ]
+}

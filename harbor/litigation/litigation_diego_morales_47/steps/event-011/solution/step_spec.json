@@ -1,0 +1,31 @@
+{
+  "step": "event-011",
+  "virtual_stage": 8,
+  "source_event_id": "s08_merchant_pack",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The merchant packaging statement is recorded, while unseen food condition remains outside firsthand knowledge.",
+  "response_paraphrase": "Packaging and seal information is attributed to the merchant, with internal food condition left unclaimed.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s08_merchant_pack"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_merchant_source_logged",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s8_no_unobserved_food_condition",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

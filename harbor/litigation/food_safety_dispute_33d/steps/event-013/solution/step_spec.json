@@ -1,0 +1,35 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-013",
+  "stage": 9,
+  "virtual_stage": 9,
+  "event_id": "s9_inspect_news",
+  "source_event_id": "s9_inspect_news",
+  "response": "I calendared evidence submission, the testing application, and the trial hearing; the plan covers imported food, Chinese label compliance, and unlawful additive questions, with a CMA report and applicant prepayment.",
+  "response_paraphrase": "The calendar now contains evidence and inspection milestones, including label compliance, additive questions, a qualified report, and the applicant advance.",
+  "expected_env": {
+    "virtual_stage": 9,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": false
+  },
+  "expected_checks": [
+    {
+      "check_id": "d_import_chinese_label",
+      "weight": 1
+    },
+    {
+      "check_id": "d_limitation_three_years",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 1.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s9_inspect_news",
+      "stage": 9
+    }
+  ]
+}

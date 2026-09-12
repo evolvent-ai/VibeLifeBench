@@ -1,0 +1,32 @@
+{
+  "step": "event-006",
+  "stage": 6,
+  "virtual_stage": 6,
+  "source_event_id": "evt_s6_legal_route",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I saved public legal research for quality, delivery-signature, and setoff preparation with source and applicability limits, leaving legal conclusions to counsel.",
+  "response_paraphrase": "Relevant public authorities were retained with caveats and provenance, without turning research notes into legal advice.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s6_legal_route"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_legal_cases_saved",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s6_legal_route_note_json",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

@@ -1,0 +1,33 @@
+{
+  "step": "event-003",
+  "virtual_stage": 2,
+  "source_event_id": "s02_consumer_mail",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": []
+  },
+  "response": "The consumer's request is recorded as an unadopted source while Diego's own confirmation remains required.",
+  "response_paraphrase": "I captured the customer's request for materials without treating her account as Diego's testimony.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s02_consumer_mail"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_consumer_email_read",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s2_consumer_request_logged",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

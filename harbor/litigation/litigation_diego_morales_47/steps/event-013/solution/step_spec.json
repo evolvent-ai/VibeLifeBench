@@ -1,0 +1,22 @@
+{
+  "step": "event-013",
+  "virtual_stage": 10,
+  "source_event_id": "n10_gps_export",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": []
+  },
+  "response": "The tracking attachment is read and divided into a private internal basis and a minimum-necessary excerpt.",
+  "response_paraphrase": "The GPS export has been reviewed under a separate internal layer and a restrained shareable excerpt.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n10_gps_export"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

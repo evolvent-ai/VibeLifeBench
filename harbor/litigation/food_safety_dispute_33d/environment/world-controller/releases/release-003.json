@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "s4_evidence_notice_mutation"
+  ],
+  "source_stage": "4",
+  "source_time": "2026-05-24T09:50:00+08:00",
+  "previous": "release-002",
+  "token": "food-safety-release-003-33d-token-7f4e9b2a1c6d",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_food_s4_evidence",
+        "user_id": "usr_zhao_meng",
+        "source": "gov_policy",
+        "type": "policy_update",
+        "subscription_id": "sub_000002",
+        "title": "Notice on Preserving Evidence in Online Food Cases",
+        "body": "The Court reminds you to properly preserve the physical food, order and payment records, product page, customer service communications, unboxing materials, and medical receipts.",
+        "payload_json": "{\"account_id\":\"oa_pudong_court\",\"post_id\":\"oap_food_s4_20260524\"}",
+        "created_at": "2026-05-24T09:50:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s4_evidence_notice_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "official_account_posts",
+      "op": "insert",
+      "values": {
+        "post_id": "oap_food_s4_20260524",
+        "account_id": "oa_pudong_court",
+        "title": "Notice on Preserving Evidence and Physical Items in Online Food Cases",
+        "summary": "The parties should retain the order, payment records, product page, customer-service communications, unboxing materials, and the food involved in the case. For specialized food-safety issues, they may lawfully apply to a qualified institution for testing.",
+        "url": "https://court.pudong.gov.cn/notice/evidence-20260524",
+        "published_at": "2026-05-24T09:45:00+08:00"
+      },
+      "source_event_id": "s4_evidence_notice_mutation",
+      "operation_index": 1
+    }
+  ]
+}

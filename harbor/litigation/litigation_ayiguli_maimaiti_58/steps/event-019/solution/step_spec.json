@@ -1,0 +1,27 @@
+{
+  "step": "event-019",
+  "stage": 19,
+  "virtual_stage": 19,
+  "source_event_id": "evt_s19_pretrial_reconcile",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I consolidated the shipment, signatory, payment, evidence, and privacy records into an internal pretrial reconciliation package that remains unsubmitted.",
+  "response_paraphrase": "One internal review bundle now connects delivery quality, receipt identity, bank evidence, source indexing, and privacy controls.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s19_pretrial_reconcile"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_pretrial_packet_core",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

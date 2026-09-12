@@ -1,0 +1,29 @@
+{
+  "step": "event-004",
+  "virtual_stage": 3,
+  "source_event_id": "evt_s3_party_map_request",
+  "stage_boundary": true,
+  "response": "Legal sources and a neutral potential-party matrix were saved for lawyer review.",
+  "response_paraphrase": "Relevant legal materials and a non-conclusive party framework are available for counsel.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s3_party_map_request"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s3_legal_sources_saved",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s3_party_matrix_scaffolded",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

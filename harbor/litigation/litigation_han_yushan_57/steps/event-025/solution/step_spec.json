@@ -1,0 +1,20 @@
+{
+  "step": "event-025",
+  "virtual_stage": 21,
+  "source_event_id": "evt_s21_mediation_failed_world",
+  "stage_boundary": false,
+  "response": "The unsuccessful mediation route now points to an ordinary-procedure contingency, without claiming a filed case.",
+  "response_paraphrase": "The post-mediation route is recorded as preparation only and makes no filing or court-acceptance assertion.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s21_mediation_failed_world"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

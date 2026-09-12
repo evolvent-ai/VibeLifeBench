@@ -1,0 +1,118 @@
+{
+  "release_id": "release-008",
+  "token": "chengdu-bc956087103e8a5b51b9119d97ab5eb8",
+  "previous": "release-007",
+  "operations": [
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "where": {
+        "id": 1
+      },
+      "set": {
+        "message_count": 69,
+        "unread_count": 7
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 12,
+        "folder_id": 1,
+        "message_id": "<chengdu-0012@example.com>",
+        "subject": "security-deposit settlement statement（Jinjiang Gardenunit 503）",
+        "from_addr": "property.mgmt@example.com",
+        "to_addr_json": "[\"chen.rui@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-14T07:50:00+08:00",
+        "body_text": "property managementdetailunit 503ofdetail，tenantisdetail，security deposit5000RMB。thisrecorddetailRyan Chenof502lease term。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 2012,
+        "size": 230,
+        "created_at": "2026-06-14T07:50:00+08:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 14,
+        "folder_id": 1,
+        "message_id": "<chengdu-0014@example.com>",
+        "subject": "detailsecurity depositrefunddetailreissued",
+        "from_addr": "old.landlord@example.com",
+        "to_addr_json": "[\"chen.rui@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-14T07:55:00+08:00",
+        "body_text": "reissued2024yeardetailofsecurity depositrefunddetail：previous landlordalreadydetail5500RMB。This is the previous lease period; property、landlordandlease termdetailwithJinjiang Garden502detail。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 2014,
+        "size": 235,
+        "created_at": "2026-06-14T07:55:00+08:00"
+      }
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "insert",
+      "values": {
+        "account_id": "acct_chenrui_previous_lease",
+        "user_id": "usr_chenrui",
+        "type": "checking",
+        "name": "detail",
+        "balance_minor": 670000,
+        "currency": "CNY",
+        "opened_at": "2023-08-01T00:00:00+08:00",
+        "frozen": 1
+      }
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "bank_tx_0016",
+        "account_id": "acct_chenrui_previous_lease",
+        "posted_at": "2024-04-01T11:00:00+08:00",
+        "amount_minor": -550000,
+        "kind": "transfer_out",
+        "counterparty": "previous landlord",
+        "memo": "detailsecurity depositdetail",
+        "balance_after_minor": 120000
+      }
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "bank_tx_0015",
+        "account_id": "acct_chenrui_previous_lease",
+        "posted_at": "2024-04-20T15:00:00+08:00",
+        "amount_minor": 550000,
+        "kind": "transfer_in",
+        "counterparty": "previous landlord",
+        "memo": "detailsecurity depositreturn",
+        "balance_after_minor": 670000
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+The case has entered the evidence and testing phase. If the parties dispute whether the food meets safety standards, including label compliance or unlawful additives, I may request testing by an agency with food-testing qualifications (CMA, and CNAS when necessary). The applicant advances the testing fee.

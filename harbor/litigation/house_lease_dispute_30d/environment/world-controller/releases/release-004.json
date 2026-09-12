@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "D8_case_acceptance_mut"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-05-30T09:50:00+08:00",
+  "previous": "release-003",
+  "token": "house_lease_dispute_30d-release-04-token-abcdef1234567890",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_case_0808",
+        "user_id": "usr_chen_yue",
+        "source": "gov_policy",
+        "type": "case_update",
+        "subscription_id": "sub_000002",
+        "title": "【case filingnotification】residential lease contract disputealreadycase record",
+        "body": "Shanghai Minhang District People's Courtalreadycase recordChen Yuecase recordWang Jianguoresidential lease contract dispute，case recordNo.case record(2026)case record0112case record18426No.。courtcase recordisnoagreepre-litigation mediation，aftercase recordprocedurearrangementusingcase recordservedcase record。",
+        "payload_json": "{\"case_number\":\"(2026)case record0112case record18426No.\",\"action\":\"accepted\",\"mediation\":\"choice_pending\"}",
+        "created_at": "2026-05-30T09:50:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "D8_case_acceptance_mut",
+      "operation_index": 0
+    }
+  ]
+}

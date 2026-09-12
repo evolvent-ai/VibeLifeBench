@@ -1,0 +1,47 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "litigation-ayiguli-004-token-9f2e7a6c4b8d1e0f",
+  "source_stage": 8,
+  "source_time": "2026-07-10T09:15:00+08:00",
+  "source_event_ids": ["mut_s8_biscuit_discount"],
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 8005,
+        "folder_id": 1,
+        "message_id": "msg_biscuit_discount_0710",
+        "subject": "\u997c\u5e72\u4e34\u671f\u6298\u8ba9\u786e\u8ba4",
+        "from_addr": "sales.majun@example.invalid",
+        "to_addr_json": "[\"aygul.store@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-10T09:05:00+08:00",
+        "body_text": "SN-0728 \u997c\u5e72\u5230\u8d27\u65f6\u5269\u4f59\u4fdd\u8d28\u671f\u4e0d\u8db3\u95e8\u5e97\u91c7\u8d2d\u7ea6\u5b9a\uff1b\u4e1a\u52a1\u5458\u90ae\u4ef6\u63d0\u51fa\u4ee5 4200.00 \u5143\u4f5c\u4e3a\u6682\u5b9a\u6298\u8ba9\u53e3\u5f84\uff0c\u6ce8\u660e\u4ecd\u5f85\u4f9b\u5e94\u5546\u8d22\u52a1\u786e\u8ba4\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{\"source\":\"supplier_discount_proposal\"}",
+        "uid": 8005,
+        "size": 75,
+        "created_at": "2026-07-10T09:05:00+08:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 212,
+        "unread_count": 206
+      },
+      "where": {
+        "id": 1
+      }
+    }
+  ]
+}

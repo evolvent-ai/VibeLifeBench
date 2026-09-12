@@ -1,0 +1,27 @@
+{
+ "step": "event-022",
+ "stage": 16,
+ "event_id": "s16_judgment",
+ "response_paraphrase": "The judgment is acknowledged: 360000 principal plus capped interest less 20000, with the unsupported cash, spouse, guarantor, and consequential claims rejected. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s16_acknowledges_judgment",
+   "weight": 0.5
+  }
+ ],
+ "expected_stage_weight": 0.5,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s16_judgment"
+  }
+ ],
+ "source_event_id": "s16_judgment"
+}

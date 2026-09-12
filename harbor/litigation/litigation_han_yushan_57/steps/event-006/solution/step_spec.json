@@ -1,0 +1,24 @@
+{
+  "step": "event-006",
+  "virtual_stage": 5,
+  "source_event_id": "evt_s5_appraisal_screen_request",
+  "stage_boundary": false,
+  "response": "Home-service candidates were screened and saved without making a reservation or engagement.",
+  "response_paraphrase": "Candidate institutions are discoverable and bookmarked, while every commitment remains pending.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s5_appraisal_screen_request"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-001"
+    ]
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

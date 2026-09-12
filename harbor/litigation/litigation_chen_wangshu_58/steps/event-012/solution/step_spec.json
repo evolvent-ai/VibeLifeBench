@@ -1,0 +1,31 @@
+{
+  "step": "event-012",
+  "virtual_stage": 10,
+  "source_event_id": "evt_s10_refund_status_notice",
+  "event_id": "evt_s10_refund_status_notice",
+  "stage_boundary": true,
+  "synthetic": false,
+  "response": "The academy refund rejection was recorded in the complaint tracker.",
+  "response_paraphrase": "The stage 10 review is documented, with unresolved commitments still waiting for confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s10_refund_status_notice",
+      "event_kind": "notification",
+      "event_time": "2026-07-15T09:15:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s10_refund_rejection_persisted",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

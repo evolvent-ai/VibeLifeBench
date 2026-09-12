@@ -1,0 +1,63 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-004",
+  "stage": 2,
+  "virtual_stage": 2,
+  "event_id": "s2_pick_inspect",
+  "source_event_id": "s2_pick_inspect",
+  "response": "I reviewed case_f02 on imported food without a Chinese label; its holding supports refund plus tenfold compensation because the goods do not meet food safety standards. I also compared every inspection listing by independence, scope, accreditation, status, and budget.",
+  "response_paraphrase": "Case_f02 and the inspection roster were reviewed to compare the imported-food label issue, compensation basis, and provider suitability.",
+  "expected_env": {
+    "virtual_stage": 2,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "d_reads_inspect_roster",
+      "weight": 0.733
+    },
+    {
+      "check_id": "d_inspect_conflict_excluded",
+      "weight": 1.099
+    },
+    {
+      "check_id": "d_inspect_wrong_scope_excluded",
+      "weight": 1.099
+    },
+    {
+      "check_id": "d_inspect_no_cma_excluded",
+      "weight": 1.099
+    },
+    {
+      "check_id": "d_inspect_contingent_fee_excluded",
+      "weight": 1.099
+    },
+    {
+      "check_id": "d_inspect_over_budget_excluded",
+      "weight": 1.099
+    },
+    {
+      "check_id": "d_inspect_suspended_excluded",
+      "weight": 1.099
+    },
+    {
+      "check_id": "d_inspect_best_pick",
+      "weight": 1.099
+    },
+    {
+      "check_id": "d_inspect_budget_cap",
+      "weight": 0.046
+    }
+  ],
+  "expected_stage_weight": 8.472,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s2_pick_inspect",
+      "stage": 2
+    }
+  ]
+}

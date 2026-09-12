@@ -1,0 +1,46 @@
+{
+  "release_id": "release-005",
+  "previous": "release-004",
+  "token": "litigation-han-yushan-57-release-005-token",
+  "operations": [
+    {
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 33,
+        "folder_id": 1,
+        "message_id": "email_property_repair_2025",
+        "subject": "Springtide Property Managementfollow-up upload：case materialrepairrecord",
+        "from_addr": "property@chunlan.example",
+        "to_addr_json": "[\"han.yushan@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-01T07:55:00+08:00",
+        "body_text": "property managementfollow-up upload 2025 case materialrepairrecordcase materialsummary，possibleaffectproperty management、developercase materialmaintenance vendorcase material。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{}",
+        "uid": 5033,
+        "size": 129,
+        "created_at": "2026-08-01T07:55:00+08:00"
+      },
+      "server": "email"
+    },
+    {
+      "table": "attachments",
+      "op": "insert",
+      "values": {
+        "id": 333,
+        "message_id": 33,
+        "filename": "pipe_repair_2025_index.txt",
+        "content_type": "text/plain",
+        "size": 72,
+        "content_b64": "6K6w5b2V5ZCr5YWs5YWx56uL566h5beh5qOA44CB5aSW5aKZ6Zuo5rC05o6S5p+l5ZKM57u05L+u5Y2V5L2N5ZCN56ew44CC",
+        "content_id": "cid_333"
+      },
+      "server": "email"
+    }
+  ]
+}

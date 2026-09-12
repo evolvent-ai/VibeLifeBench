@@ -1,0 +1,35 @@
+{
+ "step": "event-012",
+ "stage": 9,
+ "event_id": "s9_evidence_notice_world",
+ "response_paraphrase": "The evidence-period, preservation, and jurisdiction-response deadlines are placed on the calendar and linked to the case journal. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s9_deadlines_on_calendar",
+   "weight": 0.5
+  },
+  {
+   "check_id": "s9_enough_deadlines",
+   "weight": 0.5
+  },
+  {
+   "check_id": "d_jurisdiction_objection_rebuttal",
+   "weight": 0.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s9_evidence_notice_world"
+  }
+ ],
+ "source_event_id": "s9_evidence_notice_world"
+}

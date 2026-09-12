@@ -1,0 +1,50 @@
+{
+  "release_id": "release-011",
+  "source_stage": 20,
+  "source_time": "2026-04-20T08:50:00+08:00",
+  "source_event_ids": ["S20_mutation"],
+  "previous": "release-010",
+  "token": "estate-release-011-token-7f9a31c2d4e5",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "S20_mutation",
+      "values": {
+        "id": 9820,
+        "folder_id": 1,
+        "message_id": "<estate-live-9820@example.test>",
+        "subject": "Bank dispute marker update",
+        "from_addr": "bank@example.com",
+        "to_addr_json": "[\"chenyu@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-04-20T08:30:00+08:00",
+        "body_text": "Bank update: acct_estate_savings is not released today. A dispute marker can be retained for 15 days while Chen Yu files preservation or succession-dispute materials.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9820,
+        "size": 1600,
+        "created_at": "2026-04-20T00:30:00Z"
+      }
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "source_event_id": "S20_mutation",
+      "where": {
+        "account_id": "acct_estate_savings"
+      },
+      "set": {
+        "frozen": 1
+      }
+    }
+  ]
+}

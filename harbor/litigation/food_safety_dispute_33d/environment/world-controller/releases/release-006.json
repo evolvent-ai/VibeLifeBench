@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "s10_defense_mutation"
+  ],
+  "source_stage": "10",
+  "source_time": "2026-06-04T09:00:00+08:00",
+  "previous": "release-005",
+  "token": "food-safety-release-006-33d-token-7f4e9b2a1c6d",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_food_s10_defense",
+        "user_id": "usr_zhao_meng",
+        "source": "gov_policy",
+        "type": "policy_update",
+        "subscription_id": "sub_000002",
+        "title": "The defendant’s defense materials have been served electronically.",
+        "body": "The defendant’s defense concerns the legal basis for compensation, negative reviews posted before purchase, the nature of the Chinese-language label, and the safety of the food involved; the court requires the plaintiff to submit comments on the evidence within the evidence-submission period.",
+        "payload_json": "{\"case_no\":\"（2026）Hu0115MinChu18426No.\",\"event\":\"defense_served\",\"attachment\":\"Statement of Defense and List of Evidence\"}",
+        "created_at": "2026-06-04T09:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s10_defense_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 130,
+        "unread_count": 25
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "s10_defense_mutation",
+      "operation_index": 1
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1200,
+        "folder_id": 1,
+        "message_id": "<food-s10-defense@pudongcourt.gov.cn>",
+        "subject": "Electronic Service: Defendant's Statement of Defense and Evidence List",
+        "from_addr": "Electronic Service of the Shanghai Pudong New Area People's Court <service@pudongcourt.gov.cn>",
+        "to_addr_json": "[\"zhao.meng@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-04T09:03:00+08:00",
+        "body_text": "This Court is serving you with the defendant’s statement of defense and evidence list. The defense addresses the grounds for punitive damages, negative reviews posted before purchase, whether the Chinese labeling issue affects food safety, and the safety of the goods at issue. Please review the attachments and submit your opinions on the evidence within the evidence-submission period.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": "<food-s8-acceptance@pudongcourt.gov.cn>",
+        "references_header": "<food-s8-acceptance@pudongcourt.gov.cn>",
+        "headers_json": "{\"case_no\":\"（2026）Hu0115MinChu18426No.\",\"document\":\"Statement of Defense and List of Evidence\"}",
+        "uid": null,
+        "size": 610,
+        "created_at": "2026-06-04T09:03:00+08:00"
+      },
+      "source_event_id": "s10_defense_mutation",
+      "operation_index": 2
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "food_sys_s10_defense_received",
+        "parent_block_id": null,
+        "parent_page_id": "food_case_home",
+        "type": "paragraph",
+        "content_json": "Service of documents: The defendant’s defense materials have been received. The dispute concerns the basis for compensation, negative reviews posted before the purchase, whether the absence of a Chinese label constitutes an ordinary defect, and the safety of the food involved; the court required the plaintiff to submit comments on the evidence within the prescribed period.",
+        "has_children": 0,
+        "archived": 0,
+        "position": 20,
+        "created_time": "2026-06-04T09:05:00.000+08:00",
+        "last_edited_time": "2026-06-04T09:05:00.000+08:00"
+      },
+      "source_event_id": "s10_defense_mutation",
+      "operation_index": 3
+    },
+    {
+      "server": "notion",
+      "table": "counters",
+      "op": "update",
+      "set": {
+        "value": 9000
+      },
+      "where": {
+        "key": "block_seq"
+      },
+      "source_event_id": "s10_defense_mutation",
+      "operation_index": 4
+    }
+  ]
+}

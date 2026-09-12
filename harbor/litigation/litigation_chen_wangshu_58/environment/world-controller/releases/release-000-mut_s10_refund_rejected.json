@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000-mut_s10_refund_rejected",
+  "source_event_ids": [
+    "mut_s10_refund_rejected"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-07-15T09:05:00+08:00",
+  "previous": null,
+  "token": "litigation-chen-wangshu-58-release-000",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "insert",
+      "values": {
+        "refund_id": "refund_xq_course_0701",
+        "order_id": "ord_xq_course_0701",
+        "item_id": "item_xq_course_0701",
+        "qty": 1,
+        "reason": "试听期内申请原路现金退款",
+        "status": "rejected",
+        "opened_at": "2026-07-06T15:05:00+08:00",
+        "resolved_at": "2026-07-15T09:05:00+08:00",
+        "refund_amount_minor": 1200000
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "rejected",
+        "resolved_at": "2026-07-15T09:05:00+08:00"
+      },
+      "where": {
+        "refund_id": "refund_xq_course_0701"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "status": "refund_requested",
+        "note": "退款审核被拒绝；平台表示将另行说明学习权益方案；未见用户接受记录；现金退款仍有争议"
+      },
+      "where": {
+        "order_id": "ord_xq_course_0701"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "order_status_history",
+      "op": "insert",
+      "values": {
+        "order_id": "ord_xq_course_0701",
+        "status": "refund_requested",
+        "set_at": "2026-07-15T09:05:00+08:00"
+      }
+    }
+  ]
+}

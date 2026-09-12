@@ -1,0 +1,29 @@
+{
+  "step": "event-021",
+  "virtual_stage": 17,
+  "source_event_id": "evt_s17_ordinary_procedure_request",
+  "stage_boundary": true,
+  "response": "The ordinary-procedure checklist and contingency calendar milestone were prepared without asserting filing or acceptance.",
+  "response_paraphrase": "A possible ordinary-procedure route is organized as an internal contingency, not a completed lawsuit.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s17_ordinary_procedure_request"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s17_ordinary_procedure_checklist",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s17_legal_route_not_certainty",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

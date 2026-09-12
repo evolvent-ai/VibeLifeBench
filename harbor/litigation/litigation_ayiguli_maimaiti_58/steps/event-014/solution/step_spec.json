@@ -1,0 +1,32 @@
+{
+  "step": "event-014",
+  "stage": 14,
+  "virtual_stage": 14,
+  "source_event_id": "evt_s14_materials_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I organized the setoff and counterclaim preparation checklist by quality loss, shortage, completed payments, and outstanding proof without predicting an outcome.",
+  "response_paraphrase": "The preparation list now shows the facts and documents needed for each possible defensive category, without a merits forecast.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s14_materials_request"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_counterclaim_total",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s14_batch_cross_refs",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

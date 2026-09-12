@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "s2_regulator_notice_mutation"
+  ],
+  "source_stage": "2",
+  "source_time": "2026-05-22T09:20:00+08:00",
+  "previous": "release-001",
+  "token": "food-safety-release-002-33d-token-7f4e9b2a1c6d",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_food_s2_regulator",
+        "user_id": "usr_zhao_meng",
+        "source": "gov_policy",
+        "type": "policy_update",
+        "subscription_id": "sub_000002",
+        "title": "Reminder on inspections of labels and unlawful additives in imported food",
+        "body": "The market regulation authorities have issued inspection reminders regarding Chinese labels on imported food and illegal efficacy claims for ordinary food.",
+        "payload_json": "{\"account_id\":\"oa_sh_scjg\",\"post_id\":\"oap_food_s2_20260522\"}",
+        "created_at": "2026-05-22T09:20:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s2_regulator_notice_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "official_account_posts",
+      "op": "insert",
+      "values": {
+        "post_id": "oap_food_s2_20260522",
+        "account_id": "oa_sh_scjg",
+        "title": "Reminder on inspections of Chinese-language labels and unlawful additives in imported prepackaged food",
+        "summary": "Shanghai market-regulation authorities advised business operators to verify the Chinese labels, domestic agents, and ingredient information for imported prepackaged foods, and to continue checking for illegal claims that ordinary foods can treat diseases and for the risk of unlawful additives.",
+        "url": "https://scjgj.sh.gov.cn/food/20260522",
+        "published_at": "2026-05-22T09:15:00+08:00"
+      },
+      "source_event_id": "s2_regulator_notice_mutation",
+      "operation_index": 1
+    }
+  ]
+}

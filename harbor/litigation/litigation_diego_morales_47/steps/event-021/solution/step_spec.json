@@ -1,0 +1,31 @@
+{
+  "step": "event-021",
+  "virtual_stage": 15,
+  "source_event_id": "s15_legal_specific",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Specific privacy, electronic-data, and firsthand-witness authorities are added to the evidence analysis.",
+  "response_paraphrase": "More targeted authorities now support the privacy-minimization and electronic-record analysis.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s15_legal_specific"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_privacy_rule_added",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s15_electronic_data_rule_added",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

@@ -1,0 +1,46 @@
+{
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "litigation-han-yushan-57-release-003-token",
+  "operations": [
+    {
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 32,
+        "folder_id": 1,
+        "message_id": "email_upstairs_defense_0719",
+        "subject": "case material：case materialcommon risercase materialrainwater through the exterior wallcase materialstatement",
+        "from_addr": "upstairs.defense@example.invalid",
+        "to_addr_json": "[\"han.yushan@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-19T08:26:00+08:00",
+        "body_text": "upstairs occupantcase materialwater leakpossiblecase materialcommon riser、rainwater through the exterior wallcase materialproperty managementrepaircase material，case materialstatement。pleasecase materialdefensematerials。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{}",
+        "uid": 5032,
+        "size": 141,
+        "created_at": "2026-07-19T08:26:00+08:00"
+      },
+      "server": "email"
+    },
+    {
+      "table": "attachments",
+      "op": "insert",
+      "values": {
+        "id": 332,
+        "message_id": 32,
+        "filename": "upstairs_defense_0719.txt",
+        "content_type": "text/plain",
+        "size": 96,
+        "content_b64": "5oqX6L6p6KaB54K577ya5YWs5YWx56uL566h44CB5aSW5aKZ6Zuo5rC044CB54mp5Lia57u05L+u77yb5ZCr5omL5py65Y+35ZKM6Zeo54mM77yM6ZyA6ISx5pWP44CC",
+        "content_id": "cid_332"
+      },
+      "server": "email"
+    }
+  ]
+}

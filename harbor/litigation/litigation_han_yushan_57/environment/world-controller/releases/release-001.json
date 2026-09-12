@@ -1,0 +1,207 @@
+{
+  "release_id": "release-001",
+  "previous": "release-000",
+  "token": "litigation-han-yushan-57-release-001-token",
+  "operations": [
+    {
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "mer_home_haize_025",
+        "name": "Haize Building Testing Center",
+        "category": "home_service",
+        "city": "Shanghai",
+        "area": "Pudong New Area",
+        "address": "ShanghaiPudong New Areatestingcase material 25 case material",
+        "phone": "021-8800",
+        "rating_tenths": 48,
+        "review_count": 326,
+        "avg_price_minor": 68000,
+        "price_band": "$$$",
+        "hours": "09:00-18:00",
+        "tags": "CMApending verification,water leaktesting,sample report,candidate",
+        "has_private_room": 0,
+        "max_party_size": 0
+      },
+      "server": "review_platform"
+    },
+    {
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_mer_home_haize_025_base",
+        "merchant_id": "mer_home_haize_025",
+        "user_id": "usr_owner_2026",
+        "rating": 5,
+        "body": "case materialcause of water leakcase material，case materialclear，case materialformalqualificationscase materiallawyerverify。",
+        "image_captions": "[]",
+        "created_at": "2026-07-10T12:00:00Z"
+      },
+      "server": "review_platform"
+    },
+    {
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_mer_home_haize_025_scope",
+        "merchant_id": "mer_home_haize_025",
+        "user_id": "usr_q_001",
+        "question": "case materialmaterials？",
+        "answer": "case materialengagementscope、qualificationscase materiallawyercase materialconfirm。",
+        "answered_by": "merchant",
+        "created_at": "2026-07-11T12:00:00Z"
+      },
+      "server": "review_platform"
+    },
+    {
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "mer_home_lianheng_025",
+        "name": "Lianheng Construction Testing",
+        "category": "home_service",
+        "city": "Shanghai",
+        "area": "Yangpu District",
+        "address": "ShanghaiYangpu Districttestingcase material 25 case material",
+        "phone": "021-8800",
+        "rating_tenths": 46,
+        "review_count": 188,
+        "avg_price_minor": 68000,
+        "price_band": "$$$",
+        "hours": "09:00-18:00",
+        "tags": "construction engineering testing,case material,case materialattachment,candidate",
+        "has_private_room": 0,
+        "max_party_size": 0
+      },
+      "server": "review_platform"
+    },
+    {
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_mer_home_lianheng_025_base",
+        "merchant_id": "mer_home_lianheng_025",
+        "user_id": "usr_owner_2026",
+        "rating": 5,
+        "body": "case materialcause of water leakcase material，case materialclear，case materialformalqualificationscase materiallawyerverify。",
+        "image_captions": "[]",
+        "created_at": "2026-07-10T12:00:00Z"
+      },
+      "server": "review_platform"
+    },
+    {
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_mer_home_lianheng_025_scope",
+        "merchant_id": "mer_home_lianheng_025",
+        "user_id": "usr_q_001",
+        "question": "case materialmaterials？",
+        "answer": "case materialengagementscope、qualificationscase materiallawyercase materialconfirm。",
+        "answered_by": "merchant",
+        "created_at": "2026-07-11T12:00:00Z"
+      },
+      "server": "review_platform"
+    },
+    {
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "mer_home_mingshi_025",
+        "name": "Mingshi Judicial Appraisal Consulting",
+        "category": "home_service",
+        "city": "Shanghai",
+        "area": "Huangpu District",
+        "address": "ShanghaiHuangpu Districttestingcase material 25 case material",
+        "phone": "021-8800",
+        "rating_tenths": 44,
+        "review_count": 155,
+        "avg_price_minor": 68000,
+        "price_band": "$$$",
+        "hours": "09:00-18:00",
+        "tags": "appraisal consulting,case material,qualificationspending verification,candidate",
+        "has_private_room": 0,
+        "max_party_size": 0
+      },
+      "server": "review_platform"
+    },
+    {
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_mer_home_mingshi_025_base",
+        "merchant_id": "mer_home_mingshi_025",
+        "user_id": "usr_owner_2026",
+        "rating": 5,
+        "body": "case materialcause of water leakcase material，case materialclear，case materialformalqualificationscase materiallawyerverify。",
+        "image_captions": "[]",
+        "created_at": "2026-07-10T12:00:00Z"
+      },
+      "server": "review_platform"
+    },
+    {
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_mer_home_mingshi_025_scope",
+        "merchant_id": "mer_home_mingshi_025",
+        "user_id": "usr_q_001",
+        "question": "case materialmaterials？",
+        "answer": "case materialengagementscope、qualificationscase materiallawyercase materialconfirm。",
+        "answered_by": "merchant",
+        "created_at": "2026-07-11T12:00:00Z"
+      },
+      "server": "review_platform"
+    },
+    {
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "mer_home_kangyuan_025",
+        "name": "Kangyuan Repair Survey",
+        "category": "home_service",
+        "city": "Shanghai",
+        "area": "Pudong New Area",
+        "address": "ShanghaiPudong New Areatestingcase material 25 case material",
+        "phone": "021-8800",
+        "rating_tenths": 47,
+        "review_count": 240,
+        "avg_price_minor": 68000,
+        "price_band": "$$$",
+        "hours": "09:00-18:00",
+        "tags": "repaircase material,case material,case materialappraisal opinion",
+        "has_private_room": 0,
+        "max_party_size": 0
+      },
+      "server": "review_platform"
+    },
+    {
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_mer_home_kangyuan_025_base",
+        "merchant_id": "mer_home_kangyuan_025",
+        "user_id": "usr_owner_2026",
+        "rating": 5,
+        "body": "case materialcause of water leakcase material，case materialclear，case materialformalqualificationscase materiallawyerverify。",
+        "image_captions": "[]",
+        "created_at": "2026-07-10T12:00:00Z"
+      },
+      "server": "review_platform"
+    },
+    {
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_mer_home_kangyuan_025_scope",
+        "merchant_id": "mer_home_kangyuan_025",
+        "user_id": "usr_q_001",
+        "question": "case materialmaterials？",
+        "answer": "case materialengagementscope、qualificationscase materiallawyercase materialconfirm。",
+        "answered_by": "merchant",
+        "created_at": "2026-07-11T12:00:00Z"
+      },
+      "server": "review_platform"
+    }
+  ]
+}

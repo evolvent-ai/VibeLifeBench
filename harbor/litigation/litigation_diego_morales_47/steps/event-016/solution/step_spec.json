@@ -1,0 +1,22 @@
+{
+  "step": "event-016",
+  "virtual_stage": 12,
+  "source_event_id": "n12_platform_pressure",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": []
+  },
+  "response": "The platform request to unify testimony time is recorded as pressure without changing any source or timestamp.",
+  "response_paraphrase": "The request for one uniform time is logged as pressure, while every original time remains unchanged.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n12_platform_pressure"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

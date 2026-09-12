@@ -1,0 +1,3 @@
+[2026-06-16 10:00 +08:00] Judgment served by Xihu District People's Court of Hangzhou:
+
+The first-instance judgment orders defendant Chen Qiang to return 360,000 yuan of principal to plaintiff Wang Fang, recognizing the first loan by the amount actually advanced, plus interest at four times the one-year LPR in effect when the contract was formed, after deducting 20,000 yuan already repaid. The court rejects Wang Fang's claims for the second 200,000-yuan cash loan, joint repayment by spouse Liu Min and guarantor Zhou Guohua, emotional-distress damages, and lost wages. An appeal may be filed with the higher people's court within the statutory period.

@@ -1,0 +1,8 @@
+{
+  "step": "event-027", "virtual_stage": 23, "source_event_id": "S23_notification", "stage_boundary": true, "synthetic": false,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The estate evidence was reviewed and recorded with verification, preservation, and authorization limits kept explicit.",
+  "response_paraphrase": "The litigation and mediation options were framed around verified evidence and open questions.",
+  "actions": [{"kind": "record_event", "event_id": "S23_notification", "event_kind": "notification"}],
+  "expected_checks": [{"check_id": "s23_evidence", "weight": 0.4, "expected": true}, {"check_id": "s23_workspace", "weight": 0.6, "expected": true}], "expected_stage_weight": 1.0
+}

@@ -1,0 +1,1 @@
+Consolidate the shipment-by-shipment quality objections, signatory discrepancies, payment reconciliation, evidence index, and privacy list into one pretrial reconciliation package. I will use it only for my own review or a lawyer's review; I do not authorize you to submit it.

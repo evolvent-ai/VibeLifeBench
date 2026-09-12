@@ -1,0 +1,36 @@
+{
+  "step": "event-004",
+  "stage": 4,
+  "virtual_stage": 4,
+  "source_event_id": "evt_s4_delivery_baseline",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "mut_s4_delivery_baseline"
+    ]
+  },
+  "response": "I matched all four carrier records to separate shipment entries and placed the beverage shipment under status monitoring without changing any delivery instruction.",
+  "response_paraphrase": "Each delivery has its own carrier-to-lot entry, and passive monitoring is active for the shipment that later needs follow-up.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s4_delivery_baseline"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s4_four_shipments_matrix",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s4_delivery_watch_subscription",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

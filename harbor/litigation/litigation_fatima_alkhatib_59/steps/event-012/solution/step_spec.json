@@ -1,0 +1,26 @@
+{
+  "step": "event-012",
+  "stage": 12,
+  "virtual_stage": 12,
+  "source_event_id": "evt_s12_quality_watch",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "mut_s12_recall_review"
+    ]
+  },
+  "response": "The routine quality review was recorded while waiting for the platform state update.",
+  "response_paraphrase": "The scheduled quality watch was logged pending the newly released platform information.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_s12_quality_watch",
+      "stage": 12
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "step_count": 30,
+  "steps": {
+    "event-000": {
+      "source_event_id": "evt_s0_user_kickoff",
+      "virtual_stage": 0,
+      "scenario_time": "2026-07-02T09:10:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-001": {
+      "source_event_id": "evt_s1_initial_digest",
+      "virtual_stage": 1,
+      "scenario_time": "2026-07-02T15:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-002": {
+      "source_event_id": "evt_s2_promise_email",
+      "virtual_stage": 2,
+      "scenario_time": "2026-07-03T09:30:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-003": {
+      "source_event_id": "evt_s3_terms_attachment",
+      "virtual_stage": 3,
+      "scenario_time": "2026-07-03T16:20:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-004": {
+      "source_event_id": "evt_s4_card_payment_baseline",
+      "virtual_stage": 4,
+      "scenario_time": "2026-07-04T11:00:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-005": {
+      "source_event_id": "evt_s4_card_noise_notice",
+      "virtual_stage": 4,
+      "scenario_time": "2026-07-04T18:30:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-006": {
+      "source_event_id": "evt_s5_screenshot_sensitive",
+      "virtual_stage": 5,
+      "scenario_time": "2026-07-06T14:25:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-007": {
+      "source_event_id": "evt_s6_refund_window",
+      "virtual_stage": 6,
+      "scenario_time": "2026-07-06T15:10:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-008": {
+      "source_event_id": "evt_s7_legal_baseline",
+      "virtual_stage": 7,
+      "scenario_time": "2026-07-08T09:40:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-009": {
+      "source_event_id": "evt_s8_course_usage_update",
+      "virtual_stage": 8,
+      "scenario_time": "2026-07-10T18:00:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-010": {
+      "source_event_id": "evt_s8_course_marketing_noise",
+      "virtual_stage": 8,
+      "scenario_time": "2026-07-10T20:10:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-011": {
+      "source_event_id": "evt_s9_clause_annotation_window",
+      "virtual_stage": 9,
+      "scenario_time": "2026-07-12T10:30:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-012": {
+      "source_event_id": "evt_s10_refund_status_notice",
+      "virtual_stage": 10,
+      "scenario_time": "2026-07-15T09:15:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-000-mut_s10_refund_rejected"
+      ]
+    },
+    "event-013": {
+      "source_event_id": "evt_s11_coupon_offer_notice",
+      "virtual_stage": 11,
+      "scenario_time": "2026-07-16T10:05:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-001-mut_s11_coupon_offer"
+      ]
+    },
+    "event-014": {
+      "source_event_id": "evt_s12_platform_status_recheck",
+      "virtual_stage": 12,
+      "scenario_time": "2026-07-16T15:30:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-015": {
+      "source_event_id": "evt_s12_platform_update",
+      "virtual_stage": 12,
+      "scenario_time": "2026-07-16T17:20:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-016": {
+      "source_event_id": "evt_s13_user_coupon_pressure",
+      "virtual_stage": 13,
+      "scenario_time": "2026-07-18T11:20:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-017": {
+      "source_event_id": "evt_s14_installment_notice",
+      "virtual_stage": 14,
+      "scenario_time": "2026-07-20T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-002-mut_s14_installment_statement"
+      ]
+    },
+    "event-018": {
+      "source_event_id": "evt_s15_platform_complaint_draft",
+      "virtual_stage": 15,
+      "scenario_time": "2026-07-21T10:40:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-019": {
+      "source_event_id": "evt_s16_consumer_association_route",
+      "virtual_stage": 16,
+      "scenario_time": "2026-07-23T14:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-020": {
+      "source_event_id": "evt_s17_card_dispute_question",
+      "virtual_stage": 17,
+      "scenario_time": "2026-07-25T16:10:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-021": {
+      "source_event_id": "evt_s17b_no_card_action_authorization",
+      "virtual_stage": 17,
+      "scenario_time": "2026-07-25T17:30:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-022": {
+      "source_event_id": "evt_s18_refund_amount_calc",
+      "virtual_stage": 18,
+      "scenario_time": "2026-07-28T11:15:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-023": {
+      "source_event_id": "evt_s19_reserved_state_notice",
+      "virtual_stage": 19,
+      "scenario_time": "2026-08-01T10:30:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-003-mut_s19_coupon_reserved"
+      ]
+    },
+    "event-024": {
+      "source_event_id": "evt_s20_coupon_followup",
+      "virtual_stage": 20,
+      "scenario_time": "2026-08-03T15:40:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-004-mut_s20_platform_followup"
+      ]
+    },
+    "event-025": {
+      "source_event_id": "evt_s21_refund_state_second_recheck",
+      "virtual_stage": 21,
+      "scenario_time": "2026-08-08T09:30:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-026": {
+      "source_event_id": "evt_s22_legal_followup",
+      "virtual_stage": 22,
+      "scenario_time": "2026-08-12T13:50:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-027": {
+      "source_event_id": "evt_s23_full_self_audit",
+      "virtual_stage": 23,
+      "scenario_time": "2026-08-18T17:10:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-028": {
+      "source_event_id": "evt_s23b_audit_reminder",
+      "virtual_stage": 23,
+      "scenario_time": "2026-08-18T18:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-029": {
+      "source_event_id": "evt_s24_final_packet",
+      "virtual_stage": 24,
+      "scenario_time": "2026-08-28T18:40:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    }
+  }
+}

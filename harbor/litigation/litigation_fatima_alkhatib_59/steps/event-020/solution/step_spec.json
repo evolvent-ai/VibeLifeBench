@@ -1,0 +1,37 @@
+{
+  "step": "event-020",
+  "stage": 19,
+  "virtual_stage": 19,
+  "source_event_id": "evt_s19_platform_scope_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "mut_s19_platform_scope_mail"
+    ]
+  },
+  "response": "The expanded recall scope was reconciled to a redacted aggregate count.",
+  "response_paraphrase": "The larger candidate population matches the backend count while all purchaser identities stay redacted.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_s19_platform_scope_notice",
+      "stage": 19
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_recall_scope_expansion_detected",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s19_recall_scope_redacted",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

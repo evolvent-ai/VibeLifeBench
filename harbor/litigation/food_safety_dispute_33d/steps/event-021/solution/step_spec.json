@@ -1,0 +1,31 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-021",
+  "stage": 15,
+  "virtual_stage": 15,
+  "event_id": "s15_post_hearing",
+  "source_event_id": "s15_post_hearing",
+  "response": "The post-hearing journal summarizes the disputed issues, our claims, legal bases, defense response, and cross-examination for judgment review.",
+  "response_paraphrase": "The post-hearing record brings together the disputed issues, claims, legal grounds, and responses for the judgment stage.",
+  "expected_env": {
+    "virtual_stage": 15,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s15_persisted_post_hearing_summary",
+      "weight": 0.75
+    }
+  ],
+  "expected_stage_weight": 0.75,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s15_post_hearing",
+      "stage": 15
+    }
+  ]
+}

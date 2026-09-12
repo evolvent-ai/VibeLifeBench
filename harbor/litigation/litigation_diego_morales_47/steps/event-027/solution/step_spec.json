@@ -1,0 +1,31 @@
+{
+  "step": "event-027",
+  "virtual_stage": 18,
+  "source_event_id": "s18_map_refresh",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The Xinhe Road construction and route are rechecked as possible corroboration, not proof of delivery time.",
+  "response_paraphrase": "The road-work record offers route context only; it is not treated as a delivery-time finding.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s18_map_refresh"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_road_event_rechecked",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s18_map_not_overclaimed",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

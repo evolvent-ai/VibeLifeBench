@@ -1,0 +1,38 @@
+{
+  "release_id": "release-008",
+  "source_stage": 14,
+  "source_time": "2026-04-14T08:50:00+08:00",
+  "source_event_ids": ["S14_mutation"],
+  "previous": "release-007",
+  "token": "estate-release-008-token-7f9a31c2d4e5",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "S14_mutation",
+      "values": {
+        "id": 9814,
+        "folder_id": 1,
+        "message_id": "<estate-live-9814@example.test>",
+        "subject": "Hospital cognition supplement",
+        "from_addr": "hospital@example.com",
+        "to_addr_json": "[\"chenyu@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-04-14T08:30:00+08:00",
+        "body_text": "Supplement: MMSE 18/30 on 2026-03-05, delirium risk during terminal infection. This does not directly describe January 2023 but affects late-stage oral statements.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9814,
+        "size": 1600,
+        "created_at": "2026-04-14T00:30:00Z"
+      }
+    }
+  ]
+}

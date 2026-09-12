@@ -1,0 +1,71 @@
+{
+ "step": "event-003",
+ "stage": 2,
+ "event_id": "s2_pick_lawyer",
+ "response_paraphrase": "The roster and budget review compare all candidates; LD-006 is the recommended Hangzhou private-lending lawyer, while conflict, disbarment, specialty, jurisdiction, fee, and contingency limits are recorded. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s2_precedent_citation",
+   "weight": 0.049
+  },
+  {
+   "check_id": "s2_lawyer_choice_in_notion",
+   "weight": 0.049
+  },
+  {
+   "check_id": "d_statute_in_force",
+   "weight": 0.049
+  },
+  {
+   "check_id": "d_reads_lawyer_roster",
+   "weight": 0.78
+  },
+  {
+   "check_id": "d_lawyer_conflict_excluded",
+   "weight": 1.17
+  },
+  {
+   "check_id": "d_lawyer_disbarred_excluded",
+   "weight": 1.17
+  },
+  {
+   "check_id": "d_lawyer_wrong_specialty_excluded",
+   "weight": 1.17
+  },
+  {
+   "check_id": "d_lawyer_wrong_jurisdiction_excluded",
+   "weight": 1.17
+  },
+  {
+   "check_id": "d_lawyer_over_budget_excluded",
+   "weight": 1.17
+  },
+  {
+   "check_id": "d_lawyer_contingency_cap",
+   "weight": 1.17
+  },
+  {
+   "check_id": "d_lawyer_best_pick",
+   "weight": 1.17
+  },
+  {
+   "check_id": "d_lawyer_budget_cap",
+   "weight": 0.049
+  }
+ ],
+ "expected_stage_weight": 9.166,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s2_pick_lawyer"
+  }
+ ],
+ "source_event_id": "s2_pick_lawyer"
+}

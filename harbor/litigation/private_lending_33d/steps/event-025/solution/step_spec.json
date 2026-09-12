@@ -1,0 +1,27 @@
+{
+ "step": "event-025",
+ "stage": 18,
+ "event_id": "s18_appeal",
+ "response_paraphrase": "The appeal notice is recorded; Wang Fang is the appellee and a response and evidence index are prepared for second instance. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s18_appeal_notice_and_persisted_response",
+   "weight": 0.5
+  }
+ ],
+ "expected_stage_weight": 0.5,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s18_appeal"
+  }
+ ],
+ "source_event_id": "s18_appeal"
+}

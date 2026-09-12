@@ -1,0 +1,1 @@
+The Pudong District People's Court has accepted my food-safety online-shopping contract case against Global Select and the FreshChoice platform. I should watch for the evidence notice, food-testing arrangements, and hearing schedule, and prepare for defenses the defendants may raise.

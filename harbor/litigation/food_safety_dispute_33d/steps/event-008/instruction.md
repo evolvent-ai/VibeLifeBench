@@ -1,0 +1,1 @@
+Filing-preparation reminder: check the official guidance for what the complaint must contain, which defendants to name (seller, producer, and/or platform), required materials, the correct court, whether a filing fee must be advanced and how it is calculated, and how to request food testing. List anything still missing and remind me to supply it.

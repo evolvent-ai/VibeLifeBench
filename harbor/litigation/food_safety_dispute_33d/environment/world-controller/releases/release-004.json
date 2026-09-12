@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "s7_seller_vanish_mutation"
+  ],
+  "source_stage": "7",
+  "source_time": "2026-05-30T09:00:00+08:00",
+  "previous": "release-003",
+  "token": "food-safety-release-004-33d-token-7f4e9b2a1c6d",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_food_s7_seller_vanish",
+        "user_id": "usr_zhao_meng",
+        "source": "content_platform",
+        "type": "new_content",
+        "subscription_id": "sub_000001",
+        "title": "The store involved has an abnormal operating status.",
+        "body": "The Youxianguo risk control record shows that the “Huanqiu Youxuan” store has suspended operations. Its online customer service and registered telephone number are temporarily unreachable; the platform is reviewing the operator's contact information.",
+        "payload_json": "{\"case_ref\":\"food_2026_zm\",\"event\":\"seller_unreachable\",\"store\":\"Huanqiu Youxuan\",\"platform_review\":\"pending\"}",
+        "created_at": "2026-05-30T09:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s7_seller_vanish_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 130,
+        "unread_count": 25
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "s7_seller_vanish_mutation",
+      "operation_index": 1
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1198,
+        "folder_id": 1,
+        "message_id": "<food-s7-store-status@youxiangou.com>",
+        "subject": "Youxianguo work order update: the Huanqiu Youxuan store has suspended operations",
+        "from_addr": "Youxianguo Consumer Services <service@youxiangou.com>",
+        "to_addr_json": "[\"zhao.meng@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-05-30T09:02:00+08:00",
+        "body_text": "Hello Zhao Meng. Regarding the merchant contact ticket for order YX20260418: the Global Youxuan store is currently suspended, and its online customer service and registered telephone number are temporarily unreachable. The platform is reviewing the merchant’s name, address, and valid contact information, and subsequent results will continue to be sent through this ticket.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"case_ref\":\"food_2026_zm\",\"ticket\":\"YX-RISK-0529\"}",
+        "uid": null,
+        "size": 460,
+        "created_at": "2026-05-30T09:02:00+08:00"
+      },
+      "source_event_id": "s7_seller_vanish_mutation",
+      "operation_index": 2
+    }
+  ]
+}

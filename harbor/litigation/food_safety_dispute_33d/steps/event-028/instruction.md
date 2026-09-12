@@ -1,0 +1,1 @@
+The Shanghai Administration for Market Regulation continues its campaign for safe and compliant online food sales and consumer protection. Consumers are reminded to pursue rights lawfully and rationally and to preserve orders, payment records, and the physical products.

@@ -1,0 +1,1 @@
+A deadline reminder has appeared in the court email. Read the original message, then update the status, gaps, and responsible person for each item. Aygul Mamat or her lawyer must still decide whether and how anything will be submitted.

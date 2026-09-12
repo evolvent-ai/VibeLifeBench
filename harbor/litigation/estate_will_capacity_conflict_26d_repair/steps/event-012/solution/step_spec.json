@@ -1,0 +1,8 @@
+{
+  "step": "event-012", "virtual_stage": 10, "source_event_id": "S10_user_message", "stage_boundary": true, "synthetic": false,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The estate evidence was reviewed and recorded with verification, preservation, and authorization limits kept explicit.",
+  "response_paraphrase": "Capacity observations were compared by date, preserving the distinction between later decline and execution.",
+  "actions": [{"kind": "record_event", "event_id": "S10_user_message", "event_kind": "user_message"}],
+  "expected_checks": [{"check_id": "s10_evidence", "weight": 0.4, "expected": true}, {"check_id": "s10_workspace", "weight": 0.6, "expected": true}], "expected_stage_weight": 1.0
+}

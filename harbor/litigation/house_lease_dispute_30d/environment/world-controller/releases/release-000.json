@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "D4_lawyer_consultation_mut"
+  ],
+  "source_stage": 4,
+  "source_time": "2026-05-22T13:50:00+08:00",
+  "previous": null,
+  "token": "house_lease_dispute_30d-release-00-token-abcdef1234567890",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 201,
+        "folder_id": 1,
+        "message_id": "<20260522-lawyer-consult@law.cn>",
+        "subject": "lease disputeinterviewafterofevidencechecklist",
+        "from_addr": "case record <zhou@law.cn>",
+        "to_addr_json": "[\"chen.yue@gmail.com\"]",
+        "date": "2026-05-22T13:50:00+08:00",
+        "body_text": "Chen Yue：todayinterviewafterpleasecase recordfirstsavelease contract、security depositandcase recordmonthcase recordpayrecord、landlordagreerenovationofWeChatoriginal medium、renovationcontractcase recordandpaymentreceipt、landlordcase recordandnotcase recordsecurity depositofcase record、case recordinformation。case recordoriginal copylocation、case recordtime、fact to be provedandcase recordneedcase record。",
+        "is_read": 0,
+        "is_important": 1,
+        "headers_json": "{}",
+        "size": 420,
+        "created_at": "2026-05-22T13:50:00+08:00"
+      },
+      "source_event_id": "D4_lawyer_consultation_mut",
+      "operation_index": 0
+    }
+  ]
+}

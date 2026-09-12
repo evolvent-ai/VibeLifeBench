@@ -1,0 +1,43 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-002",
+  "stage": 1,
+  "virtual_stage": 1,
+  "event_id": "s1_procedure",
+  "source_event_id": "s1_procedure",
+  "response": "I checked the official procedure: the receipt is in Shanghai Pudong, food-sector recovery uses the applicable compensation rule, and the limitation period is recorded with cited authorities.",
+  "response_paraphrase": "I verified the court guidance, the Shanghai Pudong receipt location, the food compensation rule, and the applicable time limit.",
+  "expected_env": {
+    "virtual_stage": 1,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s1_reads_official_notice",
+      "weight": 0.5
+    },
+    {
+      "check_id": "d_tenfold_not_treble_safety",
+      "weight": 2
+    },
+    {
+      "check_id": "d_knowing_purchase_ok",
+      "weight": 1
+    },
+    {
+      "check_id": "d_delivery_jurisdiction",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s1_procedure",
+      "stage": 1
+    }
+  ]
+}

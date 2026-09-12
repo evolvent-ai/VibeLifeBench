@@ -1,0 +1,59 @@
+{
+ "step": "event-004",
+ "stage": 3,
+ "event_id": "s3_claims",
+ "response_paraphrase": "The claim calculation reconciles 400000 on the IOU with 360000 actually transferred, applies the LPR four-times cap, offsets the 20000 repayment, and screens unsupported extra claims. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s3_reads_facts",
+   "weight": 0.5
+  },
+  {
+   "check_id": "s3_reads_claims_draft",
+   "weight": 0.5
+  },
+  {
+   "check_id": "d_kantou_interest_principal",
+   "weight": 1
+  },
+  {
+   "check_id": "d_lpr_four_times",
+   "weight": 0.5
+  },
+  {
+   "check_id": "d_repayment_offset",
+   "weight": 0.5
+  },
+  {
+   "check_id": "d_claim_interest_capped",
+   "weight": 0.5
+  },
+  {
+   "check_id": "d_claim_mental_damages",
+   "weight": 0.5
+  },
+  {
+   "check_id": "d_claim_lost_wages",
+   "weight": 0.5
+  },
+  {
+   "check_id": "d_not_professional_lending",
+   "weight": 0.5
+  }
+ ],
+ "expected_stage_weight": 5.0,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s3_claims"
+  }
+ ],
+ "source_event_id": "s3_claims"
+}

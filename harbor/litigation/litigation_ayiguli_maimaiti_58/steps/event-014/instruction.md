@@ -1,0 +1,1 @@
+I first want to understand what facts and supporting documents are needed to prepare a setoff or counterclaim. Create a checklist organized by quality losses, shortages, completed payments, and missing proof. Address only material preparation and do not predict how the court will rule.

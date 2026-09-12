@@ -1,0 +1,38 @@
+{
+  "release_id": "release-007",
+  "source_stage": 13,
+  "source_time": "2026-04-13T08:50:00+08:00",
+  "source_event_ids": ["S13_mutation"],
+  "previous": "release-006",
+  "token": "estate-release-007-token-7f9a31c2d4e5",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "S13_mutation",
+      "values": {
+        "id": 9813,
+        "folder_id": 1,
+        "message_id": "<estate-live-9813@example.test>",
+        "subject": "Handwritten paper metadata note",
+        "from_addr": "chenyu@example.com",
+        "to_addr_json": "[\"chenyu@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-04-13T08:30:00+08:00",
+        "body_text": "Phone folder shows the photo was added 2023-01-17, but the paper image itself has no full date line and no visible Chen Guohua signature at the end.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9813,
+        "size": 1600,
+        "created_at": "2026-04-13T00:30:00Z"
+      }
+    }
+  ]
+}

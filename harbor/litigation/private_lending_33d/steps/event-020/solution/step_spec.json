@@ -1,0 +1,31 @@
+{
+ "step": "event-020",
+ "stage": 15,
+ "event_id": "s15_adjourn_world",
+ "response_paraphrase": "The post-hearing Notion summary captures both sides arguments, evidence, legal basis, and the next judgment step. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s15_summary_in_notion",
+   "weight": 0.5
+  },
+  {
+   "check_id": "s15_captures_arguments",
+   "weight": 0.5
+  }
+ ],
+ "expected_stage_weight": 1.0,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s15_adjourn_world"
+  }
+ ],
+ "source_event_id": "s15_adjourn_world"
+}

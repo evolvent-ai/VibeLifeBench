@@ -1,0 +1,30 @@
+{
+  "release_id": "release-010",
+  "source_stage": 17,
+  "source_time": "2026-04-17T08:50:00+08:00",
+  "source_event_ids": ["S17_mutation"],
+  "previous": "release-009",
+  "token": "estate-release-010-token-7f9a31c2d4e5",
+  "operations": [
+    {
+      "server": "content_platform",
+      "table": "notes",
+      "op": "insert",
+      "source_event_id": "S17_mutation",
+      "values": {
+        "note_id": "note_handwriting_sample_2022",
+        "author_id": "usr_cc6ezjm3rw4riifmve",
+        "title": "Father handwriting comparison sources",
+        "body": "Verified 2022 signature samples from a bank card application and the notary interview show different stroke pressure from the later unsigned handwritten paper. The comparison supports expert review but does not itself prove forgery.",
+        "category": "其他",
+        "tags": "[\"handwriting\", \"will\", \"expert review\"]",
+        "image_captions": "[\"bank signature sample\", \"notary interview signature\"]",
+        "like_count": 45,
+        "collect_count": 15,
+        "comment_count": 1,
+        "view_count": 420,
+        "published_at": "2026-04-17"
+      }
+    }
+  ]
+}

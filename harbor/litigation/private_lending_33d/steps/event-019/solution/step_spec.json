@@ -1,0 +1,27 @@
+{
+ "step": "event-019",
+ "stage": 14,
+ "event_id": "s14_hearing",
+ "response_paraphrase": "The completed hearing and its actual-principal, cash, interest, guarantee, and spousal-debt issues are recorded pending judgment. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s14_persisted_hearing_result",
+   "weight": 0.5
+  }
+ ],
+ "expected_stage_weight": 0.5,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s14_hearing"
+  }
+ ],
+ "source_event_id": "s14_hearing"
+}

@@ -1,0 +1,33 @@
+{
+  "step": "event-023",
+  "stage": 22,
+  "virtual_stage": 22,
+  "source_event_id": "evt_s22_legal_final_refresh",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Final legal notes and the evidence-submission checklist were saved for review.",
+  "response_paraphrase": "Pretrial research and a no-submission checklist are ready for the lawyer’s review.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_s22_legal_final_refresh",
+      "stage": 22
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_pretrial_notes_saved",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s22_material_checklist_created",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

@@ -1,0 +1,28 @@
+{
+  "release_id": "release-000",
+  "source_stage": 1,
+  "source_time": "2026-04-01T09:50:00+08:00",
+  "source_event_ids": ["S01_mutation"],
+  "previous": null,
+  "token": "estate-release-000-token-7f9a31c2d4e5",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "S01_mutation",
+      "values": {
+        "notification_id": "ntf_b344bd2189c4443c8ace34f3cb22d176",
+        "user_id": "chen_yu",
+        "source": "probate_workspace",
+        "type": "source_index_ready",
+        "subscription_id": null,
+        "title": "Evidence source index available",
+        "body": "The case folder now contains separate index groups for the notary archive, handwritten-paper image, property registry, bank records, hospital records, caregiving receipts, and family communications.",
+        "payload_json": "{\"case_reference\":\"CY-CG-2026-04\",\"indexed_groups\":7}",
+        "created_at": "2026-04-01T09:50:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

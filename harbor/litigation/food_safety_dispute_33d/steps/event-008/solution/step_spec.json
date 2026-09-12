@@ -1,0 +1,35 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-008",
+  "stage": 5,
+  "virtual_stage": 5,
+  "event_id": "s5_filing_prep",
+  "source_event_id": "s5_filing_prep",
+  "response": "The filing checklist covers the complaint, facts and grounds, seller, platform, and producer options in Shanghai Pudong; it lists litigation and court acceptance fees, prepayment, and the testing application. Zhao Meng can choose one defendant or either.",
+  "response_paraphrase": "The filing materials cover the pleading, parties, Pudong court, fees, and inspection request, with Zhao Meng retaining the irreversible choices.",
+  "expected_env": {
+    "virtual_stage": 5,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "d_fees",
+      "weight": 0.5
+    },
+    {
+      "check_id": "d_defendant_election",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 1.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s5_filing_prep",
+      "stage": 5
+    }
+  ]
+}

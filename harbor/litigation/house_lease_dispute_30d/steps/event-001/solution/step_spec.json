@@ -1,0 +1,32 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "virtual_stage": 1,
+  "source_event_id": "D1_policy_world",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Stage 1 was reviewed using the relevant source records and the case register was updated while Chen Yue retained every decision.",
+  "response_paraphrase": "The stage 1 review is recorded with verified case material, and all consequential choices remain pending Chen Yue's confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D1_policy_world"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s01_source",
+      "weight": 0.4,
+      "expected": true
+    },
+    {
+      "check_id": "s01_workspace",
+      "weight": 0.6,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

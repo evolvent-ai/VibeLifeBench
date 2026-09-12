@@ -1,0 +1,1 @@
+The beverage shortage issue remains open. You may use a logistics subscription or issue record to maintain evidence continuity, but do not change the delivery address, cancel any transportation record, or present the carrier's note as a final conclusion.

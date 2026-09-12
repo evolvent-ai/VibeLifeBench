@@ -1,0 +1,3 @@
+[2026-06-13T10:00:00+08:00] First-instance judgment served by Shanghai Minhang District People's Court
+
+The court orders: first, defendant Wang Jianguo must return plaintiff Chen Yue's security deposit of RMB 16,000; second, the defendant must compensate the plaintiff for loss of the residual value of renovations, subject to appraisal, and for loss caused by infringement of the tenant's right of first refusal; third, the defendant's counterclaims requiring the plaintiff to vacate and pay a use-and-occupancy fee are dismissed. A party dissatisfied with the judgment may appeal within the statutory period.

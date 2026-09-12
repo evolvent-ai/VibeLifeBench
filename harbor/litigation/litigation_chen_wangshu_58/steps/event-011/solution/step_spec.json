@@ -1,0 +1,36 @@
+{
+  "step": "event-011",
+  "virtual_stage": 9,
+  "source_event_id": "evt_s9_clause_annotation_window",
+  "event_id": "evt_s9_clause_annotation_window",
+  "stage_boundary": true,
+  "synthetic": false,
+  "response": "Core refund, standard-term, installment, and training-benefit clauses were source-bound.",
+  "response_paraphrase": "The stage 9 review is documented, with unresolved commitments still waiting for confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s9_clause_annotation_window",
+      "event_kind": "notification",
+      "event_time": "2026-07-12T10:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s9_core_clauses_annotated",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s9_clause_sources_bound",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

@@ -1,0 +1,41 @@
+{
+  "step": "event-036",
+  "virtual_stage": 24,
+  "source_event_id": "sched24_review",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The latest email, delivery, map, and legal checks support a draft-only handoff with personal confirmation still required.",
+  "response_paraphrase": "Recent source checks are complete for handoff, while the materials remain unsent and awaiting Diego's approval.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "sched24_review"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s24_late_email_delivery_refresh",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s24_late_maps_legal_refresh",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s24_final_handoff_artifact_action",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s24_late_allowed_service_matrix",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

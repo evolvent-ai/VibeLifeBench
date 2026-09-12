@@ -1,0 +1,9 @@
+{
+  "mcp_servers": [
+    "credit_card",
+    "ecommerce",
+    "email",
+    "legal_search",
+    "notion"
+  ]
+}

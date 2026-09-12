@@ -1,0 +1,50 @@
+{
+  "release_id": "release-001",
+  "previous": "release-000",
+  "source_stage": 13,
+  "source_time": "2026-08-04T07:40:00+08:00",
+  "source_event_ids": ["mut_s13_qc_addendum"],
+  "token": "litigation-fatima-release-001-token-abcdef123456",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 301,
+        "folder_id": 1,
+        "message_id": "<msg-fatima-0301@mock>",
+        "subject": "QC supplemental test: seal-ring thermal cycle",
+        "from_addr": "qa@zenwave.example.invalid",
+        "to_addr_json": "[\"fatima.noor@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-04T07:40:00+08:00",
+        "body_text": "Supplemental testing requires thermal-cycle review of the seal ring for Lot B17. The complete attachment remains restricted to internal and counsel review.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 301,
+        "size": 38,
+        "created_at": "2026-08-04T07:40:00+08:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "attachments",
+      "op": "insert",
+      "values": {
+        "message_id": 301,
+        "filename": "qc_B17_thermal_cycle_addendum.pdf",
+        "content_type": "application/pdf",
+        "size": 49,
+        "content_b64": "dGhlcm1hbCBjeWNsZSBhZGRlbmR1bTogc2VhbCByaW5nIHJldGVzdCByZXF1aXJlZA==",
+        "content_id": "att-301-1"
+      }
+    }
+  ]
+}

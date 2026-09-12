@@ -1,0 +1,35 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-024",
+  "stage": 18,
+  "virtual_stage": 18,
+  "event_id": "s18_seller_appeals",
+  "source_event_id": "s18_seller_appeals",
+  "response": "The seller appeal is recorded, Zhao Meng is identified as respondent, and a preserved second-instance response plan covers the defense, evidence index, testing report, and first-instance judgment.",
+  "response_paraphrase": "The seller's appeal identifies Zhao Meng as respondent and leaves a documented second-instance defense plan.",
+  "expected_env": {
+    "virtual_stage": 18,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "release-010"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s18_appeal_notice_and_persisted_response",
+      "weight": 0.75
+    }
+  ],
+  "expected_stage_weight": 0.75,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s18_seller_appeals",
+      "stage": 18
+    }
+  ]
+}

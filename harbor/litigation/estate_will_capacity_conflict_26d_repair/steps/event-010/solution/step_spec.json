@@ -1,0 +1,8 @@
+{
+  "step": "event-010", "virtual_stage": 9, "source_event_id": "S09_notification", "stage_boundary": true, "synthetic": false,
+  "expected_env": {"preceding_releases": ["release-003"], "released_mutations": ["S09_mutation"]},
+  "response": "The estate evidence was reviewed and recorded with verification, preservation, and authorization limits kept explicit.",
+  "response_paraphrase": "The forgery statement was preserved as an allegation pending an appropriate expert appraisal.",
+  "actions": [{"kind": "record_event", "event_id": "S09_notification", "event_kind": "notification"}],
+  "expected_checks": [{"check_id": "s09_evidence", "weight": 0.4, "expected": true}, {"check_id": "s09_workspace", "weight": 0.6, "expected": true}], "expected_stage_weight": 1.0
+}

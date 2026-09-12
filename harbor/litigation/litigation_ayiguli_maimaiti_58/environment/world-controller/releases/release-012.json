@@ -1,0 +1,47 @@
+{
+  "release_id": "release-012",
+  "previous": "release-011",
+  "token": "litigation-ayiguli-012-token-9f2e7a6c4b8d1e0f",
+  "source_stage": 22,
+  "source_time": "2026-08-25T08:20:00+08:00",
+  "source_event_ids": ["mut_s22_settlement_mail"],
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9004,
+        "folder_id": 1,
+        "message_id": "email_supplier_settle_0825",
+        "subject": "\u9a6c\u519b\uff1a\u5ead\u524d\u6298\u4e2d\u65b9\u6848",
+        "from_addr": "sales.majun@example.invalid",
+        "to_addr_json": "[\"aygul.store@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-25T08:30:00+08:00",
+        "body_text": "\u9a6c\u519b\u79f0\u82e5\u95e8\u5e97\u5148\u4e66\u9762\u786e\u8ba4\u90e8\u5206\u8d27\u6b3e\uff0c\u4f9b\u5e94\u5546\u53ef\u5185\u90e8\u7533\u8bf7\u8c03\u51cf\u90e8\u5206\u8fdd\u7ea6\u91d1\uff1b\u90ae\u4ef6\u672a\u9644\u6b63\u5f0f\u6388\u6743\u6216\u8ba1\u7b97\u8868\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{\"source\":\"supplier_pressure\"}",
+        "uid": 9004,
+        "size": 151,
+        "created_at": "2026-08-25T08:30:00+08:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 218,
+        "unread_count": 212
+      },
+      "where": {
+        "id": 1
+      }
+    }
+  ]
+}

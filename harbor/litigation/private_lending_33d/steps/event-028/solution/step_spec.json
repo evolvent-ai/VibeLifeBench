@@ -1,0 +1,27 @@
+{
+ "step": "event-028",
+ "stage": 20,
+ "event_id": "s20_archive",
+ "response_paraphrase": "The case archive consolidates evidence, judgment, hearing history, appeal status, and future deadlines for handoff. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s20_archive_in_notion",
+   "weight": 0.5
+  }
+ ],
+ "expected_stage_weight": 0.5,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s20_archive"
+  }
+ ],
+ "source_event_id": "s20_archive"
+}

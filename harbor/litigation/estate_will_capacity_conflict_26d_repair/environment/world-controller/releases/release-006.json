@@ -1,0 +1,38 @@
+{
+  "release_id": "release-006",
+  "source_stage": 12,
+  "source_time": "2026-04-12T08:50:00+08:00",
+  "source_event_ids": ["S12_mutation"],
+  "previous": "release-005",
+  "token": "estate-release-006-token-7f9a31c2d4e5",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "S12_mutation",
+      "values": {
+        "id": 9812,
+        "folder_id": 1,
+        "message_id": "<estate-live-9812@example.test>",
+        "subject": "Bank estate release warning",
+        "from_addr": "bank@example.com",
+        "to_addr_json": "[\"chenyu@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-04-12T08:30:00+08:00",
+        "body_text": "Bank notice: acct_estate_savings balance 800000 CNY remains under deceased account review. Chen Jun asked about release using N-2022-0318; bank can mark dispute if heirs provide court filing or notarized dispute materials.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9812,
+        "size": 1600,
+        "created_at": "2026-04-12T00:30:00Z"
+      }
+    }
+  ]
+}

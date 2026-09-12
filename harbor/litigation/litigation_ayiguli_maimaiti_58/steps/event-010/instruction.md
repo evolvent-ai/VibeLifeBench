@@ -1,0 +1,1 @@
+A message from the inspection institution concerns separate nut and dairy shipments. For each shipment, record the inspected item, report scope, limitations on the conclusions, and any telephone number or full lot number that must be redacted.

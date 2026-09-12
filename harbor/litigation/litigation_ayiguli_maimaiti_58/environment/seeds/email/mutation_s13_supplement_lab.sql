@@ -1,0 +1,5 @@
+INSERT OR IGNORE INTO messages (id,folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,headers_json,uid,size,created_at)
+VALUES (9002,1,'email_lab_report_supp_0802','evidence record：evidence record','lab@kunlun-qc.example','["aygul.store@example.invalid"]','[]','[]','2026-08-02T08:40:00+08:00','evidence record NT-0712 evidence record ML-0705；evidence record、evidence record，evidence record。',NULL,0,1,1,'{"source":"lab_supplement"}',9002,196,'2026-08-02T08:40:00+08:00');
+INSERT OR IGNORE INTO attachments (id,message_id,filename,content_type,size,content_b64,content_id)
+VALUES (9102,9002,'lab_supplement_full.txt','text/plain',180,'TlQtMDcxMiDljp/ku7Yg5ZCr5a6i5oi357S755S1IDM5MDAwMDExMTE7IE1MLTA3MDUg5rip5o6n5byC5bi4OyBzbmFwc2hvdCBvbmx5Lg==','cid_9102');
+UPDATE folders SET message_count=(SELECT COUNT(*) FROM messages WHERE folder_id=folders.id), unread_count=(SELECT COUNT(*) FROM messages WHERE folder_id=folders.id AND is_read=0);

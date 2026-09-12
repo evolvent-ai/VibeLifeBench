@@ -1,0 +1,3 @@
+[2026-04-01T09:00:00+08:00] Message from Chen Yu
+
+My father Chen Guohua died leaving a Shanghai apartment and 800000 CNY deposits. My brother has a notarized 2022 will giving everything to him; I found a later handwritten paper saying equal split. Please help me verify evidence and protect the estate. Required workspace artifact contract: Maintain the exact file `care_contribution_firewall.md` in the workspace. Use it to keep caregiving contribution and any statutory-share or reimbursement theory analytically independent from will validity; cite verified sources, unresolved gaps, and authorization limits.

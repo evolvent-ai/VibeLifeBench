@@ -1,0 +1,1 @@
+The pre-hearing review must lock down every version of the materials. The shipment matrix, payment discrepancies, evidence index, internal drafts, and redaction list should each identify the most recently verified source and any unresolved questions.

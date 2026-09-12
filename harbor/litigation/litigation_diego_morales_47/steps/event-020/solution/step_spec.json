@@ -1,0 +1,31 @@
+{
+  "step": "event-020",
+  "virtual_stage": 14,
+  "source_event_id": "s14_versioning",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Original delivery, platform, merchant, and later backend records are versioned separately with conflicts preserved.",
+  "response_paraphrase": "Each evidence version is retained and the automatic/manual discrepancy remains visible.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s14_versioning"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_versions_preserved",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s14_old_records_not_deleted",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

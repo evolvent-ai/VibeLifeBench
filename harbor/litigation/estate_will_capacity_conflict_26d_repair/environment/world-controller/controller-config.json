@@ -1,0 +1,15 @@
+{
+  "task": "estate_will_capacity_conflict_26d_repair",
+  "clock_file": "/world-clock/current.json",
+  "clock_token": "estate_will_capacity_conflict_26d_repair-clock-token",
+  "step_count": 30,
+  "servers": {
+    "banking": "/banking-env/runtime.db",
+    "calendar": "/calendar-env/runtime.db",
+    "content_platform": "/content-platform-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "legal_search": "/legal-search-env/runtime.db",
+    "listing_platform": "/listing-platform-env/runtime.db",
+    "notification_hub": "/notification-hub-env/runtime.db"
+  }
+}

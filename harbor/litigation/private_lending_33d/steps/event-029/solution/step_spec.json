@@ -1,0 +1,35 @@
+{
+ "step": "event-029",
+ "stage": 21,
+ "event_id": "s21_retro",
+ "response_paraphrase": "The final retrospective records the evidence trail, lessons on cash, interest, guarantees and collection, and a practical second-instance preparation direction. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s21_retro_in_notion",
+   "weight": 0.5
+  },
+  {
+   "check_id": "s21_lessons_learned",
+   "weight": 0.5
+  },
+  {
+   "check_id": "s21_next_steps",
+   "weight": 0.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s21_retro"
+  }
+ ],
+ "source_event_id": "s21_retro"
+}

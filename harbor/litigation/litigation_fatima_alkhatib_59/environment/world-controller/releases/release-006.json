@@ -1,0 +1,37 @@
+{
+  "release_id": "release-006",
+  "previous": "release-005",
+  "source_stage": 20,
+  "source_time": "2026-08-17T08:30:00+08:00",
+  "source_event_ids": ["mut_s20_sample_issue"],
+  "token": "litigation-fatima-release-006-token-abcdef123456",
+  "operations": [
+    {
+      "server": "delivery_logistics",
+      "table": "issue_tickets",
+      "op": "insert",
+      "values": {
+        "ticket_id": "ticket_sample_damage_032",
+        "shipment_id": "ship_recall_sample",
+        "issue_type": "damaged",
+        "description": "The recall sample carton is damaged; preserve the evidence-integrity record",
+        "status": "open",
+        "opened_at": "2026-08-17T08:30:00+08:00",
+        "expected_response_date": "2026-08-19",
+        "resolved_at": null
+      }
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "update",
+      "set": {
+        "status": "exception",
+        "updated_at": "2026-08-17T08:30:00+08:00"
+      },
+      "where": {
+        "tracking_no": "DL-RECALL-SAMPLE-0814"
+      }
+    }
+  ]
+}

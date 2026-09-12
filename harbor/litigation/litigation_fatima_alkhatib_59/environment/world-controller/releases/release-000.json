@@ -1,0 +1,241 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "source_stage": 12,
+  "source_time": "2026-08-03T06:30:00+08:00",
+  "source_event_ids": ["mut_s12_recall_review"],
+  "token": "litigation-fatima-release-000-token-abcdef123456",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "update",
+      "set": {
+        "attrs_json": "{\"color\":\"rose gold\",\"batch_id\":\"MM-2026-06-B17\",\"recall_status\":\"recall_review\",\"affected_order_count\":18,\"qc_addendum_required\":true}"
+      },
+      "where": {
+        "sku_id": "sku_mist_pro_rose_2406"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "set": {
+        "quantity": 0
+      },
+      "where": {
+        "sku_id": "sku_mist_pro_rose_2406"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "update",
+      "set": {
+        "description": "Portable facial steamer. Usage instructions: add water only; do not add essential oils, fragrance liquids, or viscous liquids; keep upright during use; each use must not exceed 8 minutes. Lot status: initial QC passed. Platform safety status: recall_review; inventory frozen; supplemental seal-ring thermal-cycle testing required."
+      },
+      "where": {
+        "product_id": "prod_aromalume_minimist"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260602_5001"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260603_5002"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260604_5003"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260605_5004"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260606_5005"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260607_5006"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260608_5007"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260609_5008"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260610_5009"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260611_5010"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260612_5011"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260613_5012"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260614_5013"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260615_5014"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260616_5015"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260617_5016"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260618_4317"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "note": "{\"batch_id\":\"MM-2026-06-B17\",\"recall_candidate\":1,\"recall_scope_version\":\"review_18\"}"
+      },
+      "where": {
+        "order_id": "ord_noor_20260619_5018"
+      }
+    }
+  ]
+}

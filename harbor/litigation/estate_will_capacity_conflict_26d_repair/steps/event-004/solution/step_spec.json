@@ -1,0 +1,8 @@
+{
+  "step": "event-004", "virtual_stage": 4, "source_event_id": "S04_notification", "stage_boundary": true, "synthetic": false,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The estate evidence was reviewed and recorded with verification, preservation, and authorization limits kept explicit.",
+  "response_paraphrase": "The relevant inheritance rules were researched and preserved as conditional guidance.",
+  "actions": [{"kind": "record_event", "event_id": "S04_notification", "event_kind": "notification"}],
+  "expected_checks": [{"check_id": "s04_evidence", "weight": 0.4, "expected": true}, {"check_id": "s04_workspace", "weight": 0.6, "expected": true}], "expected_stage_weight": 1.0
+}

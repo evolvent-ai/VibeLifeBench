@@ -1,0 +1,1 @@
+System risk alert: the shop's operating status and contact information look abnormal and may affect service and later payment. Assess the recovery risk using the seller information, possible platform responsibility, and litigation preparation, and clearly list the options that require my confirmation.

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "previous": "release-001",
+  "token": "private-lending-33d-release-002-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 131,
+        "unread_count": 25
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "s4_bank_record_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1198,
+        "folder_id": 1,
+        "message_id": "<lending-s4-bank-record@icbc.com.cn>",
+        "subject": "CJK_7535_CJK_5B50_receiptgenerated：2023year6month10dayCJK_8F6C_CJK_8D26_record",
+        "from_addr": "Industrial and Commercial Bank of ChinaCJK_7535_CJK_5B50_receipt <receipt@icbc.com.cn>",
+        "to_addr_json": "[\"wang.fang@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-05-24T09:20:00+08:00",
+        "body_text": "Wang FangCJK_5973_CJK_58EB_：CJK_4F60_CJK_7533_pleaseCJK_8C03_CJK_53D6_ofCJK_5386_CJK_53F2_CJK_4EA4_CJK_6613_CJK_7535_CJK_5B50_receiptgenerated。recordCJK_663E_CJK_793A_2023year6month10dayCJK_5411_Chen QiangCJK_5C3E_No.8821CJK_8D26_CJK_6237_CJK_8F6C_CJK_8D26_CNY360000CNY，CJK_9644_CJK_7535_CJK_5B50_CJK_5370_CJK_7AE0_，available for downloadCJK_4FDD_CJK_5B58_；CJK_5982_needCJK_7EB8_CJK_8D28_CJK_76D6_CJK_7AE0_CJK_6D41_CJK_6C34_canCJK_5230_CJK_67DC_CJK_53F0_CJK_529E_CJK_7406_。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"document\":\"CJK_7535_CJK_5B50_receipt\",\"amount\":360000,\"transfer_date\":\"2023-06-10\"}",
+        "uid": null,
+        "size": 430,
+        "created_at": "2026-05-24T09:20:00+08:00"
+      },
+      "source_event_id": "s4_bank_record_mutation",
+      "operation_index": 1
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "step_count": 28,
+  "steps": {
+    "event-000": {
+      "source_event_id": "D0_kickoff_user",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-18T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "D1_policy_world",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-05-19T08:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "D1_procedure_user",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-19T09:30:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "D2_appraiser_user",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-20T10:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "D3_community_world",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": false,
+      "scenario_time": "2026-05-21T08:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "D3_claims_user",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-21T09:30:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "D4_evidence_world",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-22T14:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "D5_filing_prep",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-24T10:00:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "D6_landlord_world",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 6,
+      "stage_boundary": false,
+      "scenario_time": "2026-05-26T08:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "D6_prefile_user",
+      "before": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-26T09:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "D7_check_user",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-28T15:00:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "D8_accept_world",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-05-30T10:00:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "D9_deadline_notif",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-01T10:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "D10_check_user",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-02T15:00:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "D11_pressure_world",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-03T08:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "D11_rebut_user",
+      "before": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-03T09:30:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "D12_hearing_world",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-05T10:00:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "D13_heartbeat",
+      "before": [],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-07T10:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "D14_court_world",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-09T12:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "D15_court_world",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 15,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-10T08:00:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "D15_summary_user",
+      "before": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-10T09:30:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "D16_check_notif",
+      "before": [
+        "release-011"
+      ],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-11T10:00:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "D17_appeal_world",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-12T08:00:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "D17_judge_user",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-12T09:30:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "D18_judgment_world",
+      "before": [
+        "release-012"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-13T10:00:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "D19_appeal_user",
+      "before": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T09:30:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "D20_archive",
+      "before": [
+        "release-013"
+      ],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-16T10:00:00+08:00"
+    },
+    "event-027": {
+      "source_event_id": "D21_retro_user",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-17T09:30:00+08:00"
+    }
+  }
+}

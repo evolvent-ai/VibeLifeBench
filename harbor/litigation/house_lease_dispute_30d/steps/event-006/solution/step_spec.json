@@ -1,0 +1,36 @@
+{
+  "step": "event-006",
+  "stage": 4,
+  "virtual_stage": 4,
+  "source_event_id": "D4_evidence_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "response": "Stage 4 was reviewed using the relevant source records and the case register was updated while Chen Yue retained every decision.",
+  "response_paraphrase": "The stage 4 review is recorded with verified case material, and all consequential choices remain pending Chen Yue's confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D4_evidence_world"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s06_source",
+      "weight": 0.4,
+      "expected": true
+    },
+    {
+      "check_id": "s06_workspace",
+      "weight": 0.6,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

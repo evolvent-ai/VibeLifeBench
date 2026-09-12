@@ -1,0 +1,25 @@
+{
+  "release_id": "release-006",
+  "previous": "release-005",
+  "token": "litigation-han-yushan-57-release-006-token",
+  "operations": [
+    {
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_external_mediation_window_0804",
+        "calendar_id": "cal_han_primary",
+        "summary": "mediation windowexternalcase material",
+        "description": "windowonlystatementmaterialscase material，does not meansubmitted。",
+        "location": "online",
+        "start_dt": "2026-08-06T10:00:00+08:00",
+        "end_dt": "2026-08-06T10:30:00+08:00",
+        "all_day": 0,
+        "status": "tentative",
+        "created_at": "2026-08-04T08:00:00Z",
+        "updated_at": "2026-08-04T08:00:00Z"
+      },
+      "server": "calendar"
+    }
+  ]
+}

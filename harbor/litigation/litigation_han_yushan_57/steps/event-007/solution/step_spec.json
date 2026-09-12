@@ -1,0 +1,33 @@
+{
+  "step": "event-007",
+  "virtual_stage": 5,
+  "source_event_id": "evt_s5_review_platform_notice",
+  "stage_boundary": true,
+  "response": "Home-service candidates were screened and saved without making a reservation or engagement.",
+  "response_paraphrase": "Candidate institutions are discoverable and bookmarked, while every commitment remains pending.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s5_review_platform_notice"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s5_review_platform_candidates_found",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s5_candidate_merchants_saved",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s5_no_reservation_or_deal",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

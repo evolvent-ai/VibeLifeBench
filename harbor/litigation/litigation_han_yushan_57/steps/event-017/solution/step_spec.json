@@ -1,0 +1,24 @@
+{
+  "step": "event-017",
+  "virtual_stage": 15,
+  "source_event_id": "evt_s15_mediation_window",
+  "stage_boundary": false,
+  "response": "The mediation materials window was added to the internal plan and no submission was made.",
+  "response_paraphrase": "The permitted mediation window is tracked for preparation only, with transmission still withheld.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s15_mediation_window"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "release-006"
+    ]
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

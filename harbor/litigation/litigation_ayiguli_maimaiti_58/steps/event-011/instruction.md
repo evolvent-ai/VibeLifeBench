@@ -1,0 +1,1 @@
+The carrier has reviewed the delivery record for a beverage shipment. Refresh the shipment details, preserve the timestamps for both the old record and the new status, and verify the signatory and shortage description.

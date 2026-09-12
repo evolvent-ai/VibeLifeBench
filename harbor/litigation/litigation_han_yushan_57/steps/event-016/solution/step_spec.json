@@ -1,0 +1,33 @@
+{
+  "step": "event-016",
+  "virtual_stage": 14,
+  "source_event_id": "evt_s14_property_repair_tick",
+  "stage_boundary": true,
+  "response": "Historical repair records were indexed and developer, builder, and maintenance-vendor leads were added.",
+  "response_paraphrase": "The repair history now informs separate role-based leads for later verification.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s14_property_repair_tick"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-005"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s14_property_repair_record_detected",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s14_developer_or_vendor_line_added",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

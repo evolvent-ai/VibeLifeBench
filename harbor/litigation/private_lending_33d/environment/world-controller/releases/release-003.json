@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "private-lending-33d-release-003-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_lending_s7_jurisdiction",
+        "user_id": "usr_wang_fang",
+        "source": "gov_policy",
+        "type": "policy_update",
+        "subscription_id": "sub_000002",
+        "title": "defendantCJK_63D0_CJK_51FA_jurisdiction challenge",
+        "body": "CJK_897F_CJK_6E56_CJK_533A_CJK_4EBA_CJK_6C11_courtservedprocedurematerials：Chen QiangCJK_4EE5_CJK_5176_CJK_4F4F_CJK_6240_CJK_5730_atNingboCJK_5E02_CJK_6D77_CJK_66D9_CJK_533A_isCJK_7531_，pleaseCJK_6C42_willCJK_672C_CJK_6848_CJK_79FB_CJK_9001_Ningbocourt。courtrequireWang FangCJK_5C31_CJK_7BA1_CJK_8F96_mattersubmitCJK_4E66_CJK_9762_CJK_610F_CJK_89C1_。",
+        "payload_json": "{\"case_no\":\"（2026）CJK_6D59_0106CJK_6C11_CJK_521D_08812No.\",\"event\":\"jurisdiction_objection\",\"respondent_claim\":\"defendantCJK_4F4F_CJK_6240_CJK_5730_Ningbo\"}",
+        "created_at": "2026-05-30T09:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s7_jurisdiction_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 132,
+        "unread_count": 26
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "s7_jurisdiction_mutation",
+      "operation_index": 1
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1199,
+        "folder_id": 1,
+        "message_id": "<lending-s7-jurisdiction@hzxihu-court.gov.cn>",
+        "subject": "electronic service：jurisdiction challengematerials",
+        "from_addr": "Xihu District People's Court of Hangzhouelectronic service <service@hzxihu-court.gov.cn>",
+        "to_addr_json": "[\"wang.fang@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-05-30T09:02:00+08:00",
+        "body_text": "Wang Fang：Chen QiangCJK_4EE5_CJK_4F4F_CJK_6240_CJK_5730_CJK_4F4D_CJK_4E8E_NingboCJK_5E02_CJK_6D77_CJK_66D9_CJK_533A_isCJK_7531_CJK_63D0_CJK_51FA_jurisdiction challenge，pleaseCJK_6C42_CJK_79FB_CJK_9001_Ningbocourt。CJK_9644_CJK_4EF6_isCJK_5F02_CJK_8BAE_CJK_7533_pleaseCJK_4E66_andservedCJK_56DE_CJK_8BC1_，pleaseatcourtCJK_6307_CJK_5B9A_CJK_65F6_CJK_95F4_withinsubmitCJK_4E66_CJK_9762_CJK_610F_CJK_89C1_。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"document\":\"jurisdiction challengeCJK_7533_pleaseCJK_4E66_\",\"case_no\":\"（2026）CJK_6D59_0106CJK_6C11_CJK_521D_08812No.\"}",
+        "uid": null,
+        "size": 460,
+        "created_at": "2026-05-30T09:02:00+08:00"
+      },
+      "source_event_id": "s7_jurisdiction_mutation",
+      "operation_index": 2
+    }
+  ]
+}

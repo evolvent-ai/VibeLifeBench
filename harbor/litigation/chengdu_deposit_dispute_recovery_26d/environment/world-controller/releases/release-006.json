@@ -1,0 +1,19 @@
+{
+  "release_id": "release-006",
+  "token": "chengdu-57dca2bfcb75556176dc4f925cbaada2",
+  "previous": "release-005",
+  "operations": [
+    {
+      "server": "notion",
+      "table": "database_rows",
+      "op": "update",
+      "where": {
+        "row_id": "row-502-curtain"
+      },
+      "set": {
+        "last_edited_time": "2026-06-11T06:00:00.000Z",
+        "archived": 1
+      }
+    }
+  ]
+}

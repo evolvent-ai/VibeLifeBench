@@ -1,0 +1,46 @@
+{
+  "release_id": "release-007",
+  "previous": "release-006",
+  "token": "litigation-han-yushan-57-release-007-token",
+  "operations": [
+    {
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 34,
+        "folder_id": 1,
+        "message_id": "email_upstairs_defense_0814",
+        "subject": "case materialstatement：clientoriginal renovationcase materialexpansion of the loss",
+        "from_addr": "upstairs.defense@example.invalid",
+        "to_addr_json": "[\"han.yushan@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-14T08:25:00+08:00",
+        "body_text": "upstairs occupantcase materialoriginal renovationpossiblecase material，case materialphotographsstatement。case materialmaterialsneedsversionedcase materialconvert intocase materialquestions。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{}",
+        "uid": 5034,
+        "size": 141,
+        "created_at": "2026-08-14T08:25:00+08:00"
+      },
+      "server": "email"
+    },
+    {
+      "table": "attachments",
+      "op": "insert",
+      "values": {
+        "id": 334,
+        "message_id": 34,
+        "filename": "upstairs_defense_0814.txt",
+        "content_type": "text/plain",
+        "size": 84,
+        "content_b64": "5oqX6L6p6KaB54K577ya5Y6f6KOF5L+u44CB5omp5aSn5o2f5aSx44CB5pen54Wn54mH44CC5ZCr5Liq5Lq65L+h5oGv77yM6ZyA6ISx5pWP44CC",
+        "content_id": "cid_334"
+      },
+      "server": "email"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "step": "event-019",
+  "virtual_stage": 14,
+  "source_event_id": "w14_version_note",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Original delivery, platform, merchant, and later backend records are versioned separately with conflicts preserved.",
+  "response_paraphrase": "Each evidence version is retained and the automatic/manual discrepancy remains visible.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "w14_version_note"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

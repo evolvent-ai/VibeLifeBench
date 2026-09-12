@@ -1,0 +1,36 @@
+{
+  "step": "event-003",
+  "virtual_stage": 3,
+  "source_event_id": "evt_s3_terms_attachment",
+  "event_id": "evt_s3_terms_attachment",
+  "stage_boundary": true,
+  "synthetic": false,
+  "response": "Agreement attachments were catalogued by clause category and kept internal.",
+  "response_paraphrase": "The stage 3 review is documented, with unresolved commitments still waiting for confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s3_terms_attachment",
+      "event_kind": "notification",
+      "event_time": "2026-07-03T16:20:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s3_terms_attachment_indexed",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_terms_original_not_sent",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

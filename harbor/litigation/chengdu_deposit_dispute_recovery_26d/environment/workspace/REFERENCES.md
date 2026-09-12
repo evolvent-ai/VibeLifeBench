@@ -1,0 +1,3 @@
+# detail
+
+detailisdetailofdetail，candetailthisdetailanddaydetail。detailatfordetailmaterialsdetail。detail，detailto HR detail。

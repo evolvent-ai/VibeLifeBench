@@ -1,0 +1,1 @@
+The other side keeps pressing me. I originally wanted to reply, "I owe it for now; we can discuss it after the hearing." If that could be understood as an admission, do not send it. Only save a draft that does not confirm any debt or accept a settlement and that requests reconciliation against written materials.

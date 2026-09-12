@@ -1,0 +1,1 @@
+The Pudong District People's Court has scheduled the hearing for June 12, 2026 at 9:30 a.m. in Courtroom 6. I should bring my original identification and all original evidence, including the food, order and payment records, and testing materials.

@@ -1,0 +1,36 @@
+{
+  "step": "event-010",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "evt_s10_lab_initial",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "mut_s10_lab_initial"
+    ]
+  },
+  "response": "I indexed the initial Kunlun inspection material, separated the nut and dairy lots, and recorded both scope limits and privacy redactions.",
+  "response_paraphrase": "The laboratory's first report is indexed by lot, with its limited reach and personal-data masking needs documented.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s10_lab_initial"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_lab_initial_indexed",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_nut_batch_loss",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

@@ -1,0 +1,9 @@
+{
+  "mcp_servers": [
+    "calendar",
+    "email",
+    "legal_search",
+    "notion",
+    "review_platform"
+  ]
+}

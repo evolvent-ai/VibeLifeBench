@@ -1,0 +1,1 @@
+The Shanghai Administration for Market Regulation reminds consumers that imported prepackaged foods must carry Chinese labels and instructions stating the origin and the domestic agent. Foods without a Chinese label may not be sold because they do not meet food-safety standards. Shanghai is conducting inspections focused on imported-food labeling and unlawful additives.

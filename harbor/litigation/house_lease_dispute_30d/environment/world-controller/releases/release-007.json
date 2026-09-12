@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "D11_landlord_pressure_mut"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-06-03T07:45:00+08:00",
+  "previous": "release-006",
+  "token": "house_lease_dispute_30d-release-07-token-abcdef1234567890",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 204,
+        "folder_id": 1,
+        "message_id": "<20260603-landlord-vacate@mail.cn>",
+        "subject": "thencase recordvacate the propertyandcase recorduse-and-occupancy fee",
+        "from_addr": "Wang Jianguo <wangjg@mail.cn>",
+        "to_addr_json": "[\"chen.yue@gmail.com\"]",
+        "date": "2026-06-03T07:45:00+08:00",
+        "body_text": "Chen Yue，Ialreadycase recordcourtcase recordcompletedcounterclaim。youcase recordatnotcase record，case recordmanycase recordmonthIallrequirementper8000CNYcase recorduse-and-occupancy fee。pleasecase recorddate。",
+        "is_read": 0,
+        "is_important": 1,
+        "headers_json": "{}",
+        "size": 210,
+        "created_at": "2026-06-03T07:45:00+08:00"
+      },
+      "source_event_id": "D11_landlord_pressure_mut",
+      "operation_index": 0
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "step": "event-007",
+  "virtual_stage": 6,
+  "source_event_id": "evt_s6_refund_window",
+  "event_id": "evt_s6_refund_window",
+  "stage_boundary": true,
+  "synthetic": false,
+  "response": "The target order remains tied to an original-payment-method cash-refund request.",
+  "response_paraphrase": "The stage 6 review is documented, with unresolved commitments still waiting for confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s6_refund_window",
+      "event_kind": "notification",
+      "event_time": "2026-07-06T15:10:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s6_refund_request_exists",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s6_cash_refund_requested",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

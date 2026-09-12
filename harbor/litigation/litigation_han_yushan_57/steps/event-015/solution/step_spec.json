@@ -1,0 +1,29 @@
+{
+  "step": "event-015",
+  "virtual_stage": 13,
+  "source_event_id": "evt_s13_book_appraisal_question",
+  "stage_boundary": true,
+  "response": "Appraisal booking was blocked and an internal lawyer-confirmation reminder was created.",
+  "response_paraphrase": "No institution was booked; a reminder requests the lawyer's approval before any engagement.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s13_book_appraisal_question"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s13_appraisal_booking_blocked",
+      "weight": 2.0
+    },
+    {
+      "check_id": "s13_lawyer_confirm_event_created",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

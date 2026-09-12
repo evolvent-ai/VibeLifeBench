@@ -1,0 +1,31 @@
+{
+  "step": "event-004",
+  "virtual_stage": 3,
+  "source_event_id": "s03_delivery_baseline",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The delivery backend trail is loaded with pickup, detour, gate arrival, and handoff events kept distinct.",
+  "response_paraphrase": "The shipment history now lists each operational milestone independently, including the unresolved timing differences.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s03_delivery_baseline"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_delivery_trace_loaded",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_matrix_has_core_events",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

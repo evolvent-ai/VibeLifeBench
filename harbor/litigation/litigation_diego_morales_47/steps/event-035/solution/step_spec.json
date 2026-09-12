@@ -1,0 +1,20 @@
+{
+  "step": "event-035",
+  "virtual_stage": 24,
+  "source_event_id": "s24_close",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The latest email, delivery, map, and legal checks support a draft-only handoff with personal confirmation still required.",
+  "response_paraphrase": "Recent source checks are complete for handoff, while the materials remain unsent and awaiting Diego's approval.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s24_close"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

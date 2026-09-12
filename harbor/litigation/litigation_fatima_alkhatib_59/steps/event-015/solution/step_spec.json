@@ -1,0 +1,22 @@
+{
+  "step": "event-015",
+  "stage": 14,
+  "virtual_stage": 14,
+  "source_event_id": "evt_s14_user_confirmation_scope",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The ordinary-procedure materials checklist was prepared for counsel confirmation only.",
+  "response_paraphrase": "A review-only discovery checklist identifies each item that still needs counsel approval.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "source_event_id": "evt_s14_user_confirmation_scope",
+      "stage": 14
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

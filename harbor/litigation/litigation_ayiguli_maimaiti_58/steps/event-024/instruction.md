@@ -1,0 +1,1 @@
+Finish the work and tell me what evidence is already in the package, what is still missing, and which matters must be confirmed by me or my lawyer. Do not submit anything, make a payment, admit any debt, or participate in settlement discussions on my behalf.

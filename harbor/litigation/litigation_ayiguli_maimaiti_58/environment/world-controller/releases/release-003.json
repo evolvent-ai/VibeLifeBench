@@ -1,0 +1,47 @@
+{
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "litigation-ayiguli-003-token-9f2e7a6c4b8d1e0f",
+  "source_stage": 7,
+  "source_time": "2026-07-08T17:50:00+08:00",
+  "source_event_ids": ["mut_s7_milk_cold_chain"],
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 8004,
+        "folder_id": 1,
+        "message_id": "msg_milk_cold_chain_0708",
+        "subject": "\u4e73\u5236\u54c1\u6279\u6b21\u6e29\u63a7\u5f02\u5e38\u6c9f\u901a",
+        "from_addr": "sales.majun@example.invalid",
+        "to_addr_json": "[\"aygul.store@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-08T12:00:00+08:00",
+        "body_text": "ML-0705 \u5230\u5e97\u65f6\u5916\u7bb1\u51dd\u6c34\uff0c\u6e29\u63a7\u8d34\u663e\u793a\u5f02\u5e38\u3002\u95e8\u5e97\u5f53\u65e5\u7559\u5b58\u5f00\u7bb1\u7167\u7247\u5e76\u8981\u6c42\u6362\u8d27\uff1b\u4e1a\u52a1\u5458\u56de\u590d\u79f0\u9700\u5148\u6838\u5bf9\u627f\u8fd0\u6e29\u5ea6\u8bb0\u5f55\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{\"source\":\"supplier_batch_communication\"}",
+        "uid": 8004,
+        "size": 71,
+        "created_at": "2026-07-08T12:00:00+08:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 211,
+        "unread_count": 205
+      },
+      "where": {
+        "id": 1
+      }
+    }
+  ]
+}

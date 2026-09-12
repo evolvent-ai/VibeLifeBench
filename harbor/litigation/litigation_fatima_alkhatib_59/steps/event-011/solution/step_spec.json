@@ -1,0 +1,28 @@
+{
+  "step": "event-011",
+  "stage": 11,
+  "virtual_stage": 11,
+  "source_event_id": "evt_s11_recall_law_research",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Recall-related legal sources and counsel questions were saved as preparation notes.",
+  "response_paraphrase": "Recall-law references and open questions for the lawyer are now in the research notes.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_s11_recall_law_research",
+      "stage": 11
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_recall_law_notes_saved",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

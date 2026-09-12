@@ -1,0 +1,1 @@
+The materials may be provided to a lawyer for review. Prepare a list of questions for counsel, an evidence-gap table, and an index of redacted attachments. Keep them as internal handoff materials and do not send the originals.

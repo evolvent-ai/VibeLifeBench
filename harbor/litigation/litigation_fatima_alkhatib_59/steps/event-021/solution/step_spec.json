@@ -1,0 +1,32 @@
+{
+  "step": "event-021",
+  "stage": 20,
+  "virtual_stage": 20,
+  "source_event_id": "evt_s20_sample_followup",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "mut_s20_sample_issue"
+    ]
+  },
+  "response": "The recall sample issue ticket and exception status were followed without reassignment.",
+  "response_paraphrase": "The recall-sample exception and damaged ticket were re-read and left unchanged.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_s20_sample_followup",
+      "stage": 20
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_sample_issue_followed",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

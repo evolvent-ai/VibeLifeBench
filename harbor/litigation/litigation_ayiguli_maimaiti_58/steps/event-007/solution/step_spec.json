@@ -1,0 +1,36 @@
+{
+  "step": "event-007",
+  "stage": 7,
+  "virtual_stage": 7,
+  "source_event_id": "evt_s7_cold_chain_question",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "mut_s7_milk_cold_chain"
+    ]
+  },
+  "response": "I isolated the dairy lot, linked its temperature-control evidence and communications, and saved an unsent reconciliation draft.",
+  "response_paraphrase": "The milk delivery now has a standalone chronology and an internal message draft covering its cold-storage proof.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s7_cold_chain_question"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_milk_batch_recorded",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s7_milk_draft_not_sent",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

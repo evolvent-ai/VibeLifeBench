@@ -1,0 +1,25 @@
+{
+  "step": "event-028",
+  "virtual_stage": 23,
+  "source_event_id": "evt_s23_final_refresh_tick",
+  "stage_boundary": true,
+  "response": "All five allowed services were refreshed and the internal final precheck packet was updated.",
+  "response_paraphrase": "A complete cross-service refresh has been captured for the pending internal handoff.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s23_final_refresh_tick"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s23_final_all_servers_refresh",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

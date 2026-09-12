@@ -1,0 +1,1 @@
+Global Select has appealed the first-instance judgment to the Shanghai First Intermediate People's Court, which has docketed the appeal. As the respondent, I will receive a copy of the appeal and must prepare a response and the second-instance case.

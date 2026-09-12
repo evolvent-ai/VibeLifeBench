@@ -1,0 +1,28 @@
+{
+  "step": "event-024",
+  "virtual_stage": 17,
+  "source_event_id": "s17_sched",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The unit 502 security-deposit case was reviewed with evidence and authorization-aware next steps.",
+  "response_paraphrase": "Evidence for unit 502 is organized while settlement and payment decisions remain with Ryan Chen.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s17_sched",
+      "virtual_stage": 17,
+      "event_kind": "notification"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_countdown_confirmed_dispute_filed",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

@@ -1,0 +1,28 @@
+{
+  "step": "event-009",
+  "stage": 9,
+  "virtual_stage": 9,
+  "source_event_id": "evt_s9_batch_refund_noise",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Orders from Lot B17 were counted from backend records and separated from nearby lots.",
+  "response_paraphrase": "The backend lot filter distinguishes true B17 purchasers from similar-SKU noise.",
+  "actions": [
+    {
+      "kind": "world",
+      "source_event_id": "evt_s9_batch_refund_noise",
+      "stage": 9
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_same_batch_orders_counted",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

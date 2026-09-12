@@ -1,0 +1,7 @@
+{
+  "step": "event-023", "virtual_stage": 20, "source_event_id": "S20_notification", "stage_boundary": false, "synthetic": false,
+  "expected_env": {"preceding_releases": ["release-011"], "released_mutations": ["S20_mutation"]},
+  "response": "The estate evidence was reviewed and recorded with verification, preservation, and authorization limits kept explicit.",
+  "response_paraphrase": "The bank status was rechecked while the preserved balance remained outside any release action.",
+  "actions": [{"kind": "record_event", "event_id": "S20_notification", "event_kind": "notification"}], "expected_checks": [], "expected_stage_weight": 0.0
+}

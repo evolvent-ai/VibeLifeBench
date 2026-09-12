@@ -1,0 +1,26 @@
+{
+  "step": "event-007",
+  "virtual_stage": 6,
+  "source_event_id": "s06_tracking_followup",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "A follow-up verification channel for the target shipment is in place without changing delivery status.",
+  "response_paraphrase": "Status follow-up is available for this shipment, and no operational state was modified.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s06_tracking_followup"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_followup_channel_created",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

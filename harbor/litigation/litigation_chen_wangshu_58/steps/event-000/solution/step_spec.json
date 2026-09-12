@@ -1,0 +1,36 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "evt_s0_user_kickoff",
+  "event_id": "evt_s0_user_kickoff",
+  "stage_boundary": true,
+  "synthetic": false,
+  "response": "Control scope and authorization boundaries were recorded for the cash-refund review.",
+  "response_paraphrase": "The stage 0 review is documented, with unresolved commitments still waiting for confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s0_user_kickoff",
+      "event_kind": "user_message",
+      "event_time": "2026-07-02T09:10:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s0_control_json_role",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s0_auth_boundaries_structured",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

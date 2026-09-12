@@ -1,0 +1,20 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "s00_scope",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I established the draft-only witness-materials workspace with Diego's confirmation and source-integrity boundaries.",
+  "response_paraphrase": "The opening control record keeps the witness role, source preservation, and personal-approval gate explicit.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s00_scope"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

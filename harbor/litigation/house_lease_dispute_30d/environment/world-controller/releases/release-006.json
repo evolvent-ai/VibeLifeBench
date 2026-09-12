@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "D10_counterclaim_mut"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-06-02T09:00:00+08:00",
+  "previous": "release-005",
+  "token": "house_lease_dispute_30d-release-06-token-abcdef1234567890",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_case_1010",
+        "user_id": "usr_chen_yue",
+        "source": "gov_policy",
+        "type": "case_update",
+        "subscription_id": "sub_000002",
+        "title": "【case】case recordcounterclaim",
+        "body": "case recordcourtnotification：case recordWang Jianguocase recordcounterclaim，requestcase recordChen Yueimmediatelycase recordproperty，andpaycase record2026year5monthcase recordvacate the propertycase recorddayofpropertycase record，case recordpercase recordmonth8000CNYcase record。pleasecase recordpreparecase recordandrelatedevidence。",
+        "payload_json": "{\"case_number\":\"(2026)case record0112case record18426No.\",\"action\":\"counterclaim\",\"claims\":[\"immediatelyvacate the property\",\"use-and-occupancy fee\"]}",
+        "created_at": "2026-06-02T09:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "D10_counterclaim_mut",
+      "operation_index": 0
+    }
+  ]
+}

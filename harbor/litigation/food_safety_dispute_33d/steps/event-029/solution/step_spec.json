@@ -1,0 +1,35 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-029",
+  "stage": 21,
+  "virtual_stage": 21,
+  "event_id": "s21_retro",
+  "source_event_id": "s21_retro",
+  "response": "The retrospective covers milestones, evidence, statutory provisions, precedent, testing and litigation fees, time cost, lessons, and next respondent preparation.",
+  "response_paraphrase": "The review summarizes the timeline, evidence, law, precedent, costs, lessons, and the next respondent-focused work.",
+  "expected_env": {
+    "virtual_stage": 21,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s21_persisted_retrospective",
+      "weight": 0.75
+    },
+    {
+      "check_id": "s21_persisted_second_instance_direction",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 1.25,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s21_retro",
+      "stage": 21
+    }
+  ]
+}

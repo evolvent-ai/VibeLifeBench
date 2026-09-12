@@ -1,0 +1,1 @@
+Carrier records for four supply shipments are now available. Each shipment has different dispatch, arrival, signatory, and exception details. Match each shipment individually to its invoice and inspection materials. Put the beverage shipment under passive status monitoring with a logistics status subscription, without changing delivery details.

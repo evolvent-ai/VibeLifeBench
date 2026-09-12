@@ -1,0 +1,28 @@
+{
+  "step": "event-032",
+  "virtual_stage": 22,
+  "source_event_id": "s22_backend_reconcile",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": []
+  },
+  "response": "The delivery backend review note is refreshed and retained as a backend source rather than firsthand testimony.",
+  "response_paraphrase": "The backend review is cited by origin and is not recast as a fact personally observed by Diego.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s22_backend_reconcile"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_backend_review_reconciled",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

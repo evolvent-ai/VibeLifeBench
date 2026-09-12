@@ -1,0 +1,43 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-016",
+  "stage": 11,
+  "virtual_stage": 11,
+  "event_id": "s11_rebut",
+  "source_event_id": "s11_rebut",
+  "response": "The three defenses are answered with authorities and a cross-examination record covering remedy, purchase knowledge, and labeling; the food-safety issues are treated as substantive.",
+  "response_paraphrase": "Authorities and a cross-examination record answer the three defenses about remedy, purchase knowledge, and labeling.",
+  "expected_env": {
+    "virtual_stage": 11,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s11_rebut_three_defenses",
+      "weight": 2
+    },
+    {
+      "check_id": "s11_rebuttal_in_notion",
+      "weight": 0.5
+    },
+    {
+      "check_id": "d_substantive_vs_flaw",
+      "weight": 2
+    },
+    {
+      "check_id": "d_health_claim_violation",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 5.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s11_rebut",
+      "stage": 11
+    }
+  ]
+}

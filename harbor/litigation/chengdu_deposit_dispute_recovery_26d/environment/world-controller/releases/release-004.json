@@ -1,0 +1,77 @@
+{
+  "release_id": "release-004",
+  "token": "chengdu-6dcc02a0de35d598e673dde9f09ed105",
+  "previous": "release-003",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "where": {
+        "account_id": "acct_chenrui_checking"
+      },
+      "set": {
+        "balance_minor": 13152000
+      }
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "update",
+      "where": {
+        "tx_id": "bank_tx_cur_024"
+      },
+      "set": {
+        "balance_after_minor": 13194000
+      }
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "update",
+      "where": {
+        "tx_id": "bank_tx_cur_025"
+      },
+      "set": {
+        "balance_after_minor": 13152000
+      }
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "update",
+      "where": {
+        "tx_id": "bank_tx_cur_023"
+      },
+      "set": {
+        "balance_after_minor": 12134000
+      }
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "update",
+      "where": {
+        "tx_id": "bank_tx_0014"
+      },
+      "set": {
+        "balance_after_minor": 11874000
+      }
+    },
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "bank_tx_m3util",
+        "account_id": "acct_chenrui_checking",
+        "posted_at": "2026-04-18T10:00:00+08:00",
+        "amount_minor": -48000,
+        "kind": "payment",
+        "counterparty": "detail/Chengdudetail",
+        "memo": "water and electricity charges 502 thisdetailpaid directly 4month",
+        "balance_after_minor": 12156800
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "step": "event-029",
+  "virtual_stage": 20,
+  "source_event_id": "s20_redacted_excerpt",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "A redacted tracking excerpt and a separate complete internal verification basis are prepared without sending.",
+  "response_paraphrase": "The outward-facing excerpt and the full internal trace are stored as separate review artifacts.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s20_redacted_excerpt"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_redacted_excerpt_ready",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s20_confirmation_gate_present",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s20_notion_packet_page",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

@@ -1,0 +1,38 @@
+{
+  "release_id": "release-004",
+  "source_stage": 10,
+  "source_time": "2026-04-10T08:50:00+08:00",
+  "source_event_ids": ["S10_mutation"],
+  "previous": "release-003",
+  "token": "estate-release-004-token-7f9a31c2d4e5",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "S10_mutation",
+      "values": {
+        "id": 9810,
+        "folder_id": 1,
+        "message_id": "<estate-live-9810@example.test>",
+        "subject": "Neighbor statement on confusion",
+        "from_addr": "neighbor@example.com",
+        "to_addr_json": "[\"chenyu@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-04-10T08:30:00+08:00",
+        "body_text": "Neighbor Zhao says Chen Guohua was often confused in January-March 2026 and sometimes did not recognize visitors. She did not observe January 2023 execution of any will.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9810,
+        "size": 1600,
+        "created_at": "2026-04-10T00:30:00Z"
+      }
+    }
+  ]
+}

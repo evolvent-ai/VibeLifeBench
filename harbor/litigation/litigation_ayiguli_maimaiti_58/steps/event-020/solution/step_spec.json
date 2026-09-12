@@ -1,0 +1,32 @@
+{
+  "step": "event-020",
+  "stage": 20,
+  "virtual_stage": 20,
+  "source_event_id": "evt_s20_delivery_followup",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I rechecked the open beverage shortage, confirmed its issue record and active status subscription, and preserved the carrier note as non-final evidence.",
+  "response_paraphrase": "The continuing drink-delivery discrepancy remains monitored through the carrier systems and is recorded as unresolved rather than conclusive.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s20_delivery_followup"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_delivery_followup_persisted",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s20_delivery_late_rechecked",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

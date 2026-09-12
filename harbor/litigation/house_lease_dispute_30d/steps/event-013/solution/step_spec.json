@@ -1,0 +1,36 @@
+{
+  "step": "event-013",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "D10_check_user",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "release-006"
+    ]
+  },
+  "response": "Stage 10 was reviewed using the relevant source records and the case register was updated while Chen Yue retained every decision.",
+  "response_paraphrase": "The stage 10 review is recorded with verified case material, and all consequential choices remain pending Chen Yue's confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D10_check_user"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_source",
+      "weight": 0.4,
+      "expected": true
+    },
+    {
+      "check_id": "s13_workspace",
+      "weight": 0.6,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

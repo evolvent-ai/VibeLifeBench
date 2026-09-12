@@ -1,0 +1,1 @@
+The inspection institution has sent a supplemental page. Verify how it relates to the lot covered by the original report, update the evidence index, and add the customer's telephone number and full lot number to the redaction list.

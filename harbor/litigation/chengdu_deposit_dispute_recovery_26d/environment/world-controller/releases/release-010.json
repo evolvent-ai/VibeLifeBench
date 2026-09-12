@@ -1,0 +1,58 @@
+{
+  "release_id": "release-010",
+  "token": "chengdu-4537ac5af611f7bee8e31615ea65120b",
+  "previous": "release-009",
+  "operations": [
+    {
+      "server": "notion",
+      "table": "database_rows",
+      "op": "update",
+      "where": {
+        "row_id": "row-502-glass"
+      },
+      "set": {
+        "properties_json": "{\"Item\":{\"id\":\"title\",\"type\":\"title\",\"title\":[{\"type\":\"text\",\"text\":{\"content\":\"detailglass doormoredetail\",\"link\":null},\"plain_text\":\"detailglass doormoredetail\"}]},\"AmountMinor\":{\"id\":\"amt\",\"type\":\"number\",\"number\":50000},\"Status\":{\"id\":\"st\",\"type\":\"select\",\"select\":{\"name\":\"claimed\",\"color\":\"yellow\"}},\"DisputeStatus\":{\"id\":\"ds\",\"type\":\"select\",\"select\":{\"name\":\"open\",\"color\":\"blue\"}}}",
+        "last_edited_time": "2026-06-19T06:00:00.000Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "where": {
+        "id": 1
+      },
+      "set": {
+        "message_count": 68,
+        "unread_count": 6
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 10,
+        "folder_id": 1,
+        "message_id": "<chengdu-0010@example.com>",
+        "subject": "moredetailofsettlementquote",
+        "from_addr": "zhou.intermediary@example.com",
+        "to_addr_json": "[\"chen.rui@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-19T09:50:00+08:00",
+        "body_text": "Leo Wangwillsettlementquotedetail4800RMB，conditionsstillisRyan Chenthisdetailacceptanddetail。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 2010,
+        "size": 220,
+        "created_at": "2026-06-19T09:50:00+08:00"
+      }
+    }
+  ]
+}

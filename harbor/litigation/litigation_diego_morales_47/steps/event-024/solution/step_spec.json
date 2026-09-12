@@ -1,0 +1,20 @@
+{
+  "step": "event-024",
+  "virtual_stage": 17,
+  "source_event_id": "n17_template_workspace",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "A Notion witness-statement template now has source fields, confirmation points, and unresolved matters.",
+  "response_paraphrase": "Notion now holds a reviewable witness template with explicit confirmation slots and open questions.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n17_template_workspace"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

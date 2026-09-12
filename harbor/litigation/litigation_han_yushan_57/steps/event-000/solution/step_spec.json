@@ -1,0 +1,33 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "evt_s0_user_briefing",
+  "stage_boundary": true,
+  "response": "The precheck scope and authorization limits were recorded for the residential water-leak dispute.",
+  "response_paraphrase": "The dispute scope and its authorization boundaries are now captured in the internal record.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s0_user_briefing"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s0_precheck_control_created",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s0_authorization_logged",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s0_banking_absent",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 5.0
+}

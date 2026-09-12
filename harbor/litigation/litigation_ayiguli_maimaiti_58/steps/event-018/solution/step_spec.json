@@ -1,0 +1,27 @@
+{
+  "step": "event-018",
+  "stage": 18,
+  "virtual_stage": 18,
+  "source_event_id": "evt_s18_lawyer_packet",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I assembled the internal counsel handoff with questions, evidence gaps, and a redacted attachment index while retaining all originals internally.",
+  "response_paraphrase": "Counsel can now review a private bundle of questions, missing items, and sanitized attachment references; no originals left the workspace.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s18_lawyer_packet"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_lawyer_questions_packet",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

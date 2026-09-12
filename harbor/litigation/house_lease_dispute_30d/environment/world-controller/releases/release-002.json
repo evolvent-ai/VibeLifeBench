@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "D6_pressure_email_mut"
+  ],
+  "source_stage": 6,
+  "source_time": "2026-05-26T07:50:00+08:00",
+  "previous": "release-001",
+  "token": "house_lease_dispute_30d-release-02-token-abcdef1234567890",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 202,
+        "folder_id": 1,
+        "message_id": "<20260526-neighbor-viewing@mail.cn>",
+        "subject": "case recordhascase recordyoucase recordofcase record",
+        "from_addr": "case record <lin.lou@qq.com>",
+        "to_addr_json": "[\"chen.yue@gmail.com\"]",
+        "date": "2026-05-26T07:40:00+08:00",
+        "body_text": "Chen Yue，case recordhasincase recordpersonalcase recordyoucase recordofthatcase record，case recordlandlordatcase recordhecase record。Icase recordtocase record，case recordandnotcase record。",
+        "is_read": 0,
+        "is_important": 1,
+        "headers_json": "{}",
+        "size": 260,
+        "created_at": "2026-05-26T07:40:00+08:00"
+      },
+      "source_event_id": "D6_pressure_email_mut",
+      "operation_index": 0
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 203,
+        "folder_id": 1,
+        "message_id": "<20260526-landlord-pressure@mail.cn>",
+        "subject": "Landlord pressure about deposit and renovations",
+        "from_addr": "Wang Jianguo <wangjg@mail.cn>",
+        "to_addr_json": "[\"chen.yue@gmail.com\"]",
+        "date": "2026-05-26T07:45:00+08:00",
+        "body_text": "The landlord demands that Chen Yue move out soon and says the security deposit and renovation compensation will not be paid. Keep the lease and all original evidence; no response has been authorized.",
+        "is_read": 0,
+        "is_important": 1,
+        "headers_json": "{}",
+        "size": 300,
+        "created_at": "2026-05-26T07:50:00+08:00"
+      },
+      "source_event_id": "D6_pressure_email_mut",
+      "operation_index": 1
+    }
+  ]
+}

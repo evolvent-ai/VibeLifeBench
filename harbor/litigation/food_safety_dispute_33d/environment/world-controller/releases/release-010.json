@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "s18_appeal_packet_mutation"
+  ],
+  "source_stage": "18",
+  "source_time": "2026-06-18T13:50:00+08:00",
+  "previous": "release-009",
+  "token": "food-safety-release-010-33d-token-7f4e9b2a1c6d",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_food_s18_appeal",
+        "user_id": "usr_zhao_meng",
+        "source": "gov_policy",
+        "type": "policy_update",
+        "subscription_id": "sub_000002",
+        "title": "Appeal case filed by the defendant has been registered",
+        "body": "The Shanghai First Intermediate People's Court has registered Global Select’s appeal against the first-instance judgment, with Zhao Meng as the appellee; a copy of the appeal petition and second-instance matters will be served electronically.",
+        "payload_json": "{\"first_instance\":\"（2026）Hu0115MinChu18426No.\",\"appeal_no\":\"（2026）Hu01MinZhong09651No.\",\"event\":\"appeal_accepted\"}",
+        "created_at": "2026-06-18T13:50:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s18_appeal_packet_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 130,
+        "unread_count": 25
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "s18_appeal_packet_mutation",
+      "operation_index": 1
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1204,
+        "folder_id": 1,
+        "message_id": "<food-s18-appeal@sh1court.gov.cn>",
+        "subject": "Second-instance electronic service: Notice of appeal matters for (2026) Hu01MinZhong09651No.",
+        "from_addr": "Electronic service from the Shanghai First Intermediate People's Court <service@sh1court.gov.cn>",
+        "to_addr_json": "[\"zhao.meng@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-18T13:52:00+08:00",
+        "body_text": "Huanqiu Youxuan has appealed the civil judgment (2026) Hu0115MinChu18426No.. The appeal has been registered by this Court as (2026) Hu01MinZhong09651No.. You are the respondent. A copy of the appeal petition, the response statement, and matters concerning the submission of evidence in the second instance will be served with this email.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": "<food-s16-judgment@pudongcourt.gov.cn>",
+        "references_header": "<food-s16-judgment@pudongcourt.gov.cn>",
+        "headers_json": "{\"appeal_no\":\"（2026）Hu01MinZhong09651No.\",\"document\":\"Notice of Appeal Matters\"}",
+        "uid": null,
+        "size": 560,
+        "created_at": "2026-06-18T13:52:00+08:00"
+      },
+      "source_event_id": "s18_appeal_packet_mutation",
+      "operation_index": 2
+    },
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_food_sys_appeal_response_due",
+        "calendar_id": "cal_zhao_meng",
+        "summary": "Pending second-instance service task: Check the response deadline",
+        "description": "The second-instance case (2026) Hu01MinZhong09651No. has been registered. This entry originated from electronic service; the response deadline should be checked and updated based on the actual date the copy of the appeal petition was received.",
+        "location": null,
+        "start_dt": "2026-07-03T17:00:00+08:00",
+        "end_dt": "2026-07-03T17:30:00+08:00",
+        "all_day": 0,
+        "status": "tentative",
+        "created_at": "2026-06-18T13:51:00+08:00",
+        "updated_at": "2026-06-18T13:51:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      },
+      "source_event_id": "s18_appeal_packet_mutation",
+      "operation_index": 3
+    },
+    {
+      "server": "calendar",
+      "table": "reminders",
+      "op": "insert",
+      "values": {
+        "id": 9181,
+        "event_id": "evt_food_sys_appeal_response_due",
+        "method": "popup",
+        "minutes_before": 4320
+      },
+      "source_event_id": "s18_appeal_packet_mutation",
+      "operation_index": 4
+    },
+    {
+      "server": "calendar",
+      "table": "_counters",
+      "op": "update",
+      "set": {
+        "value": 9000
+      },
+      "where": {
+        "key": "event_seq"
+      },
+      "source_event_id": "s18_appeal_packet_mutation",
+      "operation_index": 5
+    },
+    {
+      "server": "calendar",
+      "table": "_counters",
+      "op": "update",
+      "set": {
+        "value": 9000
+      },
+      "where": {
+        "key": "reminder_seq"
+      },
+      "source_event_id": "s18_appeal_packet_mutation",
+      "operation_index": 6
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "food_sys_s18_appeal",
+        "parent_block_id": null,
+        "parent_page_id": "food_case_home",
+        "type": "paragraph",
+        "content_json": "{\"paragraph\":{\"rich_text\":[{\"type\":\"text\",\"text\":{\"content\":\"Facts regarding service in the second instance: Huanqiu Youxuan filed an appeal, and the Shanghai First Intermediate People's Court registered case number （2026）Hu01MinZhong09651No.; Zhao Meng is the appellee, pending verification of the copy of the appeal petition, the defense deadline, and evidentiary matters in the second instance.\",\"link\":null},\"plain_text\":\"Facts regarding service in the second instance: Huanqiu Youxuan filed an appeal, and the Shanghai First Intermediate People's Court registered case number （2026）Hu01MinZhong09651No.; Zhao Meng is the appellee, pending verification of the copy of the appeal petition, the defense deadline, and evidentiary matters in the second instance.\"}]}}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 50,
+        "created_time": "2026-06-18T13:54:00.000+08:00",
+        "last_edited_time": "2026-06-18T13:54:00.000+08:00"
+      },
+      "source_event_id": "s18_appeal_packet_mutation",
+      "operation_index": 7
+    },
+    {
+      "server": "notion",
+      "table": "counters",
+      "op": "update",
+      "set": {
+        "value": 9000
+      },
+      "where": {
+        "key": "block_seq"
+      },
+      "source_event_id": "s18_appeal_packet_mutation",
+      "operation_index": 8
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "step": "event-014",
+  "virtual_stage": 12,
+  "source_event_id": "evt_s12_institution_credentials_notice",
+  "stage_boundary": true,
+  "response": "Qualification attachments and sample reports were indexed internally as unverified and requiring lawyer confirmation.",
+  "response_paraphrase": "The emailed credentials are catalogued without treating them as proof, pending counsel confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s12_institution_credentials_notice"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s12_credentials_attachment_indexed",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s12_qualification_not_overclaimed",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

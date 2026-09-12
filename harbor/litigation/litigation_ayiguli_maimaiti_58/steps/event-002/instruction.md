@@ -1,0 +1,1 @@
+The inbox now contains court service materials and an explanation of the evidence-submission deadline. Record the case number, service source, attachment names, and sensitivity level. Do not reply or submit anything yet.

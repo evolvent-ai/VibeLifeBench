@@ -1,0 +1,27 @@
+{
+  "step": "event-017",
+  "stage": 17,
+  "virtual_stage": 17,
+  "source_event_id": "evt_s17_user_wants_short_reply",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I saved a written-reconciliation draft that expressly avoids a debt admission or settlement acceptance, and nothing was sent.",
+  "response_paraphrase": "An internal-only response requests documentary comparison while disclaiming liability and any negotiated resolution.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s17_user_wants_short_reply"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_non_admission_draft",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

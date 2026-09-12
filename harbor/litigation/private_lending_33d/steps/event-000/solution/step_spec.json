@@ -1,0 +1,31 @@
+{
+ "step": "event-000",
+ "stage": 0,
+ "event_id": "s0_kickoff",
+ "response_paraphrase": "The case journal is open: Wang Fang and Chen Qiang, IOU evidence, official court feeds, and saved precedent case_001 are now organized. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s0_notion_page",
+   "weight": 0.5
+  },
+  {
+   "check_id": "s0_reads_saved_cases",
+   "weight": 0.5
+  }
+ ],
+ "expected_stage_weight": 1.0,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s0_kickoff"
+  }
+ ],
+ "source_event_id": "s0_kickoff"
+}

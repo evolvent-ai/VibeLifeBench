@@ -1,0 +1,22 @@
+{
+  "step": "event-008",
+  "virtual_stage": 7,
+  "source_event_id": "n07_platform_time_mail",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": []
+  },
+  "response": "The platform's automatic completion email is preserved as an independent source beside delivery events.",
+  "response_paraphrase": "The records-department message is catalogued on its own instead of replacing the handoff evidence.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n07_platform_time_mail"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

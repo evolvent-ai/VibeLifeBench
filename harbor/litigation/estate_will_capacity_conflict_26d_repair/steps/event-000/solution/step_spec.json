@@ -1,0 +1,16 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "S00_user_message",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The estate evidence was reviewed and recorded with verification, preservation, and authorization limits kept explicit.",
+  "response_paraphrase": "I reviewed the inheritance materials and logged them while keeping evidence, preservation, and authority safeguards visible.",
+  "actions": [{"kind": "record_event", "event_id": "S00_user_message", "event_kind": "user_message"}],
+  "expected_checks": [
+    {"check_id": "s00_evidence", "weight": 0.4, "expected": true},
+    {"check_id": "s00_workspace", "weight": 0.6, "expected": true}
+  ],
+  "expected_stage_weight": 1.0
+}

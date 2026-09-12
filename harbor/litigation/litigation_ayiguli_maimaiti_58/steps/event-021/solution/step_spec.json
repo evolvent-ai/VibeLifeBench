@@ -1,0 +1,32 @@
+{
+  "step": "event-021",
+  "stage": 21,
+  "virtual_stage": 21,
+  "source_event_id": "evt_s21_legal_refresh",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I refreshed the saved legal authorities and ensured all three topic notes retain their source, limitations, and August 24 search date.",
+  "response_paraphrase": "The legal library was revisited and every subject entry now carries current provenance, scope cautions, and the review date.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s21_legal_refresh"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_legal_refresh_saved",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s21_legal_late_rechecked",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

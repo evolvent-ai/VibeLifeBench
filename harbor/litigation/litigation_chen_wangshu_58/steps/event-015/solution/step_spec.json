@@ -1,0 +1,47 @@
+{
+  "step": "event-015",
+  "virtual_stage": 12,
+  "source_event_id": "evt_s12_platform_update",
+  "event_id": "evt_s12_platform_update",
+  "stage_boundary": true,
+  "synthetic": false,
+  "response": "The rejection and substitute-benefit proposal were cross-checked and kept separate.",
+  "response_paraphrase": "The stage 12 review is documented, with unresolved commitments still waiting for confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s12_platform_update",
+      "event_kind": "notification",
+      "event_time": "2026-07-16T17:20:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001"
+    ],
+    "released_mutations": [
+      "mut_s10_refund_rejected",
+      "mut_s11_coupon_offer_email"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s12_refund_rejection_discovered",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s12_coupon_offer_discovered",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s12_coupon_not_accepted",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

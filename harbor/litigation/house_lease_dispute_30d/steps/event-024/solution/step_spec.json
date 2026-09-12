@@ -1,0 +1,36 @@
+{
+  "step": "event-024",
+  "stage": 18,
+  "virtual_stage": 18,
+  "source_event_id": "D18_judgment_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": [
+      "release-012"
+    ]
+  },
+  "response": "Stage 18 was reviewed using the relevant source records and the case register was updated while Chen Yue retained every decision.",
+  "response_paraphrase": "The stage 18 review is recorded with verified case material, and all consequential choices remain pending Chen Yue's confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "D18_judgment_world"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s24_source",
+      "weight": 0.4,
+      "expected": true
+    },
+    {
+      "check_id": "s24_workspace",
+      "weight": 0.6,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

@@ -1,0 +1,53 @@
+{
+  "release_id": "release-001",
+  "source_stage": 6,
+  "source_time": "2026-04-06T08:50:00+08:00",
+  "source_event_ids": ["S06_mutation"],
+  "previous": "release-000",
+  "token": "estate-release-001-token-7f9a31c2d4e5",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "S06_mutation",
+      "values": {
+        "id": 9806,
+        "folder_id": 1,
+        "message_id": "<estate-live-9806@example.test>",
+        "subject": "Property registry transfer detail REG-2026-0412",
+        "from_addr": "registry@example.com",
+        "to_addr_json": "[\"chenyu@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-04-06T08:30:00+08:00",
+        "body_text": "Registry detail REG-2026-0412: Lanxi Road 18A changed to Chen Jun on 2026-03-29 based on notarized will N-2022-0318. Dispute notation requires court acceptance notice or preservation ruling.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9806,
+        "size": 1600,
+        "created_at": "2026-04-06T00:30:00Z"
+      }
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "source_event_id": "S06_mutation",
+      "where": {
+        "listing_id": "prop_lanxi_18a_estate"
+      },
+      "set": {
+        "attrs_json": "{\"former_owner\":\"Chen Guohua\",\"current_owner\":\"Chen Jun\",\"transfer_date\":\"2026-03-29\",\"transfer_basis\":\"notarized will N-2022-0318\",\"registry_notice\":\"REG-2026-0412\",\"estate_asset\":true}",
+        "description": "Registry detail REG-2026-0412 now shows transfer to Chen Jun on 2026-03-29 based on notarized will N-2022-0318. A dispute notation requires court acceptance or a preservation ruling.",
+        "photos_json": "[\"registry extract\",\"ownership change page\"]",
+        "listed_at": "2026-03-29T10:00:00+08:00"
+      }
+    }
+  ]
+}

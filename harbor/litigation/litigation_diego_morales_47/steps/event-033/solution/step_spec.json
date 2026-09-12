@@ -1,0 +1,22 @@
+{
+  "step": "event-033",
+  "virtual_stage": 23,
+  "source_event_id": "n23_review_queue",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": []
+  },
+  "response": "All five allowed services are refreshed and the final witness packet is marked ready for Diego's review.",
+  "response_paraphrase": "The complete source refresh leaves a review-ready packet with submission and sending still disabled.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n23_review_queue"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

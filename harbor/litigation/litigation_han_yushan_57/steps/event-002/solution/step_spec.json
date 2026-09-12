@@ -1,0 +1,29 @@
+{
+  "step": "event-002",
+  "virtual_stage": 1,
+  "source_event_id": "evt_s1_team_assignment",
+  "stage_boundary": true,
+  "response": "The four working indexes and role-only party labels were established with external-draft limits.",
+  "response_paraphrase": "Separate indexes now organize the matter while every possible party remains pending verification.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s1_team_assignment"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s1_all_required_servers_touched",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s1_object_index_created",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

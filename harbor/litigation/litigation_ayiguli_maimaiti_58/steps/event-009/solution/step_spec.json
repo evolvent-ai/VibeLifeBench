@@ -1,0 +1,36 @@
+{
+  "step": "event-009",
+  "stage": 9,
+  "virtual_stage": 9,
+  "source_event_id": "evt_s9_scheduled_recheck",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "mut_s9_revised_statement"
+    ]
+  },
+  "response": "I rechecked the revised supplier statement against the prior version and completed bank payments, flagging the omitted July 11 payment for reconciliation.",
+  "response_paraphrase": "The newer account statement was compared with both its predecessor and the bank ledger, exposing the uncredited mid-July transfer.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s9_scheduled_recheck"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_revised_statement_found",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s9_missing_payment_flagged",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

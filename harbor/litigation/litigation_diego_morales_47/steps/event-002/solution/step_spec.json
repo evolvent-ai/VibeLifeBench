@@ -1,0 +1,31 @@
+{
+  "step": "event-002",
+  "virtual_stage": 1,
+  "source_event_id": "s01_inventory",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The order, people, places, email leads, legal sources, and Notion workspace are cross-referenced without merging versions.",
+  "response_paraphrase": "A single index now connects the case entities and working sources while keeping distinct versions visible.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s01_inventory"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_required_servers_touched",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s1_object_index_target",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

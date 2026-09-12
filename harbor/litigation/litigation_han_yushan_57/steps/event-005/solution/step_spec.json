@@ -1,0 +1,29 @@
+{
+  "step": "event-005",
+  "virtual_stage": 4,
+  "source_event_id": "evt_s4_gap_review_tick",
+  "stage_boundary": true,
+  "response": "The evidence-gap review reminder and separate material sections were updated internally.",
+  "response_paraphrase": "The evidence review schedule and distinct gap categories have been refreshed for internal use.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s4_gap_review_tick"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s4_gap_review_calendar_created",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s4_evidence_gap_list_updated",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

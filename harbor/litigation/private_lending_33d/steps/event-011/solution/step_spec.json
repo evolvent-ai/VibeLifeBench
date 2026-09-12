@@ -1,0 +1,27 @@
+{
+ "step": "event-011",
+ "stage": 8,
+ "event_id": "s8_accepted",
+ "response_paraphrase": "The court acceptance notice and the next evidence and hearing follow-up are recorded without taking an irreversible action. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s8_acceptance_and_persisted_followup",
+   "weight": 0.5
+  }
+ ],
+ "expected_stage_weight": 0.5,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s8_accepted"
+  }
+ ],
+ "source_event_id": "s8_accepted"
+}

@@ -1,0 +1,46 @@
+{
+  "release_id": "release-002",
+  "previous": "release-001",
+  "token": "litigation-han-yushan-57-release-002-token",
+  "operations": [
+    {
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 31,
+        "folder_id": 1,
+        "message_id": "email_property_contract_0712",
+        "subject": "Springtide Property Management：property-management service contractcase materialrepair order",
+        "from_addr": "property@chunlan.example",
+        "to_addr_json": "[\"han.yushan@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-15T08:25:00+08:00",
+        "body_text": "attachmentcase materialproperty-management service contractcase material、common arearepaircase materialrepair order。contractoriginal textcase material。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{}",
+        "uid": 5031,
+        "size": 114,
+        "created_at": "2026-07-15T08:25:00+08:00"
+      },
+      "server": "email"
+    },
+    {
+      "table": "attachments",
+      "op": "insert",
+      "values": {
+        "id": 331,
+        "message_id": 31,
+        "filename": "property_contract_repair_index.txt",
+        "content_type": "text/plain",
+        "size": 120,
+        "content_b64": "5ZCI5ZCM5p2h5qy+5Li76aKY77ya5YWs5YWx6YOo5L2N44CB5YWx5pyJ566h57q/44CB5oql5L+u5rWB56iL44CB5beh5qOA6K6w5b2V44CC5pen57u05L+u5Y2V5raJ5Y+KIDIwMjUg5bm05YmN6K6w5b2V44CC",
+        "content_id": "cid_331"
+      },
+      "server": "email"
+    }
+  ]
+}

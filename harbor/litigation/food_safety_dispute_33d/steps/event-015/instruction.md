@@ -1,0 +1,1 @@
+Service alert: new materials from the other side concern the basis for compensation, my purchase motivation, and the character of the labeling issue. Check the served materials, distinguish points to accept, rebut, or support with additional evidence, and prepare a follow-up evidence review.

@@ -1,0 +1,31 @@
+{
+  "step": "event-015",
+  "virtual_stage": 11,
+  "source_event_id": "s11_consumer_push",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The consumer follow-up is logged but not adopted, and the statement remains limited to personal knowledge.",
+  "response_paraphrase": "The renewed consumer request is documented as rejected, preserving the firsthand-knowledge limit.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s11_consumer_push"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_consumer_push_logged",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s11_template_limits_personal_knowledge",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

@@ -1,0 +1,31 @@
+{
+  "step": "event-012",
+  "virtual_stage": 9,
+  "source_event_id": "s09_route_compare",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Route comparison records corroborating locations and the unresolved automatic-versus-manual time conflict.",
+  "response_paraphrase": "The route cross-check separates map support from source-specific delivery and email assertions.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s09_route_compare"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_route_directions_used",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s9_cross_source_window_saved",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

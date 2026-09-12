@@ -1,0 +1,31 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-020",
+  "stage": 14,
+  "virtual_stage": 14,
+  "event_id": "s14_hearing",
+  "source_event_id": "s14_hearing",
+  "response": "The hearing record captures the evidence, food-safety disputes, remedies, defenses, platform issues, and medical loss; the matter now awaits judgment.",
+  "response_paraphrase": "The hearing note brings together evidence, food-safety issues, remedies, defenses, platform responsibility, and medical loss pending judgment.",
+  "expected_env": {
+    "virtual_stage": 14,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s14_responds_hearing",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 0.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s14_hearing",
+      "stage": 14
+    }
+  ]
+}

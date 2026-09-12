@@ -1,0 +1,27 @@
+{
+ "step": "event-010",
+ "stage": 7,
+ "event_id": "s7_heartbeat",
+ "response_paraphrase": "The jurisdiction objection is logged and answered using the lender-side Hangzhou performance and residence rules; Ningbo is not required. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s7_objection_notice_and_followup",
+   "weight": 0.5
+  }
+ ],
+ "expected_stage_weight": 0.5,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s7_heartbeat"
+  }
+ ],
+ "source_event_id": "s7_heartbeat"
+}

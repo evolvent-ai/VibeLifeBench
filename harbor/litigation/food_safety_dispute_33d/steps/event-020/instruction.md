@@ -1,0 +1,1 @@
+The hearing has concluded. The parties presented evidence and argued over whether the food meets safety standards (the missing Chinese label and unlawful additives), refund plus tenfold or threefold compensation, the knowing-purchase defense, the labeling-defect exception, defendants and platform liability, and medical loss. The court will announce judgment later.

@@ -1,0 +1,33 @@
+{
+  "step": "event-013",
+  "virtual_stage": 11,
+  "source_event_id": "evt_s11_qualification_recheck_tick",
+  "stage_boundary": true,
+  "response": "Candidate review evidence was refreshed and the qualification validity risk was marked for recheck.",
+  "response_paraphrase": "Recent review information has been reconciled and candidate validity remains subject to verification.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s11_qualification_recheck_tick"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-004"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s11_candidate_expiry_rechecked",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s11_candidate_risk_versioned",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

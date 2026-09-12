@@ -1,0 +1,38 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "virtual_stage": 0,
+  "source_event_id": "evt_s0_user_briefing",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The seller-side case control workspace is established with privacy and authorization limits recorded.",
+  "response_paraphrase": "A seller control record now covers the matter, protected data, and actions needing approval.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "source_event_id": "evt_s0_user_briefing",
+      "stage": 0
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_case_control_created",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s0_auth_privacy_redlines_logged",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s0_health_tracker_absent_with_auth",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

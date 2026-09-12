@@ -1,0 +1,1 @@
+Closing reminder: archive the case materials, evidence, inspection reports, procedural milestones, and first-instance result in Notion so the second-instance work can continue smoothly. Check that every future deadline is already on the calendar.

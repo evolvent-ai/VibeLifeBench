@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "s0_notion_init"
+  ],
+  "source_stage": "0",
+  "source_time": "2026-05-20T08:30:00+08:00",
+  "previous": null,
+  "token": "food-safety-release-000-33d-token-7f4e9b2a1c6d",
+  "operations": [
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "food_sys_s0_facts",
+        "parent_block_id": null,
+        "parent_page_id": "food_case_home",
+        "type": "paragraph",
+        "content_json": "Initial facts: On April 18, 2026, imported milk powder and tea substitute were purchased from the Youxiangu Global Select Store for a total of 1880 yuan; the goods were received on April 22. The milk powder packaging contained no information in Chinese, and the tea substitute product page made claims about treating diseases. Zhao Meng retained the order, payment, unboxing, communications, and medical-treatment materials. Current status: preparing to verify the legal-rights-protection strategy and evidence.",
+        "has_children": 0,
+        "archived": 0,
+        "position": 0,
+        "created_time": "2026-05-20T08:30:00.000+08:00",
+        "last_edited_time": "2026-05-20T08:30:00.000+08:00"
+      },
+      "source_event_id": "s0_notion_init",
+      "operation_index": 0
+    },
+    {
+      "server": "notion",
+      "table": "counters",
+      "op": "update",
+      "set": {
+        "value": 9000
+      },
+      "where": {
+        "key": "page_seq"
+      },
+      "source_event_id": "s0_notion_init",
+      "operation_index": 1
+    },
+    {
+      "server": "notion",
+      "table": "counters",
+      "op": "update",
+      "set": {
+        "value": 9000
+      },
+      "where": {
+        "key": "block_seq"
+      },
+      "source_event_id": "s0_notion_init",
+      "operation_index": 2
+    }
+  ]
+}

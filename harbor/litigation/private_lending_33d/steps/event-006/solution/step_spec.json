@@ -1,0 +1,35 @@
+{
+ "step": "event-006",
+ "stage": 4,
+ "event_id": "s4_evidence",
+ "response_paraphrase": "The evidence inventory distinguishes the bank transfer and message records from the weak 200000 cash-delivery proof; originals and source provenance are preserved. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s4_evidence_list_in_notion",
+   "weight": 0.5
+  },
+  {
+   "check_id": "s4_evidence_inventory",
+   "weight": 0.5
+  },
+  {
+   "check_id": "d_cash_delivery_risk",
+   "weight": 1
+  }
+ ],
+ "expected_stage_weight": 2.0,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s4_evidence"
+  }
+ ],
+ "source_event_id": "s4_evidence"
+}

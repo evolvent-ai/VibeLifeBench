@@ -1,0 +1,33 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "virtual_stage": 3,
+  "source_event_id": "evt_s3_delivery_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The original delivery and its redacted logistics chain were recorded separately.",
+  "response_paraphrase": "I preserved distinct, privacy-minimized records for the outbound delivery and later return.",
+  "actions": [
+    {
+      "kind": "world",
+      "source_event_id": "evt_s3_delivery_notice",
+      "stage": 3
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_initial_delivery_logged",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_delivery_privacy_redacted",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

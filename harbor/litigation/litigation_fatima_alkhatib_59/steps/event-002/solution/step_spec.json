@@ -1,0 +1,33 @@
+{
+  "step": "event-002",
+  "stage": 2,
+  "virtual_stage": 2,
+  "source_event_id": "evt_s2_ecommerce_order_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The product, SKU, lot, and order-at-issue were verified from the commerce records.",
+  "response_paraphrase": "Back-office product and order checks identify the disputed item as the rose-gold B17 SKU.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_s2_ecommerce_order_notice",
+      "stage": 2
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_product_sku_batch_identified",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s2_claim_order_indexed",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

@@ -1,0 +1,35 @@
+{
+ "step": "event-016",
+ "stage": 11,
+ "event_id": "s11_rebut",
+ "response_paraphrase": "The rebuttal memo accepts the supported 360000 transfer and treats the 200000 cash installment as unproven unless corroborated by evidence. The supporting record is retained in the case journal.",
+ "expected_env": [
+  "calendar",
+  "email",
+  "legal_search",
+  "notification_hub",
+  "notion"
+ ],
+ "expected_checks": [
+  {
+   "check_id": "s11_finds_supporting_case",
+   "weight": 0.5
+  },
+  {
+   "check_id": "s11_rebuttal_in_notion",
+   "weight": 0.5
+  },
+  {
+   "check_id": "d_defense_kantou_accepted",
+   "weight": 0.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "actions": [
+  {
+   "kind": "record_event",
+   "event_id": "s11_rebut"
+  }
+ ],
+ "source_event_id": "s11_rebut"
+}

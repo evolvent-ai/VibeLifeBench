@@ -1,0 +1,1 @@
+The seller really appealed. Please clarify what I must do as respondent, which deadlines cannot be missed, and how the second instance differs from the first. Should the inspection report and evidence be reorganized? How likely is reversal after winning at first instance? Put the deadlines into my calendar and record the plan in Notion.

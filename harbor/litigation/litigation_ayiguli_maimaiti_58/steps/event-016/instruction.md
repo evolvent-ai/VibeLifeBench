@@ -1,0 +1,1 @@
+The supplier's sales representative is pressing for confirmation of part of the goods payment and is offering a reduction in liquidated damages in exchange. Preserve an index of the message, its risks, and the questions requiring confirmation. Do not adopt the representative's characterization.

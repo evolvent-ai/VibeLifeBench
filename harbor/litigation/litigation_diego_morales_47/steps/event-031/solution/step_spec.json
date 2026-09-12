@@ -1,0 +1,26 @@
+{
+  "step": "event-031",
+  "virtual_stage": 21,
+  "source_event_id": "s21_privacy_recheck",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Privacy review records what is retained, redacted, and minimized for identity, location, home, and phone data.",
+  "response_paraphrase": "The privacy checklist now distinguishes retained identity from redacted household, phone, and tracking details.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s21_privacy_recheck"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_privacy_review_complete",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

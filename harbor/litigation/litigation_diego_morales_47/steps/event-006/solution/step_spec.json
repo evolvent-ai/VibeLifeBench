@@ -1,0 +1,31 @@
+{
+  "step": "event-006",
+  "virtual_stage": 5,
+  "source_event_id": "s05_legal_baseline",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Public small-claims, witness, electronic-data, and privacy rules are indexed with separate evidence properties.",
+  "response_paraphrase": "The legal research ledger now distinguishes authenticity, relevance, and privacy or legality limitations.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s05_legal_baseline"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_legal_sources_saved",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s5_three_properties_scaffold",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

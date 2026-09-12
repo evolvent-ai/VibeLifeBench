@@ -1,0 +1,1 @@
+The supplier has again proposed adjusting the liquidated damages in exchange for an acknowledgment of part of the goods payment. Read the message and record the pressure tactics and unauthorized matters. Do not send an acceptance, rejection, or counteroffer.

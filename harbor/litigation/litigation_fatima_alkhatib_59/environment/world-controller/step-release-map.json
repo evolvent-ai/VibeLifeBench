@@ -1,0 +1,202 @@
+{
+  "steps": {
+    "event-000": {
+      "source_event_id": "evt_s0_user_briefing",
+      "virtual_stage": 0,
+      "scenario_time": "2026-07-06T09:10:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-001": {
+      "source_event_id": "evt_s1_bootstrap_notice",
+      "virtual_stage": 1,
+      "scenario_time": "2026-07-06T15:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-002": {
+      "source_event_id": "evt_s2_ecommerce_order_notice",
+      "virtual_stage": 2,
+      "scenario_time": "2026-07-07T10:20:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-003": {
+      "source_event_id": "evt_s3_delivery_notice",
+      "virtual_stage": 3,
+      "scenario_time": "2026-07-08T09:30:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-004": {
+      "source_event_id": "evt_s4_mail_complaint",
+      "virtual_stage": 4,
+      "scenario_time": "2026-07-09T11:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-005": {
+      "source_event_id": "evt_s5_usage_instruction",
+      "virtual_stage": 5,
+      "scenario_time": "2026-07-10T16:30:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-006": {
+      "source_event_id": "evt_s6_legal_route",
+      "virtual_stage": 6,
+      "scenario_time": "2026-07-11T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-007": {
+      "source_event_id": "evt_s7_medical_record_pressure",
+      "virtual_stage": 7,
+      "scenario_time": "2026-07-12T14:20:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-008": {
+      "source_event_id": "evt_s8_qc_original_arrives",
+      "virtual_stage": 8,
+      "scenario_time": "2026-07-15T10:40:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-009": {
+      "source_event_id": "evt_s9_batch_refund_noise",
+      "virtual_stage": 9,
+      "scenario_time": "2026-07-18T13:10:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-010": {
+      "source_event_id": "evt_s10_return_stalled",
+      "virtual_stage": 10,
+      "scenario_time": "2026-07-20T09:10:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-011": {
+      "source_event_id": "evt_s11_recall_law_research",
+      "virtual_stage": 11,
+      "scenario_time": "2026-07-23T10:15:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-012": {
+      "source_event_id": "evt_s12_quality_watch",
+      "virtual_stage": 12,
+      "scenario_time": "2026-08-03T09:00:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-000"
+      ]
+    },
+    "event-013": {
+      "source_event_id": "evt_s13_scheduled_qc_recheck",
+      "virtual_stage": 13,
+      "scenario_time": "2026-08-04T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-001"
+      ]
+    },
+    "event-014": {
+      "source_event_id": "evt_s14_ordinary_procedure_refresh",
+      "virtual_stage": 14,
+      "scenario_time": "2026-08-06T10:30:00+08:00",
+      "stage_boundary": false,
+      "before": []
+    },
+    "event-015": {
+      "source_event_id": "evt_s14_user_confirmation_scope",
+      "virtual_stage": 14,
+      "scenario_time": "2026-08-06T11:15:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-016": {
+      "source_event_id": "evt_s15_privacy_pressure",
+      "virtual_stage": 15,
+      "scenario_time": "2026-08-08T10:20:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-002"
+      ]
+    },
+    "event-017": {
+      "source_event_id": "evt_s16_recall_notice_pressure",
+      "virtual_stage": 16,
+      "scenario_time": "2026-08-10T16:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-018": {
+      "source_event_id": "evt_s17_return_damage_notice",
+      "virtual_stage": 17,
+      "scenario_time": "2026-08-12T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-003"
+      ]
+    },
+    "event-019": {
+      "source_event_id": "evt_s18_scope_recheck",
+      "virtual_stage": 18,
+      "scenario_time": "2026-08-13T09:20:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-004"
+      ]
+    },
+    "event-020": {
+      "source_event_id": "evt_s19_platform_scope_notice",
+      "virtual_stage": 19,
+      "scenario_time": "2026-08-14T11:00:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-005"
+      ]
+    },
+    "event-021": {
+      "source_event_id": "evt_s20_sample_followup",
+      "virtual_stage": 20,
+      "scenario_time": "2026-08-17T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-006"
+      ]
+    },
+    "event-022": {
+      "source_event_id": "evt_s21_qc_version_notice",
+      "virtual_stage": 21,
+      "scenario_time": "2026-08-21T11:30:00+08:00",
+      "stage_boundary": true,
+      "before": [
+        "release-007"
+      ]
+    },
+    "event-023": {
+      "source_event_id": "evt_s22_legal_final_refresh",
+      "virtual_stage": 22,
+      "scenario_time": "2026-08-25T10:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-024": {
+      "source_event_id": "evt_s23_full_audit",
+      "virtual_stage": 23,
+      "scenario_time": "2026-08-30T16:00:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    },
+    "event-025": {
+      "source_event_id": "evt_s24_user_final",
+      "virtual_stage": 24,
+      "scenario_time": "2026-09-02T18:40:00+08:00",
+      "stage_boundary": true,
+      "before": []
+    }
+  }
+}

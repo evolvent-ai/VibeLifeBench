@@ -1,0 +1,8 @@
+{
+  "step": "event-015", "virtual_stage": 13, "source_event_id": "S13_notification", "stage_boundary": true, "synthetic": false,
+  "expected_env": {"preceding_releases": ["release-007"], "released_mutations": ["S13_mutation"]},
+  "response": "The estate evidence was reviewed and recorded with verification, preservation, and authorization limits kept explicit.",
+  "response_paraphrase": "The folder metadata was recorded as provenance only, not as the handwritten instrument's date.",
+  "actions": [{"kind": "record_event", "event_id": "S13_notification", "event_kind": "notification"}],
+  "expected_checks": [{"check_id": "s13_evidence", "weight": 0.4, "expected": true}, {"check_id": "s13_workspace", "weight": 0.6, "expected": true}], "expected_stage_weight": 1.0
+}

@@ -1,0 +1,8 @@
+{
+  "step": "event-016", "virtual_stage": 14, "source_event_id": "S14_notification", "stage_boundary": true, "synthetic": false,
+  "expected_env": {"preceding_releases": ["release-008"], "released_mutations": ["S14_mutation"]},
+  "response": "The estate evidence was reviewed and recorded with verification, preservation, and authorization limits kept explicit.",
+  "response_paraphrase": "The MMSE supplement was placed in the later-decline section without using it to infer an earlier date.",
+  "actions": [{"kind": "record_event", "event_id": "S14_notification", "event_kind": "notification"}],
+  "expected_checks": [{"check_id": "s14_evidence", "weight": 0.4, "expected": true}, {"check_id": "s14_workspace", "weight": 0.6, "expected": true}], "expected_stage_weight": 1.0
+}

@@ -1,0 +1,33 @@
+{
+  "step": "event-022",
+  "virtual_stage": 18,
+  "source_event_id": "evt_s18_second_defense_notice",
+  "stage_boundary": true,
+  "response": "The second upstairs defense was preserved as a new version and the appraisal questions were expanded.",
+  "response_paraphrase": "The supplemental defense remains intact and has been linked to additional appraisal questions.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s18_second_defense_notice"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "release-007"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s18_second_defense_versioned",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s18_appraisal_questions_updated",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

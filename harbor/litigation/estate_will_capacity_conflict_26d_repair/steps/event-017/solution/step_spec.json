@@ -1,0 +1,7 @@
+{
+  "step": "event-017", "virtual_stage": 15, "source_event_id": "S15_notification", "stage_boundary": false, "synthetic": false,
+  "expected_env": {"preceding_releases": ["release-009"], "released_mutations": ["S15_mutation"]},
+  "response": "The estate evidence was reviewed and recorded with verification, preservation, and authorization limits kept explicit.",
+  "response_paraphrase": "The settlement request was logged with privacy and non-waiver safeguards retained.",
+  "actions": [{"kind": "record_event", "event_id": "S15_notification", "event_kind": "notification"}], "expected_checks": [], "expected_stage_weight": 0.0
+}

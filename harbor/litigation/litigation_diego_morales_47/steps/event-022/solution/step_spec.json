@@ -1,0 +1,22 @@
+{
+  "step": "event-022",
+  "virtual_stage": 16,
+  "source_event_id": "n16_small_claim_format",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": []
+  },
+  "response": "The small-claims formatting email is indexed and the materials remain a draft pending Diego's confirmation.",
+  "response_paraphrase": "The formatting guidance is read into the draft registry, with court submission still outside the authorization.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "n16_small_claim_format"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

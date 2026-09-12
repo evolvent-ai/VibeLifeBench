@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002-mut_s14_installment_statement",
+  "source_event_ids": [
+    "mut_s14_installment_statement"
+  ],
+  "source_stage": 14,
+  "source_time": "2026-07-20T09:50:00+08:00",
+  "previous": "release-001-mut_s11_coupon_offer",
+  "token": "litigation-chen-wangshu-58-release-002",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "statement_lines",
+      "op": "insert",
+      "values": {
+        "line_id": "line_xq_install_fee_0701",
+        "statement_id": "stmt_hx_202607",
+        "posted_at": "2026-07-20T09:50:00+08:00",
+        "amount_minor": 7200,
+        "merchant_name": "Northstar installment fee",
+        "mcc": "8299",
+        "category": "installment_fee",
+        "kind": "fee"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_xq_install_fee_02",
+        "card_id": "card_hx_platinum_5528",
+        "posted_at": "2026-08-01T09:00:00+08:00",
+        "amount_minor": 7200,
+        "merchant_name": "星桥职训分期手续费（第2期）",
+        "mcc": "8299",
+        "category": "installment_fee",
+        "kind": "fee"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_xq_install_fee_03",
+        "card_id": "card_hx_platinum_5528",
+        "posted_at": "2026-09-01T09:00:00+08:00",
+        "amount_minor": 7200,
+        "merchant_name": "星桥职训分期手续费（第3期）",
+        "mcc": "8299",
+        "category": "installment_fee",
+        "kind": "fee"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_xq_install_fee_04",
+        "card_id": "card_hx_platinum_5528",
+        "posted_at": "2026-10-01T09:00:00+08:00",
+        "amount_minor": 7200,
+        "merchant_name": "星桥职训分期手续费（第4期）",
+        "mcc": "8299",
+        "category": "installment_fee",
+        "kind": "fee"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_xq_install_fee_05",
+        "card_id": "card_hx_platinum_5528",
+        "posted_at": "2026-11-01T09:00:00+08:00",
+        "amount_minor": 7200,
+        "merchant_name": "星桥职训分期手续费（第5期）",
+        "mcc": "8299",
+        "category": "installment_fee",
+        "kind": "fee"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_xq_install_fee_06",
+        "card_id": "card_hx_platinum_5528",
+        "posted_at": "2026-12-01T09:00:00+08:00",
+        "amount_minor": 7200,
+        "merchant_name": "星桥职训分期手续费（第6期）",
+        "mcc": "8299",
+        "category": "installment_fee",
+        "kind": "fee"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "statements",
+      "op": "update",
+      "set": {
+        "new_charges_minor": 1229360,
+        "closing_balance_minor": 1229360,
+        "min_payment_due_minor": 122936
+      },
+      "where": {
+        "statement_id": "stmt_hx_202607"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 36000,
+        "statement_balance_minor": 1229360,
+        "min_payment_due_minor": 122936,
+        "available_credit_minor": 6734640
+      },
+      "where": {
+        "card_id": "card_hx_platinum_5528"
+      }
+    }
+  ]
+}

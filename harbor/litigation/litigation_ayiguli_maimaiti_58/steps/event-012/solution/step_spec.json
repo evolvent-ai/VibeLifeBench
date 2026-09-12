@@ -1,0 +1,36 @@
+{
+  "step": "event-012",
+  "stage": 12,
+  "virtual_stage": 12,
+  "source_event_id": "evt_s12_bank_user_question",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "mut_s12_supplier_payment_late"
+    ]
+  },
+  "response": "I verified the July 23 supplier payment from the business account and listed it as a pending reconciliation discrepancy without acknowledging any debt.",
+  "response_paraphrase": "The later bank debit was authenticated and entered solely as an open ledger mismatch, not a concession about liability.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s12_bank_user_question"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s12_bank_verified_paid",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s12_no_payee_or_payment",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

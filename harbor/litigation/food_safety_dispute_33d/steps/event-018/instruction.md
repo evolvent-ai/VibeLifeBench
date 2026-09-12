@@ -1,0 +1,1 @@
+The Shanghai court litigation service website has published a public notice for case (2026) Hu 0115 Min Chu XXXXX: Zhao Meng v. Global Select and others, an online food-safety shopping-contract dispute, set for a public hearing on June 12, 2026 at 9:30 a.m.

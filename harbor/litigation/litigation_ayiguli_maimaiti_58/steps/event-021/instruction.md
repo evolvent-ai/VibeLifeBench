@@ -1,0 +1,1 @@
+Review the saved materials on quality objections, electronic evidence, delivery-signature disputes, and setoff preparation. Confirm that every note retains its source, limitations on applicability, and search date.

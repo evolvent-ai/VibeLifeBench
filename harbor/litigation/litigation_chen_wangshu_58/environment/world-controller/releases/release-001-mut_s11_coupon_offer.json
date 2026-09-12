@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001-mut_s11_coupon_offer",
+  "source_event_ids": [
+    "mut_s11_coupon_offer_email"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-07-16T10:00:00+08:00",
+  "previous": "release-000-mut_s10_refund_rejected",
+  "token": "litigation-chen-wangshu-58-release-001",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<refund-plan-20260716@xingqiao.example>",
+        "subject": "Refund review result and 8000 CNY learning-benefit offer",
+        "from_addr": "refund@xingqiao.example",
+        "to_addr_json": "[\"chen.wangshu@example.test\"]",
+        "date": "2026-07-16T10:00:00+08:00",
+        "body_text": "The platform maintains its cash-refund rejection and offers an 8000 CNY learning-benefit voucher. It takes active user confirmation and no acceptance is recorded.",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "size": 216,
+        "created_at": "2026-07-16T10:00:00+08:00"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {"message_count": 201, "unread_count": 201},
+      "where": {"id": 1}
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {"message_count": 0, "unread_count": 0},
+      "where": {"id": 2}
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {"message_count": 0, "unread_count": 0},
+      "where": {"id": 3}
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {"message_count": 0, "unread_count": 0},
+      "where": {"id": 4}
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {"message_count": 24, "unread_count": 24},
+      "where": {"id": 5}
+      }
+  ]
+}

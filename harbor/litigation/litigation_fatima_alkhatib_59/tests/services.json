@@ -1,0 +1,9 @@
+{
+  "mcp_servers": [
+    "delivery_logistics",
+    "ecommerce",
+    "email",
+    "legal_search",
+    "notion"
+  ]
+}

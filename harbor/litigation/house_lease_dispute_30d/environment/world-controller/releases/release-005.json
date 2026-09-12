@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "D9_evidence_deadline_mut"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-06-01T09:50:00+08:00",
+  "previous": "release-004",
+  "token": "house_lease_dispute_30d-release-05-token-abcdef1234567890",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_case_0909",
+        "user_id": "usr_chen_yue",
+        "source": "gov_policy",
+        "type": "case_update",
+        "subscription_id": "sub_000002",
+        "title": "【procedurenotification】case recordevidencetimearrangement",
+        "body": "case recordcourtnotification：case recordevidencematerialsshouldatreceivedcase recordnotificationcase recorddaycase recorddaycase record；case recordnonecase recordof，courtwillcase recordisnocase record。pleaseperfact to be provedcase recordNo.andretainoriginal copy。 Evidence must be submitted within fifteen days.",
+        "payload_json": "{\"case_number\":\"(2026)case record0112case record18426No.\",\"action\":\"evidence_deadline\",\"anchor\":\"acceptance_service\",\"days\":15}",
+        "created_at": "2026-06-01T09:50:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "D9_evidence_deadline_mut",
+      "operation_index": 0
+    }
+  ]
+}

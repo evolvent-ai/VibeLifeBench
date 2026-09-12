@@ -1,0 +1,25 @@
+{
+  "release_id": "release-008",
+  "previous": "release-007",
+  "token": "litigation-ayiguli-008-token-9f2e7a6c4b8d1e0f",
+  "source_stage": 12,
+  "source_time": "2026-07-24T10:50:00+08:00",
+  "source_event_ids": ["mut_s12_supplier_payment_late"],
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_aygul_pay_0723_28000",
+        "account_id": "acct_aygul_store_mercury",
+        "posted_at": "2026-07-23T14:35:00+08:00",
+        "amount_minor": -2800000,
+        "kind": "payment",
+        "counterparty": "\u5929\u5c71\u79be\u6da6\u5546\u8d38\u6709\u9650\u516c\u53f8",
+        "memo": "6\u6708\u4f9b\u8d27\u56de\u6b3e\uff1b\u94f6\u884c\u6458\u8981\u672a\u5199\u53d1\u7968\u53f7\u7801\uff0c\u9700\u4e0e\u4f9b\u5e94\u5546\u9010\u9879\u52fe\u7a3d",
+        "balance_after_minor": 12300150
+      }
+    }
+  ]
+}

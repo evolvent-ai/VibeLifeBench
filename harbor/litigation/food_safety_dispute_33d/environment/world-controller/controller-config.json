@@ -1,0 +1,13 @@
+{
+  "task": "food_safety_dispute_33d",
+  "clock_file": "/world-clock/current.json",
+  "clock_token": "food-safety-clock-33d",
+  "step_count": 30,
+  "servers": [
+    "calendar",
+    "email",
+    "legal_search",
+    "notification_hub",
+    "notion"
+  ]
+}

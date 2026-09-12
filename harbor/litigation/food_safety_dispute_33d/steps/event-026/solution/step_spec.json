@@ -1,0 +1,35 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-026",
+  "stage": 19,
+  "virtual_stage": 19,
+  "event_id": "s19_appeal_deadlines",
+  "source_event_id": "s19_appeal_deadlines",
+  "response": "The second-instance calendar tracks the appellee response, defense, evidence submission, deadline, and July 2026 cutoff; the review stays within the appeal scope.",
+  "response_paraphrase": "The appellate calendar separates response, defense, and evidence deadlines from the July cutoff and limits review to the appeal scope.",
+  "expected_env": {
+    "virtual_stage": 19,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s19_assistant_appeal_deadlines_calendar",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s19_persisted_second_instance_plan",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 1.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s19_appeal_deadlines",
+      "stage": 19
+    }
+  ]
+}

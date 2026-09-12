@@ -1,0 +1,31 @@
+{
+  "step": "event-005",
+  "virtual_stage": 4,
+  "source_event_id": "s04_map_baseline",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Merchant and gate places and a feasible route are checked as map corroboration only.",
+  "response_paraphrase": "The two locations and driving option were checked in maps, with the backend and witness record still controlling.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s04_map_baseline"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s4_places_geocoded",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s4_map_baseline_recorded",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

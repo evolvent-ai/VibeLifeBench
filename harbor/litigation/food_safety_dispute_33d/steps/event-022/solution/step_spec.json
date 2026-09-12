@@ -1,0 +1,35 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-022",
+  "stage": 16,
+  "virtual_stage": 16,
+  "event_id": "s16_judgment",
+  "source_event_id": "s16_judgment",
+  "response": "The first-instance judgment records refund plus tenfold compensation and the 320 medical expense; its 15-day appeal period and enforcement options are noted, while Zhao Meng decides.",
+  "response_paraphrase": "The served first-instance judgment and its fifteen-day appeal window are logged without choosing an appeal for Zhao Meng.",
+  "expected_env": {
+    "virtual_stage": 16,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": [
+      "release-009"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "d_appeal_window_15d",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 0.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s16_judgment",
+      "stage": 16
+    }
+  ]
+}

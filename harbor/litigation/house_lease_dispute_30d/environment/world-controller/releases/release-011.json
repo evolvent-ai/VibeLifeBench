@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "D16_appraiser_revoked_mut"
+  ],
+  "source_stage": 16,
+  "source_time": "2026-06-11T09:00:00+08:00",
+  "previous": "release-010",
+  "token": "house_lease_dispute_30d-release-11-token-abcdef1234567890",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_case_1616",
+        "user_id": "usr_chen_yue",
+        "source": "gov_policy",
+        "type": "policy_update",
+        "subscription_id": "sub_000001",
+        "title": "【appraisal】case recordconstructionprojectcase recordappraisalcase recordqualificationrevoked",
+        "body": "Shanghai Forensic Appraisal Service Platformnotification：case recordconstructionprojectcase recordappraisalcase record（JD-006）becausemerger and reorganization，constructionconstruction-cost appraisalqualificationalreadyrevoked，case recorddaycase recordmust notundertakecase recordofcase recordappraisalcase record。in progressneedcase recordshouldagainverifycourtroster、scope of practice、region、feesandconflict of interest。",
+        "payload_json": "{\"agency\":\"JD-006\",\"action\":\"qualification_revoked\",\"need_reselect\":true}",
+        "created_at": "2026-06-11T09:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "D16_appraiser_revoked_mut",
+      "operation_index": 0
+    }
+  ]
+}

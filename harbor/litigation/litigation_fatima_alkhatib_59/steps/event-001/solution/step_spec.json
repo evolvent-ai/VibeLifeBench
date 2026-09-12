@@ -1,0 +1,33 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "virtual_stage": 1,
+  "source_event_id": "evt_s1_bootstrap_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The required sources were touched and the initial object index is recorded for the case.",
+  "response_paraphrase": "Commerce, delivery, mail, Notion, and legal sources were contacted and indexed for this file.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_s1_bootstrap_notice",
+      "stage": 1
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_all_required_servers_touched",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s1_object_index_created",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

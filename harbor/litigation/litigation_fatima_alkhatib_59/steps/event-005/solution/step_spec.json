@@ -1,0 +1,38 @@
+{
+  "step": "event-005",
+  "stage": 5,
+  "virtual_stage": 5,
+  "source_event_id": "evt_s5_usage_instruction",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Product instructions and after-sales warnings were cross-checked as potential misuse evidence.",
+  "response_paraphrase": "Usage directions and support warnings now form a two-source candidate misuse record.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_s5_usage_instruction",
+      "stage": 5
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_product_instruction_logged",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s5_after_sales_thread_indexed",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s5_misuse_candidate_cross_checked",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

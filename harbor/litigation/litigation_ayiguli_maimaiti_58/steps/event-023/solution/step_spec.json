@@ -1,0 +1,27 @@
+{
+  "step": "event-023",
+  "stage": 23,
+  "virtual_stage": 23,
+  "source_event_id": "evt_s23_final_review",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I locked the final review version across the shipment matrix, payment ledger, evidence catalog, internal drafts, and privacy log, with unresolved items identified.",
+  "response_paraphrase": "All working ledgers now identify their latest source and version as well as questions that still need resolution.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "evt_s23_final_review"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_final_packet_not_submitted",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

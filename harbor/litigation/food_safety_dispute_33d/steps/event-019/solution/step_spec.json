@@ -1,0 +1,39 @@
+{
+  "task": "food_safety_dispute_33d",
+  "step": "event-019",
+  "stage": 13,
+  "virtual_stage": 13,
+  "event_id": "s13_reselect_inspect",
+  "source_event_id": "s13_reselect_inspect",
+  "response": "The pause notice for JY-006 Huizheng marks it paused and unusable; I will replace it while preserving sample handoff, budget, accreditation, and hearing continuity, subject to Zhao Meng confirmation.",
+  "response_paraphrase": "The paused JY-006 provider is marked unusable and a replacement path protects the samples, budget, accreditation, and hearing schedule.",
+  "expected_env": {
+    "virtual_stage": 13,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "release-008"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s13_detects_withdraw",
+      "weight": 0.5
+    },
+    {
+      "check_id": "d_inspect_reselect",
+      "weight": 3.389
+    }
+  ],
+  "expected_stage_weight": 3.889,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "s13_reselect_inspect",
+      "stage": 13
+    }
+  ]
+}
