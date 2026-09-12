@@ -1,0 +1,63 @@
+{
+  "release_id": "release-006",
+  "previous": "release-005",
+  "token": "office-fitout-15d-release-006-20260824",
+  "operations": [
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "where": {
+        "application_id": "commercial_handover_001"
+      },
+      "set": {
+        "status": "approved_with_conditions",
+        "decision_day": 14,
+        "decision_note": "Handover conditionally approved pending HVAC punch-list, as-built drawings, and air retest.",
+        "updated_at": "2026-07-15T09:00:00+08:00"
+      },
+      "values": {
+        "status": "approved_with_conditions",
+        "decision_day": 14,
+        "decision_note": "Handover conditionally approved pending HVAC punch-list, as-built drawings, and air retest.",
+        "updated_at": "2026-07-15T09:00:00+08:00"
+      }
+    },
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "where": {"application_id": "fire_inspection_app_001"},
+      "set": {
+        "status": "rfi",
+        "decision_day": 13,
+        "decision_note": "Fire review still requests emergency-lighting and evacuation evidence correction before reinspection.",
+        "updated_at": "2026-07-14T12:00:00+08:00"
+      },
+      "values": {
+        "status": "rfi",
+        "decision_day": 13,
+        "decision_note": "Fire review still requests emergency-lighting and evacuation evidence correction before reinspection.",
+        "updated_at": "2026-07-14T12:00:00+08:00"
+      }
+    },
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "where": {"application_id": "electrical_load_app_001"},
+      "set": {
+        "status": "approved_with_conditions",
+        "decision_day": 13,
+        "decision_note": "Electrical retest is conditionally accepted at 3.95 kW/100 sqm; upgrade to 4.2+ is tracked for D+30.",
+        "updated_at": "2026-07-14T12:30:00+08:00"
+      },
+      "values": {
+        "status": "approved_with_conditions",
+        "decision_day": 13,
+        "decision_note": "Electrical retest is conditionally accepted at 3.95 kW/100 sqm; upgrade to 4.2+ is tracked for D+30.",
+        "updated_at": "2026-07-14T12:30:00+08:00"
+      }
+    }
+  ]
+}

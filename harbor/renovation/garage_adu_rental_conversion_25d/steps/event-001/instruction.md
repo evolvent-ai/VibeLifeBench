@@ -1,0 +1,1 @@
+The city planning and building department has published updated material about converting a rear garage into a dwelling unit. Please check the zoning, building-permit, parking and access, and pre-rental requirements.

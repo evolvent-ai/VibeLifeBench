@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "step_count": 28,
+  "steps": {
+    "event-000": {
+      "source_event_id": "H00_kickoff",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "H01_seed_snapshot",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-15T14:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "H01_site_calendar",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T14:20:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "H02_document_and_site",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-16T10:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "H02_weather_context",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-16T10:30:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "H03_site_result",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-17T15:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "H04_suspicious_refund",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-18T18:20:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "H05_evidence_partition",
+      "before": [],
+      "virtual_stage": 5,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-19T09:10:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "H05_property_reply",
+      "before": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-19T10:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "H06_reconcile",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-20T11:20:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "H07_scope_gap",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-21T15:20:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "H08_options",
+      "before": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-22T10:00:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "H09_cure_list",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-23T14:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "H10_bank_evidence",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-24T09:30:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "H11_access_conflict",
+      "before": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-25T10:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "H12_safe_response",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-26T16:20:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "H13_money_review",
+      "before": [],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-28T09:00:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "H14_dispute_review_notice",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-30T10:02:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "H15_rain_retest",
+      "before": [],
+      "virtual_stage": 15,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-02T09:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "H15_weather_alert",
+      "before": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T09:40:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "H16_rectification_plan",
+      "before": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-04T10:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "H17_owner_authorization",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T14:00:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "H18_reversal_reconcile_notice",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T18:02:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "H19_claim_status_notice",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-10T11:02:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "H20_funds_reconcile_notice",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-11T16:02:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "H21_delivery_readiness",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-12T10:00:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "H22_consistency",
+      "before": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T10:00:00+08:00"
+    },
+    "event-027": {
+      "source_event_id": "H23_archive",
+      "before": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-14T10:00:00+08:00"
+    }
+  }
+}

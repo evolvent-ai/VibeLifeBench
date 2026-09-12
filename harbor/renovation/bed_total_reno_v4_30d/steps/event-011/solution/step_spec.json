@@ -1,0 +1,31 @@
+{
+  "step": "event-011",
+  "virtual_stage": 8,
+  "source_event_id": "bed_hardware_cart_optimization",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I evaluated in-stock specification-compliant hinge, slide, and primer combinations with the live coupon rules, placed the lowest-cost set in the cart, and did not order it.",
+  "response_paraphrase": "The workspace was updated to evaluated in-stock specification-compliant hinge, slide, and primer combinations with the live coupon rules, placed the lowest-cost set in the cart, and did not order it.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_hardware_cart_optimization"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_table",
+      "weight": 4.0,
+      "expected": true
+    },
+    {
+      "check_id": "s8_optimal",
+      "weight": 3.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 7.0
+}

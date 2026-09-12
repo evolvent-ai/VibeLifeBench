@@ -1,0 +1,47 @@
+{
+  "step": "event-013",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "H10_bank_evidence",
+  "scenario_time": "2026-06-24T09:30:00+08:00",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "highrise-duplicate-inspection-fee-20260624"
+    ]
+  },
+  "response": "Stage 10 handover evidence was checked in the formal systems and recorded with all unresolved items and authorization boundaries preserved.",
+  "response_paraphrase": "The formal records for handover stage 10 were reviewed and written back; outstanding defects, funds and approvals remain explicitly tracked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "H10_bank_evidence"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_result",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s10_no_bad",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

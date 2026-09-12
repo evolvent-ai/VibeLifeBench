@@ -1,0 +1,38 @@
+{
+  "step": "event-030",
+  "virtual_stage": 20,
+  "source_event_id": "garden_rework_credit_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-016"
+    ],
+    "released_mutations": [
+      "garden_adjustment_posted",
+      "garden_refund_card_summary_refreshed"
+    ]
+  },
+  "response": "I updated the ledger from the posted adjustment credit without double-counting the earlier approval.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_rework_credit_visible",
+      "virtual_stage": 20,
+      "event_kind": "world",
+      "event_time": "2026-07-11T16:10:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s20_result",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 3.0,
+  "response_paraphrase": "The actual adjustment entry now drives the refunded and net-outflow figures, so the prior approval is not counted twice."
+}

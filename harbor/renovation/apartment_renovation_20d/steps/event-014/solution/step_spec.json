@@ -1,0 +1,32 @@
+{
+  "step": "event-014",
+  "stage": 9,
+  "virtual_stage": 9,
+  "source_event_id": "A09_owner",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The A09_owner renovation coordination step was completed with current evidence, backend checks, and authorization controls recorded.",
+  "response_paraphrase": "I reviewed A09_owner using the available project records and preserved the applicable safety and approval gates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "A09_owner"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "apt_s9_artifact",
+      "weight": 3.5,
+      "expected": true
+    },
+    {
+      "check_id": "apt_s9_tool_evidence",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

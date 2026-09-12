@@ -1,0 +1,36 @@
+{
+  "step": "event-022",
+  "virtual_stage": 18,
+  "source_event_id": "bed_reversal_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": [
+      "bed_card_dispute_approved",
+      "bed_reversal_card_summary_refreshed"
+    ]
+  },
+  "response": "The approved dispute and posted CNY -220 reversal are verified separately from the still-open normal statement, and no payment is represented as completed.",
+  "response_paraphrase": "The approved dispute and posted CNY -220 reversal are verified separately from the still-open normal statement, and no payment is represented as completed.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_reversal_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s18_result",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

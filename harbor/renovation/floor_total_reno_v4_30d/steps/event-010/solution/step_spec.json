@@ -1,0 +1,40 @@
+{
+  "step": "event-010",
+  "virtual_stage": 7,
+  "source_event_id": "floor_offer_decision_boundary",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "floor_rush_paving_offer"
+    ]
+  },
+  "response": "I checked the duplicate thermostat transaction against the card and order records and preserved it as pending review without opening a dispute.",
+  "response_paraphrase": "The same-amount charge is documented as an unbilled suspected duplicate, with no refund or reversal claimed.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_offer_decision_boundary"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s7_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s7_result",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

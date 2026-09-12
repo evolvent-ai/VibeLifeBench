@@ -1,0 +1,3 @@
+The project owner sends a new request at 11:00+08:00: Owner release decision.
+
+Prepare the D18 final-payment and deposit decision package. Check the real-time status in visa_and_advisory, not an impression from email: (1) has the D+30 strong-current upgrade truly closed, and has the electrical_load_app_001 condition been cleared? (2) Has formaldehyde in the large and small meeting rooms been retested at <=0.05; do not treat it as compliant without a retest. (3) For the Huadian subcontractor crew's ¥48,000 labor claim, may I pay them directly from final payment around Shenpin, and is that compliant? (4) Overall, can the ¥152,000 final payment plus ¥30,000 deposit be released now, released partly, or not released? Give a definite conclusion and conditions.

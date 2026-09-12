@@ -1,0 +1,322 @@
+{
+  "schema_version": 1,
+  "step_count": 35,
+  "steps": {
+    "event-000": {
+      "source_event_id": "garden_rain_ready_kickoff",
+      "before": [],
+      "after": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T07:50:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "garden_world_before_first_storm",
+      "before": [],
+      "after": [],
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-15T12:20:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "garden_overflow_path_question",
+      "before": [],
+      "after": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T13:05:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "garden_drainage_contract_audit",
+      "before": [
+        "release-000"
+      ],
+      "after": [],
+      "virtual_stage": 2,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-16T14:30:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "garden_rain_test_rule",
+      "before": [],
+      "after": [],
+      "virtual_stage": 2,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-16T16:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "garden_material_responsibility_boundary",
+      "before": [],
+      "after": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-16T16:25:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "garden_claim_observable",
+      "before": [
+        "release-001"
+      ],
+      "after": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-17T18:30:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "garden_storm_evidence_request",
+      "before": [
+        "release-002"
+      ],
+      "after": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-18T08:30:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "garden_evidence_channels",
+      "before": [
+        "release-003"
+      ],
+      "after": [],
+      "virtual_stage": 5,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-19T11:40:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "garden_photo_scale_requirement",
+      "before": [],
+      "after": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-19T12:10:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "garden_fx_transaction_instruction",
+      "before": [
+        "release-004"
+      ],
+      "after": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-20T10:50:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "garden_offer_comparison_request",
+      "before": [
+        "release-005"
+      ],
+      "after": [],
+      "virtual_stage": 7,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-21T17:30:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "garden_official_drainage_coupon_notice",
+      "before": [],
+      "after": [],
+      "virtual_stage": 7,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-21T18:20:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "garden_patch_offer_exclusion_note",
+      "before": [],
+      "after": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-21T18:45:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "garden_material_bundle_check",
+      "before": [],
+      "after": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-22T09:30:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "garden_pending_not_decided",
+      "before": [
+        "release-006"
+      ],
+      "after": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-23T10:45:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "garden_duplicate_charge_visible",
+      "before": [
+        "release-007"
+      ],
+      "after": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-24T09:00:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "garden_survey_and_rain_test",
+      "before": [
+        "release-008"
+      ],
+      "after": [],
+      "virtual_stage": 11,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-25T18:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "garden_repair_scope_update",
+      "before": [],
+      "after": [],
+      "virtual_stage": 11,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-25T18:20:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "garden_rain_test_emptying_marker",
+      "before": [],
+      "after": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-25T18:45:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "garden_listing_boundary",
+      "before": [
+        "release-009"
+      ],
+      "after": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-26T14:50:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "garden_rainy_season_budget_review",
+      "before": [
+        "release-010"
+      ],
+      "after": [],
+      "virtual_stage": 13,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-28T08:00:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "garden_maintenance_cost_question",
+      "before": [],
+      "after": [],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-28T08:25:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "garden_dispute_not_refund",
+      "before": [
+        "release-011"
+      ],
+      "after": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-30T16:40:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "garden_heavy_rain_retest_window",
+      "before": [
+        "release-012"
+      ],
+      "after": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T07:30:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "garden_final_drainage_plan",
+      "before": [
+        "release-013"
+      ],
+      "after": [],
+      "virtual_stage": 16,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-04T09:10:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "garden_hidden_joint_authority_reminder",
+      "before": [],
+      "after": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-04T09:40:00+08:00"
+    },
+    "event-027": {
+      "source_event_id": "garden_authorizes_platform_review",
+      "before": [],
+      "after": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T13:30:00+08:00"
+    },
+    "event-028": {
+      "source_event_id": "garden_reversal_visible",
+      "before": [
+        "release-014"
+      ],
+      "after": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T18:10:00+08:00"
+    },
+    "event-029": {
+      "source_event_id": "garden_claim_approval_visible",
+      "before": [
+        "release-015"
+      ],
+      "after": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-10T11:10:00+08:00"
+    },
+    "event-030": {
+      "source_event_id": "garden_rework_credit_visible",
+      "before": [
+        "release-016"
+      ],
+      "after": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-11T16:10:00+08:00"
+    },
+    "event-031": {
+      "source_event_id": "garden_three_day_closeout",
+      "before": [],
+      "after": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-12T08:30:00+08:00"
+    },
+    "event-032": {
+      "source_event_id": "garden_final_rain_consistency_check",
+      "before": [
+        "release-017"
+      ],
+      "after": [],
+      "virtual_stage": 22,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-13T08:00:00+08:00"
+    },
+    "event-033": {
+      "source_event_id": "garden_final_photo_sequence_request",
+      "before": [],
+      "after": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T08:25:00+08:00"
+    },
+    "event-034": {
+      "source_event_id": "garden_archive_delivery",
+      "before": [],
+      "after": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-14T09:00:00+08:00"
+    }
+  }
+}

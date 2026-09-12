@@ -1,0 +1,33 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-048",
+  "virtual_stage": 11,
+  "event_id": "D11_glass_tariff_uplift",
+  "source_event_id": "D11_glass_tariff_uplift",
+  "response": "I reconciled the import delay, requested furniture evidence and planned badge lead time.",
+  "response_paraphrase": "The import delay was reconciled, furniture test evidence requested and access lead time scheduled.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-048",
+    "HARBOR_EVENT_ID": "D11_glass_tariff_uplift",
+    "HARBOR_VIRTUAL_STAGE": "11",
+    "VIRTUAL_STAGE": "11",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D11_glass_tariff_uplift",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_imported_glass_delay_reconciled",
+    "chk_furniture_voc_evidence_requested",
+    "chk_badge_lead_time_is_planned"
+  ],
+  "expected_stage_weight": 7.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D11_glass_tariff_uplift",
+      "stage": 11
+    }
+  ]
+}

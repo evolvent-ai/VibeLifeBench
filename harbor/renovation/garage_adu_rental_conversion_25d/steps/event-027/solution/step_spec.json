@@ -1,0 +1,27 @@
+{
+  "step": "event-027",
+  "stage": 23,
+  "event_id": "A23_listing_request",
+  "source_event_id": "A23_listing_request",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 23
+    }
+  ],
+  "response_paraphrase": "The public listing contains confirmed compliant ADU features: egress, alarms, and parking.",
+  "expected_env": {
+    "virtual_stage": 23,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s23_tenant_listing_only_confirmed",
+      "weight": 5
+    }
+  ],
+  "expected_stage_weight": 5
+}

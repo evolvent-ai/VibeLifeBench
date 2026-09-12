@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "garden_imported_drain_charge_notice"
+  ],
+  "source_time": "2026-06-20T10:30:00+08:00",
+  "previous": "release-003",
+  "token": "garden-total-reno-v4-30d-release-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "garden_imported_drain_charge_notice",
+      "values": {
+        "notification_id": "ntf_qgrd_fx",
+        "user_id": "usr_yong_wei",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_qgrd_card",
+        "title": "Imported drainage-channel fittings foreign-currency transaction pending verification",
+        "body": "A new overseas merchant transaction may correspond to stainless-steel drainage-channel corner fittings. Please match it against the order, quantity, and posting time; an anomaly cannot yet be determined based solely on the merchant name.",
+        "payload_json": "{\"card_id\":\"card_qgrd_01\",\"context\":\"drain_channel_fitting\"}",
+        "created_at": "2026-06-20T02:31:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 6
+}

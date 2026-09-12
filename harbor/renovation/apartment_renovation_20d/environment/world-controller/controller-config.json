@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "task": "apartment_renovation_20d",
+  "step_count": 29,
+  "release_count": 18,
+  "clock_file": "/world-clock/current.json",
+  "clock_token_env": "CLOCK_TOKEN",
+  "health_token_env": "HEALTH_TOKEN",
+  "servers": ["calendar", "email", "maps", "notion", "weather"]
+}

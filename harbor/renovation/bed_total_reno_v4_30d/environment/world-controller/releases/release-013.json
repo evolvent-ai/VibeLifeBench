@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "bed_platform_rework_award"
+  ],
+  "source_time": "2026-07-10 11:00:00+08:00",
+  "previous": "release-012",
+  "token": "bed_total_reno_v4_30d-release-013-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "approved",
+        "refund_amount_minor": 2142000,
+        "reason": " millwork  with  paint finish renovation note scope  rework  settlement  2040000 renovation note，renovation note contract renovation note delay compensation  102000 renovation note",
+        "resolved_at": "2026-07-10T11:00:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_qbed_b"
+      },
+      "source_event_id": "bed_platform_rework_award"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qbed_ship",
+        "user_id": "usr_du_rong",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": " platform  confirm  millwork rework  settlement  with  delay compensation  amount ",
+        "body": " platform  accepted  edge sealing 、renovation note and  paint finish  evidence ， approved  rework  settlement  20,400  CNY ，renovation note contract  delay renovation note compensation  1,020  CNY ， total  approved  21,420  CNY ；renovation note air  testing  still renovation note independent result  archive 。",
+        "payload_json": "{\"order_id\":\"ord_qbed_0001\",\"refund_id\":\"ref_qbed_b\",\"status\":\"approved\",\"scope\":\"cabinet_rework\",\"rework_minor\":2040000,\"delay_compensation_minor\":102000,\"approved_minor\":2142000}",
+        "created_at": "2026-07-10T03:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "bed_platform_rework_award"
+    }
+  ]
+}

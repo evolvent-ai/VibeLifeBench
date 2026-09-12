@@ -1,0 +1,41 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "floor_start_pressure_moisture_ledgers",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I checked the order, delivery, card, and listing sources and opened separate ledgers for pressure testing, leveling, flooring installation, and surplus-material funds.",
+  "response_paraphrase": "The official records now track the heating, substrate, flooring, and resale workstreams independently, with irreversible actions reserved for Lai Xu.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_start_pressure_moisture_ledgers"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s0_args",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s0_result",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s0_files",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

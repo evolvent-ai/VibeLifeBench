@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "A14_noise_ban"
+  ],
+  "source_stage": 14,
+  "source_time": "2026-06-15T08:05:00+08:00",
+  "previous": "release-009",
+  "token": "apartment-renovation-20d-release-010-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "values": {
+        "id": 3014,
+        "folder_id": 1,
+        "message_id": "<20260615.NOISE-WEEKEND-0615@service.property.example>",
+        "subject": "\u793e\u533a\u5468\u672b\u566a\u97f3\u7ba1\u7406\u4e34\u65f6\u52a0\u5f3a",
+        "from_addr": "\u82b1\u6728\u5bb6\u56ed\u7269\u4e1a <service@property.example>",
+        "to_addr_json": "[\"chen_yu@owner.example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-15T08:00:00+08:00",
+        "body_text": "\u56e0\u8fd1\u671f\u6295\u8bc9\uff0c\u672a\u6765\u4e24\u4e2a\u5468\u672b\u6682\u505c\u6240\u6709\u5207\u5272\u3001\u94bb\u5b54\u3001\u6572\u51fb\u7b49\u566a\u97f3\u4f5c\u4e1a\uff1b\u65e0\u566a\u97f3\u6d4b\u91cf\u548c\u4fdd\u6d01\u53ef\u6309\u9884\u7ea6\u8fdb\u884c\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"notice_id\":\"NOISE-WEEKEND-0615\",\"scope\":\"two_weekends\"}",
+        "uid": 3014,
+        "size": 135,
+        "created_at": "2026-06-15T08:00:00+08:00"
+      },
+      "source_event_id": "A14_noise_ban",
+      "operation_index": 0
+    }
+  ]
+}

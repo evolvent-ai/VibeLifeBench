@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "garden_surface_patch_offer"
+  ],
+  "source_time": "2026-06-21T17:00:00+08:00",
+  "previous": "release-004",
+  "token": "garden-total-reno-v4-30d-release-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "garden_surface_patch_offer",
+      "values": {
+        "notification_id": "ntf_qgrd_cp",
+        "user_id": "usr_yong_wei",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "The contracting entity proposed a quick solution of cutting a channel without verifying the pavement base course",
+        "body": "The other party is willing to add a linear drainage channel on the surface and provide a small compensation payment, but refuses to verify the drainage-channel connection and pavement base-course grading; accepting it could conceal the root cause of the ponding.",
+        "payload_json": "{\"order_id\":\"ord_qgrd_0001\",\"offer\":\"surface_channel_only\",\"excluded\":[\"base_slope\",\"drain_connection\"]}",
+        "created_at": "2026-06-21T09:00:00Z",
+        "read": 0
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "garden_surface_patch_offer",
+      "values": {
+        "notification_id": "ntf_qgrd_patch_scope",
+        "user_id": "usr_yong_wei",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Exclusions from the surface joint-repair quote",
+        "body": "The quote does not include drainage-channel reconnection, benchmark elevation resurveying, nursery-stock transplant restoration, or outdoor-light connection reinspection; these items must be timed and priced separately.",
+        "payload_json": "{\"excluded\":[\"drain_reconnection\",\"elevation_resurvey\",\"plant_restoration\",\"lamp_joint_recheck\"]}",
+        "created_at": "2026-06-21T09:02:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 7
+}

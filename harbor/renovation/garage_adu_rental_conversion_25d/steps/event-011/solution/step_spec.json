@@ -1,0 +1,27 @@
+{
+  "step": "event-011",
+  "stage": 10,
+  "event_id": "A10_invoice_prompt",
+  "source_event_id": "A10_invoice_prompt",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 10
+    }
+  ],
+  "response_paraphrase": "The cost update records 240000, contingency, budget items, rent, and payback as separate lines.",
+  "expected_env": {
+    "virtual_stage": 10,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s10_budget_and_payback_ledger",
+      "weight": 1.6
+    }
+  ],
+  "expected_stage_weight": 1.6
+}

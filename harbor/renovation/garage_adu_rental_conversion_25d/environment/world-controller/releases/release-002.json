@@ -1,0 +1,84 @@
+{
+  "release_id": "release-002",
+  "before_step": "event-003",
+  "previous": "release-001",
+  "token": "garage-adu-rental-conversion-25d-release-002-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "A03_contractor_pool_mut",
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "ctr_adu_bath_2026",
+        "name": "Harbor Bath & ADU Mechanical",
+        "category": "home_service",
+        "city": "Harbor City",
+        "area": "Oakview",
+        "address": "214 Cedar Lane",
+        "phone": "555-0811",
+        "rating_tenths": 46,
+        "review_count": 39,
+        "avg_price_minor": 4200000,
+        "price_band": "$$",
+        "hours": "08:00-17:30",
+        "tags": "licensed;insured;written contract;bathroom exhaust;plumbing;ADU permit experience;no cash-only work",
+        "has_private_room": 0,
+        "max_party_size": 4
+      }
+    },
+    {
+      "source_event_id": "A03_contractor_pool_mut",
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "ctr_adu_kitchen_2026",
+        "name": "Oakview Compact Kitchen & Electric",
+        "category": "home_service",
+        "city": "Harbor City",
+        "area": "Oakview",
+        "address": "31 Marsh Street",
+        "phone": "555-0812",
+        "rating_tenths": 42,
+        "review_count": 18,
+        "avg_price_minor": 3600000,
+        "price_band": "$$",
+        "hours": "09:00-18:00",
+        "tags": "license verified;insurance pending renewal;written contract;kitchenette;electrical;limited ADU permit experience",
+        "has_private_room": 0,
+        "max_party_size": 3
+      }
+    },
+    {
+      "source_event_id": "A03_contractor_pool_mut",
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_adu_bath_20260804",
+        "merchant_id": "ctr_adu_bath_2026",
+        "user_id": "oakview_owner_18",
+        "rating": 5,
+        "body": "Completed a permitted ADU bathroom exhaust and drain rough-in with a written change-order process and inspection photos.",
+        "image_captions": "rough plumbing;dedicated exhaust outlet",
+        "created_at": "2026-08-04T15:40:00+08:00"
+      }
+    },
+    {
+      "source_event_id": "A03_contractor_pool_mut",
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_adu_kitchen_20260804",
+        "merchant_id": "ctr_adu_kitchen_2026",
+        "user_id": "harbor_landlord_7",
+        "rating": 3,
+        "body": "Work was tidy, but the owner had to request current insurance and permit-scope details before signing.",
+        "image_captions": "compact kitchenette",
+        "created_at": "2026-08-04T15:45:00+08:00"
+      }
+    }
+  ]
+}

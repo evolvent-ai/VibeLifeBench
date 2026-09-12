@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "step_count": 31,
+  "steps": {
+    "event-000": {
+      "source_event_id": "floor_start_pressure_moisture_ledgers",
+      "before": [],
+      "after": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T08:40:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "floor_baseline_status_map",
+      "before": [
+        "release-000"
+      ],
+      "after": [],
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-15T13:30:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "floor_pressure_snapshot_boundary",
+      "before": [],
+      "after": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-15T14:05:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "floor_specification_audit",
+      "before": [],
+      "after": [],
+      "virtual_stage": 2,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-16T09:20:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "floor_sequence_rule",
+      "before": [],
+      "after": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-16T15:10:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "floor_claim_scope",
+      "before": [
+        "release-001"
+      ],
+      "after": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-17T12:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "floor_heating_protocol_mail",
+      "before": [
+        "release-002"
+      ],
+      "after": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-18T10:10:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "floor_acceptance_matrix_request",
+      "before": [],
+      "after": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-19T14:00:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "floor_fx_check_instruction",
+      "before": [
+        "release-003"
+      ],
+      "after": [],
+      "virtual_stage": 6,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-20T16:30:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "floor_fx_accounting_split",
+      "before": [],
+      "after": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-20T17:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "floor_offer_decision_boundary",
+      "before": [
+        "release-004"
+      ],
+      "after": [],
+      "virtual_stage": 7,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-21T09:30:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "floor_official_material_coupon_notice",
+      "before": [],
+      "after": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-21T16:50:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "floor_material_combo_request",
+      "before": [],
+      "after": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-22T13:40:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "floor_no_future_assumption",
+      "before": [
+        "release-005"
+      ],
+      "after": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-23T17:40:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "floor_duplicate_charge_visible",
+      "before": [
+        "release-006"
+      ],
+      "after": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-24T12:20:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "floor_lab_retest_result",
+      "before": [],
+      "after": [],
+      "virtual_stage": 11,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-25T15:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "floor_plan_revision",
+      "before": [],
+      "after": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-25T15:20:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "floor_listing_safety_request",
+      "before": [
+        "release-007"
+      ],
+      "after": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-26T11:20:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "floor_budget_checkpoint",
+      "before": [
+        "release-008"
+      ],
+      "after": [],
+      "virtual_stage": 13,
+      "stage_boundary": false,
+      "scenario_time": "2026-06-28T18:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "floor_measurement_owner_check",
+      "before": [],
+      "after": [],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-28T18:20:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "floor_dispute_accounting_rule",
+      "before": [
+        "release-009"
+      ],
+      "after": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-06-30T10:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "floor_installation_window_review",
+      "before": [
+        "release-010"
+      ],
+      "after": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T14:10:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "floor_final_sequence_decision",
+      "before": [],
+      "after": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-04T16:00:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "floor_owner_authorization_boundary",
+      "before": [],
+      "after": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T09:00:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "floor_reversal_visible",
+      "before": [
+        "release-011"
+      ],
+      "after": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T17:30:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "floor_claim_approval_visible",
+      "before": [
+        "release-012"
+      ],
+      "after": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-10T13:50:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "floor_rework_credit_visible",
+      "before": [
+        "release-013"
+      ],
+      "after": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-11T15:50:00+08:00"
+    },
+    "event-027": {
+      "source_event_id": "floor_pre_archive_checklist",
+      "before": [
+        "release-014"
+      ],
+      "after": [],
+      "virtual_stage": 21,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-12T11:30:00+08:00"
+    },
+    "event-028": {
+      "source_event_id": "floor_archive_layer_separation",
+      "before": [],
+      "after": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-12T12:00:00+08:00"
+    },
+    "event-029": {
+      "source_event_id": "floor_cross_system_freeze",
+      "before": [],
+      "after": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T17:00:00+08:00"
+    },
+    "event-030": {
+      "source_event_id": "floor_final_archive",
+      "before": [],
+      "after": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-14T15:00:00+08:00"
+    }
+  }
+}

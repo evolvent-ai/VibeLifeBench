@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "A10_electrical_fail"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-06-11T15:35:00+08:00",
+  "previous": "release-005",
+  "token": "apartment-renovation-20d-release-006-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "values": {
+        "id": 3010,
+        "folder_id": 1,
+        "message_id": "<20260611.EL-0611@report.yanjing-inspect.example>",
+        "subject": "\u9690\u853d\u5de5\u7a0b\u62bd\u68c0\uff1a\u6f0f\u4fdd\u4e0e\u7ebf\u7ba1\u56fa\u5b9a\u672a\u901a\u8fc7",
+        "from_addr": "\u4e25\u666f\u72ec\u7acb\u9a8c\u623f <report@yanjing-inspect.example.com>",
+        "to_addr_json": "[\"chen_yu@owner.example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-11T15:30:00+08:00",
+        "body_text": "\u53a8\u623f\u652f\u8def\u6f0f\u4fdd\u52a8\u4f5c\u6d4b\u8bd5\u5f02\u5e38\uff0c\u536b\u751f\u95f4\u7ebf\u7ba1\u4e24\u5904\u56fa\u5b9a\u95f4\u8ddd\u4e0d\u7b26\u5408\u65bd\u5de5\u56fe\u3002\u6574\u6539\u548c\u590d\u68c0\u901a\u8fc7\u524d\u4e0d\u5f97\u5c01\u5899\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"inspection_id\":\"EL-0611\",\"result\":\"failed\"}",
+        "uid": 3010,
+        "size": 132,
+        "created_at": "2026-06-11T15:30:00+08:00"
+      },
+      "source_event_id": "A10_electrical_fail",
+      "operation_index": 0
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "garden_rain_observation_released"
+  ],
+  "source_time": "2026-06-18T08:20:00+08:00",
+  "previous": "release-001",
+  "token": "garden-total-reno-v4-30d-release-token",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "source_event_id": "garden_rain_observation_released",
+      "values": {
+        "geo_key": "geo_qgrd",
+        "date": "2026-06-18",
+        "tmin": 20,
+        "tmax": 27,
+        "condition": "heavy_rain",
+        "precip_mm": 38.0,
+        "precip_prob": 0.91,
+        "wind_kmh": 21
+      }
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "source_event_id": "garden_rain_observation_released",
+      "values": {
+        "alert_id": "alr_qgrd_rain_0618",
+        "kind": "rainstorm",
+        "severity": "yellow",
+        "start_dt": "2026-06-17T20:00:00+08:00",
+        "end_dt": "2026-06-18T12:00:00+08:00",
+        "areas_json": "[\"Xi'an\"]",
+        "description": "Localized heavy rainfall notice for Xi'an: Short-duration heavy precipitation occurred from the night of June 17 through the morning of June 18. This record may serve as background for the rain test period; construction responsibility must still be determined based on benchmark elevation, grading, drain status, and drainage time.",
+        "active": 1,
+        "created_at": "2026-06-17T19:30:00+08:00",
+        "source_event": "xian_rain_observation_20260618"
+      }
+    }
+  ],
+  "source_stage": 4
+}

@@ -1,0 +1,30 @@
+{
+  "step": "event-025",
+  "virtual_stage": 19,
+  "source_event_id": "floor_claim_approval_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": [
+      "floor_leveling_claim_approved"
+    ]
+  },
+  "response": "I finalized a structured three-workstream archive covering completed, in-progress, pending-confirmation, and declined actions with cited funds and evidence.",
+  "response_paraphrase": "The final summary separates heating, leveling, flooring, and surplus proceeds while preserving the next measurement and authorization steps.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_claim_approval_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_result",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

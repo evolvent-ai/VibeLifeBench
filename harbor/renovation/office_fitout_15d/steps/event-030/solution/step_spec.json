@@ -1,0 +1,33 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-030",
+  "virtual_stage": 1,
+  "event_id": "D1_jingan_filing_prompt",
+  "source_event_id": "D1_jingan_filing_prompt",
+  "response": "Live filing status and property noise-hour guidance were reviewed; the filing remains pending, so we must not start construction.",
+  "response_paraphrase": "The current permit position and building quiet-period rules were checked before any start date was placed.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-030",
+    "HARBOR_EVENT_ID": "D1_jingan_filing_prompt",
+    "HARBOR_VIRTUAL_STAGE": "1",
+    "VIRTUAL_STAGE": "1",
+    "RUN_STAGE_RUBRIC": "1",
+    "STAGE_BOUNDARY": "1",
+    "SOURCE_EVENT_ID": "D1_jingan_filing_prompt",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_active_notion_review_pull_before_shortlist",
+    "chk_active_property_rules_pull_before_calendarizing",
+    "chk_active_compliance_polled_before_demolition"
+  ],
+  "expected_stage_weight": 18.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D1_jingan_filing_prompt",
+      "stage": 1
+    }
+  ]
+}

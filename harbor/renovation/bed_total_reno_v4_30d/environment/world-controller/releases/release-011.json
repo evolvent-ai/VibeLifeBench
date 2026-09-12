@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "bed_review_packet_ready_release"
+  ],
+  "source_time": "2026-07-06 13:50:00+08:00",
+  "previous": "release-010",
+  "token": "bed_total_reno_v4_30d-release-011-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qbed_review_packet",
+        "user_id": "usr_du_rong",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": " millwork  review  materials renovation note ready ",
+        "body": " edge sealing  location 、 drawer leveling 、 paint finish  pinholes  with renovation note site  record  has renovation note platform  review  materials renovation note； acceptance  signature  still requires  user renovation note。",
+        "payload_json": "{\"refund_id\":\"ref_qbed_b\",\"packet\":\"ready\"}",
+        "created_at": "2026-07-06T05:49:00Z",
+        "read": 0
+      },
+      "source_event_id": "bed_review_packet_ready_release"
+    }
+  ]
+}

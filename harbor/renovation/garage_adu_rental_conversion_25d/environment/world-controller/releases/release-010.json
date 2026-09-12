@@ -1,0 +1,54 @@
+{
+  "release_id": "release-010",
+  "before_step": "event-017",
+  "previous": "release-009",
+  "token": "garage-adu-rental-conversion-25d-release-010-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "A15_permit_mut",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_9015",
+        "user_id": "marina",
+        "source": "permit",
+        "type": "correction",
+        "subscription_id": null,
+        "title": "Building permit correction request",
+        "body": "Case ADU-26-0803 needs the egress window clear-opening dimensions, the alarm layout, the parking/access statement and the neighbor construction notice.",
+        "payload_json": "{\"case\":\"ADU-26-0803\",\"due\":\"2026-08-18\"}",
+        "created_at": "2026-08-15T08:10:00+08:00",
+        "read": 0
+      }
+    },
+    {
+      "source_event_id": "A15_permit_mut",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9015,
+        "folder_id": 1,
+        "message_id": "<permit-correction-9015@city.example>",
+        "subject": "ADU-26-0803 correction notice",
+        "from_addr": "permitdesk@city.example",
+        "to_addr_json": "[\"marina@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-15T08:10:00+08:00",
+        "body_text": "Please submit by 2026-08-18: the egress window clear-opening dimensions, the smoke and carbon monoxide alarm layout, the parking/access statement, and the neighbor construction notice. Until the file is complete the unit must not be advertised as legal rentable housing.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"X-Case\":\"ADU-26-0803\"}",
+        "uid": 9015,
+        "size": 1000,
+        "created_at": "2026-08-15T00:10:00Z"
+      }
+    }
+  ]
+}

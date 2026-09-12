@@ -1,0 +1,31 @@
+{
+  "step": "event-025",
+  "virtual_stage": 23,
+  "source_event_id": "Q23_archive",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The three workstreams and all funds are archived by resolved, in-progress, pending-confirmation, pending-receipt, and follow-up status.",
+  "response_paraphrase": "All workstreams and funds are archived with status categories and a reusable control checklist.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q23_archive"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_structured",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s23_threads",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

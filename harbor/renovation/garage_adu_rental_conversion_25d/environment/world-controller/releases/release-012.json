@@ -1,0 +1,54 @@
+{
+  "release_id": "release-012",
+  "before_step": "event-021",
+  "previous": "release-011",
+  "token": "garage-adu-rental-conversion-25d-release-012-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "A18_fail_mut",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9018,
+        "folder_id": 1,
+        "message_id": "<inspection-fail-9018@inspector.example>",
+        "subject": "ADU rough inspection result: corrections required",
+        "from_addr": "inspector@city.example",
+        "to_addr_json": "[\"marina@example.com\"]",
+        "cc_addr_json": "[\"permitdesk@city.example\"]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-19T07:45:00+08:00",
+        "body_text": "Rough inspection failed. The west egress window clear opening is undersized, the bathroom mechanical exhaust is not ducted to a dedicated outlet, and the smoke / carbon monoxide alarm positions are missing from the drawings. The unit must not be advertised as legal rentable housing until the corrections pass re-inspection.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"X-Inspection\":\"ADU-RI-0819\"}",
+        "uid": 9018,
+        "size": 1200,
+        "created_at": "2026-08-18T23:45:00Z"
+      }
+    },
+    {
+      "source_event_id": "A18_fail_mut",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_9018",
+        "user_id": "marina",
+        "source": "inspection",
+        "type": "failed",
+        "subscription_id": null,
+        "title": "ADU rough inspection requires corrections",
+        "body": "The inspector submitted the rough inspection result.",
+        "payload_json": "{\"inspection\":\"ADU-RI-0819\"}",
+        "created_at": "2026-08-19T07:45:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

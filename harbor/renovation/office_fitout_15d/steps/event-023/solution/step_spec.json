@@ -1,0 +1,33 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-023",
+  "virtual_stage": 17,
+  "event_id": "D17_insurance_renewal_notice",
+  "source_event_id": "D17_insurance_renewal_notice",
+  "response": "I kept insurance continuous and gave the owner a reasoned hold on the retention.",
+  "response_paraphrase": "Coverage continues through the remedial period and the owner receives a documented retention hold position.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-023",
+    "HARBOR_EVENT_ID": "D17_insurance_renewal_notice",
+    "HARBOR_VIRTUAL_STAGE": "17",
+    "VIRTUAL_STAGE": "17",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D17_insurance_renewal_notice",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_insurance_renewal_continuity_planned",
+    "chk_final_payment_not_released_while_conditional",
+    "chk_payment_hold_rationale_to_owner"
+  ],
+  "expected_stage_weight": 6.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D17_insurance_renewal_notice",
+      "stage": 17
+    }
+  ]
+}

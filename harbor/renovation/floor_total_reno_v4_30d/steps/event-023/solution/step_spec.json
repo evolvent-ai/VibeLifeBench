@@ -1,0 +1,36 @@
+{
+  "step": "event-023",
+  "virtual_stage": 17,
+  "source_event_id": "floor_owner_authorization_boundary",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I finalized a structured three-workstream archive covering completed, in-progress, pending-confirmation, and declined actions with cited funds and evidence.",
+  "response_paraphrase": "The final summary separates heating, leveling, flooring, and surplus proceeds while preserving the next measurement and authorization steps.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_owner_authorization_boundary"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_platform",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s17_confirm",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s17_no_bad",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

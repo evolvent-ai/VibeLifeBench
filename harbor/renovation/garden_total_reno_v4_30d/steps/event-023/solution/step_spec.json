@@ -1,0 +1,41 @@
+{
+  "step": "event-023",
+  "virtual_stage": 14,
+  "source_event_id": "garden_dispute_not_refund",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": [
+      "garden_card_dispute_open"
+    ]
+  },
+  "response": "I retained the issuer case as under review and did not treat it as a reversal or refund.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_dispute_not_refund",
+      "virtual_stage": 14,
+      "event_kind": "world",
+      "event_time": "2026-06-30T16:40:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s14_result",
+      "weight": 3.0
+    },
+    {
+      "check_id": "s14_no_bad",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 4.0,
+  "response_paraphrase": "The issuer review is recorded as unresolved, distinct from either a negative card entry or returned funds."
+}

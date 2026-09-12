@@ -1,0 +1,40 @@
+{
+  "step": "event-004",
+  "virtual_stage": 3,
+  "source_event_id": "bed_rework_visible_summary",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "bed_edge_seal_rework_opened"
+    ]
+  },
+  "response": "The submitted rework case is recorded as a targeted edge-sealing, drawer-leveling, and paint-finish matter rather than a whole-order return, with acceptance still pending.",
+  "response_paraphrase": "The submitted rework case is recorded as a targeted edge-sealing, drawer-leveling, and paint-finish matter rather than a whole-order return, with acceptance still pending.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_rework_visible_summary"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_args",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s3_result",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

@@ -1,0 +1,26 @@
+{
+  "step": "event-025",
+  "stage": 22,
+  "event_id": "A22_rent",
+  "source_event_id": "A22_rent",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 22
+    }
+  ],
+  "response_paraphrase": "The revised Oakview rent estimate is CNY 9100 and remains separate from construction cost.",
+  "expected_env": {
+    "virtual_stage": 22,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-015"
+    ],
+    "released_mutations": [
+      "release-015"
+    ],
+    "stage_boundary": false
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

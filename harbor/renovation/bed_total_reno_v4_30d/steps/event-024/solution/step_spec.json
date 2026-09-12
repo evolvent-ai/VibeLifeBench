@@ -1,0 +1,36 @@
+{
+  "step": "event-024",
+  "virtual_stage": 20,
+  "source_event_id": "bed_funds_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-014"
+    ],
+    "released_mutations": [
+      "bed_rework_funds_posted",
+      "bed_refund_card_summary_refreshed"
+    ]
+  },
+  "response": "The CNY 21,420 remediation credit is now recorded as posted, while the active surplus-material listing still has no contact, viewing, settlement, or received proceeds.",
+  "response_paraphrase": "The CNY 21,420 remediation credit is now recorded as posted, while the active surplus-material listing still has no contact, viewing, settlement, or received proceeds.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_funds_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s20_result",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

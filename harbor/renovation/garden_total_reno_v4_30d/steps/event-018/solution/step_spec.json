@@ -1,0 +1,24 @@
+{
+  "step": "event-018",
+  "virtual_stage": 11,
+  "source_event_id": "garden_repair_scope_update",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I updated all three repair alternatives from the independent survey and drainage-time markers while reserving final authority.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_repair_scope_update",
+      "virtual_stage": 11,
+      "event_kind": "user_message",
+      "event_time": "2026-06-25T18:20:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0,
+  "response_paraphrase": "The independent measurements and drainage markers now inform the three alternatives, but the owner's decision is still open."
+}

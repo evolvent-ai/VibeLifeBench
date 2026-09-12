@@ -1,0 +1,20 @@
+{
+  "step": "event-015",
+  "virtual_stage": 14,
+  "source_event_id": "Q14_user_dispute_context",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The formal card record confirms the duplicate-charge dispute is under review, while the normal amount due stays separate.",
+  "response_paraphrase": "The bank record confirms the dispute review while ordinary bill obligations remain separate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q14_user_dispute_context"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

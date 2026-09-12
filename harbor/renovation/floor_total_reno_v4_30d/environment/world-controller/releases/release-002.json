@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "floor_heating_protocol_released"
+  ],
+  "source_time": "2026-06-18T10:10:00+08:00",
+  "previous": "release-001",
+  "token": "floor_total_reno_v4_30d-release-002-token-long",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 4001,
+        "folder_id": 1,
+        "message_id": "<qflr-protocol-0618@thermal.example>",
+        "subject": "Coil Batch and Initial Heating Record Protocol (Pending On-Site Sign-Off)",
+        "from_addr": "Underfloor Heating Technical Support <protocol@thermal.example>",
+        "to_addr_json": "[\"lai.xu.reno4@gmail.com\"]",
+        "date": "2026-06-18T01:55:00Z",
+        "body_text": "The attachment lists the thermostat, manifold, and coil batch for ord_qflr_0001. During the initial heating, the supply and return water temperatures, pressure, and floor surface temperature must be recorded at set intervals; this email provides recording methods only and does not constitute acceptance of the leveling layer or floor installation.",
+        "is_read": 0,
+        "is_important": 1,
+        "headers_json": "{\"document-class\":\"manufacturer-protocol\",\"order-id\":\"ord_qflr_0001\"}",
+        "size": 512,
+        "created_at": "2026-06-18T01:55:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "attachments",
+      "op": "insert",
+      "values": {
+        "id": 4101,
+        "message_id": 4001,
+        "filename": "qflr-coil-controller-protocol-v2.pdf",
+        "content_type": "application/pdf",
+        "size": 184320,
+        "content_b64": "c3ludGhldGljLXByb3RvY29sLXN1bW1hcnk="
+      }
+    }
+  ]
+}

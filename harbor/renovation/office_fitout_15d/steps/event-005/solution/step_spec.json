@@ -1,0 +1,33 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-005",
+  "virtual_stage": 6,
+  "event_id": "D6_emergency_lighting_signoff_delay_silent",
+  "source_event_id": "D6_emergency_lighting_signoff_delay_silent",
+  "response": "I checked material lead times, certificates and the delivery calendar against occupancy.",
+  "response_paraphrase": "Material lead times, environmental documents and delivery timing were checked against the occupancy target.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-005",
+    "HARBOR_EVENT_ID": "D6_emergency_lighting_signoff_delay_silent",
+    "HARBOR_VIRTUAL_STAGE": "6",
+    "VIRTUAL_STAGE": "6",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D6_emergency_lighting_signoff_delay_silent",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_material_voc_compliance_for_air_quality",
+    "chk_filing_rfi_resolved_by_demolition",
+    "chk_mutation_filing_rfi_response"
+  ],
+  "expected_stage_weight": 14.3,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D6_emergency_lighting_signoff_delay_silent",
+      "stage": 6
+    }
+  ]
+}

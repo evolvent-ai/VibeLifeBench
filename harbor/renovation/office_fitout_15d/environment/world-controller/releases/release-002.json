@@ -1,0 +1,29 @@
+{
+  "release_id": "release-002",
+  "previous": "release-001",
+  "token": "office-fitout-15d-release-002-20260824",
+  "operations": [
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "where": {
+        "application_id": "commercial_fit_up_filing_001"
+      },
+      "set": {
+        "status": "rfi",
+        "decision_day": 3,
+        "decision_note": "Property review requests stamped BIM, load calculation, and fire layout supplements.",
+        "history_json": "[{\"day\":0,\"from\":\"draft\",\"to\":\"processing\",\"note\":\"Seeded filing\"},{\"day\":3,\"from\":\"processing\",\"to\":\"rfi\",\"note\":\"Property review requested stamped BIM and fire supplements.\"}]",
+        "updated_at": "2026-07-04T06:00:00+08:00"
+      },
+      "values": {
+        "status": "rfi",
+        "decision_day": 3,
+        "decision_note": "Property review requests stamped BIM, load calculation, and fire layout supplements.",
+        "history_json": "[{\"day\":0,\"from\":\"draft\",\"to\":\"processing\",\"note\":\"Seeded filing\"},{\"day\":3,\"from\":\"processing\",\"to\":\"rfi\",\"note\":\"Property review requested stamped BIM and fire supplements.\"}]",
+        "updated_at": "2026-07-04T06:00:00+08:00"
+      }
+    }
+  ]
+}

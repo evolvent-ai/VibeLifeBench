@@ -1,0 +1,1 @@
+The final reconciliation must align the developer's service ticket, property-management emails, inspection photos, calendar retests, bank reversal, and compensation receipt. Preserve the source and last-updated time for every conflict.

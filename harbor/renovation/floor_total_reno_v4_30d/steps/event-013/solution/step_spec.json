@@ -1,0 +1,40 @@
+{
+  "step": "event-013",
+  "virtual_stage": 9,
+  "source_event_id": "floor_no_future_assumption",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "floor_supplement_request"
+    ]
+  },
+  "response": "I separated construction payment, retainage, leveling rework, card reviews, disputed amounts, and the active surplus listing in the budget.",
+  "response_paraphrase": "The budget now cites each order, transaction, and listing while keeping pending and posted states distinct.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_no_future_assumption"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s9_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s9_result",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

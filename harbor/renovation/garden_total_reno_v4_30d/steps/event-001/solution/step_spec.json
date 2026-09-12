@@ -1,0 +1,24 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "garden_world_before_first_storm",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I recorded the differences among ecommerce delivery, logistics arrival, site completion, rain-test acceptance, listing display, and posted proceeds.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_world_before_first_storm",
+      "virtual_stage": 1,
+      "event_kind": "world",
+      "event_time": "2026-06-15T12:20:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0,
+  "response_paraphrase": "The records now distinguish store delivery, carrier arrival, finished site work, drainage acceptance, public display, and settled funds."
+}

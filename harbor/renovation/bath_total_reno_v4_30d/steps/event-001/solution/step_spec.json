@@ -1,0 +1,36 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "Q01_baseline_followup",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Baseline sources and query times are now explicit; any disagreement remains a named conflict with a verification step.",
+  "response_paraphrase": "Every baseline line now identifies its source and retrieval time, with unresolved conflicts left visible.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q01_baseline_followup"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_servers",
+      "weight": 0.25,
+      "expected": true
+    },
+    {
+      "check_id": "s1_args",
+      "weight": 0.25,
+      "expected": true
+    },
+    {
+      "check_id": "s1_result",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,1 @@
+Please organize the evidence into five categories: documents, locations inside the unit, common areas, communications, and funds. The same photo may be referenced more than once, but it must not be represented as evidence of events occurring at two different times.

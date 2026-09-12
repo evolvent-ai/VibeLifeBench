@@ -1,0 +1,36 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "bed_initial_cross_service_snapshot",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The cross-service snapshot now distinguishes marketplace delivery, physical arrival, staged acceptance, card posting, and an active listing with no proceeds.",
+  "response_paraphrase": "The cross-service snapshot now distinguishes marketplace delivery, physical arrival, staged acceptance, card posting, and an active listing with no proceeds.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_initial_cross_service_snapshot"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s1_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s1_result",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,40 @@
+{
+  "step": "event-017",
+  "virtual_stage": 15,
+  "source_event_id": "Q15_weather_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": [
+      "release-009"
+    ]
+  },
+  "response": "The Pudong rainstorm and high-humidity alert are incorporated into the rework, drying, delivery, and reinspection schedule.",
+  "response_paraphrase": "Weather risk is reflected in delivery, substrate drying, and independent reinspection timing.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q15_weather_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s15_result",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s15_weather",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

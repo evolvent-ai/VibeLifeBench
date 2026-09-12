@@ -1,0 +1,36 @@
+{
+  "step": "event-024",
+  "virtual_stage": 18,
+  "source_event_id": "floor_reversal_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": [
+      "floor_duplicate_charge_reversed",
+      "floor_reversal_card_summary_refreshed"
+    ]
+  },
+  "response": "I finalized a structured three-workstream archive covering completed, in-progress, pending-confirmation, and declined actions with cited funds and evidence.",
+  "response_paraphrase": "The final summary separates heating, leveling, flooring, and surplus proceeds while preserving the next measurement and authorization steps.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_reversal_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s18_result",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

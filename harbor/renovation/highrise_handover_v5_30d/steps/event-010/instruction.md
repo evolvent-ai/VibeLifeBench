@@ -1,0 +1,1 @@
+This proposal has explicit exclusions, so it cannot be evaluated by comparing the amount alone. Record the repair scope, retest method, completion period, warranty, and consequences of closing the case as separate entries in the claims ledger.

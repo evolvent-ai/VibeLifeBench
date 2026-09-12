@@ -1,0 +1,35 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-015",
+  "virtual_stage": 0,
+  "event_id": "D0_kickoff_brief",
+  "source_event_id": "D0_kickoff_brief",
+  "response": "I opened the commercial fit-out control record with budget buckets, sequenced gates, vendor evidence and risks.",
+  "response_paraphrase": "The initial control pack records the plan, authorized envelope, dependencies, provider comparison and open risks.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-015",
+    "HARBOR_EVENT_ID": "D0_kickoff_brief",
+    "HARBOR_VIRTUAL_STAGE": "0",
+    "VIRTUAL_STAGE": "0",
+    "RUN_STAGE_RUBRIC": "1",
+    "STAGE_BOUNDARY": "1",
+    "SOURCE_EVENT_ID": "D0_kickoff_brief",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_artifact_core_files_exist",
+    "chk_artifact_budget_has_committed_pending_reserve",
+    "chk_artifact_schedule_sequenced",
+    "chk_artifact_contractor_comparison_rows",
+    "chk_artifact_risk_register_has_known_traps"
+  ],
+  "expected_stage_weight": 6.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D0_kickoff_brief",
+      "stage": 0
+    }
+  ]
+}

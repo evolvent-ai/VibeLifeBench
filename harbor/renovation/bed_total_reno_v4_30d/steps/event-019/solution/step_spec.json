@@ -1,0 +1,40 @@
+{
+  "step": "event-019",
+  "virtual_stage": 15,
+  "source_event_id": "bed_air_test_and_rework_window",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "bed_humidity_forecast_released"
+    ]
+  },
+  "response": "Daily weather and the humidity alert were used only as scheduling context for reinspection and indoor-air sampling, never as a substitute for inspection or test results.",
+  "response_paraphrase": "Daily weather and the humidity alert were used only as scheduling context for reinspection and indoor-air sampling, never as a substitute for inspection or test results.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_air_test_and_rework_window"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s15_result",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s15_weather",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

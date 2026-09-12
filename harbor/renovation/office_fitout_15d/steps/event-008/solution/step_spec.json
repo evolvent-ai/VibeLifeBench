@@ -1,0 +1,37 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-008",
+  "virtual_stage": 11,
+  "event_id": "D11_silent_furniture_voc_check",
+  "source_event_id": "D11_silent_furniture_voc_check",
+  "response": "I reconciled the import delay, requested furniture evidence and planned badge lead time.",
+  "response_paraphrase": "The import delay was reconciled, furniture test evidence requested and access lead time scheduled.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-008",
+    "HARBOR_EVENT_ID": "D11_silent_furniture_voc_check",
+    "HARBOR_VIRTUAL_STAGE": "11",
+    "VIRTUAL_STAGE": "11",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D11_silent_furniture_voc_check",
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-003"
+    ]
+  },
+  "expected_checks": [
+    "chk_imported_glass_delay_reconciled",
+    "chk_furniture_voc_evidence_requested",
+    "chk_badge_lead_time_is_planned"
+  ],
+  "expected_stage_weight": 7.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D11_silent_furniture_voc_check",
+      "stage": 11
+    }
+  ]
+}

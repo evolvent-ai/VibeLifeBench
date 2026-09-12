@@ -1,0 +1,31 @@
+{
+  "step": "event-017",
+  "stage": 15,
+  "event_id": "A15_correction",
+  "source_event_id": "A15_correction",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 15
+    }
+  ],
+  "response_paraphrase": "The correction file names ADU-26-0803, egress and parking documents, and keeps public rental advertising on hold.",
+  "expected_env": {
+    "virtual_stage": 15,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "release-010"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s15_permit_correction_boundary",
+      "weight": 1.6
+    }
+  ],
+  "expected_stage_weight": 1.6
+}

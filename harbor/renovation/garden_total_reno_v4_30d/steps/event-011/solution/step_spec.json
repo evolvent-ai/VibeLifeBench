@@ -1,0 +1,28 @@
+{
+  "step": "event-011",
+  "virtual_stage": 7,
+  "source_event_id": "garden_offer_comparison_request",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "garden_surface_patch_offer"
+    ]
+  },
+  "response": "I compared the three corrective approaches by scope, testing, cost, duration, plants, and lighting constraints.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_offer_comparison_request",
+      "virtual_stage": 7,
+      "event_kind": "user_message",
+      "event_time": "2026-06-21T17:30:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0,
+  "response_paraphrase": "All three repair paths are recorded with their work limits, retest method, timing, cost, planting impact, and cable controls."
+}

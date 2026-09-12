@@ -1,0 +1,31 @@
+{
+  "step": "event-023",
+  "stage": 20,
+  "event_id": "A20_reinspect",
+  "source_event_id": "A20_reinspect",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 20
+    }
+  ],
+  "response_paraphrase": "The follow-up inspection schedule and current materials are refreshed against the old dates.",
+  "expected_env": {
+    "virtual_stage": 20,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-013"
+    ],
+    "released_mutations": [
+      "release-013"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s20_reinspection_refresh",
+      "weight": 1.3
+    }
+  ],
+  "expected_stage_weight": 1.3
+}

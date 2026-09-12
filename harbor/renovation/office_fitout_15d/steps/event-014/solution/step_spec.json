@@ -1,0 +1,32 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-014",
+  "virtual_stage": 5,
+  "event_id": "D5_property_fit_up_window_world",
+  "source_event_id": "D5_property_fit_up_window_world",
+  "response": "I verified the filing record and answered the property warning with the required prerequisite.",
+  "response_paraphrase": "The application and property warning were checked, with the required prerequisite and response recorded.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-014",
+    "HARBOR_EVENT_ID": "D5_property_fit_up_window_world",
+    "HARBOR_VIRTUAL_STAGE": "5",
+    "VIRTUAL_STAGE": "5",
+    "RUN_STAGE_RUBRIC": "1",
+    "STAGE_BOUNDARY": "1",
+    "SOURCE_EVENT_ID": "D5_property_fit_up_window_world",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_filing_application_exists",
+    "chk_filing_response_to_property_warning"
+  ],
+  "expected_stage_weight": 8.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D5_property_fit_up_window_world",
+      "stage": 5
+    }
+  ]
+}

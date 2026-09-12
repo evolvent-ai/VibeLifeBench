@@ -1,0 +1,46 @@
+{
+  "step": "event-014",
+  "virtual_stage": 10,
+  "source_event_id": "floor_duplicate_charge_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "floor_duplicate_thermostat_charge",
+      "floor_duplicate_charge_card_summary_refreshed"
+    ]
+  },
+  "response": "I preserved the issuer-created preliminary investigation as under review and kept the payable card balance separate from any future reversal.",
+  "response_paraphrase": "The duplicate case remains an automatic review, not a posted refund or an authorized user dispute.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_duplicate_charge_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_result",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s10_no_bad",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

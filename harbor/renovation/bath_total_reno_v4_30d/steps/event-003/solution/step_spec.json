@@ -1,0 +1,40 @@
+{
+  "step": "event-003",
+  "virtual_stage": 3,
+  "source_event_id": "Q03_platform_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "response": "The quality case is recorded as submitted and the staged-acceptance workstream now tracks its evidence and deadline.",
+  "response_paraphrase": "The submitted quality case and its staged-acceptance evidence track are recorded for follow-up.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q03_platform_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_servers",
+      "weight": 0.25,
+      "expected": true
+    },
+    {
+      "check_id": "s3_args",
+      "weight": 0.25,
+      "expected": true
+    },
+    {
+      "check_id": "s3_result",
+      "weight": 3.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

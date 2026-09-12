@@ -1,0 +1,31 @@
+{
+  "step": "event-021",
+  "stage": 18,
+  "event_id": "A18_fail_notice",
+  "source_event_id": "A18_fail_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 18
+    }
+  ],
+  "response_paraphrase": "The failed inspection is logged with egress, exhaust, and alarm remediation; no public rental listing is allowed yet.",
+  "expected_env": {
+    "virtual_stage": 18,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": [
+      "release-012"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s18_failed_inspection_no_listing",
+      "weight": 5
+    }
+  ],
+  "expected_stage_weight": 5
+}

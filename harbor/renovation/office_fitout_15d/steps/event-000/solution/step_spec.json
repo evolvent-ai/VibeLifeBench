@@ -1,0 +1,36 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-000",
+  "virtual_stage": 10,
+  "event_id": "D10_smart_control_selection_silent",
+  "source_event_id": "D10_smart_control_selection_silent",
+  "response": "I re-polled the fire application and recorded the smart-control choice.",
+  "response_paraphrase": "The fire application was queried again and the preferred control-system choice was documented.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-000",
+    "HARBOR_EVENT_ID": "D10_smart_control_selection_silent",
+    "HARBOR_VIRTUAL_STAGE": "10",
+    "VIRTUAL_STAGE": "10",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D10_smart_control_selection_silent",
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "expected_checks": [
+    "chk_fire_rfi_repolled_and_recovery_recorded",
+    "chk_smart_control_decision_is_recorded"
+  ],
+  "expected_stage_weight": 5.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D10_smart_control_selection_silent",
+      "stage": 10
+    }
+  ]
+}

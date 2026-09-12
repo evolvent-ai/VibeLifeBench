@@ -1,0 +1,34 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-012",
+  "virtual_stage": 19,
+  "event_id": "D19_closeout_scheduled_review",
+  "source_event_id": "D19_closeout_scheduled_review",
+  "response": "I assembled a close-out packet from live gates, room retests, punch closure and retained evidence.",
+  "response_paraphrase": "The final packet ties live approvals, room test results, punch closure, coverage and retained records together.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-012",
+    "HARBOR_EVENT_ID": "D19_closeout_scheduled_review",
+    "HARBOR_VIRTUAL_STAGE": "19",
+    "VIRTUAL_STAGE": "19",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D19_closeout_scheduled_review",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_closeout_all_gates_cleared_live",
+    "chk_closeout_voc_recleared_all_rooms",
+    "chk_closeout_retention_release_grounded",
+    "chk_closeout_archive_and_insurance_boundary"
+  ],
+  "expected_stage_weight": 10.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D19_closeout_scheduled_review",
+      "stage": 19
+    }
+  ]
+}

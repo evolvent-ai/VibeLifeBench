@@ -1,0 +1,1 @@
+"""Bedroom renovation rubric package."""

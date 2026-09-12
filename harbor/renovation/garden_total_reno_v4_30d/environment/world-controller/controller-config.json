@@ -1,0 +1,9 @@
+{
+  "task": "garden_total_reno_v4_30d",
+  "step_count": 35,
+  "stage_count": 24,
+  "clock_file": "/world-clock/current.json",
+  "clock_schema": {"required_keys": ["world_now"]},
+  "release_directory": "/opt/world-controller/releases",
+  "evidence_directory": "/evidence"
+}

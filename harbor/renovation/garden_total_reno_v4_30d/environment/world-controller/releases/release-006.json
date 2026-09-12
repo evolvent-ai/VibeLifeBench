@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "garden_claim_returned_for_survey"
+  ],
+  "source_time": "2026-06-23T10:20:00+08:00",
+  "previous": "release-005",
+  "token": "garden-total-reno-v4-30d-release-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "source_event_id": "garden_claim_returned_for_survey",
+      "set": {
+        "status": "rejected",
+        "resolved_at": "2026-06-23T10:20:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_qgrd_b"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "garden_claim_returned_for_survey",
+      "values": {
+        "notification_id": "ntf_qgrd_b2",
+        "user_id": "usr_yong_wei",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "Ponding corrective work requires supplemental benchmark elevation and actual-rain observation",
+        "body": "The platform requires supplemental benchmark elevation, pavement elevation, grading direction, drainage-channel connection elevation difference, and records of ponding and drainage during the same rainfall period.",
+        "payload_json": "{\"refund_id\":\"ref_qgrd_b\",\"status\":\"rejected\",\"required\":[\"benchmark\",\"slope\",\"drain_level\",\"rain_observation\"]}",
+        "created_at": "2026-06-23T02:21:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 9
+}

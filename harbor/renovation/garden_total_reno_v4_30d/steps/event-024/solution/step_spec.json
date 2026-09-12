@@ -1,0 +1,41 @@
+{
+  "step": "event-024",
+  "virtual_stage": 15,
+  "source_event_id": "garden_heavy_rain_retest_window",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": [
+      "garden_retest_forecast_released"
+    ]
+  },
+  "response": "I selected a safe retest window before the evidence deadline and recorded weather and electrical safety limits.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_heavy_rain_retest_window",
+      "virtual_stage": 15,
+      "event_kind": "user_message",
+      "event_time": "2026-07-02T07:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s15_result",
+      "weight": 3.0
+    },
+    {
+      "check_id": "s15_weather",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 6.0,
+  "response_paraphrase": "A low-risk test period before the cutoff is documented together with measurement, plant, and power-isolation conditions."
+}

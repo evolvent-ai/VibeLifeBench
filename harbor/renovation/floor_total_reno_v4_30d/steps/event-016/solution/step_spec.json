@@ -1,0 +1,26 @@
+{
+  "step": "event-016",
+  "virtual_stage": 11,
+  "source_event_id": "floor_plan_revision",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I selected localized leveling rework with independent measurement as the evidence-backed option and kept flooring acceptance, payment, and heating activation awaiting confirmation.",
+  "response_paraphrase": "The recommendation retains the coils, separates fast and low-risk routes, and leaves irreversible decisions with Lai Xu.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_plan_revision"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_decision",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

@@ -1,0 +1,26 @@
+{
+  "step": "event-017",
+  "virtual_stage": 13,
+  "source_event_id": "bed_midpoint_ledger_review",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The midpoint budget separates construction payment, retainage, pending rework, foreign-currency and duplicate charges, and unreceived surplus-material proceeds.",
+  "response_paraphrase": "The midpoint budget separates construction payment, retainage, pending rework, foreign-currency and duplicate charges, and unreceived surplus-material proceeds.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_midpoint_ledger_review"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_budget",
+      "weight": 3.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

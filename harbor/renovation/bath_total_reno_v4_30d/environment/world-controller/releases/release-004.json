@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "Q09_more_evidence"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-06-23T13:00:00+08:00",
+  "previous": "release-003",
+  "token": "bath-total-reno-v4-30d-release-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "source_event_id": "Q09_more_evidence",
+      "set": {
+        "status": "rejected",
+        "resolved_at": "2026-06-23T13:00:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_qbath_b"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "Q09_more_evidence",
+      "values": {
+        "notification_id": "ntf_qbath_b2",
+        "user_id": "usr_geng_lu",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "Quality application requires more evidence",
+        "body": "The application was rejected pending more evidence. Submit continuous video, point photos, and an independent third-party opinion.",
+        "payload_json": "{\"order_id\":\"ord_qbath_0001\",\"refund_id\":\"ref_qbath_b\",\"status\":\"rejected\",\"next_action\":\"submit_more_evidence\"}",
+        "created_at": "2026-06-23T13:01:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

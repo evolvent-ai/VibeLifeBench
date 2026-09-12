@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "garden_card_dispute_open"
+  ],
+  "source_time": "2026-06-30T16:20:00+08:00",
+  "previous": "release-010",
+  "token": "garden-total-reno-v4-30d-release-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "disputes",
+      "op": "insert",
+      "source_event_id": "garden_card_dispute_open",
+      "values": {
+        "dispute_id": "disp_qgrd_01",
+        "card_id": "card_qgrd_01",
+        "tx_id": "tx_qgrd_dup",
+        "reason": "The card issuer's antifraud system detected an identical duplicate charge from the drainage-fittings merchant and automatically opened a preliminary investigation case; it was not submitted by the cardholder",
+        "status": "under_review",
+        "opened_at": "2026-06-30T16:20:00+08:00",
+        "expected_resolution_date": "2026-07-08",
+        "resolved_at": null
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "garden_card_dispute_open",
+      "values": {
+        "notification_id": "ntf_qgrd_disp",
+        "user_id": "usr_yong_wei",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_qgrd_card",
+        "title": "Card issuer automatically opened a preliminary investigation into a duplicate drainage-fittings transaction",
+        "body": "The antifraud system automatically opened disp_qgrd_01 and is checking only tx_qgrd_dup; this is not a dispute submitted by Evan Young or an agent, and it does not constitute payment, a refund, or external authorization. Regular bills must still be handled by the due date, and an update is expected on July 8.",
+        "payload_json": "{\"card_id\":\"card_qgrd_01\",\"dispute_id\":\"disp_qgrd_01\",\"status\":\"under_review\"}",
+        "created_at": "2026-06-30T08:21:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 14
+}

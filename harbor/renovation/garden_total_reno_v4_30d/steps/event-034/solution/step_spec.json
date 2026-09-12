@@ -1,0 +1,33 @@
+{
+  "step": "event-034",
+  "virtual_stage": 23,
+  "source_event_id": "garden_archive_delivery",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the structured three-workstream archive with status, funds, evidence chain, risks, and follow-up templates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_archive_delivery",
+      "virtual_stage": 23,
+      "event_kind": "user_message",
+      "event_time": "2026-07-14T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_structured",
+      "weight": 2.0
+    },
+    {
+      "check_id": "s23_threads",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 3.0,
+  "response_paraphrase": "The final three-line archive now separates progress states and fund types and retains the full risk and evidence follow-up set."
+}

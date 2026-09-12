@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "bed_duplicate_hinge_charge",
+    "bed_duplicate_charge_card_summary_refreshed"
+  ],
+  "source_time": "2026-06-24 09:00:00+08:00",
+  "previous": "release-005",
+  "token": "bed_total_reno_v4_30d-release-006-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_qbed_dup",
+        "card_id": "card_qbed_01",
+        "posted_at": "2026-06-24T08:40:00+08:00",
+        "amount_minor": 22000,
+        "merchant_name": "PAYPAL US",
+        "mcc": "4814",
+        "category": " imported  cabinetry  hardware ",
+        "kind": "purchase"
+      },
+      "source_event_id": "bed_duplicate_hinge_charge"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qbed_dup",
+        "user_id": "usr_du_rong",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_qbed_card",
+        "title": " same  hardware merchant  appears  second charge  same amount  transaction ",
+        "body": " same amount  transaction  again  appears 。 please renovation note hinges  order  and renovation note transaction  time ，renovation note card dispute renovation note。",
+        "payload_json": "{\"card_id\":\"card_qbed_01\",\"tx_id\":\"tx_qbed_dup\",\"comparison\":\"same_merchant_same_amount\"}",
+        "created_at": "2026-06-24T01:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "bed_duplicate_hinge_charge"
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 129400,
+        "available_credit_minor": 2470600
+      },
+      "where": {
+        "card_id": "card_qbed_01"
+      },
+      "source_event_id": "bed_duplicate_charge_card_summary_refreshed"
+    }
+  ]
+}

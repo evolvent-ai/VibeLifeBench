@@ -1,0 +1,26 @@
+{
+  "step": "event-015",
+  "virtual_stage": 11,
+  "source_event_id": "floor_lab_retest_result",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I checked the released weather window and active rain alert and recorded July 9 as a scheduling target rather than an installation verdict.",
+  "response_paraphrase": "Humidity and forecast data constrain timing, while on-site moisture and substrate reinspection remain decisive.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_lab_retest_result"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_decision",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

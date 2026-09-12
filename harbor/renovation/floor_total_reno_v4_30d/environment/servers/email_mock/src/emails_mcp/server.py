@@ -1,0 +1,120 @@
+"""emails_MCP MCP server entry point (streamable-HTTP transport only)."""
+import argparse
+import logging
+import os
+import sys
+from pathlib import Path
+
+from mcp.server.fastmcp import FastMCP
+
+from .backends import get_conn, init_schema
+from .services import (
+    AttachmentService,
+    DraftService,
+    EmailService,
+    FolderService,
+    IOService,
+)
+from .tools import (
+    register_draft_tools,
+    register_email_tools,
+    register_folder_tools,
+    register_management_tools,
+)
+
+
+def setup_logging(debug: bool = False) -> None:
+    level = logging.DEBUG if debug else logging.INFO
+    logging.basicConfig(
+        level=level,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        handlers=[logging.StreamHandler(sys.stderr)],
+        force=True,
+    )
+
+
+def build_server(env_dir: Path) -> FastMCP:
+    """Open a fresh runtime DB inside the env, apply schema + init.sql,
+    register tools, return a FastMCP."""
+    logger = logging.getLogger(__name__)
+
+    db_file = env_dir / "runtime.db"
+    for sidecar in (db_file, db_file.with_suffix(db_file.suffix + "-wal"),
+                    db_file.with_suffix(db_file.suffix + "-shm")):
+        if sidecar.exists():
+            sidecar.unlink()
+
+    conn = get_conn(str(db_file))
+    init_schema(conn)
+
+    init_sql = env_dir / "init.sql"
+    if init_sql.exists():
+        logger.info("Applying init_sql from %s", init_sql)
+        conn.executescript(init_sql.read_text(encoding="utf-8"))
+
+    # Always make sure the system folders the agent expects exist so the
+    # empty-env case doesn't crash on get_emails(INBOX).
+    folder_service = FolderService(conn)
+    folder_service.ensure_system_folders()
+
+    email_service = EmailService(conn)
+    draft_service = DraftService(conn)
+    attachment_service = AttachmentService(conn)
+    io_service = IOService(conn)
+
+    MCP = FastMCP("emails-MCP", host="0.0.0.0")
+    register_email_tools(MCP, email_service)
+    register_folder_tools(MCP, folder_service)
+    register_draft_tools(MCP, draft_service)
+    register_management_tools(MCP, email_service, attachment_service, io_service)
+    return MCP
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="emails_MCP MCP server (streamable-HTTP)")
+    parser.add_argument("--host", default="0.0.0.0")
+    parser.add_argument("--port", type=int, default=8006)
+    parser.add_argument(
+        "--env", type=str, default=os.environ.get("XHS_ENV"),
+        help="Path to envs/<server>/<env_name>/ directory (falls back to $XHS_ENV)",
+    )
+    parser.add_argument("--transport", choices=["streamable-http", "stdio"],
+                        default="streamable-http",
+                        help="streamable-http for Terrarium/containers; stdio for local .MCP.json debugging")
+    parser.add_argument("--debug", action="store_true")
+    args = parser.parse_args()
+
+    setup_logging(args.debug)
+    logger = logging.getLogger(__name__)
+
+    if not args.env:
+        parser.error("--env is required (pass --env <dir> or set $XHS_ENV)")
+    env_dir = Path(args.env).resolve()
+    if not env_dir.is_dir():
+        logger.error("env path is not a directory: %s", env_dir)
+        sys.exit(2)
+
+    try:
+        MCP = build_server(env_dir)
+        if args.transport == "stdio":
+            logger.info("Starting emails-MCP on stdio (env=%s)", env_dir)
+            MCP.run(transport="stdio")
+        else:
+            MCP.settings.host = args.host
+            MCP.settings.port = args.port
+            logger.info(
+                "Starting emails-MCP on http://%s:%d/MCP (streamable-http, env=%s)",
+                args.host,
+                args.port,
+                env_dir,
+            )
+            MCP.run(transport="streamable-http")
+    except KeyboardInterrupt:
+        logger.info("Server shutdown requested")
+    except Exception as e:
+        logger.exception("Server startup failed: %s", e)
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

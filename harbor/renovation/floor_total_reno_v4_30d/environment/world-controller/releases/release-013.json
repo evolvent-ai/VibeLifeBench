@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "floor_rework_refund_posted",
+    "floor_refund_card_summary_refreshed"
+  ],
+  "source_time": "2026-07-11T15:50:00+08:00",
+  "previous": "release-012",
+  "token": "floor_total_reno_v4_30d-release-013-token-long",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_qflr_pp",
+        "card_id": "card_qflr_01",
+        "posted_at": "2026-07-11T15:30:00+08:00",
+        "amount_minor": -2563000,
+        "merchant_name": "translated business text（translated business text）",
+        "mcc": "5732",
+        "category": "translated business text",
+        "kind": "adjustment"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qflr_funds",
+        "user_id": "usr_lai_xu",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "translated business text",
+        "body": "25,630 translated business text；translated business text。",
+        "payload_json": "{\"amount_minor\":2563000,\"kind\":\"leveling_refund\",\"tx_id\":\"tx_qflr_pp\"}",
+        "created_at": "2026-07-11T07:31:00Z",
+        "read": 0
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": -2440200,
+        "available_credit_minor": 5040200
+      },
+      "where": {
+        "card_id": "card_qflr_01"
+      }
+    }
+  ]
+}

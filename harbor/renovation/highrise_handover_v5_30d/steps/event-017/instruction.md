@@ -1,0 +1,1 @@
+The inspection-fee dispute is now under review. Read the bank dispute and notification details, then update the funds ledger with the normal amount payable, disputed amount, expected resolution date, and the restriction against unilaterally underpaying the card balance.

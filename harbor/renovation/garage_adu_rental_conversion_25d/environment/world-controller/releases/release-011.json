@@ -1,0 +1,47 @@
+{
+  "release_id": "release-011",
+  "before_step": "event-019",
+  "previous": "release-010",
+  "token": "garage-adu-rental-conversion-25d-release-011-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "A17_rough_window_mut",
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_adu_rough_window_0819",
+        "calendar_id": "cal_main",
+        "summary": "ADU-26-0803 rough inspection window",
+        "description": "Official rough inspection window. Egress dimensions, bathroom exhaust route, smoke/CO alarm layout, parking/access statement and permit correction record must be ready.",
+        "location": "18 Cedar Lane, rear garage",
+        "start_dt": "2026-08-19T08:30:00+08:00",
+        "end_dt": "2026-08-19T10:30:00+08:00",
+        "all_day": 0,
+        "status": "tentative",
+        "created_at": "2026-08-18T13:20:00+08:00",
+        "updated_at": "2026-08-18T13:20:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      }
+    },
+    {
+      "source_event_id": "A17_rough_window_mut",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_9017",
+        "user_id": "marina",
+        "source": "inspection",
+        "type": "rough_window",
+        "subscription_id": null,
+        "title": "ADU rough inspection window opened",
+        "body": "A rough-inspection window is available for ADU-26-0803; required pre-inspection evidence is listed in the calendar event.",
+        "payload_json": "{\"event_id\": \"evt_adu_rough_window_0819\", \"case\": \"ADU-26-0803\"}",
+        "created_at": "2026-08-18T13:20:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

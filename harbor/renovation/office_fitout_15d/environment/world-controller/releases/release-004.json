@@ -1,0 +1,29 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "office-fitout-15d-release-004-20260824",
+  "operations": [
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "where": {
+        "application_id": "commercial_fit_up_filing_001"
+      },
+      "set": {
+        "status": "rfi",
+        "decision_day": 5,
+        "decision_note": "BIM must reach LOD400 and include a coordinated MEP clash report.",
+        "history_json": "[{\"day\":0,\"from\":\"draft\",\"to\":\"processing\",\"note\":\"Seeded filing\"},{\"day\":3,\"from\":\"processing\",\"to\":\"rfi\",\"note\":\"Property review requested stamped BIM and fire supplements.\"},{\"day\":5,\"from\":\"rfi\",\"to\":\"rfi\",\"note\":\"LOD400 and coordinated MEP report requested.\"}]",
+        "updated_at": "2026-07-06T09:00:00+08:00"
+      },
+      "values": {
+        "status": "rfi",
+        "decision_day": 5,
+        "decision_note": "BIM must reach LOD400 and include a coordinated MEP clash report.",
+        "history_json": "[{\"day\":0,\"from\":\"draft\",\"to\":\"processing\",\"note\":\"Seeded filing\"},{\"day\":3,\"from\":\"processing\",\"to\":\"rfi\",\"note\":\"Property review requested stamped BIM and fire supplements.\"},{\"day\":5,\"from\":\"rfi\",\"to\":\"rfi\",\"note\":\"LOD400 and coordinated MEP report requested.\"}]",
+        "updated_at": "2026-07-06T09:00:00+08:00"
+      }
+    }
+  ]
+}

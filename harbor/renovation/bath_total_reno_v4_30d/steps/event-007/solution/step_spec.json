@@ -1,0 +1,40 @@
+{
+  "step": "event-007",
+  "virtual_stage": 6,
+  "source_event_id": "Q06_fx_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-002"
+    ]
+  },
+  "response": "The card transaction is tied to its merchant and order context, with the amount held pending verification.",
+  "response_paraphrase": "The card entry is matched to the merchant and order context and remains awaiting verification.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q06_fx_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_servers",
+      "weight": 0.25,
+      "expected": true
+    },
+    {
+      "check_id": "s6_args",
+      "weight": 0.25,
+      "expected": true
+    },
+    {
+      "check_id": "s6_result",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

@@ -1,0 +1,41 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "Q00_kickoff",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The three renovation workstreams are separated and the baseline sources are recorded with authorization controls.",
+  "response_paraphrase": "The three workstreams, source baseline, and authorization limits are now in separate records.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q00_kickoff"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_servers",
+      "weight": 0.25,
+      "expected": true
+    },
+    {
+      "check_id": "s0_args",
+      "weight": 0.25,
+      "expected": true
+    },
+    {
+      "check_id": "s0_result",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s0_files",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

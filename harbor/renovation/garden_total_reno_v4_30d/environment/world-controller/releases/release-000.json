@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "garden_overflow_map_notice_release"
+  ],
+  "source_time": "2026-06-16T14:20:00+08:00",
+  "previous": null,
+  "token": "garden-total-reno-v4-30d-release-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "garden_overflow_map_notice_release",
+      "values": {
+        "notification_id": "ntf_qgrd_overflow_map",
+        "user_id": "usr_yong_wei",
+        "source": "delivery_logistics",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Garden overflow path map pending verification",
+        "body": "The relationship between the foyer corner, linear drainage channel, planting area, and municipal storm drain has been listed as a contract verification item.",
+        "payload_json": "{\"scope\":\"overflow_path\",\"status\":\"pending_contract\"}",
+        "created_at": "2026-06-16T06:19:00Z",
+        "read": 0
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "garden_overflow_map_notice_release",
+      "values": {
+        "notification_id": "ntf_qgrd_acceptance_rule",
+        "user_id": "usr_yong_wei",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Updated evidence standards for garden drainage acceptance",
+        "body": "Drainage acceptance must verify benchmark elevations and grading, drainage construction, post-rain or equivalent hose test observation, and images at the same time; a single surface observation showing no standing water cannot cover the pavement base course, overflow path, and drainage of the planting area.",
+        "payload_json": "{\"scope\":\"drainage_acceptance\",\"required_evidence\":[\"elevation_slope\",\"drain_structure\",\"rain_or_hose_observation\",\"images\"]}",
+        "created_at": "2026-06-16T06:21:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 2
+}

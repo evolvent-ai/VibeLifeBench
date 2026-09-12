@@ -1,0 +1,1 @@
+Several contractors for ADUs, bathrooms, and small-kitchen remodels have appeared on the contractor platform. Please screen their qualifications, contracts, insurance, payment terms, and permitting experience.

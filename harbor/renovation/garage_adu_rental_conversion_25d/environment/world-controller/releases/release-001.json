@@ -1,0 +1,24 @@
+{
+  "release_id": "release-001",
+  "before_step": "event-002",
+  "previous": "release-000",
+  "token": "garage-adu-rental-conversion-25d-release-001-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "A02_market_mut",
+      "server": "listing_platform",
+      "table": "market_stats",
+      "op": "insert",
+      "values": {
+        "stat_id": "stat_oakview_adu_update",
+        "area": "Oakview ADU",
+        "city": "Harbor City",
+        "category": "rent",
+        "avg_price_minor": 910000,
+        "unit": "per_month",
+        "sample_size": 42,
+        "period": "2026-08-update"
+      }
+    }
+  ]
+}

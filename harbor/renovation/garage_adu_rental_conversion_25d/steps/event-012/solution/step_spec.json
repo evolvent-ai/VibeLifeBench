@@ -1,0 +1,31 @@
+{
+  "step": "event-012",
+  "stage": 11,
+  "event_id": "A11_materials",
+  "source_event_id": "A11_materials",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 11
+    }
+  ],
+  "response_paraphrase": "The materials review covers egress, alarm, insulation, ventilation, specification, stock, and return terms.",
+  "expected_env": {
+    "virtual_stage": 11,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "release-007"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s11_material_spec_check",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 1
+}

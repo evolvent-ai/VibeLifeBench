@@ -1,0 +1,27 @@
+{
+  "step": "event-018",
+  "stage": 16,
+  "event_id": "A16_contract",
+  "source_event_id": "A16_contract",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 16
+    }
+  ],
+  "response_paraphrase": "Harbor CodeBuild is the compliant contractor choice under a written contract, insurance, and no-cash boundary.",
+  "expected_env": {
+    "virtual_stage": 16,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s16_contract_boundary_preserved",
+      "weight": 1.6
+    }
+  ],
+  "expected_stage_weight": 1.6
+}

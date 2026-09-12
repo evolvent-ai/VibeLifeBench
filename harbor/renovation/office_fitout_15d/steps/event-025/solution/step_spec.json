@@ -1,0 +1,33 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-025",
+  "virtual_stage": 1,
+  "event_id": "D1_jingan_one_stop_world",
+  "source_event_id": "D1_jingan_one_stop_world",
+  "response": "The live permit record and building schedule were checked before work; the application is still awaiting clearance, so construction remains on hold.",
+  "response_paraphrase": "The current permit position and building quiet-period rules were checked before any start date was placed.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-025",
+    "HARBOR_EVENT_ID": "D1_jingan_one_stop_world",
+    "HARBOR_VIRTUAL_STAGE": "1",
+    "VIRTUAL_STAGE": "1",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D1_jingan_one_stop_world",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_active_notion_review_pull_before_shortlist",
+    "chk_active_property_rules_pull_before_calendarizing",
+    "chk_active_compliance_polled_before_demolition"
+  ],
+  "expected_stage_weight": 18.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D1_jingan_one_stop_world",
+      "stage": 1
+    }
+  ]
+}

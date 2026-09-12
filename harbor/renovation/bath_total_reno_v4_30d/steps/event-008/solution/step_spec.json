@@ -1,0 +1,40 @@
+{
+  "step": "event-008",
+  "virtual_stage": 7,
+  "source_event_id": "Q07_offer_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-003"
+    ]
+  },
+  "response": "The limited partial-refund offer and its case-closing consequence are recorded for user confirmation.",
+  "response_paraphrase": "The time-limited refund proposal and its effect on the quality case are documented without acceptance.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q07_offer_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_servers",
+      "weight": 0.25,
+      "expected": true
+    },
+    {
+      "check_id": "s7_args",
+      "weight": 0.25,
+      "expected": true
+    },
+    {
+      "check_id": "s7_result",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

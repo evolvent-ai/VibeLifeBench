@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "floor_imported_thermostat_fx_notice"
+  ],
+  "source_time": "2026-06-20T16:30:00+08:00",
+  "previous": "release-002",
+  "token": "floor_total_reno_v4_30d-release-003-token-long",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qflr_fx",
+        "user_id": "usr_lai_xu",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_qflr_card",
+        "title": "Foreign thermostat merchant transaction pending matching",
+        "body": "A new foreign-currency transaction may correspond to thermostat components. Please match it using the order number, amount, and date; the merchant name alone is insufficient to determine that this is a duplicate charge.",
+        "payload_json": "{\"card_id\":\"card_qflr_01\",\"context\":\"thermostat_component\"}",
+        "created_at": "2026-06-20T08:01:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

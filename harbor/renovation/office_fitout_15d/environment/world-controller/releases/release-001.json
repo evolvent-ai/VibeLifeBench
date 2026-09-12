@@ -1,0 +1,27 @@
+{
+  "release_id": "release-001",
+  "previous": "release-000",
+  "token": "office-fitout-15d-release-001-20260824",
+  "operations": [
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "where": {
+        "application_id": "fire_inspection_app_001"
+      },
+      "set": {
+        "status": "rfi",
+        "decision_day": 13,
+        "decision_note": "Fire review requests emergency-lighting and evacuation evidence correction before reinspection.",
+        "updated_at": "2026-07-11T06:00:00+08:00"
+      },
+      "values": {
+        "status": "rfi",
+        "decision_day": 13,
+        "decision_note": "Fire review requests emergency-lighting and evacuation evidence correction before reinspection.",
+        "updated_at": "2026-07-11T06:00:00+08:00"
+      }
+    }
+  ]
+}

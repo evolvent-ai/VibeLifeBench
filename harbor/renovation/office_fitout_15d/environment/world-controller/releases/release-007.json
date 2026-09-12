@@ -1,0 +1,27 @@
+{
+  "release_id": "release-007",
+  "previous": "release-006",
+  "token": "office-fitout-15d-release-007-20260824",
+  "operations": [
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "where": {
+        "application_id": "commercial_handover_001"
+      },
+      "set": {
+        "status": "approved_with_conditions",
+        "decision_day": 16,
+        "decision_note": "Handover remains conditional while pre-occupancy TVOC exceeds the office limit; CMA retest is required before final close-out.",
+        "updated_at": "2026-07-17T09:05:00+08:00"
+      },
+      "values": {
+        "status": "approved_with_conditions",
+        "decision_day": 16,
+        "decision_note": "Handover remains conditional while pre-occupancy TVOC exceeds the office limit; CMA retest is required before final close-out.",
+        "updated_at": "2026-07-17T09:05:00+08:00"
+      }
+    }
+  ]
+}

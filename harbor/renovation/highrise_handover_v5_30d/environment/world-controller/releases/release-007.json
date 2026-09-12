@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "H14_dispute_opened"
+  ],
+  "source_stage": 14,
+  "source_time": "2026-06-30 10:00:00+08:00",
+  "previous": "release-006",
+  "token": "highrise-release-007-token-9f6a4c2d8e1b7a3c5d9e",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "disputes",
+      "op": "insert",
+      "values": {
+        "dispute_id": "disp_hhigh_01",
+        "card_id": "card_hhigh_01",
+        "tx_id": "tx_hhigh_dup",
+        "reason": "交付检测服务疑似重复扣费",
+        "status": "under_review",
+        "opened_at": "2026-06-30T10:00:00+08:00",
+        "expected_resolution_date": "2026-07-08",
+        "resolved_at": null
+      },
+      "source_event_id": "H14_dispute_opened",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_hhigh_disp",
+        "user_id": "usr_chu_nuo",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_hhigh_card",
+        "title": "检测费争议已受理",
+        "body": "银行正在审核第二笔检测费；正常应还金额与争议金额需要分开处理。",
+        "payload_json": "{\"card_id\":\"card_hhigh_01\",\"dispute_id\":\"disp_hhigh_01\",\"status\":\"under_review\"}",
+        "created_at": "2026-06-30T10:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "H14_dispute_opened",
+      "operation_index": 1
+    }
+  ]
+}

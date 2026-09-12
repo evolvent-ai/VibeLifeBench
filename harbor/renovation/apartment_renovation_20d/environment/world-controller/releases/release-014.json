@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-014",
+  "source_event_ids": [
+    "A18_schedule_pressure"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-06-19T09:25:00+08:00",
+  "previous": "release-013",
+  "token": "apartment-renovation-20d-release-014-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "values": {
+        "id": 3018,
+        "folder_id": 1,
+        "message_id": "<20260619.SCHEDULE-COMPRESS-0619@steady-renov.example>",
+        "subject": "\u65bd\u5de5\u65b9\u7533\u8bf7\u538b\u7f29\u540e\u7eed\u5de5\u671f",
+        "from_addr": "\u4e0a\u6d77\u7a33\u5bb6\u88c5\u9970 <contact@steady-renov.example.com>",
+        "to_addr_json": "[\"chen_yu@owner.example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-19T09:20:00+08:00",
+        "body_text": "\u4e3a\u6ee1\u8db3\u63d0\u524d\u5165\u4f4f\u76ee\u6807\uff0c\u65bd\u5de5\u65b9\u5efa\u8bae\u6cb9\u6f06\u4e0e\u67dc\u4f53\u5b89\u88c5\u90e8\u5206\u4ea4\u53c9\u3002\u5176\u524d\u63d0\u662f\u542b\u6c34\u7387\u3001VOC \u6750\u6599\u95f4\u9694\u548c\u6210\u54c1\u4fdd\u62a4\u6761\u4ef6\u6ee1\u8db3\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"proposal_id\":\"SCHEDULE-COMPRESS-0619\",\"status\":\"conditional\"}",
+        "uid": 3018,
+        "size": 151,
+        "created_at": "2026-06-19T09:20:00+08:00"
+      },
+      "source_event_id": "A18_schedule_pressure",
+      "operation_index": 0
+    }
+  ]
+}

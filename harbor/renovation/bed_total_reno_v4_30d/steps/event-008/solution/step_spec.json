@@ -1,0 +1,40 @@
+{
+  "step": "event-008",
+  "virtual_stage": 6,
+  "source_event_id": "bed_fx_reconciliation_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "bed_imported_hinge_charge_notice"
+    ]
+  },
+  "response": "The imported-hinge charge is separated into original-currency, CNY ledger, and pending-verification states; no dispute or repeat payment was initiated.",
+  "response_paraphrase": "The imported-hinge charge is separated into original-currency, CNY ledger, and pending-verification states; no dispute or repeat payment was initiated.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_fx_reconciliation_request"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s6_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s6_result",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

@@ -1,0 +1,1 @@
+The north-side neighbor is concerned that the separate entrance will use the access lane and that construction will be noisy. Please prepare a communication plan that explains parking and access without promising an unlawful concession.

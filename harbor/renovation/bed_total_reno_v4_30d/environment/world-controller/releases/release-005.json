@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "bed_rework_evidence_returned"
+  ],
+  "source_time": "2026-06-23 13:00:00+08:00",
+  "previous": "release-004",
+  "token": "bed_total_reno_v4_30d-release-005-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "rejected",
+        "resolved_at": "2026-06-23T13:00:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_qbed_b"
+      },
+      "source_event_id": "bed_rework_evidence_returned"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qbed_b2",
+        "user_id": "usr_du_rong",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": " millwork rework  materials renovation note supplementation ",
+        "body": " merchant renovation note“renovation note site renovation note”renovation note request renovation note photos 、renovation note and  paint finish  batch  record ； please renovation note platform renovation note supplementation ，renovation note acceptance renovation note。",
+        "payload_json": "{\"order_id\":\"ord_qbed_0001\",\"refund_id\":\"ref_qbed_b\",\"status\":\"rejected\",\"missing\":[\"wall_side_photo\",\"level_reading\",\"paint_batch\"]}",
+        "created_at": "2026-06-23T05:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "bed_rework_evidence_returned"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-028",
+  "virtual_stage": 14,
+  "event_id": "D14_handover_email",
+  "source_event_id": "D14_handover_email",
+  "response": "I verified handover gates and held retention until punch items and air-quality evidence close.",
+  "response_paraphrase": "Handover evidence was checked and retention stays reserved until remaining close-out items are resolved.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-028",
+    "HARBOR_EVENT_ID": "D14_handover_email",
+    "HARBOR_VIRTUAL_STAGE": "14",
+    "VIRTUAL_STAGE": "14",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D14_handover_email",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_handover_gates_verified_before_recommendation",
+    "chk_conditional_go_holds_final_payment",
+    "chk_budget_and_punch_list_are_durable",
+    "chk_quote_hidden_punchlist_in_EML024_caught"
+  ],
+  "expected_stage_weight": 10.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D14_handover_email",
+      "stage": 14
+    }
+  ]
+}

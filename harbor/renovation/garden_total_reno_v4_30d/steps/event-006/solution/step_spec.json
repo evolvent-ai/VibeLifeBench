@@ -1,0 +1,41 @@
+{
+  "step": "event-006",
+  "virtual_stage": 3,
+  "source_event_id": "garden_claim_observable",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "garden_ponding_claim_created"
+    ]
+  },
+  "response": "I recorded the submitted ponding claim as a localized evidence question, without extending it to unrelated garden work.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_claim_observable",
+      "virtual_stage": 3,
+      "event_kind": "world",
+      "event_time": "2026-06-17T18:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s3_args",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s3_result",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 3.5,
+  "response_paraphrase": "The ponding case is logged only for its measured local scope; it does not decide the rest of the garden project."
+}

@@ -1,0 +1,31 @@
+{
+  "step": "event-002",
+  "stage": 2,
+  "event_id": "A02_market",
+  "source_event_id": "A02_market",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 2
+    }
+  ],
+  "response_paraphrase": "The refreshed Oakview sample supports CNY 9100 per month, recorded apart from build cost.",
+  "expected_env": {
+    "virtual_stage": 2,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-001"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s02_rent_separate",
+      "weight": 1.6
+    }
+  ],
+  "expected_stage_weight": 1.6
+}

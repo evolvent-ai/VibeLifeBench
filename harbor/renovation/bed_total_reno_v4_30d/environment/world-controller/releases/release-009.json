@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "bed_duplicate_charge_dispute_opened"
+  ],
+  "source_time": "2026-06-30 10:00:00+08:00",
+  "previous": "release-008",
+  "token": "bed_total_reno_v4_30d-release-009-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "disputes",
+      "op": "insert",
+      "values": {
+        "dispute_id": "disp_qbed_01",
+        "card_id": "card_qbed_01",
+        "tx_id": "tx_qbed_dup",
+        "reason": " issuer renovation note testing renovation note imported  hinges renovation note same amount  duplicate charge ， automatic  create  preliminary investigation renovation note；renovation note cardholder  submit ",
+        "status": "under_review",
+        "opened_at": "2026-06-30T10:00:00+08:00",
+        "expected_resolution_date": "2026-07-08",
+        "resolved_at": null
+      },
+      "source_event_id": "bed_duplicate_charge_dispute_opened"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qbed_disp",
+        "user_id": "usr_du_rong",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_qbed_card",
+        "title": " issuer  automatic  create  hardware  duplicate charge  preliminary investigation ",
+        "body": "renovation note automatic  create  disp_qbed_01，renovation note tx_qbed_dup；renovation note cardholder  or renovation note submit  of  card dispute renovation note please ，renovation note payment 、 refund  or renovation note。 normal statement  still  should renovation note handle ，renovation note 7  month  8  day  update 。",
+        "payload_json": "{\"card_id\":\"card_qbed_01\",\"dispute_id\":\"disp_qbed_01\",\"status\":\"under_review\"}",
+        "created_at": "2026-06-30T02:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "bed_duplicate_charge_dispute_opened"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "step": "event-010",
+  "virtual_stage": 7,
+  "source_event_id": "bed_official_hardware_coupon_bulletin",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The contractor's visible-paint offer is compared against complete original-contractor, certified-third-party, and self-managed scopes, including schedule, net cost, indoor air, and warranty.",
+  "response_paraphrase": "The contractor's visible-paint offer is compared against complete original-contractor, certified-third-party, and self-managed scopes, including schedule, net cost, indoor air, and warranty.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_official_hardware_coupon_bulletin"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s7_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s7_result",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

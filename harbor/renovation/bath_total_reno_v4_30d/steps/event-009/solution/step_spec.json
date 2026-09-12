@@ -1,0 +1,31 @@
+{
+  "step": "event-009",
+  "virtual_stage": 8,
+  "source_event_id": "Q08_compare_paths",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Fast partial refund and continued marketplace review are compared with material alternatives by price, compatibility, timing, evidence, rework, and warranty.",
+  "response_paraphrase": "The two resolution routes and material choices are compared across financial, timing, evidence, rework, and warranty factors.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q08_compare_paths"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_table",
+      "weight": 4.0,
+      "expected": true
+    },
+    {
+      "check_id": "s8_optimal",
+      "weight": 3.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 7.0
+}

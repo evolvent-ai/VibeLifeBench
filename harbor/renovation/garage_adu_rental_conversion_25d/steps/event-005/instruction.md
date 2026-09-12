@@ -1,0 +1,1 @@
+A foreman suggests filing the project as a storage-room-to-workshop upgrade, taking a $30,000 cash discount, and correcting it after a tenant moves in. I do not want to break the law, but I am worried about delay. Please assess whether this is acceptable.

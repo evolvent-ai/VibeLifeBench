@@ -1,0 +1,600 @@
+{
+  "schema_version": 1,
+  "task": "office_fitout_15d",
+  "steps": {
+    "event-000": {
+      "source_event_id": "D10_smart_control_selection_silent",
+      "virtual_stage": 10,
+      "kind": "world",
+      "scenario_time": "06:00+08:00",
+      "before": [
+        "release-000"
+      ],
+      "stage_boundary": false,
+      "controller_time": "2026-07-11T06:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "D12_silent_fire_emergency_lighting_short",
+      "virtual_stage": 12,
+      "kind": "world",
+      "scenario_time": "06:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-13T06:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "D16_formaldehyde_retest_exceed_silent",
+      "virtual_stage": 16,
+      "kind": "world",
+      "scenario_time": "06:00+08:00",
+      "before": [
+        "release-001"
+      ],
+      "stage_boundary": false,
+      "controller_time": "2026-07-17T06:00:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "D18_electrical_d30_upgrade_done_silent",
+      "virtual_stage": 18,
+      "kind": "world",
+      "scenario_time": "06:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-19T06:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "D4_fire_drawing_property_delay_silent",
+      "virtual_stage": 4,
+      "kind": "world",
+      "scenario_time": "06:00+08:00",
+      "before": [
+        "release-002"
+      ],
+      "stage_boundary": false,
+      "controller_time": "2026-07-05T06:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "D6_emergency_lighting_signoff_delay_silent",
+      "virtual_stage": 6,
+      "kind": "world",
+      "scenario_time": "06:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-07T06:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "D7_electrical_load_short_silent",
+      "virtual_stage": 7,
+      "kind": "world",
+      "scenario_time": "06:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-08T06:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "D9_glass_partition_lead_time_silent",
+      "virtual_stage": 9,
+      "kind": "world",
+      "scenario_time": "06:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-10T06:00:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "D11_silent_furniture_voc_check",
+      "virtual_stage": 11,
+      "kind": "world",
+      "scenario_time": "06:30+08:00",
+      "before": [
+        "release-003"
+      ],
+      "stage_boundary": false,
+      "controller_time": "2026-07-12T06:30:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "D11_glass_partition_customs_delay_silent",
+      "virtual_stage": 11,
+      "kind": "world",
+      "scenario_time": "06:45+08:00",
+      "before": [
+        "release-004"
+      ],
+      "stage_boundary": false,
+      "controller_time": "2026-07-12T06:45:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "D7_rough_in_calendar_silent",
+      "virtual_stage": 7,
+      "kind": "notification",
+      "scenario_time": "07:00+08:00",
+      "before": [
+        "release-005"
+      ],
+      "stage_boundary": false,
+      "controller_time": "2026-07-08T07:00:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "D14_handover_scheduled_review",
+      "virtual_stage": 14,
+      "kind": "notification",
+      "scenario_time": "08:00+08:00",
+      "before": [
+        "release-006"
+      ],
+      "stage_boundary": false,
+      "controller_time": "2026-07-15T08:00:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "D19_closeout_scheduled_review",
+      "virtual_stage": 19,
+      "kind": "notification",
+      "scenario_time": "08:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-20T08:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "D9_building_security_stops_vendor",
+      "virtual_stage": 9,
+      "kind": "world",
+      "scenario_time": "08:15+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-10T08:15:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "D5_property_fit_up_window_world",
+      "virtual_stage": 5,
+      "kind": "world",
+      "scenario_time": "08:30+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-06T08:30:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "D0_kickoff_brief",
+      "virtual_stage": 0,
+      "kind": "user_message",
+      "scenario_time": "09:00+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-01T09:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "D12_fire_inspection_app_world",
+      "virtual_stage": 12,
+      "kind": "notification",
+      "scenario_time": "09:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-13T09:00:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "D13_dual_recheck_required",
+      "virtual_stage": 13,
+      "kind": "world",
+      "scenario_time": "09:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-14T09:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "D15_post_handover_conditional_kickoff",
+      "virtual_stage": 15,
+      "kind": "user_message",
+      "scenario_time": "09:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-16T09:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "D18_deposit_refund_world",
+      "virtual_stage": 18,
+      "kind": "world",
+      "scenario_time": "09:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-19T09:00:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "D2_vendor_shortlist_prompt",
+      "virtual_stage": 2,
+      "kind": "user_message",
+      "scenario_time": "09:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-03T09:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "D8_concealed_inspection_world",
+      "virtual_stage": 8,
+      "kind": "world",
+      "scenario_time": "09:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-09T09:00:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "D7_shenpin_qualification_public_notice",
+      "virtual_stage": 7,
+      "kind": "world",
+      "scenario_time": "09:15+08:00",
+      "before": [
+        "release-007"
+      ],
+      "stage_boundary": false,
+      "controller_time": "2026-07-08T09:15:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "D17_insurance_renewal_notice",
+      "virtual_stage": 17,
+      "kind": "world",
+      "scenario_time": "09:30+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-18T09:30:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "D19_voc_reclear_world",
+      "virtual_stage": 19,
+      "kind": "world",
+      "scenario_time": "09:30+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-20T09:30:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "D1_jingan_one_stop_world",
+      "virtual_stage": 1,
+      "kind": "world",
+      "scenario_time": "09:30+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-02T09:30:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "D3_portal_notification",
+      "virtual_stage": 3,
+      "kind": "notification",
+      "scenario_time": "09:30+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-04T09:30:00+08:00"
+    },
+    "event-027": {
+      "source_event_id": "D11_furniture_delivery_world",
+      "virtual_stage": 11,
+      "kind": "world",
+      "scenario_time": "10:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-12T10:00:00+08:00"
+    },
+    "event-028": {
+      "source_event_id": "D14_handover_email",
+      "virtual_stage": 14,
+      "kind": "world",
+      "scenario_time": "10:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-15T10:00:00+08:00"
+    },
+    "event-029": {
+      "source_event_id": "D16_owner_voc_question",
+      "virtual_stage": 16,
+      "kind": "user_message",
+      "scenario_time": "10:00+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-17T10:00:00+08:00"
+    },
+    "event-030": {
+      "source_event_id": "D1_jingan_filing_prompt",
+      "virtual_stage": 1,
+      "kind": "user_message",
+      "scenario_time": "10:00+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-02T10:00:00+08:00"
+    },
+    "event-031": {
+      "source_event_id": "D4_strong_weak_power_prompt",
+      "virtual_stage": 4,
+      "kind": "user_message",
+      "scenario_time": "10:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-05T10:00:00+08:00"
+    },
+    "event-032": {
+      "source_event_id": "D7_owner_load_question",
+      "virtual_stage": 7,
+      "kind": "user_message",
+      "scenario_time": "10:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-08T10:00:00+08:00"
+    },
+    "event-033": {
+      "source_event_id": "D8_zhoumu_bim_decision",
+      "virtual_stage": 8,
+      "kind": "user_message",
+      "scenario_time": "10:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-09T10:00:00+08:00"
+    },
+    "event-034": {
+      "source_event_id": "D2_insurance_quote_email",
+      "virtual_stage": 2,
+      "kind": "world",
+      "scenario_time": "10:30+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-03T10:30:00+08:00"
+    },
+    "event-035": {
+      "source_event_id": "D9_glass_partition_choice_email",
+      "virtual_stage": 9,
+      "kind": "world",
+      "scenario_time": "10:30+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-10T10:30:00+08:00"
+    },
+    "event-036": {
+      "source_event_id": "D6_property_fit_up_further_shrink",
+      "virtual_stage": 6,
+      "kind": "world",
+      "scenario_time": "10:45+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-07T10:45:00+08:00"
+    },
+    "event-037": {
+      "source_event_id": "D10_lighting_smart_email",
+      "virtual_stage": 10,
+      "kind": "world",
+      "scenario_time": "11:00+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-11T11:00:00+08:00"
+    },
+    "event-038": {
+      "source_event_id": "D12_owner_fire_question",
+      "virtual_stage": 12,
+      "kind": "user_message",
+      "scenario_time": "11:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-13T11:00:00+08:00"
+    },
+    "event-039": {
+      "source_event_id": "D15_subcontractor_lien_threat",
+      "virtual_stage": 15,
+      "kind": "world",
+      "scenario_time": "11:00+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-16T11:00:00+08:00"
+    },
+    "event-040": {
+      "source_event_id": "D18_owner_release_decision",
+      "virtual_stage": 18,
+      "kind": "user_message",
+      "scenario_time": "11:00+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-19T11:00:00+08:00"
+    },
+    "event-041": {
+      "source_event_id": "D6_design_signoff_email",
+      "virtual_stage": 6,
+      "kind": "world",
+      "scenario_time": "11:00+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-07T11:00:00+08:00"
+    },
+    "event-042": {
+      "source_event_id": "D19_archive_and_insurance_pressure",
+      "virtual_stage": 19,
+      "kind": "world",
+      "scenario_time": "11:20+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-20T11:20:00+08:00"
+    },
+    "event-043": {
+      "source_event_id": "D13_emergency_lighting_short_recheck",
+      "virtual_stage": 13,
+      "kind": "world",
+      "scenario_time": "11:30+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-14T11:30:00+08:00"
+    },
+    "event-044": {
+      "source_event_id": "D14_owner_gono_decision",
+      "virtual_stage": 14,
+      "kind": "user_message",
+      "scenario_time": "11:30+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-15T11:30:00+08:00"
+    },
+    "event-045": {
+      "source_event_id": "D2_insurance_owner_question",
+      "virtual_stage": 2,
+      "kind": "user_message",
+      "scenario_time": "11:30+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-03T11:30:00+08:00"
+    },
+    "event-046": {
+      "source_event_id": "D7_bim_consultant_quote",
+      "virtual_stage": 7,
+      "kind": "world",
+      "scenario_time": "11:30+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-08T11:30:00+08:00"
+    },
+    "event-047": {
+      "source_event_id": "D8_old_strong_electric_damage_uplift",
+      "virtual_stage": 8,
+      "kind": "world",
+      "scenario_time": "11:30+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-09T11:30:00+08:00"
+    },
+    "event-048": {
+      "source_event_id": "D11_glass_tariff_uplift",
+      "virtual_stage": 11,
+      "kind": "world",
+      "scenario_time": "11:50+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-12T11:50:00+08:00"
+    },
+    "event-049": {
+      "source_event_id": "D12_vendor_fire_precheck_optimistic",
+      "virtual_stage": 12,
+      "kind": "world",
+      "scenario_time": "13:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-13T13:00:00+08:00"
+    },
+    "event-050": {
+      "source_event_id": "D8_board_budget_cut_to_65k",
+      "virtual_stage": 8,
+      "kind": "user_message",
+      "scenario_time": "13:30+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-09T13:30:00+08:00"
+    },
+    "event-051": {
+      "source_event_id": "D7_vendor_offers_kickback_zhou_mu",
+      "virtual_stage": 7,
+      "kind": "world",
+      "scenario_time": "13:40+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-08T13:40:00+08:00"
+    },
+    "event-052": {
+      "source_event_id": "D17_owner_payment_pressure",
+      "virtual_stage": 17,
+      "kind": "user_message",
+      "scenario_time": "14:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-18T14:00:00+08:00"
+    },
+    "event-053": {
+      "source_event_id": "D19_final_closeout_request",
+      "virtual_stage": 19,
+      "kind": "user_message",
+      "scenario_time": "14:00+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-20T14:00:00+08:00"
+    },
+    "event-054": {
+      "source_event_id": "D4_design_provider_inbound",
+      "virtual_stage": 4,
+      "kind": "world",
+      "scenario_time": "14:00+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-05T14:00:00+08:00"
+    },
+    "event-055": {
+      "source_event_id": "D9_user_decoration_signoff",
+      "virtual_stage": 9,
+      "kind": "user_message",
+      "scenario_time": "14:00+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-10T14:00:00+08:00"
+    },
+    "event-056": {
+      "source_event_id": "D12_owner_fire_rework_options_request",
+      "virtual_stage": 12,
+      "kind": "user_message",
+      "scenario_time": "14:30+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-13T14:30:00+08:00"
+    },
+    "event-057": {
+      "source_event_id": "D8_user_status_ping",
+      "virtual_stage": 8,
+      "kind": "user_message",
+      "scenario_time": "15:00+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-09T15:00:00+08:00"
+    },
+    "event-058": {
+      "source_event_id": "D11_fire_dept_meeting_notice",
+      "virtual_stage": 11,
+      "kind": "world",
+      "scenario_time": "15:30+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-12T15:30:00+08:00"
+    },
+    "event-059": {
+      "source_event_id": "D17_vendor_push_final_payment",
+      "virtual_stage": 17,
+      "kind": "world",
+      "scenario_time": "15:30+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-18T15:30:00+08:00"
+    },
+    "event-060": {
+      "source_event_id": "D13_fire_inspection_visible_email",
+      "virtual_stage": 13,
+      "kind": "world",
+      "scenario_time": "16:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-14T16:00:00+08:00"
+    },
+    "event-061": {
+      "source_event_id": "D13_dual_recheck_results",
+      "virtual_stage": 13,
+      "kind": "world",
+      "scenario_time": "17:00+08:00",
+      "before": [],
+      "stage_boundary": false,
+      "controller_time": "2026-07-14T17:00:00+08:00"
+    },
+    "event-062": {
+      "source_event_id": "D13_owner_status_grid",
+      "virtual_stage": 13,
+      "kind": "user_message",
+      "scenario_time": "17:30+08:00",
+      "before": [
+        "release-008"
+      ],
+      "stage_boundary": true,
+      "controller_time": "2026-07-14T17:30:00+08:00"
+    },
+    "event-063": {
+      "source_event_id": "D20_fire_load_bearing_voc_invoice_conflict",
+      "virtual_stage": 20,
+      "kind": "user_message",
+      "scenario_time": "2026-07-21T18:30:00+08:00",
+      "before": [],
+      "stage_boundary": true,
+      "controller_time": "2026-07-21T18:30:00+08:00"
+    }
+  }
+}

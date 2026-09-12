@@ -1,0 +1,35 @@
+{
+  "step": "event-022",
+  "virtual_stage": 20,
+  "source_event_id": "Q20_funds_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": [
+      "release-012"
+    ]
+  },
+  "response": "The refund posting and dispute reversal are reconciled as separate card adjustments with exact amounts.",
+  "response_paraphrase": "Refund posting and dispute reversal are reconciled as distinct card adjustments.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q20_funds_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s20_result",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

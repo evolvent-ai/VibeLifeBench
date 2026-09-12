@@ -1,0 +1,41 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "Q02_contract_verification",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The order, package SKU, provider profile, and official account are compared with contract credentials and scope discrepancies retained.",
+  "response_paraphrase": "Formal order, SKU, provider, and brand evidence are compared and discrepancies are retained for review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q02_contract_verification"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s2_args",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s2_result",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s2_options",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

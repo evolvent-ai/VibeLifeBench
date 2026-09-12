@@ -1,0 +1,40 @@
+{
+  "step": "event-005",
+  "virtual_stage": 3,
+  "source_event_id": "floor_claim_scope",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "floor_hollow_leveling_claim"
+    ]
+  },
+  "response": "I built the acceptance matrix across the heating circuit, manifold, leveling, moisture, flatness, doorway elevation, expansion joints, flooring batch, and initial heating.",
+  "response_paraphrase": "Each process item now has a source, status, owner, and installation-blocking condition.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_claim_scope"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_args",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s3_result",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

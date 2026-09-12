@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "H09_evidence_returned"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-06-23 13:00:00+08:00",
+  "previous": "release-003",
+  "token": "highrise-release-004-token-9f6a4c2d8e1b7a3c5d9e",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "rejected",
+        "resolved_at": "2026-06-23T13:00:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_hhigh_b"
+      },
+      "source_event_id": "H09_evidence_returned",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_hhigh_b2",
+        "user_id": "usr_chu_nuo",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "缺陷材料退回补正",
+        "body": "外窗证据缺少房号全景、降雨时间和连续视频；请在 6 月 27 日前补充，不要改写原始拍摄时间。",
+        "payload_json": "{\"order_id\":\"ord_hhigh_0001\",\"refund_id\":\"ref_hhigh_b\",\"status\":\"need_weather_evidence\"}",
+        "created_at": "2026-06-23T13:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "H09_evidence_returned",
+      "operation_index": 1
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-035",
+  "virtual_stage": 9,
+  "event_id": "D9_glass_partition_choice_email",
+  "source_event_id": "D9_glass_partition_choice_email",
+  "response": "I reconciled partition lead time, badges, material stock and the delivery schedule.",
+  "response_paraphrase": "Partition timing, access badges, stock evidence and delivery sequencing were reconciled.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-035",
+    "HARBOR_EVENT_ID": "D9_glass_partition_choice_email",
+    "HARBOR_VIRTUAL_STAGE": "9",
+    "VIRTUAL_STAGE": "9",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D9_glass_partition_choice_email",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_evidence_d5_quote_compared_3plus_vendors",
+    "chk_evidence_d10_budget_split_3columns",
+    "chk_evidence_d15_risk_register_5_risks_with_mitigation",
+    "chk_evidence_visa_polled_3plus_times_pre_demolition",
+    "chk_evidence_calendar_repolled_after_event_move",
+    "chk_evidence_owner_decision_quantified_with_data",
+    "chk_evidence_email_targeted_with_specific_id_refs",
+    "chk_evidence_badge_compliance_planned",
+    "chk_material_cabinet_lead_time_fits_deadline",
+    "chk_material_tile_backorder_acknowledged",
+    "chk_material_delivery_calendar_event_exists",
+    "chk_material_stock_polled_after_mutation"
+  ],
+  "expected_stage_weight": 35.3,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D9_glass_partition_choice_email",
+      "stage": 9
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "R06_fx_notice"
+  ],
+  "source_time": "2026-06-20T11:00:00+08:00",
+  "previous": "release-000",
+  "token": "bathroom-reno-30d-release-001-release-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "R06_fx_notice",
+      "values": {
+        "notification_id": "ntf_r2bth_fx",
+        "user_id": "usr_gan_mei",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_r2bth_card",
+        "title": "Project-service transaction status update",
+        "body": "A project-archive service transaction appears on the card; cross-check the merchant and amount against the order, email, and card statement.",
+        "payload_json": "{\"card_id\":\"card_r2bth_01\",\"tx_id\":\"tx_r2bth_fx\"}",
+        "created_at": "2026-06-20T11:01:00+08:00",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 6
+}

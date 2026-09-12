@@ -1,0 +1,39 @@
+from typing import Optional
+
+from mcp.server.fastmcp import FastMCP
+
+from ..services.tracking_service import TrackingService
+from ._common import dumps, handle_errors
+
+
+def register_tracking_tools(MCP: FastMCP, tracking: TrackingService) -> None:
+
+    @MCP.tool()
+    @handle_errors
+    async def track_package(tracking_no: str) -> str:
+        """Look up the live status, ETA, and full event timeline for a tracking number.
+
+        Returns the carrier, current status (label_created / picked_up / in_transit /
+        out_for_delivery / delivered / exception / returned / cancelled), the most recent
+        scan event, origin and destination cities, the current ETA date, and the ordered
+        list of all scan events.
+        """
+        return dumps(tracking.track_package(tracking_no))
+
+    @MCP.tool()
+    @handle_errors
+    async def list_shipments(
+        user_id: str,
+        status_filter: Optional[str] = None,
+        limit: int = 20,
+        page: int = 1,
+    ) -> str:
+        """List a user's shipments, newest first.
+
+        Optional ``status_filter`` narrows by a single status code. ``limit`` is the page
+        size (default 20); ``page`` (>=1) selects which page. Returns an envelope
+        {items, total, page, page_size, has_more}; pass page=2,3,... while has_more is
+        true to read the full result set. Each item is a compact summary; call
+        get_shipment for full detail.
+        """
+        return dumps(tracking.list_shipments(user_id, status_filter, limit, page))

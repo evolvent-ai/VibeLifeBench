@@ -1,0 +1,57 @@
+-- Generated notification_hub seed for bathroom_reno_30d
+BEGIN;
+INSERT INTO official_accounts (account_id, name, category, description) VALUES ('oa_r2bth_customs', 'Customs cross-border reminder', 'logistics', 'Cross-border delivery, declaration of personal items, and allowance policy notice');
+INSERT INTO official_account_subscriptions (user_id, account_id, subscribed_at) VALUES ('usr_gan_mei', 'oa_r2bth_customs', '2026-06-06T00:00:00Z');
+INSERT INTO official_accounts (account_id, name, category, description) VALUES ('oa_r2bth_brand', 'Official home-renovation inspection service', 'shopping_service', 'Official warranty/qualifications and overseas after-sales service information');
+INSERT INTO official_account_subscriptions (user_id, account_id, subscribed_at) VALUES ('usr_gan_mei', 'oa_r2bth_brand', '2026-06-06T00:00:00Z');
+INSERT INTO official_accounts (account_id, name, category, description) VALUES ('oa_r2bth_card', 'China Merchants Bank credit card', 'finance', 'Billing, foreign-currency transactions, and card-security reminders');
+INSERT INTO official_account_subscriptions (user_id, account_id, subscribed_at) VALUES ('usr_gan_mei', 'oa_r2bth_card', '2026-06-06T00:00:00Z');
+INSERT INTO official_account_posts (post_id, account_id, title, summary, url, published_at) VALUES ('post_delivery_liquid_materials', 'oa_r2bth_customs', 'Guidelines for personal shipment, transport, and declaration of lithium batteries', 'Air transport of lithium-battery items is subject to rated energy (Wh) limits; items exceeding the specification cannot be transported by air. The declared product name and value must be completed truthfully.', 'https://customs.example/li-battery-notice', '2026-06-08');
+INSERT INTO official_account_posts (post_id, account_id, title, summary, url, published_at) VALUES ('post_contract_scope_shanghai', 'oa_r2bth_brand', 'Official warranty/qualifications and overseas after-sales service information', 'Before making the commencement payment, use the product/SKU details to verify the contractor''s qualifications, contract, and contract verification code; stage acceptance and concealed work require complete evidence retention and deadline management.', 'https://brand.example/notice', '2026-06-08');
+INSERT INTO official_account_posts (post_id, account_id, title, summary, url, published_at) VALUES ('post_card_project_charges', 'oa_r2bth_card', 'Card-security tips for overseas and foreign-currency transactions', 'Foreign-currency transactions may post with exchange-rate and timing differences; if you find a duplicate charge or an unfamiliar merchant, verify it promptly and you may initiate a dispute.', 'https://card.example/fx-safety', '2026-06-08');
+INSERT INTO official_account_posts (post_id, account_id, title, summary, url, published_at) VALUES ('post_settlement_rights_basics', 'oa_r2bth_brand', 'Settlement and continued evidence collection in the quality dispute', 'When receiving a settlement proposal, separately verify the amount, case-closure terms, warranty responsibility, and right to continue submitting evidence; the specific proposal is subject to the current work order, contract, and platform page.', 'https://brand.example/settlement-rights', '2026-06-08');
+INSERT INTO subscriptions (subscription_id, user_id, source, type, target, condition_json, status, created_at, updated_at) VALUES ('sub_r2bth_log', 'usr_gan_mei', 'delivery_logistics', 'keyword', 'YTO2BTH5520002CN', '{"keywords":["Transshipment","Shipment","Declaration","Compliant"],"order_id":"ord_r2bth_0002"}', 'active', '2026-06-15T09:00:00Z', '2026-06-15T09:00:00Z');
+INSERT INTO subscriptions (subscription_id, user_id, source, type, target, condition_json, status, created_at, updated_at) VALUES ('sub_r2bth_card', 'usr_gan_mei', 'credit_card', 'keyword', 'card_r2bth_01', '{"keywords":["Foreign currency","Duplicate charge","Dispute"]}', 'active', '2026-06-15T00:00:00Z', '2026-06-15T00:00:00Z');
+INSERT INTO price_alerts (alert_id, user_id, item_ref, target_price_minor, currency, status, created_at) VALUES ('alr_r2bth_1', 'usr_gan_mei', 'prod_r2bth_main', 1980000, 'CNY', 'active', '2026-06-15T00:00:00Z');
+INSERT INTO notifications (notification_id, user_id, source, type, subscription_id, title, body, payload_json, created_at, read) VALUES ('DLV-260615-M4Q8-1205', 'usr_gan_mei', 'delivery_logistics', 'policy_update', 'sub_r2bth_log', 'Acceptance reminder: retain evidence for stage acceptance', 'After stage acceptance of your bathroom waterproofing renovation supervision package, promptly retain copies and keep the construction receipts.', '{"order_id":"ord_r2bth_0002","tracking_no":"YTO2BTH5520002CN"}', '2026-06-15T12:05:00Z', 0);
+INSERT INTO notifications (notification_id, user_id, source, type, subscription_id, title, body, payload_json, created_at, read) VALUES ('CMB-2P7V-2606151135', 'usr_gan_mei', 'credit_card', 'policy_update', 'sub_r2bth_card', 'Foreign-currency transaction posting reminder', 'A new foreign-currency transaction has appeared on your card; posting may involve exchange-rate and timing differences. Watch for subsequent reconciliation.', '{"card_id":"card_r2bth_01","tx_id":"tx_r2bth_fx"}', '2026-06-15T11:35:00Z', 0);
+INSERT INTO _counters (key,value) VALUES ('subscription_seq',2),('alert_seq',1);
+
+-- HANDBOOK_REMEDIATION_V113_notification_hub
+INSERT OR IGNORE INTO official_account_posts VALUES
+ ('post_concealed_evidence','oa_r2bth_brand','Concealed work acceptance evidence checklist','Plumbing, conduits, equipotential bonding, and waterproofing upturns must be documented before enclosure.','https://brand.example/r2bth/evidence','2026-06-10'),
+ ('post_change_order_trace','oa_r2bth_brand','Contract verification and change-order confirmation','The contracting entity, qualifications, scope, and additions must be traceable.','https://brand.example/r2bth/contract','2026-06-11'),
+ ('post_refund_reversal_ledger','oa_r2bth_card','Accounting for project refunds and dispute reversals','Refunds, dispute reversals, and regular repayments must be checked separately.','https://card.example/r2bth/refund','2026-06-12'),
+ ('post_liquid_packaging','oa_r2bth_customs','Transport reminder for liquid building materials','Waterproof coatings must be transported sealed and upright, with the batch label retained.','https://logistics.example/r2bth/liquid','2026-06-13');
+INSERT OR IGNORE INTO notifications VALUES
+ ('CAL-6H3R-0614-0800','usr_gan_mei','calendar','policy_update',NULL,'Flood-test appointment awaiting confirmation','The property management, downstairs residents, and contractor have not yet all confirmed a time.','{"event_id":"evt_flood_joint_t2c6"}','2026-06-14T08:00:00+08:00',0),
+ ('MAIL-260614-V8N5','usr_gan_mei','email','new_content',NULL,'Contract verification email unread','The official verification result has arrived in the inbox.','{"message_id":"<contract-check-4251g@brand.example>"}','2026-06-14T08:10:00+08:00',0),
+ ('DLV-C9T2-2606140820','usr_gan_mei','delivery_logistics','policy_update','sub_r2bth_log','Material truck waiting at the property-management window','The elevator protection registration for the first material truck is blank.','{"tracking_no":"CPE2606147M3Q"}','2026-06-14T08:20:00+08:00',0),
+ ('EC-260614-4W7K','usr_gan_mei','ecommerce','price_drop',NULL,'Waterproof-coating price change','The target batch price is reduced by 3%, and inventory is sufficient.','{"sku_id":"sku_r2bth_membrane"}','2026-06-14T08:30:00+08:00',1),
+ ('CAL-8M5Q-0614-0840','usr_gan_mei','calendar','policy_update',NULL,'Reinspection time slot reserved','The June 25 reinspection time slot is pending final confirmation.','{"event_id":"evt_inspection_hold_5r7w"}','2026-06-14T08:40:00+08:00',0),
+ ('CMB-260614-X3P9','usr_gan_mei','credit_card','policy_update','sub_r2bth_card','Reminder for construction-payment statement','Please reconcile the categories for project payments and material payments.','{"card_id":"card_r2bth_01"}','2026-06-14T08:50:00+08:00',1),
+ ('LST-260614-7R2D','usr_gan_mei','listing_platform','new_content',NULL,'New availability for third-party remediation services','The licensed waterproofing service has two business-day slots available.','{"listing_id":"svc_thirdparty_shwp3371"}','2026-06-14T09:00:00+08:00',0),
+ ('MAIL-N6C4-2606140910','usr_gan_mei','email','new_content',NULL,'Warranty retention conditions email unread','Finance email explaining the 5% warranty retention conditions.','{"message_id":"<retention-5pct@sealpro.example>"}','2026-06-14T09:10:00+08:00',0),
+ ('DLV-B8K5-2606140920','usr_gan_mei','delivery_logistics','policy_update','sub_r2bth_log','Tiles not yet scheduled for delivery','The supplier still has not confirmed the delivery vehicle.','{"tracking_no":"CPE2606149R5N"}','2026-06-14T09:20:00+08:00',0),
+ ('CAL-3T9F-0614-0930','usr_gan_mei','calendar','policy_update',NULL,'Settlement archiving schedule created','Reserve July 14 for project settlement filing.','{"event_id":"evt_closeout_pack_z7k4"}','2026-06-14T09:30:00+08:00',1);
+
+COMMIT;
+
+-- REMEDIATION_20260730_RENOVATION_NOTIFICATION_CONTEXT
+BEGIN;
+UPDATE subscriptions
+SET condition_json='{"keywords":["Delivery","Arrival of Goods","Batch","Damaged"],"order_id":"ord_r2bth_0002"}'
+WHERE subscription_id='sub_r2bth_log';
+UPDATE subscriptions
+SET condition_json='{"keywords":["Project payment","Duplicate charge","Dispute","Charge-Off"]}'
+WHERE subscription_id='sub_r2bth_card';
+UPDATE notifications
+SET title='Project-service transaction pending verification', body='A project-archive service transaction appears on the card; cross-check the merchant and amount against the order, email, and card statement.', payload_json='{"card_id":"card_r2bth_01","tx_id":"tx_r2bth_fx"}'
+WHERE notification_id='CMB-2P7V-2606151135';
+UPDATE official_accounts SET name='Shanghai building-material delivery reminder', category='logistics', description='Local delivery, packaging, material batches, and on-site receipt reminders for renovation materials' WHERE account_id='oa_r2bth_customs';
+UPDATE official_accounts SET description='Verification guide for construction contracts, qualifications, regional services, and warranties' WHERE account_id='oa_r2bth_brand';
+UPDATE official_accounts SET description='Project-payment bills, duplicate charges, refunds, and payment-card security reminders' WHERE account_id='oa_r2bth_card';
+UPDATE official_account_posts SET title='Guidelines for wet-area building-material delivery and batch acceptance', summary='Waterproofing coatings and older-adult accessibility materials must retain intact packaging and be transported separately; upon receipt, verify batch, quantity, damage, and storage conditions.' WHERE post_id='post_delivery_liquid_materials';
+UPDATE official_account_posts SET title='Official warranty, qualifications, and regional service information', summary='Before the commencement payment, verify the contractor''s qualifications, contracting entity, contract verification code, and Shanghai service coverage; the grab-bar substrate and concealed work require complete evidence retention.' WHERE post_id='post_contract_scope_shanghai';
+UPDATE official_account_posts SET title='Project-payment and card-security tips', summary='Engineering payments, additions, refunds, and dispute reversals must be checked separately; if the same merchant and amount are posted twice, retain order and card-statement evidence.' WHERE post_id='post_card_project_charges';
+COMMIT;

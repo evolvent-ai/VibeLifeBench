@@ -1,0 +1,1 @@
+Now that the handover compensation has posted, read the unbilled transactions and complete the reconciliation. Record received compensation, the inspection-fee reversal, the normal inspection cost, and outstanding rectification items in separate columns. Do not offset one business obligation against another.

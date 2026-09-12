@@ -1,0 +1,26 @@
+{
+  "step": "event-019",
+  "virtual_stage": 13,
+  "source_event_id": "floor_measurement_owner_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I recorded the approved 25630 CNY claim as localized leveling rework plus delay compensation, with card posting still pending.",
+  "response_paraphrase": "The platform award is documented with its measurement scope and remains an approval rather than received cash.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_measurement_owner_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_budget",
+      "weight": 3.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

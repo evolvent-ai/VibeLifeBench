@@ -1,0 +1,31 @@
+{
+  "step": "event-027",
+  "virtual_stage": 23,
+  "source_event_id": "bed_archive_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The archive separates resolved, in-progress, user-confirmation, pending-funds, and prohibited actions across all three threads, with a backend-reconciled budget and reusable evidence checklist.",
+  "response_paraphrase": "The archive separates resolved, in-progress, user-confirmation, pending-funds, and prohibited actions across all three threads, with a backend-reconciled budget and reusable evidence checklist.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_archive_request"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_structured",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s23_threads",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

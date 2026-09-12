@@ -1,0 +1,41 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "garden_rain_ready_kickoff",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I established separate ledgers for the two orders and the surplus-material listing, with payment and acceptance boundaries preserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_rain_ready_kickoff",
+      "virtual_stage": 0,
+      "event_kind": "user_message",
+      "event_time": "2026-06-15T07:50:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s0_args",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s0_result",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s0_files",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 3.5,
+  "response_paraphrase": "Separate tracking is now in place for both orders and the materials listing, while commitments remain reserved for the owner."
+}

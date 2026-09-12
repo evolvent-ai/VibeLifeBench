@@ -1,0 +1,41 @@
+{
+  "step": "event-015",
+  "virtual_stage": 9,
+  "source_event_id": "garden_pending_not_decided",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "garden_claim_returned_for_survey"
+    ]
+  },
+  "response": "I preserved the rejected claim as awaiting benchmark, grading, connection, and rain-observation supplements.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_pending_not_decided",
+      "virtual_stage": 9,
+      "event_kind": "world",
+      "event_time": "2026-06-23T10:45:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s9_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s9_result",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 3.5,
+  "response_paraphrase": "The returned case remains a request for survey and rainfall support rather than a completed decision."
+}

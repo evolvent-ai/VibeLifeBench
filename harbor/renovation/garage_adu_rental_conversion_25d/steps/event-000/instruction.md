@@ -1,0 +1,1 @@
+I want to convert my detached rear garage into a rentable accessory dwelling unit. My maximum budget is $240,000. It should have insulation, natural light, a bathroom, a small kitchen, and a separate entrance, with a target of being ready to rent in the fall. Please first research zoning, permits, parking and access, budget, and the overall process.

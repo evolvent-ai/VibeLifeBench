@@ -1,0 +1,1 @@
+Rain is expected over the weekend. Please confirm how to inspect the exterior windows, perform the floor-drain standing-water test, inspect the entrance door, and check the shared-elevator protection. Identify which locations require the developer to be present and which can be documented through read-only observation first.

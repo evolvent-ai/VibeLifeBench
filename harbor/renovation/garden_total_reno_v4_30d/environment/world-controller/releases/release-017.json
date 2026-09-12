@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-017",
+  "source_event_ids": [
+    "garden_photo_sequence_notice_release"
+  ],
+  "source_time": "2026-07-13T07:50:00+08:00",
+  "previous": "release-016",
+  "token": "garden-total-reno-v4-30d-release-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "garden_photo_sequence_notice_release",
+      "values": {
+        "notification_id": "ntf_qgrd_photo_sequence",
+        "user_id": "usr_yong_wei",
+        "source": "weather",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Rain-test photo sequence integrity reminder",
+        "body": "The four sets of attachments for benchmark elevation, equivalent hose test, actual-rain observation, and corrective-work retesting must retain their original timestamps and locations.",
+        "payload_json": "{\"groups\":[\"baseline\",\"hose_test\",\"rain\",\"retest\"]}",
+        "created_at": "2026-07-12T23:49:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 22
+}

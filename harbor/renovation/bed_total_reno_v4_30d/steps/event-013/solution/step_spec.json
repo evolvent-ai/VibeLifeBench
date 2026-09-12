@@ -1,0 +1,46 @@
+{
+  "step": "event-013",
+  "virtual_stage": 10,
+  "source_event_id": "bed_duplicate_charge_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "bed_duplicate_hinge_charge",
+      "bed_duplicate_charge_card_summary_refreshed"
+    ]
+  },
+  "response": "The same-merchant, same-amount hinge charge is documented as a suspected duplicate pending verification, with no refund, reversal, or user-authorized dispute assumed.",
+  "response_paraphrase": "The same-merchant, same-amount hinge charge is documented as a suspected duplicate pending verification, with no refund, reversal, or user-authorized dispute assumed.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_duplicate_charge_request"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_result",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s10_no_bad",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

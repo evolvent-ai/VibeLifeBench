@@ -1,0 +1,37 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-050",
+  "virtual_stage": 8,
+  "event_id": "D8_board_budget_cut_to_65k",
+  "source_event_id": "D8_board_budget_cut_to_65k",
+  "response": "I recorded the concealed-work corrections and quantified the BIM and budget options for the owner.",
+  "response_paraphrase": "Concealed-work corrections and quantified design and budget choices were recorded for the owner decision.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-050",
+    "HARBOR_EVENT_ID": "D8_board_budget_cut_to_65k",
+    "HARBOR_VIRTUAL_STAGE": "8",
+    "VIRTUAL_STAGE": "8",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D8_board_budget_cut_to_65k",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_comm_contractor_specific_quote_clarification",
+    "chk_comm_property_filing_email_to_property_only",
+    "chk_comm_owner_decision_request_logged",
+    "chk_comm_inspector_dates_confirmed",
+    "chk_active_weather_check_before_waterproofing",
+    "chk_quote_water_electrical_overage_acknowledged",
+    "chk_quote_change_order_handled"
+  ],
+  "expected_stage_weight": 12.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D8_board_budget_cut_to_65k",
+      "stage": 8
+    }
+  ]
+}

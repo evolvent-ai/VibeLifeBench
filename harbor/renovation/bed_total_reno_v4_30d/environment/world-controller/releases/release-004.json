@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "bed_contractor_partial_offer"
+  ],
+  "source_time": "2026-06-21 15:00:00+08:00",
+  "previous": "release-003",
+  "token": "bed_total_reno_v4_30d-release-004-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qbed_cp",
+        "user_id": "usr_du_rong",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": " millwork  construction renovation note and renovation note compensation ",
+        "body": " construction renovation note only  handle renovation note pinholes renovation note payment renovation note compensation ，renovation note not renovation note wall-side edge sealing  with  drawer leveling ； accept renovation note follow-up  platform  verification  scope 。",
+        "payload_json": "{\"order_id\":\"ord_qbed_0001\",\"offer\":\"visible_finish_only\",\"scope_gap\":[\"wall_side_edge\",\"drawer_level\"]}",
+        "created_at": "2026-06-21T07:00:00Z",
+        "read": 0
+      },
+      "source_event_id": "bed_contractor_partial_offer"
+    }
+  ]
+}

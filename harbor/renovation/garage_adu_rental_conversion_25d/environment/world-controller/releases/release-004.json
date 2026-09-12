@@ -1,0 +1,38 @@
+{
+  "release_id": "release-004",
+  "before_step": "event-006",
+  "previous": "release-003",
+  "token": "garage-adu-rental-conversion-25d-release-004-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "A06_zoning_mut",
+      "server": "legal_search",
+      "table": "statute_articles",
+      "op": "update",
+      "set": {
+        "text": "Detached garage conversion to ADU rental requires a building permit, a dwelling-use floor plan, an independent entrance, minimum daylight and ventilation, emergency egress, smoke and carbon monoxide alarms, and a utility connection plan. The one displaced parking space may be satisfied by retaining a driveway-side open space or by an approved shared parking arrangement. Describing the unit as storage, workshop or office to avoid dwelling-use permitting is not allowed."
+      },
+      "where": {
+        "article_id": "art_adu_core"
+      }
+    },
+    {
+      "source_event_id": "A06_zoning_mut",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_9006",
+        "user_id": "marina",
+        "source": "permit",
+        "type": "zoning_update",
+        "subscription_id": null,
+        "title": "ADU zoning interpretation updated",
+        "body": "The guidance on converting a rear garage to dwelling use has been revised. Rely on the current article text and this notice rather than earlier notes.",
+        "payload_json": "{\"case\":\"ADU-26-0803\"}",
+        "created_at": "2026-08-06T12:00:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

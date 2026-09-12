@@ -1,0 +1,35 @@
+{
+  "step": "event-006",
+  "virtual_stage": 4,
+  "source_event_id": "floor_heating_protocol_mail",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "floor_heating_protocol_released"
+    ]
+  },
+  "response": "I checked the card, unbilled transactions, order context, and thermostat notice and kept original currency, CNY, and confirmed payments separate.",
+  "response_paraphrase": "The foreign-currency thermostat charge remains a pending review item without a dispute or additional payment.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_heating_protocol_mail"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s4_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s4_reject",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

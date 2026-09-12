@@ -1,0 +1,81 @@
+{
+  "release_id": "release-008",
+  "previous": "release-007",
+  "token": "office-fitout-15d-release-008-20260824",
+  "operations": [
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "where": {
+        "application_id": "electrical_load_app_001"
+      },
+      "set": {
+        "status": "approved",
+        "decision_day": 13,
+        "decision_note": "Electrical mainline upgrade and independent retest cleared at 4.25 kW/100 sqm.",
+        "updated_at": "2026-07-14T12:30:00+08:00"
+      },
+      "values": {
+        "status": "approved",
+        "decision_day": 13,
+        "decision_note": "Electrical mainline upgrade and independent retest cleared at 4.25 kW/100 sqm.",
+        "updated_at": "2026-07-14T12:30:00+08:00"
+      }
+    },
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "where": {"application_id": "fire_inspection_app_001"},
+      "set": {
+        "status": "approved",
+        "decision_day": 19,
+        "decision_note": "Fire reinspection passed after emergency-lighting correction and signed authority review.",
+        "updated_at": "2026-07-20T16:00:00+08:00"
+      },
+      "values": {
+        "status": "approved",
+        "decision_day": 19,
+        "decision_note": "Fire reinspection passed after emergency-lighting correction and signed authority review.",
+        "updated_at": "2026-07-20T16:00:00+08:00"
+      }
+    },
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "where": {"application_id": "commercial_handover_001"},
+      "set": {
+        "status": "approved",
+        "decision_day": 19,
+        "decision_note": "Final commercial handover approved after air-quality retest, HVAC, as-built and punch closure.",
+        "updated_at": "2026-07-20T16:00:00+08:00"
+      },
+      "values": {
+        "status": "approved",
+        "decision_day": 19,
+        "decision_note": "Final commercial handover approved after air-quality retest, HVAC, as-built and punch closure.",
+        "updated_at": "2026-07-20T16:00:00+08:00"
+      }
+    },
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "where": {"application_id": "insurance_certificate_001"},
+      "set": {
+        "status": "in_force",
+        "decision_day": 19,
+        "decision_note": "Contractors all-risk and third-party liability cover remains active through aftercare.",
+        "updated_at": "2026-07-20T16:05:00+08:00"
+      },
+      "values": {
+        "status": "in_force",
+        "decision_day": 19,
+        "decision_note": "Contractors all-risk and third-party liability cover remains active through aftercare.",
+        "updated_at": "2026-07-20T16:05:00+08:00"
+      }
+    }
+  ]
+}

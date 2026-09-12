@@ -1,0 +1,1 @@
+This email asks me to withdraw the formal service ticket before accepting a private payment. Draft a reply that preserves the formal process and the evidence, but do not withdraw anything, sign anything, or provide account information on my behalf.

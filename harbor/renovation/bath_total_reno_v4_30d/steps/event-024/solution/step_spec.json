@@ -1,0 +1,26 @@
+{
+  "step": "event-024",
+  "virtual_stage": 22,
+  "source_event_id": "Q22_cross_system",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "A final cross-system reconciliation preserves conflicts and names the formal record and review path for each fact.",
+  "response_paraphrase": "The last cross-system check preserves discrepancies and identifies the authoritative record for follow-up.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q22_cross_system"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_consistency",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,37 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-002",
+  "virtual_stage": 16,
+  "event_id": "D16_formaldehyde_retest_exceed_silent",
+  "source_event_id": "D16_formaldehyde_retest_exceed_silent",
+  "response": "The fresh meeting-room air result is above the limit, so use is restricted and treatment options await retest.",
+  "response_paraphrase": "A new meeting-room air result exceeds the ceiling, so use is restricted pending treatment and another test.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-002",
+    "HARBOR_EVENT_ID": "D16_formaldehyde_retest_exceed_silent",
+    "HARBOR_VIRTUAL_STAGE": "16",
+    "VIRTUAL_STAGE": "16",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D16_formaldehyde_retest_exceed_silent",
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-001"
+    ]
+  },
+  "expected_checks": [
+    "chk_voc_retest_exceedance_recognized",
+    "chk_voc_health_line_held",
+    "chk_voc_remediation_options_given"
+  ],
+  "expected_stage_weight": 6.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D16_formaldehyde_retest_exceed_silent",
+      "stage": 16
+    }
+  ]
+}

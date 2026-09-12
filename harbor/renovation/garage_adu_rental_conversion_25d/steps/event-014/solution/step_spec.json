@@ -1,0 +1,26 @@
+{
+  "step": "event-014",
+  "stage": 13,
+  "event_id": "A13_utility",
+  "source_event_id": "A13_utility",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 13
+    }
+  ],
+  "response_paraphrase": "The design note refresh covers height, light, ventilation, utility, and opening dimensions.",
+  "expected_env": {
+    "virtual_stage": 13,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": [
+      "release-009"
+    ],
+    "stage_boundary": false
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "R19_refund_approved"
+  ],
+  "source_time": "2026-07-10T11:00:00+08:00",
+  "previous": "release-009",
+  "token": "bathroom-reno-30d-release-010-release-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "source_event_id": "R19_refund_approved",
+      "set": {
+        "status": "approved",
+        "resolved_at": "2026-07-10T11:00:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_r2bth_b"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "R19_refund_approved",
+      "values": {
+        "notification_id": "ntf_r2bth_ship",
+        "user_id": "usr_gan_mei",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "Platform review support for the quality claim",
+        "body": "Based on the contract, third-party report, and supplemental evidence, the platform supports a refund; the funds will be processed via the original payment method.",
+        "payload_json": "{\"refund_id\":\"ref_r2bth_b\",\"status\":\"approved\"}",
+        "created_at": "2026-07-10T11:01:00+08:00",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 19
+}

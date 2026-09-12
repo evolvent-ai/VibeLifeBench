@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-017",
+  "source_event_ids": [
+    "A21_handover_docs"
+  ],
+  "source_stage": 21,
+  "source_time": "2026-06-22T14:05:00+08:00",
+  "previous": "release-016",
+  "token": "apartment-renovation-20d-release-017-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "values": {
+        "id": 3021,
+        "folder_id": 1,
+        "message_id": "<20260622.HANDOVER-DOCS-0622@handover.yanjing-inspect.example>",
+        "subject": "\u4ea4\u4ed8\u8d44\u6599\u521d\u5ba1\uff1a\u4ecd\u7f3a\u4e24\u9879",
+        "from_addr": "\u4e25\u666f\u72ec\u7acb\u9a8c\u623f <handover@yanjing-inspect.example.com>",
+        "to_addr_json": "[\"chen_yu@owner.example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-22T14:00:00+08:00",
+        "body_text": "\u4ea4\u4ed8\u8d44\u6599\u5df2\u6536\u5230\u9632\u6c34\u3001\u7535\u6c14\u548c\u6750\u6599\u6279\u6b21\u8bb0\u5f55\uff1b\u4ecd\u7f3a\u5ba4\u5185\u7a7a\u6c14\u68c0\u6d4b\u6b63\u5f0f\u62a5\u544a\u548c\u4e24\u9879 punch list \u5173\u95ed\u7167\u7247\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"review_id\":\"HANDOVER-DOCS-0622\",\"status\":\"incomplete\"}",
+        "uid": 3021,
+        "size": 132,
+        "created_at": "2026-06-22T14:00:00+08:00"
+      },
+      "source_event_id": "A21_handover_docs",
+      "operation_index": 0
+    }
+  ]
+}

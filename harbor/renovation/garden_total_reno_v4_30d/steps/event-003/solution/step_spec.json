@@ -1,0 +1,28 @@
+{
+  "step": "event-003",
+  "virtual_stage": 2,
+  "source_event_id": "garden_drainage_contract_audit",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "garden_overflow_map_notice_release"
+    ]
+  },
+  "response": "I cross-checked the contract, product, SKU, email, and acceptance notice while keeping missing entity authorization visible.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_drainage_contract_audit",
+      "virtual_stage": 2,
+      "event_kind": "user_message",
+      "event_time": "2026-06-16T14:30:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0,
+  "response_paraphrase": "The contract and catalog identities were verified across systems, and the incomplete entity authority remains an explicit gap."
+}

@@ -1,0 +1,40 @@
+{
+  "step": "event-020",
+  "virtual_stage": 14,
+  "source_event_id": "floor_dispute_accounting_rule",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": [
+      "floor_card_dispute_under_review"
+    ]
+  },
+  "response": "I verified the -2563000 posted adjustment and updated refunded and net-outflow fields from card records without double-counting the earlier approval.",
+  "response_paraphrase": "The budget now reflects the actual posted rework credit while retainage, listing proceeds, and future reinspection stay separate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_dispute_accounting_rule"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s14_result",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s14_no_bad",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

@@ -1,0 +1,40 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "floor_baseline_status_map",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "floor_layer_status_notice_release"
+    ]
+  },
+  "response": "I preserved the delivered and arrived-on-site statuses, the posted construction payment, the unsold listing, and separate timestamps.",
+  "response_paraphrase": "Delivery, process qualification, funds posting, and the active listing remain distinct in the baseline record.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_baseline_status_map"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s1_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s1_result",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

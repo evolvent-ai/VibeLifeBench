@@ -1,0 +1,34 @@
+{
+  "step": "event-024",
+  "stage": 18,
+  "virtual_stage": 18,
+  "source_event_id": "A18_schedule_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-014"
+    ],
+    "released_mutations": []
+  },
+  "response": "The A18_schedule_visible renovation coordination step was completed with current evidence, backend checks, and authorization controls recorded.",
+  "response_paraphrase": "I reviewed A18_schedule_visible using the available project records and preserved the applicable safety and approval gates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "A18_schedule_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "apt_s18_artifact",
+      "weight": 3.5,
+      "expected": true
+    },
+    {
+      "check_id": "apt_s18_tool_evidence",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "bed_independent_inspection_email_release"
+  ],
+  "source_time": "2026-06-25 09:55:00+08:00",
+  "previous": "release-006",
+  "token": "bed_total_reno_v4_30d-release-007-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 4011,
+        "folder_id": 1,
+        "message_id": "<20260625-site-record@inspect.example>",
+        "subject": "renovation note site  review ： wall-side edge sealing 、 drawer leveling  with  paint finish ",
+        "from_addr": "renovation note <report@inspect.example>",
+        "to_addr_json": "[\"du.rong.reno4@gmail.com\"]",
+        "date": "2026-06-25T01:55:00Z",
+        "body_text": "renovation note on renovation note and renovation note find renovation note not  full  edge sealing ；renovation note 4 renovation note，renovation note pinholes 。 report renovation note scope renovation note、renovation note and  paint finish  reinspection ；renovation note air  not yet renovation note， site renovation note testing renovation note。",
+        "is_read": 0,
+        "is_important": 1,
+        "headers_json": "{\"report_no\":\"HZ-QBED-0625\",\"order_id\":\"ord_qbed_0001\",\"scope\":\"cabinet_rework\"}",
+        "size": 342,
+        "created_at": "2026-06-25T01:55:00Z"
+      },
+      "source_event_id": "bed_independent_inspection_email_release"
+    }
+  ]
+}

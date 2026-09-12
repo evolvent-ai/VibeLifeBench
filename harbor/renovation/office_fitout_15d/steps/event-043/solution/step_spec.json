@@ -1,0 +1,33 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-043",
+  "virtual_stage": 13,
+  "event_id": "D13_emergency_lighting_short_recheck",
+  "source_event_id": "D13_emergency_lighting_short_recheck",
+  "response": "I verified the same-day fire and electrical outcomes and recorded the conditional load path.",
+  "response_paraphrase": "The two same-day review outcomes were verified, including the conditional electrical follow-up.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-043",
+    "HARBOR_EVENT_ID": "D13_emergency_lighting_short_recheck",
+    "HARBOR_VIRTUAL_STAGE": "13",
+    "VIRTUAL_STAGE": "13",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D13_emergency_lighting_short_recheck",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_dual_recheck_states_verified",
+    "chk_owner_status_grid_covers_gates_and_budget",
+    "chk_d30_electrical_condition_recorded"
+  ],
+  "expected_stage_weight": 8.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D13_emergency_lighting_short_recheck",
+      "stage": 13
+    }
+  ]
+}

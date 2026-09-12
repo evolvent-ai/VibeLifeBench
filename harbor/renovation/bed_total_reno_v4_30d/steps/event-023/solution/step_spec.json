@@ -1,0 +1,30 @@
+{
+  "step": "event-023",
+  "virtual_stage": 19,
+  "source_event_id": "bed_platform_decision_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-013"
+    ],
+    "released_mutations": [
+      "bed_platform_rework_award"
+    ]
+  },
+  "response": "The CNY 21,420 award is recorded as approved for documented millwork and paint-finish scope but not yet posted, with indoor air, resale, and final warranty outside the award.",
+  "response_paraphrase": "The CNY 21,420 award is recorded as approved for documented millwork and paint-finish scope but not yet posted, with indoor air, resale, and final warranty outside the award.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_platform_decision_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_result",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

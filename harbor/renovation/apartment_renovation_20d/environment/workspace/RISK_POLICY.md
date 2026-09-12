@@ -1,0 +1,4 @@
+﻿# riskevent details
+
+recordriskevent details、headcountevent details、event details、responsibilityevent detailsandevent detailsneedconfirmation。do notrecordnameevent detailsconstraintofevent details。
+

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "H07_narrow_offer"
+  ],
+  "source_stage": 7,
+  "source_time": "2026-06-21 15:00:00+08:00",
+  "previous": "release-002",
+  "token": "highrise-release-003-token-9f6a4c2d8e1b7a3c5d9e",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_hhigh_cp",
+        "user_id": "usr_chu_nuo",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "开发商提出局部维修和一次性补偿",
+        "body": "方案只覆盖地漏和门缝，不包含外窗渗水复测、公共区域损伤或延期责任；接受将关闭对应工单。",
+        "payload_json": "{\"order_id\":\"ord_hhigh_0001\",\"offer\":\"limited_repair\"}",
+        "created_at": "2026-06-21T15:00:00Z",
+        "read": 0
+      },
+      "source_event_id": "H07_narrow_offer",
+      "operation_index": 0
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Two contractors submitted preliminary proposals. One is cheaper but lists the egress window and alarm system as optional; the other is more complete but has a later start date. Please compare them again.

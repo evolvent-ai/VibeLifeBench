@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "garden_retest_forecast_released"
+  ],
+  "source_time": "2026-07-02T07:20:00+08:00",
+  "previous": "release-011",
+  "token": "garden-total-reno-v4-30d-release-token",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "source_event_id": "garden_retest_forecast_released",
+      "values": {
+        "geo_key": "geo_qgrd",
+        "date": "2026-07-02",
+        "tmin": 23,
+        "tmax": 31,
+        "condition": "cloudy",
+        "precip_mm": 0.5,
+        "precip_prob": 0.25,
+        "wind_kmh": 11
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "source_event_id": "garden_retest_forecast_released",
+      "values": {
+        "geo_key": "geo_qgrd",
+        "date": "2026-07-03",
+        "tmin": 22,
+        "tmax": 28,
+        "condition": "heavy_rain",
+        "precip_mm": 31.0,
+        "precip_prob": 0.88,
+        "wind_kmh": 23
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "source_event_id": "garden_retest_forecast_released",
+      "values": {
+        "geo_key": "geo_qgrd",
+        "date": "2026-07-05",
+        "tmin": 23,
+        "tmax": 30,
+        "condition": "light_rain",
+        "precip_mm": 3.5,
+        "precip_prob": 0.56,
+        "wind_kmh": 12
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "source_event_id": "garden_retest_forecast_released",
+      "values": {
+        "geo_key": "geo_qgrd",
+        "date": "2026-07-07",
+        "tmin": 24,
+        "tmax": 33,
+        "condition": "sunny",
+        "precip_mm": 0.0,
+        "precip_prob": 0.09,
+        "wind_kmh": 8
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "source_event_id": "garden_retest_forecast_released",
+      "values": {
+        "geo_key": "geo_qgrd",
+        "date": "2026-07-09",
+        "tmin": 24,
+        "tmax": 32,
+        "condition": "thunderstorm",
+        "precip_mm": 14.0,
+        "precip_prob": 0.69,
+        "wind_kmh": 20
+      }
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "source_event_id": "garden_retest_forecast_released",
+      "values": {
+        "alert_id": "alr_qgrd_retest_0703",
+        "kind": "rainstorm",
+        "severity": "yellow",
+        "start_dt": "2026-07-03T00:00:00+08:00",
+        "end_dt": "2026-07-03T20:00:00+08:00",
+        "areas_json": "[\"Xi'an\"]",
+        "description": "Xi'an is expected to receive significant rainfall on July 3. Non-destructive drainage observation may be conducted provided personnel safety, outdoor-light power disconnection, and nursery stock protection are ensured; excavation or energized work is prohibited during heavy rainfall.",
+        "active": 1,
+        "created_at": "2026-07-02T06:40:00+08:00",
+        "source_event": "xian_retest_window_20260703"
+      }
+    }
+  ],
+  "source_stage": 15
+}

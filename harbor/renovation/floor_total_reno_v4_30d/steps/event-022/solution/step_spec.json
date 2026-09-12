@@ -1,0 +1,41 @@
+{
+  "step": "event-022",
+  "virtual_stage": 16,
+  "source_event_id": "floor_final_sequence_decision",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I cross-checked weather, ecommerce, credit card, email, calendar, and listing sources and recorded their state conflicts and limits.",
+  "response_paraphrase": "The evidence register preserves each system as a separate source and does not let weather or delivery substitute for acceptance.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_final_sequence_decision"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_options",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s16_pick",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s16_auth",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s16_no_bad",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

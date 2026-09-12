@@ -1,0 +1,41 @@
+{
+  "step": "event-018",
+  "virtual_stage": 16,
+  "source_event_id": "Q16_rework_options",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Original-contractor, licensed-third-party, and termination-refund paths are compared; the recommended path remains pending user confirmation.",
+  "response_paraphrase": "Three rework paths are compared and a recommendation is held for the customer to confirm.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q16_rework_options"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_options",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s16_pick",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s16_auth",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s16_no_bad",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

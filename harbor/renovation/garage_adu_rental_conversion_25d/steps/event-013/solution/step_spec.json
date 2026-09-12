@@ -1,0 +1,31 @@
+{
+  "step": "event-013",
+  "stage": 12,
+  "event_id": "A12_reprice",
+  "source_event_id": "A12_reprice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 12
+    }
+  ],
+  "response_paraphrase": "The stock update led to a SafeNest replacement and an order containing the code window and alarm.",
+  "expected_env": {
+    "virtual_stage": 12,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "release-008"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s12_material_mutation_repriced",
+      "weight": 1.6
+    }
+  ],
+  "expected_stage_weight": 1.6
+}

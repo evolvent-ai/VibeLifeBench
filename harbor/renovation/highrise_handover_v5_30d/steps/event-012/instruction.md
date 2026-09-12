@@ -1,0 +1,1 @@
+Based on the reason the materials were returned, prepare a minimum cure checklist and a retest schedule. Keep the original files unchanged, and make every new item traceable to the capture device and capture time.

@@ -1,0 +1,3 @@
+The project owner sends a new request at 10:00+08:00: Strong weak power prompt.
+
+The strong- and low-voltage renovation plan must be signed off today. It must cover: (1) a strong-current main line of at least 4kW/100sqm x 300sqm = at least 12kW total capacity; (2) low-voltage network and telephone points for 30 people, two video-conference rooms, and the reception display; (3) emergency lights along evacuation routes and at the emergency exit with spacing no more than 8m; and (4) a separate circuit for the 4sqm UPS server room. Provide strong_weak_power_plan.md; do not respond with "let us look again."

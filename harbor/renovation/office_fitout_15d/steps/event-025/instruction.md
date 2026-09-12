@@ -1,0 +1,3 @@
+A project-world update is now visible at 09:30+08:00: Jingan one stop world.
+
+The Jingan decoration-and-renovation one-stop reform index is loaded. rule_property_v3_005 requires the one-stop platform for non-residential renovation of at least ¥1 million or at least 300sqm, combining housing, fire, safety, and pass issuance in one window. rule_property_v3_013 requires strong and low-voltage power of at least 4kW/100sqm, emergency lighting, and formaldehyde <=0.05. rule_property_v2_011 also applies in Pudong, with Jingan as the demonstration district. This project is 300sqm and ¥800,000 and hits both thresholds, so a one-stop application is mandatory.

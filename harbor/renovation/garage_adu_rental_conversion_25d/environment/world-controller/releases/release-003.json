@@ -1,0 +1,40 @@
+{
+  "release_id": "release-003",
+  "before_step": "event-004",
+  "previous": "release-002",
+  "token": "garage-adu-rental-conversion-25d-release-003-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "A04_permit_docs_mut",
+      "server": "legal_search",
+      "table": "statute_articles",
+      "op": "insert",
+      "values": {
+        "article_id": "art_adu_permit_checklist_20260805",
+        "statute_id": "stat_adu",
+        "article_no": "Checklist 2026-08-05",
+        "seq": 8,
+        "heading": "ADU Building Permit Submittal Checklist",
+        "text": "Case ADU-26-0803 submittal must include a dimensioned dwelling floor plan, light and ventilation calculations, emergency-egress clear-opening dimensions, smoke and carbon monoxide alarm layout, utility connection plan, bathroom exhaust route, and parking/access statement."
+      }
+    },
+    {
+      "source_event_id": "A04_permit_docs_mut",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_9004",
+        "user_id": "marina",
+        "source": "permit",
+        "type": "document_checklist",
+        "subscription_id": null,
+        "title": "ADU permit document checklist updated",
+        "body": "The permit case checklist now specifies drawings, light/ventilation, egress, alarm, utility and parking/access evidence.",
+        "payload_json": "{\"case\": \"ADU-26-0803\", \"article_id\": \"art_adu_permit_checklist_20260805\"}",
+        "created_at": "2026-08-05T09:50:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

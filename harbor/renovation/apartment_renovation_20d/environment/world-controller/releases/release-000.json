@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "A05_property_rfi"
+  ],
+  "source_stage": 5,
+  "source_time": "2026-06-06T08:40:00+08:00",
+  "previous": null,
+  "token": "apartment-renovation-20d-release-000-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "values": {
+        "id": 3005,
+        "folder_id": 1,
+        "message_id": "<20260606.PM-RFI-0606@filing.property.example>",
+        "subject": "\u88c5\u4fee\u5907\u6848\u8865\u4ef6\u901a\u77e5 PM-RFI-0606",
+        "from_addr": "\u82b1\u6728\u5bb6\u56ed\u7269\u4e1a\u5de5\u7a0b\u90e8 <filing@property.example>",
+        "to_addr_json": "[\"chen_yu@owner.example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-06T08:35:00+08:00",
+        "body_text": "\u5907\u6848\u7533\u8bf7\u8fdb\u5165\u8865\u4ef6\u72b6\u6001\uff1a\u7f3a\u5c11\u7535\u5de5\u8bc1\u6709\u6548\u9875\u3001\u62c6\u6539\u56fe\u7b7e\u7ae0\u548c\u5783\u573e\u6e05\u8fd0\u627f\u8bfa\u3002\u6750\u6599\u8865\u9f50\u524d\u4e0d\u5f97\u62c6\u9664\u6216\u5b89\u6392\u7ed3\u6784\u6027\u65bd\u5de5\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"filing_id\":\"PM-RFI-0606\",\"status\":\"needs_information\"}",
+        "uid": 3009,
+        "size": 153,
+        "created_at": "2026-06-06T08:35:00+08:00"
+      },
+      "source_event_id": "A05_property_rfi",
+      "operation_index": 0
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "event_id": "A00_kickoff",
+  "source_event_id": "A00_kickoff",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 0
+    }
+  ],
+  "response_paraphrase": "The opening review separates the ADU conversion, permit path, parking, budget, and rent assumptions.",
+  "expected_env": {
+    "virtual_stage": 0,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s00_kickoff_scope",
+      "weight": 0.8
+    }
+  ],
+  "expected_stage_weight": 0.8
+}

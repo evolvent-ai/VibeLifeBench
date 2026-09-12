@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "R07_settlement_offer"
+  ],
+  "source_time": "2026-06-21T15:00:00+08:00",
+  "previous": "release-001",
+  "token": "bathroom-reno-30d-release-002-release-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "R07_settlement_offer",
+      "values": {
+        "notification_id": "ntf_r2bth_cp",
+        "user_id": "usr_gan_mei",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "The contractor proposed a partial-refund offer",
+        "body": "The contractor is willing to issue a quick partial refund, but accepting it will close this quality application; the platform still allows continued supplemental-evidence review.",
+        "payload_json": "{\"order_id\":\"ord_r2bth_0001\",\"offer_minor\":1400000,\"closes_case\":true}",
+        "created_at": "2026-06-21T15:00:00+08:00",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 7
+}

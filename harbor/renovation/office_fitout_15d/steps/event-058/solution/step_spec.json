@@ -1,0 +1,33 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-058",
+  "virtual_stage": 11,
+  "event_id": "D11_fire_dept_meeting_notice",
+  "source_event_id": "D11_fire_dept_meeting_notice",
+  "response": "I reconciled the import delay, requested furniture evidence and planned badge lead time.",
+  "response_paraphrase": "The import delay was reconciled, furniture test evidence requested and access lead time scheduled.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-058",
+    "HARBOR_EVENT_ID": "D11_fire_dept_meeting_notice",
+    "HARBOR_VIRTUAL_STAGE": "11",
+    "VIRTUAL_STAGE": "11",
+    "RUN_STAGE_RUBRIC": "1",
+    "STAGE_BOUNDARY": "1",
+    "SOURCE_EVENT_ID": "D11_fire_dept_meeting_notice",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_imported_glass_delay_reconciled",
+    "chk_furniture_voc_evidence_requested",
+    "chk_badge_lead_time_is_planned"
+  ],
+  "expected_stage_weight": 7.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D11_fire_dept_meeting_notice",
+      "stage": 11
+    }
+  ]
+}

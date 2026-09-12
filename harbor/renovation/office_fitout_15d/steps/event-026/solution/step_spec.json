@@ -1,0 +1,31 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-026",
+  "virtual_stage": 3,
+  "event_id": "D3_portal_notification",
+  "source_event_id": "D3_portal_notification",
+  "response": "The filing is not a reason to start demolition while requested material and quote exclusions remain unresolved.",
+  "response_paraphrase": "Demolition remains paused while the filing response and quote exclusions are still being reconciled.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-026",
+    "HARBOR_EVENT_ID": "D3_portal_notification",
+    "HARBOR_VIRTUAL_STAGE": "3",
+    "VIRTUAL_STAGE": "3",
+    "RUN_STAGE_RUBRIC": "1",
+    "STAGE_BOUNDARY": "1",
+    "SOURCE_EVENT_ID": "D3_portal_notification",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_filing_no_demolition_while_blocked"
+  ],
+  "expected_stage_weight": 11.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D3_portal_notification",
+      "stage": 3
+    }
+  ]
+}

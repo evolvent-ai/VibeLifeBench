@@ -1,0 +1,31 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "event_id": "A03_contractor_pool",
+  "source_event_id": "A03_contractor_pool",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 3
+    }
+  ],
+  "response_paraphrase": "The contractor screen covers contract terms, insurance, payment limits, ADU work, and permits.",
+  "expected_env": {
+    "virtual_stage": 3,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-002"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s03_contractor_screen",
+      "weight": 1.2
+    }
+  ],
+  "expected_stage_weight": 1.2
+}

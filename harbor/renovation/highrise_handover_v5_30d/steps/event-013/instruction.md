@@ -1,0 +1,1 @@
+The bank currently shows only two transactions for the same amount and the merchant name; it has not determined whether the charge was duplicated. Preserve the engagement document, merchant invoice, and card statement together.

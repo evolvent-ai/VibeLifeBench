@@ -1,0 +1,40 @@
+{
+  "step": "event-008",
+  "virtual_stage": 6,
+  "source_event_id": "floor_fx_check_instruction",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "floor_imported_thermostat_fx_notice"
+    ]
+  },
+  "response": "I enumerated the in-stock material combinations, added the lowest payable candidate set to the cart, applied valid stacked coupons, and did not place an order.",
+  "response_paraphrase": "The cart contains only the specification-matched candidate with the minimum recalculated payable total, pending Lai Xu confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_fx_check_instruction"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s6_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s6_result",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

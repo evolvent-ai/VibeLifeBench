@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "bed_imported_hinge_charge_notice"
+  ],
+  "source_time": "2026-06-20 11:00:00+08:00",
+  "previous": "release-002",
+  "token": "bed_total_reno_v4_30d-release-003-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qbed_fx",
+        "user_id": "usr_du_rong",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_qbed_card",
+        "title": " imported  hinges renovation note foreign-currency transaction renovation note reconcile ",
+        "body": " credit card  appears renovation note overseas  hardware merchant  transaction ； please  with  hinges  order 、renovation note、 amount  and  posted  date  reconcile ， not  confirm  before  do not renovation note payment 。",
+        "payload_json": "{\"card_id\":\"card_qbed_01\",\"context\":\"imported_hinge\"}",
+        "created_at": "2026-06-20T03:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "bed_imported_hinge_charge_notice"
+    }
+  ]
+}

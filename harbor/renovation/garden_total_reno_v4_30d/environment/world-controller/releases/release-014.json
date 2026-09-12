@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "release_id": "release-014",
+  "source_event_ids": [
+    "garden_duplicate_charge_reversal",
+    "garden_reversal_card_summary_refreshed"
+  ],
+  "source_time": "2026-07-08T18:02:00+08:00",
+  "previous": "release-013",
+  "token": "garden-total-reno-v4-30d-release-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "disputes",
+      "op": "update",
+      "source_event_id": "garden_duplicate_charge_reversal",
+      "set": {
+        "status": "approved",
+        "resolved_at": "2026-07-08T18:00:00+08:00"
+      },
+      "where": {
+        "dispute_id": "disp_qgrd_01"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "source_event_id": "garden_duplicate_charge_reversal",
+      "values": {
+        "tx_id": "tx_qgrd_rev",
+        "card_id": "card_qgrd_01",
+        "posted_at": "2026-07-08T18:00:00+08:00",
+        "amount_minor": -23800,
+        "merchant_name": "PAYPAL US（duplicate drainage accessory charge reversal）",
+        "mcc": "4814",
+        "category": "garden drainage accessories",
+        "kind": "adjustment"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "garden_duplicate_charge_reversal",
+      "values": {
+        "notification_id": "ntf_qgrd_rev",
+        "user_id": "usr_yong_wei",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_qgrd_card",
+        "title": "Duplicate drainage accessory charge reversed",
+        "body": "disp_qgrd_01 was approved and tx_qgrd_rev was generated; the regular amount owed and the reversal remain listed separately.",
+        "payload_json": "{\"dispute_id\":\"disp_qgrd_01\",\"reversal_tx\":\"tx_qgrd_rev\",\"status\":\"approved\"}",
+        "created_at": "2026-07-08T10:01:00Z",
+        "read": 0
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "source_event_id": "garden_reversal_card_summary_refreshed",
+      "set": {
+        "unbilled_balance_minor": 126600,
+        "available_credit_minor": 2673400
+      },
+      "where": {
+        "card_id": "card_qgrd_01"
+      }
+    }
+  ],
+  "source_stage": 18
+}

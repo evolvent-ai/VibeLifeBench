@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "release_id": "release-014",
+  "source_event_ids": [
+    "bed_rework_funds_posted",
+    "bed_refund_card_summary_refreshed"
+  ],
+  "source_time": "2026-07-11 16:00:00+08:00",
+  "previous": "release-013",
+  "token": "bed_total_reno_v4_30d-release-014-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_qbed_pp",
+        "card_id": "card_qbed_01",
+        "posted_at": "2026-07-11T16:00:00+08:00",
+        "amount_minor": -2142000,
+        "merchant_name": " official  marketplace （ bedroom  millwork rework  settlement ）",
+        "mcc": "5732",
+        "category": " millwork rework  refund ",
+        "kind": "adjustment"
+      },
+      "source_event_id": "bed_rework_funds_posted"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qbed_funds",
+        "user_id": "usr_du_rong",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": " bedroom  millwork rework  settlement funds  posted ",
+        "body": "21,420  CNY renovation note posted ； retainage 、 hardware  card dispute  reversal  and  surplus materials  listing  proceeds  still  must renovation note respective  status  reconcile 。",
+        "payload_json": "{\"amount_minor\":2142000,\"kind\":\"cabinet_rework_refund\",\"tx_id\":\"tx_qbed_pp\"}",
+        "created_at": "2026-07-11T08:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "bed_rework_funds_posted"
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": -2034600,
+        "available_credit_minor": 4634600
+      },
+      "where": {
+        "card_id": "card_qbed_01"
+      },
+      "source_event_id": "bed_refund_card_summary_refreshed"
+    }
+  ]
+}

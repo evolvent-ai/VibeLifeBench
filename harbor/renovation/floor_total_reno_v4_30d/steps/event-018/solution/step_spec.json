@@ -1,0 +1,30 @@
+{
+  "step": "event-018",
+  "virtual_stage": 13,
+  "source_event_id": "floor_budget_checkpoint",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "floor_measurement_owner_notice_release"
+    ]
+  },
+  "response": "I verified the approved duplicate-charge dispute and the -23200 reversal and listed normal payable, approved dispute, and posted adjustment separately.",
+  "response_paraphrase": "The card ledger now shows the reversal as its own posted adjustment and does not treat it as leveling funds.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_budget_checkpoint"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_budget",
+      "weight": 3.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

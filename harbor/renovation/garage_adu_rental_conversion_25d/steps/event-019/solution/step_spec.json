@@ -1,0 +1,26 @@
+{
+  "step": "event-019",
+  "stage": 17,
+  "event_id": "A17_rough",
+  "source_event_id": "A17_rough",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 17
+    }
+  ],
+  "response_paraphrase": "The rough inspection appointment and its egress and alarm prerequisites are recorded.",
+  "expected_env": {
+    "virtual_stage": 17,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": [
+      "release-011"
+    ],
+    "stage_boundary": false
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

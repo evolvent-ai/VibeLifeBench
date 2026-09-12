@@ -1,0 +1,21 @@
+{
+  "step": "event-010",
+  "stage": 8,
+  "virtual_stage": 8,
+  "source_event_id": "A08_lock",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The A08_lock renovation coordination step was completed with current evidence, backend checks, and authorization controls recorded.",
+  "response_paraphrase": "I reviewed A08_lock using the available project records and preserved the applicable safety and approval gates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "A08_lock"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

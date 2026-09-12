@@ -1,0 +1,24 @@
+{
+  "step": "event-006",
+  "virtual_stage": 5,
+  "source_event_id": "bed_evidence_partition",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "bed_photo_index_backend_release"
+    ]
+  },
+  "response": "Evidence is partitioned into contract identity, millwork quality, paint finish and indoor air, and funds, with source, date, location, and evidentiary limits recorded.",
+  "response_paraphrase": "Evidence is partitioned into contract identity, millwork quality, paint finish and indoor air, and funds, with source, date, location, and evidentiary limits recorded.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_evidence_partition"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

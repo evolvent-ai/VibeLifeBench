@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "A06_staffing_change"
+  ],
+  "source_stage": 6,
+  "source_time": "2026-06-07T07:45:00+08:00",
+  "previous": "release-000",
+  "token": "apartment-renovation-20d-release-001-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "values": {
+        "id": 3006,
+        "folder_id": 1,
+        "message_id": "<20260607.CREW-CHANGE-0607@steady-renov.example>",
+        "subject": "\u65bd\u5de5\u73ed\u7ec4\u4eba\u5458\u53d8\u66f4",
+        "from_addr": "\u4e0a\u6d77\u7a33\u5bb6\u88c5\u9970 <contact@steady-renov.example.com>",
+        "to_addr_json": "[\"chen_yu@owner.example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-07T07:40:00+08:00",
+        "body_text": "\u539f\u5b9a\u6728\u5de5\u5e08\u5085\u56e0\u5bb6\u4e8b\u8bf7\u5047\u4e09\u5929\uff0c\u65bd\u5de5\u65b9\u63d0\u51fa\u7531\u53e6\u4e00\u540d\u5e08\u5085\u63a5\u66ff\uff1b\u65b0\u5e08\u5085\u7684\u9879\u76ee\u7ecf\u5386\u548c\u8fdb\u573a\u8bc1\u5c1a\u5f85\u786e\u8ba4\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"record_type\":\"crew_change\",\"contractor\":\"\u4e0a\u6d77\u7a33\u5bb6\u88c5\u9970\"}",
+        "uid": 3006,
+        "size": 135,
+        "created_at": "2026-06-07T07:40:00+08:00"
+      },
+      "source_event_id": "A06_staffing_change",
+      "operation_index": 0
+    }
+  ]
+}

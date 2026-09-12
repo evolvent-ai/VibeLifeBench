@@ -1,0 +1,26 @@
+{
+  "step": "event-014",
+  "virtual_stage": 13,
+  "source_event_id": "Q13_funds_recheck",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Paid, refund-pending, disputed, recoverable, and irreversible amounts are separated in the budget ledger.",
+  "response_paraphrase": "The current money ledger separates paid, pending return, disputed, recoverable, and irreversible figures.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q13_funds_recheck"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_budget",
+      "weight": 3.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

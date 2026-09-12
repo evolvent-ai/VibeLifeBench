@@ -1,0 +1,46 @@
+{
+  "step": "event-016",
+  "virtual_stage": 10,
+  "source_event_id": "garden_duplicate_charge_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "garden_duplicate_drain_charge",
+      "garden_duplicate_charge_card_summary_refreshed"
+    ]
+  },
+  "response": "I documented the second drainage charge as a suspected duplicate under review and took no dispute action.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_duplicate_charge_visible",
+      "virtual_stage": 10,
+      "event_kind": "world",
+      "event_time": "2026-06-24T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s10_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s10_result",
+      "weight": 3.0
+    },
+    {
+      "check_id": "s10_no_bad",
+      "weight": 0.5
+    }
+  ],
+  "expected_stage_weight": 4.5,
+  "response_paraphrase": "The matching second card entry is marked for duplicate investigation, with no premature fund or dispute change."
+}

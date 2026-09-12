@@ -1,0 +1,26 @@
+{
+  "step": "event-026",
+  "virtual_stage": 22,
+  "source_event_id": "bed_final_consistency_review",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The final consistency review cross-checks weather, order and refund, card, mail, calendar, and listing evidence while retaining each source's distinct timestamp, status, and limits.",
+  "response_paraphrase": "The final consistency review cross-checks weather, order and refund, card, mail, calendar, and listing evidence while retaining each source's distinct timestamp, status, and limits.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_final_consistency_review"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_consistency",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

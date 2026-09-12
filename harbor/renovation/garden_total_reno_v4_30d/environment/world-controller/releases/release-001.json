@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "garden_ponding_claim_created"
+  ],
+  "source_time": "2026-06-17T18:10:00+08:00",
+  "previous": "release-000",
+  "token": "garden-total-reno-v4-30d-release-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "insert",
+      "source_event_id": "garden_ponding_claim_created",
+      "values": {
+        "refund_id": "ref_qgrd_b",
+        "order_id": "ord_qgrd_0001",
+        "item_id": "item_qgrd_a1",
+        "qty": 1,
+        "reason": "Persistent ponding at the foyer corner after the on-site equivalent hose test, with an abnormal connection elevation difference at the linear drainage channel; corrective work is requested first and the corresponding retention payment is temporarily withheld, pending an actual-rain observation at night for comparison",
+        "status": "submitted",
+        "opened_at": "2026-06-17T18:10:00+08:00",
+        "resolved_at": null,
+        "refund_amount_minor": 2478000
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "garden_ponding_claim_created",
+      "values": {
+        "notification_id": "ntf_qgrd_b1",
+        "user_id": "usr_yong_wei",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "Garden ponding corrective-work request registered",
+        "body": "The foyer corner and drainage-channel connection have been listed for corrective work based on the equivalent hose test; please retain the test volume, ponding boundary, drainage time, and drain status, and supplement the comparison after an actual-rain observation at night. Do not confirm passage of the concealed drainage work for now.",
+        "payload_json": "{\"order_id\":\"ord_qgrd_0001\",\"refund_id\":\"ref_qgrd_b\",\"issue\":\"ponding_and_drain_level\",\"status\":\"submitted\"}",
+        "created_at": "2026-06-17T10:11:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 3
+}

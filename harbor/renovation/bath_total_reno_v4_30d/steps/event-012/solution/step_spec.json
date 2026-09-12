@@ -1,0 +1,30 @@
+{
+  "step": "event-012",
+  "virtual_stage": 11,
+  "source_event_id": "Q11_report_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "release-006"
+    ]
+  },
+  "response": "The independent inspection report records failed finishing and conduit checks and links them to the rework evidence plan.",
+  "response_paraphrase": "Independent inspection findings are attached to the rework and evidence requirements.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q11_report_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_decision",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

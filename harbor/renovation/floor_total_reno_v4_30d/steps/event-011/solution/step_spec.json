@@ -1,0 +1,36 @@
+{
+  "step": "event-011",
+  "virtual_stage": 7,
+  "source_event_id": "floor_official_material_coupon_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I updated the three evidence-backed repair alternatives and recommended localized leveling work with independent measurement, subject to confirmation.",
+  "response_paraphrase": "The plan compares the original contractor, targeted rework, and a licensed third party using moisture, flatness, expansion, pressure, cost, and schedule evidence.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_official_material_coupon_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s7_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s7_result",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

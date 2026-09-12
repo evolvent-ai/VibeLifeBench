@@ -1,0 +1,1 @@
+Receipt of compensation does not mean the handover is complete. List completed and incomplete items for the keys, documents, exterior windows, floor drains, entrance door, common areas, and warranty commitments. Show every item requiring my signature separately.

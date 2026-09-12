@@ -1,0 +1,42 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-004",
+  "virtual_stage": 4,
+  "event_id": "D4_fire_drawing_property_delay_silent",
+  "source_event_id": "D4_fire_drawing_property_delay_silent",
+  "response": "I constrained noisy work to the live property window and kept acceptance dependencies explicit.",
+  "response_paraphrase": "The schedule respects the building work window and keeps acceptance prerequisites ahead of dependent activities.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-004",
+    "HARBOR_EVENT_ID": "D4_fire_drawing_property_delay_silent",
+    "HARBOR_VIRTUAL_STAGE": "4",
+    "VIRTUAL_STAGE": "4",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D4_fire_drawing_property_delay_silent",
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-002"
+    ]
+  },
+  "expected_checks": [
+    "chk_cal_no_noisy_work_outside_window",
+    "chk_cal_no_noisy_work_on_statutory_holiday",
+    "chk_cal_tile_after_closed_water_pass",
+    "chk_cal_electrical_acceptance_before_wall_close",
+    "chk_cal_air_quality_window_before_handover",
+    "chk_evidence_5f_noise_complaint_addressed",
+    "chk_quote_exclusions_reconciled",
+    "chk_quote_tax_treatment_clarified_or_pending"
+  ],
+  "expected_stage_weight": 21.15,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D4_fire_drawing_property_delay_silent",
+      "stage": 4
+    }
+  ]
+}

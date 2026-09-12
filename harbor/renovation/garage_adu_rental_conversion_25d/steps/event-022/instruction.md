@@ -1,0 +1,1 @@
+The neighbor says they will not complain if I promise not to rent to strangers. I cannot make a false restriction on the rental use, but I want to explain noise, access, and parking clearly. Please prepare a reply.

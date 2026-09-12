@@ -1,0 +1,1 @@
+Candidate materials for insulation, fire-rated drywall, an egress window, bathroom ventilation, smoke and carbon-monoxide alarms, and the small kitchen now show prices and inventory. Check their specifications, suitability, and returnability.

@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "bed_humidity_forecast_released"
+  ],
+  "source_time": "2026-07-02 08:50:00+08:00",
+  "previous": "release-009",
+  "token": "bed_total_reno_v4_30d-release-010-token",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_qbed",
+        "date": "2026-07-02",
+        "tmin": 24,
+        "tmax": 29,
+        "condition": "moderate_rain",
+        "precip_mm": 13.0,
+        "precip_prob": 0.78,
+        "wind_kmh": 18
+      },
+      "source_event_id": "bed_humidity_forecast_released"
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_qbed",
+        "date": "2026-07-03",
+        "tmin": 25,
+        "tmax": 30,
+        "condition": "light_rain",
+        "precip_mm": 4.5,
+        "precip_prob": 0.61,
+        "wind_kmh": 13
+      },
+      "source_event_id": "bed_humidity_forecast_released"
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_qbed",
+        "date": "2026-07-05",
+        "tmin": 26,
+        "tmax": 33,
+        "condition": "cloudy",
+        "precip_mm": 0.8,
+        "precip_prob": 0.24,
+        "wind_kmh": 10
+      },
+      "source_event_id": "bed_humidity_forecast_released"
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_qbed",
+        "date": "2026-07-07",
+        "tmin": 27,
+        "tmax": 35,
+        "condition": "sunny",
+        "precip_mm": 0.0,
+        "precip_prob": 0.08,
+        "wind_kmh": 9
+      },
+      "source_event_id": "bed_humidity_forecast_released"
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "geo_qbed",
+        "date": "2026-07-09",
+        "tmin": 27,
+        "tmax": 34,
+        "condition": "thunderstorm",
+        "precip_mm": 18.0,
+        "precip_prob": 0.72,
+        "wind_kmh": 24
+      },
+      "source_event_id": "bed_humidity_forecast_released"
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "alr_qbed_humidity_0702",
+        "kind": "heavy_rain",
+        "severity": "yellow",
+        "start_dt": "2026-07-02T00:00:00+08:00",
+        "end_dt": "2026-07-03T20:00:00+08:00",
+        "areas_json": "[\" Suzhou \"]",
+        "description": " Suzhou  stage renovation note rainfall  with  high humidity renovation note； wood finish  reinspection  and  indoor-air sampling  should  record  environment  condition ，renovation note testing  agency  request renovation note， alert renovation note site  testing 。",
+        "active": 1,
+        "created_at": "2026-07-02T06:30:00+08:00",
+        "source_event": "suzhou_humidity_window_20260702"
+      },
+      "source_event_id": "bed_humidity_forecast_released"
+    }
+  ]
+}

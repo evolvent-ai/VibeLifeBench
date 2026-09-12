@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task": "garage_adu_rental_conversion_25d",
+  "clock_file": "/world-clock/current.json",
+  "clock_key": "world_now",
+  "clock_token": "garage-adu-rental-conversion-25d-clock-20260824",
+  "health_token": "garage-adu-rental-conversion-25d-health-20260824",
+  "step_count": 29,
+  "servers": [
+    "calendar",
+    "ecommerce",
+    "email",
+    "legal_search",
+    "listing_platform",
+    "notification_hub",
+    "notion",
+    "review_platform"
+  ]
+}

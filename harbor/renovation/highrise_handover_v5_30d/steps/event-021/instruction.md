@@ -1,0 +1,1 @@
+I currently prefer third-party repair followed by recovery, but I have not signed anything. Prepare the notice letter, retest milestones, and payment prerequisites. Do not confirm that acceptance has passed or pay any amount on my behalf.

@@ -1,0 +1,31 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "event_id": "A01_zoning_notice",
+  "source_event_id": "A01_zoning_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 1
+    }
+  ],
+  "response_paraphrase": "The updated planning material was reviewed for zoning, permit, parking, and rental requirements.",
+  "expected_env": {
+    "virtual_stage": 1,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s01_zoning_sources",
+      "weight": 0.8
+    }
+  ],
+  "expected_stage_weight": 0.8
+}

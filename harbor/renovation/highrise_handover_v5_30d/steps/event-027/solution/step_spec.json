@@ -1,0 +1,33 @@
+{
+  "step": "event-027",
+  "stage": 23,
+  "virtual_stage": 23,
+  "source_event_id": "H23_archive",
+  "scenario_time": "2026-07-14T10:00:00+08:00",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Stage 23 handover evidence was checked in the formal systems and recorded with all unresolved items and authorization boundaries preserved.",
+  "response_paraphrase": "The formal records for handover stage 23 were reviewed and written back; outstanding defects, funds and approvals remain explicitly tracked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "H23_archive"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_structured",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s23_threads",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

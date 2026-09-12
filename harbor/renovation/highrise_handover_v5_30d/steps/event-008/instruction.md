@@ -1,0 +1,1 @@
+Property management has supplied the schedule for removing elevator protection and the restrictions on use of the fire access route. These constraints affect material transport and the retest schedule, but they do not mean that defects inside the unit have been repaired.

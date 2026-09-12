@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-014",
+  "source_event_ids": [
+    "floor_archive_sections_notice_release"
+  ],
+  "source_time": "2026-07-12T11:30:00+08:00",
+  "previous": "release-013",
+  "token": "floor_total_reno_v4_30d-release-014-token-long",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qflr_archive_sections",
+        "user_id": "usr_lai_xu",
+        "source": "calendar",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "translated business text",
+        "body": "translated business text、translated business text、translated business text，translated business text。",
+        "payload_json": "{\"sections\":4,\"auto_close\":false}",
+        "created_at": "2026-07-12T03:19:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "step": "event-008",
+  "stage": 8,
+  "event_id": "A08_plan_compare",
+  "source_event_id": "A08_plan_compare",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 8
+    }
+  ],
+  "response_paraphrase": "The bid comparison keeps the egress and alarm work inside the contract scope.",
+  "expected_env": {
+    "virtual_stage": 8,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-005"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s08_bid_compare_code_scope",
+      "weight": 1.4
+    }
+  ],
+  "expected_stage_weight": 1.4
+}

@@ -1,0 +1,40 @@
+{
+  "step": "event-021",
+  "virtual_stage": 15,
+  "source_event_id": "floor_installation_window_review",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "floor_moisture_forecast_released"
+    ]
+  },
+  "response": "I prepared the owner, evidence, and next-action checklist for contractor documents, pressure, leveling, moisture, flatness, expansion joints, heating, card repayment, retainage, and surplus materials.",
+  "response_paraphrase": "Every closeout item has a status, missing evidence, responsible owner, and recheck action.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_installation_window_review"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s15_result",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s15_weather",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

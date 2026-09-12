@@ -1,0 +1,54 @@
+{
+  "release_id": "release-014",
+  "before_step": "event-024",
+  "previous": "release-013",
+  "token": "garage-adu-rental-conversion-25d-release-014-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "A21_pass_mut",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9021,
+        "folder_id": 1,
+        "message_id": "<inspection-pass-9021@inspector.example>",
+        "subject": "ADU reinspection passed; pre-rental checks remain",
+        "from_addr": "inspector@city.example",
+        "to_addr_json": "[\"marina@example.com\"]",
+        "cc_addr_json": "[\"permitdesk@city.example\"]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-22T08:20:00+08:00",
+        "body_text": "Reinspection passed: the egress clear opening, bathroom exhaust, and smoke/CO alarm plan meet requirements. Before lawful rental advertising, verify final permit status, the fixture list, and parking/access details.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"X-Inspection\":\"ADU-FI-0822\"}",
+        "uid": 9021,
+        "size": 1250,
+        "created_at": "2026-08-22T00:20:00Z"
+      }
+    },
+    {
+      "source_event_id": "A21_pass_mut",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_9021",
+        "user_id": "marina",
+        "source": "inspection",
+        "type": "passed",
+        "subscription_id": null,
+        "title": "ADU reinspection passed",
+        "body": "The inspector submitted the reinspection result.",
+        "payload_json": "{\"inspection\":\"ADU-FI-0822\"}",
+        "created_at": "2026-08-22T08:20:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

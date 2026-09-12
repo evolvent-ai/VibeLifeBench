@@ -1,0 +1,50 @@
+{
+  "release_id": "release-008",
+  "before_step": "event-013",
+  "previous": "release-007",
+  "token": "garage-adu-rental-conversion-25d-release-008-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "A12_price_mut",
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "update",
+      "set": {
+        "price_minor": 2450000
+      },
+      "where": {
+        "sku_id": "sku_window_code"
+      }
+    },
+    {
+      "source_event_id": "A12_price_mut",
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "set": {
+        "quantity": 0
+      },
+      "where": {
+        "sku_id": "sku_alarm_bundle"
+      }
+    },
+    {
+      "source_event_id": "A12_price_mut",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_9012",
+        "user_id": "marina",
+        "source": "materials",
+        "type": "price_stock",
+        "subscription_id": null,
+        "title": "ADU material price and stock update",
+        "body": "Pricing and availability changed for the shortlisted egress window and alarm items.",
+        "payload_json": "{\"category\":\"adu-materials\"}",
+        "created_at": "2026-08-12T07:00:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

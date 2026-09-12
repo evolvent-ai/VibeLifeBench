@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "Q11_inspection_report"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-06-25T10:30:00+08:00",
+  "previous": "release-005",
+  "token": "bath-total-reno-v4-30d-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "Q11_inspection_report",
+      "values": {
+        "id": 1111,
+        "folder_id": 1,
+        "message_id": "<qbath-inspection-20260625@inspect.example>",
+        "subject": "Third-party inspection report: two failures",
+        "from_addr": "Huaheng Home Inspection <report@huaheng-inspect.example>",
+        "to_addr_json": "[\"geng.lu.reno4@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-25T10:25:00+08:00",
+        "body_text": "Report HH-QB-0625: the bathroom threshold finishing detail has a leakage risk and conduit fastening spacing exceeds the agreed standard. The finishing detail and conduit fastening both failed; rework both items, reinspect separately, and retain continuous footage.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"report_id\":\"HH-QB-0625\"}",
+        "uid": 1111,
+        "size": 420,
+        "created_at": "2026-06-25T10:25:00+08:00"
+      }
+    }
+  ]
+}

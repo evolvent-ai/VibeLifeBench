@@ -1,0 +1,11 @@
+"""Generated scenario constants; scoring logic is defined in checks.py."""
+from __future__ import annotations
+
+STAGE_COUNT = 24
+ALL_SERVERS = ('ecommerce', 'delivery_logistics', 'credit_card', 'email', 'calendar', 'notification_hub', 'listing_platform', 'weather')
+OUTPUT_PATHS = ('/workspace/gear_plan.md', '/workspace/budget.md', '/workspace/decision_log.md', '/workspace/risk_register.md', '/workspace/order_tracker.md', '/workspace/evidence_log.md', '/workspace/final_summary.md', '/workspace/HEARTBEAT.md')
+THREAD_IDS = ['ord_hhigh_0001', 'ord_hhigh_0002', 'lst_hhigh_0001']
+THREAD_LABELS = {'ord_hhigh_0001': ['ord_hhigh_0001', 'thread 1', 'contract verification'], 'ord_hhigh_0002': ['ord_hhigh_0002', 'thread 2', 'acceptance thread', 'construction thread'], 'lst_hhigh_0001': ['lst_hhigh_0001', 'thread 3', 'settlement thread', 'funds thread']}
+THREAD_TERMS = {'ord_hhigh_0001': ['fitted unit', 'handover standards', 'contract', 'contract verification code', 'towercheck', 'standard reduction'], 'ord_hhigh_0002': ['service ticket', 'stage acceptance', 'evidence submission', 'concealed-work defect video', 'platform verification', 'concealed-work defect', 'deadline', 'contractor', 'record', 'decision'], 'lst_hhigh_0001': ['high-rise handover acceptance claim package', 'refund', 'low amount', 'full amount', 'recovery', 'liquidated damages', 'difference', 'return', 'received funds', 'funds']}
+THREAD_EVIDENCE = {'ord_hhigh_0001': ['contract', 'contract verification code', 'purchase record', 'handover standards checklist', 'invoice', 'home-inspection milestone'], 'ord_hhigh_0002': ['acceptance video', 'defect photo', 'service ticket number', 'chat record', 'rework order', 'deadline'], 'lst_hhigh_0001': ['refund proposal', 'liquidated damages', 'refund number', 'recovered amount', 'difference', 'received funds']}
+STAGE_EXPECTED_SERVERS = {0: ['ecommerce', 'delivery_logistics', 'credit_card'], 1: ['ecommerce', 'delivery_logistics', 'credit_card', 'listing_platform'], 2: ['ecommerce', 'notification_hub'], 3: ['ecommerce', 'notification_hub'], 4: ['email'], 6: ['credit_card'], 7: ['ecommerce'], 9: ['ecommerce'], 10: ['credit_card'], 12: ['email'], 14: ['credit_card'], 15: ['ecommerce', 'weather'], 18: ['credit_card'], 20: ['credit_card']}

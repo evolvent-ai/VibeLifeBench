@@ -1,0 +1,1 @@
+The project budget page needs an update. Record permits, design, structure and windows, insulation, bathroom, small kitchen, electrical, alarms, inspections, contingency, and the potential rent payback separately.

@@ -1,0 +1,26 @@
+{
+  "step": "event-025",
+  "virtual_stage": 21,
+  "source_event_id": "bed_closeout_window",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The closeout tracker assigns status, responsible party, evidence, and next action for contract supplementation, reinspection, paint and air testing, card payment, retainage, and resale.",
+  "response_paraphrase": "The closeout tracker assigns status, responsible party, evidence, and next action for contract supplementation, reinspection, paint and air testing, card payment, retainage, and resale.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_closeout_window"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_checklist",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

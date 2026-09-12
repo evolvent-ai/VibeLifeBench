@@ -1,0 +1,41 @@
+{
+  "step": "event-004",
+  "virtual_stage": 2,
+  "source_event_id": "floor_sequence_rule",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I archived the sequence reminder as independent evidence for the pressure test, leveling strength and moisture, flatness, and expansion joints.",
+  "response_paraphrase": "The process archive keeps each qualification step separate and does not infer acceptance from a later step.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_sequence_rule"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s2_args",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s2_result",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s2_options",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

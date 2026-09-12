@@ -1,0 +1,40 @@
+{
+  "step": "event-012",
+  "virtual_stage": 9,
+  "source_event_id": "bed_supplement_deadline",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "bed_rework_evidence_returned"
+    ]
+  },
+  "response": "The rejected rework case retains the exact supplementation gaps for original timestamps, measurement method, primer batch, and topcoat batch; customization is not treated as acceptance.",
+  "response_paraphrase": "The rejected rework case retains the exact supplementation gaps for original timestamps, measurement method, primer batch, and topcoat batch; customization is not treated as acceptance.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_supplement_deadline"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s9_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s9_result",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

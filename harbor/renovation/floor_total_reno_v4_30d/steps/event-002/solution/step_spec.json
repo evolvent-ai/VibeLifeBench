@@ -1,0 +1,36 @@
+{
+  "step": "event-002",
+  "virtual_stage": 1,
+  "source_event_id": "floor_pressure_snapshot_boundary",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I recorded that the pressure gauge checkpoint cannot stand in for leveling hollows, wood-floor moisture content, or doorway expansion joints.",
+  "response_paraphrase": "The pressure reading is limited to its circuit checkpoint, so each substrate and edge condition still needs its own measurement.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_pressure_snapshot_boundary"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s1_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s1_result",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,32 @@
+{
+  "step": "event-007",
+  "stage": 6,
+  "virtual_stage": 6,
+  "source_event_id": "A06_materials",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The A06_materials renovation coordination step was completed with current evidence, backend checks, and authorization controls recorded.",
+  "response_paraphrase": "I reviewed A06_materials using the available project records and preserved the applicable safety and approval gates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "A06_materials"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "apt_s6_artifact",
+      "weight": 3.5,
+      "expected": true
+    },
+    {
+      "check_id": "apt_s6_tool_evidence",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

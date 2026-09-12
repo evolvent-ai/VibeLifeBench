@@ -1,0 +1,33 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-039",
+  "virtual_stage": 15,
+  "event_id": "D15_subcontractor_lien_threat",
+  "source_event_id": "D15_subcontractor_lien_threat",
+  "response": "I documented post-handover conditions and routed the subcontractor claim through the main contract.",
+  "response_paraphrase": "The after-occupancy work plan is recorded and the subcontractor dispute is routed through the prime contract.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-039",
+    "HARBOR_EVENT_ID": "D15_subcontractor_lien_threat",
+    "HARBOR_VIRTUAL_STAGE": "15",
+    "VIRTUAL_STAGE": "15",
+    "RUN_STAGE_RUBRIC": "1",
+    "STAGE_BOUNDARY": "1",
+    "SOURCE_EVENT_ID": "D15_subcontractor_lien_threat",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_post_handover_conditional_plan_recorded",
+    "chk_subcontractor_lien_not_paid_directly",
+    "chk_lien_threat_escalated_to_owner"
+  ],
+  "expected_stage_weight": 6.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D15_subcontractor_lien_threat",
+      "stage": 15
+    }
+  ]
+}

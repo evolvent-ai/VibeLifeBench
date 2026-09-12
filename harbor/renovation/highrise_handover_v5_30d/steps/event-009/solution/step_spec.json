@@ -1,0 +1,42 @@
+{
+  "step": "event-009",
+  "stage": 6,
+  "virtual_stage": 6,
+  "source_event_id": "H06_reconcile",
+  "scenario_time": "2026-06-20T11:20:00+08:00",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "highrise-inspector-preauth-notice-20260620"
+    ]
+  },
+  "response": "Stage 6 handover evidence was checked in the formal systems and recorded with all unresolved items and authorization boundaries preserved.",
+  "response_paraphrase": "The formal records for handover stage 6 were reviewed and written back; outstanding defects, funds and approvals remain explicitly tracked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "H06_reconcile"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s6_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s6_result",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

@@ -1,0 +1,22 @@
+{
+  "step": "event-010",
+  "stage": 10,
+  "event_id": "A10_budget",
+  "source_event_id": "A10_budget",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 10
+    }
+  ],
+  "response_paraphrase": "The cost update records 240000, contingency, budget items, rent, and payback as separate lines.",
+  "expected_env": {
+    "virtual_stage": 10,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": false
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

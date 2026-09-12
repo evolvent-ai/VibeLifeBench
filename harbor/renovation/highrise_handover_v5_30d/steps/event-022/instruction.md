@@ -1,0 +1,1 @@
+There is a new result concerning the duplicate inspection fee. Verify the dispute status and the unbilled reversal, preserve the normal inspection fee and the reversal as separate records, and update each record's funding source, status, and next action.

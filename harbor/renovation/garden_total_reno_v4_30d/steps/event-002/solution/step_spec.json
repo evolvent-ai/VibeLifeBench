@@ -1,0 +1,37 @@
+{
+  "step": "event-002",
+  "virtual_stage": 1,
+  "source_event_id": "garden_overflow_path_question",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I recorded the differences among ecommerce delivery, logistics arrival, site completion, rain-test acceptance, listing display, and posted proceeds.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_overflow_path_question",
+      "virtual_stage": 1,
+      "event_kind": "user_message",
+      "event_time": "2026-06-15T13:05:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s1_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s1_result",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 2.0,
+  "response_paraphrase": "The records now distinguish store delivery, carrier arrival, finished site work, drainage acceptance, public display, and settled funds."
+}

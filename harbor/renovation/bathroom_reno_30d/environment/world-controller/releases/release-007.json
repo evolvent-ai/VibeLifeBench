@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "R14_dispute_opened"
+  ],
+  "source_time": "2026-06-30T10:00:00+08:00",
+  "previous": "release-006",
+  "token": "bathroom-reno-30d-release-007-release-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "disputes",
+      "op": "insert",
+      "source_event_id": "R14_dispute_opened",
+      "values": {
+        "dispute_id": "disp_r2bth_01",
+        "card_id": "card_r2bth_01",
+        "tx_id": "tx_r2bth_dup",
+        "reason": "Duplicate charge by the same merchant",
+        "status": "under_review",
+        "opened_at": "2026-06-30T10:00:00+08:00",
+        "expected_resolution_date": "2026-07-08",
+        "resolved_at": null
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "source_event_id": "R14_dispute_opened",
+      "values": {
+        "notification_id": "ntf_r2bth_disp",
+        "user_id": "usr_gan_mei",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_r2bth_card",
+        "title": "Transaction dispute accepted",
+        "body": "The duplicate-charge dispute has entered review; manage the disputed amount separately from the normal amount due.",
+        "payload_json": "{\"card_id\":\"card_r2bth_01\",\"dispute_id\":\"disp_r2bth_01\",\"status\":\"under_review\"}",
+        "created_at": "2026-06-30T10:01:00+08:00",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 14
+}

@@ -1,0 +1,41 @@
+{
+  "step": "event-010",
+  "virtual_stage": 6,
+  "source_event_id": "garden_fx_transaction_instruction",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "garden_imported_drain_charge_notice"
+    ]
+  },
+  "response": "I reconciled the unbilled drainage-fitting charge and left it pending verification without initiating a dispute.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_fx_transaction_instruction",
+      "virtual_stage": 6,
+      "event_kind": "user_message",
+      "event_time": "2026-06-20T10:50:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s6_args",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s6_result",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 2.5,
+  "response_paraphrase": "The card entry and fitting order were compared, with the unbilled amount left unresolved and no claim opened."
+}

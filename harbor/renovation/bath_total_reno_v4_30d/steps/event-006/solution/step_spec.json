@@ -1,0 +1,26 @@
+{
+  "step": "event-006",
+  "virtual_stage": 5,
+  "source_event_id": "Q05_quiet_recheck",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The three lines were rechecked: no new changes are confirmed, and the next two days of evidence and payment risks are listed.",
+  "response_paraphrase": "A fresh three-track review found no confirmed change and documents the immediate evidence and payment risks.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q05_quiet_recheck"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_evidence",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

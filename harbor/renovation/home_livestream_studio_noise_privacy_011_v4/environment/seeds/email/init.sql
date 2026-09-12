@@ -1,0 +1,8 @@
+INSERT INTO account_config(email,name,created_at) VALUES('user_lwq@example.test','Wendy Lin','2026-07-01T00:00:00Z');
+INSERT INTO folders(id,name,flags_json,message_count,unread_count) VALUES(1,'INBOX','[]',4,4),(2,'Sent','[]',0,0),(3,'Drafts','[]',0,0);
+INSERT INTO messages(folder_id,message_id,subject,from_addr,to_addr_json,date,body_text,is_read,is_important,created_at) VALUES
+(1,'msg_property_rules','Property work rules and low-noise requirements','property_zhou@example.test','["user_lwq@example.test"]','2026-07-01T08:10:00+08:00','No noisy work after 20:00；mustsubmitredactedinstallation workdescription；more thantranslated 6 locationsdrilled holesneeds confirmation。',0,1,'2026-07-01T08:10:00+08:00'),
+(1,'msg_brand_nda','Obsidian Dock partnership confidentiality summary','brand_ops@example.test','["user_lwq@example.test"]','2026-07-01T08:20:00+08:00','Do not send sample images, livestream scripts, quotations, unreleased SKUs, or internal schedule screenshots externally。',0,1,'2026-07-01T08:20:00+08:00'),
+(1,'msg_vendor_quote','BaiSound Soft Furnishings preliminary proposal','baisheng@example.test','["user_lwq@example.test"]','2026-07-01T08:45:00+08:00','Claims 35 dB noise reduction; measured evidence required。',0,0,'2026-07-01T08:45:00+08:00'),
+(1,'msg_network_vendor','OrangeLine Network low-voltage organization slot','orangecable@example.test','["user_lwq@example.test"]','2026-07-01T09:00:00+08:00','Can organize the low-voltage cabinet; may require a few holes。',0,0,'2026-07-01T09:00:00+08:00');
+INSERT INTO _counters(key,value) VALUES('message_seq',100),('draft_seq',100);

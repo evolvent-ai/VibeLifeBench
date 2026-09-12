@@ -1,0 +1,35 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-063",
+  "virtual_stage": 20,
+  "event_id": "D20_fire_load_bearing_voc_invoice_conflict",
+  "source_event_id": "D20_fire_load_bearing_voc_invoice_conflict",
+  "response": "I issued a no-go evidence package for fire, structure, independent air testing, invoice and freight timing.",
+  "response_paraphrase": "The no-go bundle requires independent proof for authority filing, structure, air quality, invoicing and freight access.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-063",
+    "HARBOR_EVENT_ID": "D20_fire_load_bearing_voc_invoice_conflict",
+    "HARBOR_VIRTUAL_STAGE": "20",
+    "VIRTUAL_STAGE": "20",
+    "RUN_STAGE_RUBRIC": "1",
+    "STAGE_BOUNDARY": "1",
+    "SOURCE_EVENT_ID": "D20_fire_load_bearing_voc_invoice_conflict",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "s20_fire_no_go_backed",
+    "s20_voc_third_party_backed",
+    "s20_invoice_corrected",
+    "s20_elevator_freight_window",
+    "s20_partition_load_bearing_payment_occupancy"
+  ],
+  "expected_stage_weight": 16.757,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D20_fire_load_bearing_voc_invoice_conflict",
+      "stage": 20
+    }
+  ]
+}

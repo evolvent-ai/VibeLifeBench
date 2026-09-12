@@ -1,0 +1,33 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-003",
+  "virtual_stage": 18,
+  "event_id": "D18_electrical_d30_upgrade_done_silent",
+  "source_event_id": "D18_electrical_d30_upgrade_done_silent",
+  "response": "I verified the live electrical closure, recorded the upgrade cost and rejected a direct lien bypass.",
+  "response_paraphrase": "The live load closure and upgrade cost are recorded, while a direct subcontractor bypass is rejected.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-003",
+    "HARBOR_EVENT_ID": "D18_electrical_d30_upgrade_done_silent",
+    "HARBOR_VIRTUAL_STAGE": "18",
+    "VIRTUAL_STAGE": "18",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D18_electrical_d30_upgrade_done_silent",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_electrical_condition_verified_live",
+    "chk_d30_upgrade_recorded_in_budget",
+    "chk_lien_bypass_compliance_flagged"
+  ],
+  "expected_stage_weight": 5.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D18_electrical_d30_upgrade_done_silent",
+      "stage": 18
+    }
+  ]
+}

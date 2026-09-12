@@ -1,0 +1,28 @@
+{
+  "step": "event-021",
+  "virtual_stage": 13,
+  "source_event_id": "garden_rainy_season_budget_review",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "garden_budget_calendar_release"
+    ]
+  },
+  "response": "I reconciled paid, withheld, pending, posted, and resale fund states against their source objects.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_rainy_season_budget_review",
+      "virtual_stage": 13,
+      "event_kind": "notification",
+      "event_time": "2026-06-28T08:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0,
+  "response_paraphrase": "Each project amount is reconciled by evidence and kept in its actual paid, withheld, pending, posted, or resale state."
+}

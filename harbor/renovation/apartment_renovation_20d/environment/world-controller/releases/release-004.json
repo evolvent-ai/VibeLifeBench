@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "A08_contract_confirmed"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-06-09T18:25:00+08:00",
+  "previous": "release-003",
+  "token": "apartment-renovation-20d-release-004-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "values": {
+        "id": 3022,
+        "folder_id": 1,
+        "message_id": "<20260609.WJ-CONTRACT-0609@contracts.steady-renov.example>",
+        "subject": "\u7a33\u5bb6\u88c5\u9970\u5408\u540c\u7b7e\u7f72\u56de\u6267 WJ-CONTRACT-0609",
+        "from_addr": "\u4e0a\u6d77\u7a33\u5bb6\u88c5\u9970 \u5408\u540c\u90e8 <contracts@steady-renov.example.com>",
+        "to_addr_json": "[\"chen_yu@owner.example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-09T18:20:00+08:00",
+        "body_text": "\u5df2\u6536\u5230\u9648\u96e8\u672c\u4eba\u7b7e\u7f72\u7684\u6574\u88c5\u5408\u540c\uff0c\u5408\u540c\u603b\u4ef7 168,000 \u5143\u3002\u9996\u671f\u6b3e 50,400 \u5143\u5df2\u7531\u9648\u96e8\u672c\u4eba\u652f\u4ed8\uff1b\u6750\u6599\u66ff\u4ee3\u3001\u589e\u9879\u3001\u5f00\u5de5\u4ee4\u548c\u540e\u7eed\u4ed8\u6b3e\u8282\u70b9\u4ecd\u987b\u9648\u96e8\u53e6\u884c\u4e66\u9762\u786e\u8ba4\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"contract_id\":\"WJ-CONTRACT-0609\",\"payment_status\":\"paid_by_owner\"}",
+        "uid": 3022,
+        "size": 154,
+        "created_at": "2026-06-09T18:20:00+08:00"
+      },
+      "source_event_id": "A08_contract_confirmed",
+      "operation_index": 0
+    }
+  ]
+}

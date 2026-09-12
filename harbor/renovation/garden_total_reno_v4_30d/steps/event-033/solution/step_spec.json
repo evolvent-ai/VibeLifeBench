@@ -1,0 +1,29 @@
+{
+  "step": "event-033",
+  "virtual_stage": 22,
+  "source_event_id": "garden_final_photo_sequence_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I cross-checked weather, orders, card records, email, calendar, and listing evidence without collapsing their limits.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_final_photo_sequence_request",
+      "virtual_stage": 22,
+      "event_kind": "user_message",
+      "event_time": "2026-07-13T08:25:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_consistency",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 2.0,
+  "response_paraphrase": "The six readable services were reconciled while preserving the evidentiary limits of weather, measurements, transactions, and listings."
+}

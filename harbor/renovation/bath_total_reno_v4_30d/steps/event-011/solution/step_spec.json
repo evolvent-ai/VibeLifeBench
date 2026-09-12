@@ -1,0 +1,45 @@
+{
+  "step": "event-011",
+  "virtual_stage": 10,
+  "source_event_id": "Q10_charge_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-005"
+    ]
+  },
+  "response": "The same-merchant duplicate charge is reconciled against the original transaction and preserved for dispute review.",
+  "response_paraphrase": "The repeated merchant charge is linked to the original transaction and retained for a possible dispute.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q10_charge_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_result",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s10_no_bad",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

@@ -1,0 +1,27 @@
+{
+  "step": "event-028",
+  "stage": 24,
+  "event_id": "A24_closeout",
+  "source_event_id": "A24_closeout",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 24
+    }
+  ],
+  "response_paraphrase": "The closeout reconciles the permit, inspection chain, budget, materials, parking, listing, payback, and open risks.",
+  "expected_env": {
+    "virtual_stage": 24,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s24_closeout_cross_check",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

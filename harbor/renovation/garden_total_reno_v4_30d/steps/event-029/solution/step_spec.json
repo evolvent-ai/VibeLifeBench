@@ -1,0 +1,33 @@
+{
+  "step": "event-029",
+  "virtual_stage": 19,
+  "source_event_id": "garden_claim_approval_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-015"
+    ],
+    "released_mutations": [
+      "garden_ponding_claim_approved"
+    ]
+  },
+  "response": "I recorded the approved corrective amount as pending posting and kept unrelated garden scopes separate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_claim_approval_visible",
+      "virtual_stage": 19,
+      "event_kind": "world",
+      "event_time": "2026-07-10T11:10:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_result",
+      "weight": 2.5
+    }
+  ],
+  "expected_stage_weight": 2.5,
+  "response_paraphrase": "The platform-approved remedy remains receivable until a matching card posting appears, with other scopes excluded."
+}

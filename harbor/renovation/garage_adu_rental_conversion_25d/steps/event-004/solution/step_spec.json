@@ -1,0 +1,31 @@
+{
+  "step": "event-004",
+  "stage": 4,
+  "event_id": "A04_permit_docs",
+  "source_event_id": "A04_permit_docs",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 4
+    }
+  ],
+  "response_paraphrase": "The permit file now tracks emergency egress, alarm coverage, light, ventilation, and parking.",
+  "expected_env": {
+    "virtual_stage": 4,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-003"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s04_permit_checklist",
+      "weight": 1.4
+    }
+  ],
+  "expected_stage_weight": 1.4
+}

@@ -1,0 +1,41 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "bed_kickoff_three_ledgers",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I established separate ledgers for the contract, staged acceptance, and surplus-material listing after checking the official order, delivery, and card sources; acceptance and payment remain with Rong Du.",
+  "response_paraphrase": "The workspace was updated to established separate ledgers for the contract, staged acceptance, and surplus-material listing after checking the official order, delivery, and card sources; acceptance and payment remain with the owner.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_kickoff_three_ledgers"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s0_args",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s0_result",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s0_files",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

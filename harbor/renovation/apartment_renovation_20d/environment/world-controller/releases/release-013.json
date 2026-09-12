@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "A17_electrical_pass"
+  ],
+  "source_stage": 17,
+  "source_time": "2026-06-18T16:15:00+08:00",
+  "previous": "release-012",
+  "token": "apartment-renovation-20d-release-013-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "values": {
+        "id": 3017,
+        "folder_id": 1,
+        "message_id": "<20260618.EL-0618@report.yanjing-inspect.example>",
+        "subject": "\u7535\u6c14\u6574\u6539\u590d\u68c0\u901a\u8fc7 EL-0618",
+        "from_addr": "\u4e25\u666f\u72ec\u7acb\u9a8c\u623f <report@yanjing-inspect.example.com>",
+        "to_addr_json": "[\"chen_yu@owner.example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-18T16:10:00+08:00",
+        "body_text": "\u6f0f\u4fdd\u52a8\u4f5c\u3001\u7edd\u7f18\u3001\u7ebf\u7ba1\u56fa\u5b9a\u548c\u7b49\u7535\u4f4d\u8fde\u63a5\u590d\u68c0\u901a\u8fc7\uff0c\u53ef\u6309\u5df2\u786e\u8ba4\u56fe\u7eb8\u8fdb\u5165\u5c01\u95ed\u5de5\u5e8f\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"inspection_id\":\"EL-0618\",\"result\":\"passed\"}",
+        "uid": 3017,
+        "size": 111,
+        "created_at": "2026-06-18T16:10:00+08:00"
+      },
+      "source_event_id": "A17_electrical_pass",
+      "operation_index": 0
+    }
+  ]
+}

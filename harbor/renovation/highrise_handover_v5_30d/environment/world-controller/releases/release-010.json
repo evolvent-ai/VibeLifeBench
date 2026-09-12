@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "H20_compensation_arrived"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-07-11 16:00:00+08:00",
+  "previous": "release-009",
+  "token": "highrise-release-010-token-9f6a4c2d8e1b7a3c5d9e",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_hhigh_pp",
+        "card_id": "card_hhigh_01",
+        "posted_at": "2026-07-11T16:00:00+08:00",
+        "amount_minor": -3717000,
+        "merchant_name": "HIGHRISE HANDOVER CLAIM CREDIT",
+        "mcc": "6513",
+        "category": "交付补偿",
+        "kind": "adjustment"
+      },
+      "source_event_id": "H20_compensation_arrived",
+      "operation_index": 0
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_hhigh_funds",
+        "user_id": "usr_chu_nuo",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "交付补偿款已入账",
+        "body": "补偿款 37170 元已经入账；不得与检测费冲销、质保责任或未完成整改混记。",
+        "payload_json": "{\"amount_minor\":3717000,\"kind\":\"handover_compensation\"}",
+        "created_at": "2026-07-11T16:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "H20_compensation_arrived",
+      "operation_index": 1
+    }
+  ]
+}

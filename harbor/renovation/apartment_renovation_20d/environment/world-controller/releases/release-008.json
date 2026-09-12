@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "A12_weather_alert"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-06-13T07:35:00+08:00",
+  "previous": "release-007",
+  "token": "apartment-renovation-20d-release-008-token",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "upsert",
+      "values": {
+        "alert_id": "SH-PD-HUMIDITY-20260613",
+        "kind": "humidity",
+        "severity": "yellow",
+        "start_dt": "2026-06-13T06:00:00+08:00",
+        "end_dt": "2026-06-16T18:00:00+08:00",
+        "areas_json": "[\"shanghai_pudong\"]",
+        "description": "\u8fde\u7eed\u964d\u96e8\u4e0e\u9ad8\u6e7f\u5ea6\u53ef\u80fd\u5ef6\u957f\u9632\u6c34\u6d82\u819c\u3001\u817b\u5b50\u548c\u6728\u4f5c\u542b\u6c34\u7387\u8fbe\u6807\u65f6\u95f4\u3002",
+        "active": 1,
+        "created_at": "2026-06-13T07:20:00+08:00",
+        "source_event": "SHMET-HUMIDITY-20260613"
+      },
+      "source_event_id": "A12_weather_alert",
+      "operation_index": 0
+    }
+  ]
+}

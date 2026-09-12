@@ -1,0 +1,1 @@
+Moderate rain and gusty winds are forecast for July 4. The exterior-window water-ingress retest should record the rainfall period, wind direction, window-sash position, and continuous video so that old water marks are not mistaken for results from this test.

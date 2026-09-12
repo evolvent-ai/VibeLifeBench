@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "A08_quote_hold"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-06-09T09:10:00+08:00",
+  "previous": "release-002",
+  "token": "apartment-renovation-20d-release-003-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "values": {
+        "id": 3008,
+        "folder_id": 1,
+        "message_id": "<20260609.ZC-HOLD-0609@offers.zhicheng-zs.example>",
+        "subject": "\u81f4\u8bda\u88c5\u9970\uff1a\u62a5\u4ef7\u4e0e\u6863\u671f\u4fdd\u7559\u81f3\u4eca\u65e5 18:00",
+        "from_addr": "\u81f4\u8bda\u88c5\u9970 <info@zhicheng-zs.example.com>",
+        "to_addr_json": "[\"chen_yu@owner.example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-09T09:05:00+08:00",
+        "body_text": "\u5f53\u524d\u62a5\u4ef7\u548c 6 \u6708\u4e2d\u65ec\u5f00\u5de5\u6863\u671f\u4ec5\u4fdd\u7559\u81f3\u4eca\u5929 18:00\uff1b\u5b9a\u91d1\u53ef\u9000\u6761\u4ef6\u4ee5\u5408\u540c\u9644\u4ef6\u7b2c 4 \u6761\u4e3a\u51c6\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"offer_id\":\"ZC-HOLD-0609\",\"status\":\"expires_18_00\"}",
+        "uid": 3008,
+        "size": 117,
+        "created_at": "2026-06-09T09:05:00+08:00"
+      },
+      "source_event_id": "A08_quote_hold",
+      "operation_index": 0
+    }
+  ]
+}

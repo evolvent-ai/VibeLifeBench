@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "R11_inspection_report"
+  ],
+  "source_time": "2026-06-25T10:30:00+08:00",
+  "previous": "release-004",
+  "token": "bathroom-reno-30d-release-005-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "R11_inspection_report",
+      "values": {
+        "id": 1111,
+        "folder_id": 1,
+        "message_id": "<r2bth-inspection-20260625@inspect.example>",
+        "subject": "Third-party reinspection report: threshold waterproofing and grab-bar backing failed",
+        "from_addr": "Heng'an Home Renovation Inspection <report@huaheng-inspect.example>",
+        "to_addr_json": "[\"gan.mei.reno2@gmail.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-25T10:25:00+08:00",
+        "body_text": "Report number HA-R2-0625. The waterstop detail beneath the threshold stone is discontinuous, and the shower grab-bar substrate was not reinforced according to the drawings; recommend opening it up for rework, conducting a new flood test, and performing a pull-out verification on the grab bar.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"report_id\":\"HA-R2-0625\"}",
+        "uid": 1111,
+        "size": 420,
+        "created_at": "2026-06-25T10:25:00+08:00"
+      }
+    }
+  ],
+  "source_stage": 11
+}

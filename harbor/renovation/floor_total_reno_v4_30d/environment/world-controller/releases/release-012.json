@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "floor_leveling_claim_approved"
+  ],
+  "source_time": "2026-07-10T13:50:00+08:00",
+  "previous": "release-011",
+  "token": "floor_total_reno_v4_30d-release-012-token-long",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "approved",
+        "refund_amount_minor": 2563000,
+        "reason": "translated business text 2418000 translated business text，translated business text 145000 translated business text",
+        "resolved_at": "2026-07-10T13:40:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_qflr_b"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qflr_ship",
+        "user_id": "usr_lai_xu",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "translated business text",
+        "body": "translated business text、translated business text、translated business text，translated business text 24,180 translated business text，translated business text 1,450 translated business text，translated business text 25,630 translated business text；translated business text。",
+        "payload_json": "{\"refund_id\":\"ref_qflr_b\",\"status\":\"approved\",\"scope\":\"leveling_rework\",\"rework_minor\":2418000,\"delay_compensation_minor\":145000,\"approved_minor\":2563000}",
+        "created_at": "2026-07-10T05:41:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

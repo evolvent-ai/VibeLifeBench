@@ -1,0 +1,1 @@
+Please determine which engagement this preauthorization belongs to and how its currency and amount should be converted. Do not open a dispute yet, and do not record the preauthorization as an expense that has already been paid.

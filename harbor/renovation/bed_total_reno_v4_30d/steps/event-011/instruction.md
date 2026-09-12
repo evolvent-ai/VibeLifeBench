@@ -1,0 +1,3 @@
+[2026-06-22T10:00:00+08:00] Message from Rong Du
+
+The rework materials list has been reviewed. The hinges must be 110-degree full-overlay hinges with 35 mm cups, in a pack of 10. The drawer slides must be 400 mm side-mount ball-bearing slides, one left-right pair, rated for at least 25 kg. The color-repair material must be 1 kg of water-based clear wood primer. Select one in-stock marketplace SKU in each category that meets these specifications, and exhaustively evaluate combinations using actual inventory and coupon rules; tied lowest-cost combinations are acceptable. Record candidate specifications, coupon thresholds, final payable amount, and the not-ordered status in `gear_plan.md` and `budget.md`. Add the items to the cart only for my review; do not place an order.

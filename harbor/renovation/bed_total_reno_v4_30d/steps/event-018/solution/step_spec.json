@@ -1,0 +1,40 @@
+{
+  "step": "event-018",
+  "virtual_stage": 14,
+  "source_event_id": "bed_payment_boundary",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": [
+      "bed_duplicate_charge_dispute_opened"
+    ]
+  },
+  "response": "The issuer's preliminary investigation is retained as under review, without claiming a refund or reversal and without changing the normal statement obligation.",
+  "response_paraphrase": "The issuer's preliminary investigation is retained as under review, without claiming a refund or reversal and without changing the normal statement obligation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_payment_boundary"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s14_result",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s14_no_bad",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

@@ -1,0 +1,35 @@
+{
+  "step": "event-020",
+  "virtual_stage": 18,
+  "source_event_id": "Q18_dispute_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "release-010"
+    ]
+  },
+  "response": "The approved dispute and its reversal are recorded separately from the normal amount due and received funds.",
+  "response_paraphrase": "The approved card dispute and reversal are recorded apart from ordinary payable amounts.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q18_dispute_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s18_result",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

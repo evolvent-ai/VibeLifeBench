@@ -1,0 +1,24 @@
+{
+  "step": "event-009",
+  "virtual_stage": 7,
+  "source_event_id": "bed_offer_scope_warning",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "bed_contractor_partial_offer"
+    ]
+  },
+  "response": "The contractor's visible-paint offer is compared against complete original-contractor, certified-third-party, and self-managed scopes, including schedule, net cost, indoor air, and warranty.",
+  "response_paraphrase": "The contractor's visible-paint offer is compared against complete original-contractor, certified-third-party, and self-managed scopes, including schedule, net cost, indoor air, and warranty.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_offer_scope_warning"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

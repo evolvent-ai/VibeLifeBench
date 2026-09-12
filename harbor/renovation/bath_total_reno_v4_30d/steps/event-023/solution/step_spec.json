@@ -1,0 +1,26 @@
+{
+  "step": "event-023",
+  "virtual_stage": 21,
+  "source_event_id": "Q21_closeout_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The closeout checklist covers contract credentials, quality application, card dispute, normal amount due, refund posting, and pending confirmation.",
+  "response_paraphrase": "A closeout checklist brings together contract, quality, card, ordinary due, refund, and confirmation items.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q21_closeout_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_checklist",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

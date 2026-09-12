@@ -1,0 +1,1 @@
+Using the latest retest results, prepare a rectification decision among three options: repair by the original contractor, third-party repair followed by recovery, or compensation for loss in value while preserving the warranty. List the amount, timeline, retest standard, and risks for each option, then show the choice requiring my confirmation separately.

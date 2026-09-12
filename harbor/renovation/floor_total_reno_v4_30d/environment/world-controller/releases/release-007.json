@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "floor_off_platform_surplus_offer"
+  ],
+  "source_time": "2026-06-26T11:20:00+08:00",
+  "previous": "release-006",
+  "token": "floor_total_reno_v4_30d-release-007-token-long",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "<qflr-deposit@trade.net>",
+        "subject": "translated business text",
+        "from_addr": "translated business text <buyer_zhou@market-mail.net>",
+        "to_addr_json": "[\"lai.xu.reno4@gmail.com\"]",
+        "date": "2026-06-26T03:00:00Z",
+        "body_text": "translated business text，translated business text 12000 translated business text，translated business text，translated business text。",
+        "is_read": 0,
+        "is_important": 0,
+        "headers_json": "{\"x-warning\":\"off-platform-deposit\",\"listing_id\":\"lst_qflr_0001\"}",
+        "size": 176,
+        "created_at": "2026-06-26T03:00:00Z"
+      }
+    }
+  ]
+}

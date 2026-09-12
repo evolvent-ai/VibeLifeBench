@@ -1,0 +1,1 @@
+The developer scheduled the exterior-window retest for the day after the elevator protection is removed, which may restrict transport of the inspection equipment. Coordinate a new site-access window and preserve the reason for the change.

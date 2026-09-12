@@ -1,0 +1,1 @@
+The compensation claim status has changed. Read the formal claim result, distinguish approved but not received from actually received, and continue tracking the two unresolved items: the entrance-door retest and the missing document-index page.

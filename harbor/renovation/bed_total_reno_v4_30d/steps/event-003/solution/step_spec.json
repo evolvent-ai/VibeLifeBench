@@ -1,0 +1,41 @@
+{
+  "step": "event-003",
+  "virtual_stage": 2,
+  "source_event_id": "bed_contract_review_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I reconciled the product, SKU, order, validation code, contracting-party authorization, material grade, finishing detail, paint process, and retainage evidence, while recording the missing signed authorization page.",
+  "response_paraphrase": "The workspace was updated to reconciled the product, SKU, order, validation code, contracting-party authorization, material grade, finishing detail, paint process, and retainage evidence, while recording the missing signed authorization page.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_contract_review_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s2_args",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s2_result",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "s2_options",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.5
+}

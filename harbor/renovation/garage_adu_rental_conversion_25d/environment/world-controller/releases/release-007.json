@@ -1,0 +1,66 @@
+{
+  "release_id": "release-007",
+  "before_step": "event-012",
+  "previous": "release-006",
+  "token": "garage-adu-rental-conversion-25d-release-007-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "A11_materials_mut",
+      "server": "ecommerce",
+      "table": "products",
+      "op": "insert",
+      "values": {
+        "product_id": "prod_drywall_fire",
+        "title": "FireShield Type-X gypsum board 15.9mm",
+        "brand": "FireShield",
+        "category": "building_materials",
+        "description": "Type-X fire-resistant gypsum board for garage-to-dwelling wall and ceiling assemblies; verify approved assembly before ordering.",
+        "rating": 4.6,
+        "rating_count": 64,
+        "sales_count": 190,
+        "base_price_minor": 1320000,
+        "return_policy": "30-day returns for unopened items"
+      }
+    },
+    {
+      "source_event_id": "A11_materials_mut",
+      "server": "ecommerce",
+      "table": "skus",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_drywall_fire",
+        "product_id": "prod_drywall_fire",
+        "attrs_json": "{\"thickness_mm\": 15.9, \"type\": \"Type-X\"}",
+        "price_minor": 1320000
+      }
+    },
+    {
+      "source_event_id": "A11_materials_mut",
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "insert",
+      "values": {
+        "sku_id": "sku_drywall_fire",
+        "quantity": 24
+      }
+    },
+    {
+      "source_event_id": "A11_materials_mut",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_9011",
+        "user_id": "marina",
+        "source": "materials",
+        "type": "candidate_set",
+        "subscription_id": null,
+        "title": "ADU material candidates available for review",
+        "body": "Current insulation, fire-rated board, egress window, bathroom exhaust, smoke/CO alarm and kitchenette candidates have prices, stock and return terms.",
+        "payload_json": "{\"category\": \"adu-materials\", \"new_sku\": \"sku_drywall_fire\"}",
+        "created_at": "2026-08-11T09:20:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

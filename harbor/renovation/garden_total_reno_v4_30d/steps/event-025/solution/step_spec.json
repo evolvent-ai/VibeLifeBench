@@ -1,0 +1,28 @@
+{
+  "step": "event-025",
+  "virtual_stage": 16,
+  "source_event_id": "garden_final_drainage_plan",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-013"
+    ],
+    "released_mutations": [
+      "garden_hidden_joint_notice_release"
+    ]
+  },
+  "response": "I recommended localized pavement and connection correction while leaving acceptance, payment, and settlement with the owner.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_final_drainage_plan",
+      "virtual_stage": 16,
+      "event_kind": "user_message",
+      "event_time": "2026-07-04T09:10:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0,
+  "response_paraphrase": "Localized reconstruction and connection adjustment is the evidence-backed choice, subject to the owner's approvals and commitments."
+}

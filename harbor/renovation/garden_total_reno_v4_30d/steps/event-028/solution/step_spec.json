@@ -1,0 +1,38 @@
+{
+  "step": "event-028",
+  "virtual_stage": 18,
+  "source_event_id": "garden_reversal_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-014"
+    ],
+    "released_mutations": [
+      "garden_duplicate_charge_reversal",
+      "garden_reversal_card_summary_refreshed"
+    ]
+  },
+  "response": "I reconciled the approved card dispute and its negative reversal entry separately from the corrective-work claim.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "garden_reversal_visible",
+      "virtual_stage": 18,
+      "event_kind": "world",
+      "event_time": "2026-07-08T18:10:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_servers",
+      "weight": 0.5
+    },
+    {
+      "check_id": "s18_result",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 2.5,
+  "response_paraphrase": "The approved issuer case and card reversal are reconciled independently of the larger construction remedy."
+}

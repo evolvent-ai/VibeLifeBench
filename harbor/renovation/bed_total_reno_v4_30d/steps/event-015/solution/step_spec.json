@@ -1,0 +1,26 @@
+{
+  "step": "event-015",
+  "virtual_stage": 11,
+  "source_event_id": "bed_decision_update_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The independent inspection supports three remediation alternatives with targeted opening, timing, net cost, indoor-air retesting, and warranty comparisons, while final confirmation remains reserved.",
+  "response_paraphrase": "The independent inspection supports three remediation alternatives with targeted opening, timing, net cost, indoor-air retesting, and warranty comparisons, while final confirmation remains reserved.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "bed_decision_update_request"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_decision",
+      "weight": 4.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

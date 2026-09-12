@@ -1,0 +1,31 @@
+{
+  "step": "event-024",
+  "stage": 21,
+  "event_id": "A21_pass_notice",
+  "source_event_id": "A21_pass_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 21
+    }
+  ],
+  "response_paraphrase": "The pass record confirms egress, alarm, and ventilation after the earlier failure, with publication still deferred.",
+  "expected_env": {
+    "virtual_stage": 21,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-014"
+    ],
+    "released_mutations": [
+      "release-014"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s21_passed_recheck_before_listing",
+      "weight": 1.6
+    }
+  ],
+  "expected_stage_weight": 1.6
+}

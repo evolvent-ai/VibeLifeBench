@@ -1,0 +1,32 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-037",
+  "virtual_stage": 10,
+  "event_id": "D10_lighting_smart_email",
+  "source_event_id": "D10_lighting_smart_email",
+  "response": "I re-polled the fire application and recorded the smart-control choice.",
+  "response_paraphrase": "The fire application was queried again and the preferred control-system choice was documented.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-037",
+    "HARBOR_EVENT_ID": "D10_lighting_smart_email",
+    "HARBOR_VIRTUAL_STAGE": "10",
+    "VIRTUAL_STAGE": "10",
+    "RUN_STAGE_RUBRIC": "1",
+    "STAGE_BOUNDARY": "1",
+    "SOURCE_EVENT_ID": "D10_lighting_smart_email",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_fire_rfi_repolled_and_recovery_recorded",
+    "chk_smart_control_decision_is_recorded"
+  ],
+  "expected_stage_weight": 5.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D10_lighting_smart_email",
+      "stage": 10
+    }
+  ]
+}

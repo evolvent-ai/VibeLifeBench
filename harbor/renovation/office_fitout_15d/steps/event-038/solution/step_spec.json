@@ -1,0 +1,35 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-038",
+  "virtual_stage": 12,
+  "event_id": "D12_owner_fire_question",
+  "source_event_id": "D12_owner_fire_question",
+  "response": "I checked both applications and held occupancy while quantified fire correction and reinspection remained open.",
+  "response_paraphrase": "Both applications were checked; room access and retention remain conditional while fire correction is rechecked.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-038",
+    "HARBOR_EVENT_ID": "D12_owner_fire_question",
+    "HARBOR_VIRTUAL_STAGE": "12",
+    "VIRTUAL_STAGE": "12",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D12_owner_fire_question",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_fire_and_filing_gates_repolled",
+    "chk_fire_rework_options_are_quantified",
+    "chk_no_occupancy_or_payment_before_fire_approval",
+    "chk_active_inspection_standards_pull_before_handover",
+    "chk_evidence_hotel_booking_polled_for_real_holds"
+  ],
+  "expected_stage_weight": 17.5,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D12_owner_fire_question",
+      "stage": 12
+    }
+  ]
+}

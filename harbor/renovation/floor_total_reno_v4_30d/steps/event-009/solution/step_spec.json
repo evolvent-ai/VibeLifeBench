@@ -1,0 +1,36 @@
+{
+  "step": "event-009",
+  "virtual_stage": 6,
+  "source_event_id": "floor_fx_accounting_split",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I recorded the rejected leveling claim and the platform request for measurement points, moisture data, flatness readings, and the pressure log.",
+  "response_paraphrase": "The claim is marked supplementation needed, not approved, and flooring installation remains deferred.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "floor_fx_accounting_split"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s6_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s6_result",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

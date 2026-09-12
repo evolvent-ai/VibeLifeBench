@@ -1,0 +1,30 @@
+{
+  "step": "event-021",
+  "virtual_stage": 19,
+  "source_event_id": "Q19_refund_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": [
+      "release-011"
+    ]
+  },
+  "response": "The quality refund is approved through the original payment path and remains not yet posted in the card ledger.",
+  "response_paraphrase": "The approved quality refund follows the original payment route and awaits card posting evidence.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "Q19_refund_visible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_result",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

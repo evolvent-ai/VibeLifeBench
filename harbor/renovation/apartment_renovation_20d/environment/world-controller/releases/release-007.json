@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "A11_cabinet_backorder"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-06-12T09:15:00+08:00",
+  "previous": "release-006",
+  "token": "apartment-renovation-20d-release-007-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "values": {
+        "id": 3011,
+        "folder_id": 1,
+        "message_id": "<20260612.CAB-HW-0612@orders.oppein.example>",
+        "subject": "\u6a71\u67dc\u4e94\u91d1\u7f3a\u8d27\u4e0e\u66ff\u4ee3\u65b9\u6848",
+        "from_addr": "\u6b27\u6d3e\u5b9a\u5236 <order@oppein-cabinet.example.com>",
+        "to_addr_json": "[\"chen_yu@owner.example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-12T09:10:00+08:00",
+        "body_text": "\u539f\u9009\u963b\u5c3c\u94f0\u94fe\u9884\u8ba1\u5ef6\u8fdf 9 \u5929\uff1b\u53ef\u6362\u540c\u7b49\u7ea7\u56fd\u4ea7\u578b\u53f7\u63d0\u524d 5 \u5929\uff0c\u4f46\u9700\u91cd\u65b0\u786e\u8ba4\u6837\u54c1\u4e0e\u8d28\u4fdd\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"order_update\":\"CAB-HW-0612\",\"status\":\"substitution_pending\"}",
+        "uid": 3011,
+        "size": 117,
+        "created_at": "2026-06-12T09:10:00+08:00"
+      },
+      "source_event_id": "A11_cabinet_backorder",
+      "operation_index": 0
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "task": "office_fitout_15d",
+  "step": "event-034",
+  "virtual_stage": 2,
+  "event_id": "D2_insurance_quote_email",
+  "source_event_id": "D2_insurance_quote_email",
+  "response": "I compared qualified commercial providers, checked availability and recorded the hold expiry.",
+  "response_paraphrase": "Commercial providers were compared on credentials, evidence, availability, cost and the expiry of any hold.",
+  "expected_env": {
+    "HARBOR_STEP_NAME": "event-034",
+    "HARBOR_EVENT_ID": "D2_insurance_quote_email",
+    "HARBOR_VIRTUAL_STAGE": "2",
+    "VIRTUAL_STAGE": "2",
+    "RUN_STAGE_RUBRIC": "0",
+    "STAGE_BOUNDARY": "0",
+    "SOURCE_EVENT_ID": "D2_insurance_quote_email",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    "chk_shortlist_excludes_high_risk_kuaijie",
+    "chk_shortlist_evidence_cites_review_ids",
+    "chk_shortlist_holds_tracked_with_expiry",
+    "chk_shortlist_call_hotel_booking_for_availability"
+  ],
+  "expected_stage_weight": 7.0,
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "D2_insurance_quote_email",
+      "stage": 2
+    }
+  ]
+}

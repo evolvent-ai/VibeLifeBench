@@ -1,0 +1,27 @@
+{
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "office-fitout-15d-release-003-20260824",
+  "operations": [
+    {
+      "server": "visa_and_advisory",
+      "table": "visa_applications",
+      "op": "update",
+      "where": {
+        "application_id": "insurance_certificate_001"
+      },
+      "set": {
+        "status": "in_force",
+        "decision_day": 5,
+        "decision_note": "Contractors all-risk and third-party liability coverage is verified for the fit-up window.",
+        "updated_at": "2026-07-06T06:30:00+08:00"
+      },
+      "values": {
+        "status": "in_force",
+        "decision_day": 5,
+        "decision_note": "Contractors all-risk and third-party liability coverage is verified for the fit-up window.",
+        "updated_at": "2026-07-06T06:30:00+08:00"
+      }
+    }
+  ]
+}

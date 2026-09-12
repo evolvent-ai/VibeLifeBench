@@ -1,0 +1,1 @@
+There are two rain windows this week that can be used to observe water ingress through exterior windows and walls. Without rain, only spray testing or static inspection is possible, and those methods carry a different evidence grade.

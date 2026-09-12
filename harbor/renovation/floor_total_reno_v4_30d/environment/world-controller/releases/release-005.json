@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "floor_supplement_request"
+  ],
+  "source_time": "2026-06-23T17:40:00+08:00",
+  "previous": "release-004",
+  "token": "floor_total_reno_v4_30d-release-005-token-long",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "refunds",
+      "op": "update",
+      "set": {
+        "status": "rejected",
+        "resolved_at": "2026-06-23T17:20:00+08:00"
+      },
+      "where": {
+        "refund_id": "ref_qflr_b"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qflr_b2",
+        "user_id": "usr_lai_xu",
+        "source": "ecommerce",
+        "type": "refund_update",
+        "subscription_id": null,
+        "title": "translated business text",
+        "body": "translated business text，translated business text、translated business text、translated business text，translated business text。",
+        "payload_json": "{\"refund_id\":\"ref_qflr_b\",\"status\":\"rejected\",\"required\":[\"hollow_map\",\"flatness\",\"moisture\",\"pressure_log\"]}",
+        "created_at": "2026-06-23T09:21:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

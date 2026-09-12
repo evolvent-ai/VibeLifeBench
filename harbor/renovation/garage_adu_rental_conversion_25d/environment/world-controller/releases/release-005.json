@@ -1,0 +1,42 @@
+{
+  "release_id": "release-005",
+  "before_step": "event-008",
+  "previous": "release-004",
+  "token": "garage-adu-rental-conversion-25d-release-005-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "A08_plan_compare_mut",
+      "server": "review_platform",
+      "table": "deals",
+      "op": "insert",
+      "values": {
+        "deal_id": "deal_budget_rev_a08",
+        "merchant_id": "ctr_budget",
+        "title": "Budget garage conversion proposal — revised A08",
+        "description": "Low-price proposal; emergency-egress window, smoke/CO alarms, permit correction response and final inspection coordination remain optional exclusions.",
+        "price_minor": 15800000,
+        "list_price_minor": 17600000,
+        "serves": 1,
+        "valid_until": "2026-08-11",
+        "status": "active"
+      }
+    },
+    {
+      "source_event_id": "A08_plan_compare_mut",
+      "server": "review_platform",
+      "table": "deals",
+      "op": "insert",
+      "values": {
+        "deal_id": "deal_code_rev_a08",
+        "merchant_id": "ctr_code",
+        "title": "Code-complete ADU proposal — revised A08",
+        "description": "Includes permit coordination, compliant egress opening, interconnected smoke/CO alarms, bathroom exhaust, inspection response and written contract; start date is later.",
+        "price_minor": 19400000,
+        "list_price_minor": 20800000,
+        "serves": 1,
+        "valid_until": "2026-08-20",
+        "status": "active"
+      }
+    }
+  ]
+}

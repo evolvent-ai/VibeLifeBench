@@ -1,0 +1,32 @@
+{
+  "step": "event-012",
+  "stage": 8,
+  "virtual_stage": 8,
+  "source_event_id": "A08_owner_confirmation",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The A08_owner_confirmation renovation coordination step was completed with current evidence, backend checks, and authorization controls recorded.",
+  "response_paraphrase": "I reviewed A08_owner_confirmation using the available project records and preserved the applicable safety and approval gates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "A08_owner_confirmation"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "apt_s8_artifact",
+      "weight": 3.5,
+      "expected": true
+    },
+    {
+      "check_id": "apt_s8_tool_evidence",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

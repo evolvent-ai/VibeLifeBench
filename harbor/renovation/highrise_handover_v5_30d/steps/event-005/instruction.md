@@ -1,0 +1,1 @@
+The initial inspection produced records for several locations. The developer acknowledged only the floor-drain issue verbally. Water ingress at the exterior windows and the entrance-door gap still require retesting under appropriate weather conditions.

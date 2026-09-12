@@ -1,0 +1,37 @@
+{
+  "step": "event-024",
+  "stage": 20,
+  "virtual_stage": 20,
+  "source_event_id": "H20_funds_reconcile_notice",
+  "scenario_time": "2026-07-11T16:02:00+08:00",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "highrise-compensation-arrived-20260711"
+    ]
+  },
+  "response": "Stage 20 handover evidence was checked in the formal systems and recorded with all unresolved items and authorization boundaries preserved.",
+  "response_paraphrase": "The formal records for handover stage 20 were reviewed and written back; outstanding defects, funds and approvals remain explicitly tracked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "H20_funds_reconcile_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s20_result",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

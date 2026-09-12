@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "floor_rush_paving_offer"
+  ],
+  "source_time": "2026-06-21T09:30:00+08:00",
+  "previous": "release-003",
+  "token": "floor_total_reno_v4_30d-release-004-token-long",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_qflr_cp",
+        "user_id": "usr_lai_xu",
+        "source": "ecommerce",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "The contractor recommends skipping reinspection and proceeding directly with installation",
+        "body": "The contractor is willing to waive a small amount of the cost and install the flooring immediately, but has not submitted new moisture-content, flatness, or pressure-test records; installing early would conceal responsibility for the substrate.",
+        "payload_json": "{\"order_id\":\"ord_qflr_0001\",\"offer\":\"rush_paving_discount\",\"missing_tests\":[\"moisture\",\"flatness\",\"pressure\"]}",
+        "created_at": "2026-06-21T01:00:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

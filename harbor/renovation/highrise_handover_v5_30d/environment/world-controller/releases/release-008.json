@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "H18_dispute_approved"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-07-08 18:00:00+08:00",
+  "previous": "release-007",
+  "token": "highrise-release-008-token-9f6a4c2d8e1b7a3c5d9e",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "disputes",
+      "op": "update",
+      "set": {
+        "status": "approved",
+        "resolved_at": "2026-07-08T18:00:00+08:00"
+      },
+      "where": {
+        "dispute_id": "disp_hhigh_01"
+      },
+      "source_event_id": "H18_dispute_approved",
+      "operation_index": 0
+    },
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_hhigh_rev",
+        "card_id": "card_hhigh_01",
+        "posted_at": "2026-07-08T18:00:00+08:00",
+        "amount_minor": -23600,
+        "merchant_name": "BUILDING TEST LAB REVERSAL",
+        "mcc": "7399",
+        "category": "交付检测",
+        "kind": "adjustment"
+      },
+      "source_event_id": "H18_dispute_approved",
+      "operation_index": 1
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_hhigh_rev",
+        "user_id": "usr_chu_nuo",
+        "source": "credit_card",
+        "type": "policy_update",
+        "subscription_id": "sub_hhigh_card",
+        "title": "重复检测费已冲销",
+        "body": "银行确认第二笔收费重复并完成冲销；正常检测费仍应保留在成本台账。",
+        "payload_json": "{\"card_id\":\"card_hhigh_01\",\"dispute_id\":\"disp_hhigh_01\",\"status\":\"approved\"}",
+        "created_at": "2026-07-08T18:01:00Z",
+        "read": 0
+      },
+      "source_event_id": "H18_dispute_approved",
+      "operation_index": 2
+    }
+  ]
+}

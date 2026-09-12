@@ -1,0 +1,5 @@
+﻿item,estimate_minor,invoice_required,authorization_status,notes
+guide,0,true,pending,
+dim_sum,0,true,pending,
+transport,0,true,pending,
+deposit,0,true,requires_user_confirmation,

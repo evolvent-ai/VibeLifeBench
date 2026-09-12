@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "A13_waterproof_fail_1"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-06-14T16:25:00+08:00",
+  "previous": "release-008",
+  "token": "apartment-renovation-20d-release-009-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "upsert",
+      "values": {
+        "id": 3013,
+        "folder_id": 1,
+        "message_id": "<20260614.WP-0614-01@report.yanjing-inspect.example>",
+        "subject": "\u95ed\u6c34\u521d\u68c0\u8bb0\u5f55\uff1a\u4e3b\u536b\u95e8\u69db\u5904\u6e17\u6e7f",
+        "from_addr": "\u4e25\u666f\u72ec\u7acb\u9a8c\u623f <report@yanjing-inspect.example.com>",
+        "to_addr_json": "[\"chen_yu@owner.example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-06-14T16:20:00+08:00",
+        "body_text": "\u95ed\u6c34 24 \u5c0f\u65f6\u5de1\u68c0\u53d1\u73b0\u4e3b\u536b\u95e8\u69db\u5916\u4fa7\u542b\u6c34\u7387\u4e0a\u5347\uff0c\u5efa\u8bae\u505c\u6b62\u540e\u7eed\u94fa\u8d34\uff0c\u67e5\u660e\u95e8\u69db\u6b62\u6c34\u548c\u7ba1\u6839\u6536\u53e3\u540e\u91cd\u65b0\u505a\u6ee1 48 \u5c0f\u65f6\u95ed\u6c34\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"inspection_id\":\"WP-0614-01\",\"result\":\"failed\"}",
+        "uid": 3007,
+        "size": 158,
+        "created_at": "2026-06-14T16:20:00+08:00"
+      },
+      "source_event_id": "A13_waterproof_fail_1",
+      "operation_index": 0
+    }
+  ]
+}
