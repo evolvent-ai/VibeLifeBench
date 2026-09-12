@@ -1,0 +1,31 @@
+{
+  "step": "event-021",
+  "stage": 21,
+  "virtual_stage": 21,
+  "event_id": "ev21_user",
+  "source_event_id": "ev21_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 21
+    }
+  ],
+  "response_paraphrase": "Final email and legal sources were refreshed and lease questions were drafted without acceptance or payment.",
+  "expected_env": {
+    "virtual_stage": 21,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s21_final_email_refresh",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s21_contract_questions_drafted",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

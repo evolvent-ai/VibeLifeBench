@@ -1,0 +1,35 @@
+{
+  "step": "event-009",
+  "stage": 9,
+  "event_id": "ev9_user",
+  "source_event_id": "ev9_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 9
+    }
+  ],
+  "response_paraphrase": "Summary: I turned the requested lease topics into a source-backed question list without making a legal determination.",
+  "expected_env": {
+    "virtual_stage": 9,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-004"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s9_legal_contract_checklist",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s9_email_followup_draft",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

@@ -1,0 +1,23 @@
+{
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "wheelchair-release-003-2b8a9e1f4c6d7e8a9b7c6d5e4f3a2b1c",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "price_minor": 710000,
+        "attrs_json": "{\"elevator\":false,\"corridor_light\":\"dim\",\"bathroom\":\"private\",\"deposit_months\":2,\"cleaning_fee_minor\":180000,\"night_access\":\"north_gate_limited\",\"deposit_request_channel\":\"personal_qr_code\",\"door_width_cm\":72,\"step_free_entry\":false,\"ramp_slope\":\"no_ramp\",\"entrance_steps\":3,\"bathroom_turning_radius_cm\":120,\"campus_commute_minutes\":43}"
+      },
+      "values": {
+        "price_minor": 710000,
+        "attrs_json": "{\"elevator\":false,\"corridor_light\":\"dim\",\"bathroom\":\"private\",\"deposit_months\":2,\"cleaning_fee_minor\":180000,\"night_access\":\"north_gate_limited\",\"deposit_request_channel\":\"personal_qr_code\",\"door_width_cm\":72,\"step_free_entry\":false,\"ramp_slope\":\"no_ramp\",\"entrance_steps\":3,\"bathroom_turning_radius_cm\":120,\"campus_commute_minutes\":43}"
+      },
+      "where": {
+        "listing_id": "wh09_listing_b"
+      }
+    }
+  ]
+}

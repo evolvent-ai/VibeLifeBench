@@ -1,0 +1,15 @@
+{
+  "step": "event-013",
+  "virtual_stage": 11,
+  "source_event_id": "s11_bank_verify",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "For lst_njr_0500, the property owner, contract payee, listing payee, and bank account name all match Gu Jianguo. Any candidate whose payee differs from its property owner remains a do-not-pay case.",
+  "response_paraphrase": "The Mingfa identity chain is internally consistent under Gu Jianguo across platform, email, and banking. A mismatched recipient name is still a payment red line for every other unit.",
+  "actions": [{"kind": "record_event", "source_event_id": "s11_bank_verify"}],
+  "expected_checks": [
+    {"check_id": "s11_payee_name_match_or_refuse", "weight": 0.25, "expected": true},
+    {"check_id": "s11_four_way_payee_chain_recorded", "weight": 0.25, "expected": true}
+  ],
+  "expected_stage_weight": 0.5
+}

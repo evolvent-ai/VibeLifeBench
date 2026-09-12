@@ -1,0 +1,35 @@
+{
+  "step": "event-010",
+  "virtual_stage": 5,
+  "source_event_id": "s5_family_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "virtual_stage": 5,
+    "scenario_time": "2026-07-11T20:00:00+08:00",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I recorded the sister as a date-specific care backup without assuming ongoing availability.",
+  "response_paraphrase": "The recorded the sister as a date-specific care backup without assuming ongoing availability.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s5_family_world",
+      "virtual_stage": 5,
+      "event_kind": "world",
+      "event_time": "2026-07-11T20:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_limited_care_recorded",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s5_no_family_over_assumption",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

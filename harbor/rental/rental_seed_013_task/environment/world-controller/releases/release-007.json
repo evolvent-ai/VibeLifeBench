@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "S14_office_b_mutation"
+  ],
+  "source_stage": 14,
+  "source_time": "2026-08-18T08:30:00+08:00",
+  "previous": "release-006",
+  "token": "rental-seed-013-task-release-007-v1",
+  "operations": [
+    {
+      "server": "job_board",
+      "table": "jobs",
+      "op": "update",
+      "set": {
+        "jd": "rental housing detail 2026-08-18；rental housing detail office_b_bantian；rental housing detail office_a_nanshan rental housing detail。",
+        "tags": "office_b_bantian,2026-08-18,address_proof"
+      },
+      "where": {
+        "job_id": "onboard_pm_001"
+      },
+      "source_event_id": "S14_office_b_mutation"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "step": "event-004",
+  "virtual_stage": 4,
+  "source_event_id": "s4_commute_q",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "Maps measured Mingfa Riverside New City to Software Avenue at 21 minutes, within the limit. Qiaobei Waterfront measured 42 minutes, over 40, so it is excluded for commute.",
+  "response_paraphrase": "The live transit check keeps Mingfa at a 21-minute trip and removes Qiaobei because its 42-minute journey exceeds the 40-minute ceiling.",
+  "actions": [{"kind": "record_event", "source_event_id": "s4_commute_q"}],
+  "expected_checks": [
+    {"check_id": "s4_transit_measured", "weight": 0.25, "expected": true},
+    {"check_id": "s4_reject_over_commute", "weight": 2.0, "expected": true},
+    {"check_id": "s4_target_and_decoy_transit_params", "weight": 5.0, "expected": true}
+  ],
+  "expected_stage_weight": 7.25
+}

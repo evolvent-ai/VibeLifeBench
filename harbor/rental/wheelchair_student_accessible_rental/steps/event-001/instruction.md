@@ -1,0 +1,1 @@
+There are many accessible labels on the platform, but I am unsure which listings have actual information about entrances, elevators, doorway widths, and bathrooms. Please do an initial screen and list separately what must be measured on site.

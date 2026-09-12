@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "ev21_mut"
+  ],
+  "source_stage": 21,
+  "source_time": "2026-08-11T08:25:00+08:00",
+  "previous": "release-007",
+  "token": "renewal-negotiation-repair-rental-release-008-v1",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 7121,
+        "folder_id": 1,
+        "message_id": "<lease-thread-c-20260811@example.invalid>",
+        "subject": "Qinghe Alternative Residencecontractdraftrental detailfeeattachmentnote",
+        "from_addr": "zhou.lan@agency.invalid",
+        "to_addr_json": "[\"hanqi.rental@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-11T08:25:00+08:00",
+        "body_text": "Qinghe Alternative Residence contract draft: monthly rent CNY 7000, one-month deposit plus one-month rent, and a platform service fee of CNY 500. The reservation payment refund conditions are incomplete. Repair service promises a response within two business days; fee responsibility and seepage responsibility require a repair attachment. The payment account must be a corporate account of the contracting party. The property owner's identity card and authorization attachment remain pending. Do not send materials or pay fees before signing; confirm each item first.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 7121,
+        "size": 462,
+        "created_at": "2026-08-11T08:25:00+08:00"
+      }
+    }
+  ]
+}

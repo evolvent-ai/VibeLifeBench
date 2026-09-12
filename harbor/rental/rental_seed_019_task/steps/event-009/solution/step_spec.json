@@ -1,0 +1,36 @@
+{
+  "step": "event-009",
+  "stage": 9,
+  "virtual_stage": 9,
+  "source_event_id": "s9_notice_refresh",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "s9_mutation_quote"
+    ]
+  },
+  "response": "I read the CNY 6,050 renewal update and added its response deadline to the calendar.",
+  "response_paraphrase": "The latest landlord quote and required reply date are now reflected in the renewal timeline.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s9_notice_refresh"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_quote_6050_discovered",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s9_deadline_calendar_updated",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

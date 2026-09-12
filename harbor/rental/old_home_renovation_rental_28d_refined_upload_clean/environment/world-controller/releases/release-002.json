@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "previous": "release-001",
+  "token": "68492ab7e843599783f54002acc2222681114d3c76a2b7565b6c0d611e6aa954",
+  "source_stage": 4,
+  "source_time": "2026-07-04T08:55:00+08:00",
+  "source_event_ids": ["s4_mut_leak_email"],
+  "source_event_id": "s4_mut_leak_email",
+  "virtual_stage": 4,
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 91001,
+        "folder_id": 1,
+        "message_id": "em-leak-assessment-0704",
+        "subject": "Unit 603, Hongqiao Jiayuanwater seepageinspection record",
+        "from_addr": "service@shengxin-reno.example",
+        "to_addr_json": "[\"zhanglan@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-04T08:58:00+08:00",
+        "body_text": "site record\uff1akitchen and bathroomtranslated source textareatranslated source text\uff0crecommendedtranslated source textwater-retention test\u3001translated source textandtranslated source text\u3002basic treatment quote 12800  CNY\uff0cisbefore rentalsafety and compliancemandatory work\uff1btranslated source text 5200  CNYdeferrable\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 91001,
+        "size": 720,
+        "created_at": "2026-07-04T08:58:00+08:00"
+      },
+      "source_event_id": "s4_mut_leak_email"
+    }
+  ]
+}

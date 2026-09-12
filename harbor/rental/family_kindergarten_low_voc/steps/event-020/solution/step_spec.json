@@ -1,0 +1,35 @@
+{
+  "step": "event-020",
+  "virtual_stage": 20,
+  "source_event_id": "evt_020_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "evt_020_mut"
+    ]
+  },
+  "response": "I verified Maple Lane's written lease terms and promoted it to first choice, with tenant confirmation still required before commitment.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_020_notice",
+      "virtual_stage": 20,
+      "event_time": "2026-08-10T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_017_written_terms_stage20",
+      "weight": 1.75
+    },
+    {
+      "check_id": "r038_check_031_b_as_first_choice_stage20",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 3.0,
+  "response_paraphrase": "The emailed Maple Lane appendix supports its leading rank while all commitment language stays tenant-controlled."
+}

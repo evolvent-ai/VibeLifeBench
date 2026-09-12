@@ -1,0 +1,11 @@
+DELETE FROM comments;
+DELETE FROM blocks;
+DELETE FROM database_rows;
+DELETE FROM databases;
+DELETE FROM pages;
+DELETE FROM workspaces;
+DELETE FROM users;
+DELETE FROM counters;
+INSERT INTO users(user_id,name,avatar_url,email,type) VALUES ('user_linlan','Lin Lan','','linlan.rental019@example.invalid','person');
+INSERT INTO workspaces(workspace_id,name,owner_user_id) VALUES ('ws_rental_019','Lin LanEnglish record','user_linlan');
+INSERT INTO pages(page_id,parent_type,parent_id,title,archived,created_time,last_edited_time,properties_json,icon,cover) VALUES ('notion_home_019','workspace','ws_rental_019','Tianjinlease renewalEnglish recordrelocationEnglish record',0,'2026-07-06T09:00:00+08:00','2026-07-06T09:00:00+08:00','{"stage": "initial"}','','');

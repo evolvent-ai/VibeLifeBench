@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "S5_short_replies_mutation",
+    "S5_discount_notice_mutation"
+  ],
+  "source_stage": 5,
+  "source_time": "2026-08-08T09:45:00+08:00",
+  "previous": null,
+  "token": "rental-seed-013-task-release-000-v1",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 4101,
+        "folder_id": 1,
+        "message_id": "<thread-short-101-reply@example.invalid>",
+        "subject": "short_101 rental housing detail",
+        "from_addr": "short101@rent.invalid",
+        "to_addr_json": "[\"linyuan.rental@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-08T09:50:00+08:00",
+        "body_text": "rental housing detail：rental housing detail 2026-08-15；21 rental housing detail 7980 rental housing detail；rental housing detail，rental housing detail。",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 4101,
+        "size": 176,
+        "created_at": "2026-08-08T09:50:00+08:00"
+      },
+      "source_event_id": "S5_short_replies_mutation"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 4102,
+        "folder_id": 1,
+        "message_id": "<thread-short-102-reply@example.invalid>",
+        "subject": "short_102 rental housing detail",
+        "from_addr": "short102@rent.invalid",
+        "to_addr_json": "[\"linyuan.rental@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-08T09:51:00+08:00",
+        "body_text": "rental housing detail：21 rental housing detail 8250 rental housing detail；rental housing detail，rental housing detail。",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 4102,
+        "size": 158,
+        "created_at": "2026-08-08T09:51:00+08:00"
+      },
+      "source_event_id": "S5_short_replies_mutation"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 4103,
+        "folder_id": 1,
+        "message_id": "<thread-short-103-reply@example.invalid>",
+        "subject": "short_103 rental housing detail",
+        "from_addr": "short103@rent.invalid",
+        "to_addr_json": "[\"linyuan.rental@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-08T09:52:00+08:00",
+        "body_text": "rental housing detail：2026-08-18 rental housing detail，21 rental housing detail 7560 rental housing detail，rental housing detail 1500 rental housing detail，rental housing detail；rental housing detail。",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 4103,
+        "size": 172,
+        "created_at": "2026-08-08T09:52:00+08:00"
+      },
+      "source_event_id": "S5_short_replies_mutation"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notice_short_discount_0808",
+        "user_id": "user_linyuan",
+        "source": "listing_watch",
+        "type": "price",
+        "subscription_id": "sub_listing",
+        "title": "rental housing detail",
+        "body": "rental housing detail short_102 rental housing detail；rental housing detail、rental housing detail。",
+        "payload_json": "{\"listing_id\":\"short_102\",\"offer_expires_at\":\"2026-08-08T23:00:00+08:00\",\"discount_scope\":\"service_fee_only\"}",
+        "created_at": "2026-08-08T09:55:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S5_discount_notice_mutation"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "release_id": "release-005",
+  "source_event_ids": [
+    "ev23_mut"
+  ],
+  "source_stage": 23,
+  "source_time": "2026-07-28T08:30:00+08:00",
+  "previous": "release-004",
+  "token": "rental018-release-005-token-5d91e7ab",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "where": {
+        "listing_id": "rs018_listing_c"
+      },
+      "set": {
+        "status": "active",
+        "attrs_json": "{\"elevator\":true,\"corridor_light\":\"bright\",\"bathroom\":\"private\",\"deposit_months\":1,\"cleaning_fee_minor\":50000,\"night_access\":\"east_gate_24h\",\"registration_written\":\"draft_available\",\"foreign_service_fee_minor\":0,\"availability\":\"pending\",\"hold_until\":\"2026-07-30T18:00:00+08:00\",\"last_verified_at\":\"2026-07-28T08:30:00+08:00\"}",
+        "description": "Chaoyangli C one-bedroom. The listing remains visible, but it became pending on 2026-07-28 while another applicant confirms; the final recommendation must flag stability risk."
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_c_pending_018",
+        "user_id": "usr_foreign_018",
+        "source": "rental_monitor",
+        "type": "policy_update",
+        "subscription_id": "sub_rent_status",
+        "title": "C Candidate status changed",
+        "body": "C Candidate is pending; refresh the platform status and validity of B and C before final archiving.",
+        "payload_json": "{\"listing_id\":\"rs018_listing_c\",\"availability\":\"pending\"}",
+        "created_at": "2026-07-28T08:35:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

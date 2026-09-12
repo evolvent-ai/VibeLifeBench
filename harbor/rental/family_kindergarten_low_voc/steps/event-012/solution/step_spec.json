@@ -1,0 +1,35 @@
+{
+  "step": "event-012",
+  "virtual_stage": 12,
+  "source_event_id": "evt_012_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "evt_012_mut"
+    ]
+  },
+  "response": "I reconciled the updated kindergarten information-session email and calendar time while leaving the family calendar unchanged.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_012_notice",
+      "virtual_stage": 12,
+      "event_time": "2026-07-30T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_021_mutation_kindergarten_calendar",
+      "weight": 1.25
+    },
+    {
+      "check_id": "r038_check_026_calendar_conflict_stage12",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.5,
+  "response_paraphrase": "The changed school-session slot was verified in both inbox and calendar without editing either event."
+}

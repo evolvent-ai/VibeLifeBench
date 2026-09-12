@@ -1,0 +1,35 @@
+{
+  "step": "event-010",
+  "stage": 10,
+  "event_id": "ev10_user",
+  "source_event_id": "ev10_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 10
+    }
+  ],
+  "response_paraphrase": "Summary: I found the schedule overlap and kept a possible viewing as an internal, unconfirmed draft.",
+  "expected_env": {
+    "virtual_stage": 10,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-005"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s10_calendar_conflict_found",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s10_no_unconfirmed_viewing",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

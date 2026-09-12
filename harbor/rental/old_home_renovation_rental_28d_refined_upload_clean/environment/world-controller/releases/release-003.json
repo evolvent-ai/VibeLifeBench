@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "e82af1a4188e76328316593de7ee63c8b9e7cb2b71eec67459c723efbfa1e4ad",
+  "source_stage": 5,
+  "source_time": "2026-07-05T10:55:00+08:00",
+  "source_event_ids": ["s5_mut_electrical_email"],
+  "source_event_id": "s5_mut_electrical_email",
+  "virtual_stage": 5,
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 92001,
+        "folder_id": 1,
+        "message_id": "em-electrical-aging-0705",
+        "subject": "Unit 603, Hongqiao Jiayuantranslated source textaging inspection",
+        "from_addr": "safety@shengxin-reno.example",
+        "to_addr_json": "[\"zhanglan@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-05T10:59:00+08:00",
+        "body_text": "translated source text\uff0ctranslated source textnottranslated source textresidual-current protection\u3002recommendedtranslated source text\u3001translated source textresidual-current protectionandtranslated source text\uff0ctranslated source text 29200  CNY\uff1bwhole-home smarttranslated source text 16800  CNYtranslated source textrentalcompliance\u3002translated source textalreadytranslated source textbasic refurbishment\u3001kitchen and bathroomtranslated source text\u3001water seepagetranslated source texttreatmenttranslated source text\uff0ctranslated source textsafety/compliancemandatory worktotal 110600  CNY\uff0cstill below 120000  CNYbudget captranslated source textonly leaves 9400  CNYcontingency\uff0cupgrades should be deferred\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 92001,
+        "size": 760,
+        "created_at": "2026-07-05T10:59:00+08:00"
+      },
+      "source_event_id": "s5_mut_electrical_email"
+    }
+  ]
+}

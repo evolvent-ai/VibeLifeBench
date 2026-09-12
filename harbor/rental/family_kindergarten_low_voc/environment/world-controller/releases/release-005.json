@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "evt_020_mut"
+  ],
+  "source_time": "2026-08-10T09:00:00+08:00",
+  "previous": "release-004",
+  "token": "family-kindergarten-low-voc-release-v1",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "msg_b_written_terms",
+        "subject": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated",
+        "from_addr": "landlord.wang@example.invalid",
+        "to_addr_json": "[\"lin.lan@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-10T08:30:00+08:00",
+        "body_text": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated、translatedtranslatedtranslatedtranslated、translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated；translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated。",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 3002,
+        "size": 1300,
+        "created_at": "2026-08-10T08:30:00+08:00"
+      },
+      "source_event_id": "evt_020_mut"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "release_id": "release-005",
+  "previous": "release-004",
+  "source_stage": 21,
+  "source_event_stage": 21,
+  "source_time": "2026-07-19T20:45:00+08:00",
+  "source_event_ids": ["s21_mut_forward_email"],
+  "token": "nanjing-relocation-remote-lease-22d-release-005-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "s21_mut_forward_email",
+      "values": {
+        "id": 148,
+        "folder_id": 1,
+        "message_id": "<relay.54bd7aa1@vmail.example.cn>",
+        "subject": "Forward: Mingfa Riverside New City final chance, release tonight if deposit is missing",
+        "from_addr": "last-call-forward@vmail.example.cn",
+        "to_addr_json": "[\"gufeng@vmail.example.cn\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-19T12:45:00Z",
+        "body_text": "Final rental-group warning: if the deposit for Mingfa Riverside New City is not received tonight, the unit will be released tomorrow morning. The forwarder says pay first and complete paperwork later, with a payment QR screenshot.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 1148,
+        "size": 490,
+        "created_at": "2026-07-19T12:45:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "source_event_id": "s21_mut_forward_email",
+      "values": {
+        "message_count": 46,
+        "unread_count": 14
+      },
+      "where": {
+        "id": 1
+      }
+    }
+  ]
+}

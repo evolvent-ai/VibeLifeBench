@@ -1,0 +1,26 @@
+{
+  "step": "event-005",
+  "virtual_stage": 3,
+  "source_event_id": "s3_listing_notice",
+  "stage_boundary": false,
+  "expected_env": {
+    "virtual_stage": 3,
+    "scenario_time": "2026-07-09T10:00:00+08:00",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I refreshed candidate prices and separated over-budget history from the active shortlist.",
+  "response_paraphrase": "The refreshed candidate prices and separated over-budget history from the active shortlist.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s3_listing_notice",
+      "virtual_stage": 3,
+      "event_kind": "notification",
+      "event_time": "2026-07-09T10:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

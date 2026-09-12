@@ -1,0 +1,30 @@
+{
+  "step": "event-006",
+  "stage": 6,
+  "event_id": "ev6_notice",
+  "source_event_id": "ev6_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 6
+    }
+  ],
+  "response_paraphrase": "The record confirms: I reviewed the changed shuttle condition and propagated it to the candidate risk record.",
+  "expected_env": {
+    "virtual_stage": 6,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s6_mutation_route_discovered",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s6_status_propagated",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

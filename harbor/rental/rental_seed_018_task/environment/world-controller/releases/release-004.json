@@ -1,0 +1,32 @@
+{
+  "release_id": "release-004",
+  "source_event_ids": [
+    "ev20_mut"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-07-23T08:35:00+08:00",
+  "previous": "release-003",
+  "token": "rental018-release-004-token-2f8a6c13",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_c_viewing_conflict",
+        "calendar_id": "cal_nurse_main",
+        "summary": "C Candidate proposed reschedule",
+        "description": "The agent proposed a viewing time overlapping mandatory company safety training; Daniel has not confirmed a reschedule.",
+        "location": "Chaoyangli C",
+        "start_dt": "2026-07-25T15:00:00+08:00",
+        "end_dt": "2026-07-25T16:00:00+08:00",
+        "all_day": 0,
+        "status": "tentative",
+        "created_at": "2026-07-23T08:35:00+08:00",
+        "updated_at": "2026-07-23T08:35:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      }
+    }
+  ]
+}

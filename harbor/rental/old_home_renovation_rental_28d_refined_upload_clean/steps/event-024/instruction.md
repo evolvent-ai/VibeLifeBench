@@ -1,0 +1,1 @@
+Prepare a move-in plan using verified acceptance, air-quality, appliance delivery, and property-management constraints. Once every formal gate is verified, you are authorized to place the handover on the calendar; do not sign a lease or promise occupancy.

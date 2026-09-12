@@ -1,0 +1,31 @@
+{
+  "step": "event-020",
+  "stage": 20,
+  "virtual_stage": 20,
+  "source_event_id": "s20_notification_price",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "s20_mutation_price"
+    ]
+  },
+  "response": "I refreshed candidate 1902 after its price change and retained final verification as the next step.",
+  "response_paraphrase": "The conditional alternative's current monthly rent is recorded without promoting it before its remaining checks.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s20_notification_price"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_price_window_refresh",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

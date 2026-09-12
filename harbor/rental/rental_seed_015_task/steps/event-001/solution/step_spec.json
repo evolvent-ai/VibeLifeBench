@@ -1,0 +1,26 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "s1_listing_world",
+  "stage_boundary": false,
+  "expected_env": {
+    "virtual_stage": 1,
+    "scenario_time": "2026-07-07T09:00:00+08:00",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I screened the listing pool against the room, elevator, and budget filters and preserved rejected history.",
+  "response_paraphrase": "The screened the listing pool against the room, elevator, and budget filters and preserved rejected history.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s1_listing_world",
+      "virtual_stage": 1,
+      "event_kind": "world",
+      "event_time": "2026-07-07T09:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

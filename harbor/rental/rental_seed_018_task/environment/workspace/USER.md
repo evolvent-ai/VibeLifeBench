@@ -1,0 +1,11 @@
+# USER
+
+rental information：Daniel Weber。
+
+rental information：31 rental information，rental informationBeijingworkone year，rental informationdaily conversationrental information，rental informationleaserental informationmaterialsrental informationneedrental information。
+
+rental information：Beijingrental informationwhole-unit one-bedroom apartment；base rentrental informationhasmandatory monthly service feetotalno more than 9000 rental information；weekdaymorning peakpublic transitdoor-to-doorrental informationcompanyno more than 50 rental information；contracting entityrental informationverify；accommodation-registration assistancescopehaswrittenexplanation。
+
+materialsrental information：passport、visa page、employment certificaterental informationcompany informationrental information，rental informationredaction，rental informationnecessary fields。
+
+finalneed：first choice、backup、rental information、trusted contacts、minimum-disclosure matrix、rental informationwrittenverifyrental information。

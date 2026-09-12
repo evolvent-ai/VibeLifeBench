@@ -1,0 +1,39 @@
+{
+  "step": "event-005",
+  "virtual_stage": 5,
+  "source_event_id": "S5_short_reply_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "S5_short_replies_mutation",
+      "S5_discount_notice_mutation"
+    ]
+  },
+  "response": "I read the three short-term replies and the short_102 promotion, then treated the discount as noise pending verification and did not proceed.",
+  "response_paraphrase": "Reply evidence is recorded for short_101, short_102, and short_103; the unverified discount is explicitly excluded from the decision.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S5_short_reply_notice",
+      "virtual_stage": 5,
+      "event_kind": 5,
+      "event_time": "2026-08-08T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_read_short_replies",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s5_triage_discount_noise",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 2.25
+}
+

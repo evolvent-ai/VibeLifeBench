@@ -1,0 +1,14 @@
+PRAGMA foreign_keys=OFF;
+DELETE FROM counters;
+DELETE FROM comments;
+DELETE FROM database_rows;
+DELETE FROM databases;
+DELETE FROM blocks;
+DELETE FROM pages;
+DELETE FROM workspaces;
+DELETE FROM users;
+INSERT INTO users(user_id,name,avatar_url,email,type) VALUES ('usr_liyan_assistant',CAST(X'e5aeb6e5baade4ba8be58aa1e58aa9e79086' AS TEXT),'','bot@notion.invalid','bot');
+INSERT INTO workspaces(workspace_id,name,owner_user_id) VALUES ('ws_liyan_home_planning',CAST(X'e69d8ee5a68de5aeb6e5baade8a784e58892' AS TEXT),'usr_liyan_assistant');
+INSERT INTO pages(page_id,parent_type,parent_id,title,archived,created_time,last_edited_time,properties_json,icon,cover) VALUES ('pg_liyan_family_housing','workspace','ws_liyan_home_planning',CAST(X'e58d95e4bab2e5aeb6e995bfe68ea5e98081e7a79fe688bfe5b7a5e4bd9ce58fb0' AS TEXT),0,'2026-07-01T00:00:00.000Z','2026-07-01T00:00:00.000Z','{}',NULL,NULL);
+INSERT INTO counters(key,value) VALUES ('uuid_seq',1000);
+PRAGMA foreign_keys=ON;

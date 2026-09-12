@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "s14_mutation"
+  ],
+  "source_stage": 5,
+  "source_time": "2026-07-15T08:00:00+08:00",
+  "previous": "release-004",
+  "token": "rental-seed-019-task-release-005-v1",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_wet_stage19",
+        "user_id": "user_linlan",
+        "source": "property",
+        "type": "policy_update",
+        "subscription_id": "sub_rental_monitor",
+        "title": "New damp mark on north wall",
+        "body": "A new damp mark was recorded near the north-wall window. Photograph handover by date, location, and wide/close views.",
+        "payload_json": "{\"stage\":19,\"evidence\":\"wet_mark\",\"status\":\"observed\"}",
+        "created_at": "2026-07-25T08:30:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

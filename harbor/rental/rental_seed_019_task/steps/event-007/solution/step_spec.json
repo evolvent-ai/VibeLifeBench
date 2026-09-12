@@ -1,0 +1,32 @@
+{
+  "step": "event-007",
+  "stage": 7,
+  "virtual_stage": 7,
+  "source_event_id": "s7_world_deposit",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I logged the damp mark as a security-deposit risk and prepared an unsent factual question draft.",
+  "response_paraphrase": "The deposit register and private follow-up now preserve evidence needs without contacting the landlord.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s7_world_deposit"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_deposit_risk_logged",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s7_draft_questions_prepared",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

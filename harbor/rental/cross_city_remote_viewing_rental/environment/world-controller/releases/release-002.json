@@ -1,0 +1,36 @@
+{
+  "release_id": "release-002",
+  "before_step": "event-007",
+  "previous": "release-001",
+  "token": "cross-city-remote-viewing-release-002-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "ev7_mut",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9107,
+        "folder_id": 1,
+        "message_id": "<rent-c-followup-0722@example.invalid>",
+        "subject": "Yunqi Court video viewing and contract attachment supplement",
+        "from_addr": "zhou.lan@agency.invalid",
+        "to_addr_json": "[\"rental.seed.005@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-22T08:40:00+08:00",
+        "body_text": "Please arrange a continuous video showing the east gate, building entrance, elevator lobby, and interior. Verify the agent's professional credentials against the store posting. Before confirming, put the holding fee refund, repair responsibilities, residence registration assistance, and service fee details into a written contract attachment.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9107,
+        "size": 356,
+        "created_at": "2026-07-22T08:40:00+08:00"
+      }
+    }
+  ]
+}

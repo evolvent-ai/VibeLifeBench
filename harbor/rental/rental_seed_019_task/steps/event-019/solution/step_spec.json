@@ -1,0 +1,31 @@
+{
+  "step": "event-019",
+  "stage": 19,
+  "virtual_stage": 19,
+  "source_event_id": "s19_world_wet_mark",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "s19_mutation_wet_mark"
+    ]
+  },
+  "response": "I synchronized the new damp-mark notice with the handover photography and deposit-risk records.",
+  "response_paraphrase": "The latest wall condition is now linked to dated evidence collection before move-out.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s19_world_wet_mark"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_wet_mark_evidence_logged",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

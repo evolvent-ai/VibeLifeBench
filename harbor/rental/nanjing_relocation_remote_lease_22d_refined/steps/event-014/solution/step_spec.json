@@ -1,0 +1,15 @@
+{
+  "step": "event-014",
+  "virtual_stage": 12,
+  "source_event_id": "s12_market_update",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "Market statistics put Mingfa near its community average, while Xuri Shangcheng is materially inflated. Hongyang is near average but still fails on the broker's current reputation and verification state.",
+  "response_paraphrase": "The price comparison keeps Mingfa inside a reasonable market band, flags Xuri's quote as excessive, and does not let Hongyang's fair rent override its merchant-profile failure.",
+  "actions": [{"kind": "record_event", "source_event_id": "s12_market_update"}],
+  "expected_checks": [
+    {"check_id": "s12_market_cross_check", "weight": 0.25, "expected": true},
+    {"check_id": "s12_market_near_misses_compared", "weight": 0.25, "expected": true}
+  ],
+  "expected_stage_weight": 0.5
+}

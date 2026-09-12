@@ -1,0 +1,32 @@
+{
+  "step": "event-006",
+  "stage": 6,
+  "virtual_stage": 6,
+  "source_event_id": "s6_notification_reviews",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I reviewed community and property-management sources, treating reviews as clues that still need corroboration.",
+  "response_paraphrase": "The repair index now identifies each review or management notice by source and evidentiary weight.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s6_notification_reviews"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s6_reviews_used_as_clues",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s6_property_notice_read",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

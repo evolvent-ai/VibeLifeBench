@@ -1,0 +1,32 @@
+{
+  "step": "event-004",
+  "stage": 4,
+  "virtual_stage": 4,
+  "source_event_id": "s4_world_clause",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I searched general notice and security-deposit sources and converted them into verification questions without reaching a legal conclusion.",
+  "response_paraphrase": "Public rental guidance now supports an open issue list rather than definitive legal advice.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s4_world_clause"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s4_notice_clause_checked",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s4_no_legal_conclusion",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

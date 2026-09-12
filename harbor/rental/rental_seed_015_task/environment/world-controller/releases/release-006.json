@@ -1,0 +1,23 @@
+{
+  "release_id": "release-006",
+  "source_event_ids": [
+    "s20_price_mutation"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-07-28T08:40:00+08:00",
+  "previous": "release-005",
+  "token": "rental-seed-015-release-token",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "price_minor": 735000
+      },
+      "where": {
+        "listing_id": "listing_c"
+      }
+    }
+  ]
+}

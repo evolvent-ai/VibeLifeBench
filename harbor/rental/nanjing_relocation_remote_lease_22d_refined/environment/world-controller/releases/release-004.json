@@ -1,0 +1,35 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "source_stage": 17,
+  "source_event_stage": 17,
+  "source_time": "2026-07-15T06:00:00+08:00",
+  "source_event_ids": ["m18_decoy_rented", "m17_target_price_raise"],
+  "token": "nanjing-relocation-remote-lease-22d-release-004-token",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "source_event_id": "m18_decoy_rented",
+      "values": {
+        "status": "delisted"
+      },
+      "where": {
+        "listing_id": "lst_njr_0518"
+      }
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "source_event_id": "m17_target_price_raise",
+      "values": {
+        "price_minor": 408000
+      },
+      "where": {
+        "listing_id": "lst_njr_0500"
+      }
+    }
+  ]
+}

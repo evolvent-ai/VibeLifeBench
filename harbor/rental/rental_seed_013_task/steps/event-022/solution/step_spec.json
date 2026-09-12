@@ -1,0 +1,25 @@
+{
+  "step": "event-022",
+  "virtual_stage": 18,
+  "source_event_id": "S18_user_limited_outreach",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I sent limited long_203 questions about contracting entity, refund terms, and payment channel, and requested a tentative long_202 weekend viewing without sensitive attachments.",
+  "response_paraphrase": "The authorized outreach separates long_203 verification from a tentative long_202 viewing, with no identity or income material attached.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S18_user_limited_outreach",
+      "virtual_stage": 18,
+      "event_kind": 18,
+      "event_time": "2026-08-22T09:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}
+

@@ -1,0 +1,33 @@
+{
+  "release_id": "release-003",
+  "before_step": "event-008",
+  "previous": "release-002",
+  "token": "cross-city-remote-viewing-release-003-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "ev8_mut",
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "price_minor": 630000,
+        "attrs_json": "{\"elevator\":false,\"corridor_light\":\"dim\",\"bathroom\":\"private\",\"deposit_months\":2,\"cleaning_fee_minor\":180000,\"night_access\":\"north_gate_limited\",\"deposit_request_channel\":\"personal_qr_code\"}"
+      },
+      "where": {
+        "listing_id": "rs005_listing_b"
+      }
+    },
+    {
+      "source_event_id": "ev8_mut",
+      "server": "maps",
+      "table": "transit_events",
+      "op": "update",
+      "set": {
+        "active": 0
+      },
+      "where": {
+        "event_id": "evt_a_bus_early"
+      }
+    }
+  ]
+}

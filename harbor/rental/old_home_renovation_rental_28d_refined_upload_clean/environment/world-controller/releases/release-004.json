@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "15c994218298d8f7410222da8310999dcd0a76176c337e91da73f64002f206fa",
+  "source_stage": 6,
+  "source_time": "2026-07-06T14:55:00+08:00",
+  "source_event_ids": ["s6_mut_complaint"],
+  "source_event_id": "s6_mut_complaint",
+  "virtual_stage": 6,
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_property_complaint_0706",
+        "user_id": "usr_zhanglan",
+        "source": "property_office",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "translated source text",
+        "body": "Unit 603, Hongqiao Jiayuantranslated source text 12:00-14:00 and 18:00 translated source text\uff1btranslated source textnoisy worktranslated source text\u3002",
+        "payload_json": "{\"unit\":\"603\",\"quiet_hours\":\"12:00-14:00, after 18:00\"}",
+        "created_at": "2026-07-06T14:58:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s6_mut_complaint"
+    }
+  ]
+}

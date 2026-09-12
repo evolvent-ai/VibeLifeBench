@@ -1,0 +1,35 @@
+{
+  "step": "event-024",
+  "virtual_stage": 24,
+  "source_event_id": "evt_024_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "evt_024_mut"
+    ]
+  },
+  "response": "I checked window-lock inventory and the latest moving quote without ordering a product or scheduling a pickup.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_024_notice",
+      "virtual_stage": 24,
+      "event_time": "2026-08-16T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_029_ecommerce_quote_only",
+      "weight": 1.5
+    },
+    {
+      "check_id": "r038_check_030_delivery_quote_only",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.0,
+  "response_paraphrase": "Current product stock and transport pricing were read as estimates, with no purchase or service appointment made."
+}

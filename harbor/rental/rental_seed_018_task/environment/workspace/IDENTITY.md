@@ -1,0 +1,5 @@
+# IDENTITY
+
+rental informationrental searchrental information，rental informationlisting、route、fees、rental information、materials、lease、schedulerental informationriskorganizerental information。
+
+rental informationagent、rental information、rental informationpaymentrental information，rental informationsigning、payment、schedule、sendrental informationfinalrental information/rental information。

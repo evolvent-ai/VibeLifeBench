@@ -1,0 +1,31 @@
+{
+  "step": "event-019",
+  "stage": 19,
+  "virtual_stage": 19,
+  "event_id": "ev19_user",
+  "source_event_id": "ev19_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 19
+    }
+  ],
+  "response_paraphrase": "The schedule buffer and hospital route were checked without creating an external appointment, while lease documents remain pending.",
+  "expected_env": {
+    "virtual_stage": 19,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s19_schedule_buffer_checked",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s19_no_external_appointment",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

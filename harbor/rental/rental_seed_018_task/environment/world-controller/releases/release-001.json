@@ -1,0 +1,25 @@
+{
+  "release_id": "release-001",
+  "source_event_ids": [
+    "ev12_mut"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-07-15T08:40:00+08:00",
+  "previous": "release-000",
+  "token": "rental018-release-001-token-4c3f9b21",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "where": {
+        "listing_id": "rs018_listing_a"
+      },
+      "set": {
+        "price_minor": 920000,
+        "attrs_json": "{\"elevator\":true,\"corridor_light\":\"bright\",\"bathroom\":\"private\",\"deposit_months\":1,\"cleaning_fee_minor\":80000,\"night_access\":\"south_gate_24h\",\"registration_written\":\"oral_only\",\"foreign_service_fee_minor\":60000,\"last_verified_at\":\"2026-07-15T08:40:00+08:00\"}",
+        "description": "Chaoyangmen East one-bedroom. The platform added a CNY 600 monthly foreign-tenant service fee on 2026-07-15; accommodation-registration assistance remains verbal only."
+      }
+    }
+  ]
+}

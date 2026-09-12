@@ -1,0 +1,34 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "S1_onboarding_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I verified the 2026-08-18 onboarding date and Nanshan Technology Park Campus A workplace, and subscribed to workplace updates for an HR recheck.",
+  "response_paraphrase": "The onboarding record and Campus A location are checked, with a workplace update subscription keeping the source current.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S1_onboarding_notice",
+      "virtual_stage": 1,
+      "event_kind": 1,
+      "event_time": "2026-08-04T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_verify_onboarding_office_a",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s1_subscribe_office_recheck",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}
+

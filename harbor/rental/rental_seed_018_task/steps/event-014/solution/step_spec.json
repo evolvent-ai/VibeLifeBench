@@ -1,0 +1,31 @@
+{
+  "step": "event-014",
+  "stage": 14,
+  "virtual_stage": 14,
+  "event_id": "ev14_user",
+  "source_event_id": "ev14_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 14
+    }
+  ],
+  "response_paraphrase": "Candidate C status, route evidence, and review evidence were refreshed as the final candidate check.",
+  "expected_env": {
+    "virtual_stage": 14,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s14_fresh_listing_status",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s14_final_candidate_refresh",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

@@ -1,0 +1,41 @@
+{
+  "step": "event-024",
+  "stage": 24,
+  "virtual_stage": 24,
+  "source_event_id": "s24_notification_discount",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "s24_mutation_discount"
+    ]
+  },
+  "response": "I refreshed candidate 1906 at CNY 5,650 and documented the conflict between its viewing window and financial close.",
+  "response_paraphrase": "The discounted option remains conditional because its narrowed appointment time overlaps the month-end schedule.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s24_notification_discount"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s24_1906_discount_conflict_handled",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s24_discount_conflict_calendar_synced",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s24_discount_exact_window_recorded",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

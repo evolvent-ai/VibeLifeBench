@@ -1,0 +1,38 @@
+{
+  "step": "event-017",
+  "virtual_stage": 14,
+  "source_event_id": "S14_office_update",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "S14_office_b_mutation"
+    ]
+  },
+  "response": "I refreshed the job record and captured the move to Bantian Campus B; the former Nanshan Campus A snapshot is stale and needs review.",
+  "response_paraphrase": "The current workplace is Bantian B, so the historical Campus A evidence is marked stale before reranking.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S14_office_update",
+      "virtual_stage": 14,
+      "event_kind": 14,
+      "event_time": "2026-08-18T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_detect_office_b_change",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s14_mark_a_snapshot_stale",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 3
+}
+

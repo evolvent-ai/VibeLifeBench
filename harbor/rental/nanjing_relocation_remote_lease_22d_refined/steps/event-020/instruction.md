@@ -1,0 +1,1 @@
+The rental platform reports that transactions are accelerating near graduation season. Listing statuses are changing frequently, and some homes may already be rented or delisted. Check each listing's current status before taking action.

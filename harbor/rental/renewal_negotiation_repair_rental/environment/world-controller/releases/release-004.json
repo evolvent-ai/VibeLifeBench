@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "ev12_mut"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-07-24T08:50:00+08:00",
+  "previous": "release-003",
+  "token": "renewal-negotiation-repair-rental-release-004-v1",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_qinghe_home_water_0724",
+        "merchant_id": "bjm_41d7a2c9",
+        "user_id": "resident_qh24",
+        "rating": 2,
+        "body": "On 2026-07-24 the Qinghe Jiayuan water complaint recurred after rain. Photos document seepage at the exterior wall joint; the responsible party and completion date remain pending.",
+        "image_captions": "[\"rental detail\",\"rental detail\"]",
+        "created_at": "2026-07-24T08:10:00+08:00"
+      }
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "road_evt_yongtai_night",
+        "road_id": "road_yongtai_north",
+        "start_dt": "2026-07-24T20:00:00+08:00",
+        "end_dt": "2026-07-30T23:59:00+08:00",
+        "kind": "closure",
+        "note": "north gaterental detail，23:30rental detailwest gate",
+        "active": 1
+      }
+    },
+    {
+      "server": "maps",
+      "table": "places",
+      "op": "update",
+      "set": {
+        "hours_json": "{\"north_gate\":\"closes_23_00\",\"west_gate\":\"pedestrian_24h\",\"route_advisory\":\"late_night_west_gate_detour\"}"
+      },
+      "where": {
+        "place_id": "bjp_7ad2e985"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_yongtai_gate_0724",
+        "merchant_id": "bjm_72c4e8a1",
+        "user_id": "resident_yt24",
+        "rating": 2,
+        "body": "After 23:30 the north gate closes and nighttime access requires the west gate; construction narrows the walkway and rain reduces lighting.",
+        "image_captions": "[]",
+        "created_at": "2026-07-24T08:15:00+08:00"
+      }
+    }
+  ]
+}

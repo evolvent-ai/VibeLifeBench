@@ -1,0 +1,36 @@
+{
+  "step": "event-018",
+  "stage": 18,
+  "virtual_stage": 18,
+  "source_event_id": "s18_notification_quote",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "s18_mutation_quote"
+    ]
+  },
+  "response": "I reviewed the CNY 6,150 quote, confirmed it exceeds the CNY 5,616 cap, and recorded that no new response deadline was provided.",
+  "response_paraphrase": "The new renewal demand is over budget; its reply deadline remains unknown and awaits written confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s18_notification_quote"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_quote_6150_rejected_as_over_cap",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s18_over_cap_evidence_matrix",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

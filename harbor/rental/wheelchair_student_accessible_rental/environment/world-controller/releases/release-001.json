@@ -1,0 +1,41 @@
+{
+  "release_id": "release-001",
+  "previous": "release-000",
+  "token": "wheelchair-release-001-2b8a9e1f4c6d7e8a9b7c6d5e4f3a2b1c",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "attrs_json": "{\"elevator\":true,\"corridor_light\":\"bright\",\"bathroom\":\"private\",\"deposit_months\":1,\"cleaning_fee_minor\":80000,\"night_access\":\"south_gate_after_22_30_reroute\",\"written_terms\":\"pending\",\"door_width_cm\":70,\"step_free_entry\":false,\"ramp_slope\":\"1:8\",\"entrance_steps\":2,\"bathroom_turning_radius_cm\":120,\"campus_commute_minutes\":31}"
+      },
+      "values": {
+        "attrs_json": "{\"elevator\":true,\"corridor_light\":\"bright\",\"bathroom\":\"private\",\"deposit_months\":1,\"cleaning_fee_minor\":80000,\"night_access\":\"south_gate_after_22_30_reroute\",\"written_terms\":\"pending\",\"door_width_cm\":70,\"step_free_entry\":false,\"ramp_slope\":\"1:8\",\"entrance_steps\":2,\"bathroom_turning_radius_cm\":120,\"campus_commute_minutes\":31}"
+      },
+      "where": {
+        "listing_id": "wh09_listing_a"
+      }
+    },
+    {
+      "server": "maps",
+      "table": "transit_events",
+      "op": "update",
+      "set": {
+        "active": 1,
+        "start_dt": "2026-07-20T08:30:00+08:00",
+        "end_dt": "2026-07-22T23:59:00+08:00",
+        "note": "The campus shuttle's last service is early. At night, returning from Luogui Jiayuan requires taking the route to the south gate."
+      },
+      "values": {
+        "active": 1,
+        "start_dt": "2026-07-20T08:30:00+08:00",
+        "end_dt": "2026-07-22T23:59:00+08:00",
+        "note": "The campus shuttle's last service is early. At night, returning from Luogui Jiayuan requires taking the route to the south gate."
+      },
+      "where": {
+        "event_id": "evt_a_bus_early"
+      }
+    }
+  ]
+}

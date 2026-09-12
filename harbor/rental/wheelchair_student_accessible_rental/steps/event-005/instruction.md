@@ -1,0 +1,1 @@
+One more detail: family may sometimes join a viewing, but they cannot decide for me. Keep the budget at CNY 6,800 and the route under 35 minutes. It is important to measure doorway width and bathroom space in person, and do not share my materials casually.

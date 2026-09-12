@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "S19_review_mutation"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-08-24T08:30:00+08:00",
+  "previous": "release-010",
+  "token": "rental-seed-013-task-release-011-v1",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "description": "rental housing detail 22:00 rental housing detail；rental housing detail，rental housing detail。",
+        "attrs_json": "{\"lease_type\":\"long_entire_1br\",\"deposit_months\":1,\"available_from\":\"2026-09-01\",\"night_noise\":\"recent_construction_reviews\",\"review_verified_at\":\"2026-08-24T08:30:00+08:00\"}"
+      },
+      "where": {
+        "listing_id": "long_204"
+      },
+      "source_event_id": "S19_review_mutation"
+    }
+  ]
+}

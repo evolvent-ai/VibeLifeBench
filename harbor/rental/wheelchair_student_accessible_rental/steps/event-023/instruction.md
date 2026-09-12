@@ -1,0 +1,1 @@
+Today is 2026-08-18. Complete the final filing with preferred, alternative, rejected, verified, awaiting on-site measurement, awaiting my confirmation, and next-step sections. Payment, signing, booking, and sending materials remain my decisions.

@@ -1,0 +1,36 @@
+{
+  "release_id": "release-013",
+  "before_step": "event-021",
+  "previous": "release-012",
+  "token": "cross-city-remote-viewing-release-013-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "ev21_mut",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9121,
+        "folder_id": 1,
+        "message_id": "<rent-c-final-0811@example.invalid>",
+        "subject": "Yunqi Court written commitment before signing",
+        "from_addr": "zhou.lan@agency.invalid",
+        "to_addr_json": "[\"rental.seed.005@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-11T08:36:00+08:00",
+        "body_text": "The contact confirms that the listing remains available. Before contract signing, verify the contracting party's authorization, residence registration attachment, deposit refund conditions, and repair responsibilities against originals; write the service fee amount into the formal attachment.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "<rent-c-addendum-0801@example.invalid>",
+        "references_header": "<rent-c-followup-0722@example.invalid> <rent-c-addendum-0801@example.invalid>",
+        "headers_json": "{}",
+        "uid": 9121,
+        "size": 340,
+        "created_at": "2026-08-11T08:36:00+08:00"
+      }
+    }
+  ]
+}

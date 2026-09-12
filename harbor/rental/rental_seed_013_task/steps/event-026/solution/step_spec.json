@@ -1,0 +1,38 @@
+{
+  "step": "event-026",
+  "virtual_stage": 21,
+  "source_event_id": "S21_price_window_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-013"
+    ],
+    "released_mutations": [
+      "S21_long202_price_mutation"
+    ]
+  },
+  "response": "I verified long_202 at 6400 CNY with a 33-hour viewing window and asked the user to confirm timing before any calendar change.",
+  "response_paraphrase": "The price drop and viewing window are refreshed, but scheduling remains pending the user's confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S21_price_window_notice",
+      "virtual_stage": 21,
+      "event_kind": 21,
+      "event_time": "2026-08-27T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_detect_long202_price_drop",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s21_request_viewing_window_confirmation",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 3
+}
+

@@ -1,0 +1,56 @@
+{
+  "release_id": "release-003",
+  "source_event_ids": [
+    "s16_deposit_mutation"
+  ],
+  "source_stage": 16,
+  "source_time": "2026-07-24T08:50:00+08:00",
+  "previous": "release-002",
+  "token": "rental-seed-015-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 300,
+        "folder_id": 1,
+        "message_id": "<thread-e-deposit@example.invalid>",
+        "subject": {
+          "__utf8_hex__": "e58d97e6baaae88b91e584bfe7aba5e68d9fe59d8fe68abce98791e8a1a5e58585"
+        },
+        "from_addr": "zhou@owner.invalid",
+        "to_addr_json": "[\"liyan.rental@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-24T08:55:00+08:00",
+        "body_text": {
+          "__utf8_hex__": "e5a682e69e9ce5b8a6e5ada9e5ad90e585a5e4bd8fefbc8ce688bfe4b89ce5b88ce69c9be58fa6e694b6203330303020e58583e584bfe7aba5e68d9fe59d8fe68abce98791efbc9be98080e8bf98e69da1e4bbb6e38081e689a3e6acbee88c83e59bb4e5928ce4bf9de7aea1e8b4a6e688b7e8a681e588b0e59088e5908ce5898de5868de8b088e38082"
+        },
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 300,
+        "size": 156,
+        "created_at": "2026-07-24T08:55:00+08:00"
+      }
+    },
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "attrs_json": {
+          "__utf8_hex__": "7b22706c6163655f6964223a22706c6163655f65222c226465706f7369745f6d696e6f72223a3639383030302c226368696c645f6465706f7369745f6d696e6f72223a3330303030302c226368696c645f6465706f7369745f726566756e646162696c697479223a22756e6b6e6f776e222c227363686f6f6c5f636c61696d223a226e6f6e65222c22656c657661746f72223a747275652c22656c657661746f725f737461747573223a226f7065726174696f6e616c222c22666c6f6f72223a31302c22617661696c61626c655f6279223a22323032362d30382d3033222c22726f6f6d73223a327d"
+        }
+      },
+      "where": {
+        "listing_id": "listing_e"
+      }
+    }
+  ]
+}

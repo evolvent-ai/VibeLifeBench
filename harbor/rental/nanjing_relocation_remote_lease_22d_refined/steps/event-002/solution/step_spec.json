@@ -1,0 +1,12 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "s2_new_listings",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "I searched the formal listing platform for Nanjing rentals within CNY 4200 and one to two rooms. The returned listings are now candidates for verification rather than assumed-valid options.",
+  "response_paraphrase": "The platform search applied the city, rental category, budget, and bedroom filters. Its results have been logged as unverified leads for the next checks.",
+  "actions": [{"kind": "record_event", "source_event_id": "s2_new_listings"}],
+  "expected_checks": [{"check_id": "s2_search_listings_called", "weight": 0.25, "expected": true}],
+  "expected_stage_weight": 0.25
+}

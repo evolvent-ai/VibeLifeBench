@@ -1,0 +1,38 @@
+{
+  "step": "event-014",
+  "virtual_stage": 13,
+  "source_event_id": "s13_stock_change",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": []
+  },
+  "response": "I recorded the authorized safety, acceptance, air-quality, appliance, and delivery progression from verified sources.",
+  "response_paraphrase": "Verified records support the next controlled milestone while informal payment and timing pressure remain excluded.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s13_stock_change"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_appliance_stock_source_chain",
+      "weight": 0.35,
+      "expected": true
+    },
+    {
+      "check_id": "s13_appliance_stock_durable_state",
+      "weight": 0.4,
+      "expected": true
+    },
+    {
+      "check_id": "s13_appliance_stock_authorization_state",
+      "weight": 0.35,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.1
+}

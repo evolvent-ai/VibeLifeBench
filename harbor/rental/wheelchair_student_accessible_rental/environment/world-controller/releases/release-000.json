@@ -1,0 +1,35 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "token": "wheelchair-release-000-2b8a9e1f4c6d7e8a9b7c6d5e4f3a2b1c",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_comm_a_ramp_0718",
+        "merchant_id": "mer_seed_004_a",
+        "user_id": "resident_liu",
+        "rating": 3,
+        "body": "At the south gate of Luogui Jiayuan, the ramp corner is prone to being occupied by electric vehicles at night. The lobby route to the elevator has no steps. Residents recommend on-site measurement or obtaining clear doorway width information.",
+        "image_captions": "[\"South Gate Ramp\",\"Lobby Fire Door\"]",
+        "created_at": "2026-07-18T08:42:00+08:00"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_comm_c_lift_0718",
+        "merchant_id": "mer_seed_004_c",
+        "user_id": "resident_tang",
+        "rating": 4,
+        "body": "At Yunqi Court, the east-gate entrance is continuously step-free. Recent elevator repair and maintenance records are available at the property desk; the public bathroom turning space still requires on-site confirmation by the resident.",
+        "image_captions": "[\"East Gate Entrance\",\"Elevator Maintenance Notice\"]",
+        "created_at": "2026-07-18T08:46:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+A new batch of whole-unit one-bedroom candidates has appeared on a Beijing rental platform. Their details vary in the quality of information about fees, contracting entities, contacts, and accommodation-registration assistance, so they need to be screened and documented. Create an internal status watch for the rental search while recording the screened candidates.

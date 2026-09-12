@@ -1,0 +1,27 @@
+{
+  "step": "event-006",
+  "virtual_stage": 6,
+  "source_event_id": "evt_006_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I added nearby clinic and family-facility context for the strongest route candidate without treating proximity as a safety guarantee.",
+  "actions": [
+    {
+      "kind": "world",
+      "source_event_id": "evt_006_world",
+      "virtual_stage": 6,
+      "event_time": "2026-07-24T09:30:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_008_poi_child_context",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 1.25,
+  "response_paraphrase": "Useful child-related services around the leading area were logged as planning context only."
+}

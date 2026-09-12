@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "s12_mutation"
+  ],
+  "source_stage": 3,
+  "source_time": "2026-07-15T08:00:00+08:00",
+  "previous": "release-002",
+  "token": "rental-seed-019-task-release-003-v1",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_pipe_stage16",
+        "user_id": "user_linlan",
+        "source": "property",
+        "type": "policy_update",
+        "subscription_id": "sub_rental_monitor",
+        "title": "Planned drainpipe inspection",
+        "body": "Property management plans to inspect the upstairs drainpipe on July 23. This is only a plan; no repair result is confirmed.",
+        "payload_json": "{\"stage\":16,\"status\":\"planned\",\"evidence_type\":\"property_notice\"}",
+        "created_at": "2026-07-22T08:10:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

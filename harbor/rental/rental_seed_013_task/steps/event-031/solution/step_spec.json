@@ -1,0 +1,34 @@
+{
+  "step": "event-031",
+  "virtual_stage": 25,
+  "source_event_id": "S25_user_final",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I refreshed the core listing, job, delivery, map, email, calendar, notification, and Notion sources and created the final five-part review without signing or paying.",
+  "response_paraphrase": "The final record consolidates short-term, long-term, budget, logistics, proof of address, and next-step status while all commitments remain pending.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S25_user_final",
+      "virtual_stage": 25,
+      "event_kind": 25,
+      "event_time": "2026-09-06T19:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s25_refresh_all_core_services",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s25_create_final_five_part_review",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.75
+}
+

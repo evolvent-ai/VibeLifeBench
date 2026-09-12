@@ -1,0 +1,38 @@
+{
+  "step": "event-007",
+  "virtual_stage": 7,
+  "source_event_id": "S7_terms_refresh_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "S7_short_102_terms_mutation"
+    ]
+  },
+  "response": "I verified that short_102 has automatic renewal and a 2026-08-25 cancellation deadline, so it remains only a conditional backup.",
+  "response_paraphrase": "The renewal clause and cancellation date make short_102 a guarded fallback rather than a confirmed choice.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S7_terms_refresh_world",
+      "virtual_stage": 7,
+      "event_kind": 7,
+      "event_time": "2026-08-10T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_detect_short_102_autorenew",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s7_condition_short_102_backup",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 3
+}
+

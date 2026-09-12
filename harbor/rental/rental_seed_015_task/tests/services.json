@@ -1,0 +1,11 @@
+{
+  "mcp_servers": [
+    "calendar",
+    "email",
+    "listing_platform",
+    "maps",
+    "notification_hub",
+    "notion",
+    "review_platform"
+  ]
+}

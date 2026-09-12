@@ -1,0 +1,56 @@
+{
+  "release_id": "release-011",
+  "before_step": "event-018",
+  "previous": "release-010",
+  "token": "cross-city-remote-viewing-release-011-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "ev18_mut",
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "start_dt": "2026-08-06T08:30:00+08:00",
+        "end_dt": "2026-08-09T23:59:00+08:00",
+        "note": "The east-gate detour adds walking distance, and moving vehicles have a restricted entry window.",
+        "active": 1
+      },
+      "where": {
+        "event_id": "rd_evt_c_patrol"
+      }
+    },
+    {
+      "source_event_id": "ev18_mut",
+      "server": "maps",
+      "table": "transit_events",
+      "op": "update",
+      "set": {
+        "start_dt": "2026-08-06T08:30:00+08:00",
+        "end_dt": "2026-08-09T23:59:00+08:00",
+        "note": "The Yunqi Court east-gate walking segment will be a temporary detour during the property-viewing weekend.",
+        "active": 1
+      },
+      "where": {
+        "event_id": "evt_c_road_alert"
+      }
+    },
+    {
+      "source_event_id": "ev18_mut",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_route_0806",
+        "user_id": "usr_seed_005",
+        "source": "route watch",
+        "type": "policy_update",
+        "subscription_id": "sub_rent_status",
+        "title": "Yunqi Courteast gatetemporary detour",
+        "body": "The east-gate walking segment will be a temporary detour from 2026-08-08 through 2026-08-09, and the moving-vehicle entry window has been adjusted accordingly.",
+        "payload_json": "{\"topic\":\"route_refresh\",\"listing_id\":\"rs005_listing_c\"}",
+        "created_at": "2026-08-06T08:45:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

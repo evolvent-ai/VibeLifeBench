@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "previous": null,
+  "token": "c302f05059ec9e7debe8766f21f1e7cfdf92014d6eef086f5d73310ee093f85b",
+  "source_stage": 1,
+  "source_time": "2026-07-01T13:55:00+08:00",
+  "source_event_ids": ["s1_mut_property_rules", "s2_mut_first_quote"],
+  "source_event_id": "s1_mut_property_rules",
+  "virtual_stage": 1,
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 2001,
+        "folder_id": 1,
+        "message_id": "em-property-rules-0702",
+        "subject": "Hongqiao Jiayuanrenovationconstruction hourstranslated source textregistration materials",
+        "from_addr": "property@hongqiao-estate.example",
+        "to_addr_json": "[\"zhanglan@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-01T13:52:00+08:00",
+        "body_text": "weekdays 9:00-12:00\u300114:00-18:00 translated source text\uff0cweekendstranslated source textquiet work\u3002noisy worktranslated source textpre-register\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 2001,
+        "size": 420,
+        "created_at": "2026-07-01T13:52:00+08:00"
+      },
+      "source_event_id": "s1_mut_property_rules"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_property_rules_0702",
+        "user_id": "usr_zhanglan",
+        "source": "property_office",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "renovationconstruction hourstranslated source text",
+        "body": "Unit 603, Hongqiao Jiayuantranslated source text 9:00-12:00\u300114:00-18:00\uff1bnoisy worktranslated source textpre-register\u3002",
+        "payload_json": "{\"unit\":\"603\",\"quiet_hours\":\"12:00-14:00, after 18:00\"}",
+        "created_at": "2026-07-01T13:55:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s1_mut_property_rules"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 2002,
+        "folder_id": 1,
+        "message_id": "em-first-quote-0702",
+        "subject": "Unit 603, Hongqiao Jiayuanrefurbishmentinitial quote",
+        "from_addr": "service@shengxin-reno.example",
+        "to_addr_json": "[\"zhanglan@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-02T15:55:00+08:00",
+        "body_text": "basic refurbishmenttranslated source text\uff1atranslated source text\u3001kitchen and bathroomtranslated source text\u3001wall repairsandhaul-awaytotal 52800  CNY\uff1bcosmetic upgradetranslated source text\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 2002,
+        "size": 420,
+        "created_at": "2026-07-02T15:55:00+08:00"
+      },
+      "source_event_id": "s2_mut_first_quote"
+    }
+  ]
+}

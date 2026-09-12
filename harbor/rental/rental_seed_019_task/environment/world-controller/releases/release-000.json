@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "s9_mutation"
+  ],
+  "source_stage": 0,
+  "source_time": "2026-07-15T08:00:00+08:00",
+  "previous": null,
+  "token": "rental-seed-019-task-release-000-v1",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 231,
+        "folder_id": 1,
+        "message_id": "<thread_landlord_renewal_6050@rent.invalid>",
+        "subject": "Lease renewal quote updated to CNY 6,050",
+        "from_addr": "zhao.landlord@example.invalid",
+        "to_addr_json": "[\"linlan.rental019@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-15T08:00:00+08:00",
+        "body_text": "The landlord adjusted monthly renewal rent to CNY 6,050 and requested a reply by July 18. Repair and damp-mark handling still lack a written plan.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "<thread_landlord_renewal_5900@rent.invalid>",
+        "references_header": "<thread_landlord_renewal_5900@rent.invalid>",
+        "headers_json": "{}",
+        "uid": 231,
+        "size": 86,
+        "created_at": "2026-07-15T08:00:00+08:00"
+      }
+    }
+  ]
+}

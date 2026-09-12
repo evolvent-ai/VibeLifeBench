@@ -1,0 +1,12 @@
+{
+  "step": "event-006",
+  "virtual_stage": 6,
+  "source_event_id": "s6_review_profile_changed",
+  "stage_boundary": false,
+  "expected_env": {"preceding_releases": ["release-001"], "released_mutations": ["m6_review_drop"]},
+  "response": "I reopened Li Qiang's merchant profile after the notice. The current rating is 3.3 and platform verification is gone, so the earlier 4.4 verified snapshot is no longer authoritative.",
+  "response_paraphrase": "The refreshed review record supersedes the old one: Li Qiang has fallen from 4.4 to 3.3 and no longer carries the platform-verified tag.",
+  "actions": [{"kind": "record_event", "source_event_id": "s6_review_profile_changed"}],
+  "expected_checks": [],
+  "expected_stage_weight": 0.0
+}

@@ -1,0 +1,35 @@
+{
+  "step": "event-012",
+  "stage": 12,
+  "event_id": "ev12_world",
+  "source_event_id": "ev12_world",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 12
+    }
+  ],
+  "response_paraphrase": "Summary: I checked the gate disruption and community warning and raised the affected candidate's safety risk.",
+  "expected_env": {
+    "virtual_stage": 12,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "release-007"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s12_gate_mutation_recovered",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s12_safety_risk_escalated",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

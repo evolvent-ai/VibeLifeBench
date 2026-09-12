@@ -1,0 +1,15 @@
+{
+  "step": "event-008",
+  "virtual_stage": 7,
+  "source_event_id": "s7_owner_info",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The formal detail for lst_njr_0500 names Gu Jianguo as property owner and contains a property-certificate number. The original certificate still needs on-site inspection.",
+  "response_paraphrase": "I pulled the Mingfa listing record: ownership is listed under Gu Jianguo and a certificate identifier is present, with physical-document verification reserved for arrival.",
+  "actions": [{"kind": "record_event", "source_event_id": "s7_owner_info"}],
+  "expected_checks": [
+    {"check_id": "s7_owner_identity_pulled", "weight": 0.25, "expected": true},
+    {"check_id": "s7_target_owner_exact_recorded", "weight": 5.0, "expected": true}
+  ],
+  "expected_stage_weight": 5.25
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "ev6_mut"
+  ],
+  "source_stage": 6,
+  "source_time": "2026-07-18T08:50:00+08:00",
+  "previous": null,
+  "token": "renewal-negotiation-repair-rental-release-000-v1",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "price_minor": 858000,
+        "attrs_json": "{\"elevator\":true,\"corridor_light\":\"bright\",\"bathroom\":\"private\",\"deposit_months\":1,\"cleaning_fee_minor\":80000,\"night_access\":\"south_gate_after_22_30_reroute\",\"written_terms\":\"pending\",\"repair_ticket\":\"water_heater_open\",\"wall_damp_status\":\"documented\",\"renewal_quote_source\":\"landlord_message_2026_07_18\"}",
+        "description": "The current home renewal quote is CNY 8,580 monthly; the south gate closes after 22:30 and repair and deposit terms need written confirmation."
+      },
+      "where": {
+        "listing_id": "bjr_4f2a9c1e"
+      }
+    },
+    {
+      "server": "maps",
+      "table": "transit_events",
+      "op": "insert",
+      "values": {
+        "event_id": "transit_evt_n12_summer",
+        "line_id": "bus_n12_qinghe",
+        "stop_id": null,
+        "start_dt": "2026-07-18T22:00:00+08:00",
+        "end_dt": "2026-07-24T23:59:00+08:00",
+        "kind": "delayed",
+        "note": "nightrental detail，Qinghe Jiayuanrental detailMetro8Line",
+        "active": 1
+      }
+    },
+    {
+      "server": "maps",
+      "table": "places",
+      "op": "update",
+      "set": {
+        "hours_json": "{\"main_gate\":\"south_gate_24h\",\"east_gate\":\"pedestrian_24h\",\"route_advisory\":\"south_gate_after_22_30_reroute\"}"
+      },
+      "where": {
+        "place_id": "bjp_61c4f20a"
+      }
+    }
+  ]
+}

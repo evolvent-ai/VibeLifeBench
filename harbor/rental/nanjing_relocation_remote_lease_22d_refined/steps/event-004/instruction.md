@@ -1,0 +1,1 @@
+Commute time matters a lot to me. Use maps to measure the commute from every candidate apartment to Software Avenue. Ignore the minutes claimed in listing titles. Remove anything too far away and keep the options that meet the limit.

@@ -1,0 +1,38 @@
+{
+  "release_id": "release-003",
+  "source_event_ids": [
+    "ev18_mut"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-07-21T08:35:00+08:00",
+  "previous": "release-002",
+  "token": "rental018-release-003-token-b7e24d10",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "where": {
+        "listing_id": "rs018_listing_d"
+      },
+      "set": {
+        "attrs_json": "{\"elevator\":true,\"corridor_light\":\"bright\",\"bathroom\":\"private\",\"deposit_months\":1,\"cleaning_fee_minor\":60000,\"night_access\":\"main_gate_24h\",\"written_terms\":\"available\",\"contract_entity\":\"Beijing East Lake Asset Service Ltd\",\"owner_authorization\":\"missing\",\"registration_written\":\"missing\",\"last_verified_at\":\"2026-07-21T08:35:00+08:00\"}",
+        "description": "Donghu New Residence one-bedroom. The platform now shows a third-party asset service company as the proposed contracting entity; the landlord authorization chain and written accommodation-registration assistance are still missing."
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_d_entity_018",
+        "merchant_id": "mer_beijing_b",
+        "user_id": "reviewer_entity_018",
+        "rating": 2,
+        "body": "A recent tenant reports that the Donghu New Residence contracting entity differs from the payee; verify the landlord authorization chain and payment basis before signing.",
+        "image_captions": "[]",
+        "created_at": "2026-07-21T08:40:00+08:00"
+      }
+    }
+  ]
+}

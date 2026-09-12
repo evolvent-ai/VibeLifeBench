@@ -1,0 +1,31 @@
+{
+  "step": "event-022",
+  "stage": 22,
+  "virtual_stage": 22,
+  "event_id": "ev22_world",
+  "source_event_id": "ev22_world",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 22
+    }
+  ],
+  "response_paraphrase": "Security deposit, passport, registration, entity, and lease clauses were checked; the passport clause stays pending.",
+  "expected_env": {
+    "virtual_stage": 22,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s22_contract_clause_checklist",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s22_passport_clause_kept_pending",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

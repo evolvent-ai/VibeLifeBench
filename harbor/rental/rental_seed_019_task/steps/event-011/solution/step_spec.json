@@ -1,0 +1,36 @@
+{
+  "step": "event-011",
+  "stage": 11,
+  "virtual_stage": 11,
+  "source_event_id": "s11_world_archive_gap",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "s11_mutation_archive"
+    ]
+  },
+  "response": "I found the archived October repair message and restored its reference in the repair evidence index.",
+  "response_paraphrase": "The missing historical correspondence is linked again from its current archive location.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s11_world_archive_gap"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_archived_repair_found",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s11_repair_link_restored",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

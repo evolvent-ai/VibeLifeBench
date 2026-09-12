@@ -1,0 +1,21 @@
+{
+  "release_id": "release-006",
+  "previous": "release-005",
+  "token": "wheelchair-release-006-2b8a9e1f4c6d7e8a9b7c6d5e4f3a2b1c",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_comm_b_identity_0725",
+        "merchant_id": "mer_seed_004_b",
+        "user_id": "resident_he",
+        "rating": 2,
+        "body": "Riverside Nook's north gate has three steps, and its nighttime side-door opening hours are inconsistent with the listing description. The viewing contact requires payment through a personal QR code, but property management has not verified the landlord's authorization.",
+        "image_captions": "[\"North Gate Steps\",\"Side Door Notice\"]",
+        "created_at": "2026-07-25T08:44:00+08:00"
+      }
+    }
+  ]
+}

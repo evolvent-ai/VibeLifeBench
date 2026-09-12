@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "ev7_mut"
+  ],
+  "source_stage": 7,
+  "source_time": "2026-07-19T08:35:00+08:00",
+  "previous": "release-000",
+  "token": "renewal-negotiation-repair-rental-release-001-v1",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 7107,
+        "folder_id": 1,
+        "message_id": "<lease-home-reply-20260719@example.invalid>",
+        "subject": "Re: Qinghe Jiayuanrenewal quoterental detailrepair、depositnote",
+        "from_addr": "he.ning@agency.invalid",
+        "to_addr_json": "[\"hanqi.rental@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-19T08:35:00+08:00",
+        "body_text": "Written reply: landlord quote is CNY 8580 monthly. Water heater repair fee is not in the contract; existing deposit carryover, move-out deductions, and wall dampness responsibility were discussed over the phone only. The pending formal attachment must confirm the contracting party and payment account.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "<lease-home-20260706@example.invalid>",
+        "references_header": "<lease-home-20260706@example.invalid>",
+        "headers_json": "{}",
+        "uid": 7107,
+        "size": 375,
+        "created_at": "2026-07-19T08:35:00+08:00"
+      }
+    }
+  ]
+}

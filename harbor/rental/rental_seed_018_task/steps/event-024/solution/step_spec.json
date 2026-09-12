@@ -1,0 +1,31 @@
+{
+  "step": "event-024",
+  "stage": 24,
+  "virtual_stage": 24,
+  "event_id": "ev24_user",
+  "source_event_id": "ev24_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 24
+    }
+  ],
+  "response_paraphrase": "The final decision package records Candidate B first, Candidate C backup, open verification items, and no completed commitment.",
+  "expected_env": {
+    "virtual_stage": 24,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s24_final_review_written",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s24_final_authorization_pending",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

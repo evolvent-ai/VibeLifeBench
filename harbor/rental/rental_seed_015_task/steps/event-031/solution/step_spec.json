@@ -1,0 +1,30 @@
+{
+  "step": "event-031",
+  "virtual_stage": 18,
+  "source_event_id": "s18_h_world",
+  "stage_boundary": false,
+  "expected_env": {
+    "virtual_stage": 18,
+    "scenario_time": "2026-07-26T10:00:00+08:00",
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-004"
+    ]
+  },
+  "response": "I added Clearwave Residence as a verification candidate and checked its route, elevator, market, and reviews.",
+  "response_paraphrase": "I have added Clearwave Residence as a verification candidate and checked its route, elevator, market, and reviews.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s18_h_world",
+      "virtual_stage": 18,
+      "event_kind": "world",
+      "event_time": "2026-07-26T10:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "S20_branch_arrival_mutation"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-08-26T08:30:00+08:00",
+  "previous": "release-011",
+  "token": "rental-seed-013-task-release-012-v1",
+  "operations": [
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "update",
+      "set": {
+        "status": "delivered",
+        "recipient_json": "{\"recipient\":\"Lin Yuan\",\"phone\":\"13800001313\",\"province\":\"Guangdong\",\"city\":\"Shenzhen\",\"district\":\"Longgang\",\"detail\":\"Bantian directly operated branch; authorized next leg is the short_103 front desk\",\"postal_code\":\"518000\"}",
+        "updated_at": "2026-08-26T08:30:00+08:00"
+      },
+      "where": {
+        "shipment_id": "shipment_cd_sz_001"
+      },
+      "source_event_id": "S20_branch_arrival_mutation"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_ship_branch_arrival",
+        "shipment_id": "shipment_cd_sz_001",
+        "at": "2026-08-26T08:30:00+08:00",
+        "location": "Bantian directly operated branch",
+        "status_code": "delivered",
+        "description": "The main shipment was delivered to the Bantian directly operated branch; the authorized next leg is the short_103 front desk."
+      },
+      "source_event_id": "S20_branch_arrival_mutation"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "address_book",
+      "op": "insert",
+      "values": {
+        "address_id": "addr_short_103",
+        "user_id": "user_linyuan",
+        "label": "short_103 front desk",
+        "recipient": "Lin Yuan",
+        "phone": "13800001313",
+        "province": "Guangdong",
+        "city": "Shenzhen",
+        "district": "Longgang",
+        "detail": "Bantian Jiayu front desk",
+        "postal_code": "518000",
+        "is_default": 0
+      },
+      "source_event_id": "S20_branch_arrival_mutation"
+    }
+  ]
+}

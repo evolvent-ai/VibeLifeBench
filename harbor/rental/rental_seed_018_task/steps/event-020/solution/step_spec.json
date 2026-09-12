@@ -1,0 +1,35 @@
+{
+  "step": "event-020",
+  "stage": 20,
+  "virtual_stage": 20,
+  "event_id": "ev20_notice",
+  "source_event_id": "ev20_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 20
+    }
+  ],
+  "response_paraphrase": "The Candidate C viewing conflict with company training was found and double booking was avoided.",
+  "expected_env": {
+    "virtual_stage": 20,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-004"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s20_calendar_conflict_found",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s20_no_double_booking",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

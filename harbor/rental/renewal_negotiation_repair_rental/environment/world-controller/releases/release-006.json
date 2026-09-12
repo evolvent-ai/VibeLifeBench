@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "ev17_mut"
+  ],
+  "source_stage": 17,
+  "source_time": "2026-08-03T08:40:00+08:00",
+  "previous": "release-005",
+  "token": "renewal-negotiation-repair-rental-release-006-v1",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "insert",
+      "values": {
+        "listing_id": "bjr_9a5d0c73",
+        "category": "rent",
+        "title": "Xierqi Zhixueyuan31㎡one-bedroom",
+        "city": "Beijing",
+        "district": "rental detail",
+        "community": "Xierqi Zhixueyuan",
+        "price_minor": 748000,
+        "area_sqm": 31.0,
+        "rooms": 1,
+        "metro": "Metro13Line·Xierqirental detail 760m",
+        "attrs_json": "{\"elevator\":true,\"corridor_light\":\"bright\",\"bathroom\":\"private\",\"deposit_months\":1,\"service_fee_minor\":60000,\"night_access\":\"main_gate_24h\",\"written_terms\":\"summary_available\",\"viewing_windows\":[\"2026-08-04T19:00:00+08:00\",\"2026-08-06T18:30:00+08:00\"]}",
+        "description": "rental detailone-bedroom，rental detailXierqi。platformrental detailone-month deposit plus one-month rentrental detailservicerental detail，rental detailrentalrental detail、repairrental detail、reservation paymentrefundconditionsrental detailevening peakrental detailstillrental detail。",
+        "photos_json": "[\"rental detail\",\"rental detail\",\"Xierqirental detailwalkingentrance\"]",
+        "agent_id": null,
+        "owner_user_id": null,
+        "status": "active",
+        "listed_at": "2026-08-03T08:40:00+08:00"
+      }
+    },
+    {
+      "server": "maps",
+      "table": "places",
+      "op": "insert",
+      "values": {
+        "place_id": "bjp_84e1c7d3",
+        "name": "Xierqi Zhixueyuan",
+        "category": "residential",
+        "lat": 40.0578,
+        "lng": 116.3124,
+        "country": "CN",
+        "city": "Beijing",
+        "rating": 4.1,
+        "price_level": 2,
+        "hours_json": "{\"main_gate\":\"24h\",\"south_pedestrian_gate\":\"closes_22_30\",\"last_verified_at\":\"2026-08-03T08:40:00+08:00\"}",
+        "phone": "010-62910005",
+        "website": "",
+        "formatted": "Beijingrental detailXierqirental detail"
+      }
+    }
+  ]
+}

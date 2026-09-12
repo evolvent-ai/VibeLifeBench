@@ -1,0 +1,15 @@
+{
+  "step": "event-005",
+  "virtual_stage": 5,
+  "source_event_id": "s5_review_open",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The review platform shows Zhou Min at 4.7 with platform verification and Li Qiang at an initial 4.4 with platform verification. I recorded this as a dated snapshot for later rechecking.",
+  "response_paraphrase": "I captured both merchant profiles: Zhou Min currently has a 4.7 verified profile, while Li Qiang begins at 4.4 and verified. These values remain subject to fresh checks.",
+  "actions": [{"kind": "record_event", "source_event_id": "s5_review_open"}],
+  "expected_checks": [
+    {"check_id": "s5_reputation_queried", "weight": 0.25, "expected": true},
+    {"check_id": "s5_target_and_decoy_reputation_recorded", "weight": 5.0, "expected": true}
+  ],
+  "expected_stage_weight": 5.25
+}

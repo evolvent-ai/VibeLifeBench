@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "s13_mutation"
+  ],
+  "source_stage": 4,
+  "source_time": "2026-07-15T08:00:00+08:00",
+  "previous": "release-003",
+  "token": "rental-seed-019-task-release-004-v1",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9001,
+        "folder_id": 1,
+        "message_id": "<thread_landlord_renewal_6150@rent.invalid>",
+        "subject": "Lease renewal quote raised to CNY 6,150",
+        "from_addr": "zhao.landlord@example.invalid",
+        "to_addr_json": "[\"linlan.rental019@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-24T08:00:00+08:00",
+        "body_text": "The landlord raised monthly renewal rent to CNY 6,150 and requests verbal acceptance before written terms. Repair and deposit clauses remain unchanged.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "<thread_landlord_renewal_6050@rent.invalid>",
+        "references_header": "<thread_landlord_renewal_5900@rent.invalid>",
+        "headers_json": "{}",
+        "uid": 9001,
+        "size": 91,
+        "created_at": "2026-07-24T08:00:00+08:00"
+      }
+    }
+  ]
+}

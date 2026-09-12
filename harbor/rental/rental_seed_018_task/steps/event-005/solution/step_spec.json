@@ -1,0 +1,31 @@
+{
+  "step": "event-005",
+  "stage": 5,
+  "virtual_stage": 5,
+  "event_id": "ev5_user",
+  "source_event_id": "ev5_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 5
+    }
+  ],
+  "response_paraphrase": "Night routes, access, elevator, roommate, management, and registration risks were rechecked across candidates.",
+  "expected_env": {
+    "virtual_stage": 5,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s5_night_shift_recheck",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s5_roommate_and_elevator_risk",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

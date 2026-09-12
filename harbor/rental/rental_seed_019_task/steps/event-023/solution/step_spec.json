@@ -1,0 +1,36 @@
+{
+  "step": "event-023",
+  "stage": 23,
+  "virtual_stage": 23,
+  "source_event_id": "s23_world_outage",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "s23_mutation_outage"
+    ]
+  },
+  "response": "I recorded the water-outage repair window on the calendar and synchronized its effect on handover photography.",
+  "response_paraphrase": "The building interruption and evidence-collection timing now appear together in the rental records.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s23_world_outage"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_water_outage_calendar_updated",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s23_outage_evidence_window_synced",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

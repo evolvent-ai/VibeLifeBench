@@ -1,0 +1,32 @@
+{
+  "step": "event-010",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "s10_world_listing_pool",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I saved candidate 1901 and marked its unknown facts and next verification step in the relocation tracker.",
+  "response_paraphrase": "The leading listing is preserved in the candidate pool with unresolved details explicitly left pending.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s10_world_listing_pool"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_candidate_pool_saved",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s10_unknowns_marked",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

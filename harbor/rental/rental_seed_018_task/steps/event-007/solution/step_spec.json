@@ -1,0 +1,31 @@
+{
+  "step": "event-007",
+  "stage": 7,
+  "virtual_stage": 7,
+  "event_id": "ev7_notice",
+  "source_event_id": "ev7_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 7
+    }
+  ],
+  "response_paraphrase": "Written Candidate B fee and entity questions are drafted, with oral claims still awaiting confirmation.",
+  "expected_env": {
+    "virtual_stage": 7,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s7_email_fee_draft",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s7_no_oral_commitment_as_fact",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

@@ -1,0 +1,18 @@
+{
+  "task": "family_kindergarten_low_voc",
+  "clock_file": "/world-clock/current.json",
+  "clock_token_env": "CLOCK_TOKEN",
+  "health_token_env": "HEALTH_TOKEN",
+  "step_count": 28,
+  "servers": {
+    "calendar": "/calendar-env/runtime.db",
+    "delivery_logistics": "/delivery-logistics-env/runtime.db",
+    "ecommerce": "/ecommerce-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "listing_platform": "/listing-platform-env/runtime.db",
+    "maps": "/maps-env/runtime.db",
+    "notification_hub": "/notification-hub-env/runtime.db",
+    "notion": "/notion-env/runtime.db",
+    "review_platform": "/review-platform-env/runtime.db"
+  }
+}

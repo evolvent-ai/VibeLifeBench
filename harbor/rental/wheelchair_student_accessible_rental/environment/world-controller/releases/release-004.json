@@ -1,0 +1,21 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "wheelchair-release-004-2b8a9e1f4c6d7e8a9b7c6d5e4f3a2b1c",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "transit_events",
+      "op": "update",
+      "set": {
+        "active": 0
+      },
+      "values": {
+        "active": 0
+      },
+      "where": {
+        "event_id": "evt_a_bus_early"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "step": "event-020",
+  "virtual_stage": 11,
+  "source_event_id": "s11_road_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "virtual_stage": 11,
+    "scenario_time": "2026-07-17T10:00:00+08:00",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I invalidated the stale route cache and eliminated the candidate that exceeded the hard time limit.",
+  "response_paraphrase": "The invalidated the stale route cache and eliminated the candidate that exceeded the hard time limit.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s11_road_world",
+      "virtual_stage": 11,
+      "event_kind": "world",
+      "event_time": "2026-07-17T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_traffic_mutation_refresh",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s11_listing_b_eliminated_for_83",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

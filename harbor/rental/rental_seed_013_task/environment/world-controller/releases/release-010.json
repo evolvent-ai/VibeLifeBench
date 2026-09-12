@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "S18_reply_emails_mutation"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-08-22T15:55:00+08:00",
+  "previous": "release-009",
+  "token": "rental-seed-013-task-release-010-v1",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 4180,
+        "folder_id": 1,
+        "message_id": "<thread-long-203-reply@example.invalid>",
+        "subject": "Re: long_203 verification questions",
+        "from_addr": "long203@agency.invalid",
+        "to_addr_json": "[\"linyuan.rental@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-22T15:55:00+08:00",
+        "body_text": "The contact has not provided the contracting entity or refund terms and insists on a private payment channel.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "<thread-long-203-lock@example.invalid>",
+        "references_header": "<thread-long-203-lock@example.invalid>",
+        "headers_json": "{}",
+        "uid": 4180,
+        "size": 119,
+        "created_at": "2026-08-22T15:55:00+08:00"
+      },
+      "source_event_id": "S18_reply_emails_mutation"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 4181,
+        "folder_id": 1,
+        "message_id": "<thread-long-202-viewing-reply@example.invalid>",
+        "subject": "Re: long_202 weekend viewing",
+        "from_addr": "long202@agency.invalid",
+        "to_addr_json": "[\"linyuan.rental@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-22T15:56:00+08:00",
+        "body_text": "A long_202 evening viewing is available on 2026-08-30; wait for written confirmation of the exact time.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 4181,
+        "size": 139,
+        "created_at": "2026-08-22T15:56:00+08:00"
+      },
+      "source_event_id": "S18_reply_emails_mutation"
+    }
+  ]
+}

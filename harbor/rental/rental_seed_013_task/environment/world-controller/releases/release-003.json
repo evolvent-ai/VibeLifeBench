@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "S9_notification_batch_mutation"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-08-12T08:55:00+08:00",
+  "previous": "release-002",
+  "token": "rental-seed-013-task-release-003-v1",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notice_onboarding_countdown_0812",
+        "user_id": "user_linyuan",
+        "source": "job_watch",
+        "type": "status",
+        "subscription_id": "sub_job",
+        "title": "rental housing detail",
+        "body": "rental housing detail 2026-08-18 rental housing detail 6 rental housing detail，rental housing detail A rental housing detail。",
+        "payload_json": "{\"job_id\":\"onboard_pm_001\",\"onboarding_date\":\"2026-08-18\",\"days_remaining\":6}",
+        "created_at": "2026-08-12T08:50:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S9_notification_batch_mutation"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notice_ad_renovation_1",
+        "user_id": "user_linyuan",
+        "source": "city_service",
+        "type": "advertisement",
+        "subscription_id": null,
+        "title": "rental housing detail",
+        "body": "rental housing detail，rental housing detail。",
+        "payload_json": "{\"campaign\":\"wall_refresh\"}",
+        "created_at": "2026-08-12T08:51:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S9_notification_batch_mutation"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notice_ad_renovation_2",
+        "user_id": "user_linyuan",
+        "source": "city_service",
+        "type": "advertisement",
+        "subscription_id": null,
+        "title": "rental housing detail",
+        "body": "rental housing detail，rental housing detail。",
+        "payload_json": "{\"campaign\":\"storage_design\"}",
+        "created_at": "2026-08-12T08:52:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S9_notification_batch_mutation"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notice_ad_renovation_3",
+        "user_id": "user_linyuan",
+        "source": "city_service",
+        "type": "advertisement",
+        "subscription_id": null,
+        "title": "rental housing detail",
+        "body": "rental housing detail，rental housing detail。",
+        "payload_json": "{\"campaign\":\"kitchen_trial\"}",
+        "created_at": "2026-08-12T08:53:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S9_notification_batch_mutation"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notice_market_rent_news",
+        "user_id": "user_linyuan",
+        "source": "listing_watch",
+        "type": "market",
+        "subscription_id": "sub_listing",
+        "title": "rental housing detail",
+        "body": "rental housing detail，rental housing detail short_101 rental housing detail long_205 rental housing detail。",
+        "payload_json": "{\"scope\":\"citywide\",\"object_id\":null}",
+        "created_at": "2026-08-12T08:54:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S9_notification_batch_mutation"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "virtual_stage": 0,
+  "event_id": "ev0_user",
+  "source_event_id": "ev0_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 0
+    }
+  ],
+  "response_paraphrase": "The rental records and morning commute review are open, with authorization still required before any commitment.",
+  "expected_env": {
+    "virtual_stage": 0,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s0_create_rental_records",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s0_auth_boundary_noted",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

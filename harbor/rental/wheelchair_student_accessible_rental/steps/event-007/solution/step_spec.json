@@ -1,0 +1,35 @@
+{
+  "step": "event-007",
+  "stage": 7,
+  "event_id": "ev7_world",
+  "source_event_id": "ev7_world",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 7
+    }
+  ],
+  "response_paraphrase": "Summary: I read the Yunqi Court follow-up and kept its measurements and fee terms as a written draft awaiting verification.",
+  "expected_env": {
+    "virtual_stage": 7,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-002"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s7_email_fee_draft",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s7_no_oral_commitment_as_fact",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

@@ -1,0 +1,37 @@
+{
+  "step": "event-027",
+  "stage": 27,
+  "virtual_stage": 27,
+  "source_event_id": "s27_world_closure",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the final renewal-and-relocation archive from fresh email, listing, calendar, notification, review, and workspace evidence.",
+  "response_paraphrase": "The closing record now preserves candidate order, repair and deposit risks, deadlines, and all unresolved approval items.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s27_world_closure"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s27_final_archive_refreshed",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s27_final_authorization_open_items_refreshed",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "s27_closure_source_matrix_fresh",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

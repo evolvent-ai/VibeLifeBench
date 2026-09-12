@@ -1,0 +1,38 @@
+{
+  "step": "event-010",
+  "virtual_stage": 9,
+  "source_event_id": "S9_noise_batch",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "S9_notification_batch_mutation"
+    ]
+  },
+  "response": "I triaged notifications, kept the 2026-08-18 onboarding countdown, archived renovation noise, and preserved an onboarding buffer that no viewing should occupy.",
+  "response_paraphrase": "Relevant countdown information stays active while unrelated advertising noise is archived and the schedule buffer remains protected.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S9_noise_batch",
+      "virtual_stage": 9,
+      "event_kind": 9,
+      "event_time": "2026-08-12T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_triage_notifications",
+      "weight": 1
+    },
+    {
+      "check_id": "s9_preserve_onboarding_buffer",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 2
+}
+

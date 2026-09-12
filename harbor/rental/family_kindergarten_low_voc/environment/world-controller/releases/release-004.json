@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "evt_018_mut"
+  ],
+  "source_time": "2026-08-07T09:00:00+08:00",
+  "previous": "release-003",
+  "token": "family-kindergarten-low-voc-release-v1",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "price_minor": 1060000,
+        "attrs_json": "{\"available_from\":\"2026-08-10\",\"property_fee_minor\":32000,\"renovated_at\":\"2023-04\",\"ventilation_days_possible\":15,\"elevator\":true,\"floor\":6,\"balcony_guardrail_cm\":118,\"window_locks\":\"installed\",\"written_terms\":\"draft_available\",\"air_report\":\"not_recent\",\"mold_risk\":\"low\",\"price_checked_at\":\"2026-08-07T08:45:00+08:00\"}"
+      },
+      "where": {
+        "listing_id": "apt_maple_lane_2b_0603"
+      },
+      "source_event_id": "evt_018_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "insert",
+      "values": {
+        "shipment_id": "ship_quote_0008",
+        "user_id": "usr_family_038",
+        "tracking_no": "YBJ-AUG07-A",
+        "carrier": "translatedtranslatedtranslated",
+        "service_level": "quote_only",
+        "status": "label_created",
+        "sender_json": "{\"city\":\"translatedtranslated\",\"district\":\"translatedtranslatedtranslated\"}",
+        "recipient_json": "{\"city\":\"translatedtranslated\",\"district\":\"translatedtranslatedtranslated\"}",
+        "weight_kg": 23.0,
+        "dimensions_json": "{}",
+        "declared_value_minor": 0,
+        "fee_minor": 77200,
+        "created_at": "2026-08-07T08:45:00+08:00",
+        "eta_date": "2026-08-18",
+        "scheduled_pickup_at": null,
+        "updated_at": "2026-08-07T08:45:00+08:00",
+        "cancel_reason": null
+      },
+      "source_event_id": "evt_018_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_ship_quote_0008",
+        "shipment_id": "ship_quote_0008",
+        "at": "2026-08-07T08:45:00+08:00",
+        "location": "translatedtranslatedtranslatedtranslated",
+        "status_code": "quote_created",
+        "description": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslated。"
+      },
+      "source_event_id": "evt_018_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "insert",
+      "values": {
+        "shipment_id": "ship_quote_0021",
+        "user_id": "usr_family_038",
+        "tracking_no": "AB-AUG07-B",
+        "carrier": "translatedtranslatedtranslatedtranslated",
+        "service_level": "quote_only",
+        "status": "label_created",
+        "sender_json": "{\"city\":\"translatedtranslated\",\"district\":\"translatedtranslatedtranslated\"}",
+        "recipient_json": "{\"city\":\"translatedtranslated\",\"district\":\"translatedtranslatedtranslated\"}",
+        "weight_kg": 16.0,
+        "dimensions_json": "{}",
+        "declared_value_minor": 0,
+        "fee_minor": 88900,
+        "created_at": "2026-08-07T08:45:00+08:00",
+        "eta_date": "2026-08-19",
+        "scheduled_pickup_at": null,
+        "updated_at": "2026-08-07T08:45:00+08:00",
+        "cancel_reason": null
+      },
+      "source_event_id": "evt_018_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_ship_quote_0021",
+        "shipment_id": "ship_quote_0021",
+        "at": "2026-08-07T08:45:00+08:00",
+        "location": "translatedtranslatedtranslatedtranslated",
+        "status_code": "quote_created",
+        "description": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated。"
+      },
+      "source_event_id": "evt_018_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "insert",
+      "values": {
+        "shipment_id": "ship_quote_0034",
+        "user_id": "usr_family_038",
+        "tracking_no": "JJ-AUG07-C",
+        "carrier": "translatedtranslatedtranslatedtranslated",
+        "service_level": "quote_only",
+        "status": "label_created",
+        "sender_json": "{\"city\":\"translatedtranslated\",\"district\":\"translatedtranslatedtranslated\"}",
+        "recipient_json": "{\"city\":\"translatedtranslated\",\"district\":\"translatedtranslatedtranslated\"}",
+        "weight_kg": 29.0,
+        "dimensions_json": "{}",
+        "declared_value_minor": 0,
+        "fee_minor": 100600,
+        "created_at": "2026-08-07T08:45:00+08:00",
+        "eta_date": "2026-08-20",
+        "scheduled_pickup_at": null,
+        "updated_at": "2026-08-07T08:45:00+08:00",
+        "cancel_reason": null
+      },
+      "source_event_id": "evt_018_mut"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_ship_quote_0034",
+        "shipment_id": "ship_quote_0034",
+        "at": "2026-08-07T08:45:00+08:00",
+        "location": "translatedtranslatedtranslatedtranslated",
+        "status_code": "quote_created",
+        "description": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated。"
+      },
+      "source_event_id": "evt_018_mut"
+    }
+  ]
+}

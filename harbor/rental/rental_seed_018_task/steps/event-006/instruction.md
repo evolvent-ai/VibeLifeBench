@@ -1,0 +1,1 @@
+An official agent has replied by email about pre-viewing documents, the contracting entity, and an accommodation-registration assistance template. The full sender address and display name both need to be recorded. Check the newly relevant early-morning route and refresh the affected candidate's listing status, then propagate that route/status update to the internal tracker.

@@ -1,0 +1,36 @@
+{
+  "step": "event-014",
+  "stage": 14,
+  "virtual_stage": 14,
+  "source_event_id": "s14_notification_listing",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "s14_mutation_listing"
+    ]
+  },
+  "response": "I confirmed candidate 1905 is delisted and synchronized the invalid viewing hold with the calendar.",
+  "response_paraphrase": "The withdrawn listing has been removed from active consideration and its tentative schedule entry is marked for cancellation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s14_notification_listing"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_delisted_removed",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "s14_calendar_synced_after_delist",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

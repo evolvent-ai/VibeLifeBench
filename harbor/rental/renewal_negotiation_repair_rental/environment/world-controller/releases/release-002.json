@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "ev8_mut"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-07-20T08:50:00+08:00",
+  "previous": "release-001",
+  "token": "renewal-negotiation-repair-rental-release-002-v1",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "price_minor": 730000,
+        "attrs_json": "{\"elevator\":false,\"corridor_light\":\"dim\",\"bathroom\":\"private\",\"deposit_months\":2,\"cleaning_fee_minor\":180000,\"night_access\":\"north_gate_limited\",\"deposit_request_channel\":\"personal_qr_code\",\"landlord_identity\":\"unverified\",\"contracting_party\":\"unverified\",\"refund_conditions\":\"pending\",\"fee_verified_at\":\"2026-07-20T08:50:00+08:00\"}",
+        "description": "Monthly rent is updated to CNY 7300 plus a CNY 1800 cleaning fee; payment is requested through personal_qr_code, while the contracting party and refund conditions remain unverified."
+      },
+      "where": {
+        "listing_id": "bjr_8d71c4b0"
+      }
+    }
+  ]
+}

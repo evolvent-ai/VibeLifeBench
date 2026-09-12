@@ -1,0 +1,1 @@
+Candidate C's viewing window may conflict with mandatory company training. Refresh the calendar and address the status of the previous appointment. Inspect the relevant email thread as well so the conflict, reschedule window, and training constraint are recorded before confirming anything.

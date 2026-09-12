@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "previous": "release-010",
+  "token": "37afa1a8afd3e502c2dc83675d4a42dc4b094df880d58c9f3adc7e1d07edc97c",
+  "source_stage": 20,
+  "source_time": "2026-07-20T13:55:00+08:00",
+  "source_event_ids": ["s19_mut_appliance_shipments"],
+  "source_event_id": "s19_mut_appliance_shipments",
+  "virtual_stage": 20,
+  "operations": [
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "update",
+      "set": {"eta_date": "2026-07-21"},
+      "where": {"shipment_id": "ship_fridge_0721"},
+      "values": {
+        "shipment_id": "ship_fridge_0721",
+        "user_id": "usr_zhanglan",
+        "tracking_no": "SF603FRIDGE",
+        "carrier": "SF Express",
+        "service_level": "home_appliance",
+        "status": "label_created",
+        "sender_json": "{}",
+        "recipient_json": "{}",
+        "weight_kg": 55.0,
+        "dimensions_json": "{}",
+        "declared_value_minor": 219900,
+        "fee_minor": 12000,
+        "created_at": "2026-07-20T13:50:00+08:00",
+        "eta_date": "2026-07-21",
+        "scheduled_pickup_at": null,
+        "updated_at": "2026-07-20T13:50:00+08:00",
+        "cancel_reason": null
+      },
+      "source_event_id": "s19_mut_appliance_shipments"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "update",
+      "set": {"description": "translated source textalreadytranslated source text\uff0cShanghaiappliancestranslated source textpendingtranslated source text\u3002"},
+      "where": {"event_id": "evt_ship_fridge_0721_label"},
+      "values": {
+        "event_id": "evt_ship_fridge_0721_label",
+        "shipment_id": "ship_fridge_0721",
+        "at": "2026-07-20T13:50:00+08:00",
+        "location": "Shanghai",
+        "status_code": "label_created",
+        "description": "translated source textalreadytranslated source text\uff0cShanghaiappliancestranslated source textpendingtranslated source text\u3002"
+      },
+      "source_event_id": "s19_mut_appliance_shipments"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipments",
+      "op": "update",
+      "set": {"eta_date": "2026-07-21"},
+      "where": {"shipment_id": "ship_washer_0721"},
+      "values": {
+        "shipment_id": "ship_washer_0721",
+        "user_id": "usr_zhanglan",
+        "tracking_no": "JD603WASHER",
+        "carrier": "JD Logistics",
+        "service_level": "home_appliance",
+        "status": "label_created",
+        "sender_json": "{}",
+        "recipient_json": "{}",
+        "weight_kg": 60.0,
+        "dimensions_json": "{}",
+        "declared_value_minor": 189900,
+        "fee_minor": 12000,
+        "created_at": "2026-07-20T13:52:00+08:00",
+        "eta_date": "2026-07-21",
+        "scheduled_pickup_at": null,
+        "updated_at": "2026-07-20T13:52:00+08:00",
+        "cancel_reason": null
+      },
+      "source_event_id": "s19_mut_appliance_shipments"
+    },
+    {
+      "server": "delivery_logistics",
+      "table": "shipment_events",
+      "op": "update",
+      "set": {"description": "translated source textalreadytranslated source textappliancesdeliverytranslated source text\uff0ccurrenttranslated source textpendingtranslated source text\u3002"},
+      "where": {"event_id": "evt_ship_washer_0721_label"},
+      "values": {
+        "event_id": "evt_ship_washer_0721_label",
+        "shipment_id": "ship_washer_0721",
+        "at": "2026-07-20T13:52:00+08:00",
+        "location": "Shanghai",
+        "status_code": "label_created",
+        "description": "translated source textalreadytranslated source textappliancesdeliverytranslated source text\uff0ccurrenttranslated source textpendingtranslated source text\u3002"
+      },
+      "source_event_id": "s19_mut_appliance_shipments"
+    }
+  ]
+}

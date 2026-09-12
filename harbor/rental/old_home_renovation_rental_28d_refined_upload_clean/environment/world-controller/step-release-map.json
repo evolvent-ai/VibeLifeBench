@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "step_count": 27,
+  "steps": {
+    "event-000": {
+      "source_event_id": "s0_user_kickoff",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-01T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "s0_world_context",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-01T10:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "s1_property_rules",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T09:10:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "s2_budget_quote",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T16:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "s3_upsell_pressure",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-03T10:30:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "s4_leak_notice",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-04T09:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "s5_electrical_notice",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-05T11:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "s6_neighbor_complaint",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T15:00:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "s7_user_prioritize",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-07T09:30:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "s8_agent_pressure",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T10:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "s9_scheduled_review",
+      "before": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-09T09:00:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "s10_kitchen_bath",
+      "before": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-10T14:20:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "s11_private_payment",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-11T16:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "s12_user_authorize_safety",
+      "before": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-12T10:00:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "s13_stock_change",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T13:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "s14_acceptance_issue",
+      "before": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-15T17:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "s15_acceptance_notice",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-16T10:10:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "s16_air_fake",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-17T09:30:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "s17_air_notice",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-18T11:10:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "s18_user_appliances",
+      "before": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-19T10:00:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "s19_delivery",
+      "before": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-20T14:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "s20_listing_copy",
+      "before": [
+        "release-011"
+      ],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-22T09:30:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "s21_viewing_requests",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-23T12:00:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "s22_property_final",
+      "before": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-24T16:00:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "s23_movein_plan",
+      "before": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-25T10:00:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "s24_scheduled_wrap",
+      "before": [],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-27T18:00:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "s25_final",
+      "before": [],
+      "virtual_stage": 25,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-28T10:00:00+08:00"
+    }
+  }
+}

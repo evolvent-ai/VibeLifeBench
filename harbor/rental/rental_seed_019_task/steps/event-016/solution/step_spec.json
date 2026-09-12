@@ -1,0 +1,31 @@
+{
+  "step": "event-016",
+  "stage": 16,
+  "virtual_stage": 16,
+  "source_event_id": "s16_world_pipe",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "s16_mutation_pipe"
+    ]
+  },
+  "response": "I recorded the planned pipe inspection as incomplete because no repair outcome has been confirmed.",
+  "response_paraphrase": "The property notice now updates disruption risk without treating the proposed inspection as completed work.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s16_world_pipe"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_pipe_check_not_completed",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

@@ -1,0 +1,39 @@
+{
+  "step": "event-023",
+  "virtual_stage": 23,
+  "source_event_id": "evt_023_user",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I assembled the Maple Lane viewing checklist and a 10:00-11:00 draft that avoids the child's nap; it remains pending Lin Lan's confirmation.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "source_event_id": "evt_023_user",
+      "virtual_stage": 23,
+      "event_time": "2026-08-14T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_011_child_safety_checklist_stage23",
+      "weight": 1.25
+    },
+    {
+      "check_id": "r038_check_026_calendar_conflict_stage23",
+      "weight": 1.25
+    },
+    {
+      "check_id": "r038_check_039_stage23_viewing_packet_b_ready",
+      "weight": 1.0
+    },
+    {
+      "check_id": "r038_check_040_stage23_calendar_no_direct_invite",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 4.5,
+  "response_paraphrase": "The viewing packet uses a non-conflicting morning slot and remains only a proposal awaiting the user's approval."
+}

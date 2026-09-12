@@ -1,0 +1,6 @@
+{
+  "task": "rental_seed_018_task",
+  "step_count": 25,
+  "clock_file": "/world-clock/current.json",
+  "clock_token_env": "CLOCK_TOKEN"
+}

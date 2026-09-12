@@ -1,0 +1,35 @@
+{
+  "step": "event-025",
+  "virtual_stage": 14,
+  "source_event_id": "s14_school_visible",
+  "stage_boundary": true,
+  "expected_env": {
+    "virtual_stage": 14,
+    "scenario_time": "2026-07-22T09:00:00+08:00",
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-002"
+    ]
+  },
+  "response": "I refreshed the early-dismissal calendar and the associated pickup recovery notice.",
+  "response_paraphrase": "I have refreshed the early-dismissal calendar and the associated pickup recovery notice.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s14_school_visible",
+      "virtual_stage": 14,
+      "event_kind": "world",
+      "event_time": "2026-07-22T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_early_release_calendar_rechecked",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

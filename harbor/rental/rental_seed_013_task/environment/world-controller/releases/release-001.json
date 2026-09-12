@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "S6_short_101_delay_mutation"
+  ],
+  "source_stage": 6,
+  "source_time": "2026-08-09T08:30:00+08:00",
+  "previous": "release-000",
+  "token": "rental-seed-013-task-release-001-v1",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "description": "rental housing detail，rental housing detail 2026-08-18；rental housing detail，rental housing detail。",
+        "attrs_json": "{\"lease_type\":\"short_regular\",\"move_in\":\"2026-08-18\",\"nights\":21,\"deposit_minor\":150000,\"non_refundable_minor\":798000,\"auto_renew\":false,\"luggage\":\"front_desk_possible\",\"delay_reason\":\"rental housing detail\",\"verified_at\":\"2026-08-09T08:30:00+08:00\"}"
+      },
+      "where": {
+        "listing_id": "short_101"
+      },
+      "source_event_id": "S6_short_101_delay_mutation"
+    }
+  ]
+}

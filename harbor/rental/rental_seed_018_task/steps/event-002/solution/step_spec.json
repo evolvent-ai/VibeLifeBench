@@ -1,0 +1,31 @@
+{
+  "step": "event-002",
+  "stage": 2,
+  "virtual_stage": 2,
+  "event_id": "ev2_notice",
+  "source_event_id": "ev2_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 2
+    }
+  ],
+  "response_paraphrase": "A recurring internal review now covers status, fees, trust, viewing windows, documents, and calendar items.",
+  "expected_env": {
+    "virtual_stage": 2,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s2_scheduled_monitor_setup",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s2_tracker_persisted",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

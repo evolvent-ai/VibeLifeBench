@@ -1,0 +1,3 @@
+# TOOLS
+
+listingplatformrental information、details、savecandidate、status、feesrental informationviewing window。rental informationcompany POI、morning peakdoor-to-doorroute、walkingrental information。rental informationfull sender address、rental information、attachmentsrental information、rental informationsendstatus。rental informationcompanyrental information、viewing windowrental information。rental informationcandidate、rental information、rental information、materials、risk、rental informationfinal archive。rental informationleaserental informationmaterialsrisk register。notificationrental informationperiodic reviewreminder。communityreviewrental information、property managementrental informationmaterialsrequirementsrental informationfeedback。

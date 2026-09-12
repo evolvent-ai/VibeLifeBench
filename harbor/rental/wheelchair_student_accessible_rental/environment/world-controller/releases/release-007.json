@@ -1,0 +1,41 @@
+{
+  "release_id": "release-007",
+  "previous": "release-006",
+  "token": "wheelchair-release-007-2b8a9e1f4c6d7e8a9b7c6d5e4f3a2b1c",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "active": 1,
+        "start_dt": "2026-07-26T08:30:00+08:00",
+        "end_dt": "2026-07-29T23:59:00+08:00",
+        "note": "Construction is underway at the north gate of Riverside Nook; the passage beside the steps and nighttime lighting are affected."
+      },
+      "values": {
+        "active": 1,
+        "start_dt": "2026-07-26T08:30:00+08:00",
+        "end_dt": "2026-07-29T23:59:00+08:00",
+        "note": "Construction is underway at the north gate of Riverside Nook; the passage beside the steps and nighttime lighting are affected."
+      },
+      "where": {
+        "event_id": "rd_evt_b_gate"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_comm_b_gate_0726",
+        "merchant_id": "mer_seed_004_b",
+        "user_id": "resident_new",
+        "rating": 2,
+        "body": "Property management notices show that the north gate closes after 23:30. The side door has three steps and relatively weak lighting; wheelchair access requires going around to the west gate, which is farther than stated in the listing description.",
+        "image_captions": "[\"North Gate Steps\",\"West Gate Detour\"]",
+        "created_at": "2026-07-26T08:40:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "release_id": "release-009",
+  "before_step": "event-016",
+  "previous": "release-008",
+  "token": "cross-city-remote-viewing-release-009-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "ev16_mut",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9116,
+        "folder_id": 1,
+        "message_id": "<tenant-precheck-0804@example.invalid>",
+        "subject": "move-indocumentsprecheckchecklist",
+        "from_addr": "service@agency.invalid",
+        "to_addr_json": "[\"rental.seed.005@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-04T08:37:00+08:00",
+        "body_text": "The pre-check checklist requests an identity card, employment contract, income proof, and a current-address screenshot. It must state each item's purpose, retention period, and recipient; submit redacted versions first.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9116,
+        "size": 260,
+        "created_at": "2026-08-04T08:37:00+08:00"
+      }
+    }
+  ]
+}

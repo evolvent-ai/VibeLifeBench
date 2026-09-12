@@ -1,0 +1,35 @@
+{
+  "step": "event-018",
+  "virtual_stage": 18,
+  "source_event_id": "evt_018_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "evt_018_mut"
+    ]
+  },
+  "response": "I recorded Maple Lane's refreshed CNY 10,920 monthly total and the CNY 772 moving quote as quote-only and unscheduled.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_018_notice",
+      "virtual_stage": 18,
+      "event_time": "2026-08-07T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "stage_18_r038_check_023_mutation_b_price",
+      "weight": 1.75
+    },
+    {
+      "check_id": "r038_check_025_delivery_quote_update",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 3.0,
+  "response_paraphrase": "The latest Maple Lane housing cost and mover estimate are documented without turning either into a commitment."
+}

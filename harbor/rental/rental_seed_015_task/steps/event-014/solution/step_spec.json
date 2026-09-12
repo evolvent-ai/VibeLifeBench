@@ -1,0 +1,26 @@
+{
+  "step": "event-014",
+  "virtual_stage": 8,
+  "source_event_id": "s8_review_notice",
+  "stage_boundary": false,
+  "expected_env": {
+    "virtual_stage": 8,
+    "scenario_time": "2026-07-14T09:00:00+08:00",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I propagated the elevator maintenance finding into the candidate tracker and risk register.",
+  "response_paraphrase": "I have propagated the elevator maintenance finding into the candidate tracker and risk register.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s8_review_notice",
+      "virtual_stage": 8,
+      "event_kind": "notification",
+      "event_time": "2026-07-14T09:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

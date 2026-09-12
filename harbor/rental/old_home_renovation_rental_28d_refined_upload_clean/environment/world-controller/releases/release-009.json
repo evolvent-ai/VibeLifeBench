@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "previous": "release-008",
+  "token": "afbcb777e4fb8b716f2e90491af52a4a616cc704b755bdee8ce80856aee24596",
+  "source_stage": 16,
+  "source_time": "2026-07-17T09:25:00+08:00",
+  "source_event_ids": ["s16_mut_fake_air"],
+  "source_event_id": "s16_mut_fake_air",
+  "virtual_stage": 16,
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_20260717_A6V1",
+        "user_id": "usr_zhanglan",
+        "source": "unverified_sms",
+        "type": "pressure_claim",
+        "subscription_id": null,
+        "title": "air-quality screenshot",
+        "body": "screenshotsaidformaldehydeand TVOC alreadytranslated source text\uff0ccantranslated source text\u3002",
+        "payload_json": "{\"claimed_result\":\"pass\",\"document_format\":\"chat_screenshot\",\"issuer_verified\":false}",
+        "created_at": "2026-07-17T09:28:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s16_mut_fake_air"
+    }
+  ]
+}

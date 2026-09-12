@@ -1,0 +1,31 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "virtual_stage": 3,
+  "event_id": "ev3_world",
+  "source_event_id": "ev3_world",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 3
+    }
+  ],
+  "response_paraphrase": "Morning transit routes and market pricing were checked across the relevant Beijing candidates.",
+  "expected_env": {
+    "virtual_stage": 3,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s3_commute_crosscheck_a_c",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s3_market_price_check",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

@@ -1,0 +1,34 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "S2_listing_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I searched short-term and long-term rental pools, saved short_103 and long_202, and recorded the 7200 CNY long-term limit.",
+  "response_paraphrase": "Both rental pools are now compared and the two working candidates are saved under the stated price ceiling.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S2_listing_world",
+      "virtual_stage": 2,
+      "event_kind": 2,
+      "event_time": "2026-08-05T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_search_short_and_long_pool",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s2_save_candidate_pool",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}
+

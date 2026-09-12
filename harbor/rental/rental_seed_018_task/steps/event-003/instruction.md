@@ -1,0 +1,1 @@
+Some candidate titles claim that the apartments are close to the office or subway, but their actual weekday-morning door-to-door travel times, walking segments, and transfers need to be verified with route tools. Also compare the relevant listing prices with available local market statistics and record the comparison.

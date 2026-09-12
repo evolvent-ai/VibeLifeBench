@@ -1,0 +1,1 @@
+Turn entrance modifications, doorway measurement, deposit refund, repair responsibility, and service fees into contract verification questions. Use legal materials only to make a checklist; do not decide contract validity for me.

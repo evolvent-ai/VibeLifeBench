@@ -1,0 +1,34 @@
+{
+  "release_id": "release-013",
+  "previous": "release-012",
+  "token": "wheelchair-release-013-2b8a9e1f4c6d7e8a9b7c6d5e4f3a2b1c",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9121,
+        "folder_id": 1,
+        "message_id": "<rent-c-final-0808@wuhan-agency.invalid>",
+        "subject": "Yunqi Court pre-signing written accessibility clarification",
+        "from_addr": "zhou.lan@wuhan-agency.invalid",
+        "to_addr_json": "[\"wenxi.shen@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-08T08:36:00+08:00",
+        "body_text": "The contact person confirmed that the listing is still available for rent. The original doorway width measurement, ramp maintenance record, elevator repair responsibility, deposit refund terms, and service fee amount can be checked before signing; the bathroom space remains subject to on-site measurement.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "<rent-c-addendum-0727@wuhan-agency.invalid>",
+        "references_header": "<rent-c-followup-0721@wuhan-agency.invalid> <rent-c-addendum-0727@wuhan-agency.invalid>",
+        "headers_json": "{}",
+        "uid": 9121,
+        "size": 342,
+        "created_at": "2026-08-08T08:36:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "step": "event-023",
+  "stage": 23,
+  "event_id": "ev23_user",
+  "source_event_id": "ev23_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 23
+    }
+  ],
+  "response_paraphrase": "Summary: I filed the final candidate matrix with verified facts, open measurements, authorization gates, and next steps.",
+  "expected_env": {
+    "virtual_stage": 23,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s23_final_review_written",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s23_final_refresh_all_core",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s23_candidate_matrix_archived",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.25
+}

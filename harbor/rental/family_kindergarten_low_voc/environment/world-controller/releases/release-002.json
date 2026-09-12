@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "evt_012_mut"
+  ],
+  "source_time": "2026-07-30T09:00:00+08:00",
+  "previous": "release-001",
+  "token": "family-kindergarten-low-voc-release-v1",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "update",
+      "set": {
+        "start_dt": "2026-08-12T09:30:00+08:00",
+        "end_dt": "2026-08-12T11:00:00+08:00",
+        "description": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated。",
+        "updated_at": "2026-07-30T08:45:00+08:00"
+      },
+      "where": {
+        "event_id": "cal_evt_kindergarten_intro"
+      },
+      "source_event_id": "evt_012_mut"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "msg_kindergarten_changed",
+        "subject": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated",
+        "from_addr": "office@xinghe.invalid",
+        "to_addr_json": "[\"lin.lan@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-30T08:40:00+08:00",
+        "body_text": "translatedtranslatedtranslatedtranslatedtranslatedtranslated 2026-08-12 09:30-11:00；translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated。",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 3001,
+        "size": 1100,
+        "created_at": "2026-07-30T08:40:00+08:00"
+      },
+      "source_event_id": "evt_012_mut"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "release_id": "release-006",
+  "before_step": "event-012",
+  "previous": "release-005",
+  "token": "cross-city-remote-viewing-release-006-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "ev12_mut",
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "start_dt": "2026-07-30T08:30:00+08:00",
+        "end_dt": "2026-08-02T23:59:00+08:00",
+        "note": "Construction is underway around Riverside Cottage's north gate, affecting evening lighting and the detour distance.",
+        "active": 1
+      },
+      "where": {
+        "event_id": "rd_evt_b_gate"
+      }
+    },
+    {
+      "source_event_id": "ev12_mut",
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_comm_b_gate_0730",
+        "merchant_id": "mer_seed_005_b",
+        "user_id": "resident_new",
+        "rating": 2,
+        "body": "A property notice says the north gate closes after 23:30 and evening visitors must detour to the west gate. The construction segment has weak lighting, and the actual walking distance is longer than the listing description.",
+        "image_captions": "[\"north gate notice\",\"west gate detour\"]",
+        "created_at": "2026-07-30T08:40:00+08:00"
+      }
+    }
+  ]
+}

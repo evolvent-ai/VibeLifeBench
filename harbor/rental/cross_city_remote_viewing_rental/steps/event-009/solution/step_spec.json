@@ -1,0 +1,30 @@
+{
+  "step": "event-009",
+  "stage": 9,
+  "event_id": "ev9_user",
+  "source_event_id": "ev9_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 9
+    }
+  ],
+  "response_paraphrase": "The record confirms: I used legal sources to build questions about the lease, while leaving the document unsigned.",
+  "expected_env": {
+    "virtual_stage": 9,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s9_legal_contract_checklist",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s9_email_followup_draft",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

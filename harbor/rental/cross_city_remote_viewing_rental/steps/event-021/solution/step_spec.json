@@ -1,0 +1,38 @@
+{
+  "step": "event-021",
+  "stage": 21,
+  "event_id": "ev21_notice",
+  "source_event_id": "ev21_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 21
+    }
+  ],
+  "response_paraphrase": "The record confirms: I read the final written clarification and paired it with a legal checklist and current listing.",
+  "expected_env": {
+    "virtual_stage": 21,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s21_final_email_refresh",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s21_contract_email_legal_pair",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s21_contract_questions_drafted",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s21_lease_terms_matrix_updated",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

@@ -1,0 +1,35 @@
+{
+  "step": "event-023",
+  "stage": 23,
+  "virtual_stage": 23,
+  "event_id": "ev23_notice",
+  "source_event_id": "ev23_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 23
+    }
+  ],
+  "response_paraphrase": "Candidate C pending status and Candidate B active status were refreshed with notifications and route evidence.",
+  "expected_env": {
+    "virtual_stage": 23,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-005"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s23_c_pending_refreshed",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s23_b_current_state_refreshed",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

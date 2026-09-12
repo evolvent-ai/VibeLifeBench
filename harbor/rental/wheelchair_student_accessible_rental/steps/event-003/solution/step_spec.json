@@ -1,0 +1,31 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "event_id": "ev3_user",
+  "source_event_id": "ev3_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 3
+    }
+  ],
+  "response_paraphrase": "Summary: I compared the candidate-to-laboratory routes with access details instead of relying on a headline duration.",
+  "expected_env": {
+    "virtual_stage": 3,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": [],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s3_commute_crosscheck_a_c",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s3_market_price_check",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

@@ -1,0 +1,31 @@
+{
+  "step": "event-009",
+  "stage": 9,
+  "virtual_stage": 9,
+  "event_id": "ev9_notice",
+  "source_event_id": "ev9_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 9
+    }
+  ],
+  "response_paraphrase": "Mailbox trust was reassessed, the abnormal address was paused, and Candidate B remains tracked.",
+  "expected_env": {
+    "virtual_stage": 9,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s9_domain_trust_recovered",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s9_abnormal_address_paused",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

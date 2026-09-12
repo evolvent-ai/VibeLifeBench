@@ -1,0 +1,1 @@
+A draft lease for Candidate B and an explanation of Candidate C's new time slot have arrived by email. They address the contracting entity, security deposit, accommodation registration, and passport-copy terms.

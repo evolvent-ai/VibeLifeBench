@@ -1,0 +1,1 @@
+The rental-document guidance has been updated: pre-viewing, lease-signing, and accommodation-registration stages may involve documents for different purposes. Prepare separate verification questions for each stage, use legal-search sources, and record the structured questions for Candidate C in the internal candidate notes without making a legal conclusion.

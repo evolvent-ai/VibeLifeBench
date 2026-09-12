@@ -1,0 +1,37 @@
+{
+  "step": "event-021",
+  "stage": 21,
+  "virtual_stage": 21,
+  "source_event_id": "s21_world_view_log",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I triangulated listings 1901 and 1906 across current status, commute, and community-review evidence.",
+  "response_paraphrase": "The shortlist ranking and heartbeat now reflect a fresh multi-source comparison of both core candidates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s21_world_view_log"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_core_candidate_cross_checked",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s21_candidate_triangulation_recorded",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s21_candidate_minimum_refresh",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

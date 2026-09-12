@@ -1,0 +1,41 @@
+{
+  "release_id": "release-000",
+  "source_event_ids": [
+    "s7_elevator_mutation"
+  ],
+  "source_stage": 7,
+  "source_time": "2026-07-13T08:50:00+08:00",
+  "previous": null,
+  "token": "rental-seed-015-release-token",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "attrs_json": {
+          "__utf8_hex__": "7b22706c6163655f6964223a22706c6163655f61222c226465706f7369745f6d696e6f72223a3733353030302c226368696c645f6465706f7369745f6d696e6f72223a302c227363686f6f6c5f636c61696d223a226e6f6e65222c22656c657661746f72223a747275652c22656c657661746f725f737461747573223a226d61696e74656e616e63655f323032362d30372d31385f746f5f323032362d30372d3239222c22666c6f6f72223a31322c22617661696c61626c655f6279223a22323032362d30372d3331222c22726f6f6d73223a327d"
+        }
+      },
+      "where": {
+        "listing_id": "listing_a"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_mer_a_maint_20260713",
+        "merchant_id": "mer_a",
+        "user_id": "u_maint",
+        "rating": 2,
+        "body": {
+          "__utf8_hex__": "e6be84e6b9bee88ab1e59bade794b5e6a2af203720e69c8820313820e697a5e887b3203720e69c8820323920e697a5e8bf9ee7bbade6a380e4bfaeefbc9be789a9e4b89ae58faae689bfe8afbae4bf9de79599e4b880e58fb0e8b4a7e6a2afefbc8ce4bd86e69caae689bfe8afbae585a8e5a4a9e5bc80e694bee38082"
+        },
+        "image_captions": "[]",
+        "created_at": "2026-07-13T00:50:00Z"
+      }
+    }
+  ]
+}

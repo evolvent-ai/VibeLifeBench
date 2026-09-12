@@ -1,0 +1,59 @@
+{
+  "release_id": "release-002",
+  "source_event_ids": [
+    "s14_school_mutation"
+  ],
+  "source_stage": 14,
+  "source_time": "2026-07-22T08:45:00+08:00",
+  "previous": "release-001",
+  "token": "rental-seed-015-release-token",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_school_early_release",
+        "calendar_id": "cal_liyan_main",
+        "summary": {
+          "__utf8_hex__": "e6988ee6be84e8b7afe5b08fe5ada6e9ab98e6b8a9e68f90e5898de694bee5ada6"
+        },
+        "description": {
+          "__utf8_hex__": "3720e69c8820323720e697a5e887b3203820e69c88203720e697a5e694bee5ada6e68f90e5898de887b32031363a3335efbc8ce68998e7aea1e69c80e6999ae887b32031373a3230efbc9be99c80e98090e697a5e7a1aee8aea4e68ea5e98081e8a686e79b96e38082"
+        },
+        "location": {
+          "__utf8_hex__": "e6988ee6be84e8b7afe5b08fe5ada6"
+        },
+        "start_dt": "2026-07-27T16:35:00+08:00",
+        "end_dt": "2026-07-27T17:20:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-07-22T00:45:00Z",
+        "updated_at": "2026-07-22T00:45:00Z",
+        "recurrence_rule": "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR;UNTIL=20260807T092000Z",
+        "parent_event_id": null
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_school_early_release",
+        "user_id": "usr_liyan",
+        "source": "school_watch",
+        "type": "keyword",
+        "subscription_id": "sub_school",
+        "title": {
+          "__utf8_hex__": "e9ab98e6b8a9e69c9fe997b4e694bee5ada6e8b083e695b4"
+        },
+        "body": {
+          "__utf8_hex__": "e6988ee6be84e8b7afe5b08fe5ada6e58f91e5b883e694bee5ada6e5928ce68998e7aea1e697b6e997b4e8b083e695b4efbc9b3720e69c8820323720e697a5e8b5b7e68998e7aea1e69c80e6999ae887b32031373a3230e38082"
+        },
+        "payload_json": "{\"calendar_event\":\"evt_school_early_release\"}",
+        "created_at": "2026-07-22T00:50:00Z",
+        "read": 0
+      }
+    }
+  ]
+}

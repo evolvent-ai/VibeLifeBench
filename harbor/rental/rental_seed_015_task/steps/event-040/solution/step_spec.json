@@ -1,0 +1,31 @@
+{
+  "step": "event-040",
+  "virtual_stage": 23,
+  "source_event_id": "s23_privacy_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "virtual_stage": 23,
+    "scenario_time": "2026-07-31T12:30:00+08:00",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I completed the last pre-viewing refresh for the listing, routes, reviews, and family calendar.",
+  "response_paraphrase": "The completed the last pre-viewing refresh for the listing, routes, reviews, and family calendar.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s23_privacy_notice",
+      "virtual_stage": 23,
+      "event_kind": "notification",
+      "event_time": "2026-07-31T12:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s23_last_verified_refresh",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

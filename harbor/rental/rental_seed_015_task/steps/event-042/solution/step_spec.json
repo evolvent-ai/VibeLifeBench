@@ -1,0 +1,35 @@
+{
+  "step": "event-042",
+  "virtual_stage": 25,
+  "source_event_id": "s25_user_final",
+  "stage_boundary": true,
+  "expected_env": {
+    "virtual_stage": 25,
+    "scenario_time": "2026-08-08T20:00:00+08:00",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I closed the rental archive with first choice, backup, eliminations, privacy boundaries, and next steps.",
+  "response_paraphrase": "The closed the rental archive with first choice, backup, eliminations, privacy boundaries, and next steps.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s25_user_final",
+      "virtual_stage": 25,
+      "event_kind": "user_message",
+      "event_time": "2026-08-08T20:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s25_final_review_persisted",
+      "weight": 2.0
+    },
+    {
+      "check_id": "s25_family_schedule_and_privacy_closed",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

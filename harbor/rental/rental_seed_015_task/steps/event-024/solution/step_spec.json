@@ -1,0 +1,31 @@
+{
+  "step": "event-024",
+  "virtual_stage": 13,
+  "source_event_id": "s13_calendar_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "virtual_stage": 13,
+    "scenario_time": "2026-07-20T20:30:00+08:00",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I entered the four limited-assistance dates and saved a non-appointment question draft.",
+  "response_paraphrase": "The entered the four limited-assistance dates and saved a non-appointment question draft.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s13_calendar_notice",
+      "virtual_stage": 13,
+      "event_kind": "notification",
+      "event_time": "2026-07-20T20:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_sister_dates_in_calendar",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

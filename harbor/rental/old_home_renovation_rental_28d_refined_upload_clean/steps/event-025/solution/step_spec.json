@@ -1,0 +1,41 @@
+{
+  "step": "event-025",
+  "virtual_stage": 24,
+  "source_event_id": "s24_scheduled_wrap",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I verified the gated rental listing, delivery, viewing, and handover sequence using formal records.",
+  "response_paraphrase": "The post-renovation rental plan now reflects confirmed backend facts and a ready window no earlier than July 28.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s24_scheduled_wrap"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s24_closure_reconciliation_source_chain",
+      "weight": 0.35,
+      "expected": true
+    },
+    {
+      "check_id": "s24_closure_reconciliation_durable_state",
+      "weight": 0.4,
+      "expected": true
+    },
+    {
+      "check_id": "s24_closure_reconciliation_authorization_state",
+      "weight": 0.35,
+      "expected": true
+    },
+    {
+      "check_id": "s24_all_backend_gates_reconciled",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.6
+}

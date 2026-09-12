@@ -1,0 +1,39 @@
+{
+  "step": "event-013",
+  "virtual_stage": 7,
+  "source_event_id": "s7_elevator_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "virtual_stage": 7,
+    "scenario_time": "2026-07-13T09:00:00+08:00",
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "response": "I rechecked the elevator maintenance change and downgraded the affected high-floor candidate.",
+  "response_paraphrase": "The rechecked the elevator maintenance change and downgraded the affected high-floor candidate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s7_elevator_notice",
+      "virtual_stage": 7,
+      "event_kind": "notification",
+      "event_time": "2026-07-13T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_elevator_maintenance_rechecked",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s7_high_floor_candidate_downgraded",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

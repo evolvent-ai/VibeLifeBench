@@ -1,0 +1,1 @@
+The mailbox received the final written clarification from the Yunqi Court contact. It says doorway records, ramp maintenance, elevator responsibility, the deposit, and service fees still need the original documents checked before signing.

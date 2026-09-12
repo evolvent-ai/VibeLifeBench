@@ -1,0 +1,31 @@
+{
+  "step": "event-017",
+  "virtual_stage": 17,
+  "source_event_id": "evt_017_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I refreshed all three candidates and kept Riverside Garden's inspection risk open, Maple Lane active, and Chengwan's railing risk unacceptable.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_017_notice",
+      "virtual_stage": 17,
+      "event_time": "2026-08-05T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_027_scheduled_checks_stage17",
+      "weight": 1.25
+    },
+    {
+      "check_id": "r038_check_028_risk_log_open_closed",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.5,
+  "response_paraphrase": "The monitoring pass reconciled the three homes and preserved each unresolved inspection or railing issue."
+}

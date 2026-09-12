@@ -1,0 +1,35 @@
+{
+  "step": "event-034",
+  "virtual_stage": 19,
+  "source_event_id": "s19_email_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "virtual_stage": 19,
+    "scenario_time": "2026-07-27T10:00:00+08:00",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I promoted Clearwave Residence to a verification candidate while identifying the parent-meeting conflict.",
+  "response_paraphrase": "The promoted Clearwave Residence to a verification candidate while identifying the parent-meeting conflict.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s19_email_world",
+      "virtual_stage": 19,
+      "event_kind": "world",
+      "event_time": "2026-07-27T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_listing_h_verified_candidate",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s19_calendar_conflict_recovery",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

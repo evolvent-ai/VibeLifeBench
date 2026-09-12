@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "previous": "release-007",
+  "token": "3c32baf7f729b00ced1973196fe4a256f257e69e1879ccdc28079dbb743725be",
+  "source_stage": 15,
+  "source_time": "2026-07-16T10:00:00+08:00",
+  "source_event_ids": ["s15_mut_acceptance"],
+  "source_event_id": "s15_mut_acceptance",
+  "virtual_stage": 15,
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_work_acceptance_0716",
+        "user_id": "usr_zhanglan",
+        "source": "shengxin_renovation",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "utilities and kitchen/bath basic remediation acceptance",
+        "body": "water seepagetranslated source text\u3001translated source text\u3001translated source textresidual-current protectionandkitchen and bathroomtranslated source textacceptance inspectionpassed\uff1btranslated source textcosmetic upgrade\u3002",
+        "payload_json": "{\"acceptance_no\":\"AC-2026-0716-HJ603\",\"mandatory_done\":true}",
+        "created_at": "2026-07-16T10:01:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s15_mut_acceptance"
+    }
+  ]
+}

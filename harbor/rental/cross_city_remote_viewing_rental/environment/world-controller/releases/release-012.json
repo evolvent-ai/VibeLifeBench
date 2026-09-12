@@ -1,0 +1,32 @@
+{
+  "release_id": "release-012",
+  "before_step": "event-020",
+  "previous": "release-011",
+  "token": "cross-city-remote-viewing-release-012-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "ev20_mut",
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "active": 0
+      },
+      "where": {
+        "event_id": "rd_evt_c_patrol"
+      }
+    },
+    {
+      "source_event_id": "ev20_mut",
+      "server": "maps",
+      "table": "transit_events",
+      "op": "update",
+      "set": {
+        "active": 0
+      },
+      "where": {
+        "event_id": "evt_c_road_alert"
+      }
+    }
+  ]
+}

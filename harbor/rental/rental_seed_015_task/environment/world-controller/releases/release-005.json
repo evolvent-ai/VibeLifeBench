@@ -1,0 +1,63 @@
+{
+  "release_id": "release-005",
+  "source_event_ids": [
+    "s19_calendar_mutation"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-07-27T08:50:00+08:00",
+  "previous": "release-004",
+  "token": "rental-seed-015-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 301,
+        "folder_id": 1,
+        "message_id": "<thread-h-window@example.invalid>",
+        "subject": {
+          "__utf8_hex__": "e6b885e6be9ce585ace9a686e79c8be688bfe4b88ee69d90e69699e8afb4e6988e"
+        },
+        "from_addr": "hu@agency.invalid",
+        "to_addr_json": "[\"liyan.rental@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-27T09:00:00+08:00",
+        "body_text": {
+          "__utf8_hex__": "e6b885e6be9ce585ace9a686e58fafe7baa6203720e69c8820333120e697a52031383a333020e5908ee79c8be688bfefbc9be79c8be688bfe5898de4b88de99c80e8a681e68f90e4baa4e584bfe7aba5e68896e5ada6e6a0a1e69d90e69699efbc8ce68abce98791e5928ce585a5e4bd8fe8a784e58899e58fafe59ca8e59088e5908ce88d89e6a188e4b8ade4b9a6e99da2e7a1aee8aea4e38082"
+        },
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 301,
+        "size": 176,
+        "created_at": "2026-07-27T09:00:00+08:00"
+      }
+    },
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "update",
+      "set": {
+        "summary": {
+          "__utf8_hex__": "e6988ee6be84e8b7afe5b08fe5ada6e5aeb6e995bfe4bc9aefbc88e694b9e69c9fefbc89"
+        },
+        "description": {
+          "__utf8_hex__": "e5ada6e6a0a1e5b086e4b889e5b9b4e7baa7e69a91e69c9fe5aeb6e995bfe4bc9ae694b9e588b0203720e69c8820333120e697a52031373a34302d31383a3230efbc8ce59cb0e782b9e4b88de58f98e38082"
+        },
+        "start_dt": "2026-07-31T17:40:00+08:00",
+        "end_dt": "2026-07-31T18:20:00+08:00",
+        "updated_at": "2026-07-27T08:50:00+08:00"
+      },
+      "where": {
+        "event_id": "evt_mingcheng_parent_meeting",
+        "calendar_id": "cal_liyan_main"
+      }
+    }
+  ]
+}

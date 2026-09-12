@@ -1,0 +1,12 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "s1_brief",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "Requirements are recorded: a one- or two-bedroom entire-unit rental, no more than CNY 4200 monthly, with a map-measured commute of at most 40 minutes to Software Avenue.",
+  "response_paraphrase": "I captured the search boundary as a whole apartment with one or two bedrooms, monthly rent within CNY 4200, and public-transit travel to Software Avenue verified at 40 minutes or less.",
+  "actions": [{"kind": "record_event", "source_event_id": "s1_brief"}],
+  "expected_checks": [{"check_id": "s1_capture_requirements", "weight": 2.0, "expected": true}],
+  "expected_stage_weight": 2.0
+}

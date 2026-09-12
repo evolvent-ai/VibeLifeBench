@@ -1,0 +1,1 @@
+Begin convergence and give me a preferred option, alternatives, rejected options, and an unresolved verification checklist. Remember that I am not asking you to sign, pay, book, or send materials for me.

@@ -1,0 +1,1 @@
+The bank's account-security summary is available. The account page shows the saved payees and account-opening information; adding a payee and making a payment still require Gu Feng's confirmation for each transaction.

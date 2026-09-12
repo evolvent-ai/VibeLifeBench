@@ -1,0 +1,30 @@
+{
+  "step": "event-033",
+  "virtual_stage": 19,
+  "source_event_id": "s19_review_notice",
+  "stage_boundary": false,
+  "expected_env": {
+    "virtual_stage": 19,
+    "scenario_time": "2026-07-27T09:10:00+08:00",
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-005"
+    ]
+  },
+  "response": "I promoted Clearwave Residence to a verification candidate while identifying the parent-meeting conflict.",
+  "response_paraphrase": "The promoted Clearwave Residence to a verification candidate while identifying the parent-meeting conflict.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s19_review_notice",
+      "virtual_stage": 19,
+      "event_kind": "notification",
+      "event_time": "2026-07-27T09:10:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

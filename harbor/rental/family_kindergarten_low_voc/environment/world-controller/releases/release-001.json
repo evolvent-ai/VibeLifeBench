@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "evt_011_mut"
+  ],
+  "source_time": "2026-07-29T09:00:00+08:00",
+  "previous": "release-000",
+  "token": "family-kindergarten-low-voc-release-v1",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "description": "Renovated in June 2026; two bedrooms with good daylight. Some cabinets still require ventilation, and inspect wall corners during the rainy season.",
+        "attrs_json": "{\"available_from\":\"2026-08-12\",\"property_fee_minor\":0,\"renovated_at\":\"2026-06\",\"ventilation_days_possible\":13,\"elevator\":true,\"floor\":11,\"balcony_guardrail_cm\":112,\"window_locks\":\"unknown\",\"written_terms\":\"pending\",\"air_report\":\"none\",\"mold_risk\":\"unknown\",\"description_changed\":\"2026-07-29\"}"
+      },
+      "where": {
+        "listing_id": "apt_river_garden_2b_1102"
+      },
+      "source_event_id": "evt_011_mut"
+    }
+  ]
+}

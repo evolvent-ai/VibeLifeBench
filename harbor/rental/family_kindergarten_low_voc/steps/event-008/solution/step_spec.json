@@ -1,0 +1,31 @@
+{
+  "step": "event-008",
+  "virtual_stage": 8,
+  "source_event_id": "evt_008_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "evt_008_mut"
+    ]
+  },
+  "response": "I recorded the Chengwan construction period, noise impact, and cycling detour as new risks for the low-priced candidate.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_008_notice",
+      "virtual_stage": 8,
+      "event_time": "2026-07-26T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_019_mutation_construction",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75,
+  "response_paraphrase": "Road works near Chengwan are now captured as time-bounded noise and bicycle-access concerns."
+}

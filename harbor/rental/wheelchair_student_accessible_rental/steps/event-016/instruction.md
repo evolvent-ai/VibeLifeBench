@@ -1,0 +1,1 @@
+The mailbox received a request for a student move-in materials pre-review. It lists an identity card, student ID, disability documentation, and a family contact, but does not explain purpose, retention period, or minimum scope.

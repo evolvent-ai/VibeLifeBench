@@ -1,0 +1,1 @@
+An agent is pressuring me to pay a lock-in fee tonight and says sending my student ID and family contact information will hold the listing. Assess the risk and prepare questions for me. Pause payment, sending identification, and signing anything.

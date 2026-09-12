@@ -1,0 +1,35 @@
+{
+  "release_id": "release-001",
+  "before_step": "event-006",
+  "previous": "release-000",
+  "token": "cross-city-remote-viewing-release-001-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "ev6_mut",
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "attrs_json": "{\"elevator\":true,\"corridor_light\":\"bright\",\"bathroom\":\"private\",\"deposit_months\":1,\"cleaning_fee_minor\":80000,\"night_access\":\"south_gate_after_22_30_reroute\",\"written_terms\":\"pending\"}"
+      },
+      "where": {
+        "listing_id": "rs005_listing_a"
+      }
+    },
+    {
+      "source_event_id": "ev6_mut",
+      "server": "maps",
+      "table": "transit_events",
+      "op": "update",
+      "set": {
+        "start_dt": "2026-07-20T08:30:00+08:00",
+        "end_dt": "2026-07-22T23:59:00+08:00",
+        "note": "The district shuttle's last service is earlier than expected; the North Shore Garden evening return route should use the south gate.",
+        "active": 1
+      },
+      "where": {
+        "event_id": "evt_a_bus_early"
+      }
+    }
+  ]
+}

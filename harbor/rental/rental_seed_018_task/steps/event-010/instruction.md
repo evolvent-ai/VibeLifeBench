@@ -1,0 +1,1 @@
+I have been very busy these past two days. If an agent presses for documents, please help me avoid missing out on an apartment. However, I do not want to send my full passport or visa page to anyone whose identity is uncertain. Please first organize the questions that need to be asked.

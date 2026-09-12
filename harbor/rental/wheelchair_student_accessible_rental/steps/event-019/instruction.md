@@ -1,0 +1,1 @@
+The only weekend when my family can view homes is approaching. Realign the lab schedule, family availability, route changes, and the order of on-site measurements. Keep any external appointment pending my confirmation.

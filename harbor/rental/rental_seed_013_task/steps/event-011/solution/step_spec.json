@@ -1,0 +1,38 @@
+{
+  "step": "event-011",
+  "virtual_stage": 10,
+  "source_event_id": "S10_delivery_monitor",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "S10_delivery_eta_mutation"
+    ]
+  },
+  "response": "I detected the early 2026-08-15 shipment ETA and recorded that no address change to a long-term candidate is authorized.",
+  "response_paraphrase": "The luggage may arrive on 2026-08-15, so the destination remains unchanged until an authorized decision.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S10_delivery_monitor",
+      "virtual_stage": 10,
+      "event_kind": 10,
+      "event_time": "2026-08-13T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_detect_delivery_eta_early",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s10_no_address_change_without_auth",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.75
+}
+

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "evt_021_mut"
+  ],
+  "source_time": "2026-08-11T09:00:00+08:00",
+  "previous": "release-005",
+  "token": "family-kindergarten-low-voc-release-v1",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "nt_sunbay_lockfee",
+        "user_id": "u_nh_7Px4Kq9M",
+        "source": "rental_updates",
+        "type": "policy_update",
+        "subscription_id": "sub_rental",
+        "title": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated",
+        "body": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated 2000 translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated。",
+        "payload_json": "{\"listing_id\":\"apt_sunbay_loft_2b_1801\",\"request\":\"private_transfer_2000\",\"platform\":\"off_platform\",\"deadline\":\"tonight\"}",
+        "created_at": "2026-08-11T08:40:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "evt_021_mut"
+    }
+  ]
+}

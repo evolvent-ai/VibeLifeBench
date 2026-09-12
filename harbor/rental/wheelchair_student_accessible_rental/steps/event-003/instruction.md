@@ -1,0 +1,1 @@
+Verify the door-to-door route from each candidate to the Donghu University laboratory building, especially steps, ramps, elevators, and campus entrances. Do not rely only on the total time shown by a map.

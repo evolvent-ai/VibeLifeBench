@@ -1,0 +1,34 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "S0_user_initial",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I established the dual-track rental record: short-term transitional rental and long-term entire one-bedroom home, with the 7200 CNY ceiling and explicit authorization before payment or lease signing.",
+  "response_paraphrase": "The rental brief is organized into two tracks with the monthly cap, evidence fields, and approval boundaries recorded for later review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S0_user_initial",
+      "virtual_stage": 0,
+      "event_kind": 0,
+      "event_time": "2026-08-03T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_create_dual_track_tracker",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s0_record_authorization_boundary",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.5
+}
+

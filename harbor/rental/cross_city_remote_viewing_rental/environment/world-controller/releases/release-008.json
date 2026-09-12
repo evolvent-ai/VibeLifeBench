@@ -1,0 +1,48 @@
+{
+  "release_id": "release-008",
+  "before_step": "event-015",
+  "previous": "release-007",
+  "token": "cross-city-remote-viewing-release-008-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "ev15_mut",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9001,
+        "folder_id": 1,
+        "message_id": "<lock-fee-0803@example.invalid>",
+        "subject": "Riverside Cottage holding-fee request tonight",
+        "from_addr": "zhao.han@agency.invalid",
+        "to_addr_json": "[\"rental.seed.005@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-03T08:42:00+08:00",
+        "body_text": "The landlord demands a 2000 CNY transfer tonight through a personal payment QR code to hold the listing, otherwise it will not be reserved. The contact also asks for identity card and employment contract photos.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9001,
+        "size": 170,
+        "created_at": "2026-08-03T08:42:00+08:00"
+      }
+    },
+    {
+      "source_event_id": "ev15_mut",
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "active": 0
+      },
+      "where": {
+        "event_id": "rd_evt_b_gate"
+      }
+    }
+  ]
+}

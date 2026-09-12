@@ -1,0 +1,36 @@
+{
+  "release_id": "release-007",
+  "before_step": "event-013",
+  "previous": "release-006",
+  "token": "cross-city-remote-viewing-release-007-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "ev13_mut",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9113,
+        "folder_id": 1,
+        "message_id": "<rent-c-addendum-0801@example.invalid>",
+        "subject": "Yunqi Court contract attachment draft",
+        "from_addr": "zhou.lan@agency.invalid",
+        "to_addr_json": "[\"rental.seed.005@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-01T08:35:00+08:00",
+        "body_text": "The draft lists the contracting party's authorization, deposit refund milestones, repair responsibilities, residence registration assistance, and service fee breakdown. It remains unsigned; both parties must confirm the refund conditions in the attachment. These items are pending verification and are not a final legal conclusion.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "<rent-c-followup-0722@example.invalid>",
+        "references_header": "<rent-c-followup-0722@example.invalid>",
+        "headers_json": "{}",
+        "uid": 9113,
+        "size": 328,
+        "created_at": "2026-08-01T08:35:00+08:00"
+      }
+    }
+  ]
+}

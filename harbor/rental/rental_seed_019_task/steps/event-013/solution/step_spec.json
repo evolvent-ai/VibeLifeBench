@@ -1,0 +1,32 @@
+{
+  "step": "event-013",
+  "stage": 13,
+  "virtual_stage": 13,
+  "source_event_id": "s13_world_routes_reviews",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I cross-checked candidate 1901's commute and candidate 1906's community reviews and recorded their evidence sources.",
+  "response_paraphrase": "Route and review research now supports the core shortlist while final on-site verification remains open.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s13_world_routes_reviews"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_routes_for_core_candidates",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s13_review_sources_recorded",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

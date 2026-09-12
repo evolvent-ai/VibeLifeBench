@@ -1,0 +1,1 @@
+I have time over the next two days. Move the apartment you most want to choose into "pre-signing preparation" and re-check anything that still needs confirmation. Leave irreversible actions such as transfers and signing for me; do not do them on my behalf.

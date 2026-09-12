@@ -1,0 +1,52 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "source_stage": 3,
+  "source_event_stage": 3,
+  "source_time": "2026-07-01T10:40:00+08:00",
+  "source_event_ids": ["s3_mut_forward_email"],
+  "token": "nanjing-relocation-remote-lease-22d-release-000-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "source_event_id": "s3_mut_forward_email",
+      "values": {
+        "id": 146,
+        "folder_id": 1,
+        "message_id": "<fwd.2c91a67e@vmail.example.cn>",
+        "subject": "Forward: Sun Lei private message screenshot and lowest online price",
+        "from_addr": "rent-group-forward@vmail.example.cn",
+        "to_addr_json": "[\"gufeng@vmail.example.cn\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-01T02:40:00Z",
+        "body_text": "A rental group forwarded a chat screenshot. Broker Sun Lei claims the lowest price in Jiangbei and asks for private WeChat contact before a listing number is provided.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 1146,
+        "size": 454,
+        "created_at": "2026-07-01T02:40:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "source_event_id": "s3_mut_forward_email",
+      "values": {
+        "message_count": 44,
+        "unread_count": 12
+      },
+      "where": {
+        "id": 1
+      }
+    }
+  ]
+}

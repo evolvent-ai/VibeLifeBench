@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "previous": "release-006",
+  "token": "084b47082f11ed2d7781778a4dcbcfb6fd27ac9e92434ccb23aa239b34193180",
+  "source_stage": 13,
+  "source_time": "2026-07-13T12:55:00+08:00",
+  "source_event_ids": ["s13_mut_stock"],
+  "source_event_id": "s13_mut_stock",
+  "virtual_stage": 13,
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "set": {
+        "quantity": 0
+      },
+      "where": {
+        "sku_id": "sku_luxe_fridge_620l_silver"
+      },
+      "source_event_id": "s13_mut_stock"
+    }
+  ]
+}

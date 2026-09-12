@@ -1,0 +1,1 @@
+The official email threads for Candidates B and C have new replies containing information about contracting entities, proposed accommodation-registration assistance templates, and viewing windows. The calendar also needs to avoid conflicts with company training.

@@ -1,0 +1,46 @@
+{
+  "step": "event-022",
+  "stage": 22,
+  "event_id": "ev22_user",
+  "source_event_id": "ev22_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 22
+    }
+  ],
+  "response_paraphrase": "The record confirms: I performed the final status, route, and review refresh and kept open items visible.",
+  "expected_env": {
+    "virtual_stage": 22,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s22_last_status_refresh",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s22_candidate_c_price_status_exact",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s22_final_route_and_review_refresh",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s22_candidate_c_matrix_propagated",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s22_auth_boundary_positive_refresh",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s22_no_expired_or_risky_commitment",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 7.75
+}

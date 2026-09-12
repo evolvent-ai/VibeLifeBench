@@ -1,0 +1,23 @@
+{
+  "release_id": "release-002",
+  "previous": "release-001",
+  "source_stage": 10,
+  "source_event_stage": 10,
+  "source_time": "2026-07-08T06:00:00+08:00",
+  "source_event_ids": ["m10_payee_switch"],
+  "token": "nanjing-relocation-remote-lease-22d-release-002-token",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "payees",
+      "op": "update",
+      "source_event_id": "m10_payee_switch",
+      "values": {
+        "name": "Chen Zhiyuan"
+      },
+      "where": {
+        "payee_id": "pye_njr_d4"
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "step": "event-027",
+  "virtual_stage": 22,
+  "source_event_id": "S22_user_confirm_viewing",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I confirmed long_202 for 19:15-20:00 after the user's 18:30 departure approval, preserving a 45-minute travel buffer.",
+  "response_paraphrase": "The authorized viewing uses the 19:15 start and keeps the requested forty-five-minute buffer.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S22_user_confirm_viewing",
+      "virtual_stage": 22,
+      "event_kind": 22,
+      "event_time": "2026-08-28T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_confirm_1830_viewing_with_buffer",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s22_authorization_logged_for_viewing",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}
+

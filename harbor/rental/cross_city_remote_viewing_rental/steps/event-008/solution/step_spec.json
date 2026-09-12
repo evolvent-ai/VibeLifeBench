@@ -1,0 +1,30 @@
+{
+  "step": "event-008",
+  "stage": 8,
+  "event_id": "ev8_notice",
+  "source_event_id": "ev8_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 8
+    }
+  ],
+  "response_paraphrase": "The record confirms: I refreshed the changed price and marked the affected comparison as outside the monthly ceiling.",
+  "expected_env": {
+    "virtual_stage": 8,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s8_price_change_refresh",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s8_budget_reclassification",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

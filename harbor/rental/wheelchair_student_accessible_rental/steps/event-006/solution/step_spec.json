@@ -1,0 +1,35 @@
+{
+  "step": "event-006",
+  "stage": 6,
+  "event_id": "ev6_notice",
+  "source_event_id": "ev6_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 6
+    }
+  ],
+  "response_paraphrase": "Summary: I refreshed the campus-entry route and propagated the changed night access note for the affected candidate.",
+  "expected_env": {
+    "virtual_stage": 6,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-001"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s6_mutation_route_discovered",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s6_status_propagated",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

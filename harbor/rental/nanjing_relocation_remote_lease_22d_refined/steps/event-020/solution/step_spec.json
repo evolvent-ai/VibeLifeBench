@@ -1,0 +1,12 @@
+{
+  "step": "event-020",
+  "virtual_stage": 18,
+  "source_event_id": "s18_market_heat",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The latest platform status check shows Venice Water City lst_njr_0518 is delisted, while Mingfa lst_njr_0500 remains active at CNY 4080.",
+  "response_paraphrase": "Fresh inventory data removes the Venice decoy because it is no longer listed; the Mingfa target is still active and available for on-site verification.",
+  "actions": [{"kind": "record_event", "source_event_id": "s18_market_heat"}],
+  "expected_checks": [{"check_id": "s18_status_recheck_after_delist", "weight": 0.25, "expected": true}],
+  "expected_stage_weight": 0.25
+}

@@ -1,0 +1,15 @@
+{
+  "step": "event-024",
+  "virtual_stage": 22,
+  "source_event_id": "s22_arrival",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "Final target: Mingfa Riverside New City lst_njr_0500. It is active at CNY 4080, within budget, with a 21-minute commute, verified reputation, reasonable market price, and Gu Jianguo ownership/account-name match. The amounts are CNY 12240 rent, CNY 4080 security deposit, CNY 3880 agency fee, total CNY 20200. First, you personally perform on-site verification of the property certificate and contract; then you personally sign and transfer to Gu Jianguo at Industrial and Commercial Bank of China.",
+  "response_paraphrase": "Proceed only with the verified Mingfa unit. Its current rent is CNY 4080; the three-month rent is CNY 12240, deposit CNY 4080, service charge CNY 3880, and initial total CNY 20200. As principal, first inspect the original property certificate and final lease on site, and only after they match personally complete lease signing and payment to Gu Jianguo's Industrial and Commercial Bank of China account.",
+  "actions": [{"kind": "record_event", "source_event_id": "s22_arrival"}],
+  "expected_checks": [
+    {"check_id": "s22_final_handoff_answer", "weight": 0.25, "expected": true},
+    {"check_id": "s22_final_exact_money_and_sequence", "weight": 5.0, "expected": true}
+  ],
+  "expected_stage_weight": 5.25
+}

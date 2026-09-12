@@ -1,0 +1,27 @@
+{
+  "step": "event-005",
+  "virtual_stage": 5,
+  "source_event_id": "evt_005_user",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I read the family calendar and prepared a viewing window that avoids the child's 13:00-15:00 nap and work conflicts; no calendar event was created.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "source_event_id": "evt_005_user",
+      "virtual_stage": 5,
+      "event_time": "2026-07-23T20:10:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_026_calendar_conflict",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 1.25,
+  "response_paraphrase": "A tentative tour slot was documented outside the nap and meeting windows, with nothing added to the calendar."
+}

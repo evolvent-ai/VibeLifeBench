@@ -1,0 +1,48 @@
+{
+  "release_id": "release-010",
+  "previous": "release-009",
+  "token": "wheelchair-release-010-2b8a9e1f4c6d7e8a9b7c6d5e4f3a2b1c",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9116,
+        "folder_id": 1,
+        "message_id": "<student-precheck-0730@wuhan-agency.invalid>",
+        "subject": "Student move-in materials pre-screening checklist",
+        "from_addr": "service@wuhan-agency.invalid",
+        "to_addr_json": "[\"wenxi.shen@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-30T08:37:00+08:00",
+        "body_text": "The pre-screening checklist requests an identity card, student ID, disability documentation, and family contact information, but does not explain the purpose, retention period, recipient, or whether redacted versions are accepted for each item.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9116,
+        "size": 254,
+        "created_at": "2026-07-30T08:37:00+08:00"
+      }
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "active": 0
+      },
+      "values": {
+        "active": 0
+      },
+      "where": {
+        "event_id": "rd_evt_b_gate"
+      }
+    }
+  ]
+}

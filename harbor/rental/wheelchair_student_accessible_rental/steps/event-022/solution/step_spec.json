@@ -1,0 +1,39 @@
+{
+  "step": "event-022",
+  "stage": 22,
+  "event_id": "ev22_user",
+  "source_event_id": "ev22_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 22
+    }
+  ],
+  "response_paraphrase": "Summary: I completed the last freshness check for the listing, budget, route, and unresolved risks.",
+  "expected_env": {
+    "virtual_stage": 22,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-014"
+    ],
+    "released_mutations": [
+      "release-014"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s22_last_status_refresh",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s22_no_expired_or_risky_commitment",
+      "weight": 2
+    },
+    {
+      "check_id": "s22_candidate_c_route_exact",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

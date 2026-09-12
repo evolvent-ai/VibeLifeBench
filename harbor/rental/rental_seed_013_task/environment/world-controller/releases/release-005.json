@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "S12_hr_proof_email_mutation"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-08-15T08:55:00+08:00",
+  "previous": "release-004",
+  "token": "rental-seed-013-task-release-005-v1",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 4120,
+        "folder_id": 1,
+        "message_id": "<thread-hr-address-001@example.invalid>",
+        "subject": "HR proof of address document request",
+        "from_addr": "hr.chen@saas.invalid",
+        "to_addr_json": "[\"linyuan.rental@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-15T08:55:00+08:00",
+        "body_text": "Proof of address is due 2026-08-25. An unsigned draft contract is not formal proof; ask HR to confirm acceptable truthful documents.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 4120,
+        "size": 223,
+        "created_at": "2026-08-15T08:55:00+08:00"
+      },
+      "source_event_id": "S12_hr_proof_email_mutation"
+    }
+  ]
+}

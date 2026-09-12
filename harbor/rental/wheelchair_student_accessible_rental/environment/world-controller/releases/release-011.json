@@ -1,0 +1,31 @@
+{
+  "release_id": "release-011",
+  "previous": "release-010",
+  "token": "wheelchair-release-011-2b8a9e1f4c6d7e8a9b7c6d5e4f3a2b1c",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "insert",
+      "values": {
+        "listing_id": "wh09_listing_e",
+        "category": "rent",
+        "title": "Donghu Yating one-bedroom, entrance documentation pending remeasurement",
+        "city": "Wuhan",
+        "district": "Hongshan District",
+        "community": "Donghu Yating",
+        "price_minor": 642000,
+        "area_sqm": 33.0,
+        "rooms": 1,
+        "metro": "Wuhan Metro Line 2, Xianjiekou Station, 720 m.",
+        "attrs_json": "{\"elevator\":true,\"corridor_light\":\"bright\",\"bathroom\":\"private\",\"deposit_months\":1,\"cleaning_fee_minor\":60000,\"night_access\":\"main_gate_24h\",\"written_terms\":\"pending\",\"door_width_cm\":78,\"step_free_entry\":true,\"ramp_slope\":\"1:10\",\"entrance_steps\":0,\"bathroom_turning_radius_cm\":125,\"campus_commute_minutes\":31}",
+        "description": "The main entrance is step-free and has an elevator; existing measurement records show that the clear doorway width is approximately 78 cm. The bathroom turning space, ramp handrail, and contract attachments still require on-site verification.",
+        "photos_json": "[\"Main Entrance\",\"Elevator Lobby\",\"Bathroom Entrance\"]",
+        "agent_id": "agt_rental_d",
+        "owner_user_id": null,
+        "status": "active",
+        "listed_at": "2026-07-31T08:30:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+If a non-newly-renovated home such as Maple Lane is available at a manageable total cost, you may prioritize a viewing draft. Calendar invitations and external communication still require my confirmation first.

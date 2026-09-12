@@ -1,0 +1,35 @@
+{
+  "step": "event-018",
+  "virtual_stage": 10,
+  "source_event_id": "s10_route_refresh_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "virtual_stage": 10,
+    "scenario_time": "2026-07-16T09:00:00+08:00",
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-001"
+    ]
+  },
+  "response": "I recomputed the detour route segments and recorded the new road restriction evidence.",
+  "response_paraphrase": "I have recomputed the detour route segments and recorded the new road restriction evidence.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s10_route_refresh_notice",
+      "virtual_stage": 10,
+      "event_kind": "notification",
+      "event_time": "2026-07-16T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_school_route_mutation_rechecked",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

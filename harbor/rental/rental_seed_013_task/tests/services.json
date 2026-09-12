@@ -1,0 +1,12 @@
+{
+  "mcp_servers": [
+    "calendar",
+    "delivery_logistics",
+    "email",
+    "job_board",
+    "listing_platform",
+    "maps",
+    "notification_hub",
+    "notion"
+  ]
+}

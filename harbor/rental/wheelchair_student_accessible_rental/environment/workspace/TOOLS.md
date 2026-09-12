@@ -1,0 +1,3 @@
+# TOOLS
+
+The housing-listing tool is used to search listings, view details, save candidates, check status and prices, and find viewing windows. The map tool is used for door-to-door routes, walking segments, campus entrances, and transit disruptions. The calendar tool is used to read conflicts and create internal reminders. The email tool is used to read and save unsent drafts. The knowledge-base tool is used for candidates, budgets, risks, authorization, and final archiving. The review tool is used for feedback on neighborhoods, elevators, ramps, corridors, and property management. The contract-materials tool is used to search for common-sense contract risks. The notification tool is used for recurring review reminders.

@@ -1,0 +1,35 @@
+{
+  "step": "event-012",
+  "stage": 12,
+  "virtual_stage": 12,
+  "event_id": "ev12_notice",
+  "source_event_id": "ev12_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 12
+    }
+  ],
+  "response_paraphrase": "Candidate A now reflects the 920000 price update, with budget classification and calendar records refreshed.",
+  "expected_env": {
+    "virtual_stage": 12,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-001"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "s12_price_change_refresh",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s12_budget_reclassification",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

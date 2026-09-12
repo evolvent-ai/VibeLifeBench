@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "evt_008_mut"
+  ],
+  "source_time": "2026-07-26T09:00:00+08:00",
+  "previous": null,
+  "token": "family-kindergarten-low-voc-release-v1",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "rd_sunbay_construction",
+        "road_id": "road_sunbay_work",
+        "start_dt": "2026-07-26T08:00:00+08:00",
+        "end_dt": "2026-08-16T22:00:00+08:00",
+        "kind": "heavy_traffic",
+        "magnitude": 1.5,
+        "note": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated",
+        "active": 1
+      },
+      "source_event_id": "evt_008_mut"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "nt_sunbay_construction",
+        "user_id": "u_nh_7Px4Kq9M",
+        "source": "rental_updates",
+        "type": "policy_update",
+        "subscription_id": "sub_rental",
+        "title": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated",
+        "body": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated 2026-07-26 translatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated。",
+        "payload_json": "{\"listing_id\":\"apt_sunbay_loft_2b_1801\",\"road\":\"translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated\",\"noise\":\"midday_and_evening\"}",
+        "created_at": "2026-07-26T08:45:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "evt_008_mut"
+    }
+  ]
+}

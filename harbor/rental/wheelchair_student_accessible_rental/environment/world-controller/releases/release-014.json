@@ -1,0 +1,35 @@
+{
+  "release_id": "release-014",
+  "previous": "release-013",
+  "token": "wheelchair-release-014-2b8a9e1f4c6d7e8a9b7c6d5e4f3a2b1c",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "transit_events",
+      "op": "update",
+      "set": {
+        "active": 0
+      },
+      "values": {
+        "active": 0
+      },
+      "where": {
+        "event_id": "evt_c_road_alert"
+      }
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "active": 0
+      },
+      "values": {
+        "active": 0
+      },
+      "where": {
+        "event_id": "rd_evt_c_patrol"
+      }
+    }
+  ]
+}

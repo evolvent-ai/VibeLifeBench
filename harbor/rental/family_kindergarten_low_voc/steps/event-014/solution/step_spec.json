@@ -1,0 +1,27 @@
+{
+  "step": "event-014",
+  "virtual_stage": 14,
+  "source_event_id": "evt_014_user",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I prepared Maple Lane as the priority viewing draft at CNY 10,920 per month; external communication and scheduling still await confirmation.",
+  "actions": [
+    {
+      "kind": "user_message",
+      "source_event_id": "evt_014_user",
+      "virtual_stage": 14,
+      "event_time": "2026-08-01T10:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_013_auth_before_calendar_stage14",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 1.25,
+  "response_paraphrase": "A non-newly-renovated Maple Lane tour is drafted within budget, but no invitation or message was issued."
+}

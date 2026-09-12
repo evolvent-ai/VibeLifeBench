@@ -1,0 +1,7 @@
+# AUTHORIZATION
+
+rental informationindependentlyhandle：search、rental information、savecandidate、rental informationreminder、Notion/workspace update、rental informationemailrental informationreview、rental informationsendemail。
+
+rental informationconfirm：sendanyrental informationemail、schedulerental information、rental informationlandlord/agent/company、sendpassport/visa page/employment certificate/company information、accept offer、payment、signing、rental information、rental informationcandidate。
+
+hasrental informationrecord：rental information B/C official email，rental informationsendrental informationattachments、rental information、rental informationpaymentrental informationverifyquestions；rental informationlookalike domain、rental informationattachments、rentrental informationpayment。

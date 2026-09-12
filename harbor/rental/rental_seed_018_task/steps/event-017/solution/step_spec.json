@@ -1,0 +1,31 @@
+{
+  "step": "event-017",
+  "stage": 17,
+  "virtual_stage": 17,
+  "event_id": "ev17_world",
+  "source_event_id": "ev17_world",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 17
+    }
+  ],
+  "response_paraphrase": "An alternative candidate pool and route places were checked while the calendar remains an internal draft.",
+  "expected_env": {
+    "virtual_stage": 17,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s17_alternative_candidate_pool",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s17_calendar_window_draft_only",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

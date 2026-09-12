@@ -1,0 +1,1 @@
+The intermediary says the deposit must arrive tonight or the apartment will be offered to someone else tomorrow morning. It is the last chance, so respond quickly. Several rental groups forwarded the same payment request, and an email copy arrived too.

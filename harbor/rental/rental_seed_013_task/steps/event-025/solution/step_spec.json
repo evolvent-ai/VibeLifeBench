@@ -1,0 +1,38 @@
+{
+  "step": "event-025",
+  "virtual_stage": 20,
+  "source_event_id": "S20_user_short_paid_delivery",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": [
+      "S20_branch_arrival_mutation"
+    ]
+  },
+  "response": "I created the authorized last-mile delivery from the Bantian directly operated branch to the short_103 front desk, excluding every long-term address.",
+  "response_paraphrase": "The luggage handoff now targets short_103 at the Bantian branch route and does not use a long-term candidate.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S20_user_short_paid_delivery",
+      "virtual_stage": 20,
+      "event_kind": 20,
+      "event_time": "2026-08-26T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_authorized_delivery_to_short103",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s20_not_long_term_address",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.75
+}
+

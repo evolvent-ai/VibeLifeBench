@@ -1,0 +1,1 @@
+Before the final archive is prepared, perform a status-freshness check so that no expired candidate or candidate with unresolved risks is recommended. Refresh each remaining candidate's listing status, notifications, and route evidence, and record the current and pending states before making a recommendation.

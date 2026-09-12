@@ -1,0 +1,1 @@
+The bank's account-security summary is ready. The account page can show the currently saved payee and account information. Any new payee or payment still requires my confirmation one transaction at a time.

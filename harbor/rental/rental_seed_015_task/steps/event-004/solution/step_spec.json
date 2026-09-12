@@ -1,0 +1,35 @@
+{
+  "step": "event-004",
+  "virtual_stage": 2,
+  "source_event_id": "s2_school_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "virtual_stage": 2,
+    "scenario_time": "2026-07-08T10:00:00+08:00",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I loaded the work and school calendar baseline and added a recurring 72-hour review.",
+  "response_paraphrase": "I have loaded the work and school calendar baseline and added a recurring 72-hour review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s2_school_world",
+      "virtual_stage": 2,
+      "event_kind": "world",
+      "event_time": "2026-07-08T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_calendar_baseline",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s2_recurring_review_setup",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

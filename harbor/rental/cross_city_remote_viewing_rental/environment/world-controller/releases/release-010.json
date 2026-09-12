@@ -1,0 +1,33 @@
+{
+  "release_id": "release-010",
+  "before_step": "event-017",
+  "previous": "release-009",
+  "token": "cross-city-remote-viewing-release-010-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "ev17_mut",
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "insert",
+      "values": {
+        "listing_id": "rs005_listing_e",
+        "category": "rent",
+        "title": "Lakeside one-bedroom apartment with written-fee addendum",
+        "city": "Suzhou",
+        "district": "Industrial Park",
+        "community": "Lakeside New Court",
+        "price_minor": 575000,
+        "area_sqm": 31.0,
+        "rooms": 1,
+        "metro": "Suzhou Rail Line 5, Lakeside Station, 650 m",
+        "attrs_json": "{\"elevator\":true,\"corridor_light\":\"normal\",\"bathroom\":\"private\",\"deposit_months\":1,\"cleaning_fee_minor\":70000,\"night_access\":\"main_gate_23_00\",\"written_terms\":\"pending\",\"registration_support\":\"owner_reviewing\"}",
+        "description": "The property is vacant and can be viewed only on the available weekend. Existing photos cover the interior and elevator lobby, but residence-registration assistance, service fees, and the video scope still require written confirmation.",
+        "photos_json": "[\"living room\",\"elevator lobby\",\"community entrance\"]",
+        "agent_id": "agt_rental_d",
+        "owner_user_id": null,
+        "status": "active",
+        "listed_at": "2026-08-05T08:30:00+08:00"
+      }
+    }
+  ]
+}

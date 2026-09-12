@@ -1,0 +1,30 @@
+{
+  "step": "event-004",
+  "stage": 4,
+  "event_id": "ev4_notice",
+  "source_event_id": "ev4_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 4
+    }
+  ],
+  "response_paraphrase": "The record confirms: I read the new community evidence and recorded the entrance and construction uncertainties.",
+  "expected_env": {
+    "virtual_stage": 4,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s4_review_risk_sources",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s4_risk_page_update",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

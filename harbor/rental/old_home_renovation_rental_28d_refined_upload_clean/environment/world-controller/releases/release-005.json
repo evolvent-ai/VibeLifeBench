@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "previous": "release-004",
+  "token": "a8a78097da4becb195742acfcf4d908ea0bbdab63c44cf0f1b7543f8bc685e63",
+  "source_stage": 8,
+  "source_time": "2026-07-08T09:55:00+08:00",
+  "source_event_ids": ["s8_mut_fake_tenant", "s10_mut_kitchen_quote"],
+  "source_event_id": "s8_mut_fake_tenant",
+  "virtual_stage": 8,
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_20260708_M4K7",
+        "user_id": "usr_zhanglan",
+        "source": "unverified_agent_chat",
+        "type": "pressure_claim",
+        "subscription_id": null,
+        "title": "early move-in promise",
+        "body": "translated source text 7  month 18  daytranslated source textmove-in\uff0cair-quality testingandappliancesarrivalcanlater\uff0ctenanttranslated source text\u3002",
+        "payload_json": "{\"proposed_movein\":\"2026-07-18\",\"deposit_requested\":true,\"missing_documents\":[\"air_report\",\"appliance_delivery\"]}",
+        "created_at": "2026-07-08T09:58:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s8_mut_fake_tenant"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 2010,
+        "folder_id": 1,
+        "message_id": "em-kitchen-bath-0710",
+        "subject": "kitchen and bathroombasic refurbishmentanddeferrable upgradestranslated source text",
+        "from_addr": "service@shengxin-reno.example",
+        "to_addr_json": "[\"zhanglan@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-10T14:15:00+08:00",
+        "body_text": "kitchen and bathroomtranslated source text 15800  CNY\uff1btranslated source text 9200  CNYandimportedtranslated source text 4800  CNYdeferrable\u3002",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 2010,
+        "size": 420,
+        "created_at": "2026-07-10T14:15:00+08:00"
+      },
+      "source_event_id": "s10_mut_kitchen_quote"
+    }
+  ]
+}

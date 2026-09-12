@@ -1,0 +1,23 @@
+{
+  "release_id": "release-005",
+  "before_step": "event-011",
+  "previous": "release-004",
+  "token": "cross-city-remote-viewing-release-005-20260824-token",
+  "operations": [
+    {
+      "source_event_id": "ev11_mut",
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_comm_b_identity_0728",
+        "merchant_id": "mer_seed_005_b",
+        "user_id": "resident_wu",
+        "rating": 2,
+        "body": "Riverside Cottage's viewing contact asked for a private payment by QR code and pressured the tenant to pay a fee. The store-front desk could not verify the recipient's identity or provide a same-day receipt. The north-gate closing time also conflicts with the listing description.",
+        "image_captions": "[\"north gate notice\",\"store front desk\"]",
+        "created_at": "2026-07-28T08:44:00+08:00"
+      }
+    }
+  ]
+}

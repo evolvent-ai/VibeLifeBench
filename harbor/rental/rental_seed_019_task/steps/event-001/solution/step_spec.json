@@ -1,0 +1,32 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "virtual_stage": 1,
+  "source_event_id": "s1_world_mailbox_ready",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I reviewed the landlord renewal thread and recorded the August 7 lease expiry on the calendar.",
+  "response_paraphrase": "The rent correspondence has been checked and the contract end date is now a scheduled deadline.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s1_world_mailbox_ready"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_contract_email_reviewed",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s1_calendar_expiry_recorded",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

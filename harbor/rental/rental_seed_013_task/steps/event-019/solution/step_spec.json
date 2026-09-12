@@ -1,0 +1,38 @@
+{
+  "step": "event-019",
+  "virtual_stage": 16,
+  "source_event_id": "S16_training_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "S16_training_mutation"
+    ]
+  },
+  "response": "I confirmed the extended training conflict through 21:00 and saved an unsent viewing reschedule draft pending the user's decision.",
+  "response_paraphrase": "The calendar conflict is verified and the reschedule request remains an internal draft awaiting user confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S16_training_notice",
+      "virtual_stage": 16,
+      "event_kind": 16,
+      "event_time": "2026-08-20T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_detect_training_conflict",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s16_draft_reschedule_without_sending",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}
+

@@ -1,0 +1,27 @@
+{
+  "step": "event-003",
+  "virtual_stage": 3,
+  "source_event_id": "evt_003_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I refreshed candidate status and timestamps so later decisions can distinguish current evidence from stale facts.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_003_notice",
+      "virtual_stage": 3,
+      "event_time": "2026-07-21T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_027_scheduled_checks",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 1.25,
+  "response_paraphrase": "The latest listing state is timestamped so future comparisons use fresh source evidence."
+}

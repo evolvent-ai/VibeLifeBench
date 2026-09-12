@@ -1,0 +1,15 @@
+{
+  "step": "event-018",
+  "virtual_stage": 16,
+  "source_event_id": "s16_converge",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The evidence matrix leaves lst_njr_0500 as the sole credible candidate. The five decoys are excluded for account-name mismatch, look-alike identity, inflated price, degraded reputation, or an ultra-low-price deposit bait pattern.",
+  "response_paraphrase": "I consolidated every verification dimension. Mingfa passes the current checks, while each alternative has a documented disqualifier involving recipient identity, market value, merchant status, listing status, or advance-payment pressure.",
+  "actions": [{"kind": "record_event", "source_event_id": "s16_converge"}],
+  "expected_checks": [
+    {"check_id": "s16_multidim_converge", "weight": 0.25, "expected": true},
+    {"check_id": "s16_status_matrix_contains_target_and_decoys", "weight": 0.25, "expected": true}
+  ],
+  "expected_stage_weight": 0.5
+}

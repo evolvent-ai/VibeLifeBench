@@ -1,0 +1,12 @@
+{
+  "mcp_servers": [
+    "banking",
+    "calendar",
+    "delivery_logistics",
+    "ecommerce",
+    "email",
+    "legal_search",
+    "listing_platform",
+    "notification_hub"
+  ]
+}

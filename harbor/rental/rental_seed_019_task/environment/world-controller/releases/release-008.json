@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "s17_mutation"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-07-15T08:00:00+08:00",
+  "previous": "release-007",
+  "token": "rental-seed-019-task-release-008-v1",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "price_minor": 565000,
+        "attrs_json": "{\"elevator\": true, \"floor\": 9, \"partition\": false, \"view_window\": \"2026-08-05T10:00:00+08:00\", \"property_fee_minor\": 19000, \"last_verified_at\": \"2026-08-01T08:00:00+08:00\"}"
+      },
+      "where": {
+        "listing_id": "lst_tj_1906"
+      }
+    }
+  ]
+}

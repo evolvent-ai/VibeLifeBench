@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "S21_long202_price_mutation"
+  ],
+  "source_stage": 21,
+  "source_time": "2026-08-27T08:30:00+08:00",
+  "previous": "release-012",
+  "token": "rental-seed-013-task-release-013-v1",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "price_minor": 640000,
+        "attrs_json": "{\"lease_type\":\"long_entire_1br\",\"deposit_months\":1,\"available_from\":\"2026-09-03\",\"proof\":\"formal_contract\",\"repair_status\":\"unknown\",\"viewing_window_hours\":33}"
+      },
+      "where": {
+        "listing_id": "long_202"
+      },
+      "source_event_id": "S21_long202_price_mutation"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "virtual_stage": 3,
+  "source_event_id": "s3_user_baseline",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I calculated the CNY 5,616 renewal ceiling and recorded the 34-minute baseline and 49-minute relocation commute limit.",
+  "response_paraphrase": "The budget and travel thresholds now reflect the user's eight-percent cap and fifteen-minute commute tolerance.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s3_user_baseline"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_renewal_cap_computed",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_commute_cap_checked",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

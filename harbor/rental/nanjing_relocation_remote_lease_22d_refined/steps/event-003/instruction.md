@@ -1,0 +1,1 @@
+A broker named Sun Lei sent a private message: "Lowest price anywhere, act fast; this place can be reserved today." He asks you to add him on WeChat and decide privately instead of using the platform. The same chat screenshot then appeared in the rental group, and a forwarded copy arrived by email.

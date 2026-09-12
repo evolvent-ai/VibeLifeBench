@@ -1,0 +1,32 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "virtual_stage": 0,
+  "source_event_id": "s0_user_start",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I opened parallel lease-renewal and relocation records and documented every deadline, evidence source, and approval boundary.",
+  "response_paraphrase": "Both housing paths now have organized ledgers, with consequential actions and payments held for Lin Lan's confirmation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s0_user_start"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_dual_track_initialized",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s0_authorization_log_started",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

@@ -1,0 +1,27 @@
+{
+  "step": "event-009",
+  "virtual_stage": 9,
+  "source_event_id": "evt_009_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I cannot guarantee that Riverside Garden is safe to move into from an oral no-odor claim; a testing report and professional on-site inspection are still required.",
+  "actions": [
+    {
+      "kind": "world",
+      "source_event_id": "evt_009_world",
+      "virtual_stage": 9,
+      "event_time": "2026-07-27T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_018_oral_not_enough",
+      "weight": 2.0
+    }
+  ],
+  "expected_stage_weight": 2.0,
+  "response_paraphrase": "A health conclusion cannot be drawn from the agent's statement; third-party testing and an expert visit are needed."
+}

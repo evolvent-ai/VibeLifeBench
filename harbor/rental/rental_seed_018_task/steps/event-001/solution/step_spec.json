@@ -1,0 +1,31 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "virtual_stage": 1,
+  "event_id": "ev1_world",
+  "source_event_id": "ev1_world",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 1
+    }
+  ],
+  "response_paraphrase": "Candidate screening is underway with saved options, an active comparison listing, and a monitoring watch.",
+  "expected_env": {
+    "virtual_stage": 1,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s1_search_and_save_candidates",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s1_subscribe_listing_watch",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

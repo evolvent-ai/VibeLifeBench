@@ -1,0 +1,1 @@
+I arrive in Nanjing the day after tomorrow. Please prepare handoff materials covering the most trustworthy apartment, items that still need an on-site check, and actions that I must complete personally.

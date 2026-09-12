@@ -1,0 +1,35 @@
+{
+  "step": "event-004",
+  "virtual_stage": 4,
+  "source_event_id": "evt_004_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I reviewed resident reports for noise, odors, fire access, window locks, elevators, and railings, leaving uncertain items for on-site verification.",
+  "actions": [
+    {
+      "kind": "world",
+      "source_event_id": "evt_004_world",
+      "virtual_stage": 4,
+      "event_time": "2026-07-22T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_009_review_noise",
+      "weight": 1.25
+    },
+    {
+      "check_id": "r038_check_010_review_voc_mold",
+      "weight": 2.0
+    },
+    {
+      "check_id": "r038_check_011_child_safety_checklist",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 5.0,
+  "response_paraphrase": "Community feedback was translated into property-specific noise, air-quality, fire, window, lift, and balcony checks."
+}

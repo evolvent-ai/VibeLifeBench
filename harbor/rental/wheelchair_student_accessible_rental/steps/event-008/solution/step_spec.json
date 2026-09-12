@@ -1,0 +1,35 @@
+{
+  "step": "event-008",
+  "stage": 8,
+  "event_id": "ev8_notice",
+  "source_event_id": "ev8_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 8
+    }
+  ],
+  "response_paraphrase": "Summary: I refreshed the changed price ledger and separated an over-budget option from the viable shortlist.",
+  "expected_env": {
+    "virtual_stage": 8,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-003"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s8_price_change_refresh",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s8_budget_reclassification",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

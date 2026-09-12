@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task": "nanjing_relocation_remote_lease_22d_refined",
+  "step_count": 25,
+  "clock_file": "/world-clock/current.json",
+  "clock_token_env": "CLOCK_TOKEN",
+  "health_token_env": "HEALTH_TOKEN",
+  "servers": [
+    "banking",
+    "calendar",
+    "email",
+    "listing_platform",
+    "maps",
+    "notion",
+    "review_platform"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "step": "event-023",
+  "stage": 23,
+  "event_id": "ev23_user",
+  "source_event_id": "ev23_user",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 23
+    }
+  ],
+  "response_paraphrase": "The record confirms: I completed the dated handover with sources, alternatives, open checks, and the authorization boundary.",
+  "expected_env": {
+    "virtual_stage": 23,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s23_final_review_written",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s23_final_refresh_all_core",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s23_final_refresh_two_core_services",
+      "weight": 1.0
+    },
+    {
+      "check_id": "s23_final_auth_and_lease_open_items",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 5.25
+}

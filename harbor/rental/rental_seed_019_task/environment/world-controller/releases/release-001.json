@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "s10_mutation"
+  ],
+  "source_stage": 1,
+  "source_time": "2026-07-15T08:00:00+08:00",
+  "previous": "release-000",
+  "token": "rental-seed-019-task-release-001-v1",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "update",
+      "set": {
+        "folder_id": 4
+      },
+      "where": {
+        "message_id": "<msg_repair_20251006@rent.invalid>"
+      }
+    }
+  ]
+}

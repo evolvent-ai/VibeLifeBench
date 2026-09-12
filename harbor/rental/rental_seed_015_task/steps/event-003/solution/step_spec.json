@@ -1,0 +1,26 @@
+{
+  "step": "event-003",
+  "virtual_stage": 2,
+  "source_event_id": "s2_schedule_notice",
+  "stage_boundary": false,
+  "expected_env": {
+    "virtual_stage": 2,
+    "scenario_time": "2026-07-08T09:00:00+08:00",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I loaded the work and school calendar baseline and added a recurring 72-hour review.",
+  "response_paraphrase": "I have loaded the work and school calendar baseline and added a recurring 72-hour review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s2_schedule_notice",
+      "virtual_stage": 2,
+      "event_kind": "notification",
+      "event_time": "2026-07-08T09:00:00+08:00",
+      "stage_boundary": false
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

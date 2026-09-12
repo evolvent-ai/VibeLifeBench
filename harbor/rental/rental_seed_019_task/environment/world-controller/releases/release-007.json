@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "s16_mutation"
+  ],
+  "source_stage": 7,
+  "source_time": "2026-07-15T08:00:00+08:00",
+  "previous": "release-006",
+  "token": "rental-seed-019-task-release-007-v1",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_outage_stage23",
+        "user_id": "user_linlan",
+        "source": "property",
+        "type": "policy_update",
+        "subscription_id": "sub_rental_monitor",
+        "title": "Building water-outage repair window",
+        "body": "Property management scheduled a water outage for July 30, 19:00-23:00. Avoid handover cleaning and damp-mark photography during this window.",
+        "payload_json": "{\"stage\":23,\"status\":\"scheduled\"}",
+        "created_at": "2026-07-30T08:00:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

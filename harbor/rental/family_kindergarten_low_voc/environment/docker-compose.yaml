@@ -1,0 +1,146 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      world-controller: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      delivery-logistics: {condition: service_healthy}
+      ecommerce: {condition: service_healthy}
+      email: {condition: service_healthy}
+      listing-platform: {condition: service_healthy}
+      maps: {condition: service_healthy}
+      notification-hub: {condition: service_healthy}
+      notion: {condition: service_healthy}
+      review-platform: {condition: service_healthy}
+    volumes:
+      - workspace-state:/workspace
+      - eval-evidence:/harbor/evidence:ro
+      - world-clock:/world-clock:ro
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: calendar,delivery-logistics,ecommerce,email,listing-platform,maps,notification-hub,notion,review-platform,world-controller,localhost,127.0.0.1,::1
+      no_proxy: calendar,delivery-logistics,ecommerce,email,listing-platform,maps,notification-hub,notion,review-platform,world-controller,localhost,127.0.0.1,::1
+  workspace-init:
+    build:
+      context: .
+      dockerfile: workspace-init/Dockerfile
+    volumes:
+      - workspace-state:/target
+      - ./workspace:/seed:ro
+    restart: 'no'
+  calendar:
+    build: {context: ./servers/calendar_mock}
+    volumes: [./seeds/calendar:/env-seed:ro, calendar-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    expose: ['8000']
+    healthcheck: &health
+      test: [CMD, python, -c, "import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  delivery-logistics:
+    build: {context: ./servers/delivery_logistics_mock}
+    volumes: [./seeds/delivery_logistics:/env-seed:ro, delivery-logistics-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    expose: ['8000']
+    healthcheck: *health
+  ecommerce:
+    build: {context: ./servers/ecommerce_mock}
+    volumes: [./seeds/ecommerce:/env-seed:ro, ecommerce-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    expose: ['8000']
+    healthcheck: *health
+  email:
+    build: {context: ./servers/email_mock}
+    volumes: [./seeds/email:/env-seed:ro, email-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    expose: ['8000']
+    healthcheck: *health
+  listing-platform:
+    build: {context: ./servers/listing_platform_mock}
+    volumes: [./seeds/listing_platform:/env-seed:ro, listing-platform-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    expose: ['8000']
+    healthcheck: *health
+  maps:
+    build: {context: ./servers/maps_mock}
+    volumes: [./seeds/maps:/env-seed:ro, maps-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    expose: ['8000']
+    healthcheck: *health
+  notification-hub:
+    build: {context: ./servers/notification_hub_mock}
+    volumes: [./seeds/notification_hub:/env-seed:ro, notification-hub-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    expose: ['8000']
+    healthcheck: *health
+  notion:
+    build: {context: ./servers/notion_mock}
+    volumes: [./seeds/notion:/env-seed:ro, notion-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    expose: ['8000']
+    healthcheck: *health
+  review-platform:
+    build: {context: ./servers/review_platform_mock}
+    volumes: [./seeds/review_platform:/env-seed:ro, review-platform-env:/env, world-clock:/world-clock:ro]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    expose: ['8000']
+    healthcheck: *health
+  world-controller:
+    build:
+      context: .
+      dockerfile: world-controller/Dockerfile
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      calendar: {condition: service_healthy}
+      delivery-logistics: {condition: service_healthy}
+      ecommerce: {condition: service_healthy}
+      email: {condition: service_healthy}
+      listing-platform: {condition: service_healthy}
+      maps: {condition: service_healthy}
+      notification-hub: {condition: service_healthy}
+      notion: {condition: service_healthy}
+      review-platform: {condition: service_healthy}
+    environment:
+      HEALTH_TOKEN: family-kindergarten-low-voc-health
+      CLOCK_TOKEN: family-kindergarten-low-voc-clock
+      WORLD_CLOCK_FILE: /world-clock/current.json
+    volumes:
+      - calendar-env:/calendar-env
+      - delivery-logistics-env:/delivery-logistics-env
+      - ecommerce-env:/ecommerce-env
+      - email-env:/email-env
+      - listing-platform-env:/listing-platform-env
+      - maps-env:/maps-env
+      - notification-hub-env:/notification-hub-env
+      - notion-env:/notion-env
+      - review-platform-env:/review-platform-env
+      - controller-state:/controller-state
+      - workspace-state:/workspace-source:ro
+      - eval-evidence:/evidence
+      - world-clock:/world-clock
+    expose: ['8090']
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health', timeout=2).read()"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+volumes:
+  workspace-state: null
+  calendar-env: null
+  delivery-logistics-env: null
+  ecommerce-env: null
+  email-env: null
+  listing-platform-env: null
+  maps-env: null
+  notification-hub-env: null
+  notion-env: null
+  review-platform-env: null
+  controller-state: null
+  eval-evidence: null
+  world-clock: null

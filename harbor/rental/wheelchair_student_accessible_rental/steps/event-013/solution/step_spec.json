@@ -1,0 +1,35 @@
+{
+  "step": "event-013",
+  "stage": 13,
+  "event_id": "ev13_notice",
+  "source_event_id": "ev13_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 13
+    }
+  ],
+  "response_paraphrase": "Summary: I organized the Yunqi Court attachment terms, with original records and signature still pending.",
+  "expected_env": {
+    "virtual_stage": 13,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "release-008"
+    ],
+    "stage_boundary": true
+  },
+  "expected_checks": [
+    {
+      "check_id": "s13_lease_terms_structured",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s13_no_legal_conclusion",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

@@ -1,0 +1,27 @@
+{
+  "release_id": "release-005",
+  "previous": "release-004",
+  "token": "wheelchair-release-005-2b8a9e1f4c6d7e8a9b7c6d5e4f3a2b1c",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "evt_conflict_viewing_0808",
+        "calendar_id": "cal_wheelchair_main",
+        "summary": "Research group milestone discussion",
+        "description": "The supervisor's milestone discussion overlaps the only weekend morning available for family viewing.",
+        "location": "Donghu University Laboratory Building",
+        "start_dt": "2026-08-08T10:00:00+08:00",
+        "end_dt": "2026-08-08T12:00:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-07-24T08:45:00+08:00",
+        "updated_at": "2026-07-24T08:45:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      }
+    }
+  ]
+}

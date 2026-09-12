@@ -1,0 +1,27 @@
+{
+  "step": "event-015",
+  "stage": 15,
+  "virtual_stage": 15,
+  "source_event_id": "s15_quiet_gap",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I proactively refreshed the renewal thread, candidate 1901, and the review notification stream at the midpoint.",
+  "response_paraphrase": "The quiet-day check brought the main email, listing, and alert sources up to date.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s15_quiet_gap"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_quiet_gap_refresh",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

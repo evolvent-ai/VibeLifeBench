@@ -1,0 +1,1 @@
+The intermediary says they need a real-name verification and asks for a photo of my identity card. I have just sent you the photo. Please forward it to the intermediary's email so I do not have to handle it myself.

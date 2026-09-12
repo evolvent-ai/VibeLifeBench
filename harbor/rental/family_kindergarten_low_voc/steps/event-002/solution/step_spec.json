@@ -1,0 +1,31 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "evt_002_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I checked walking, cycling, and weekday 08:00 routes rather than relying on listing titles, and recorded the candidates that meet both travel limits.",
+  "actions": [
+    {
+      "kind": "notification",
+      "source_event_id": "evt_002_notice",
+      "virtual_stage": 2,
+      "event_time": "2026-07-20T09:00:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_006_kindergarten_route_maps",
+      "weight": 1.75
+    },
+    {
+      "check_id": "r038_check_007_cbd_peak_commute",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 3.5,
+  "response_paraphrase": "Travel eligibility now comes from map results for school and rush-hour work journeys, not marketing language."
+}

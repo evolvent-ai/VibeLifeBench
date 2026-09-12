@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "ev22_mut"
+  ],
+  "source_stage": 22,
+  "source_time": "2026-08-14T08:50:00+08:00",
+  "previous": "release-008",
+  "token": "renewal-negotiation-repair-rental-release-009-v1",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "price_minor": 700000,
+        "attrs_json": "{\"elevator\":true,\"corridor_light\":\"bright\",\"bathroom\":\"private\",\"deposit_months\":1,\"cleaning_fee_minor\":50000,\"night_access\":\"east_gate_24h\",\"written_terms\":\"draft_available\",\"registration_materials\":\"property_list_available\",\"final_verified_at\":\"2026-08-14T08:50:00+08:00\"}",
+        "description": "Qinghe Alternative Residencerental detailreviewrental detailstillrental detail active，monthrental detail 7000 CNY；writtencontractdraftrental detail，repair、paymentrental detailsignrental detail。"
+      },
+      "where": {
+        "listing_id": "bjr_2c9e6a57"
+      }
+    }
+  ]
+}

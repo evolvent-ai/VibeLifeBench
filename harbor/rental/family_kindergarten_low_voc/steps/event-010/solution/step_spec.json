@@ -1,0 +1,27 @@
+{
+  "step": "event-010",
+  "virtual_stage": 10,
+  "source_event_id": "evt_010_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I converted Maple Lane's lease points into a written-terms checklist covering window locks, maintenance, pollution handling, and deposit return.",
+  "actions": [
+    {
+      "kind": "world",
+      "source_event_id": "evt_010_world",
+      "virtual_stage": 10,
+      "event_time": "2026-07-28T10:30:00+08:00"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "r038_check_017_lease_written_terms",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5,
+  "response_paraphrase": "The Maple Lane contract review now separates the lock, repair, contamination, and refund obligations."
+}

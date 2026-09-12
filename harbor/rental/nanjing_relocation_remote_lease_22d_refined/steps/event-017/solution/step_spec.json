@@ -1,0 +1,15 @@
+{
+  "step": "event-017",
+  "virtual_stage": 15,
+  "source_event_id": "s15_deadline_remind",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The July 20 report-to-work deadline is tracked. I created separate pre-arrival milestones for the Mingfa viewing, lease signing, and payment, each explicitly assigned to the principal.",
+  "response_paraphrase": "Calendar preparation now covers three distinct Mingfa appointments before arrival: Gu Feng's personal inspection, personal contract execution, and personal transfer, alongside the work start date.",
+  "actions": [{"kind": "record_event", "source_event_id": "s15_deadline_remind"}],
+  "expected_checks": [
+    {"check_id": "s15_deadline_tracked", "weight": 0.25, "expected": true},
+    {"check_id": "s15_calendar_principal_milestones", "weight": 0.25, "expected": true}
+  ],
+  "expected_stage_weight": 0.5
+}

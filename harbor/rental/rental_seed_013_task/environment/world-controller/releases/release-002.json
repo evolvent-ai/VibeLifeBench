@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "S7_short_102_terms_mutation"
+  ],
+  "source_stage": 7,
+  "source_time": "2026-08-10T08:30:00+08:00",
+  "previous": "release-001",
+  "token": "rental-seed-013-task-release-002-v1",
+  "operations": [
+    {
+      "server": "listing_platform",
+      "table": "listings",
+      "op": "update",
+      "set": {
+        "attrs_json": "{\"lease_type\":\"short_regular\",\"move_in\":\"2026-08-16\",\"nights\":21,\"deposit_minor\":120000,\"non_refundable_minor\":825000,\"auto_renew\":1,\"cancel_by\":\"2026-08-25T18:00:00+08:00\",\"luggage\":\"storage_counter\",\"terms_version\":\"2.1\"}"
+      },
+      "where": {
+        "listing_id": "short_102"
+      },
+      "source_event_id": "S7_short_102_terms_mutation"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+DELETE FROM comments;
+DELETE FROM blocks;
+DELETE FROM database_rows;
+DELETE FROM databases;
+DELETE FROM pages;
+DELETE FROM workspaces;
+DELETE FROM users;
+DELETE FROM counters;
+INSERT INTO users(user_id,name,avatar_url,email,type) VALUES ('usr_bot_rental','Rental Bot','','bot@notion.invalid','bot');
+INSERT INTO workspaces(workspace_id,name,owner_user_id) VALUES ('ws_rental_seed',CAST(X'e7a79fe688bfe5b7a5e4bd9ce58cba' AS TEXT),'usr_bot_rental');
+INSERT INTO pages(page_id,parent_type,parent_id,title,archived,created_time,last_edited_time,properties_json,icon,cover) VALUES ('pg_rental_home','workspace','ws_rental_seed',CAST(X'e5a496e7b18de59198e5b7a5e79a84e69d90e69699e69c80e5b08fe68aabe99cb2e4b88ee6ada3e8a784e7a79fe8b581e5b7a5e4bd9ce58fb0' AS TEXT),0,'2026-07-01T00:00:00.000Z','2026-07-01T00:00:00.000Z','{}',NULL,NULL);
+INSERT INTO counters(key,value) VALUES ('uuid_seq',1000);

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-014",
+  "source_event_ids": [
+    "S24_contract_mutation"
+  ],
+  "source_stage": 24,
+  "source_time": "2026-09-02T08:30:00+08:00",
+  "previous": "release-013",
+  "token": "rental-seed-013-task-release-014-v1",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 5001,
+        "folder_id": 1,
+        "message_id": "<thread-long202-contract-v2@example.invalid>",
+        "subject": "long_202 lease draft v2",
+        "from_addr": "long202@agency.invalid",
+        "to_addr_json": "[\"linyuan.rental@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-02T08:30:00+08:00",
+        "body_text": "The long_202 contract v2 remains a draft. The deposit is 1.5 months; the bathroom exhaust fan repair deadline is unspecified; autopay service-fee authorization was added. No acceptance, signature, or payment has occurred.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 5001,
+        "size": 178,
+        "created_at": "2026-09-02T08:30:00+08:00"
+      },
+      "source_event_id": "S24_contract_mutation"
+    }
+  ]
+}

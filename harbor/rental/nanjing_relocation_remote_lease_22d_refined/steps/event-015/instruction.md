@@ -1,0 +1,1 @@
+The rental platform pushed a new listing in Top-of-the-Hill Street Xinyuan: a two-bedroom apartment marked "no negotiation, can be held tonight." At the same time, the rental group and email inbox received forwarded messages about the same address.

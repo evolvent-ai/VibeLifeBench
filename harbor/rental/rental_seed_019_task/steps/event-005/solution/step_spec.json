@@ -1,0 +1,32 @@
+{
+  "step": "event-005",
+  "stage": 5,
+  "virtual_stage": 5,
+  "source_event_id": "s5_world_repair",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I indexed the repair and damp-mark correspondence and separated verbal promises from written repair evidence.",
+  "response_paraphrase": "The leak archive now distinguishes informal commitments from documented records and current repair status.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s5_world_repair"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_repair_threads_indexed",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "s5_oral_written_split",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}
