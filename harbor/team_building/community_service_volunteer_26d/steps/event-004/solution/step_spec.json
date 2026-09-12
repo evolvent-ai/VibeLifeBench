@@ -1,0 +1,12 @@
+{
+  "step": "event-004",
+  "virtual_stage": 2,
+  "source_event_id": "s2_vendor_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The vendor notice triggered a fresh live comparison of route, shuttle, lunch, delivery, and donation choices.",
+  "response_paraphrase": "Supplier changes were checked against live route, transport, meal, delivery, and donation records.",
+  "actions": [{"kind": "notification", "event_id": "s2_vendor_notice", "virtual_stage": 2, "event_kind": "notification", "event_time": "2026-08-22T10:10:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s2_authority_trace", "weight": 2.0}, {"check_id": "s2_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

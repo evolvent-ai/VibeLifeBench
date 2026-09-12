@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "S11_mut_vendor_discount"
+  ],
+  "source_time": "2026-08-02T02:30",
+  "previous": "release-009",
+  "token": "budget-cocreation-camp-21d-release-010-release-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_facil_discount",
+        "user_id": "u_budget_ops",
+        "source": "review_platform",
+        "type": "price_drop",
+        "subscription_id": "sub_facil_silver",
+        "title": "Facilitator package price update",
+        "body": "A watched facilitator package changed price. Verify on the vendor page.",
+        "payload_json": "{\"merchant_id\":\"M_FACIL_SILVER\",\"deal_id\":\"D_FACIL_SILVER\"}",
+        "created_at": "2026-08-02T02:30:00Z",
+        "read": 0
+      },
+      "source_event_id": "S11_mut_vendor_discount"
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "update",
+      "set": {
+        "price_minor": 1200000,
+        "list_price_minor": 1600000
+      },
+      "where": {
+        "deal_id": "D_FACIL_SILVER"
+      },
+      "source_event_id": "S11_mut_vendor_discount"
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "update",
+      "set": {
+        "avg_price_minor": 1200000
+      },
+      "where": {
+        "merchant_id": "M_FACIL_SILVER"
+      },
+      "source_event_id": "S11_mut_vendor_discount"
+    }
+  ]
+}

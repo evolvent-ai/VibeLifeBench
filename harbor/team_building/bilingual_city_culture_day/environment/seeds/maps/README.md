@@ -1,0 +1,17 @@
+# bilingualcitycultureevent details：Guangzhoulocationevent detailsroute
+
+initializestatusevent details 77 event details：27 event detailslocation、21 event detailslocationevent details、6 event detailsroad、3 event detailsroad event、3 event detailsline、4 event details、10 event details、2 event detailsand 1 event detailsnotification。
+
+locationevent detailsinevent detailsGuangzhou Yuexiuevent detailstransportationevent details，event detailsoffice、cultureevent details、cateringevent details、meeting pointandaccessibleevent detailsentrance。event detailsseparatelyrecordshade、steps、event details、event details、event detailsandbilingualevent details。
+
+`mutation_s12_route.sql` event detailstemporarystairway constructionandupdateevent detailslocationdetails；`mutation_s22_close_route_event.sql` event detailsclosedevent detailsroad event。roadstatusretainevent detailsrecord，event detailseventevent detailspost-event review。
+
+## event details Stage event details
+
+Stage 0 provideGuangzhou Yuexiuofevent detailslocation、roadevent detailscontext。Stage 12 event detailsstairway construction road event，Stage 22 event details inactive；closedevent detailsretainevent details note andtimeevent details，event detailsrecord。
+
+## sourceevent detailsroutecheck
+
+locationevent detailstransportationevent detailssourceevent detailsGuangzhoucityevent details，event details、event detailsandevent detailsdetailsevent detailscontent。places、roads、road_events、transit_lines、transit_stops、transit_schedule event details transit_events event detailsroute。event detailsaccessible detourevent detailsmustconfirmationevent details、construction active status、event details、event detailsandevent detailstemporary parkingconstraint。routeevent detailsonlyevent detailsevidence，final routeevent detailsweather、event detailsandGu Ningconfirmationevent details。
+
+event detailsroad eventevent details active andtimeevent details，cannotevent detailsrecordevent detailsinevent detailsinevent details。locationevent detailsinofaccessibleevent detailsneedevent detailsconstructionevent detailsof directions event detailsconfirmation。

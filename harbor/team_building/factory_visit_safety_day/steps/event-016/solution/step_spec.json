@@ -1,0 +1,24 @@
+{
+ "step": "event-016",
+ "stage": 16,
+ "event_id": "S16_approver_feedback",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 16
+  }
+ ],
+ "response_paraphrase": "The approver reply covers business-understanding goals, safety controls, voluntary exit, and the requested additions.",
+ "expected_env": {
+  "virtual_stage": 16,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s16_approver_reply",
+   "weight": 1.0
+  }
+ ],
+ "expected_stage_weight": 1.0,
+ "source_event_id": "S16_approver_feedback"
+}

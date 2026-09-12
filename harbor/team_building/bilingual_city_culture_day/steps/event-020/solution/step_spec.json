@@ -1,0 +1,31 @@
+{
+  "step": "event-020",
+  "virtual_stage": 20,
+  "source_event_id": "S20_event_start",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-013"
+    ],
+    "released_mutations": []
+  },
+  "response": "The heat-discomfort report triggered shade, water, rest, English safety support, de-escalation, and professional escalation without medical judgment.",
+  "response_paraphrase": "On-site heat discomfort was handled with rest and escalation, plus an English safety message that avoids diagnosis.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S20_event_start",
+      "virtual_stage": 20,
+      "event_kind": "world",
+      "event_time": "2026-07-21T08:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_onsite_adjustment",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

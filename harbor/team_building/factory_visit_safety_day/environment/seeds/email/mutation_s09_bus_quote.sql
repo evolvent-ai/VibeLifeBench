@@ -1,0 +1,7 @@
+INSERT OR IGNORE INTO messages(id,folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,headers_json,uid,size,created_at)
+SELECT 3019,1,'<charter-quote@bus>','Shanghai-Jiaxing Charter: July 21 round-trip quote','ops@bus.example.invalid','["wei.ran@example.invalid"]','[]','[]','2026-07-10T15:10:00+08:00','Two 49-seat buses round trip from the Xuhui headquarters to Jiaxing Nanhu Industrial Park, including highway tolls and driver meals, cost CNY 12,800 with a company invoice. Driver and vehicle details will be reported three days before departure.','',0,0,0,'{}',3019,380,'2026-07-10T07:10:00Z'
+WHERE NOT EXISTS (SELECT 1 FROM messages WHERE id = 3019)
+  AND NOT EXISTS (SELECT 1 FROM messages WHERE message_id = '<charter-quote@bus>');
+INSERT INTO messages(folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,headers_json,uid,size,created_at)
+SELECT 1,'<charter-quote@bus>','Shanghai-Jiaxing Charter: July 21 round-trip quote','ops@bus.example.invalid','["wei.ran@example.invalid"]','[]','[]','2026-07-10T15:10:00+08:00','Two 49-seat buses round trip from the Xuhui headquarters to Jiaxing Nanhu Industrial Park, including highway tolls and driver meals, cost CNY 12,800 with a company invoice. Driver and vehicle details will be reported three days before departure.','',0,0,0,'{}',3019,380,'2026-07-10T07:10:00Z'
+WHERE NOT EXISTS (SELECT 1 FROM messages WHERE message_id = '<charter-quote@bus>');

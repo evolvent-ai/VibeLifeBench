@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "s9_route_mutation"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-07-10T13:40:00+08:00",
+  "previous": "release-007",
+  "token": "pottery-invoice-compliance-008-token-20260824",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "route_pottery_heping_0710",
+        "road_id": "road_heping_event",
+        "start_dt": "2026-07-10T13:30:00+08:00",
+        "end_dt": "2026-07-21T18:00:00+08:00",
+        "kind": "heavy_traffic",
+        "magnitude": 0.65,
+        "note": "Temporary construction on the west section of Dali Road, vehicle traffic will be slower on Thursday afternoon；the walking route from the Munan Road subway exit to the first-floor lobby is unaffected.",
+        "active": 1
+      }
+    }
+  ]
+}

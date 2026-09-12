@@ -1,0 +1,34 @@
+{
+  "release_id": "release-001",
+  "before_step": "event-001",
+  "previous": "release-000",
+  "token": "factory-visit-safety-day-release-001-20260824",
+  "operations": [
+    {
+      "source_event_id": "S1_goal_mutation",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": "3011",
+        "folder_id": "1",
+        "message_id": "<goal-detail@approver>",
+        "subject": "HR：Key Points for Reviewing the Team-Building Plan and Submission Deadline",
+        "from_addr": "approver@example.invalid",
+        "to_addr_json": "[\"wei.ran@example.invalid\"]",
+        "cc_addr_json": "[\"admin.support@example.invalid\"]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-02T09:45:00+08:00",
+        "body_text": "I will tentatively hold the afternoon of July 17 for the review meeting. The proposal must clearly explain three things: how the business understanding segment will be designed, how safety boundaries will be controlled during the visit, and how voluntary participation will be implemented in the registration and withdrawal arrangements. Please send me the candidate proposals before the review meeting; there is no need to wait until everything is fully agreed.",
+        "body_html": "",
+        "is_read": "0",
+        "is_important": "1",
+        "is_flagged": "0",
+        "headers_json": "{}",
+        "uid": "3011",
+        "size": "400",
+        "created_at": "2026-07-02T01:45:00Z"
+      }
+    }
+  ]
+}

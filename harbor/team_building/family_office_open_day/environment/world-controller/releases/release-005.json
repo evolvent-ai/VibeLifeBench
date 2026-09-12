@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "mut_s11_nut_oil"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-07-11T11:00:00+08:00",
+  "previous": "release-004",
+  "token": "family-office-open-day-release-d5e2246f1847e97adfbe5582",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_workshop_nut_oil_0711",
+        "merchant_id": "workshop_spark_lab",
+        "user_id": "vendor_ops",
+        "question": "materialsrecheck",
+        "answer": "containsalmond oil，hasnut-freepaper circuitcanreplacement；hot glue gun 6 according tochildren。",
+        "answered_by": "lab_material_manager",
+        "created_at": "2026-07-11T11:00:00+08:00"
+      },
+      "source_event_id": "mut_s11_nut_oil",
+      "operation_index": 0
+    }
+  ]
+}

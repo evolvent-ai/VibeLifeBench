@@ -1,0 +1,15 @@
+{
+  "step": "event-014",
+  "virtual_stage": 14,
+  "source_event_id": "s14_user_pack",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "I assembled the primary and backup comparison with a decision checklist for Ye Hang and the regional approver.",
+  "response_paraphrase": "The review packet now separates established safeguards from each item that still needs the organizer's decision.",
+  "actions": [{"kind": "record_event", "source_event_id": "s14_user_pack"}],
+  "expected_checks": [
+    {"check_id": "s14_user_confirmation_pack", "weight": 1.5, "expected": true},
+    {"check_id": "s14_approval_pack_budget_safety", "weight": 1.5, "expected": true}
+  ],
+  "expected_stage_weight": 3.0
+}

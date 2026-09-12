@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "response": "The late roster supersedes the earlier count: 34 total participants and 29 boarding-eligible adults.",
+  "event_id": "s7_notice_late_roster",
+  "source_event_id": "s7_notice_late_roster",
+  "step": "event-007",
+  "synthetic": false,
+  "virtual_stage": 7,
+  "response_paraphrase": "I reconciled the HR update and refreshed the manifest so catering and transport use 34 while boats use only 29 eligible adults.",
+  "expected_env": {
+    "virtual_stage": 7
+  },
+  "expected_checks": [
+    {
+      "check_id": "s7_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s7_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

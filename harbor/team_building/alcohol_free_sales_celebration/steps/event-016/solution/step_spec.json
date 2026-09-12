@@ -1,0 +1,15 @@
+{
+  "step": "event-016",
+  "virtual_stage": 16,
+  "source_event_id": "s16_approval_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-012"], "released_mutations": ["s16_approval_feedback_mutation"]},
+  "response": "I synchronized the approval outcome with the planning systems while retaining every remaining organizer decision as pending.",
+  "response_paraphrase": "Preparation may continue, but the participant communication remains unsent until Ye Hang clears the outstanding choices.",
+  "actions": [{"kind": "record_event", "source_event_id": "s16_approval_notice"}],
+  "expected_checks": [
+    {"check_id": "s16_approval_state_sync", "weight": 1.5, "expected": true},
+    {"check_id": "s16_no_final_notice_yet", "weight": 1.5, "expected": true}
+  ],
+  "expected_stage_weight": 3.0
+}

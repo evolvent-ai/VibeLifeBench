@@ -1,0 +1,5 @@
+risk_id,risk,trigger,likelihood,impact,mitigation,owner,status,last_checked,evidence
+APR-RSK-01,translated business text,translated business text,high,medium,translated business text15translated business textwindowtranslated business text,Administrative support,closed,2026-04-22,translated business text WY-4218
+MAY-RSK-02,translated business textsync,HDMI translated business text,medium,medium,onsitetranslated business textretaintranslated business text,IT support,closed,2026-05-19,translated business textrecord IT-551
+JUN-RSK-03,translated business textsupplementtranslated business text,translated business texteveningtranslated business text,medium,low,vendortranslated business textincreasetranslated business texttime,cateringtranslated business text,closed,2026-06-08,refundreceipt RF-0608
+JUN-RSK-04,Suhetranslated business text,translated business text,medium,medium,translated business textbackuptranslated business text,Administrative support,monitoring,2026-06-10,translated business textevent EX-661

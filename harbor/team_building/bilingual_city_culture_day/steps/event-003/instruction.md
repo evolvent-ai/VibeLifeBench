@@ -1,0 +1,1 @@
+The registration form has preliminary responses from 28 people, with another five awaiting confirmation. Please organize only the necessary constraints, and do not share combinations of personal health, family, or contact information with vendors or the whole team.

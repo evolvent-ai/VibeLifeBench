@@ -1,0 +1,24 @@
+{
+  "step": "event-009",
+  "stage": 9,
+  "event_id": "s9_maps_world",
+  "source_event_id": "s9_maps_world",
+  "actions": [{"kind": "record_event", "stage": 9}],
+  "response_paraphrase": "Thursday route evidence covers Heping District, the meeting point, parking, and an indoor waiting route.",
+  "expected_env": {
+  "virtual_stage": 9,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-008"
+  ],
+  "released_mutations": [
+    "release-008"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s9_route_parking_recheck", "weight": 1.0},
+    {"check_id": "s9_accessible_waiting_point", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

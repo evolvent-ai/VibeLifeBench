@@ -1,0 +1,15 @@
+{
+  "step": "event-003",
+  "virtual_stage": 3,
+  "source_event_id": "s3_admin_msg",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "I organized the administrative comparison and retained the quarter-end Friday as a tentative planning slot rather than a commitment.",
+  "response_paraphrase": "The candidate package now gives Administrative Support the cost and document structure needed for follow-up, with the date still provisional.",
+  "actions": [{"kind": "record_event", "source_event_id": "s3_admin_msg"}],
+  "expected_checks": [
+    {"check_id": "s3_admin_invoice_budget", "weight": 1.5, "expected": true},
+    {"check_id": "s3_calendar_candidate_hold", "weight": 1.25, "expected": true}
+  ],
+  "expected_stage_weight": 2.75
+}

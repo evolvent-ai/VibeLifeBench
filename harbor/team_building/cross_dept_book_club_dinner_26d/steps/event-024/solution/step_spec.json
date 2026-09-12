@@ -1,0 +1,36 @@
+{
+  "step": "event-024",
+  "virtual_stage": 24,
+  "source_event_id": "S24_user_final_handoff",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Final handoff records 79 attendees, mixed groups, Maya Rao at 15:20-16:05, Harbor Forum, Cedar Table, the BOOKCLUB600 cart, budget split, unpaid unsigned holds, and the private feedback plan.",
+  "response_paraphrase": "The event-day handoff consolidates attendance, schedule, venue, dinner, books, budget boundaries, outstanding commitments, and private archiving.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S24_user_final_handoff"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s24_final_handoff_complete",
+      "weight": 4.0,
+      "expected": true
+    },
+    {
+      "check_id": "s24_final_handoff_book_budget_math",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s24_final_handoff_unpaid_unsigned",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 8.5
+}

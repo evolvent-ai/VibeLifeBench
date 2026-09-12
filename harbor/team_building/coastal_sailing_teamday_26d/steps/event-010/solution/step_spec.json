@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "response": "CrewSafe inventory and certificate requirements are recorded; the quote is not treated as boarding approval.",
+  "event_id": "s10_insurance_check",
+  "source_event_id": "s10_insurance_check",
+  "step": "event-010",
+  "synthetic": false,
+  "virtual_stage": 10,
+  "response_paraphrase": "The marketplace refresh confirms that only a paid adult-day order and issued certificate can authorize boarding.",
+  "expected_env": {
+    "virtual_stage": 10
+  },
+  "expected_checks": [
+    {
+      "check_id": "s10_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s10_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

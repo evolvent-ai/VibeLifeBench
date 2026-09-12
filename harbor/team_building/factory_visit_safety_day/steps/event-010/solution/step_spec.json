@@ -1,0 +1,28 @@
+{
+ "step": "event-010",
+ "stage": 10,
+ "event_id": "S10_ppe_watch",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 10
+  }
+ ],
+ "response_paraphrase": "The protection offer was rechecked after its change, the unavailable item was recorded, and a recovery draft was prepared without booking it.",
+ "expected_env": {
+  "virtual_stage": 10,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s10_ppe_discovered",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s10_ppe_recovery_draft",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 3.5,
+ "source_event_id": "S10_ppe_watch"
+}

@@ -1,0 +1,123 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      world-controller: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      credit-card: {condition: service_healthy}
+      email: {condition: service_healthy}
+      maps: {condition: service_healthy}
+      notification-hub: {condition: service_healthy}
+      notion: {condition: service_healthy}
+      review-platform: {condition: service_healthy}
+    volumes:
+      - workspace-state:/workspace
+      - eval-evidence:/harbor/evidence:ro
+    environment:
+      NO_PROXY: "localhost,127.0.0.1,::1,world-controller,calendar,credit-card,email,maps,notification-hub,notion,review-platform"
+      no_proxy: "localhost,127.0.0.1,::1,world-controller,calendar,credit-card,email,maps,notification-hub,notion,review-platform"
+  workspace-init:
+    build:
+      context: .
+      dockerfile: workspace-init/Dockerfile
+    volumes: [workspace-state:/target]
+    restart: "no"
+  calendar:
+    build: {context: ./servers/calendar_mock}
+    volumes: [./seeds/calendar:/env-seed:ro, calendar-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: &mock-health
+      test: [CMD, python, -c, "import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  credit-card:
+    build: {context: ./servers/credit_card_mock}
+    volumes: [./seeds/credit_card:/env-seed:ro, credit-card-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *mock-health
+  email:
+    build: {context: ./servers/email_mock}
+    volumes: [./seeds/email:/env-seed:ro, email-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *mock-health
+  maps:
+    build: {context: ./servers/maps_mock}
+    volumes: [./seeds/maps:/env-seed:ro, maps-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *mock-health
+  notification-hub:
+    build: {context: ./servers/notification_hub_mock}
+    volumes: [./seeds/notification_hub:/env-seed:ro, notification-hub-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *mock-health
+  notion:
+    build: {context: ./servers/notion_mock}
+    volumes: [./seeds/notion:/env-seed:ro, notion-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *mock-health
+  review-platform:
+    build: {context: ./servers/review_platform_mock}
+    volumes: [./seeds/review_platform:/env-seed:ro, review-platform-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment: {WORLD_CLOCK_FILE: /world-clock/current.json}
+    healthcheck: *mock-health
+  world-controller:
+    build:
+      context: .
+      dockerfile: world-controller/Dockerfile
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      calendar: {condition: service_healthy}
+      credit-card: {condition: service_healthy}
+      email: {condition: service_healthy}
+      maps: {condition: service_healthy}
+      notification-hub: {condition: service_healthy}
+      notion: {condition: service_healthy}
+      review-platform: {condition: service_healthy}
+    environment:
+      HEALTH_TOKEN: alcohol-free-sales-celebration-health-token
+      CLOCK_TOKEN: alcohol-free-sales-celebration-clock-token
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: "1"
+    volumes:
+      - calendar-env:/calendar-env
+      - credit-card-env:/credit-card-env
+      - email-env:/email-env
+      - maps-env:/maps-env
+      - notification-hub-env:/notification-hub-env
+      - notion-env:/notion-env
+      - review-platform-env:/review-platform-env
+      - workspace-state:/workspace-source:ro
+      - eval-evidence:/evidence
+      - world-clock:/world-clock
+      - controller-state:/controller-state
+    expose: ["8090"]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health', timeout=2).read()"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+volumes:
+  workspace-state:
+  eval-evidence:
+  world-clock:
+  controller-state:
+  calendar-env:
+  credit-card-env:
+  email-env:
+  maps-env:
+  notification-hub-env:
+  notion-env:
+  review-platform-env:

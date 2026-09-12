@@ -1,0 +1,33 @@
+{
+  "step": "event-018",
+  "virtual_stage": 18,
+  "source_event_id": "S18_notification_dietary_update",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": []
+  },
+  "response": "The dietary notification was read: vegetarian count is 11 and peanut-allergy count is 3; both remain private to catering coordination.",
+  "response_paraphrase": "The updated catering counts are captured and kept within the catering-only privacy scope.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S18_notification_dietary_update"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s18_dietary_update_recorded",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s18_notifications_checked",
+      "weight": 3.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

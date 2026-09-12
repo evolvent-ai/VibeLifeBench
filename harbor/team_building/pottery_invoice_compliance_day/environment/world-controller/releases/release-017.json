@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-017",
+  "source_event_ids": [
+    "s20_onsite_issue_mutation"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-07-21T08:30:00+08:00",
+  "previous": "release-016",
+  "token": "pottery-invoice-compliance-017-token-20260824",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_pottery_onsite_0721",
+        "user_id": "user_luyao_tb011",
+        "source": "onsite_monitor",
+        "type": "new_content",
+        "title": "On-Site Materials and Glove Feedback",
+        "body": "Someone inquired about using a high-complexity glossy glaze; another participant reported discomfort wearing gloves. Low-contact materials can be substituted on site and breaks arranged; no medical assessment will be made.",
+        "payload_json": "{\"onsite\":\"material_and_glove\"}",
+        "created_at": "2026-07-21T08:25:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

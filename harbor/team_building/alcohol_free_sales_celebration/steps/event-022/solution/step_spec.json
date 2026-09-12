@@ -1,0 +1,15 @@
+{
+  "step": "event-022",
+  "virtual_stage": 22,
+  "source_event_id": "s22_feedback_world",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-017"], "released_mutations": ["s22_feedback_mutation"]},
+  "response": "I incorporated the new feedback into the review record and converted the privacy and supplier lessons into future process controls.",
+  "response_paraphrase": "The retrospective now connects participant observations to concrete improvements for the next event cycle.",
+  "actions": [{"kind": "record_event", "source_event_id": "s22_feedback_world"}],
+  "expected_checks": [
+    {"check_id": "s22_feedback_ingested", "weight": 1.75, "expected": true},
+    {"check_id": "s22_sop_risk_items", "weight": 1.5, "expected": true}
+  ],
+  "expected_stage_weight": 3.25
+}

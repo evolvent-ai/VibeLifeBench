@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "response": "HP-0919 is conditionally approved for Pier B, pending green weather and the adult insurance certificate.",
+  "event_id": "s11_notice_permit",
+  "source_event_id": "s11_notice_permit",
+  "step": "event-011",
+  "synthetic": false,
+  "virtual_stage": 11,
+  "response_paraphrase": "The Harbor Master status was checked and its activation conditions were added to the permit record.",
+  "expected_env": {
+    "virtual_stage": 11
+  },
+  "expected_checks": [
+    {
+      "check_id": "s11_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s11_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

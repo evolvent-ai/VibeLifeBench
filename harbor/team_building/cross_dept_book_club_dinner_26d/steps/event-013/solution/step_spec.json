@@ -1,0 +1,31 @@
+{
+  "step": "event-013",
+  "virtual_stage": 13,
+  "source_event_id": "S13_user_budget_snapshot",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The requested budget snapshot lists books, venue, dinner/catering, guest honorarium, and pending approvals as separate rows.",
+  "response_paraphrase": "A category-by-category budget view is recorded, including unresolved approvals and the changed items.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S13_user_budget_snapshot"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_budget_snapshot_rows",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s13_pending_approval_noted",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

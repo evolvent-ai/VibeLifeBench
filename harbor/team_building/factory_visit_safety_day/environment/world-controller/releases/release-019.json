@@ -1,0 +1,26 @@
+{
+  "release_id": "release-019",
+  "before_step": "event-022",
+  "previous": "release-018",
+  "token": "factory-visit-safety-day-release-019-20260824",
+  "operations": [
+    {
+      "source_event_id": "S22_late_needs_mutation",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_013_late_need",
+        "user_id": "user_seed_tb_013",
+        "source": "feedback_form",
+        "type": "policy_update",
+        "subscription_id": "sub_013_policy",
+        "title": "Late reporting of special requirements",
+        "body": "One member reported insufficient noise warnings, and there is also an English safety reminder request.",
+        "payload_json": "{\"need\":\"sound_and_english_notice\"}",
+        "created_at": "2026-07-22T00:20:00Z",
+        "read": "0"
+      }
+    }
+  ]
+}

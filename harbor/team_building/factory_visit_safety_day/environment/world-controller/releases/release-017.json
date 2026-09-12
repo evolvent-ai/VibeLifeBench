@@ -1,0 +1,62 @@
+{
+  "release_id": "release-017",
+  "before_step": "event-020",
+  "previous": "release-016",
+  "token": "factory-visit-safety-day-release-017-20260824",
+  "operations": [
+    {
+      "source_event_id": "S20_onsite_mutation",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_013_onsite_health",
+        "user_id": "user_seed_tb_013",
+        "source": "onsite_desk",
+        "type": "policy_update",
+        "subscription_id": "sub_013_policy",
+        "title": "On-site check-in exception",
+        "body": "At check-in, one member reported feeling clearly unwell after arriving; they have been settled in the rest area and are awaiting guidance on how to proceed.",
+        "payload_json": "{\"kind\":\"member_unwell\"}",
+        "created_at": "2026-07-20T23:45:00Z",
+        "read": "0"
+      }
+    },
+    {
+      "source_event_id": "S20_onsite_mutation",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_013_onsite_lang",
+        "user_id": "user_seed_tb_013",
+        "source": "onsite_desk",
+        "type": "policy_update",
+        "subscription_id": "sub_013_policy",
+        "title": "On-site language support request",
+        "body": "Some members said they could not fully understand the safety instructions in Chinese and would like a readable version.",
+        "payload_json": "{\"kind\":\"language_support\"}",
+        "created_at": "2026-07-20T23:48:00Z",
+        "read": "0"
+      }
+    },
+    {
+      "source_event_id": "S20_onsite_mutation",
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_013_attendance_42",
+        "user_id": "user_seed_tb_013",
+        "source": "onsite_checkin",
+        "type": "keyword",
+        "subscription_id": null,
+        "title": "Departure roll call and confirmation of the number of diners",
+        "body": "At the departure roll call, two people were confirmed to be temporarily absent, with 44 reservations corresponding to 42 actual attendees; the lunch supplier had prepared meals for 42 people, while the group accident insurance had previously been issued for 44 people and could not be reduced that day.",
+        "payload_json": "{\"registered_count\":44,\"actual_attendance_count\":42,\"absent_count\":2,\"meal_count\":42,\"insured_count\":44,\"insurance_adjustment_allowed\":false}",
+        "created_at": "2026-07-20T23:48:00Z",
+        "read": "0"
+      }
+    }
+  ]
+}

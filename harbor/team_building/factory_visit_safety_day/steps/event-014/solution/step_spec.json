@@ -1,0 +1,24 @@
+{
+ "step": "event-014",
+ "stage": 14,
+ "event_id": "S14\u65b9\u6848",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 14
+  }
+ ],
+ "response_paraphrase": "The factory, protection, transport, and deposit choices are summarized in a draft that remains open for confirmation.",
+ "expected_env": {
+  "virtual_stage": 14,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s14_option_summary_draft",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "source_event_id": "S14\u65b9\u6848"
+}

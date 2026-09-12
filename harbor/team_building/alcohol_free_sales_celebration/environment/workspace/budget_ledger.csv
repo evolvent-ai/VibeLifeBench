@@ -1,0 +1,5 @@
+line_id,item,vendor_id,estimate_minor,approved_minor,invoice_type,payment_channel,authorization,status,last_checked,note
+APR-RS-01,translated business textmonthtranslated business text,mer_sh_suhe_stage_km,2860000,2860000,cultural eventserviceVAT special invoice,business-to-business,AP-2026-0418,paid,2026-05-06,translated business textcomplete
+APR-RS-02,translated business textmonthtranslated business text,merchant_print_old,920000,886000,translated business textserviceVAT special invoice,corporate card,AP-2026-0418,paid,2026-05-08,translated business text40translated business text
+MAY-TR-01,translated business textmonthtranslated business textvenue,venue_hengfeng_briefing_room,2480000,0,translated business textserviceVAT special invoice,business-to-business,AP-2026-0509,cancelled,2026-05-18,clear the venuetimetranslated business text
+Q2-CS-01,translated business text,merchant_transport_night,612000,584000,translated business textserviceinvoice,translated business text,AP-2026-0601,closed,2026-06-09,translated business textdaycomplete

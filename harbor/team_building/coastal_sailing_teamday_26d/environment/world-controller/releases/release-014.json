@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "release_id": "release-014",
+  "source_event_ids": [
+    "s24_mut_photo_revocation"
+  ],
+  "source_stage": 24,
+  "source_time": "2026-09-17T09:00:00+08:00",
+  "previous": "release-013",
+  "token": "coastal-sailing-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 910005,
+        "folder_id": 1,
+        "message_id": "email_photo_revocation",
+        "subject": "Late photo release change",
+        "from_addr": "hr-forms@company.example",
+        "to_addr_json": "[\"lin.qiao@company.example\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-17T09:00:00+08:00",
+        "body_text": "Late release change: Alice Chen now declines identifiable internal gallery use. Keep Alice out of any named/photo display list. Public social use remains blocked for the event.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 910005,
+        "size": 176,
+        "created_at": "2026-09-17T09:00:00+08:00"
+      },
+      "source_event_id": "s24_mut_photo_revocation"
+    },
+    {
+      "server": "notion",
+      "table": "database_rows",
+      "op": "update",
+      "set": {
+        "properties_json": "{\"name\":\"Alice Chen\",\"dept\":\"Ops\",\"age_group\":\"adult\",\"category\":\"employee\",\"waiver\":true,\"photo\":\"no_internal_or_public\",\"sailing_eligible\":true,\"gate\":\"photo_revoked\"}",
+        "last_edited_time": "2026-09-17T09:00:00+08:00"
+      },
+      "where": {
+        "row_id": "rs_alicec",
+        "database_id": "db_sailing_roster"
+      },
+      "source_event_id": "s24_mut_photo_revocation"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "task": "community_service_volunteer_26d",
+  "step_count": 28,
+  "world_clock_file": "/world-clock/current.json",
+  "servers": [
+    "banking",
+    "calendar",
+    "car_rental",
+    "content_platform",
+    "delivery_logistics",
+    "ecommerce",
+    "email",
+    "maps",
+    "notification_hub",
+    "notion",
+    "review_platform"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "step": "event-024",
+  "virtual_stage": 24,
+  "source_event_id": "S24_final_review",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The final post-event review archives budget, invoices, vendor evaluation, safety, privacy, unpaid items, and the next SOP.",
+  "response_paraphrase": "The closing archive brings together finances, vendor findings, safety and privacy events, open money items, and the next procedure.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S24_final_review",
+      "virtual_stage": 24,
+      "event_kind": "user_message",
+      "event_time": "2026-07-25T18:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s24_final_page",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

@@ -1,0 +1,3 @@
+# PRIVACY_POLICY
+
+identity card、employment contract、income proof、zhuzhizhengming、yinxingka、yanzhengma、current addressheruzhidocumentsjunweimingandocuments。weihuobenrenzhuxiangconfirmbudewaifa；draftintelligentliedocumentschecklist、damarequiresheanquansubmitqudao，bufuzhenshidocuments。

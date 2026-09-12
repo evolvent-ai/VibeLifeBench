@@ -1,0 +1,28 @@
+{
+ "step": "event-015",
+ "stage": 15,
+ "event_id": "S15_payment_watch",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 15
+  }
+ ],
+ "response_paraphrase": "The payee and transaction records identify the personal temporary account, and finance has a draft to pause payment pending confirmation.",
+ "expected_env": {
+  "virtual_stage": 15,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s15_payee_checked",
+   "weight": 1.75
+  },
+  {
+   "check_id": "s15_payment_paused",
+   "weight": 2.25
+  }
+ ],
+ "expected_stage_weight": 4.0,
+ "source_event_id": "S15_payment_watch"
+}

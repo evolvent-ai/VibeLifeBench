@@ -1,0 +1,33 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "S2_notification_signup_snapshot",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": []
+  },
+  "response": "The live registration snapshot of 72 participants was read and recorded with departmental counts under the catering-only privacy boundary.",
+  "response_paraphrase": "I captured the current 72-person enrollment and kept individual dietary information limited to catering coordination.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S2_notification_signup_snapshot"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_registration_snapshot_recorded",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s2_notification_checked",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

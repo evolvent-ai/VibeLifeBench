@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "response": "The active alert and out-of-threshold wind keep the sailing decision on hold with no-go status.",
+  "event_id": "s18_still_blocked",
+  "source_event_id": "s18_still_blocked",
+  "step": "event-018",
+  "synthetic": false,
+  "virtual_stage": 18,
+  "response_paraphrase": "The repeated official weather check confirms that the safety hold is still active.",
+  "expected_env": {
+    "virtual_stage": 18
+  },
+  "expected_checks": [
+    {
+      "check_id": "s18_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s18_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

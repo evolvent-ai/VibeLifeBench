@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "response": "Minors and non-waivered guests remain shore/dinner-only; verbal guardian consent is insufficient for boarding.",
+  "event_id": "s17_family_challenge",
+  "source_event_id": "s17_family_challenge",
+  "step": "event-017",
+  "synthetic": false,
+  "virtual_stage": 17,
+  "response_paraphrase": "The family challenge was resolved against boarding and a safe shore alternative remains in the plan.",
+  "expected_env": {
+    "virtual_stage": 17
+  },
+  "expected_checks": [
+    {
+      "check_id": "s17_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s17_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

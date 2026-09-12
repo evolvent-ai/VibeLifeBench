@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-018",
+  "source_event_ids": [
+    "s23_finance_archive_state"
+  ],
+  "source_stage": 23,
+  "source_time": "2026-07-25T15:55:00+08:00",
+  "previous": "release-017",
+  "token": "alcohol-free-sales-celebration-release-018-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_finance_archive_jul25",
+        "user_id": "usr_yh_q7vkma",
+        "source": "Finance",
+        "type": "archive_window",
+        "subscription_id": null,
+        "title": "quarterly celebrationFinancearchivewindow",
+        "body": "archivetranslated business textVAT special invoicetranslated business text、corporate cardtransaction、alcohol exclusion、balance paymenttranslated business textunresolvedtranslated business textfive reconciliation slots，currently noneautomatic paymenttranslated business text。",
+        "payload_json": "{\"reconcile_slots\":5,\"automatic_payment\":false}",
+        "created_at": "2026-07-25T15:55:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

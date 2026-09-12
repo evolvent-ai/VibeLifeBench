@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "mut_s13_cert_missing"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-07-13T10:00:00+08:00",
+  "previous": "release-002",
+  "token": "customer-success-recovery-lunch-release-003-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1001,
+        "folder_id": 1,
+        "message_id": "<facilitator-cert-missing@example.invalid>",
+        "subject": "Facilitator credential attachment missing",
+        "from_addr": "ops@recovery-facilitator.invalid",
+        "to_addr_json": "[\"yu.qing@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-13T10:00:00+08:00",
+        "body_text": "The replacement facilitator's corporate training credential and non-diagnostic material confirmation page are missing; expected within 24 hours.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "",
+        "references_header": "",
+        "headers_json": "{}",
+        "uid": 9024,
+        "size": 320,
+        "created_at": "2026-07-13T02:00:00Z"
+      },
+      "source_event_id": "mut_s13_cert_missing",
+      "operation_index": 0
+    }
+  ]
+}

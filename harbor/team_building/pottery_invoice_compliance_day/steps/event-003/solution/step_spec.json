@@ -1,0 +1,24 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "event_id": "s3_admin_msg",
+  "source_event_id": "s3_admin_msg",
+  "actions": [{"kind": "record_event", "stage": 3}],
+  "response_paraphrase": "The administrator checklist covers invoice, budget, cost, Thursday, candidate pottery, cancellation, and meal details without booking.",
+  "expected_env": {
+  "virtual_stage": 3,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-002"
+  ],
+  "released_mutations": [
+    "release-002"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s3_admin_invoice_budget", "weight": 1.0},
+    {"check_id": "s3_calendar_candidate_hold", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

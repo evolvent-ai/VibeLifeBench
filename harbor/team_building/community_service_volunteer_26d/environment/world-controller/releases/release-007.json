@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "s9_mut_donation_revision"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-08-27T09:00:00+08:00",
+  "previous": "release-006",
+  "token": "community-service-release-007-token-9f3a7c2d1e4b6a8c",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1202,
+        "folder_id": 1,
+        "message_id": "email_donation_revision_0826",
+        "subject": "Revised approved donation list",
+        "from_addr": "coordinator@riverside-center.example",
+        "to_addr_json": "[\"maya.csr@company.example\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-27T09:00:00+08:00",
+        "body_text": "Official revised list: 72 sealed hygiene kits, 72 neutral towel packs, and 4 plain carton label rolls. Do not bring fresh food, supplements, medical devices, gift cards, used electronics, or named labels. Please wait for final CSR approval before paid orders.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 1202,
+        "size": 259,
+        "created_at": "2026-08-27T09:00:00+08:00"
+      }
+    }
+  ]
+}

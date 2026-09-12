@@ -1,0 +1,12 @@
+{
+  "step": "event-010",
+  "virtual_stage": 8,
+  "source_event_id": "s8_supply_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-006"], "released_mutations": ["s8_mut_supply_stock"]},
+  "response": "Current stock and policy evidence is checked for compliant donation availability before any commitment.",
+  "response_paraphrase": "Donation stock, policy, and availability are freshly reconciled in the supply record.",
+  "actions": [{"kind": "notification", "event_id": "s8_supply_notice", "virtual_stage": 8, "event_kind": "notification", "event_time": "2026-08-26T15:00:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s8_authority_trace", "weight": 2.0}, {"check_id": "s8_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

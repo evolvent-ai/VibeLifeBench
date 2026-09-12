@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "s1_mut_policy_notice"
+  ],
+  "source_stage": 1,
+  "source_time": "2026-08-21T08:55:00+08:00",
+  "previous": null,
+  "token": "community-service-release-000-token-9f3a7c2d1e4b6a8c",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_csr_guidance",
+        "user_id": "usr_csr_maya",
+        "source": "csr-policy",
+        "type": "policy_update",
+        "subscription_id": "sub_csr",
+        "title": "CSR volunteer policy guidance",
+        "body": "CSR volunteer, donation, privacy, media, and budget guidance is ready in the official policy workspace.",
+        "payload_json": "{}",
+        "created_at": "2026-08-21T08:55:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

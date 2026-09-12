@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "response": "The Haiwan Marina weather watch is subscribed and the initial wind, wave, and alert gate is recorded.",
+  "event_id": "s3_weather_watch",
+  "source_event_id": "s3_weather_watch",
+  "step": "event-003",
+  "synthetic": false,
+  "virtual_stage": 3,
+  "response_paraphrase": "The official marine forecast and alert feed are now monitored for the event window, with sailing still held pending a late check.",
+  "expected_env": {
+    "virtual_stage": 3
+  },
+  "expected_checks": [
+    {
+      "check_id": "s3_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s3_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

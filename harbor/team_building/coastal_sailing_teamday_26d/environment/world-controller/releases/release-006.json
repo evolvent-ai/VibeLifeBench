@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "s12_mut_weather_clock"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-09-09T09:55:00+08:00",
+  "previous": "release-005",
+  "token": "coastal-sailing-release-token",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "set": {
+        "sim_now": "2026-09-09T09:55:00+08:00"
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "s12_mut_weather_clock"
+    }
+  ]
+}

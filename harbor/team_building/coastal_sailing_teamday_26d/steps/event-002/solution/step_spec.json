@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "world"
+    }
+  ],
+  "response": "Official boat listings and capacity evidence are captured; the wave plan remains reversible.",
+  "event_id": "s2_boat_scan",
+  "source_event_id": "s2_boat_scan",
+  "step": "event-002",
+  "synthetic": false,
+  "virtual_stage": 2,
+  "response_paraphrase": "I reviewed the current charter listings and documented capacity and wave candidates without confirming a booking.",
+  "expected_env": {
+    "virtual_stage": 2
+  },
+  "expected_checks": [
+    {
+      "check_id": "s2_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s2_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

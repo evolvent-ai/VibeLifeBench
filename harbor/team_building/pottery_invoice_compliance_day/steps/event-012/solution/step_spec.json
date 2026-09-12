@@ -1,0 +1,24 @@
+{
+  "step": "event-012",
+  "stage": 12,
+  "event_id": "s12_notification",
+  "source_event_id": "s12_notification",
+  "actions": [{"kind": "record_event", "stage": 12}],
+  "response_paraphrase": "The firing delay is scheduled with a pickup plan for keepsakes and its notification timing.",
+  "expected_env": {
+  "virtual_stage": 12,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-011"
+  ],
+  "released_mutations": [
+    "release-011"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s12_firing_delay_calendar_update", "weight": 1.0},
+    {"check_id": "s12_keeps_event_experience_intact", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

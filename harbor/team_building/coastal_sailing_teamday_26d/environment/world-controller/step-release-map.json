@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "step_count": 26,
+  "steps": {
+    "event-000": {
+      "source_event_id": "s0_kickoff",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-24T09:00:00+08:00",
+      "after": []
+    },
+    "event-001": {
+      "source_event_id": "s1_source_refresh",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-25T09:00:00+08:00",
+      "after": []
+    },
+    "event-002": {
+      "source_event_id": "s2_boat_scan",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-26T10:00:00+08:00",
+      "after": []
+    },
+    "event-003": {
+      "source_event_id": "s3_weather_watch",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-27T09:00:00+08:00",
+      "after": []
+    },
+    "event-004": {
+      "source_event_id": "s4_health_minors",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-28T11:00:00+08:00",
+      "after": []
+    },
+    "event-005": {
+      "source_event_id": "s5_transport",
+      "before": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-29T10:00:00+08:00",
+      "after": []
+    },
+    "event-006": {
+      "source_event_id": "s6_vendors",
+      "before": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-30T10:00:00+08:00",
+      "after": []
+    },
+    "event-007": {
+      "source_event_id": "s7_notice_late_roster",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-02T09:00:00+08:00",
+      "after": []
+    },
+    "event-008": {
+      "source_event_id": "s8_world_weather_hold",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-05T08:00:00+08:00",
+      "after": []
+    },
+    "event-009": {
+      "source_event_id": "s9_user_boat_plan",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-06T11:00:00+08:00",
+      "after": []
+    },
+    "event-010": {
+      "source_event_id": "s10_insurance_check",
+      "before": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-07T09:00:00+08:00",
+      "after": []
+    },
+    "event-011": {
+      "source_event_id": "s11_notice_permit",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-08T09:00:00+08:00",
+      "after": []
+    },
+    "event-012": {
+      "source_event_id": "s12_scheduled_mid_review",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-09T10:00:00+08:00",
+      "after": []
+    },
+    "event-013": {
+      "source_event_id": "s13_payment_pressure",
+      "before": [],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-10T10:00:00+08:00",
+      "after": []
+    },
+    "event-014": {
+      "source_event_id": "s14_notice_dinner",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-11T09:00:00+08:00",
+      "after": []
+    },
+    "event-015": {
+      "source_event_id": "s15_notice_photo",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-12T10:00:00+08:00",
+      "after": []
+    },
+    "event-016": {
+      "source_event_id": "s16_user_transport_refresh",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-13T11:00:00+08:00",
+      "after": []
+    },
+    "event-017": {
+      "source_event_id": "s17_family_challenge",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-14T10:00:00+08:00",
+      "after": []
+    },
+    "event-018": {
+      "source_event_id": "s18_still_blocked",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-15T09:00:00+08:00",
+      "after": []
+    },
+    "event-019": {
+      "source_event_id": "s19_notice_finance",
+      "before": [
+        "release-011"
+      ],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-16T09:00:00+08:00",
+      "after": []
+    },
+    "event-020": {
+      "source_event_id": "s20_notice_insurance",
+      "before": [
+        "release-012"
+      ],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-16T10:30:00+08:00",
+      "after": []
+    },
+    "event-021": {
+      "source_event_id": "s21_world_weather_green",
+      "before": [
+        "release-013"
+      ],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-16T12:30:00+08:00",
+      "after": []
+    },
+    "event-022": {
+      "source_event_id": "s22_user_execute",
+      "before": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-16T14:00:00+08:00",
+      "after": []
+    },
+    "event-023": {
+      "source_event_id": "s23_payment_close",
+      "before": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-16T16:00:00+08:00",
+      "after": []
+    },
+    "event-024": {
+      "source_event_id": "s24_notice_photo_change",
+      "before": [
+        "release-014"
+      ],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-17T09:30:00+08:00",
+      "after": []
+    },
+    "event-025": {
+      "source_event_id": "s25_final_notice",
+      "before": [],
+      "virtual_stage": 25,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-17T15:00:00+08:00",
+      "after": []
+    }
+  }
+}

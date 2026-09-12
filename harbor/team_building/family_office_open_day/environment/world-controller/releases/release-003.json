@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": ["evt_s4_maps_office_access"],
+  "source_stage": 4,
+  "source_time": "2026-07-04T14:00:00+08:00",
+  "previous": "release-002",
+  "token": "family-office-open-day-release-early-catering-f43ad0c1",
+  "operations": [{
+    "server": "email", "table": "messages", "op": "insert",
+    "values": {
+      "id": 4, "folder_id": 1, "message_id": "<catering-d-quote@example.invalid>",
+      "subject": "light mealsquote", "from_addr": "sender@example.invalid",
+      "to_addr_json": "[\"han.shu@example.invalid\"]", "cc_addr_json": "[]", "bcc_addr_json": "[]",
+      "date": "2026-07-04T10:00:00+08:00",
+      "body_text": "quote 8200 CNY，claimshashalal/vegetarianlow-sugar。",
+      "body_html": "", "is_read": 0, "is_important": 1, "is_flagged": 0,
+      "in_reply_to": "", "references_header": "", "headers_json": "{}",
+      "uid": 4, "size": 500, "created_at": "2026-07-04T02:00:00Z"
+    },
+    "source_event_id": "evt_s4_maps_office_access", "operation_index": 0
+  }]
+}

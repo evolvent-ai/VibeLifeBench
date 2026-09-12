@@ -1,0 +1,24 @@
+{
+  "step": "event-016",
+  "stage": 16,
+  "event_id": "s16_approval_notice",
+  "source_event_id": "s16_approval_notice",
+  "actions": [{"kind": "record_event", "stage": 16}],
+  "response_paraphrase": "Approval and final confirmation are synchronized; internal draft drafts remain pending and no final notice goes out.",
+  "expected_env": {
+  "virtual_stage": 16,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-015"
+  ],
+  "released_mutations": [
+    "release-015"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s16_approval_state_sync", "weight": 1.0},
+    {"check_id": "s16_no_final_notice_yet", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,1 @@
+Gu Ning has asked you to begin comparing current bilingual cultural tours, dim sum experiences, and transportation options in Yuexiu, Guangzhou today. Use the platform's current reviews and package availability rather than conclusions from older projects.

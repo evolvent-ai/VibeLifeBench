@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "s11_mut_permit_conditional"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-09-08T08:00:00+08:00",
+  "previous": "release-004",
+  "token": "coastal-sailing-release-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_permit_conditional",
+        "user_id": "usr_sailing_ops",
+        "source": "harbor-master",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Permit conditional approval",
+        "body": "HP-0919 has conditional approval for Pier B only. Final activation still requires insurance certificate and green marine weather. No drone or public commercial shooting.",
+        "payload_json": "{\"permit\":\"HP-0919\",\"status\":\"conditional\"}",
+        "created_at": "2026-09-08T08:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s11_mut_permit_conditional"
+    }
+  ]
+}

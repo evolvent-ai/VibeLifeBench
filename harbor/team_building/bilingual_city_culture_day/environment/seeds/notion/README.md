@@ -1,0 +1,19 @@
+# bilingualcitycultureevent details：event details
+
+initializestatusevent details 48 event details：1 event detailsworkspace、1 event details、19 event details、20 event detailscontentevent details、1 event detailsdataevent details、4 event detailsdataevent detailsrecordand 2 event details。event detailsprojectevent details、bilingualevent details、culturecontext、vendorevent details、event details、routedetailsandeventpost-event reviewevent details。
+
+event detailscontent；event details、approvaldetailsandevent details，event details。event details、event detailscontent。
+
+event detailsonlyprovideinitializeevent details，eventevent detailsofnotificationevent detailstransactionevent details。
+
+## event details Stage event details
+
+event detailsinitializeevent detailsprojectevent detailsofevent details。event detailsvendor、weather、accountandfeedbackevent detailsofevent details；event detailsinneedrecordevent details，event detailsof last_edited_time。
+
+## sourceevent details
+
+event detailssourceevent detailsprojectevent details、bilingualevent details、cityculturecontext、event detailsandevent details。pages recordevent detailstitle，blocks event detailsbody。event details parent_id and parent_page_id readcompleteevent details，event detailssuggestevent detailsauthorization。publicevent detailsonlyevent detailsheadcountevent detailsandevent detailsdetails；event details、event details、identity documents、addressevent detailscontact detailsevent detailswriteparticipantsevent details。event detailsofevent detailsandevent detailsretainevent details。
+
+event detailsorapprovalsource。event detailsrecordvendorevent details，event detailsverifydateandsourceevent details；event detailsstatusevent details，updateevent detailsandretainold conclusionsevent details。post-event reviewevent detailsonlyevent detailseventandevent details。
+
+event details archived and last_edited_time event details，cannotonlyevent detailstitleevent detailsin。event detailsbilingualcontent，Chineseevent detailsEnglishevent detailsretainevent details，andrecordevent detailscompleteevent details。

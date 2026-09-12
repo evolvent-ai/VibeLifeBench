@@ -1,0 +1,33 @@
+{
+  "step": "event-016",
+  "virtual_stage": 16,
+  "source_event_id": "S16_notification_guest_confirm",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": []
+  },
+  "response": "Maya Rao's final confirmation was read and the one calendar event and guest notes now show 15:20-16:05 on September 18.",
+  "response_paraphrase": "The confirmed guest window is synchronized across the calendar and internal guest notes.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S16_notification_guest_confirm"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_guest_calendar_latest",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s16_guest_notes_latest",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

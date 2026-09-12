@@ -1,0 +1,24 @@
+{
+ "step": "event-011",
+ "stage": 11,
+ "event_id": "S11_factory_notice",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 11
+  }
+ ],
+ "response_paraphrase": "The factory notice was reviewed and a security draft now describes the prototype, lobby, photography, and group-photo boundaries.",
+ "expected_env": {
+  "virtual_stage": 11,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s11_photo_rule_recorded",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "source_event_id": "S11_factory_notice"
+}

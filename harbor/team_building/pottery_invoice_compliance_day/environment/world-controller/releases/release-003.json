@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "s4_roster_constraints_mutation"
+  ],
+  "source_stage": 4,
+  "source_time": "2026-07-05T09:30:00+08:00",
+  "previous": "release-002",
+  "token": "pottery-invoice-compliance-003-token-20260824",
+  "operations": [
+    {
+      "server": "notion",
+      "table": "pages",
+      "op": "insert",
+      "values": {
+        "page_id": "page_tb011_roster_release",
+        "parent_type": "workspace",
+        "parent_id": "ws_tb011",
+        "title": "Registration Summary (First Round)",
+        "archived": 0,
+        "created_time": "2026-07-05T09:20:00+08:00",
+        "last_edited_time": "2026-07-05T09:20:00+08:00",
+        "properties_json": "{\"status\":\"partial\",\"responded\":19,\"total\":27}"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "block_tb011_roster_release",
+        "parent_page_id": "page_tb011_roster_release",
+        "type": "paragraph",
+        "content_json": "19 people responded in the first round; execution restrictions summarized by headcount: 1 person needs a latex alternative, 2 people need low-contact glazes, and 5 people do not eat beef or lamb; 8 people have yet to respond, and their names are not recorded in the supplier materials.",
+        "has_children": 0,
+        "archived": 0,
+        "position": 0,
+        "created_time": "2026-07-05T09:20:00+08:00",
+        "last_edited_time": "2026-07-05T09:20:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "s2_vendor_catalog_mutation"
+  ],
+  "source_stage": 2,
+  "source_time": "2026-07-03T14:00:00+08:00",
+  "previous": "release-000",
+  "token": "pottery-invoice-compliance-001-token-20260824",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "venue_pottery_lumen_heping",
+        "name": "Tao Guang Workshop Heping Branch",
+        "category": "venue",
+        "city": "Tianjin",
+        "area": "Heping District",
+        "address": "88 Munan Road, Heping District",
+        "phone": "022-28176797",
+        "rating_tenths": 45,
+        "review_count": 41,
+        "avg_price_minor": 1332000,
+        "price_band": "$$",
+        "hours": "09:30-20:30",
+        "tags": "Ceramics, team building, service invoice, corporate bank transfer, nitrile gloves, low-contact glazes, teacher qualifications publicly displayed, deposit 2800 yuan, firing takes 7 days",
+        "has_private_room": 1,
+        "max_party_size": 31
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "venue_pottery_southbank",
+        "name": "Southbank Ceramics Society Heping Experience Branch",
+        "category": "venue",
+        "city": "Tianjin",
+        "area": "Heping District",
+        "address": "37 Dali Road, Heping District",
+        "phone": "022-26591464",
+        "rating_tenths": 46,
+        "review_count": 42,
+        "avg_price_minor": 1344000,
+        "price_band": "$$",
+        "hours": "10:30-19:30",
+        "tags": "material-sales invoice,deposit 3200 CNY,over-cap deposit,venue,indoor pottery",
+        "has_private_room": 1,
+        "max_party_size": 32
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "insert",
+      "values": {
+        "deal_id": "deal_pottery_lumen_0703",
+        "merchant_id": "venue_pottery_lumen_heping",
+        "title": "27-person half-day glaze-color co-creation",
+        "description": "Includes wheel throwing, glazing, teacher demonstrations, and centralized firing and delivery; invoicing and qualifications are subject to the written Q&A.",
+        "price_minor": 1339800,
+        "list_price_minor": 1576200,
+        "serves": 27,
+        "valid_until": "2026-07-31",
+        "status": "active"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "insert",
+      "values": {
+        "deal_id": "deal_pottery_south_0703",
+        "merchant_id": "venue_pottery_southbank",
+        "title": "Team hand-building and light-meal package",
+        "description": "Accommodates 27 people; invoice and deposit terms require separate verification.",
+        "price_minor": 1344000,
+        "list_price_minor": 1500000,
+        "serves": 27,
+        "valid_until": "2026-07-31",
+        "status": "active"
+      }
+    }
+  ]
+}

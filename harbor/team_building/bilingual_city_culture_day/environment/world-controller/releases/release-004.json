@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "S8_readiness_review_mutation"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-07-09T08:55:00+08:00",
+  "previous": "release-003",
+  "token": "bilingual-city-culture-day-release-token-004-8f4d2a9c",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_readiness_review_due",
+        "user_id": "usr_gn_m4xqpa",
+        "source": "ops_monitor",
+        "type": "reminder",
+        "subscription_id": null,
+        "title": "July 9 preparation consistency review",
+        "body": "Review email goals, candidate calendar, vendor package, route, weather, budget, and latest notification hub status; record verification time in the risk register.",
+        "payload_json": "{\"check_date\":\"2026-07-09\",\"scope\":[\"email\",\"calendar\",\"vendor\",\"route\",\"weather\",\"budget\",\"notification\"]}",
+        "created_at": "2026-07-09T08:55:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S8_readiness_review_mutation",
+      "operation_index": 0
+    }
+  ]
+}

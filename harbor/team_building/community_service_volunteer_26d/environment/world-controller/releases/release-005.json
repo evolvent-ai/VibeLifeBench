@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "s7_mut_lunch_capacity"
+  ],
+  "source_stage": 7,
+  "source_time": "2026-08-26T09:00:00+08:00",
+  "previous": "release-004",
+  "token": "community-service-release-005-token-9f3a7c2d1e4b6a8c",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "update",
+      "set": {
+        "max_party_size": 22
+      },
+      "where": {
+        "merchant_id": "merch_river_cafe_small_room"
+      }
+    }
+  ]
+}

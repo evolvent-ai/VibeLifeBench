@@ -1,0 +1,51 @@
+{
+  "release_id": "release-007",
+  "previous": "release-006",
+  "token": "cross-dept-book-club-dinner-26d-release-007-token",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "update",
+      "set": {
+        "max_party_size": 60
+      },
+      "where": {
+        "merchant_id": "M_CLOUD_LOFT"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "update",
+      "set": {
+        "status": "sold_out"
+      },
+      "where": {
+        "deal_id": "D_CLOUD_BOOKCLUB"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_venue_capacity_9002",
+        "user_id": "u_ella",
+        "source": "review_platform",
+        "type": "policy_update",
+        "subscription_id": "sub_venue_capacity_watch",
+        "title": "Venue capacity changed",
+        "body": "A watched venue package changed capacity and availability. Re-check the merchant page before reserving.",
+        "payload_json": "{\"merchant_id\":\"M_CLOUD_LOFT\",\"deal_id\":\"D_CLOUD_BOOKCLUB\"}",
+        "created_at": "2026-09-05T02:30:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 12,
+  "source_time": "2026-09-05T02:30:00+08:00",
+  "source_event_ids": [
+    "S12_mut_venue_capacity"
+  ]
+}

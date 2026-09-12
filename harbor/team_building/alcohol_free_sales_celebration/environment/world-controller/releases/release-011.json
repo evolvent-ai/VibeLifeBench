@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "s15_payment_mutation"
+  ],
+  "source_stage": 15,
+  "source_time": "2026-07-16T08:45:00+08:00",
+  "previous": "release-010",
+  "token": "alcohol-free-sales-celebration-release-011-token",
+  "operations": [
+    {
+      "server": "credit_card",
+      "table": "unbilled_transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_celebration_private_0716",
+        "card_id": "card_yehang_team_corp",
+        "posted_at": "2026-07-16T08:40:00+08:00",
+        "amount_minor": 1880000,
+        "merchant_name": "anomalous account-alcohol-free celebrationdeposit",
+        "mcc": "7399",
+        "category": "eventdeposit",
+        "kind": "purchase"
+      }
+    },
+    {
+      "server": "credit_card",
+      "table": "cards",
+      "op": "update",
+      "set": {
+        "unbilled_balance_minor": 2103800,
+        "available_credit_minor": 2896200
+      },
+      "where": {
+        "card_id": "card_yehang_team_corp"
+      }
+    }
+  ]
+}

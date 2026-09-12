@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "s14_mut_dinner_capacity"
+  ],
+  "source_stage": 14,
+  "source_time": "2026-09-11T08:00:00+08:00",
+  "previous": "release-006",
+  "token": "coastal-sailing-release-token",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "update",
+      "set": {
+        "max_party_size": 38
+      },
+      "where": {
+        "merchant_id": "mer_tide_table_dinner"
+      },
+      "source_event_id": "s14_mut_dinner_capacity"
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "update",
+      "set": {
+        "status": "active",
+        "description": "The larger private room is released for the 34-person dinner package; shellfish-free plated service and company invoice are confirmed."
+      },
+      "where": {
+        "deal_id": "deal_tide_table_34"
+      },
+      "source_event_id": "s14_mut_dinner_capacity"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "S12_route_mutation"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-07-13T08:15:00+08:00",
+  "previous": "release-006",
+  "token": "bilingual-city-culture-day-release-token-007-8f4d2a9c",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "road_evt_yuexiu_steps",
+        "road_id": "road_yuexiu_walk",
+        "start_dt": "2026-07-13T08:00:00+08:00",
+        "end_dt": "2026-07-21T20:00:00+08:00",
+        "kind": "closure",
+        "magnitude": 0.85,
+        "note": "New stairway construction barriers affect the Zhongshan Fifth Road pedestrian link. Wheelchair users and low-intensity groups must use the accessible detour via Gongyuanqian Station; team vehicles may not stop at the work entrance.",
+        "active": 1
+      },
+      "source_event_id": "S12_route_mutation",
+      "operation_index": 0
+    }
+  ]
+}

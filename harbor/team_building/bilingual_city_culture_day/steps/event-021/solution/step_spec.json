@@ -1,0 +1,31 @@
+{
+  "step": "event-021",
+  "virtual_stage": 21,
+  "source_event_id": "S21_onsite_adjust",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-014"
+    ],
+    "released_mutations": []
+  },
+  "response": "The closed photo stop and stairway construction were propagated to the post-event record with an accessible detour and group reminders.",
+  "response_paraphrase": "The construction closure is logged and the accessible alternative and pre-lunch group update are recorded.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S21_onsite_adjust",
+      "virtual_stage": 21,
+      "event_kind": "notification",
+      "event_time": "2026-07-21T11:20:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_forklift_update",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

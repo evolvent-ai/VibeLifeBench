@@ -1,0 +1,28 @@
+{
+ "step": "event-018",
+ "stage": 18,
+ "event_id": "S18_preflight",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 18
+  }
+ ],
+ "response_paraphrase": "The policy watch is active and the calendar now carries the preflight details for time, people, protection, route, and insurance.",
+ "expected_env": {
+  "virtual_stage": 18,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s18_preflight_subscription",
+   "weight": 1.5
+  },
+  {
+   "check_id": "s18_calendar_updated",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 3.0,
+ "source_event_id": "S18_preflight"
+}

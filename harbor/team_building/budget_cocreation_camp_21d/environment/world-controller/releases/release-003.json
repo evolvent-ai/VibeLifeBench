@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "S04_mut_material_controls"
+  ],
+  "source_time": "2026-07-26T13:55",
+  "previous": "release-002",
+  "token": "budget-cocreation-camp-21d-release-003-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 73,
+        "unread_count": 65
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "S04_mut_material_controls"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 206,
+        "folder_id": 1,
+        "message_id": "<msg206@example.com>",
+        "subject": "Workshop material return rules",
+        "from_addr": "procurement@example.com",
+        "to_addr_json": "[\"ops-assistant@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-26T13:48:00Z",
+        "body_text": "Reusable badges and privacy sleeves are returnable unopened. Printed workbooks are not returnable after customization.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 206,
+        "size": 113,
+        "created_at": "2026-07-26T13:48:00Z"
+      },
+      "source_event_id": "S04_mut_material_controls"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 213,
+        "folder_id": 1,
+        "message_id": "<msg213@example.com>",
+        "subject": "Collection of restricted worksheets",
+        "from_addr": "security.records@example.com",
+        "to_addr_json": "[\"ops-assistant@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-26T13:50:00Z",
+        "body_text": "Any source-only worksheet used in internal preparation must be collected in opaque sleeves and returned for secure shredding.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 213,
+        "size": 125,
+        "created_at": "2026-07-26T13:50:00Z"
+      },
+      "source_event_id": "S04_mut_material_controls"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_security_sleeves",
+        "user_id": "u_budget_ops",
+        "source": "security",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Restricted worksheet collection",
+        "body": "Use opaque sleeves and return source-only sheets for secure shredding.",
+        "payload_json": "{\"control\":\"document_collection\"}",
+        "created_at": "2026-07-26T13:53:00Z",
+        "read": 0
+      },
+      "source_event_id": "S04_mut_material_controls"
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "blk_material_rules",
+        "parent_block_id": null,
+        "parent_page_id": "page_material_rules",
+        "type": "paragraph",
+        "content_json": "{\"text\":\"Participant materials must be sanitized. Restricted preparation sheets are collected in opaque sleeves and returned for shredding.\"}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 0,
+        "created_time": "2026-07-26T13:52:00Z",
+        "last_edited_time": "2026-07-26T13:52:00Z"
+      },
+      "source_event_id": "S04_mut_material_controls"
+    },
+    {
+      "server": "notion",
+      "table": "pages",
+      "op": "insert",
+      "values": {
+        "page_id": "page_material_rules",
+        "parent_type": "workspace",
+        "parent_id": "ws_budget_camp",
+        "title": "Participant material handling rules",
+        "archived": 0,
+        "created_time": "2026-07-26T13:52:00Z",
+        "last_edited_time": "2026-07-26T13:52:00Z",
+        "properties_json": "{\"owner\":\"Operations\"}",
+        "icon": null,
+        "cover": null
+      },
+      "source_event_id": "S04_mut_material_controls"
+    }
+  ]
+}

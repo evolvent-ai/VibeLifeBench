@@ -1,0 +1,33 @@
+{
+  "step": "event-008",
+  "virtual_stage": 8,
+  "source_event_id": "S8_notification_vendor_quotes",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": []
+  },
+  "response": "Cloud Loft and Spice Kitchen quote emails plus vendor QA records were verified; capacity, invoice, menu, and hold caveats are logged.",
+  "response_paraphrase": "The vendor quotes and QA answers are recorded with their capacity, invoice, menu, and hold limitations.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S8_notification_vendor_quotes"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_vendor_quotes_verified",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s8_venue_caveats_logged",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

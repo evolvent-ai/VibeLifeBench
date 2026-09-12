@@ -1,0 +1,15 @@
+{
+  "step": "event-013",
+  "virtual_stage": 13,
+  "source_event_id": "s13_review_world",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-010"], "released_mutations": ["s13_credential_mutation"]},
+  "response": "I verified the newest credential information, marked missing documents as blockers, and left the alternative option active.",
+  "response_paraphrase": "The primary supplier remains uncommitted while licensing and coverage materials are incomplete.",
+  "actions": [{"kind": "record_event", "source_event_id": "s13_review_world"}],
+  "expected_checks": [
+    {"check_id": "s13_credential_recheck", "weight": 1.75, "expected": true},
+    {"check_id": "s13_vendor_not_locked_without_docs", "weight": 2.0, "expected": true}
+  ],
+  "expected_stage_weight": 3.75
+}

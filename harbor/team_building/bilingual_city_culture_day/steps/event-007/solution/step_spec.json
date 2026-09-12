@@ -1,0 +1,31 @@
+{
+  "step": "event-007",
+  "virtual_stage": 7,
+  "source_event_id": "S7_vendor_qa",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": []
+  },
+  "response": "Guide and dim-sum Q&A, deals, invoices, accessibility, ingredients, bilingual support, and cancellation terms were rechecked.",
+  "response_paraphrase": "Updated Q&A and package records for the guide and tasting venue were reviewed across all key safeguards.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S7_vendor_qa",
+      "virtual_stage": 7,
+      "event_kind": "world",
+      "event_time": "2026-07-08T10:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_qa_reviewed",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

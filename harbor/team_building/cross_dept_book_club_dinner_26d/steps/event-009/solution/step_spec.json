@@ -1,0 +1,33 @@
+{
+  "step": "event-009",
+  "virtual_stage": 9,
+  "source_event_id": "S9_notification_guest_update",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": []
+  },
+  "response": "Maya Rao's 15:20-16:05 September 18 update was read and a single calendar hold was created for the book-sharing salon.",
+  "response_paraphrase": "The guest's September 18 afternoon window is reflected in one calendar hold for the reading salon.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S9_notification_guest_update"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_guest_update_read",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s9_calendar_guest_hold",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

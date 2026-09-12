@@ -1,0 +1,39 @@
+{
+  "release_id": "release-001",
+  "previous": "release-000",
+  "token": "cross-dept-book-club-dinner-26d-release-001-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9204,
+        "folder_id": 1,
+        "message_id": "<book-salon-budget-9204@finance.example>",
+        "subject": "Finance budget classification for reading salon",
+        "from_addr": "finance@example.com",
+        "to_addr_json": "[\"ella.ops@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-28T09:30:00+08:00",
+        "body_text": "Learning budget may cover approved books and facilitator guides only. Venue, dinner, catering, social exchange, and deposits must stay under team-building operations budget. No payment may be made without final written approval.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"X-Approval\":\"FIN-BC-0828\"}",
+        "uid": 9204,
+        "size": 244,
+        "created_at": "2026-08-28T01:30:00Z"
+      }
+    }
+  ],
+  "source_stage": 4,
+  "source_time": "2026-08-28T09:30:00+08:00",
+  "source_event_ids": [
+    "S4_mut_finance_mail"
+  ]
+}

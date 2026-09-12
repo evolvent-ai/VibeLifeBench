@@ -1,0 +1,11 @@
+# Tool Map
+- email: official roster, health/privacy, insurance, finance, permit, and photo-release messages.
+- notification_hub: harbor master, marine weather, permit, and policy official feeds.
+- notion: roster, wave assignment, and source matrix.
+- calendar: planning holds, go/no-go reviews, sailing waves, dinner, and final runbook.
+- weather: marine forecast, wind/wave clues, and active alerts.
+- maps: marina, route, shuttle timing, traffic, and safe shore fallback.
+- review_platform: sailing-charter reservations, dinner reservation, and photographer service.
+- ecommerce: water-activity insurance order and small safety supplies.
+- car_rental: shuttle booking and passenger insurance.
+- banking: official payees and final payments.

@@ -1,0 +1,39 @@
+{
+  "release_id": "release-008",
+  "previous": "release-007",
+  "token": "cross-dept-book-club-dinner-26d-release-008-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9214,
+        "folder_id": 1,
+        "message_id": "<book-only-update-9214@finance.example>",
+        "subject": "Finance update: book-only learning budget",
+        "from_addr": "finance@example.com",
+        "to_addr_json": "[\"ella.ops@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-07T08:50:00+08:00",
+        "body_text": "Updated approval: the learning budget may cover the bulk participant books and facilitator guides after final approval. Dinner, venue, catering, deposits, and social time remain outside the learning and training budget. No payment has been authorized.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "<book-salon-budget-9204@finance.example>",
+        "references_header": "<book-salon-budget-9204@finance.example>",
+        "headers_json": "{\"X-Approval\":\"FIN-BC-0907\"}",
+        "uid": 9214,
+        "size": 272,
+        "created_at": "2026-09-07T00:50:00Z"
+      }
+    }
+  ],
+  "source_stage": 14,
+  "source_time": "2026-09-07T08:50:00+08:00",
+  "source_event_ids": [
+    "S14_mut_finance_update"
+  ]
+}

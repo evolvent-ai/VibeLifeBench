@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-016",
+  "source_event_ids": [
+    "s21_onsite_followup_mutation"
+  ],
+  "source_stage": 21,
+  "source_time": "2026-07-25T10:55:00+08:00",
+  "previous": "release-015",
+  "token": "alcohol-free-sales-celebration-release-016-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_celebration_followup_0725",
+        "user_id": "usr_yh_q7vkma",
+        "source": "onsite_coordination",
+        "type": "followup_request",
+        "subscription_id": null,
+        "title": "post-event additions pending",
+        "body": "dinnertranslated business textextendtranslated business textrecord；sometranslated business textneedsreissueinvoice。vendorseparatelyrequestonsitephotos and stage participant list，translated business texttwotranslated business textauthorizationtranslated business textmust notshare externally。",
+        "payload_json": "{\"operations\":[\"extended_dinner_conversation\",\"invoice_reissue\"],\"restricted_requests\":[\"onsite_photos\",\"stage_participant_names\"]}",
+        "created_at": "2026-07-25T10:55:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

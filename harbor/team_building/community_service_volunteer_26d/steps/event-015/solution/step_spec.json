@@ -1,0 +1,12 @@
+{
+  "step": "event-015",
+  "virtual_stage": 13,
+  "source_event_id": "s13_user_route",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The route plan records pickup and dropoff points, carton capacity, the center entrance, and a disruption buffer.",
+  "response_paraphrase": "Pickup, dropoff, cartons, center entrance handling, and a route buffer are now explicit in the transport plan.",
+  "actions": [{"kind": "user_message", "event_id": "s13_user_route", "virtual_stage": 13, "event_kind": "user_message", "event_time": "2026-09-03T14:00:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s13_authority_trace", "weight": 2.0}, {"check_id": "s13_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

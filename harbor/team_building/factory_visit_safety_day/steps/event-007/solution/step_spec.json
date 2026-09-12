@@ -1,0 +1,24 @@
+{
+ "step": "event-007",
+ "stage": 7,
+ "event_id": "S7_vendor_qa",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 7
+  }
+ ],
+ "response_paraphrase": "Supplier questions, available deals, and merchant details were inspected, with invoice, protection, photography, and cancellation constraints recorded.",
+ "expected_env": {
+  "virtual_stage": 7,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s7_qa_reviewed",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "source_event_id": "S7_vendor_qa"
+}

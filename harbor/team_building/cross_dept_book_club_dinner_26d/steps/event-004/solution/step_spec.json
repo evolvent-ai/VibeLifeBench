@@ -1,0 +1,33 @@
+{
+  "step": "event-004",
+  "virtual_stage": 4,
+  "source_event_id": "S4_notification_finance_mail",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": []
+  },
+  "response": "Finance's formal reading-salon email was read; learning books are separated from venue, dinner, catering, and team-building operations costs.",
+  "response_paraphrase": "The first finance approval is recorded with books separated from venue and dinner operations, and no payment made.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S4_notification_finance_mail"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s4_finance_email_checked",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s4_budget_categories_split",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

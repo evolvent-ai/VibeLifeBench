@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "world"
+    }
+  ],
+  "response": "The gale and small-craft alert require a weather hold; no sailing confirmation is made.",
+  "event_id": "s8_world_weather_hold",
+  "source_event_id": "s8_world_weather_hold",
+  "step": "event-008",
+  "synthetic": false,
+  "virtual_stage": 8,
+  "response_paraphrase": "The official event-window weather is outside the gate, so the outing remains no-go and reversible.",
+  "expected_env": {
+    "virtual_stage": 8
+  },
+  "expected_checks": [
+    {
+      "check_id": "s8_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s8_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

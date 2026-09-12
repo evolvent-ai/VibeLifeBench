@@ -1,0 +1,1 @@
+Finance reports that the transportation payment was settled through a separate approval process and the charter transportation invoice has arrived. Reconcile the transaction, tour and catering invoices, unusual deposit request, and any unpaid items before completing the project archive.

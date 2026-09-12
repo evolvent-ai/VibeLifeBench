@@ -1,0 +1,28 @@
+{
+ "step": "event-000",
+ "stage": 0,
+ "event_id": "S0_brief",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 0
+  }
+ ],
+ "response_paraphrase": "The control page and July 21 hold are recorded, with the approval boundaries kept visible.",
+ "expected_env": {
+  "virtual_stage": 0,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s0_notion_started",
+   "weight": 1.5
+  },
+  {
+   "check_id": "s0_calendar_candidate",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 3.0,
+ "source_event_id": "S0_brief"
+}

@@ -1,0 +1,12 @@
+{
+  "step": "event-009",
+  "virtual_stage": 7,
+  "source_event_id": "s7_lunch_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-005"], "released_mutations": ["s7_mut_lunch_capacity"]},
+  "response": "The small-room lunch option is rechecked and its capacity of 22, invoice support, and dietary limitations are recorded.",
+  "response_paraphrase": "The changed lunch capacity is documented alongside invoice and dietary checks before carrying the venue forward.",
+  "actions": [{"kind": "notification", "event_id": "s7_lunch_notice", "virtual_stage": 7, "event_kind": "notification", "event_time": "2026-08-26T09:10:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s7_authority_trace", "weight": 2.0}, {"check_id": "s7_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

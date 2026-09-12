@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "s4_form_notice_state"
+  ],
+  "source_stage": 4,
+  "source_time": "2026-07-05T09:25:00+08:00",
+  "previous": "release-001",
+  "token": "alcohol-free-sales-celebration-release-002-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_form_round1_jul05",
+        "user_id": "usr_yh_q7vkma",
+        "source": "forms",
+        "type": "form_update",
+        "subscription_id": null,
+        "title": "quarterly celebrationregistrationfirst roundtranslated business text",
+        "body": "first roundtranslated business textalcohol-free drinks、seafood allergy、translated business textquiet exit areatranslated business textlow-pressure interactiontranslated business text；translated business textexportmarktranslated business textaggregate summarytranslated business text，translated business textdisclose individual restrictions。",
+        "payload_json": "{\"response_round\":1,\"status\":\"partial\"}",
+        "created_at": "2026-07-05T09:25:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

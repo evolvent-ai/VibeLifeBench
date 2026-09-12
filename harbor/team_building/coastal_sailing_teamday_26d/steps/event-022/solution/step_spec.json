@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "response": "Compliant boat, dinner, photo, insurance, shuttle, and calendar holds are created after every readiness gate closes.",
+  "event_id": "s22_user_execute",
+  "source_event_id": "s22_user_execute",
+  "step": "event-022",
+  "synthetic": false,
+  "virtual_stage": 22,
+  "response_paraphrase": "All reservations and operational holds were executed against the approved manifest and current safety evidence.",
+  "expected_env": {
+    "virtual_stage": 22
+  },
+  "expected_checks": [
+    {
+      "check_id": "s22_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s22_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

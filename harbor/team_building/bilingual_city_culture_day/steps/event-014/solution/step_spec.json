@@ -1,0 +1,29 @@
+{
+  "step": "event-014",
+  "virtual_stage": 14,
+  "source_event_id": "S14_option",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Confirmation options, safety and privacy risks, the budget ledger, and pending approvals are summarized for Gu Ning.",
+  "response_paraphrase": "Gu Ning receives a concise comparison of confirmable choices, risks, spending, and unresolved approvals.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S14_option",
+      "virtual_stage": 14,
+      "event_kind": "user_message",
+      "event_time": "2026-07-15T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s14_option_summary_draft",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

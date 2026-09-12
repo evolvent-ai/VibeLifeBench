@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "response": "Alice Chen's identifiable internal-gallery consent is revoked; internal use excludes her and public use remains blocked.",
+  "event_id": "s24_notice_photo_change",
+  "source_event_id": "s24_notice_photo_change",
+  "step": "event-024",
+  "synthetic": false,
+  "virtual_stage": 24,
+  "response_paraphrase": "The late withdrawal was reconciled before final communications and the photo boundary was updated.",
+  "expected_env": {
+    "virtual_stage": 24
+  },
+  "expected_checks": [
+    {
+      "check_id": "s24_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s24_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

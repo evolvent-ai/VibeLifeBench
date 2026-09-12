@@ -1,0 +1,24 @@
+{
+ "step": "event-021",
+ "stage": 21,
+ "event_id": "S21_onsite_adjust",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 21
+  }
+ ],
+ "response_paraphrase": "The factory Q&A change is recorded: the forklift lane is separated, the photo point is closed, and the lobby order is updated.",
+ "expected_env": {
+  "virtual_stage": 21,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s21_forklift_update",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "source_event_id": "S21_onsite_adjust"
+}

@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "step_count": 25,
+  "steps": {
+    "event-000": {
+      "source_event_id": "evt_s0_kickoff",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-01T09:00:00+08:00",
+      "after": []
+    },
+    "event-001": {
+      "source_event_id": "evt_s1_hr_goal_mail",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-01T15:00:00+08:00",
+      "after": []
+    },
+    "event-002": {
+      "source_event_id": "evt_s2_property_finance_rules",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T10:30:00+08:00",
+      "after": []
+    },
+    "event-003": {
+      "source_event_id": "evt_s3_vendor_pool_open",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-03T11:00:00+08:00",
+      "after": []
+    },
+    "event-004": {
+      "source_event_id": "evt_s4_maps_office_access",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-04T14:00:00+08:00",
+      "after": []
+    },
+    "event-005": {
+      "source_event_id": "evt_s5_supplies_catalog",
+      "before": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-05T10:00:00+08:00",
+      "after": []
+    },
+    "event-006": {
+      "source_event_id": "evt_s6_user_style_note",
+      "before": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T18:30:00+08:00",
+      "after": []
+    },
+    "event-007": {
+      "source_event_id": "evt_s7_signup_window",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-07T09:30:00+08:00",
+      "after": []
+    },
+    "event-008": {
+      "source_event_id": "evt_s8_scheduled_precheck",
+      "before": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T10:00:00+08:00",
+      "after": []
+    },
+    "event-009": {
+      "source_event_id": "evt_s9_roster_update",
+      "before": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-09T15:00:00+08:00",
+      "after": []
+    },
+    "event-010": {
+      "source_event_id": "evt_s10_quota_watch",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-10T09:20:00+08:00",
+      "after": []
+    },
+    "event-011": {
+      "source_event_id": "evt_s11_material_watch",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-11T11:15:00+08:00",
+      "after": []
+    },
+    "event-012": {
+      "source_event_id": "evt_s12_photo_watch",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-12T09:45:00+08:00",
+      "after": []
+    },
+    "event-013": {
+      "source_event_id": "evt_s13_cert_watch",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T10:15:00+08:00",
+      "after": []
+    },
+    "event-014": {
+      "source_event_id": "evt_s14_user_plan_request",
+      "before": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-14T18:00:00+08:00",
+      "after": []
+    },
+    "event-015": {
+      "source_event_id": "evt_s15_payment_watch",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-15T11:20:00+08:00",
+      "after": []
+    },
+    "event-016": {
+      "source_event_id": "evt_s16_hr_feedback",
+      "before": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-16T10:00:00+08:00",
+      "after": []
+    },
+    "event-017": {
+      "source_event_id": "evt_s17_user_limited_auth",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-17T09:30:00+08:00",
+      "after": []
+    },
+    "event-018": {
+      "source_event_id": "evt_s18_scheduled_final_check",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-24T14:00:00+08:00",
+      "after": []
+    },
+    "event-019": {
+      "source_event_id": "evt_s19_notice_window",
+      "before": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-30T18:00:00+08:00",
+      "after": []
+    },
+    "event-020": {
+      "source_event_id": "evt_s20_activity_start",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-01T09:00:00+08:00",
+      "after": []
+    },
+    "event-021": {
+      "source_event_id": "evt_s21_onsite_adjust",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-01T13:30:00+08:00",
+      "after": []
+    },
+    "event-022": {
+      "source_event_id": "evt_s22_review_watch",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-02T10:20:00+08:00",
+      "after": []
+    },
+    "event-023": {
+      "source_event_id": "evt_s23_invoice_transactions",
+      "before": [
+        "release-011"
+      ],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-04T15:00:00+08:00",
+      "after": []
+    },
+    "event-024": {
+      "source_event_id": "evt_s24_user_archive",
+      "before": [],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-05T18:00:00+08:00",
+      "after": []
+    }
+  }
+}

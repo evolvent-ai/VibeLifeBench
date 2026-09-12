@@ -1,0 +1,12 @@
+{
+  "step": "event-001",
+  "virtual_stage": 0,
+  "source_event_id": "s0_context",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The official kickoff context is checked and the initial Riverside source matrix and planning files are in place.",
+  "response_paraphrase": "Kickoff evidence now anchors the Riverside source matrix and the first controlled planning records.",
+  "actions": [{"kind": "world", "event_id": "s0_context", "virtual_stage": 0, "event_kind": "world", "event_time": "2026-08-20T10:00:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s0_authority_trace", "weight": 2.0}, {"check_id": "s0_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

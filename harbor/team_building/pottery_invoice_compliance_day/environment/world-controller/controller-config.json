@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task": "pottery_invoice_compliance_day",
+  "step_count": 25,
+  "virtual_stage_count": 25,
+  "clock": {
+    "file": "/world-clock/current.json",
+    "key": "world_now",
+    "token_env": "CLOCK_TOKEN"
+  },
+  "databases": {
+    "calendar": "/calendar-env/runtime.db",
+    "credit_card": "/credit-card-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "maps": "/maps-env/runtime.db",
+    "notification_hub": "/notification-hub-env/runtime.db",
+    "notion": "/notion-env/runtime.db",
+    "review_platform": "/review-platform-env/runtime.db"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "step": "event-021",
+  "stage": 21,
+  "event_id": "s21_followup_notice",
+  "source_event_id": "s21_followup_notice",
+  "actions": [{"kind": "record_event", "stage": 21}],
+  "response_paraphrase": "A second set of photos is requested; labels require authorization before any vendor ID is forced.",
+  "expected_env": {
+  "virtual_stage": 21,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-020"
+  ],
+  "released_mutations": [
+    "release-020"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s21_delivery_photo_followup", "weight": 1.0},
+    {"check_id": "s21_no_name_label_to_vendor", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

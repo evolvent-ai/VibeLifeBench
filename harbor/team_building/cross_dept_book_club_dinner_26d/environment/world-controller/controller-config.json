@@ -1,0 +1,15 @@
+{
+  "task": "cross_dept_book_club_dinner_26d",
+  "clock_file": "/world-clock/current.json",
+  "step_count": 26,
+  "servers": [
+    "banking",
+    "calendar",
+    "content_platform",
+    "ecommerce",
+    "email",
+    "notification_hub",
+    "notion",
+    "review_platform"
+  ]
+}

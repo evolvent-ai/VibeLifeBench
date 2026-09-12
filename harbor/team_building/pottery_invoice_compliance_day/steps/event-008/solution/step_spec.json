@@ -1,0 +1,24 @@
+{
+  "step": "event-008",
+  "stage": 8,
+  "event_id": "s8_monitor_notice",
+  "source_event_id": "s8_monitor_notice",
+  "actions": [{"kind": "record_event", "stage": 8}],
+  "response_paraphrase": "The monitor records registration, vendor status, route update, and authorization evidence across refreshed sources.",
+  "expected_env": {
+  "virtual_stage": 8,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-007"
+  ],
+  "released_mutations": [
+    "release-007"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s8_scheduled_monitor_run", "weight": 1.0},
+    {"check_id": "s8_multi_server_refresh", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

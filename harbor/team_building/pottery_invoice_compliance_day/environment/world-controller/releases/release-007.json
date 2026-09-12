@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "s8_monitor_mutation"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-07-09T09:00:00+08:00",
+  "previous": "release-006",
+  "token": "pottery-invoice-compliance-007-token-20260824",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_pottery_monitor_0709",
+        "user_id": "user_luyao_tb011",
+        "source": "team_building_monitor",
+        "type": "policy_update",
+        "title": "Routine check of preparation status",
+        "body": "Registration, vendors, routes, budget, invoices, and authorization status have entered the routine refresh window.",
+        "payload_json": "{\"scope\":\"preparation\"}",
+        "created_at": "2026-07-09T08:55:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

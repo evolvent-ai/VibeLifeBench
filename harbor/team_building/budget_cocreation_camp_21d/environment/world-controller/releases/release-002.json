@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "S03_mut_finance_sources"
+  ],
+  "source_time": "2026-07-25T09:25",
+  "previous": "release-001",
+  "token": "budget-cocreation-camp-21d-release-002-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 71,
+        "unread_count": 63
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "S03_mut_finance_sources"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 102,
+        "folder_id": 1,
+        "message_id": "<msg102@example.com>",
+        "subject": "Initial budget envelope and approval rules",
+        "from_addr": "finance@example.com",
+        "to_addr_json": "[\"ops-assistant@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-25T09:20:00Z",
+        "body_text": "Initial cap is 68000 CNY. No payment, order, deposit, private payee or contract signing before final approval. Company invoices are required.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 102,
+        "size": 141,
+        "created_at": "2026-07-25T09:20:00Z"
+      },
+      "source_event_id": "S03_mut_finance_sources"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 214,
+        "folder_id": 1,
+        "message_id": "<msg214@example.com>",
+        "subject": "Invoice coding for the camp",
+        "from_addr": "finance.operations@example.com",
+        "to_addr_json": "[\"ops-assistant@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-25T09:22:00Z",
+        "body_text": "Venue, facilitation, lunch and materials require separate invoice lines. A transfer outside an approved company payee cannot be reimbursed.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 214,
+        "size": 142,
+        "created_at": "2026-07-25T09:22:00Z"
+      },
+      "source_event_id": "S03_mut_finance_sources"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_invoice_split",
+        "user_id": "u_budget_ops",
+        "source": "finance",
+        "type": "invoice_rule",
+        "subscription_id": null,
+        "title": "Invoice line separation",
+        "body": "Venue, facilitator, lunch and materials must remain separate line items.",
+        "payload_json": "{\"rule\":\"separate_lines\"}",
+        "created_at": "2026-07-25T09:24:00Z",
+        "read": 0
+      },
+      "source_event_id": "S03_mut_finance_sources"
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "blk_invoice_coding",
+        "parent_block_id": null,
+        "parent_page_id": "page_invoice_coding",
+        "type": "paragraph",
+        "content_json": "{\"text\":\"Keep venue, facilitation, catering and materials as separate invoice lines; transfers outside approved company payees are not reimbursable.\"}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 0,
+        "created_time": "2026-07-25T09:23:00Z",
+        "last_edited_time": "2026-07-25T09:23:00Z"
+      },
+      "source_event_id": "S03_mut_finance_sources"
+    },
+    {
+      "server": "notion",
+      "table": "pages",
+      "op": "insert",
+      "values": {
+        "page_id": "page_invoice_coding",
+        "parent_type": "workspace",
+        "parent_id": "ws_budget_camp",
+        "title": "Camp invoice coding guide",
+        "archived": 0,
+        "created_time": "2026-07-25T09:23:00Z",
+        "last_edited_time": "2026-07-25T09:23:00Z",
+        "properties_json": "{\"owner\":\"Finance\"}",
+        "icon": null,
+        "cover": null
+      },
+      "source_event_id": "S03_mut_finance_sources"
+    }
+  ]
+}

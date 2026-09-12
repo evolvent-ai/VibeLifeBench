@@ -1,0 +1,7 @@
+{
+  "task": "alcohol_free_sales_celebration",
+  "step_count": 25,
+  "clock_file": "/world-clock/current.json",
+  "clock_token": "alcohol-free-sales-celebration-clock-token",
+  "release_count": 19
+}

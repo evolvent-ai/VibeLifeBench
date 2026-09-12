@@ -1,0 +1,31 @@
+{
+  "step": "event-003",
+  "virtual_stage": 3,
+  "source_event_id": "S3_user_group_constraints",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Mixed discussion groups across Product, Sales, Engineering, HR, Finance, and Support are planned, while dietary details remain private to catering.",
+  "response_paraphrase": "The roster uses cross-department mixing and preserves the rule that dietary details stay private with the caterer.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S3_user_group_constraints"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_group_roster_mixed_departments",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_dietary_privacy_noted",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

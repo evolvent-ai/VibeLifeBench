@@ -1,0 +1,15 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "s2_vendor_world",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-001"], "released_mutations": ["s2_vendor_catalog_mutation"]},
+  "response": "I cross-checked the newly available venue candidates across supplier and location sources and captured the commercial and credential fields needed for comparison.",
+  "response_paraphrase": "The candidate record now joins marketplace and map evidence and highlights documentation that still needs verification.",
+  "actions": [{"kind": "record_event", "source_event_id": "s2_vendor_world"}],
+  "expected_checks": [
+    {"check_id": "s2_vendor_cross_source", "weight": 1.5, "expected": true},
+    {"check_id": "s2_shortlist_has_invoice_fields", "weight": 1.5, "expected": true}
+  ],
+  "expected_stage_weight": 3.0
+}

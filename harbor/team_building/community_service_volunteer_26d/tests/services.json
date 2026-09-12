@@ -1,0 +1,15 @@
+{
+  "mcp_servers": [
+    "banking",
+    "calendar",
+    "car_rental",
+    "content_platform",
+    "delivery_logistics",
+    "ecommerce",
+    "email",
+    "maps",
+    "notification_hub",
+    "notion",
+    "review_platform"
+  ]
+}

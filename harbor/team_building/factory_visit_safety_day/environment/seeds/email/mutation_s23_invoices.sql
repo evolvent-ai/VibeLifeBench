@@ -1,0 +1,21 @@
+INSERT OR IGNORE INTO messages(id,folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,headers_json,uid,size,created_at)
+SELECT 3033,1,'<inv-bus@bus>','Shanghai-Jiaxing Charter: July 21 charter invoice issued','ops@bus.example.invalid','["wei.ran@example.invalid"]','[]','[]','2026-07-24T08:45:00+08:00','The company-header invoice for the CNY 12,800 charter fee was issued and mailed; invoice number ends 4471 and the itinerary is enclosed.','',0,0,0,'{}',3033,300,'2026-07-24T00:45:00Z'
+WHERE NOT EXISTS (SELECT 1 FROM messages WHERE id = 3033)
+  AND NOT EXISTS (SELECT 1 FROM messages WHERE message_id = '<inv-bus@bus>');
+INSERT INTO messages(folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,headers_json,uid,size,created_at)
+SELECT 1,'<inv-bus@bus>','Shanghai-Jiaxing Charter: July 21 charter invoice issued','ops@bus.example.invalid','["wei.ran@example.invalid"]','[]','[]','2026-07-24T08:45:00+08:00','The company-header invoice for the CNY 12,800 charter fee was issued and mailed; invoice number ends 4471 and the itinerary is enclosed.','',0,0,0,'{}',3033,300,'2026-07-24T00:45:00Z'
+WHERE NOT EXISTS (SELECT 1 FROM messages WHERE message_id = '<inv-bus@bus>');
+INSERT OR IGNORE INTO messages(id,folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,headers_json,uid,size,created_at)
+SELECT 3034,1,'<inv-lunch@lunch>','Hecheng Collaboration: meal invoice and settlement statement','service@lunch.example.invalid','["wei.ran@example.invalid"]','[]','[]','2026-07-24T08:50:00+08:00','Forty-two people ate; the contract minimum settlement is CNY 11,340. The company invoice is issued, with three vegetarian and two halal meals itemized within the total.','',0,0,0,'{}',3034,320,'2026-07-24T00:50:00Z'
+WHERE NOT EXISTS (SELECT 1 FROM messages WHERE id = 3034)
+  AND NOT EXISTS (SELECT 1 FROM messages WHERE message_id = '<inv-lunch@lunch>');
+INSERT INTO messages(folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,headers_json,uid,size,created_at)
+SELECT 1,'<inv-lunch@lunch>','Hecheng Collaboration: meal invoice and settlement statement','service@lunch.example.invalid','["wei.ran@example.invalid"]','[]','[]','2026-07-24T08:50:00+08:00','Forty-two people ate; the contract minimum settlement is CNY 11,340. The company invoice is issued, with three vegetarian and two halal meals itemized within the total.','',0,0,0,'{}',3034,320,'2026-07-24T00:50:00Z'
+WHERE NOT EXISTS (SELECT 1 FROM messages WHERE message_id = '<inv-lunch@lunch>');
+INSERT OR IGNORE INTO messages(id,folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,headers_json,uid,size,created_at)
+SELECT 3035,1,'<inv-insure@insure>','Antai Insurance: group accident policy and invoice','broker@insure.example.invalid','["wei.ran@example.invalid"]','[]','[]','2026-07-24T08:55:00+08:00','The group accident policy took effect for the 44 people confirmed at enrollment and expired normally on the event date. Two absences did not change the active policy; the CNY 1,760 company invoice was issued, policy number ending 0721.','',0,0,0,'{}',3035,300,'2026-07-24T00:55:00Z'
+WHERE NOT EXISTS (SELECT 1 FROM messages WHERE id = 3035)
+  AND NOT EXISTS (SELECT 1 FROM messages WHERE message_id = '<inv-insure@insure>');
+INSERT INTO messages(folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,headers_json,uid,size,created_at)
+SELECT 1,'<inv-insure@insure>','Antai Insurance: group accident policy and invoice','broker@insure.example.invalid','["wei.ran@example.invalid"]','[]','[]','2026-07-24T08:55:00+08:00','The group accident policy took effect for the 44 people confirmed at enrollment and expired normally on the event date. Two absences did not change the active policy; the CNY 1,760 company invoice was issued, policy number ending 0721.','',0,0,0,'{}',3035,300,'2026-07-24T00:55:00Z'
+WHERE NOT EXISTS (SELECT 1 FROM messages WHERE message_id = '<inv-insure@insure>');

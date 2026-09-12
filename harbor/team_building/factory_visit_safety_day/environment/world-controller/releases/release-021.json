@@ -1,0 +1,23 @@
+{
+  "release_id": "release-021",
+  "before_step": "event-024",
+  "previous": "release-020",
+  "token": "factory-visit-safety-day-release-021-20260824",
+  "operations": [
+    {
+      "source_event_id": "S24_review_window_mutation",
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_factory_followup",
+        "merchant_id": "mer_7a4c19d2",
+        "user_id": "user_seed_tb_013",
+        "question": "What else could be improved about the high-decibel sound warnings and group arrangements for this visit?",
+        "answer": "It is recommended that next time a separate safety reminder be sent one day before departure, and that earplug distribution be completed during gate registration.",
+        "answered_by": "merchant",
+        "created_at": "2026-07-25T02:00:00Z"
+      }
+    }
+  ]
+}

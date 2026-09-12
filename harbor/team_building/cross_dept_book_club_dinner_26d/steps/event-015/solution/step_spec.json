@@ -1,0 +1,33 @@
+{
+  "step": "event-015",
+  "virtual_stage": 15,
+  "source_event_id": "S15_world_book_restock",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": []
+  },
+  "response": "The restock notification was checked: SK_BOOK_CULTURE_PAPER is 128 and BOOKCLUB600 is available; the cart remains reversible and unordered.",
+  "response_paraphrase": "The restocked catalog and BOOKCLUB600 coupon are recorded, with purchasing deferred and the cart reversible.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S15_world_book_restock"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_book_restock_rechecked",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s15_cart_not_ordered",
+      "weight": 0.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

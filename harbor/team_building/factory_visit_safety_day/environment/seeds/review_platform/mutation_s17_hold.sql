@@ -1,0 +1,2 @@
+UPDATE deals SET status='active' WHERE deal_id='deal_factory_013_visit';
+INSERT OR IGNORE INTO merchant_qa(qa_id,merchant_id,user_id,question,answer,answered_by,created_at) VALUES ('qa_factory_credential_ok','mer_7a4c19d2','vendor','Has the insurance attachment been completed?','It is complete and passed platform review; visit places are available to reserve again.','merchant','2026-07-18T00:30:00Z');

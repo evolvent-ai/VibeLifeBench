@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "release_id": "release-016",
+  "source_event_ids": [
+    "S23_invoice_mutation"
+  ],
+  "source_stage": 23,
+  "source_time": "2026-07-24T08:30:00+08:00",
+  "previous": "release-015",
+  "token": "bilingual-city-culture-day-release-token-016-8f4d2a9c",
+  "operations": [
+    {
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_yuexiu_coach_settlement",
+        "account_id": "acct_culture_main",
+        "posted_at": "2026-07-23T10:00:00+08:00",
+        "amount_minor": -1280000,
+        "kind": "payment",
+        "counterparty": "Yuexiu Companion Transport Services Co.",
+        "memo": "Separate approval workflow settled; charter transportation invoice received and awaiting project archive.",
+        "balance_after_minor": 8520000
+      },
+      "source_event_id": "S23_invoice_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {
+        "balance_minor": 8520000
+      },
+      "where": {
+        "account_id": "acct_culture_main"
+      },
+      "source_event_id": "S23_invoice_mutation",
+      "operation_index": 1
+    }
+  ]
+}

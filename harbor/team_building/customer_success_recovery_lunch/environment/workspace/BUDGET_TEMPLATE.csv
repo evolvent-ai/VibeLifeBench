@@ -1,0 +1,4 @@
+item,estimate_minor,invoice_required,authorization_status,notes
+context,context,yes,needs_confirm,context8000context
+facilitator,context,yes,needs_confirm,context
+catering,context,yes,hold,context

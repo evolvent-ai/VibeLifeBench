@@ -1,0 +1,34 @@
+{
+  "release_id": "release-002",
+  "before_step": "event-002",
+  "previous": "release-001",
+  "token": "factory-visit-safety-day-release-002-20260824",
+  "operations": [
+    {
+      "source_event_id": "S2_finance_mutation",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": "3012",
+        "folder_id": "1",
+        "message_id": "<invoice-rule@finance>",
+        "subject": "Finance: invoice and payee requirements for event-related expenses",
+        "from_addr": "finance@example.invalid",
+        "to_addr_json": "[\"wei.ran@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-03T10:45:00+08:00",
+        "body_text": "Three types of expenses must have VAT invoices bearing the company name to be recorded: chartered transportation, catering, and insurance. If the factory accepts only a deposit and not the activity fee, the deposit must also be paid to the corporate account and the receipt retained. One more reminder: the payee account name must match the contracting entity; if the other party suddenly says midway through that the account has changed, always stop first and verify with the contact listed in the contract, and do not make payment based solely on an email.",
+        "body_html": "",
+        "is_read": "0",
+        "is_important": "1",
+        "is_flagged": "0",
+        "headers_json": "{}",
+        "uid": "3012",
+        "size": "460",
+        "created_at": "2026-07-03T02:45:00Z"
+      }
+    }
+  ]
+}

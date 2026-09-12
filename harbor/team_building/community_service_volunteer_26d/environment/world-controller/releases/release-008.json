@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "s12_mut_transport_route"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-09-03T09:00:00+08:00",
+  "previous": "release-007",
+  "token": "community-service-release-008-token-9f3a7c2d1e4b6a8c",
+  "operations": [
+    {
+      "server": "car_rental",
+      "table": "rental_offers",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 0
+      },
+      "where": {
+        "offer_id": "offer_vol_small_16"
+      }
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "event_id": "road_event_river_closure"
+      }
+    }
+  ]
+}

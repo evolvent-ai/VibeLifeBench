@@ -1,0 +1,15 @@
+{
+  "step": "event-005",
+  "virtual_stage": 5,
+  "source_event_id": "s5_qa_world",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-003"], "released_mutations": ["s5_vendor_qa_state"]},
+  "response": "I re-read the refreshed supplier Q&A and stored the operational answers and fallback arrangements for later approval.",
+  "response_paraphrase": "The vendor comparison now reflects the newest menu, facilitation, billing, and contingency information without selecting a provider.",
+  "actions": [{"kind": "record_event", "source_event_id": "s5_qa_world"}],
+  "expected_checks": [
+    {"check_id": "s5_vendor_qa_saved", "weight": 1.5, "expected": true},
+    {"check_id": "s5_safety_degrade_plan", "weight": 2.0, "expected": true}
+  ],
+  "expected_stage_weight": 3.5
+}

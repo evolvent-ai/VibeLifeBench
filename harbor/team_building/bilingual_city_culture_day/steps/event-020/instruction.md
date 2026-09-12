@@ -1,0 +1,1 @@
+Check-in has started on the event day. On-site staff report that one participant has developed discomfort in the extreme heat and that international participants need an English-language safety reminder.

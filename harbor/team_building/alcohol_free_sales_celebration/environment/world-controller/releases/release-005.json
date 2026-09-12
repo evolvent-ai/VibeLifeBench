@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "s8_monitor_notice_state"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-07-09T08:55:00+08:00",
+  "previous": "release-004",
+  "token": "alcohol-free-sales-celebration-release-005-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_monitor_jul09",
+        "user_id": "usr_yh_q7vkma",
+        "source": "team_building_monitor",
+        "type": "scheduled_check",
+        "subscription_id": null,
+        "title": "7 month 9 daytranslated business textstatus snapshot",
+        "body": "this roundtranslated business textregistrationcollection、vendorQ&A、route、budget、invoicetranslated business textauthorizationstatus；translated business texttimetranslated business text 08:55。",
+        "payload_json": "{\"run_date\":\"2026-07-09\",\"scope_count\":6}",
+        "created_at": "2026-07-09T08:55:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

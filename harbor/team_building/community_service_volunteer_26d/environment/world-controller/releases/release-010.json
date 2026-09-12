@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "s15_mut_volunteer_update"
+  ],
+  "source_stage": 15,
+  "source_time": "2026-09-04T14:00:00+08:00",
+  "previous": "release-009",
+  "token": "community-service-release-010-token-9f3a7c2d1e4b6a8c",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1203,
+        "folder_id": 1,
+        "message_id": "email_volunteer_qualification_update_0901",
+        "subject": "Volunteer qualification update",
+        "from_addr": "people-team@company.example",
+        "to_addr_json": "[\"maya.csr@company.example\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-04T14:00:00+08:00",
+        "body_text": "Official volunteer roster update: 24 employees confirmed. Named roster: Avery Zhou, Bella Wang, Caleb Qian, Drew Lin, Evan Zhu, Fiona Yu, Grace Liu, Hannah Zhao, Iris Chen, Jason Wu, Kelly Sun, Leo Huang, Mina Gu, Nora Tang, Oscar He, Paula Shen, Quinn Lu, Rita Ma, Samir Xu, Tina Gao, Uma Fang, Victor Ren, Wendy Lai, Xander Mo. Elder-service orientation: Avery Zhou, Bella Wang, Caleb Qian, Fiona Yu, Grace Liu, Hannah Zhao, Iris Chen, Jason Wu, Kelly Sun, Leo Huang, Mina Gu, Nora Tang, Oscar He, Paula Shen. Food-handling training: Quinn Lu, Rita Ma, Samir Xu, Tina Gao, Uma Fang, Victor Ren. Drew Lin and Evan Zhu are logistics-only because required orientation is missing. Wendy Lai and Xander Mo can support check-in and packing only unless the center gives additional orientation. Assign logistics-only volunteers away from direct beneficiary support and food handling.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 1203,
+        "size": 877,
+        "created_at": "2026-09-04T14:00:00+08:00"
+      }
+    }
+  ]
+}

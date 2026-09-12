@@ -1,0 +1,136 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "cross-dept-book-club-dinner-26d-release-004-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9208,
+        "folder_id": 1,
+        "message_id": "<cloud-loft-quote-9208@example>",
+        "subject": "Cloud Loft quote for book club",
+        "from_addr": "sales@cloudloft.example",
+        "to_addr_json": "[\"ella.ops@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-01T09:12:00+08:00",
+        "body_text": "The workshop package currently lists 82 seats, projector use, and a corporate invoice. Final usable capacity remains subject to the next fire-inspection update, so the quote is not a capacity guarantee.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"X-Quote\":\"CL-0901\"}",
+        "uid": 9208,
+        "size": 226,
+        "created_at": "2026-09-01T01:12:00Z"
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9209,
+        "folder_id": 1,
+        "message_id": "<spice-package-9209@example>",
+        "subject": "Spice Kitchen package quotation",
+        "from_addr": "events@spicekitchen.example",
+        "to_addr_json": "[\"ella.ops@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-01T09:16:00+08:00",
+        "body_text": "The low-price banquet quote is provisional. Invoice treatment and use of the shared sauce station must be confirmed before the package can be recommended for a group with allergy controls.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"X-Quote\":\"SK-0901\"}",
+        "uid": 9209,
+        "size": 211,
+        "created_at": "2026-09-01T01:16:00Z"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "QA_CLOUD_CAP",
+        "merchant_id": "M_CLOUD_LOFT",
+        "user_id": "u_ella",
+        "question": "Can you host 79 people on Sep 18 with invoice and projector?",
+        "answer": "The current quote lists up to 82 seats, but usable capacity depends on the pending fire-inspection update.",
+        "answered_by": "Cloud Loft Sales",
+        "created_at": "2026-09-01T01:12:00Z"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "QA_FORUM_CAP",
+        "merchant_id": "M_FORUM_ATRIUM",
+        "user_id": "u_ella",
+        "question": "Can you host 79 people on Sep 18 with projector, whiteboard, invoice, and a zero-deposit hold?",
+        "answer": "Yes. The afternoon-evening slot supports 79 people, accessible seating, projector, whiteboard, corporate invoice, and a cancellable zero-deposit hold.",
+        "answered_by": "Harbor Forum Ops",
+        "created_at": "2026-09-01T01:14:00Z"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "QA_CEDAR_MENU",
+        "merchant_id": "M_CEDAR_TABLE",
+        "user_id": "u_ella",
+        "question": "Can you handle vegetarian and peanut-allergy requirements and issue a corporate invoice?",
+        "answer": "The standard private dinner supports vegetarian dishes, a peanut-free service lane, isolated utensils, and a corporate invoice.",
+        "answered_by": "Cedar Table Manager",
+        "created_at": "2026-09-01T01:15:00Z"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "QA_SPICE_INVOICE",
+        "merchant_id": "M_SPICE_KITCHEN",
+        "user_id": "u_ella",
+        "question": "Does the low-price package issue an invoice and isolate peanuts?",
+        "answer": "The initial desk answer is provisional: invoice treatment can be discussed, and the low-price package uses the shared sauce station.",
+        "answered_by": "Spice Kitchen Desk",
+        "created_at": "2026-09-01T01:16:00Z"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "QA_PRIVATE_CAP",
+        "merchant_id": "M_PRIVATE_DINER",
+        "user_id": "u_ella",
+        "question": "Can you host 79 people with a corporate invoice?",
+        "answer": "The dining room normally caps at 72, and the low-deposit package does not guarantee a corporate invoice.",
+        "answered_by": "Private Lane",
+        "created_at": "2026-09-01T01:18:00Z"
+      }
+    }
+  ],
+  "source_stage": 8,
+  "source_time": "2026-09-01T09:20:00+08:00",
+  "source_event_ids": [
+    "S8_mut_vendor_quotes"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "mut_s11_catering_label_error"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-07-11T10:00:00+08:00",
+  "previous": "release-000",
+  "token": "customer-success-recovery-lunch-release-001-token",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_catering_label_error",
+        "merchant_id": "caterer_lunch_d",
+        "user_id": "vendor_ops",
+        "question": "Catering labels and halal/lactose alternatives",
+        "answer": "The prior quote mislabeled a milk dessert as low-lactose and packed halal meals with regular meals; revise to independent labels and separate boxes, with a tax-included corrected price of 7800 CNY.",
+        "answered_by": "catering_ops",
+        "created_at": "2026-07-11T10:00:00+08:00"
+      },
+      "source_event_id": "mut_s11_catering_label_error",
+      "operation_index": 0
+    }
+  ]
+}

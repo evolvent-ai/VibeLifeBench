@@ -1,0 +1,15 @@
+{
+  "step": "event-009",
+  "virtual_stage": 9,
+  "source_event_id": "s9_maps_world",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-006"], "released_mutations": ["s9_route_state_mutation"]},
+  "response": "I recalculated travel to both candidates and documented practical arrival, waiting, and return guidance for the changed conditions.",
+  "response_paraphrase": "Both venue routes have been checked again, including the revised pickup and indoor gathering arrangements.",
+  "actions": [{"kind": "record_event", "source_event_id": "s9_maps_world"}],
+  "expected_checks": [
+    {"check_id": "s9_route_parking_recheck", "weight": 1.5, "expected": true},
+    {"check_id": "s9_accessible_waiting_point", "weight": 1.25, "expected": true}
+  ],
+  "expected_stage_weight": 2.75
+}

@@ -1,0 +1,24 @@
+{
+ "step": "event-008",
+ "stage": 8,
+ "event_id": "S8_scheduled_check",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 8
+  }
+ ],
+ "response_paraphrase": "The scheduled consistency pass covered supplier, mail, and calendar records, and the follow-up notes were refreshed.",
+ "expected_env": {
+  "virtual_stage": 8,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s8_scheduled_monitor",
+   "weight": 1.0
+  }
+ ],
+ "expected_stage_weight": 1.0,
+ "source_event_id": "S8_scheduled_check"
+}

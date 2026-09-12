@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-015",
+  "source_event_ids": [
+    "s20_onsite_state"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-07-24T18:25:00+08:00",
+  "previous": "release-014",
+  "token": "alcohol-free-sales-celebration-release-015-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_onsite_pressure_jul24",
+        "user_id": "usr_yh_q7vkma",
+        "source": "onsite",
+        "type": "incident",
+        "subscription_id": null,
+        "title": "onsitetranslated business textfeedback",
+        "body": "18:25 a participanttranslated business texttemporary alcohol request，translated business textparticipantsconcernedtranslated business textcall outtranslated business text；onsite contacttranslated business textrecordtable numbertranslated business texttime，translated business textrecordhealthtranslated business text。",
+        "payload_json": "{\"alcohol_request\":true,\"stage_pressure\":true,\"medical_assessment\":false}",
+        "created_at": "2026-07-24T18:25:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

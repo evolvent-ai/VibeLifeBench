@@ -1,0 +1,4 @@
+-- Stage 15 (2026-07-16): supplier[han-6765][han-4fe1][han-8981][han-6c42][han-628a]deposit[han-6539][han-6c47][han-5230][han-4e00][han-4e2a][han-4e34][han-65f6]personal account。
+-- [han-8be5][han-6536][han-6b3e][han-65b9][han-5728][han-6b64][han-4e4b][han-524d][han-4e0d][han-5b58][han-5728][han-4e8e][han-901a][han-8baf][han-5f55][han-4e2d]；[han-672c] mutation [han-53ea][han-843d][han-5730]“pending[han-6838][han-9a8c][han-6536][han-6b3e][han-65b9]”[han-8fd9][han-4e00]risk[han-4e8b][han-5b9e]。
+-- [han-4e0d][han-521b][han-5efa] pending payment、[han-4e0d][han-521b][han-5efa] recurring schedule，[han-4e5f][han-4e0d][han-4ea7][han-751f][han-4efb][han-4f55] debit/deposit/refund transaction。
+INSERT OR IGNORE INTO payees(payee_id,user_id,name,bank_name,account_no,account_no_masked,added_at) VALUES ('pay_factory_temp','user_seed_tb_013','Jiaxing Smart Manufacturing temporary account','personal account','6222000130139999','************9999','2026-07-16T00:15:00Z');

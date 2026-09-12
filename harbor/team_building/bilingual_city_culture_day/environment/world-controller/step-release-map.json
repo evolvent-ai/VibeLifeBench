@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "step_count": 25,
+  "steps": {
+    "event-000": {
+      "source_event_id": "S0_brief",
+      "before": [],
+      "after": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-01T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "S1_goal_mail",
+      "before": [
+        "release-000"
+      ],
+      "after": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T10:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "S2_budget_finance",
+      "before": [
+        "release-001"
+      ],
+      "after": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-03T11:00:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "S3_roster_update",
+      "before": [],
+      "after": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-04T09:30:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "S4_vendor_scan",
+      "before": [],
+      "after": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-05T14:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "S5_route_window",
+      "before": [],
+      "after": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T09:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "S6_privacy_pressure",
+      "before": [
+        "release-002"
+      ],
+      "after": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-07T15:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "S7_vendor_qa",
+      "before": [
+        "release-003"
+      ],
+      "after": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T10:30:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "S8_scheduled_check",
+      "before": [
+        "release-004"
+      ],
+      "after": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-09T09:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "S9_shortlist_request",
+      "before": [],
+      "after": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-10T16:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "S10_access_watch",
+      "before": [
+        "release-005"
+      ],
+      "after": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-11T09:00:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "S11_menu_notice",
+      "before": [
+        "release-006"
+      ],
+      "after": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-12T10:00:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "S12_transport_watch",
+      "before": [
+        "release-007"
+      ],
+      "after": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T11:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "S13_vendor_change",
+      "before": [
+        "release-008"
+      ],
+      "after": [],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-14T09:30:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "S14_option",
+      "before": [],
+      "after": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-15T09:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "S15_payment_watch",
+      "before": [
+        "release-009"
+      ],
+      "after": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-16T10:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "S16_approver_feedback",
+      "before": [
+        "release-010"
+      ],
+      "after": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-17T15:00:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "S17_user_authorization",
+      "before": [],
+      "after": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-18T09:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "S18_preflight",
+      "before": [
+        "release-011"
+      ],
+      "after": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-19T09:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "S19_final_reminder",
+      "before": [
+        "release-012"
+      ],
+      "after": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-20T17:30:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "S20_event_start",
+      "before": [
+        "release-013"
+      ],
+      "after": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-21T08:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "S21_onsite_adjust",
+      "before": [
+        "release-014"
+      ],
+      "after": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-21T11:20:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "S22_feedback_notice",
+      "before": [
+        "release-015"
+      ],
+      "after": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-22T15:00:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "S23_invoice_archive",
+      "before": [
+        "release-016"
+      ],
+      "after": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-24T09:30:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "S24_final_review",
+      "before": [],
+      "after": [],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-25T18:00:00+08:00"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "world"
+    }
+  ],
+  "response": "The late official check is green: 18 km/h wind, 0.8 m wave clue, and no active small-craft alert.",
+  "event_id": "s21_world_weather_green",
+  "source_event_id": "s21_world_weather_green",
+  "step": "event-021",
+  "synthetic": false,
+  "virtual_stage": 21,
+  "response_paraphrase": "The cleared nearshore forecast was rechecked and the weather workspace now records a safe window.",
+  "expected_env": {
+    "virtual_stage": 21
+  },
+  "expected_checks": [
+    {
+      "check_id": "s21_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s21_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

@@ -1,0 +1,12 @@
+{
+  "step": "event-002",
+  "virtual_stage": 1,
+  "source_event_id": "s1_policy_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-000"], "released_mutations": ["s1_mut_policy_notice"]},
+  "response": "CSR policy guidance is reconciled: donation, privacy, media, and team-building-fund boundaries are recorded before vendor decisions.",
+  "response_paraphrase": "The policy review captures CSR donation and privacy red lines before any supplier commitment.",
+  "actions": [{"kind": "notification", "event_id": "s1_policy_notice", "virtual_stage": 1, "event_kind": "notification", "event_time": "2026-08-21T09:00:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s1_authority_trace", "weight": 2.0}, {"check_id": "s1_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

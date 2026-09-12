@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "s20_mut_insurance_cert"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-09-16T10:00:00+08:00",
+  "previous": "release-011",
+  "token": "coastal-sailing-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 910004,
+        "folder_id": 1,
+        "message_id": "email_crewsafe_certificate",
+        "subject": "CrewSafe certificate issued",
+        "from_addr": "insurance-desk@company.example",
+        "to_addr_json": "[\"lin.qiao@company.example\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-16T10:00:00+08:00",
+        "body_text": "CrewSafe certificate CS-0916-29 is issued for 29 named adult boarding participants only. It excludes minors and anyone without a water waiver. Shore/dinner guests are not on-water insured. Certificate becomes active after CrewSafe marketplace order for 29 adult day units.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 910004,
+        "size": 272,
+        "created_at": "2026-09-16T10:00:00+08:00"
+      },
+      "source_event_id": "s20_mut_insurance_cert"
+    }
+  ]
+}

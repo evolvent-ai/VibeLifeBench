@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "s10_invoice_mutation"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-07-11T09:00:00+08:00",
+  "previous": "release-008",
+  "token": "pottery-invoice-compliance-009-token-20260824",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "update",
+      "set": {
+        "answer": "Only material-sales invoice is available; awaiting HQ confirmation; cannot lock yet."
+      },
+      "where": {
+        "qa_id": "qa_lumen_invoice"
+      }
+    }
+  ]
+}

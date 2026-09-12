@@ -1,0 +1,50 @@
+{
+  "release_id": "release-011",
+  "before_step": "event-012",
+  "previous": "release-010",
+  "token": "factory-visit-safety-day-release-011-20260824",
+  "operations": [
+    {
+      "source_event_id": "S12_driver_mutation",
+      "server": "maps",
+      "table": "road_events",
+      "op": "insert",
+      "values": {
+        "event_id": "road_evt_driver_doc",
+        "road_id": "road_sh_jx_g60",
+        "start_dt": "2026-07-13T08:00:00+08:00",
+        "end_dt": "2026-07-21T08:00:00+08:00",
+        "kind": "heavy_traffic",
+        "magnitude": "1.2",
+        "note": "The charter vehicle driver's qualification documents are incomplete and must be reviewed before departure",
+        "active": "1"
+      }
+    },
+    {
+      "source_event_id": "S12_driver_mutation",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": "3022",
+        "folder_id": "1",
+        "message_id": "<driver-doc@bus>",
+        "subject": "Hu-Jia chartered vehicle: Explanation of supplementary documents for driver qualifications",
+        "from_addr": "ops@bus.example.invalid",
+        "to_addr_json": "[\"wei.ran@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-13T08:10:00+08:00",
+        "body_text": "Wang's professional qualification certificate is currently being renewed, and the paper copy has not arrived yet. We can have Li drive instead; his A1 certificate and professional qualification are both valid, or we can wait until Wang's certificate arrives before deciding, but that would delay things until the 19th. We will proceed with whichever option you prefer.",
+        "body_html": "",
+        "is_read": "0",
+        "is_important": "1",
+        "is_flagged": "0",
+        "headers_json": "{}",
+        "uid": "3022",
+        "size": "400",
+        "created_at": "2026-07-13T00:10:00Z"
+      }
+    }
+  ]
+}

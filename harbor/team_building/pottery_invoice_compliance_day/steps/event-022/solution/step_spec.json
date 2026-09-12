@@ -1,0 +1,24 @@
+{
+  "step": "event-022",
+  "stage": 22,
+  "event_id": "s22_feedback_world",
+  "source_event_id": "s22_feedback_world",
+  "actions": [{"kind": "record_event", "stage": 22}],
+  "response_paraphrase": "Feedback and risks are stored, with privacy and vendor controls added to the next SOP.",
+  "expected_env": {
+  "virtual_stage": 22,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-021"
+  ],
+  "released_mutations": [
+    "release-021"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s22_feedback_ingested", "weight": 1.0},
+    {"check_id": "s22_sop_risk_items", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

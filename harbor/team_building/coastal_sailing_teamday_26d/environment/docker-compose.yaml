@@ -1,0 +1,352 @@
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      workspace-init:
+        condition: service_completed_successfully
+      world-controller:
+        condition: service_healthy
+      banking:
+        condition: service_healthy
+      calendar:
+        condition: service_healthy
+      car-rental:
+        condition: service_healthy
+      ecommerce:
+        condition: service_healthy
+      email:
+        condition: service_healthy
+      maps:
+        condition: service_healthy
+      notification-hub:
+        condition: service_healthy
+      notion:
+        condition: service_healthy
+      review-platform:
+        condition: service_healthy
+      weather:
+        condition: service_healthy
+    volumes:
+    - workspace-state:/workspace
+    - eval-evidence:/harbor/evidence:ro
+    - world-clock:/world-clock:ro
+    - agent-logs:/logs/agent
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+  workspace-init:
+    build:
+      context: .
+      dockerfile: workspace-init/Dockerfile
+    volumes:
+    - workspace-state:/target
+    restart: 'no'
+  banking:
+    build:
+      context: ./servers/banking_mock
+    volumes:
+    - ./seeds/banking:/env-seed:ro
+    - banking-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  calendar:
+    build:
+      context: ./servers/calendar_mock
+    volumes:
+    - ./seeds/calendar:/env-seed:ro
+    - calendar-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  car-rental:
+    build:
+      context: ./servers/car_rental_mock
+    volumes:
+    - ./seeds/car_rental:/env-seed:ro
+    - car-rental-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  ecommerce:
+    build:
+      context: ./servers/ecommerce_mock
+    volumes:
+    - ./seeds/ecommerce:/env-seed:ro
+    - ecommerce-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  email:
+    build:
+      context: ./servers/email_mock
+    volumes:
+    - ./seeds/email:/env-seed:ro
+    - email-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  maps:
+    build:
+      context: ./servers/maps_mock
+    volumes:
+    - ./seeds/maps:/env-seed:ro
+    - maps-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  notification-hub:
+    build:
+      context: ./servers/notification_hub_mock
+    volumes:
+    - ./seeds/notification_hub:/env-seed:ro
+    - notification-hub-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  notion:
+    build:
+      context: ./servers/notion_mock
+    volumes:
+    - ./seeds/notion:/env-seed:ro
+    - notion-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  review-platform:
+    build:
+      context: ./servers/review_platform_mock
+    volumes:
+    - ./seeds/review_platform:/env-seed:ro
+    - review-platform-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  weather:
+    build:
+      context: ./servers/weather_mock
+    volumes:
+    - ./seeds/weather:/env-seed:ro
+    - weather-env:/env
+    - world-clock:/world-clock:ro
+    expose:
+    - '8000'
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+  world-controller:
+    build:
+      context: .
+      dockerfile: world-controller/Dockerfile
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      CLOCK_TOKEN: coastal-sailing-clock-token
+      HEALTH_TOKEN: coastal-sailing-health-token
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,calendar,car-rental,ecommerce,email,maps,notification-hub,notion,review-platform,weather
+    depends_on:
+      workspace-init:
+        condition: service_completed_successfully
+      banking:
+        condition: service_healthy
+      calendar:
+        condition: service_healthy
+      car-rental:
+        condition: service_healthy
+      ecommerce:
+        condition: service_healthy
+      email:
+        condition: service_healthy
+      maps:
+        condition: service_healthy
+      notification-hub:
+        condition: service_healthy
+      notion:
+        condition: service_healthy
+      review-platform:
+        condition: service_healthy
+      weather:
+        condition: service_healthy
+    volumes:
+    - world-clock:/world-clock
+    - workspace-state:/workspace-source:ro
+    - eval-evidence:/evidence
+    - controller-state:/controller-state
+    - banking-env:/banking-env
+    - calendar-env:/calendar-env
+    - car-rental-env:/car-rental-env
+    - ecommerce-env:/ecommerce-env
+    - email-env:/email-env
+    - maps-env:/maps-env
+    - notification-hub-env:/notification-hub-env
+    - notion-env:/notion-env
+    - review-platform-env:/review-platform-env
+    - weather-env:/weather-env
+    expose:
+    - '8090'
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health',timeout=2).read()
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 3s
+volumes:
+  workspace-state: null
+  eval-evidence: null
+  world-clock: null
+  controller-state: null
+  agent-logs: null
+  banking-env: null
+  calendar-env: null
+  car-rental-env: null
+  ecommerce-env: null
+  email-env: null
+  maps-env: null
+  notification-hub-env: null
+  notion-env: null
+  review-platform-env: null
+  weather-env: null

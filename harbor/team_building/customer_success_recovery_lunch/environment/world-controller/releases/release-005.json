@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "mut_s22_late_need"
+  ],
+  "source_stage": 22,
+  "source_time": "2026-07-22T10:00:00+08:00",
+  "previous": "release-004",
+  "token": "customer-success-recovery-lunch-release-005-token",
+  "operations": [
+    {
+      "server": "notion",
+      "table": "pages",
+      "op": "insert",
+      "values": {
+        "page_id": "page_survey_support_low",
+        "parent_type": "workspace",
+        "parent_id": "ws_tb",
+        "title": "Low satisfaction: Technical Support participation",
+        "archived": 0,
+        "created_time": "2026-07-22T10:00:00+08:00",
+        "last_edited_time": "2026-07-22T10:00:00+08:00",
+        "properties_json": "{\"score\":3.5,\"group\":\"Technical Support\",\"note\":\"Duty coverage caused some people to miss the review\"}",
+        "icon": "",
+        "cover": ""
+      },
+      "source_event_id": "mut_s22_late_need",
+      "operation_index": 0
+    }
+  ]
+}

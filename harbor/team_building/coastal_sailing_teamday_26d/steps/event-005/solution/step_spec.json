@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "world"
+    }
+  ],
+  "response": "The insured shuttle route, passenger coverage, seat requirement, and traffic buffer are documented.",
+  "event_id": "s5_transport",
+  "source_event_id": "s5_transport",
+  "step": "event-005",
+  "synthetic": false,
+  "virtual_stage": 5,
+  "response_paraphrase": "Transport options were checked for the full dinner group, including route timing and a protected contingency buffer.",
+  "expected_env": {
+    "virtual_stage": 5
+  },
+  "expected_checks": [
+    {
+      "check_id": "s5_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s5_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

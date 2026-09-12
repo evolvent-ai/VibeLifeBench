@@ -1,0 +1,29 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "token": "cross-dept-book-club-dinner-26d-release-000-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_signup_001",
+        "user_id": "u_ella",
+        "source": "people_ops",
+        "type": "signup",
+        "subscription_id": "sub_signup_watch",
+        "title": "Registration snapshot",
+        "body": "Current registration is 72 with Product 14, Sales 13, Engineering 18, HR 8, Finance 7, Support 12. Vegetarian 9, peanut allergy 2.",
+        "payload_json": "{\"registered\":72,\"departments\":{\"Product\":14,\"Sales\":13,\"Engineering\":18,\"HR\":8,\"Finance\":7,\"Support\":12},\"vegetarian\":9,\"peanut_allergy\":2}",
+        "created_at": "2026-08-26T09:00:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 2,
+  "source_time": "2026-08-26T09:00:00+08:00",
+  "source_event_ids": [
+    "S2_mut_signup_snapshot"
+  ]
+}

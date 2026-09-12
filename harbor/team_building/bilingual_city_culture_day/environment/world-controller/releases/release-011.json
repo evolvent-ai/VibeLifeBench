@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "S18_heat_mutation"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-07-19T08:10:00+08:00",
+  "previous": "release-010",
+  "token": "bilingual-city-culture-day-release-token-011-8f4d2a9c",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "alert_yuexiu_heat_20260721",
+        "kind": "heat",
+        "severity": "orange",
+        "start_dt": "2026-07-21T10:00:00+08:00",
+        "end_dt": "2026-07-21T17:00:00+08:00",
+        "areas_json": "[\"yuexiu_old_city\"]",
+        "description": "Guangzhou Yuexiu event day is expected to have orange heat risk; shorten outdoor segments, add sun protection, hydration, and rest stops, and retain an indoor fallback plan.",
+        "active": 1,
+        "created_at": "2026-07-19T08:10:00+08:00",
+        "source_event": "S18_heat_mutation"
+      },
+      "source_event_id": "S18_heat_mutation",
+      "operation_index": 0
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "step": "event-025",
+  "virtual_stage": 23,
+  "source_event_id": "s23_user_execute",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "After final approval, official CSR payments, the approved donation order and delivery, lunch confirmation, and transport bookings are executed within the cap.",
+  "response_paraphrase": "Authorized payees receive the approved payments, while the compliant order, delivery, lunch, and vehicles are confirmed under the CSR cap.",
+  "actions": [{"kind": "user_message", "event_id": "s23_user_execute", "virtual_stage": 23, "event_kind": "user_message", "event_time": "2026-09-08T15:00:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s23_authority_trace", "weight": 2.0}, {"check_id": "s23_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

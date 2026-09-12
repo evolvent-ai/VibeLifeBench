@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "S12_mut_venue_capacity"
+  ],
+  "source_time": "2026-08-03T03:00",
+  "previous": "release-010",
+  "token": "budget-cocreation-camp-21d-release-011-release-token",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "update",
+      "set": {
+        "status": "sold_out"
+      },
+      "where": {
+        "deal_id": "D_STUDIO_BAY"
+      },
+      "source_event_id": "S12_mut_venue_capacity"
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "update",
+      "set": {
+        "max_party_size": 24
+      },
+      "where": {
+        "merchant_id": "M_STUDIO_BAY"
+      },
+      "source_event_id": "S12_mut_venue_capacity"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "s5_vendor_qa_state"
+  ],
+  "source_stage": 5,
+  "source_time": "2026-07-06T14:55:00+08:00",
+  "previous": "release-002",
+  "token": "alcohol-free-sales-celebration-release-003-token",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_jingan_jul06_refresh",
+        "merchant_id": "venue_celebration_jingan_blackbox",
+        "user_id": "usr_yh_q7vkma",
+        "question": "translated business textmonth20translated business textdaytranslated business text、translated business textdocumentsstatus？",
+        "answer": "alcohol-free drinkstranslated business text，seafood substitutetranslated business textseparate traytranslated business text；translated business text。event VAT special invoice、performance permittranslated business textinsurance summarystill requiresbefore lock-inrecheck，not requiredmembersnames。",
+        "answered_by": "Jing'an Alcohol-Free Black Box",
+        "created_at": "2026-07-06T14:55:00+08:00"
+      }
+    }
+  ]
+}

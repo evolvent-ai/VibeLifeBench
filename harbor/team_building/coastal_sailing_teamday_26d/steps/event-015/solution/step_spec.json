@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "response": "Internal employee-gallery use is authorized for the current group; public social, drone, staff, and bystander imagery remain excluded.",
+  "event_id": "s15_notice_photo",
+  "source_event_id": "s15_notice_photo",
+  "step": "event-015",
+  "synthetic": false,
+  "virtual_stage": 15,
+  "response_paraphrase": "The second release batch was checked and the photographer brief remains limited to internal documentation.",
+  "expected_env": {
+    "virtual_stage": 15
+  },
+  "expected_checks": [
+    {
+      "check_id": "s15_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s15_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

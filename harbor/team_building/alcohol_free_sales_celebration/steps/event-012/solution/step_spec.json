@@ -1,0 +1,15 @@
+{
+  "step": "event-012",
+  "virtual_stage": 12,
+  "source_event_id": "s12_notification",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-009"], "released_mutations": ["s12_return_budget_mutation"]},
+  "response": "I synchronized the extended evening schedule with the return plan and preserved enough lead time for transportation communications.",
+  "response_paraphrase": "The later departure is now reflected in planning and reminder records without cutting the intended event program.",
+  "actions": [{"kind": "record_event", "source_event_id": "s12_notification"}],
+  "expected_checks": [
+    {"check_id": "s12_return_budget_calendar_update", "weight": 1.75, "expected": true},
+    {"check_id": "s12_keeps_event_experience_intact", "weight": 1.25, "expected": true}
+  ],
+  "expected_stage_weight": 3.0
+}

@@ -1,0 +1,15 @@
+{
+  "step": "event-007",
+  "virtual_stage": 7,
+  "source_event_id": "s7_approver_msg",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "I prepared an approver-ready comparison framework that keeps both the leading option and fallback open and makes the spending ceiling visible.",
+  "response_paraphrase": "The regional review can now compare experience and safeguards without treating any supplier as finally chosen.",
+  "actions": [{"kind": "record_event", "source_event_id": "s7_approver_msg"}],
+  "expected_checks": [
+    {"check_id": "s7_approver_framework_draft", "weight": 1.5, "expected": true},
+    {"check_id": "s7_budget_cap_visible", "weight": 1.5, "expected": true}
+  ],
+  "expected_stage_weight": 3.0
+}

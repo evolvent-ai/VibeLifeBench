@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "release_id": "release-014",
+  "source_event_ids": [
+    "s16_approval_mutation"
+  ],
+  "source_stage": 16,
+  "source_time": "2026-07-17T14:00:00+08:00",
+  "previous": "release-013",
+  "token": "pottery-invoice-compliance-014-token-20260824",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 247,
+        "folder_id": 1,
+        "message_id": "<pottery-approval-0717@corp.example>",
+        "subject": "Conditional approval opinion for ceramics team building",
+        "from_addr": "approver@corp.example",
+        "to_addr_json": "[\"luyao@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-17T13:50:00+08:00",
+        "body_text": "The approval comments allow us to continue preparing the indoor pottery and light catering social package; the final supplier, payment, invoice category, non-refundable terms, and any sensitive external distribution still require confirmation from Lu Yao.",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 9116,
+        "size": 180,
+        "created_at": "2026-07-17T13:50:00+08:00"
+      }
+    }
+  ]
+}

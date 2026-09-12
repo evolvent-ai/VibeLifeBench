@@ -1,0 +1,23 @@
+{
+  "release_id": "release-018",
+  "before_step": "event-021",
+  "previous": "release-017",
+  "token": "factory-visit-safety-day-release-018-20260824",
+  "operations": [
+    {
+      "source_event_id": "S21_forklift_mutation",
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_factory_onsite_photo",
+        "merchant_id": "mer_7a4c19d2",
+        "user_id": "onsite_contact",
+        "question": "Is the photo point near the forklift lane still open today?",
+        "answer": "This photo point is closed effective immediately. Group photos will all be moved to the reception area in the first-floor lobby, and the group order before lunch will consequently be pushed back by ten minutes.",
+        "answered_by": "merchant",
+        "created_at": "2026-07-21T03:05:00Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "S2_finance_boundary_mutation"
+  ],
+  "source_stage": 2,
+  "source_time": "2026-07-03T10:55:00+08:00",
+  "previous": "release-000",
+  "token": "bilingual-city-culture-day-release-token-001-8f4d2a9c",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 3003,
+        "folder_id": 1,
+        "message_id": "<finance-boundary-20260703@apac.example>",
+        "subject": "Culture day budget and itemized invoice boundary",
+        "from_addr": "finance@example.com",
+        "to_addr_json": "[\"gu.ning@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-03T10:55:00+08:00",
+        "body_text": "The total budget is CNY 46,000. Guided tour, catering, and transportation require separate invoices made out to the company. Any item over CNY 10,000, any deposit, payment, or unusual payment account requires Gu Ning confirmation first.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{}",
+        "uid": 3003,
+        "size": 276,
+        "created_at": "2026-07-03T10:55:00+08:00"
+      },
+      "source_event_id": "S2_finance_boundary_mutation",
+      "operation_index": 0
+    }
+  ]
+}

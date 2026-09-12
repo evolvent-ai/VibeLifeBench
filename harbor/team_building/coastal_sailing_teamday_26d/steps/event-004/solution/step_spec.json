@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "user_message"
+    }
+  ],
+  "response": "Health restrictions and family/minor boundaries are recorded privately with aggregate wording for group use.",
+  "event_id": "s4_health_minors",
+  "source_event_id": "s4_health_minors",
+  "step": "event-004",
+  "synthetic": false,
+  "virtual_stage": 4,
+  "response_paraphrase": "I reconciled water-activity limits and minor permissions while keeping individual health details restricted.",
+  "expected_env": {
+    "virtual_stage": 4
+  },
+  "expected_checks": [
+    {
+      "check_id": "s4_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s4_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

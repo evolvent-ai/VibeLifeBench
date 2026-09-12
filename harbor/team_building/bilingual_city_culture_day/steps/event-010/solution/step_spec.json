@@ -1,0 +1,35 @@
+{
+  "step": "event-010",
+  "virtual_stage": 10,
+  "source_event_id": "S10_access_watch",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": []
+  },
+  "response": "The step-free deal is now sold out; an accessible backup note was drafted and no reservation was locked.",
+  "response_paraphrase": "The sold-out step-free package prompted a backup draft, while capacity remains deliberately uncommitted.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S10_access_watch",
+      "virtual_stage": 10,
+      "event_kind": "notification",
+      "event_time": "2026-07-11T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s10_access_discovered",
+      "weight": 1.75
+    },
+    {
+      "check_id": "s10_access_no_lock",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

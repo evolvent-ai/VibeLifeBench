@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "S11_menu_mutation"
+  ],
+  "source_stage": 11,
+  "source_time": "2026-07-12T08:20:00+08:00",
+  "previous": "release-005",
+  "token": "bilingual-city-culture-day-release-token-006-8f4d2a9c",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 3001,
+        "folder_id": 1,
+        "message_id": "<menu-correction-20260712@lingnan-tasting.example>",
+        "subject": "Menu translation correction: pork, halal, and gluten labels cannot be mixed",
+        "from_addr": "menu@lingnan-tasting.example",
+        "to_addr_json": "[\"gu.ning@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-12T08:20:00+08:00",
+        "body_text": "Pause external sending of the current English menu. Pork-free does not equal halal; gluten intolerance must not be labeled as ordinary vegetarian. The kitchen is adding ingredient and shared-utensil details; do not promise safety before the revision is complete.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{}",
+        "uid": 3001,
+        "size": 286,
+        "created_at": "2026-07-12T08:20:00+08:00"
+      },
+      "source_event_id": "S11_menu_mutation",
+      "operation_index": 0
+    }
+  ]
+}

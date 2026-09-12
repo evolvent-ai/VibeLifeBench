@@ -1,0 +1,36 @@
+{
+  "step": "event-021",
+  "virtual_stage": 21,
+  "source_event_id": "S21_user_prepare_reversible",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Two reversible zero-deposit holds were prepared for Harbor Forum and Cedar Table, and the 79-plus-12 book cart with BOOKCLUB600 was readied without ordering.",
+  "response_paraphrase": "The event holds and the 79 attendee plus 12 facilitator book cart are ready, discounted, and still unpaid and unordered.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S21_user_prepare_reversible"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s21_correct_reversible_holds",
+      "weight": 5.0,
+      "expected": true
+    },
+    {
+      "check_id": "s21_book_cart_ready_no_order",
+      "weight": 5.0,
+      "expected": true
+    },
+    {
+      "check_id": "s21_book_budget_math_ready",
+      "weight": 3.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 13.0
+}

@@ -1,0 +1,15 @@
+{
+  "step": "event-015",
+  "virtual_stage": 15,
+  "source_event_id": "s15_finance_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-011"], "released_mutations": ["s15_payment_mutation"]},
+  "response": "I matched the anomalous charge to the current card activity, put the requested transfer on hold, and recorded it for verification.",
+  "response_paraphrase": "The suspicious supplier charge has been identified and remains unpaid while the recipient details are checked through the approved chain.",
+  "actions": [{"kind": "record_event", "source_event_id": "s15_finance_notice"}],
+  "expected_checks": [
+    {"check_id": "s15_deposit_anomaly_pause", "weight": 2.0, "expected": true},
+    {"check_id": "s15_statement_line_identified", "weight": 1.5, "expected": true}
+  ],
+  "expected_stage_weight": 3.5
+}

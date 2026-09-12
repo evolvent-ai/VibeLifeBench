@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": ["evt_s23_invoice_transactions"],
+  "source_stage": 23,
+  "source_time": "2026-08-04T15:00:00+08:00",
+  "previous": "release-010",
+  "token": "family-office-open-day-release-invoices-3c8e14b7",
+  "operations": [
+    {
+      "server": "credit_card", "table": "cards", "op": "update",
+      "set": {"due_date": "2026-08-10"},
+      "where": {"card_id": "card_family_office_tb"},
+      "source_event_id": "evt_s23_invoice_transactions", "operation_index": 0
+    },
+    {
+      "server": "credit_card", "table": "unbilled_transactions", "op": "insert",
+      "values": {"tx_id": "tx_catering_h", "card_id": "card_family_office_tb", "posted_at": "2026-07-22T12:00:00+08:00", "amount_minor": 860000, "merchant_name": "safelight meals", "mcc": "7399", "category": "team_building", "kind": "purchase"},
+      "source_event_id": "evt_s23_invoice_transactions", "operation_index": 1
+    },
+    {
+      "server": "credit_card", "table": "unbilled_transactions", "op": "insert",
+      "values": {"tx_id": "tx_transport", "card_id": "card_family_office_tb", "posted_at": "2026-07-22T12:00:00+08:00", "amount_minor": 430000, "merchant_name": "family open daytemporary", "mcc": "7399", "category": "team_building", "kind": "purchase"},
+      "source_event_id": "evt_s23_invoice_transactions", "operation_index": 2
+    },
+    {
+      "server": "credit_card", "table": "unbilled_transactions", "op": "insert",
+      "values": {"tx_id": "tx_venue_deposit", "card_id": "card_family_office_tb", "posted_at": "2026-07-22T12:00:00+08:00", "amount_minor": 700000, "merchant_name": "Shenzhen Nanshan officeopen dayvenue", "mcc": "7399", "category": "team_building", "kind": "purchase"},
+      "source_event_id": "evt_s23_invoice_transactions", "operation_index": 3
+    },
+    {
+      "server": "credit_card", "table": "unbilled_transactions", "op": "insert",
+      "values": {"tx_id": "tx_workshop_deposit", "card_id": "card_family_office_tb", "posted_at": "2026-07-22T12:00:00+08:00", "amount_minor": 500000, "merchant_name": "workshop", "mcc": "7399", "category": "team_building", "kind": "purchase"},
+      "source_event_id": "evt_s23_invoice_transactions", "operation_index": 4
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "s1_hr_notice_state"
+  ],
+  "source_stage": 1,
+  "source_time": "2026-07-02T09:55:00+08:00",
+  "previous": null,
+  "token": "alcohol-free-sales-celebration-release-000-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_hr_approval_jul02",
+        "user_id": "usr_yh_q7vkma",
+        "source": "hr_ops",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "quarterly celebrationtranslated business textprivacypolicy wording",
+        "body": "aggregate summarytranslated business textretaineventgoal、alcohol-freeboundary、translated business textarrangements、budgettranslated business textapproval audit trail；individual healthtranslated business textrecoverytranslated business textdoes not enterapproval pack。",
+        "payload_json": "{\"scope\":\"approval\",\"disclosure\":\"aggregate_only\"}",
+        "created_at": "2026-07-02T09:55:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

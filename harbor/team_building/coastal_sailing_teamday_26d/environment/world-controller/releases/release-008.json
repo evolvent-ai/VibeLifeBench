@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "s15_mut_photo_release"
+  ],
+  "source_stage": 15,
+  "source_time": "2026-09-12T09:00:00+08:00",
+  "previous": "release-007",
+  "token": "coastal-sailing-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 910002,
+        "folder_id": 1,
+        "message_id": "email_photo_release_wave2",
+        "subject": "Photo release wave 2",
+        "from_addr": "hr-forms@company.example",
+        "to_addr_json": "[\"lin.qiao@company.example\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-12T09:00:00+08:00",
+        "body_text": "Release wave 2: identifiable internal employee-gallery use is approved for all 34 current participants. Public social use is not approved for anyone, and drone, marina staff, and bystander imagery remain excluded. Individual withdrawals continue to control if received later.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 910002,
+        "size": 238,
+        "created_at": "2026-09-12T09:00:00+08:00"
+      },
+      "source_event_id": "s15_mut_photo_release"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "S1_world_sources_open",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Current venue, dinner, book, and notification sources were queried, and the procurement tracker now separates stock, cart, and learning-budget fields.",
+  "response_paraphrase": "Live vendor and catalog data are recorded in a procurement tracker with stock, cart, and learning-cost controls.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S1_world_sources_open"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_initial_sources_queried",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s1_procurement_tracker_created",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

@@ -1,0 +1,15 @@
+{
+  "step": "event-024",
+  "virtual_stage": 24,
+  "source_event_id": "s24_user_final",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "I completed the post-event archive with the financial outcome, participant experience, risk follow-up, supplier assessment, privacy lessons, and remaining work clearly separated.",
+  "response_paraphrase": "The closing package now provides Ye Hang with a complete retrospective and an explicit list of matters that are not yet resolved.",
+  "actions": [{"kind": "record_event", "source_event_id": "s24_user_final"}],
+  "expected_checks": [
+    {"check_id": "s24_final_archive", "weight": 1.75, "expected": true},
+    {"check_id": "s24_vendor_review_or_draft", "weight": 1.5, "expected": true}
+  ],
+  "expected_stage_weight": 3.25
+}

@@ -1,0 +1,24 @@
+{
+ "step": "event-019",
+ "stage": 19,
+ "event_id": "S19_final_reminder",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 19
+  }
+ ],
+ "response_paraphrase": "The team reminder includes assembly, protection, photography, motion, and exit guidance without personal details.",
+ "expected_env": {
+  "virtual_stage": 19,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s19_reminder_draft",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "source_event_id": "S19_final_reminder"
+}

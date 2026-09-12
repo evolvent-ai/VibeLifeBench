@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "s8_mut_weather_alert"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-09-05T07:00:00+08:00",
+  "previous": "release-002",
+  "token": "coastal-sailing-release-token",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "set": {
+        "sim_now": "2026-09-05T07:00:00+08:00"
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "s8_mut_weather_alert"
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {
+        "condition": "small craft advisory, wave clue 1.4m, gusty wind",
+        "precip_prob": 0.74,
+        "wind_kmh": 34.0
+      },
+      "where": {
+        "geo_key": "haiwan_marina",
+        "date": "2026-09-19"
+      },
+      "source_event_id": "s8_mut_weather_alert"
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 1,
+        "severity": "orange",
+        "description": "Active small craft hold: wind above 30 km/h and wave clue above 1.2m."
+      },
+      "where": {
+        "alert_id": "alert_small_craft_0919"
+      },
+      "source_event_id": "s8_mut_weather_alert"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_small_craft_hold",
+        "user_id": "usr_sailing_ops",
+        "source": "marine-weather",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Small craft hold watch",
+        "body": "Official marine feed has a small craft hold watch for 2026-09-19. Do not confirm sailing while active.",
+        "payload_json": "{\"weather\":\"hold\"}",
+        "created_at": "2026-09-05T07:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s8_mut_weather_alert"
+    }
+  ]
+}

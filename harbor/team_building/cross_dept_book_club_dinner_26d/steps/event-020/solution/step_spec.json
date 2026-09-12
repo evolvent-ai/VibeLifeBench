@@ -1,0 +1,31 @@
+{
+  "step": "event-020",
+  "virtual_stage": 20,
+  "source_event_id": "S20_world_feedback_rules",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "A private post-event feedback archive is planned for raw comments, with only approved aggregate themes eligible for sharing.",
+  "response_paraphrase": "The feedback workflow now stores raw material internally and limits any sharing to approved aggregates.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S20_world_feedback_rules"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s20_feedback_private_plan",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s20_privacy_log_feedback",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

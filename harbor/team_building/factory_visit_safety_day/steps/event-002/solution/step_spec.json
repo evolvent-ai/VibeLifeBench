@@ -1,0 +1,24 @@
+{
+ "step": "event-002",
+ "stage": 2,
+ "event_id": "S2_budget_finance",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 2
+  }
+ ],
+ "response_paraphrase": "The finance draft and ledger now cover transport, catering, insurance, and invoice handling within the stated limit.",
+ "expected_env": {
+  "virtual_stage": 2,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s2_finance_draft",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "source_event_id": "S2_budget_finance"
+}

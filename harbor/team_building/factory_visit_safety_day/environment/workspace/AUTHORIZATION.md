@@ -1,0 +1,7 @@
+# AUTHORIZATION
+
+kezixingchuli：chaxun、bijiao、save candidate、internalreminder、Notion/workspace gengxin、qicaounauthorizedsongemail。
+
+mustconfirm：lianxiagenthuolandlord、fasongdraft、yuyuehuogaiyueproperty viewing、documentssubmit、payment、signing、hold listing、jieshoubaojia、fangqiguanjiancandidate、gaibanjiadizhi。
+
+jinzhi：banking、credit_card、flight_booking、visa_and_advisory、brokerage、sixiapayment、weizaoauthorization、weizaozhuzhidocumentshuolegaljielun。

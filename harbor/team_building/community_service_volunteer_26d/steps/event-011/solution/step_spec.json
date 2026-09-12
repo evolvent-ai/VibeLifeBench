@@ -1,0 +1,12 @@
+{
+  "step": "event-011",
+  "virtual_stage": 9,
+  "source_event_id": "s9_revision_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-007"], "released_mutations": ["s9_mut_donation_revision"]},
+  "response": "The revised list records 72 hygiene kits, 72 neutral towel packs, and 4 plain label rolls while keeping the order unpaid.",
+  "response_paraphrase": "The latest email narrows the unpaid shortlist to the approved hygiene, towel, and plain-label quantities.",
+  "actions": [{"kind": "notification", "event_id": "s9_revision_notice", "virtual_stage": 9, "event_kind": "notification", "event_time": "2026-08-27T09:10:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s9_authority_trace", "weight": 2.0}, {"check_id": "s9_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

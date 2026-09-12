@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "S15_mut_material_stock"
+  ],
+  "source_time": "2026-08-06T02:20",
+  "previous": "release-012",
+  "token": "budget-cocreation-camp-21d-release-013-release-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "set": {
+        "quantity": 0
+      },
+      "where": {
+        "sku_id": "SK_FULL_RAW_WORKBOOK"
+      },
+      "source_event_id": "S15_mut_material_stock"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_material_stock",
+        "user_id": "u_budget_ops",
+        "source": "ecommerce",
+        "type": "stock_change",
+        "subscription_id": "sub_material_watch",
+        "title": "Workshop material stock update",
+        "body": "A watched workbook SKU changed stock. Recheck the cart candidate.",
+        "payload_json": "{\"sku_id\":\"SK_FULL_RAW_WORKBOOK\",\"old_quantity\":30,\"new_quantity\":0,\"availability\":\"out_of_stock\"}",
+        "created_at": "2026-08-06T02:20:00Z",
+        "read": 0
+      },
+      "source_event_id": "S15_mut_material_stock"
+    }
+  ]
+}

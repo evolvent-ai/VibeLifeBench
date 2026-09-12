@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "s7_mut_late_roster"
+  ],
+  "source_stage": 7,
+  "source_time": "2026-09-02T08:00:00+08:00",
+  "previous": "release-001",
+  "token": "coastal-sailing-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 910001,
+        "folder_id": 1,
+        "message_id": "email_late_roster_update",
+        "subject": "Late roster and consent update",
+        "from_addr": "hrbp@company.example",
+        "to_addr_json": "[\"lin.qiao@company.example\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-02T08:00:00+08:00",
+        "body_text": "Late update: Ivy Luo and Noah Li joined the employee list. Total dinner/transport count is 34. Boarding-eligible count remains 29 because Mia Chen and Kai Zhou are minors, Evan Yu and Nora Tang are shore/dinner only, and Leo Sun still has no water waiver.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 910001,
+        "size": 255,
+        "created_at": "2026-09-02T08:00:00+08:00"
+      },
+      "source_event_id": "s7_mut_late_roster"
+    },
+    {
+      "server": "notion",
+      "table": "database_rows",
+      "op": "insert",
+      "values": {
+        "row_id": "rs_ivyluo",
+        "database_id": "db_sailing_roster",
+        "properties_json": "{\"name\":\"Ivy Luo\",\"dept\":\"Finance\",\"age_group\":\"adult\",\"category\":\"employee\",\"waiver\":true,\"photo\":\"internal_and_ops\",\"sailing_eligible\":true,\"gate\":\"ok\"}",
+        "created_time": "2026-09-02T08:00:00+08:00",
+        "last_edited_time": "2026-09-02T08:00:00+08:00",
+        "archived": 0
+      },
+      "source_event_id": "s7_mut_late_roster"
+    },
+    {
+      "server": "notion",
+      "table": "database_rows",
+      "op": "insert",
+      "values": {
+        "row_id": "rs_noahli",
+        "database_id": "db_sailing_roster",
+        "properties_json": "{\"name\":\"Noah Li\",\"dept\":\"Product\",\"age_group\":\"adult\",\"category\":\"employee\",\"waiver\":true,\"photo\":\"internal_and_ops\",\"sailing_eligible\":true,\"gate\":\"ok\"}",
+        "created_time": "2026-09-02T08:01:00+08:00",
+        "last_edited_time": "2026-09-02T08:01:00+08:00",
+        "archived": 0
+      },
+      "source_event_id": "s7_mut_late_roster"
+    }
+  ]
+}

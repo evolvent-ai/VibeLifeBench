@@ -1,0 +1,4 @@
+authorization_id,action,object,amount_minor,requires_user_confirmation,requested_at,approved_by,status,evidence,note
+AP-2026-0418,roadshow_budget,translated business textmonthtranslated business textroadtranslated business text,4820000,yes,2026-04-18T10:20:00+08:00,Ye Hang,closed,email:april-roadshow-approval,translated business text
+AP-2026-0509,training_venue_hold,Hengfeng Briefing Hall,600000,yes,2026-05-09T15:10:00+08:00,Ye Hang,cancelled,email:may-training-change,clear the venuetimetranslated business text
+AP-2026-0601,customer_social_transport,translated business text,650000,yes,2026-06-01T11:00:00+08:00,Ye Hang,closed,email:q2-social-transport,translated business textarchive

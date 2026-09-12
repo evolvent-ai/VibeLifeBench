@@ -1,0 +1,12 @@
+{
+  "step": "event-020",
+  "virtual_stage": 18,
+  "source_event_id": "s18_budget_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-011"], "released_mutations": ["s18_mut_budget_cap"]},
+  "response": "The working cap and payee controls are reconciled to the CSR account, with team-building funds excluded from restricted costs.",
+  "response_paraphrase": "Finance evidence records the 6200000 cap, official payees, CSR account, and the team-building separation.",
+  "actions": [{"kind": "notification", "event_id": "s18_budget_notice", "virtual_stage": 18, "event_kind": "notification", "event_time": "2026-09-06T09:10:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s18_authority_trace", "weight": 2.0}, {"check_id": "s18_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

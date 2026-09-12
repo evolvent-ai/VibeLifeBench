@@ -1,0 +1,24 @@
+{
+  "step": "event-018",
+  "stage": 18,
+  "event_id": "s18_preflight_notice",
+  "source_event_id": "s18_preflight_notice",
+  "actions": [{"kind": "record_event", "stage": 18}],
+  "response_paraphrase": "The 48-hour check joins gloves, emergency response, meal labels, and the onsite contact path.",
+  "expected_env": {
+  "virtual_stage": 18,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-017"
+  ],
+  "released_mutations": [
+    "release-017"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s18_preflight_checklist", "weight": 1.0},
+    {"check_id": "s18_food_label_and_contact_sync", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

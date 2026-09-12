@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "s2_mut_vendor_sources"
+  ],
+  "source_stage": 2,
+  "source_time": "2026-08-22T09:00:00+08:00",
+  "previous": "release-000",
+  "token": "community-service-release-001-token-9f3a7c2d1e4b6a8c",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_vendor_changes",
+        "user_id": "usr_csr_maya",
+        "source": "vendor-desk",
+        "type": "vendor_update",
+        "subscription_id": "sub_csr",
+        "title": "Supplier records need a live recheck",
+        "body": "Lunch, transport, delivery, and supply availability may change; compare current official tools rather than archived quotes.",
+        "payload_json": "{}",
+        "created_at": "2026-08-22T09:00:00+08:00",
+        "read": 0
+      }
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1211,
+        "folder_id": 1,
+        "message_id": "email_vendor_lunch_initial",
+        "subject": "Lunch vendor invoice options",
+        "from_addr": "green-bento@vendor.example",
+        "to_addr_json": "[\"maya.csr@company.example\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-22T09:02:00+08:00",
+        "body_text": "Green Bento can provide boxed lunches with vegetarian and halal labels and a company invoice. Capacity and live deal validity must be rechecked before a reservation or payment.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 1211,
+        "size": 176,
+        "created_at": "2026-08-22T09:02:00+08:00"
+      }
+    }
+  ]
+}

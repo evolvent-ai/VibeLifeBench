@@ -1,0 +1,12 @@
+{
+  "mcp_servers": [
+    "calendar",
+    "credit_card",
+    "ecommerce",
+    "email",
+    "maps",
+    "notification_hub",
+    "notion",
+    "review_platform"
+  ]
+}

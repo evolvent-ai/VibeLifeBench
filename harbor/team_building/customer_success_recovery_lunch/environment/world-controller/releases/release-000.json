@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "mut_s10_diagnostic_material"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-07-10T09:00:00+08:00",
+  "previous": null,
+  "token": "customer-success-recovery-lunch-release-000-token",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_facilitator_diagnostic_wording",
+        "merchant_id": "facilitator_recovery_c",
+        "user_id": "vendor_ops",
+        "question": "Facilitator material version for July 21",
+        "answer": "The new material adds a stress-personality assessment and diagnostic labels; it can be changed to an anonymous mood check and case-review format, pending confirmation today.",
+        "answered_by": "facilitator_ops",
+        "created_at": "2026-07-10T09:00:00+08:00"
+      },
+      "source_event_id": "mut_s10_diagnostic_material",
+      "operation_index": 0
+    }
+  ]
+}

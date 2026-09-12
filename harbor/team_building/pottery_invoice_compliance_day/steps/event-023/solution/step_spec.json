@@ -1,0 +1,24 @@
+{
+  "step": "event-023",
+  "stage": 23,
+  "event_id": "s23_finance_world",
+  "source_event_id": "s23_finance_world",
+  "actions": [{"kind": "record_event", "stage": 23}],
+  "response_paraphrase": "The invoice is matched to the card transaction, evidence is archived, and the payment category stays unresolved.",
+  "expected_env": {
+  "virtual_stage": 23,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-022"
+  ],
+  "released_mutations": [
+    "release-022"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s23_invoice_reconcile", "weight": 1.0},
+    {"check_id": "s23_unresolved_payment_items", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "S10_access_mutation"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-07-11T08:10:00+08:00",
+  "previous": "release-004",
+  "token": "bilingual-city-culture-day-release-token-005-8f4d2a9c",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "update",
+      "set": {
+        "status": "sold_out"
+      },
+      "where": {
+        "deal_id": "deal_yuexiu_stepfree_review"
+      },
+      "source_event_id": "S10_access_mutation",
+      "operation_index": 0
+    }
+  ]
+}

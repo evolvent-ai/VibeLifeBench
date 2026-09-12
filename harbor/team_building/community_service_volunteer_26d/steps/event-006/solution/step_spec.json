@@ -1,0 +1,12 @@
+{
+  "step": "event-006",
+  "virtual_stage": 4,
+  "source_event_id": "s4_scope_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-003"], "released_mutations": ["s4_mut_center_update"]},
+  "response": "The revised center scope is reconciled at 27 onsite participants, with restricted room and intake information excluded from broad copy.",
+  "response_paraphrase": "The 27-person scope and restricted privacy boundary are reflected in the current Riverside plan.",
+  "actions": [{"kind": "notification", "event_id": "s4_scope_notice", "virtual_stage": 4, "event_kind": "notification", "event_time": "2026-08-24T09:10:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s4_authority_trace", "weight": 2.0}, {"check_id": "s4_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

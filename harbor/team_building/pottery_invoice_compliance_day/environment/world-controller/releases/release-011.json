@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "s12_firing_mutation"
+  ],
+  "source_stage": 12,
+  "source_time": "2026-07-13T09:30:00+08:00",
+  "previous": "release-010",
+  "token": "pottery-invoice-compliance-011-token-20260824",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "event_pottery_firing_notice_0713",
+        "calendar_id": "cal_luyao_team",
+        "summary": "Update to the supplier’s firing and pickup window for the pieces",
+        "description": "Notice from Tao Guang Workshop: Regular firing has been extended from 7 days to 9 days, and the earliest unified pickup date is 2026-07-30; the activity time slot itself remains unchanged.",
+        "location": "Tianjin Heping District",
+        "start_dt": "2026-07-30T14:00:00+08:00",
+        "end_dt": "2026-07-30T15:00:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-07-13T08:00:00+08:00",
+        "updated_at": "2026-07-13T08:00:00+08:00"
+      }
+    }
+  ]
+}

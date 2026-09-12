@@ -1,0 +1,29 @@
+{
+  "step": "event-004",
+  "virtual_stage": 4,
+  "source_event_id": "S4_vendor_scan",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Current Guangzhou and Yuexiu vendors were compared and a qualifying merchant was saved for the shortlist.",
+  "response_paraphrase": "Fresh Yuexiu vendor results were screened and one suitable merchant was added to the shortlist.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S4_vendor_scan",
+      "virtual_stage": 4,
+      "event_kind": "world",
+      "event_time": "2026-07-05T14:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s4_review_scan",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

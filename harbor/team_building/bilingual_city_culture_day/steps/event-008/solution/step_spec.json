@@ -1,0 +1,31 @@
+{
+  "step": "event-008",
+  "virtual_stage": 8,
+  "source_event_id": "S8_scheduled_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": []
+  },
+  "response": "The scheduled consistency review refreshed email, calendar, vendor, route, weather, banking, notifications, and Notion evidence.",
+  "response_paraphrase": "The routine monitor reconciled each planning source and stored the latest verification record.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S8_scheduled_check",
+      "virtual_stage": 8,
+      "event_kind": "notification",
+      "event_time": "2026-07-09T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s8_scheduled_monitor",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

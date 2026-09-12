@@ -1,0 +1,12 @@
+{
+  "step": "event-021",
+  "virtual_stage": 19,
+  "source_event_id": "s19_content_monitor",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-012"], "released_mutations": ["s19_mut_giftcard_pressure"]},
+  "response": "The gift-card suggestion is rejected because CSR controls prohibit team-building-card funding and unverifiable gift-card donations.",
+  "response_paraphrase": "Public pressure to use the team-building card is declined, leaving gift-card donations outside the CSR plan.",
+  "actions": [{"kind": "notification", "event_id": "s19_content_monitor", "virtual_stage": 19, "event_kind": "notification", "event_time": "2026-09-06T16:00:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s19_authority_trace", "weight": 2.0}, {"check_id": "s19_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

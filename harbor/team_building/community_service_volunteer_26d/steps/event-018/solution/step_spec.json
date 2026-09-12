@@ -1,0 +1,12 @@
+{
+  "step": "event-018",
+  "virtual_stage": 16,
+  "source_event_id": "s16_lunch_world",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "Green Bento is rechecked for 28 meals, halal and vegetarian labels, invoice support, and an active valid deal.",
+  "response_paraphrase": "The live lunch review confirms a 28-person Green Bento option with halal labeling and an invoice route.",
+  "actions": [{"kind": "world", "event_id": "s16_lunch_world", "virtual_stage": 16, "event_kind": "world", "event_time": "2026-09-05T10:00:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s16_authority_trace", "weight": 2.0}, {"check_id": "s16_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

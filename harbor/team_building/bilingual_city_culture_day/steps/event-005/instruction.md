@@ -1,0 +1,1 @@
+The administrative team suggests prioritizing a route window that starts at the Guangzhou office, includes a low-intensity walk through historic Yuexiu and a traditional dim sum experience, and returns the same day.

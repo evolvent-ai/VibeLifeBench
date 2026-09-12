@@ -1,0 +1,24 @@
+{
+  "step": "event-005",
+  "stage": 5,
+  "event_id": "s5_qa_world",
+  "source_event_id": "s5_qa_world",
+  "actions": [{"kind": "record_event", "stage": 5}],
+  "response_paraphrase": "Vendor answers cover glaze, latex, and invoice facts, with a sensitive-skin low-contact alternative recorded.",
+  "expected_env": {
+  "virtual_stage": 5,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-004"
+  ],
+  "released_mutations": [
+    "release-004"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s5_vendor_qa_saved", "weight": 1.0},
+    {"check_id": "s5_safety_degrade_plan", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

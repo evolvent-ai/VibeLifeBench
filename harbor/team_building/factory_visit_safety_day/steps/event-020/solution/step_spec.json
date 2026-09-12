@@ -1,0 +1,24 @@
+{
+ "step": "event-020",
+ "stage": 20,
+ "event_id": "S20_event_start",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 20
+  }
+ ],
+ "response_paraphrase": "The onsite notices were reviewed and the records now cover a rest area, readable English support, and an onsite contact.",
+ "expected_env": {
+  "virtual_stage": 20,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s20_onsite_adjustment",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "source_event_id": "S20_event_start"
+}

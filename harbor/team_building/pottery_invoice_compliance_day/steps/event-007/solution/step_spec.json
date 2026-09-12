@@ -1,0 +1,24 @@
+{
+  "step": "event-007",
+  "stage": 7,
+  "event_id": "s7_approver_msg",
+  "source_event_id": "s7_approver_msg",
+  "actions": [{"kind": "record_event", "stage": 7}],
+  "response_paraphrase": "The primary framework and backup experience carry safety controls, the 18000 budget, and a confirmation gate.",
+  "expected_env": {
+  "virtual_stage": 7,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-006"
+  ],
+  "released_mutations": [
+    "release-006"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s7_approver_framework_draft", "weight": 1.0},
+    {"check_id": "s7_budget_cap_visible", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,1 @@
+Finance reminder: guided tours, catering, and transportation must each provide an itemized invoice made out to the company. Deposits and payments to unusual recipient accounts require Gu Ning's personal confirmation.

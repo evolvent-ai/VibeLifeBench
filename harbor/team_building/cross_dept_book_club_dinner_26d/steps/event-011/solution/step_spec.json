@@ -1,0 +1,33 @@
+{
+  "step": "event-011",
+  "virtual_stage": 11,
+  "source_event_id": "S11_notification_signup_increase",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": []
+  },
+  "response": "The updated registration notification was read: the final working count is 79, and the mixed discussion roster was refreshed.",
+  "response_paraphrase": "The roster now uses the live 79-person count while retaining cross-department mixing and catering-only privacy.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S11_notification_signup_increase"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s11_registration_79_recorded",
+      "weight": 2.5,
+      "expected": true
+    },
+    {
+      "check_id": "s11_notification_rechecked",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

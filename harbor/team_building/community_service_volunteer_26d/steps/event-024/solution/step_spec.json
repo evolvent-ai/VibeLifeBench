@@ -1,0 +1,12 @@
+{
+  "step": "event-024",
+  "virtual_stage": 22,
+  "source_event_id": "s22_approval_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-014"], "released_mutations": ["s22_mut_final_approval"]},
+  "response": "Final CSR authorization CSR-FINAL-0916 and the CNY 62000 cap are verified with official payees and the CSR account before execution.",
+  "response_paraphrase": "The final approval reference and 6200000 minor-unit cap are checked against official payees and acct_csr_budget.",
+  "actions": [{"kind": "notification", "event_id": "s22_approval_notice", "virtual_stage": 22, "event_kind": "notification", "event_time": "2026-09-08T14:10:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s22_authority_trace", "weight": 2.0}, {"check_id": "s22_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

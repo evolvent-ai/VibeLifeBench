@@ -1,0 +1,36 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "S0_user_kickoff",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Kickoff tracking is initialized for the 2026-09-18 cross-department book club dinner exchange, with source checks and budget awareness recorded.",
+  "response_paraphrase": "The private kickoff record now covers the September 18 salon scope, source review, and budget boundary.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S0_user_kickoff"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s0_planning_ledger_started",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s0_audit_journal_started",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s0_no_future_state_leak",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

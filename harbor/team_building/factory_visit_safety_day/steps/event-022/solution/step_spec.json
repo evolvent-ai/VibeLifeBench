@@ -1,0 +1,24 @@
+{
+ "step": "event-022",
+ "stage": 22,
+ "event_id": "S22_feedback_notice",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 22
+  }
+ ],
+ "response_paraphrase": "The late special request is captured with noise and hearing guidance, English support, and a retrospective SOP follow-up.",
+ "expected_env": {
+  "virtual_stage": 22,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s22_late_need_discovered",
+   "weight": 2.5
+  }
+ ],
+ "expected_stage_weight": 2.5,
+ "source_event_id": "S22_feedback_notice"
+}

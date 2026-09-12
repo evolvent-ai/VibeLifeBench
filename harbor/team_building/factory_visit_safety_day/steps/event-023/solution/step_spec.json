@@ -1,0 +1,24 @@
+{
+ "step": "event-023",
+ "stage": 23,
+ "event_id": "S23_invoice_archive",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 23
+  }
+ ],
+ "response_paraphrase": "The three posted invoice transactions reconcile to the ledger, while the deposit remains unpaid and no new payment is requested.",
+ "expected_env": {
+  "virtual_stage": 23,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s23_invoice_reconciled",
+   "weight": 2.0
+  }
+ ],
+ "expected_stage_weight": 2.0,
+ "source_event_id": "S23_invoice_archive"
+}

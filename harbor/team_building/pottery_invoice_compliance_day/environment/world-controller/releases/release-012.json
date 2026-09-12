@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "s13_credential_mutation"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-07-14T11:20:00+08:00",
+  "previous": "release-011",
+  "token": "pottery-invoice-compliance-012-token-20260824",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "update",
+      "set": {
+        "answer": "Business license scanned copy temporarily missing; insurance summary needs resend."
+      },
+      "where": {
+        "qa_id": "qa_lumen_credential"
+      }
+    }
+  ]
+}

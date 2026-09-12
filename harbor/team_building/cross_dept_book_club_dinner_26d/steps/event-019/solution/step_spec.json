@@ -1,0 +1,33 @@
+{
+  "step": "event-019",
+  "virtual_stage": 19,
+  "source_event_id": "S19_notification_dinner_policy",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": []
+  },
+  "response": "Spice Kitchen's updated invoice and shared-peanut-sauce defects were verified and rejected, along with the expired Private Lane deal.",
+  "response_paraphrase": "The dinner policy recheck excludes the defective Spice package and expired Private Lane option.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S19_notification_dinner_policy"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s19_dinner_policy_rechecked",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s19_bad_dinner_rejected",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

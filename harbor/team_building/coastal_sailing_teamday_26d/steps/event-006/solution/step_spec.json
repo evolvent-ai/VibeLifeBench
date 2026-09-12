@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "response": "Tide Table dinner and LensHarbor internal documentation terms are recorded with invoice and authorization boundaries.",
+  "event_id": "s6_vendors",
+  "source_event_id": "s6_vendors",
+  "step": "event-006",
+  "synthetic": false,
+  "virtual_stage": 6,
+  "response_paraphrase": "I checked the dinner and photography vendors and preserved the internal-only photo scope and invoice requirements.",
+  "expected_env": {
+    "virtual_stage": 6
+  },
+  "expected_checks": [
+    {
+      "check_id": "s6_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s6_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

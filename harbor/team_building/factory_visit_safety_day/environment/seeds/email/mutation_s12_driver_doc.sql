@@ -1,0 +1,7 @@
+INSERT OR IGNORE INTO messages(id,folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,headers_json,uid,size,created_at)
+SELECT 3022,1,'<driver-doc@bus>','Shanghai-Jiaxing Charter: driver credential supplement','ops@bus.example.invalid','["wei.ran@example.invalid"]','[]','[]','2026-07-13T08:10:00+08:00','The original driver Wang is waiting for a renewed professional certificate. We can send Li, whose A1 and professional certificates are valid, or wait for Wang until the 19th. Tell us which option you prefer.','',0,1,0,'{}',3022,400,'2026-07-13T00:10:00Z'
+WHERE NOT EXISTS (SELECT 1 FROM messages WHERE id = 3022)
+  AND NOT EXISTS (SELECT 1 FROM messages WHERE message_id = '<driver-doc@bus>');
+INSERT INTO messages(folder_id,message_id,subject,from_addr,to_addr_json,cc_addr_json,bcc_addr_json,date,body_text,body_html,is_read,is_important,is_flagged,headers_json,uid,size,created_at)
+SELECT 1,'<driver-doc@bus>','Shanghai-Jiaxing Charter: driver credential supplement','ops@bus.example.invalid','["wei.ran@example.invalid"]','[]','[]','2026-07-13T08:10:00+08:00','The original driver Wang is waiting for a renewed professional certificate. We can send Li, whose A1 and professional certificates are valid, or wait for Wang until the 19th. Tell us which option you prefer.','',0,1,0,'{}',3022,400,'2026-07-13T00:10:00Z'
+WHERE NOT EXISTS (SELECT 1 FROM messages WHERE message_id = '<driver-doc@bus>');

@@ -1,0 +1,31 @@
+{
+  "step": "event-017",
+  "virtual_stage": 17,
+  "source_event_id": "S17_user_lock_shortlist",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The Harbor Forum and Cedar Table shortlist is locked with a one-hold-per-category reversible policy and no deposits or contracts.",
+  "response_paraphrase": "The compliant venue and dinner shortlist is fixed, with duplicate holds and irreversible commitments prohibited.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S17_user_lock_shortlist"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s17_shortlist_locked",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s17_no_duplicate_holds",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

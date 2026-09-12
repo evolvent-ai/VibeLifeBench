@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "release_id": "release-019",
+  "source_event_ids": [
+    "s22_feedback_mutation"
+  ],
+  "source_stage": 22,
+  "source_time": "2026-07-23T11:30:00+08:00",
+  "previous": "release-018",
+  "token": "pottery-invoice-compliance-019-token-20260824",
+  "operations": [
+    {
+      "server": "notion",
+      "table": "pages",
+      "op": "insert",
+      "values": {
+        "page_id": "page_tb011_feedback_late",
+        "parent_type": "workspace",
+        "parent_id": "ws_tb011",
+        "title": "Feedback and corrective action for late reporting",
+        "archived": 0,
+        "created_time": "2026-07-23T09:00:00+08:00",
+        "last_edited_time": "2026-07-23T09:00:00+08:00",
+        "properties_json": "{}"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "page_tb011_feedback_late_block",
+        "parent_page_id": "page_tb011_feedback_late",
+        "type": "paragraph",
+        "content_json": "{\"text\":\"New feedback in the system: the glove-change reminder needs to come earlier, the light-meal labels should be more prominent, and the names on the works’ labels should be changed to internal numbers.\"}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 0,
+        "created_time": "2026-07-23T09:00:00+08:00",
+        "last_edited_time": "2026-07-23T09:00:00+08:00"
+      }
+    }
+  ]
+}

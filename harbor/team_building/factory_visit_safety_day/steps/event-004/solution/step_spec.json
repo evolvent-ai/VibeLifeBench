@@ -1,0 +1,24 @@
+{
+ "step": "event-004",
+ "stage": 4,
+ "event_id": "S4_vendor_scan",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 4
+  }
+ ],
+ "response_paraphrase": "The available factory options were searched, and the leading Jiaxing supplier was saved for continued review.",
+ "expected_env": {
+  "virtual_stage": 4,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s4_review_scan",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "source_event_id": "S4_vendor_scan"
+}

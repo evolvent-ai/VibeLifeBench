@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "response": "Official Harbor Master, Marine Weather, and Company Risk sources were refreshed and captured.",
+  "event_id": "s1_source_refresh",
+  "source_event_id": "s1_source_refresh",
+  "step": "event-001",
+  "synthetic": false,
+  "virtual_stage": 1,
+  "response_paraphrase": "The morning official feeds were checked and the marina, permit, and source status were added to the operating record.",
+  "expected_env": {
+    "virtual_stage": 1
+  },
+  "expected_checks": [
+    {
+      "check_id": "s1_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s1_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

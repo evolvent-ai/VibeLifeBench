@@ -1,0 +1,35 @@
+{
+  "release_id": "release-015",
+  "before_step": "event-017",
+  "previous": "release-014",
+  "token": "factory-visit-safety-day-release-015-20260824",
+  "operations": [
+    {
+      "source_event_id": "S17_hold_mutation",
+      "server": "review_platform",
+      "table": "deals",
+      "op": "update",
+      "set": {
+        "status": "active"
+      },
+      "where": {
+        "deal_id": "deal_factory_013_visit"
+      }
+    },
+    {
+      "source_event_id": "S17_hold_mutation",
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_factory_credential_ok",
+        "merchant_id": "mer_7a4c19d2",
+        "user_id": "vendor",
+        "question": "Has the insurance attachment been completed?",
+        "answer": "All required items have been completed and passed the platform's review; visit slots are once again available for reservation.",
+        "answered_by": "merchant",
+        "created_at": "2026-07-18T00:30:00Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+INSERT OR IGNORE INTO road_events(event_id,road_id,start_dt,end_dt,kind,magnitude,note,active) VALUES ('road_evt_driver_doc','road_sh_jx_g60','2026-07-13T08:00:00+08:00','2026-07-21T08:00:00+08:00','heavy_traffic',1.2,'The driver credential documents are incomplete; please review before dispatch.',1);

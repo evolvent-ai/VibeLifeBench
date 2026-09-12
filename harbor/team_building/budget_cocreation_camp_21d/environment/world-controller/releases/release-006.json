@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "S07_mut_access_and_catering"
+  ],
+  "source_time": "2026-07-29T12:15",
+  "previous": "release-005",
+  "token": "budget-cocreation-camp-21d-release-006-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 79,
+        "unread_count": 71
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "S07_mut_access_and_catering"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 105,
+        "folder_id": 1,
+        "message_id": "<msg105@example.com>",
+        "subject": "Lunch vendor replies",
+        "from_addr": "garden@example.com",
+        "to_addr_json": "[\"ops-assistant@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-29T12:08:00Z",
+        "body_text": "Garden Hall supports vegetarian and halal labels, a private room, an ingredient list and a company invoice for 30 people.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 105,
+        "size": 119,
+        "created_at": "2026-07-29T12:08:00Z"
+      },
+      "source_event_id": "S07_mut_access_and_catering"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 212,
+        "folder_id": 1,
+        "message_id": "<msg212@example.com>",
+        "subject": "Accessible route to Atrium",
+        "from_addr": "mobility.desk@example.com",
+        "to_addr_json": "[\"ops-assistant@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-29T12:10:00Z",
+        "body_text": "Metro Exit 6 has a lift. The final 320 metres are level except for one curb ramp near the venue entrance.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 212,
+        "size": 109,
+        "created_at": "2026-07-29T12:10:00Z"
+      },
+      "source_event_id": "S07_mut_access_and_catering"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 216,
+        "folder_id": 1,
+        "message_id": "<msg216@example.com>",
+        "subject": "Garden Hall headcount cutoff",
+        "from_addr": "garden@example.com",
+        "to_addr_json": "[\"ops-assistant@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-29T12:12:00Z",
+        "body_text": "Final meal count is due August 10 at noon. Dietary labels can be changed until then without a deposit.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 0,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 216,
+        "size": 105,
+        "created_at": "2026-07-29T12:12:00Z"
+      },
+      "source_event_id": "S07_mut_access_and_catering"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_access_route",
+        "user_id": "u_budget_ops",
+        "source": "facilities",
+        "type": "route_update",
+        "subscription_id": null,
+        "title": "Atrium accessible route note",
+        "body": "Metro Exit 6 has a lift and the final path has one curb ramp.",
+        "payload_json": "{\"place_id\":\"pl_atrium\"}",
+        "created_at": "2026-07-29T12:13:00Z",
+        "read": 0
+      },
+      "source_event_id": "S07_mut_access_and_catering"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_meal_cutoff",
+        "user_id": "u_budget_ops",
+        "source": "email",
+        "type": "deadline",
+        "subscription_id": null,
+        "title": "Meal count cutoff",
+        "body": "Final meal count is due August 10 at noon; changes remain deposit-free until then.",
+        "payload_json": "{\"deadline\":\"2026-08-10T12:00:00+08:00\"}",
+        "created_at": "2026-07-29T12:14:00Z",
+        "read": 0
+      },
+      "source_event_id": "S07_mut_access_and_catering"
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "blk_access_route",
+        "parent_block_id": null,
+        "parent_page_id": "page_access_route",
+        "type": "paragraph",
+        "content_json": "{\"text\":\"Use Metro Exit 6 lift. The final 320 metres are level except for one curb ramp near the venue entrance.\"}",
+        "has_children": 0,
+        "archived": 0,
+        "position": 0,
+        "created_time": "2026-07-29T12:11:00Z",
+        "last_edited_time": "2026-07-29T12:11:00Z"
+      },
+      "source_event_id": "S07_mut_access_and_catering"
+    },
+    {
+      "server": "notion",
+      "table": "pages",
+      "op": "insert",
+      "values": {
+        "page_id": "page_access_route",
+        "parent_type": "workspace",
+        "parent_id": "ws_budget_camp",
+        "title": "Atrium access and arrival note",
+        "archived": 0,
+        "created_time": "2026-07-29T12:11:00Z",
+        "last_edited_time": "2026-07-29T12:11:00Z",
+        "properties_json": "{\"place_id\":\"pl_atrium\"}",
+        "icon": null,
+        "cover": null
+      },
+      "source_event_id": "S07_mut_access_and_catering"
+    },
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "QA_GARDEN_DIET",
+        "merchant_id": "M_LUNCH_GARDEN",
+        "user_id": "u_budget_ops",
+        "question": "Can you provide vegetarian and halal labels, a company invoice and a private room for 30?",
+        "answer": "Yes. The 30-person package includes vegetarian and halal labels, a company invoice and a private room.",
+        "answered_by": "Garden Hall team",
+        "created_at": "2026-07-29T12:14:00Z"
+      },
+      "source_event_id": "S07_mut_access_and_catering"
+    }
+  ]
+}

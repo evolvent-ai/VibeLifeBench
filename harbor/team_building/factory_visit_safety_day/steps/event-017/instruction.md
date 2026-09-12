@@ -1,0 +1,1 @@
+I authorize you to hold a cancellable capacity and draft notices for the factory and the full team. Ask me first before paying the deposit, signing the confidentiality commitment, or sending anything finally.

@@ -1,0 +1,34 @@
+{
+  "release_id": "release-012",
+  "previous": "release-011",
+  "token": "cross-dept-book-club-dinner-26d-release-012-token",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "update",
+      "set": {
+        "answer": "Low-price banquet package cannot issue a corporate invoice and uses a shared peanut sauce station. Standard package can invoice and isolate allergens."
+      },
+      "where": {
+        "qa_id": "QA_SPICE_INVOICE"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "update",
+      "set": {
+        "status": "expired"
+      },
+      "where": {
+        "deal_id": "D_PRIVATE_DINER_LOW"
+      }
+    }
+  ],
+  "source_stage": 19,
+  "source_time": "2026-09-12T03:00:00+08:00",
+  "source_event_ids": [
+    "S19_mut_dinner_policy"
+  ]
+}

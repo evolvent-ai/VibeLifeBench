@@ -1,0 +1,33 @@
+{
+  "step": "event-012",
+  "virtual_stage": 12,
+  "source_event_id": "S12_world_capacity_prompt",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": []
+  },
+  "response": "Cloud Loft was rechecked at capacity 60 with a sold-out package and rejected for the 79-person event.",
+  "response_paraphrase": "The changed Cloud Loft limit and sold-out deal make it ineligible, so it is removed from the recommendation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S12_world_capacity_prompt"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s12_venue_capacity_rechecked",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s12_cloud_loft_rejected",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

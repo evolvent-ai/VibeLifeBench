@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_event_ids": [
+    "s6_finance_policy_mutation"
+  ],
+  "source_stage": 6,
+  "source_time": "2026-07-07T10:00:00+08:00",
+  "previous": "release-004",
+  "token": "pottery-invoice-compliance-005-token-20260824",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 243,
+        "folder_id": 1,
+        "message_id": "<pottery-finance-policy-0707@corp.example>",
+        "subject": "Team-Building Payment and Abnormal Account Verification Rules",
+        "from_addr": "finance-control@corp.example",
+        "to_addr_json": "[\"luyao@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-07T09:45:00+08:00",
+        "body_text": "Finance confirms: Event funds may only be paid using a corporate card or the supplier’s corporate account. If the receiving account, deposit ratio, invoice category, or non-refundable terms change, payment must be suspended and the original email chain revisited for verification.",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 9106,
+        "size": 189,
+        "created_at": "2026-07-07T09:45:00+08:00"
+      }
+    }
+  ]
+}

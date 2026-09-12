@@ -1,0 +1,24 @@
+{
+ "step": "event-005",
+ "stage": 5,
+ "event_id": "S5_route_window",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 5
+  }
+ ],
+ "response_paraphrase": "The Shanghai-to-Jiaxing drive was checked and the proposed visit window was added to the calendar.",
+ "expected_env": {
+  "virtual_stage": 5,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s5_route_checked",
+   "weight": 1.5
+  }
+ ],
+ "expected_stage_weight": 1.5,
+ "source_event_id": "S5_route_window"
+}

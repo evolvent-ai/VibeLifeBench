@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "s18_preflight_state"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-07-22T18:25:00+08:00",
+  "previous": "release-012",
+  "token": "alcohol-free-sales-celebration-release-013-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_preflight_jul22",
+        "user_id": "usr_yh_q7vkma",
+        "source": "team_building_monitor",
+        "type": "preflight",
+        "subscription_id": null,
+        "title": "pre-event 48 hoursreconciliation window",
+        "body": "48 hourstranslated business textcalendar、meeting point、return trip、vendor、menu labels、emergency contact、alcohol-free drinkstranslated business textnotification draftseight status checks。",
+        "payload_json": "{\"window_hours\":48,\"check_count\":8}",
+        "created_at": "2026-07-22T18:25:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

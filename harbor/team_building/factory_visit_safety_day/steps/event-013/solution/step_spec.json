@@ -1,0 +1,24 @@
+{
+ "step": "event-013",
+ "stage": 13,
+ "event_id": "S13_vendor_change",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 13
+  }
+ ],
+ "response_paraphrase": "The changed credential status and missing insurance attachment were verified, and the supplier path was paused for review.",
+ "expected_env": {
+  "virtual_stage": 13,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s13_credentials_block_lock",
+   "weight": 2.5
+  }
+ ],
+ "expected_stage_weight": 2.5,
+ "source_event_id": "S13_vendor_change"
+}

@@ -1,0 +1,15 @@
+{
+  "step": "event-010",
+  "virtual_stage": 10,
+  "source_event_id": "s10_monitor_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-007"], "released_mutations": ["s10_alcohol_package_mutation"]},
+  "response": "I detected the changed billing constraint, stopped progression on the leading option, and kept a compliant fallback available.",
+  "response_paraphrase": "The latest supplier check exposed a material reimbursement issue, so no booking was made and another candidate remains under review.",
+  "actions": [{"kind": "record_event", "source_event_id": "s10_monitor_notice"}],
+  "expected_checks": [
+    {"check_id": "s10_invoice_category_recovery", "weight": 1.75, "expected": true},
+    {"check_id": "s10_plan_b_after_invoice_risk", "weight": 1.5, "expected": true}
+  ],
+  "expected_stage_weight": 3.25
+}

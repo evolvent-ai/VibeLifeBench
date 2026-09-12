@@ -1,0 +1,39 @@
+{
+  "release_id": "release-002",
+  "previous": "release-001",
+  "token": "cross-dept-book-club-dinner-26d-release-002-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9205,
+        "folder_id": 1,
+        "message_id": "<reading-salon-speaker-9205@example.org>",
+        "subject": "Guest speaker profile and privacy notes",
+        "from_addr": "maya.rao@example.org",
+        "to_addr_json": "[\"ella.ops@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-08-29T15:50:00+08:00",
+        "body_text": "I can join the September 18 reading salon. My detailed biography and Q&A preparation notes are for the organizing team only; please do not post or forward them without my written approval. I will send the exact session window after checking travel.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"X-Guest-Thread\":\"MAYA-SEP18\"}",
+        "uid": 9205,
+        "size": 260,
+        "created_at": "2026-08-29T07:50:00Z"
+      }
+    }
+  ],
+  "source_stage": 5,
+  "source_time": "2026-08-29T15:50:00+08:00",
+  "source_event_ids": [
+    "S5_mut_guest_mail"
+  ]
+}

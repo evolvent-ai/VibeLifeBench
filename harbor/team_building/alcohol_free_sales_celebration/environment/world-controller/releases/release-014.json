@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-014",
+  "source_event_ids": [
+    "s19_onsite_contact_mutation"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-07-23T18:25:00+08:00",
+  "previous": "release-013",
+  "token": "alcohol-free-sales-celebration-release-014-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_celebration_onsite_contact_0723",
+        "user_id": "usr_yh_q7vkma",
+        "source": "onsite_coordination",
+        "type": "handoff",
+        "subscription_id": null,
+        "title": "onsite contacthandoffcomplete",
+        "body": "onsite coordinationtranslated business textconnected。check-intranslated business textretain onlytranslated business text；alcohol-free drinkstranslated business textseafood substitutetranslated business textverify，quiet exit areatranslated business text，translated business textvoluntary stage participation；incidentsby contact assignmentescalation。",
+        "payload_json": "{\"handoff\":[\"check_in\",\"alcohol_free_drinks\",\"seafood_alternative\",\"quiet_space\",\"voluntary_stage\",\"incident_escalation\"]}",
+        "created_at": "2026-07-23T18:25:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

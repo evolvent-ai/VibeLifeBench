@@ -1,0 +1,29 @@
+{
+  "release_id": "release-011",
+  "previous": "release-010",
+  "token": "cross-dept-book-club-dinner-26d-release-011-token",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_dietary_001",
+        "user_id": "u_ella",
+        "source": "people_ops",
+        "type": "dietary",
+        "subscription_id": "sub_signup_watch",
+        "title": "Dietary update",
+        "body": "Vegetarian count is 11 and peanut allergy count is 3. Individual response flags remain private and may be shared only with the catering lead.",
+        "payload_json": "{\"vegetarian\":11,\"peanut_allergy\":3,\"privacy_scope\":\"catering_only\"}",
+        "created_at": "2026-09-11T09:15:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 18,
+  "source_time": "2026-09-11T09:15:00+08:00",
+  "source_event_ids": [
+    "S18_mut_dietary_update"
+  ]
+}

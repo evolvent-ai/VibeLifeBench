@@ -1,0 +1,28 @@
+{
+ "step": "event-017",
+ "stage": 17,
+ "event_id": "S17_user_authorization",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 17
+  }
+ ],
+ "response_paraphrase": "After authorization, a cancellable hold for 44 is placed and the deposit note remains unpaid until confirmation.",
+ "expected_env": {
+  "virtual_stage": 17,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s17_cancelable_hold_only",
+   "weight": 2.0
+  },
+  {
+   "check_id": "s17_no_deposit_payment",
+   "weight": 2.0
+  }
+ ],
+ "expected_stage_weight": 4.0,
+ "source_event_id": "S17_user_authorization"
+}

@@ -1,0 +1,7 @@
+{
+  "task": "coastal_sailing_teamday_26d",
+  "clock_file": "/world-clock/current.json",
+  "clock_token": "coastal-sailing-clock-token",
+  "health_token": "coastal-sailing-health-token",
+  "step_count": 26
+}

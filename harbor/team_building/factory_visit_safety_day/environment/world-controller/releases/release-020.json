@@ -1,0 +1,146 @@
+{
+  "release_id": "release-020",
+  "before_step": "event-023",
+  "previous": "release-019",
+  "token": "factory-visit-safety-day-release-020-20260824",
+  "operations": [
+    {
+      "source_event_id": "S23_settlement_mutation",
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_013_bus_invoice",
+        "account_id": "acct_factory_main",
+        "posted_at": "2026-07-23T10:00:00Z",
+        "amount_minor": "-1280000",
+        "kind": "payment",
+        "counterparty": "Hu-Jia Business Chartered Vehicle Co., Ltd.",
+        "memo": "The charter vehicle invoice has arrived",
+        "balance_after_minor": "8520000"
+      }
+    },
+    {
+      "source_event_id": "S23_settlement_mutation",
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_013_lunch_invoice",
+        "account_id": "acct_factory_main",
+        "posted_at": "2026-07-23T10:20:00Z",
+        "amount_minor": "-1134000",
+        "kind": "payment",
+        "counterparty": "Hecheng Collaboration Catering Management Co., Ltd.",
+        "memo": "Settlement and invoicing based on the actual meal count of forty-two people",
+        "balance_after_minor": "7386000"
+      }
+    },
+    {
+      "source_event_id": "S23_settlement_mutation",
+      "server": "banking",
+      "table": "transactions",
+      "op": "insert",
+      "values": {
+        "tx_id": "tx_013_insure_invoice",
+        "account_id": "acct_factory_main",
+        "posted_at": "2026-07-23T10:40:00Z",
+        "amount_minor": "-176000",
+        "kind": "payment",
+        "counterparty": "Antai group accident insurance broker",
+        "memo": "Premium for one-day group accident insurance for 44 people",
+        "balance_after_minor": "7210000"
+      }
+    },
+    {
+      "source_event_id": "S23_settlement_mutation",
+      "server": "banking",
+      "table": "accounts",
+      "op": "update",
+      "set": {
+        "balance_minor": "7210000"
+      },
+      "where": {
+        "account_id": "acct_factory_main"
+      }
+    },
+    {
+      "source_event_id": "S23_settlement_mutation",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": "3033",
+        "folder_id": "1",
+        "message_id": "<inv-bus@bus>",
+        "subject": "Hu-Jia chartered vehicle: The chartered vehicle invoice for July 21 has been issued",
+        "from_addr": "ops@bus.example.invalid",
+        "to_addr_json": "[\"wei.ran@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-24T08:45:00+08:00",
+        "body_text": "The company-name invoice for the charter vehicle fee of 12,800 yuan has been issued and mailed; the invoice number ends in 4471, and the itinerary is enclosed with the invoice.",
+        "body_html": "",
+        "is_read": "0",
+        "is_important": "0",
+        "is_flagged": "0",
+        "headers_json": "{}",
+        "uid": "3033",
+        "size": "300",
+        "created_at": "2026-07-24T00:45:00Z"
+      }
+    },
+    {
+      "source_event_id": "S23_settlement_mutation",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": "3034",
+        "folder_id": "1",
+        "message_id": "<inv-lunch@lunch>",
+        "subject": "Hecheng Collaboration: Lunch Invoices and Settlement Statements",
+        "from_addr": "service@lunch.example.invalid",
+        "to_addr_json": "[\"wei.ran@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-24T08:50:00+08:00",
+        "body_text": "Forty-two people actually dined; the settlement was made at the lower amount of eleven thousand three hundred forty yuan under the contract, and the invoice under the company name has been issued. Three vegetarian meals and two halal meals were priced separately and included in the total.",
+        "body_html": "",
+        "is_read": "0",
+        "is_important": "0",
+        "is_flagged": "0",
+        "headers_json": "{}",
+        "uid": "3034",
+        "size": "320",
+        "created_at": "2026-07-24T00:50:00Z"
+      }
+    },
+    {
+      "source_event_id": "S23_settlement_mutation",
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": "3035",
+        "folder_id": "1",
+        "message_id": "<inv-insure@insure>",
+        "subject": "Antai Insurance：Group personal accident insurance policy and invoice",
+        "from_addr": "broker@insure.example.invalid",
+        "to_addr_json": "[\"wei.ran@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-24T08:55:00+08:00",
+        "body_text": "The group accident insurance took effect on the day of the event and expired normally for the 44 people confirmed at registration and policy issuance; the two people who were absent at the last minute do not affect the policy already in effect. An invoice made out to the company for the premium of RMB 1,760 was issued at the same time. The policy number ends in 0721.",
+        "body_html": "",
+        "is_read": "0",
+        "is_important": "0",
+        "is_flagged": "0",
+        "headers_json": "{}",
+        "uid": "3035",
+        "size": "300",
+        "created_at": "2026-07-24T00:55:00Z"
+      }
+    }
+  ]
+}

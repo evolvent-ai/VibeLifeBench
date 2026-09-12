@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-017",
+  "source_event_ids": [
+    "s22_feedback_mutation"
+  ],
+  "source_stage": 22,
+  "source_time": "2026-07-25T13:00:00+08:00",
+  "previous": "release-016",
+  "token": "alcohol-free-sales-celebration-release-017-token",
+  "operations": [
+    {
+      "server": "notion",
+      "table": "pages",
+      "op": "insert",
+      "values": {
+        "page_id": "pg_late_feedback_jul25",
+        "parent_type": "workspace",
+        "parent_id": "ws_7qk9mv2x",
+        "title": "late-reportedfeedbacktranslated business text",
+        "archived": 0,
+        "created_time": "2026-07-25T13:00:00+08:00",
+        "last_edited_time": "2026-07-25T13:00:00+08:00",
+        "properties_json": "{}"
+      }
+    },
+    {
+      "server": "notion",
+      "table": "blocks",
+      "op": "insert",
+      "values": {
+        "block_id": "blk_late_feedback_jul25",
+        "parent_page_id": "pg_late_feedback_jul25",
+        "type": "paragraph",
+        "content_json": "{\"text\":\"feedbacktranslated business text：a participanttranslated business textalcohol-free drinkstranslated business textevening，dinnertranslated business textneedstranslated business text，seatingtranslated business textrostertranslated business textanonymoustranslated business text。\"}",
+        "position": 0,
+        "created_time": "2026-07-25T13:00:00+08:00",
+        "last_edited_time": "2026-07-25T13:00:00+08:00"
+      }
+    }
+  ]
+}

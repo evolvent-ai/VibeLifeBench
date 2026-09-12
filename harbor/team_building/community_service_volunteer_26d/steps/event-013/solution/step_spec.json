@@ -1,0 +1,12 @@
+{
+  "step": "event-013",
+  "virtual_stage": 11,
+  "source_event_id": "s11_scheduled_mid_review",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The scheduled mid-plan review reconciles privacy, budget, donations, lunch, transport, and delivery while commitments remain paused.",
+  "response_paraphrase": "A scheduled review confirms the mid-plan controls and leaves every paid commitment on hold.",
+  "actions": [{"kind": "notification", "event_id": "s11_scheduled_mid_review", "virtual_stage": 11, "event_kind": "notification", "event_time": "2026-09-02T15:00:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s11_authority_trace", "weight": 2.0}, {"check_id": "s11_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

@@ -1,0 +1,35 @@
+{
+  "step": "event-012",
+  "virtual_stage": 12,
+  "source_event_id": "S12_transport_watch",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": []
+  },
+  "response": "The construction closure and accessible detour were rechecked from the office route, while the final notice remains unsent.",
+  "response_paraphrase": "Route evidence now reflects the stair works and detour from the Guangzhou office, with no final announcement issued.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S12_transport_watch",
+      "virtual_stage": 12,
+      "event_kind": "notification",
+      "event_time": "2026-07-13T11:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s12_driver_route_rechecked",
+      "weight": 1.5
+    },
+    {
+      "check_id": "s12_driver_no_final_notice",
+      "weight": 1.0
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

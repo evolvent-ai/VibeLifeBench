@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "s21_mut_weather_clears"
+  ],
+  "source_stage": 21,
+  "source_time": "2026-09-16T12:00:00+08:00",
+  "previous": "release-012",
+  "token": "coastal-sailing-release-token",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "_sim_clock",
+      "op": "update",
+      "set": {
+        "sim_now": "2026-09-16T12:00:00+08:00"
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "s21_mut_weather_clears"
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {
+        "condition": "green window, wind 18 km/h, wave clue 0.8m, no thunder",
+        "precip_prob": 0.12,
+        "wind_kmh": 18.0
+      },
+      "where": {
+        "geo_key": "haiwan_marina",
+        "date": "2026-09-19"
+      },
+      "source_event_id": "s21_mut_weather_clears"
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 0,
+        "severity": "green",
+        "description": "Cancelled: green nearshore window."
+      },
+      "where": {
+        "alert_id": "alert_small_craft_0919"
+      },
+      "source_event_id": "s21_mut_weather_clears"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_weather_green_0916",
+        "user_id": "usr_sailing_ops",
+        "source": "marine-weather",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Green nearshore weather window",
+        "body": "Official 2026-09-19 Haiwan nearshore window is green: wind 18 km/h, wave clue 0.8m, no active small craft alert. Continue monitoring until departure.",
+        "payload_json": "{\"weather\":\"green\",\"wind_kmh\":18,\"wave_m\":0.8}",
+        "created_at": "2026-09-16T12:00:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s21_mut_weather_clears"
+    }
+  ]
+}

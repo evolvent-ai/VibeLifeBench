@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "s1_hr_policy_mutation"
+  ],
+  "source_stage": 1,
+  "source_time": "2026-07-02T10:00:00+08:00",
+  "previous": null,
+  "token": "pottery-invoice-compliance-000-token-20260824",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 241,
+        "folder_id": 1,
+        "message_id": "<pottery-hr-approval-0702@corp.example>",
+        "subject": "Approval material wording for ceramics team building",
+        "from_addr": "hr-ops@corp.example",
+        "to_addr_json": "[\"luyao@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-02T09:50:00+08:00",
+        "body_text": "The HR Organizational Development approval package describes the activity objectives, inclusive arrangements, budget cap, and approval audit trail; health information is reported only in headcount-level aggregates, with no individual names or details attached.",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 9101,
+        "size": 180,
+        "created_at": "2026-07-02T09:50:00+08:00"
+      }
+    }
+  ]
+}

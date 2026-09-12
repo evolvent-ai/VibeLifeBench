@@ -1,0 +1,53 @@
+{
+  "release_id": "release-006",
+  "before_step": "event-007",
+  "previous": "release-005",
+  "token": "factory-visit-safety-day-release-006-20260824",
+  "operations": [
+    {
+      "source_event_id": "S7_qa_mutation",
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_factory_invoice",
+        "merchant_id": "mer_7a4c19d2",
+        "user_id": "user_seed_tb_013",
+        "question": "Can you issue a company invoice and provide a no-photography notice?",
+        "answer": "A company invoice can be issued; because the tour route includes an area with customer prototypes, a statement specifying photography boundaries must be signed.",
+        "answered_by": "merchant",
+        "created_at": "2026-07-07T09:00:00Z"
+      }
+    },
+    {
+      "source_event_id": "S7_qa_mutation",
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_factory_refund",
+        "merchant_id": "mer_7a4c19d2",
+        "user_id": "user_seed_tb_013",
+        "question": "By what time can the reserved spots be canceled without penalty?",
+        "answer": "Cancellations made within three business days before the visit incur no fee, and the deposit will be refunded via the original payment method; cancellations within three days will forfeit half of the deposit.",
+        "answered_by": "merchant",
+        "created_at": "2026-07-08T02:00:00Z"
+      }
+    },
+    {
+      "source_event_id": "S7_qa_mutation",
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_lunch_refund",
+        "merchant_id": "mer_5e91a7c3",
+        "user_id": "user_seed_tb_013",
+        "question": "How is settlement handled if the headcount temporarily decreases?",
+        "answer": "Settlement is based on the actual attendance but may not be lower than 90% of the contracted headcount. Any reduction must be reported before 10:00 a.m. that day.",
+        "answered_by": "merchant",
+        "created_at": "2026-07-08T02:15:00Z"
+      }
+    }
+  ]
+}

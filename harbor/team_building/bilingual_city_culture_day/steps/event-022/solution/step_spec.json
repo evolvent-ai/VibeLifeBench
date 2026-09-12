@@ -1,0 +1,31 @@
+{
+  "step": "event-022",
+  "virtual_stage": 22,
+  "source_event_id": "S22_feedback_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-015"
+    ],
+    "released_mutations": []
+  },
+  "response": "The late feedback notification was refreshed and recorded as an improvement item for noise reminders and English safety communication.",
+  "response_paraphrase": "Post-event feedback now tracks the delayed need, weak noise prompts, and the English-safety improvement.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S22_feedback_notice",
+      "virtual_stage": 22,
+      "event_kind": "world",
+      "event_time": "2026-07-22T15:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_late_need_discovered",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

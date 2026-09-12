@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "s2_vendor_catalog_mutation"
+  ],
+  "source_stage": 2,
+  "source_time": "2026-07-03T13:55:00+08:00",
+  "previous": "release-000",
+  "token": "alcohol-free-sales-celebration-release-001-token",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "venue_celebration_jingan_blackbox",
+        "name": "Jing'an Alcohol-Free Black Box",
+        "category": "venue",
+        "city": "Shanghai",
+        "area": "Jing'an District",
+        "address": "West Nanjing Roadtranslated business texteventtranslated business text 11 translated business text",
+        "phone": null,
+        "rating_tenths": 46,
+        "review_count": 126,
+        "avg_price_minor": 4380000,
+        "price_band": "$$$",
+        "hours": "10:00-22:30",
+        "tags": "[\"indoortranslated business text\",\"alcohol-free drinks\",\"cultural experience VAT special invoice\",\"low-pressure interaction\",\"translated business textcandidate\"]",
+        "has_private_room": 1,
+        "max_party_size": 56
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "venue_celebration_southbank",
+        "name": "Yuyuan Tea Salon",
+        "category": "venue",
+        "city": "Shanghai",
+        "area": "Jing'an District",
+        "address": "Yuyuan Road 612 translated business text",
+        "phone": null,
+        "rating_tenths": 44,
+        "review_count": 83,
+        "avg_price_minor": 3560000,
+        "price_band": "$$",
+        "hours": "10:00-21:30",
+        "tags": "[\"translated business text\",\"alcohol-free\",\"translated business text\",\"invoice categorytranslated business textverify\"]",
+        "has_private_room": 1,
+        "max_party_size": 44
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_blackbox_invoice",
+        "merchant_id": "venue_celebration_jingan_blackbox",
+        "user_id": "ops_lead",
+        "rating": 5,
+        "body": "venuetranslated business text，translated business texteventservicetranslated business textcateringquote；invoice categorytranslated business textoriginal email threadconfirmation。",
+        "image_captions": null,
+        "created_at": "2026-06-20T12:00:00+08:00"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_blackbox_access",
+        "merchant_id": "venue_celebration_jingan_blackbox",
+        "user_id": "wellbeing_team",
+        "rating": 4,
+        "body": "translated business textquiet area，suitabletranslated business textevent；translated business textcheck separatelytranslated business text。",
+        "image_captions": null,
+        "created_at": "2026-06-20T12:00:00+08:00"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_southbank_quiet",
+        "merchant_id": "venue_celebration_southbank",
+        "user_id": "admin_team",
+        "rating": 4,
+        "body": "translated business textalcohol-freetranslated business text，translated business text40 peopletranslated business text，suitabletranslated business text。",
+        "image_captions": null,
+        "created_at": "2026-06-20T12:00:00+08:00"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "insert",
+      "values": {
+        "deal_id": "deal_celebration_blackbox",
+        "merchant_id": "venue_celebration_jingan_blackbox",
+        "title": "40 translated business textalcohol-free celebrationtranslated business textcandidate",
+        "description": "translated business textindoorvenue、translated business texthost、alcohol-free drinkstranslated business textquiet area；invoice、permittranslated business textcancellation termstranslated business textQ&Atranslated business text。",
+        "price_minor": 4380000,
+        "list_price_minor": 4880000,
+        "serves": 40,
+        "valid_until": "2026-07-24",
+        "status": "active"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "insert",
+      "values": {
+        "deal_id": "deal_celebration_southbank",
+        "merchant_id": "venue_celebration_southbank",
+        "title": "translated business texteveningtranslated business text",
+        "description": "translated business textlow-pressure interaction，40 peoplecapacitytranslated business textconfirmation。",
+        "price_minor": 3560000,
+        "list_price_minor": 3960000,
+        "serves": 40,
+        "valid_until": "2026-07-24",
+        "status": "active"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_jingan_alcohol_package",
+        "merchant_id": "venue_celebration_jingan_blackbox",
+        "user_id": "usr_yh_q7vkma",
+        "question": "translated business textVAT special invoicetranslated business text？",
+        "answer": "translated business textcultural experience VAT special invoice，paymenttranslated business textbusiness-to-businessaccount；currentquotetranslated business textanyalcoholic drinks，candidateholdtranslated business textfinallock in。",
+        "answered_by": "merchant",
+        "created_at": "2026-06-30T10:00:00+08:00"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_lumen_safety",
+        "merchant_id": "venue_celebration_jingan_blackbox",
+        "user_id": "usr_yh_q7vkma",
+        "question": "translated business textsupportalcohol-freetranslated business textlow-pressure interaction？",
+        "answer": "translated business textalcohol-free drinks、translated business text、quiet exit areatranslated business texthosttranslated business text，not requiredmembersnames。",
+        "answered_by": "merchant",
+        "created_at": "2026-06-30T10:00:00+08:00"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_lumen_credential",
+        "merchant_id": "venue_celebration_jingan_blackbox",
+        "user_id": "usr_yh_q7vkma",
+        "question": "hosttranslated business textsafetydescriptiontranslated business text？",
+        "answer": "hostroster、translated business textsafetydescriptiontranslated business textinsurance summarytranslated business text，business licensescancurrenttranslated business text。",
+        "answered_by": "merchant",
+        "created_at": "2026-06-30T10:00:00+08:00"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_south_invoice",
+        "merchant_id": "venue_celebration_southbank",
+        "user_id": "usr_yh_q7vkma",
+        "question": "invoicetranslated business textdeposittranslated business text？",
+        "answer": "translated business texteventservicequote；invoice categorytranslated business textbefore lock-intranslated business textconfirmation，candidatetranslated business textdeposit。",
+        "answered_by": "merchant",
+        "created_at": "2026-06-30T10:00:00+08:00"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "saved_merchants",
+      "op": "insert",
+      "values": {
+        "user_id": "usr_yh_q7vkma",
+        "merchant_id": "venue_celebration_jingan_blackbox",
+        "saved_at": "2026-07-01T08:30:00+08:00"
+      }
+    },
+    {
+      "server": "review_platform",
+      "table": "saved_merchants",
+      "op": "insert",
+      "values": {
+        "user_id": "usr_yh_q7vkma",
+        "merchant_id": "venue_celebration_southbank",
+        "saved_at": "2026-07-01T08:30:00+08:00"
+      }
+    }
+  ]
+}

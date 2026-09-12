@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "s9_route_state_mutation"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-07-10T13:35:00+08:00",
+  "previous": "release-005",
+  "token": "alcohol-free-sales-celebration-release-006-token",
+  "operations": [
+    {
+      "server": "maps",
+      "table": "transit_events",
+      "op": "insert",
+      "values": {
+        "event_id": "txevt_nanjingwest_jul10",
+        "line_id": "line_m2",
+        "stop_id": "stop_nanjing_west",
+        "start_dt": "2026-07-10T13:30:00+08:00",
+        "end_dt": "2026-07-25T00:30:00+08:00",
+        "kind": "delayed",
+        "note": "West Nanjing Road Stationtranslated business text，eveningtranslated business textwalkingholdincrease25 minutes；translated business textopen。",
+        "active": 1
+      }
+    }
+  ]
+}

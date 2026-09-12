@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": ["evt_s3_vendor_pool_open"],
+  "source_stage": 3,
+  "source_time": "2026-07-03T11:00:00+08:00",
+  "previous": "release-001",
+  "token": "family-office-open-day-release-early-workshop-1ea63f90",
+  "operations": [{
+    "server": "email", "table": "messages", "op": "insert",
+    "values": {
+      "id": 3, "folder_id": 1, "message_id": "<workshop-c-quote@example.invalid>",
+      "subject": "workshopquote", "from_addr": "sender@example.invalid",
+      "to_addr_json": "[\"han.shu@example.invalid\"]", "cc_addr_json": "[]", "bcc_addr_json": "[]",
+      "date": "2026-07-03T10:00:00+08:00",
+      "body_text": "quote 9800 CNY，can；needsinstructorcredentials。",
+      "body_html": "", "is_read": 0, "is_important": 1, "is_flagged": 0,
+      "in_reply_to": "", "references_header": "", "headers_json": "{}",
+      "uid": 3, "size": 500, "created_at": "2026-07-03T02:00:00Z"
+    },
+    "source_event_id": "evt_s3_vendor_pool_open", "operation_index": 0
+  }]
+}

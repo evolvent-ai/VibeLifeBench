@@ -1,0 +1,28 @@
+{
+ "step": "event-012",
+ "stage": 12,
+ "event_id": "S12_transport_watch",
+ "actions": [
+  {
+   "kind": "record_event",
+   "stage": 12
+  }
+ ],
+ "response_paraphrase": "The route and driver records were checked; the incomplete supplement is noted and the final notice stays on hold.",
+ "expected_env": {
+  "virtual_stage": 12,
+  "workspace": "/workspace"
+ },
+ "expected_checks": [
+  {
+   "check_id": "s12_driver_route_rechecked",
+   "weight": 1.25
+  },
+  {
+   "check_id": "s12_no_final_notice",
+   "weight": 0.75
+  }
+ ],
+ "expected_stage_weight": 2.0,
+ "source_event_id": "S12_transport_watch"
+}

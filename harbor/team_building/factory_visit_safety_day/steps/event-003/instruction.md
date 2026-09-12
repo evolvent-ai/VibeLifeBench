@@ -1,0 +1,1 @@
+The signup form has 38 initial participants and 6 people still awaiting confirmation. Each group sent travel considerations directly to you. Organize only necessary constraints; do not combine personal health, family, or contact details for suppliers or the full team.

@@ -1,0 +1,40 @@
+{
+  "release_id": "release-003",
+  "previous": "release-002",
+  "token": "cross-dept-book-club-dinner-26d-release-003-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "set": {
+        "quantity": 42
+      },
+      "where": {
+        "sku_id": "SK_BOOK_CULTURE_PAPER"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_book_stock_9001",
+        "user_id": "u_ella",
+        "source": "ecommerce",
+        "type": "restock",
+        "subscription_id": "sub_book_stock_watch",
+        "title": "Bulk book stock changed",
+        "body": "One watched book SKU has a new bulk stock figure. Please re-check the catalog before building a purchase plan.",
+        "payload_json": "{\"sku_id\":\"SK_BOOK_CULTURE_PAPER\"}",
+        "created_at": "2026-08-30T03:00:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 6,
+  "source_time": "2026-08-30T03:00:00+08:00",
+  "source_event_ids": [
+    "S6_mut_book_stock_drop"
+  ]
+}

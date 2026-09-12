@@ -1,0 +1,24 @@
+{
+  "step": "event-010",
+  "stage": 10,
+  "event_id": "s10_monitor_notice",
+  "source_event_id": "s10_monitor_notice",
+  "actions": [{"kind": "record_event", "stage": 10}],
+  "response_paraphrase": "The invoice category change triggers a pause, with a service-category plan kept as the alternate.",
+  "expected_env": {
+  "virtual_stage": 10,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-009"
+  ],
+  "released_mutations": [
+    "release-009"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s10_invoice_category_recovery", "weight": 1.0},
+    {"check_id": "s10_plan_b_after_invoice_risk", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

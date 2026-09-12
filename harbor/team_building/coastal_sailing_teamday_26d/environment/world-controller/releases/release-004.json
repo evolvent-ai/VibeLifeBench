@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "s9_mut_boat_capacity"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-09-06T08:00:00+08:00",
+  "previous": "release-003",
+  "token": "coastal-sailing-release-token",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "update",
+      "set": {
+        "status": "sold_out"
+      },
+      "where": {
+        "deal_id": "deal_private_skipper_cash"
+      },
+      "source_event_id": "s9_mut_boat_capacity"
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "update",
+      "set": {
+        "max_party_size": 8
+      },
+      "where": {
+        "merchant_id": "mer_cove_class_8"
+      },
+      "source_event_id": "s9_mut_boat_capacity"
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "update",
+      "set": {
+        "serves": 8,
+        "description": "Reserve boat re-rated to a maximum of 8 passengers after the operator inspection; weather hold still applies."
+      },
+      "where": {
+        "deal_id": "deal_cove_class_wave"
+      },
+      "source_event_id": "s9_mut_boat_capacity"
+    }
+  ]
+}

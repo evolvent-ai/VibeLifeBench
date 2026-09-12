@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "response": "The scheduled gate review covers roster, capacity, weather, permit, insurance, transport, dinner, photos, and finance.",
+  "event_id": "s12_scheduled_mid_review",
+  "source_event_id": "s12_scheduled_mid_review",
+  "step": "event-012",
+  "synthetic": false,
+  "virtual_stage": 12,
+  "response_paraphrase": "I ran the mid-plan review across every operational gate and retained the remaining blockers.",
+  "expected_env": {
+    "virtual_stage": 12
+  },
+  "expected_checks": [
+    {
+      "check_id": "s12_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s12_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

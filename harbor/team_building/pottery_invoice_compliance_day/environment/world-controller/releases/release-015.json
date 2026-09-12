@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-015",
+  "source_event_ids": [
+    "s18_preflight_mutation"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-07-19T09:00:00+08:00",
+  "previous": "release-014",
+  "token": "pottery-invoice-compliance-015-token-20260824",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "notif_pottery_preflight_0719",
+        "user_id": "user_luyao_tb011",
+        "source": "team_building_monitor",
+        "type": "policy_update",
+        "title": "Check 48 hours before the event",
+        "body": "Please reconcile the list of 27 people, dietary labels, gathering route, on-site contacts, nitrile gloves, rest stops, and unsent notification drafts.",
+        "payload_json": "{\"window\":\"48h\"}",
+        "created_at": "2026-07-19T08:55:00+08:00",
+        "read": 0
+      }
+    }
+  ]
+}

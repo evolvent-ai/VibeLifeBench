@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "mut_s10_visitor_quota"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-07-10T09:00:00+08:00",
+  "previous": "release-003",
+  "token": "family-office-open-day-release-6eea832e01ff2516937774ba",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "insert",
+      "values": {
+        "qa_id": "qa_property_quota_0710",
+        "merchant_id": "venue_office_nanshan",
+        "user_id": "property_ops",
+        "question": "81visitor quota",
+        "answer": "Property Managementtemporaryvisitor limit 82  74，needsstaggered admission；fire passage。",
+        "answered_by": "property_manager",
+        "created_at": "2026-07-10T09:00:00+08:00"
+      },
+      "source_event_id": "mut_s10_visitor_quota",
+      "operation_index": 0
+    }
+  ]
+}

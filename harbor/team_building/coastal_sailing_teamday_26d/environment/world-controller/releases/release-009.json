@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "s16_mut_transport"
+  ],
+  "source_stage": 16,
+  "source_time": "2026-09-13T08:00:00+08:00",
+  "previous": "release-008",
+  "token": "coastal-sailing-release-token",
+  "operations": [
+    {
+      "server": "car_rental",
+      "table": "rental_offers",
+      "op": "update",
+      "set": {
+        "inventory_remaining": 0
+      },
+      "where": {
+        "offer_id": "offer_budget_minibus_24"
+      },
+      "source_event_id": "s16_mut_transport"
+    },
+    {
+      "server": "maps",
+      "table": "road_events",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "event_id": "road_event_haiwan_accident"
+      },
+      "source_event_id": "s16_mut_transport"
+    }
+  ]
+}

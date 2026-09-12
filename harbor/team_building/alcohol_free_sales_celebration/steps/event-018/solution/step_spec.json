@@ -1,0 +1,15 @@
+{
+  "step": "event-018",
+  "virtual_stage": 18,
+  "source_event_id": "s18_preflight_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-013"], "released_mutations": ["s18_preflight_state"]},
+  "response": "I completed the preflight review across schedule, location, alerts, meal labeling, contacts, and the communication draft.",
+  "response_paraphrase": "The final preparation window now has a synchronized operational checklist across the core services.",
+  "actions": [{"kind": "record_event", "source_event_id": "s18_preflight_notice"}],
+  "expected_checks": [
+    {"check_id": "s18_preflight_checklist", "weight": 1.5, "expected": true},
+    {"check_id": "s18_food_label_and_contact_sync", "weight": 1.25, "expected": true}
+  ],
+  "expected_stage_weight": 2.75
+}

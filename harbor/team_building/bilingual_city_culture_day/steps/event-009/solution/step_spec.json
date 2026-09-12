@@ -1,0 +1,29 @@
+{
+  "step": "event-009",
+  "virtual_stage": 9,
+  "source_event_id": "S9_shortlist_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Primary and backup plans are drafted with risks, pending confirmation, and explicit do-not-pay or do-not-sign boundaries.",
+  "response_paraphrase": "A lead option, fallback, risks, and remaining approvals are laid out without committing funds or terms.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S9_shortlist_request",
+      "virtual_stage": 9,
+      "event_kind": "user_message",
+      "event_time": "2026-07-10T16:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_shortlist_draft",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

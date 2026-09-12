@@ -1,0 +1,15 @@
+{
+  "step": "event-023",
+  "virtual_stage": 23,
+  "source_event_id": "s23_finance_world",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-018"], "released_mutations": ["s23_finance_archive_state"]},
+  "response": "I reconciled the archived billing and card evidence and kept unresolved categories and remaining amounts open rather than treating them as paid.",
+  "response_paraphrase": "The financial handoff now distinguishes verified records from issues that still require documentation or approval.",
+  "actions": [{"kind": "record_event", "source_event_id": "s23_finance_world"}],
+  "expected_checks": [
+    {"check_id": "s23_invoice_reconcile", "weight": 1.75, "expected": true},
+    {"check_id": "s23_unresolved_payment_items", "weight": 1.5, "expected": true}
+  ],
+  "expected_stage_weight": 3.25
+}

@@ -1,0 +1,17 @@
+# bilingualcitycultureevent details：event detailsnotification
+
+initializestatusevent details 43 event details：33 event detailsnotification、5 event details、1 event detailspricereminder、1 event detailsaccount、2 event detailsaccountevent detailsand 1 event detailsaccountevent details。notificationevent detailsprojectevent details、approvalevent details、on-site coordination、cateringevent detailstransportationevent details，event detailsandevent detailsstatus。
+
+event detailsfileseparatelyevent detailsapproval feedback、reminderevent detailspleaseevent details、on-siteheat discomfort、photo stopclosedandevent details。event detailsupdateevent detailsindependentnotificationevent detailstime，event detailsofevent detailsrecord。
+
+notificationbodyonlyevent detailsconfirmationofevent details；payment、routeandweatherofevent detailsstatusevent detailsservicemaintain。
+
+## event details Stage event details
+
+Stage 16、19、20、21 and 22 separatelyevent detailsapproval feedback、reminderevent detailspleaseevent details、on-siteheat discomfort、photo stopclosedevent details。event details notification_id event details Stage event details，event detailsfileonlywriteevent detailsofevent details。
+
+## sourceevent detailsstatusevent details
+
+notificationsourceevent details regional_approver、ops_monitor、onsite_contact and feedback_form。payload_json event detailsstatus、pending confirmationevent detailsoron-sitede-escalationrequest，read onlyevent details。approvalfeedbackclarifyevent detailsauthorizationpaymentandfinal group message；reminderpleaseevent detailsrequestevent details；on-siteevent detailsrequestshade、hydration、event detailsandprofessionalevent details，do not makemedical judgment。routeorweatherevent details active needevent details Maps event details Weather，event detailsnotificationtitleevent details。
+
+event detailsrecordevent details，target event detailsinpublicofevent details。event detailsorupdateevent details list_subscriptions confirmation active status；onlyevent details create_subscription event detailsandevent details，event details。

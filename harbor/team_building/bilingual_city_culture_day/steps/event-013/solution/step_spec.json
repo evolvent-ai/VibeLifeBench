@@ -1,0 +1,31 @@
+{
+  "step": "event-013",
+  "virtual_stage": 13,
+  "source_event_id": "S13_vendor_change",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": []
+  },
+  "response": "The leading guide deal is expired and its insurance and credential evidence is incomplete, so capacity remains unlocked.",
+  "response_paraphrase": "The primary guide cannot be held because the deal expired and liability and credential documents are still missing.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S13_vendor_change",
+      "virtual_stage": 13,
+      "event_kind": "notification",
+      "event_time": "2026-07-14T09:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_credentials_block_lock",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

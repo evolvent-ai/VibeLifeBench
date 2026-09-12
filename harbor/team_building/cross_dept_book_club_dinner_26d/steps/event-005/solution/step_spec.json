@@ -1,0 +1,33 @@
+{
+  "step": "event-005",
+  "virtual_stage": 5,
+  "source_event_id": "S5_notification_guest_mail",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": []
+  },
+  "response": "Maya Rao's guest email was read and her availability, private bio, and internal Q&A handling were recorded for the organizing team.",
+  "response_paraphrase": "Guest availability is tracked while the detailed profile and preparation notes remain internal to the organizers.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S5_notification_guest_mail"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s5_guest_email_checked",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s5_guest_privacy_recorded",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

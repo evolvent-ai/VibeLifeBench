@@ -1,0 +1,24 @@
+{
+  "step": "event-013",
+  "stage": 13,
+  "event_id": "s13_review_world",
+  "source_event_id": "s13_review_world",
+  "actions": [{"kind": "record_event", "stage": 13}],
+  "response_paraphrase": "Qualifications, insurance, and instructor checks show missing documents, so the vendor stays pending beside an alternative.",
+  "expected_env": {
+  "virtual_stage": 13,
+  "workspace": "/workspace",
+  "preceding_releases": [
+    "release-012"
+  ],
+  "released_mutations": [
+    "release-012"
+  ],
+  "stage_boundary": true
+},
+  "expected_checks": [
+    {"check_id": "s13_credential_recheck", "weight": 1.0},
+    {"check_id": "s13_vendor_not_locked_without_docs", "weight": 1.0}
+  ],
+  "expected_stage_weight": 2.0
+}

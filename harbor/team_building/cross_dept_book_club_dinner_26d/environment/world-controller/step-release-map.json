@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "step_count": 26,
+  "steps": {
+    "event-000": {
+      "source_event_id": "S0_user_kickoff",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-24T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "S1_world_sources_open",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-25T10:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "S2_notification_signup_snapshot",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-26T09:15:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "S3_user_group_constraints",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-27T11:30:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "S4_notification_finance_mail",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-28T09:40:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "S5_notification_guest_mail",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-29T16:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "S6_world_stock_prompt",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-30T10:00:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "S7_user_compare_tracks",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-31T20:10:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "S8_notification_vendor_quotes",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-01T09:30:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "S9_notification_guest_update",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-02T09:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "S10_world_public_pressure",
+      "before": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-03T10:20:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "S11_notification_signup_increase",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-04T09:10:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "S12_world_capacity_prompt",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-05T10:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "S13_user_budget_snapshot",
+      "before": [],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-06T18:30:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "S14_notification_finance_update",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-07T09:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "S15_world_book_restock",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-08T10:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "S16_notification_guest_confirm",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-09T11:45:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "S17_user_lock_shortlist",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-10T20:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "S18_notification_dietary_update",
+      "before": [
+        "release-011"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-11T09:25:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "S19_notification_dinner_policy",
+      "before": [
+        "release-012"
+      ],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-12T09:40:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "S20_world_feedback_rules",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-13T10:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "S21_user_prepare_reversible",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-14T19:10:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "S22_notification_scheduled_scan",
+      "before": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-16T18:00:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "S23_notification_public_lure",
+      "before": [
+        "release-013"
+      ],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-17T09:15:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "S24_user_final_handoff",
+      "before": [],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-18T17:00:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "S25_user_feedback_archive",
+      "before": [],
+      "virtual_stage": 25,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-19T10:00:00+08:00"
+    }
+  }
+}

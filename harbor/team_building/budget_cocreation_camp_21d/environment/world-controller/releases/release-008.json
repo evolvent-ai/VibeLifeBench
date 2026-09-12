@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "S09_mut_roster_change"
+  ],
+  "source_time": "2026-07-31T02:10",
+  "previous": "release-007",
+  "token": "budget-cocreation-camp-21d-release-008-release-token",
+  "operations": [
+    {
+      "server": "email",
+      "table": "folders",
+      "op": "update",
+      "set": {
+        "message_count": 81,
+        "unread_count": 73
+      },
+      "where": {
+        "id": 1
+      },
+      "source_event_id": "S09_mut_roster_change"
+    },
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 9009,
+        "folder_id": 1,
+        "message_id": "<roster-change@pmo>",
+        "subject": "Budget camp roster change and permission delta",
+        "from_addr": "pmo@example.com",
+        "to_addr_json": "[\"ops-assistant@example.com\"]",
+        "cc_addr_json": "[\"hrbp@example.com\"]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-31T02:20:00Z",
+        "body_text": "Ravi from Business is out. Nina from Operations is added. Nina is a regular participant only. HR_PRIVATE and FINANCE_ONLY permissions remain unchanged.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 9009,
+        "size": 260,
+        "created_at": "2026-07-31T02:20:00Z"
+      },
+      "source_event_id": "S09_mut_roster_change"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_roster_delta",
+        "user_id": "u_budget_ops",
+        "source": "pmo",
+        "type": "policy_update",
+        "subscription_id": null,
+        "title": "Roster permission delta",
+        "body": "A roster update is available in formal sources.",
+        "payload_json": "{\"topic\":\"roster_delta\"}",
+        "created_at": "2026-07-31T02:25:00Z",
+        "read": 0
+      },
+      "source_event_id": "S09_mut_roster_change"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "actions": [
+    {
+      "kind": "notification"
+    }
+  ],
+  "response": "SAIL-FINAL-0916 approves the CNY 72,000 cap and four official payees; private accounts remain blocked.",
+  "event_id": "s19_notice_finance",
+  "source_event_id": "s19_notice_finance",
+  "step": "event-019",
+  "synthetic": false,
+  "virtual_stage": 19,
+  "response_paraphrase": "Finance approval and its supplier amounts were verified and added to the budget ledger.",
+  "expected_env": {
+    "virtual_stage": 19
+  },
+  "expected_checks": [
+    {
+      "check_id": "s19_authority_trace",
+      "weight": 1.25
+    },
+    {
+      "check_id": "s19_durable_update",
+      "weight": 0.1
+    }
+  ],
+  "expected_stage_weight": 1.35
+}

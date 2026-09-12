@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "s18_mut_budget_cap"
+  ],
+  "source_stage": 18,
+  "source_time": "2026-09-06T09:00:00+08:00",
+  "previous": "release-010",
+  "token": "community-service-release-011-token-9f3a7c2d1e4b6a8c",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1204,
+        "folder_id": 1,
+        "message_id": "email_budget_cap_0904",
+        "subject": "Working CSR budget cap and payment controls",
+        "from_addr": "finance-csr@company.example",
+        "to_addr_json": "[\"maya.csr@company.example\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-06T09:00:00+08:00",
+        "body_text": "Official finance update: working cap is CNY 62,000. Donations and community costs must use CSR account acct_csr_budget and official payees only. Do not use employee team-building account, gift cards, private accounts, or personal reimbursements. Final payment/order authorization will come separately.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": 1204,
+        "size": 301,
+        "created_at": "2026-09-06T09:00:00+08:00"
+      }
+    }
+  ]
+}

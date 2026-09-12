@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "s10_alcohol_package_mutation"
+  ],
+  "source_stage": 10,
+  "source_time": "2026-07-11T07:30:00+08:00",
+  "previous": "release-006",
+  "token": "alcohol-free-sales-celebration-release-007-token",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "update",
+      "set": {
+        "answer": "translated business textsupplement：primary candidatetranslated business textalcoholic drinkstranslated business textinvoice，VAT special invoicetranslated business textconfirmation，cannottranslated business textlock in。"
+      },
+      "where": {
+        "qa_id": "qa_jingan_alcohol_package"
+      }
+    }
+  ]
+}

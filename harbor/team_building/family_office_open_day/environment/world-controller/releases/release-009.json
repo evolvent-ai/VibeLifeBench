@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": ["evt_s18_scheduled_final_check"],
+  "source_stage": 18,
+  "source_time": "2026-07-24T14:00:00+08:00",
+  "previous": "release-008",
+  "token": "family-office-open-day-release-final-route-91a5cd30",
+  "operations": [{
+    "server": "maps", "table": "road_events", "op": "insert",
+    "values": {
+      "event_id": "road_evt_nanshan_0801", "road_id": "road_people_square",
+      "start_dt": "2026-07-18T16:30:00+08:00", "end_dt": "2026-07-18T19:30:00+08:00",
+      "kind": "heavy_traffic", "magnitude": 1.8,
+      "note": "，main pickup point congestion，backup point available",
+      "active": 0
+    },
+    "source_event_id": "evt_s18_scheduled_final_check", "operation_index": 0
+  }]
+}

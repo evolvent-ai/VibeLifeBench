@@ -1,0 +1,31 @@
+{
+  "step": "event-007",
+  "virtual_stage": 7,
+  "source_event_id": "S7_user_compare_tracks",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "A cross-category budget comparison was prepared using live venue, dinner, book, and guest sources rather than a single total.",
+  "response_paraphrase": "Books, venue, dinner, and guest costs are now compared by category from multiple current sources.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S7_user_compare_tracks"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s7_cross_category_comparison",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s7_multi_source_comparison_tools",
+      "weight": 0.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.0
+}

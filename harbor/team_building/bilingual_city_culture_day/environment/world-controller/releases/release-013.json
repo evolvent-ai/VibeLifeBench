@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "release_id": "release-013",
+  "source_event_ids": [
+    "S20_onsite_safety_mutation"
+  ],
+  "source_stage": 20,
+  "source_time": "2026-07-21T07:55:00+08:00",
+  "previous": "release-012",
+  "token": "bilingual-city-culture-day-release-token-013-8f4d2a9c",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_onsite_heat_support",
+        "user_id": "usr_gn_m4xqpa",
+        "source": "onsite_contact",
+        "type": "safety_alert",
+        "subscription_id": null,
+        "title": "On-site heat discomfort and language support",
+        "body": "At check-in, one member reported heat discomfort and moved to a shaded rest area; an international member needs an English safety reminder. Use de-escalation and professional escalation, without medical judgment.",
+        "payload_json": "{\"action\":\"shade_water_rest_and_escalate\",\"english_notice_needed\":true}",
+        "created_at": "2026-07-21T07:55:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "S20_onsite_safety_mutation",
+      "operation_index": 0
+    }
+  ]
+}

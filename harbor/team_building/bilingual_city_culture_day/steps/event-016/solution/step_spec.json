@@ -1,0 +1,31 @@
+{
+  "step": "event-016",
+  "virtual_stage": 16,
+  "source_event_id": "S16_approver_feedback",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": []
+  },
+  "response": "The approver's safety-boundary feedback is reflected in a draft covering route intensity, dietary boundaries, bilingual reminders, and sensitive information.",
+  "response_paraphrase": "The approval response now separates route effort, food boundaries, bilingual prompts, and disclosure controls.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S16_approver_feedback",
+      "virtual_stage": 16,
+      "event_kind": "notification",
+      "event_time": "2026-07-17T15:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s16_approver_reply",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

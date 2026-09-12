@@ -1,0 +1,31 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "S2_budget_finance",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": []
+  },
+  "response": "Finance boundaries are captured: guide, catering, and transportation need separate company invoices and confirmation for deposits or payments.",
+  "response_paraphrase": "The finance note is recorded with separate company invoices and an approval gate for deposits and payments.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S2_budget_finance",
+      "virtual_stage": 2,
+      "event_kind": "notification",
+      "event_time": "2026-07-03T11:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s2_finance_draft",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

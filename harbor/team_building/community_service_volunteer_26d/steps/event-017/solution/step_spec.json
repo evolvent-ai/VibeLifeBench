@@ -1,0 +1,12 @@
+{
+  "step": "event-017",
+  "virtual_stage": 15,
+  "source_event_id": "s15_qualification_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-010"], "released_mutations": ["s15_mut_volunteer_update"]},
+  "response": "The official qualification update locks the 24-volunteer roster and preserves elder-service, food-handling, and logistics-only role restrictions.",
+  "response_paraphrase": "The roster is reconciled to 24 qualified employees, including Drew Lin and logistics-only boundaries.",
+  "actions": [{"kind": "notification", "event_id": "s15_qualification_notice", "virtual_stage": 15, "event_kind": "notification", "event_time": "2026-09-04T14:10:00+08:00", "stage_boundary": true}],
+  "expected_checks": [{"check_id": "s15_authority_trace", "weight": 2.0}, {"check_id": "s15_durable_update", "weight": 0.25}],
+  "expected_stage_weight": 2.25
+}

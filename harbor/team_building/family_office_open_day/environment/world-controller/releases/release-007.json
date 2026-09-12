@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "mut_s13_certificate_missing"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-07-13T10:00:00+08:00",
+  "previous": "release-006",
+  "token": "family-office-open-day-release-6e1a06c73e7c9a20fb95e2cb",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 1102,
+        "folder_id": 1,
+        "message_id": "<workshop-cert-delay@example.invalid>",
+        "subject": "instructorinsurancematerialsdelayed",
+        "from_addr": "service@spark-lab.invalid",
+        "to_addr_json": "[\"han.shu@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-13T10:00:00+08:00",
+        "body_text": "instructorinsurance attachmentchildrencredentialstonightresend，firstconfirmationverbal plan。",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": "",
+        "references_header": "",
+        "headers_json": "{}",
+        "uid": 9202,
+        "size": 330,
+        "created_at": "2026-07-13T02:00:00Z"
+      },
+      "source_event_id": "mut_s13_certificate_missing",
+      "operation_index": 0
+    }
+  ]
+}

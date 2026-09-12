@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "s13_credential_mutation"
+  ],
+  "source_stage": 13,
+  "source_time": "2026-07-14T08:30:00+08:00",
+  "previous": "release-009",
+  "token": "alcohol-free-sales-celebration-release-010-token",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchant_qa",
+      "op": "update",
+      "set": {
+        "answer": "hosttranslated business text，translated business textbusiness licensescantemporarymissing，insurance summaryneedsresend。"
+      },
+      "where": {
+        "qa_id": "qa_lumen_credential"
+      }
+    }
+  ]
+}

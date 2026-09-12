@@ -1,0 +1,31 @@
+{
+  "step": "event-022",
+  "virtual_stage": 22,
+  "source_event_id": "S22_notification_scheduled_scan",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The scheduled final scan checked attendance, capacity, stock, guest calendar, dinner restrictions, payment state, and privacy records across live sources.",
+  "response_paraphrase": "All final source checks are complete, with no payment, private payee, order, or public-sharing state introduced.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S22_notification_scheduled_scan"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s22_scheduled_scan_sources",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s22_no_payment_state",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

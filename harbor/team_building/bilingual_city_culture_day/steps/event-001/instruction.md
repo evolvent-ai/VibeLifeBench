@@ -1,0 +1,1 @@
+An email from the regional lead says that the team event proposal must support cross-cultural icebreaking, onboarding new colleagues, low-intensity inclusion, and organizational belonging, and asks for candidate plans by next week.

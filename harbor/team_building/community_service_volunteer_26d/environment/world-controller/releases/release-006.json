@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "s8_mut_supply_stock"
+  ],
+  "source_stage": 8,
+  "source_time": "2026-08-26T14:50:00+08:00",
+  "previous": "release-005",
+  "token": "community-service-release-006-token-9f3a7c2d1e4b6a8c",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "set": {
+        "quantity": 96
+      },
+      "where": {
+        "sku_id": "sku_hygiene_kit_standard"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "set": {
+        "quantity": 88
+      },
+      "where": {
+        "sku_id": "sku_towel_pack_gray"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "set": {
+        "quantity": 6
+      },
+      "where": {
+        "sku_id": "sku_plain_label_roll"
+      }
+    }
+  ]
+}

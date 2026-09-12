@@ -1,0 +1,57 @@
+{
+  "release_id": "release-009",
+  "previous": "release-008",
+  "token": "cross-dept-book-club-dinner-26d-release-009-token",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "set": {
+        "quantity": 128
+      },
+      "where": {
+        "sku_id": "SK_BOOK_CULTURE_PAPER"
+      }
+    },
+    {
+      "server": "ecommerce",
+      "table": "coupons",
+      "op": "insert",
+      "values": {
+        "code": "BOOKCLUB600",
+        "kind": "flat_off",
+        "value_bp_or_minor": 60000,
+        "min_spend_minor": 600000,
+        "valid_from": "2026-09-08",
+        "valid_until": "2026-12-31",
+        "category_restriction": "books",
+        "max_uses": 500,
+        "used_count": 0,
+        "active": 1
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_book_restock_9003",
+        "user_id": "u_ella",
+        "source": "ecommerce",
+        "type": "restock",
+        "subscription_id": "sub_book_stock_watch",
+        "title": "Bulk book restock",
+        "body": "A watched book SKU now supports a larger bulk quantity. Please re-check cart eligibility and coupon rules.",
+        "payload_json": "{\"sku_id\":\"SK_BOOK_CULTURE_PAPER\",\"coupon\":\"BOOKCLUB600\"}",
+        "created_at": "2026-09-08T09:55:00Z",
+        "read": 0
+      }
+    }
+  ],
+  "source_stage": 15,
+  "source_time": "2026-09-08T09:55:00+08:00",
+  "source_event_ids": [
+    "S15_mut_book_restock"
+  ]
+}

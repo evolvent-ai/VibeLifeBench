@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "S1_goal_mail_mutation"
+  ],
+  "source_stage": 1,
+  "source_time": "2026-07-02T09:55:00+08:00",
+  "previous": null,
+  "token": "bilingual-city-culture-day-release-token-000-8f4d2a9c",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 3002,
+        "folder_id": 1,
+        "message_id": "<regional-goals-20260702@apac.example>",
+        "subject": "Yuexiu culture day candidate plan goals",
+        "from_addr": "regional.lead@example.com",
+        "to_addr_json": "[\"gu.ning@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-02T09:55:00+08:00",
+        "body_text": "The candidate plan must demonstrate cross-cultural icebreaking, onboarding new colleagues, low-intensity inclusion, and organizational belonging. Explain how each segment serves these goals and which members may opt out.",
+        "body_html": "",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 1,
+        "headers_json": "{}",
+        "uid": 3002,
+        "size": 292,
+        "created_at": "2026-07-02T09:55:00+08:00"
+      },
+      "source_event_id": "S1_goal_mail_mutation",
+      "operation_index": 0
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "insert",
+      "values": {
+        "deal_id": "deal_yuexiu_walk_group33",
+        "merchant_id": "mer_yuexiu_bilingual_walk",
+        "title": "33 peoplehistoric Yuexiubilingual tourcancellable hold",
+        "description": "event detailsinevent detailsbilingual tour、groupingtaskevent detailsandcorporate invoice；deposit、event detailsfinal routeevent detailsconfirmation。",
+        "price_minor": 1800000,
+        "list_price_minor": 2200000,
+        "serves": 33,
+        "valid_until": "2026-07-20",
+        "status": "active"
+      },
+      "source_event_id": "S1_goal_mail_mutation",
+      "operation_index": 1
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "insert",
+      "values": {
+        "deal_id": "deal_yuexiu_stepfree_review",
+        "merchant_id": "mer_yuexiu_bilingual_walk",
+        "title": "event detailsstepsrouteverifyevent details",
+        "description": "event detailscontinuous step-freeentrancereview、event details、event details、restroomandpick-up and drop-off pointsdetails；event details。",
+        "price_minor": 352000,
+        "list_price_minor": 420000,
+        "serves": 33,
+        "valid_until": "2026-07-20",
+        "status": "active"
+      },
+      "source_event_id": "S1_goal_mail_mutation",
+      "operation_index": 2
+    }
+  ]
+}
