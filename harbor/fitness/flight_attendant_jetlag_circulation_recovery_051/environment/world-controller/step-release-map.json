@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "step_count": 24,
+  "steps": {
+    "event-000": {
+      "source_event_id": "s00_kickoff_user",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-01T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "s01_baseline_health_world",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-02T08:20:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "s02_baseline_scheduled_check",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-03T07:30:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "s03_roster_email_notice",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-04T10:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "s04_plan_build_scheduled",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-05T09:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "s05_equipment_query_user",
+      "before": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-06T19:30:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "s07_weather_notice",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-08T08:40:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "s08_user_postflight_hiit",
+      "before": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-10T20:45:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "s10_recovery_scheduled",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-11T09:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "s11_roster_update_notice",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-12T10:15:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "s13_calendar_conflict_scheduled",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-13T08:30:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "s14_progress_digest",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-15T18:00:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "s15_cycle_privacy_user",
+      "before": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-16T21:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "s17_weather_equipment_scheduled",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-17T08:00:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "s18_purchase_confirm_user",
+      "before": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-18T20:10:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "s19_longhaul_digest",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-20T22:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "s20_longhaul_recovery_scheduled",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-21T09:00:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "s22_order_check_scheduled",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-23T09:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "s23_company_swap_email",
+      "before": [
+        "release-010"
+      ],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-24T16:20:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "s24_user_cycle_email_request",
+      "before": [],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-24T21:10:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "s26_cycle_privacy_scheduled",
+      "before": [
+        "release-011"
+      ],
+      "virtual_stage": 26,
+      "stage_boundary": true,
+      "scenario_time": "2026-09-29T09:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "s27_singapore_delay_notice",
+      "before": [
+        "release-012"
+      ],
+      "virtual_stage": 27,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-02T18:20:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "s28_user_final_hiit_request",
+      "before": [],
+      "virtual_stage": 28,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-04T20:30:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "s29_final_review_scheduled",
+      "before": [],
+      "virtual_stage": 29,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-05T21:00:00+08:00"
+    }
+  }
+}

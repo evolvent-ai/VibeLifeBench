@@ -1,0 +1,37 @@
+{
+  "step": "event-015",
+  "stage": 19,
+  "virtual_stage": 19,
+  "source_event_id": "s19_weekend_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "s18_family_dinner_mutation",
+      "s19_notification_state"
+    ]
+  },
+  "response": "The calendar confirms the 2026-07-12 family dinner conflict. I retained that commitment and moved the recovery walk to a separate window without fabricating completion.",
+  "response_paraphrase": "I found Sunday's dinner entry, left the family event untouched, and placed the restorative walk elsewhere; no activity result was invented.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s19_weekend_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s19_family_conflict_detected",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s19_recovery_preserved",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

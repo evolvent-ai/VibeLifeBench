@@ -1,0 +1,1 @@
+Weekend plan check: proactively inspect the calendar for unexpected work commitments. If necessary, split training into short recovery sessions and update the calendar with the reason for each change.

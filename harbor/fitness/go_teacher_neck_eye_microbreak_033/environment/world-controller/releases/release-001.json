@@ -1,0 +1,39 @@
+{
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 3001,
+        "folder_id": 1,
+        "message_id": "<go-schedule-july@example.invalid>",
+        "subject": "Early-July teaching schedule and Saturday long class",
+        "from_addr": "scheduling@qiyuan.example.invalid",
+        "to_addr_json": "[\"liang.weimin@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-02T10:05:00+08:00",
+        "body_text": "7/2-7/10 afternoondataeveningreview classdata;7/4,7/11 Saturdaylong classdata 10:00-14:00.scheduledata,data.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"Message-ID\":\"<go-schedule-july@example.invalid>\"}",
+        "uid": 3001,
+        "size": 880,
+        "created_at": "2026-07-02T10:05:00+08:00"
+      }
+    }
+  ],
+  "previous": "release-000",
+  "release_id": "release-001",
+  "source_stage": 2,
+  "source_event_id": "s02_schedule_email_mutation",
+  "source_event_ids": ["s02_schedule_email_mutation"],
+  "source_time": "2026-07-02T10:10:00+08:00",
+  "token": "go-teacher-neck-eye-microbreak-033-release-token",
+  "virtual_stage": 2
+}

@@ -1,0 +1,19 @@
+{
+  "step": "event-021",
+  "virtual_stage": 27,
+  "source_event_id": "s27_user_final_review",
+  "response": "The final review covers pain, sleep, completion rate, equipment delay, course pressure, authorization, privacy, data quality, and the next-cycle plan.",
+  "response_paraphrase": "The completed cycle is summarized across health, schedule, equipment, sales pressure, consent, privacy, data quality, and future habits.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 27
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

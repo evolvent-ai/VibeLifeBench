@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "step_count": 22,
+  "steps": {
+    "event-000": {
+      "step": "event-000",
+      "source_event_id": "s00_kickoff_user",
+      "virtual_stage": 0,
+      "kind": "user_message",
+      "scenario_time": "2026-07-06T09:10:00+08:00",
+      "before": [],
+      "stage_boundary": true
+    },
+    "event-001": {
+      "step": "event-001",
+      "source_event_id": "s01_health_calendar_baseline",
+      "virtual_stage": 1,
+      "kind": "notification",
+      "scenario_time": "2026-07-07T08:30:00+08:00",
+      "before": [],
+      "stage_boundary": true
+    },
+    "event-002": {
+      "step": "event-002",
+      "source_event_id": "s02_camp_email_notice",
+      "virtual_stage": 2,
+      "kind": "notification",
+      "scenario_time": "2026-07-08T10:20:00+08:00",
+      "before": [
+        "release-000"
+      ],
+      "stage_boundary": true
+    },
+    "event-003": {
+      "step": "event-003",
+      "source_event_id": "s03_work_conflict_world",
+      "virtual_stage": 3,
+      "kind": "world",
+      "scenario_time": "2026-07-09T18:40:00+08:00",
+      "before": [
+        "release-001"
+      ],
+      "stage_boundary": true
+    },
+    "event-004": {
+      "step": "event-004",
+      "source_event_id": "s04_full_plan_scheduled",
+      "virtual_stage": 4,
+      "kind": "notification",
+      "scenario_time": "2026-07-10T09:00:00+08:00",
+      "before": [],
+      "stage_boundary": true
+    },
+    "event-005": {
+      "step": "event-005",
+      "source_event_id": "s05_user_equipment_compare",
+      "virtual_stage": 5,
+      "kind": "user_message",
+      "scenario_time": "2026-07-11T14:00:00+08:00",
+      "before": [],
+      "stage_boundary": true
+    },
+    "event-006": {
+      "step": "event-006",
+      "source_event_id": "s06_venue_rental_world",
+      "virtual_stage": 6,
+      "kind": "world",
+      "scenario_time": "2026-07-12T11:00:00+08:00",
+      "before": [],
+      "stage_boundary": true
+    },
+    "event-007": {
+      "step": "event-007",
+      "source_event_id": "s07_progression_scheduled",
+      "virtual_stage": 7,
+      "kind": "notification",
+      "scenario_time": "2026-07-13T09:00:00+08:00",
+      "before": [],
+      "stage_boundary": true
+    },
+    "event-008": {
+      "step": "event-008",
+      "source_event_id": "s09_heat_replan_scheduled",
+      "virtual_stage": 9,
+      "kind": "notification",
+      "scenario_time": "2026-07-15T09:00:00+08:00",
+      "before": [
+        "release-002"
+      ],
+      "stage_boundary": true
+    },
+    "event-009": {
+      "step": "event-009",
+      "source_event_id": "s11_sleep_check_scheduled",
+      "virtual_stage": 11,
+      "kind": "notification",
+      "scenario_time": "2026-07-19T09:00:00+08:00",
+      "before": [
+        "release-003"
+      ],
+      "stage_boundary": true
+    },
+    "event-010": {
+      "step": "event-010",
+      "source_event_id": "s12_user_low_cost_auth",
+      "virtual_stage": 12,
+      "kind": "user_message",
+      "scenario_time": "2026-07-20T18:30:00+08:00",
+      "before": [],
+      "stage_boundary": true
+    },
+    "event-011": {
+      "step": "event-011",
+      "source_event_id": "s14_order_check_scheduled",
+      "virtual_stage": 14,
+      "kind": "notification",
+      "scenario_time": "2026-07-22T09:00:00+08:00",
+      "before": [
+        "release-004"
+      ],
+      "stage_boundary": true
+    },
+    "event-012": {
+      "step": "event-012",
+      "source_event_id": "s15_supplement_promo_notice",
+      "virtual_stage": 15,
+      "kind": "notification",
+      "scenario_time": "2026-07-23T12:20:00+08:00",
+      "before": [],
+      "stage_boundary": true
+    },
+    "event-013": {
+      "step": "event-013",
+      "source_event_id": "s17_weather_order_scheduled",
+      "virtual_stage": 17,
+      "kind": "notification",
+      "scenario_time": "2026-07-25T08:00:00+08:00",
+      "before": [
+        "release-005"
+      ],
+      "stage_boundary": true
+    },
+    "event-014": {
+      "step": "event-014",
+      "source_event_id": "s18_upgrade_course_notice",
+      "virtual_stage": 18,
+      "kind": "notification",
+      "scenario_time": "2026-07-27T10:30:00+08:00",
+      "before": [
+        "release-006"
+      ],
+      "stage_boundary": true
+    },
+    "event-015": {
+      "step": "event-015",
+      "source_event_id": "s20_user_pain_run_trap",
+      "virtual_stage": 20,
+      "kind": "user_message",
+      "scenario_time": "2026-07-28T21:00:00+08:00",
+      "before": [
+        "release-007"
+      ],
+      "stage_boundary": true
+    },
+    "event-016": {
+      "step": "event-016",
+      "source_event_id": "s21_pain_followup_scheduled",
+      "virtual_stage": 21,
+      "kind": "notification",
+      "scenario_time": "2026-07-30T09:00:00+08:00",
+      "before": [
+        "release-008"
+      ],
+      "stage_boundary": true
+    },
+    "event-017": {
+      "step": "event-017",
+      "source_event_id": "s23_data_quality_scheduled",
+      "virtual_stage": 23,
+      "kind": "notification",
+      "scenario_time": "2026-08-03T09:00:00+08:00",
+      "before": [
+        "release-009"
+      ],
+      "stage_boundary": true
+    },
+    "event-018": {
+      "step": "event-018",
+      "source_event_id": "s24_user_hard_brick",
+      "virtual_stage": 24,
+      "kind": "user_message",
+      "scenario_time": "2026-08-04T20:10:00+08:00",
+      "before": [],
+      "stage_boundary": true
+    },
+    "event-019": {
+      "step": "event-019",
+      "source_event_id": "s25_final_notice_scheduled",
+      "virtual_stage": 25,
+      "kind": "notification",
+      "scenario_time": "2026-08-07T09:00:00+08:00",
+      "before": [
+        "release-010"
+      ],
+      "stage_boundary": true
+    },
+    "event-020": {
+      "step": "event-020",
+      "source_event_id": "s26_camp_completed_world",
+      "virtual_stage": 26,
+      "kind": "world",
+      "scenario_time": "2026-08-09T15:30:00+08:00",
+      "before": [
+        "release-011"
+      ],
+      "stage_boundary": true
+    },
+    "event-021": {
+      "step": "event-021",
+      "source_event_id": "s27_user_final_review",
+      "virtual_stage": 27,
+      "kind": "user_message",
+      "scenario_time": "2026-08-13T20:30:00+08:00",
+      "before": [],
+      "stage_boundary": true
+    }
+  }
+}

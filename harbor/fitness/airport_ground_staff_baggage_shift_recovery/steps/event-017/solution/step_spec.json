@@ -1,0 +1,48 @@
+{
+  "step": "event-017",
+  "virtual_stage": 23,
+  "source_event_id": "evt_s23_world_shift_split",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008"
+    ]
+  },
+  "response": "Refreshed the final-week early/late shift split and anchored sleep protection and reduced training intensity.",
+  "response_paraphrase": "The final week's early/late rotation is refreshed, with sleep protection and lower intensity tied to it.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s23_world_shift_split",
+      "event_kind": "world",
+      "event_time": "2026-08-02T19:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_final_week_shift_split",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

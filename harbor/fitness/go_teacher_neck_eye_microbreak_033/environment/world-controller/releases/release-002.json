@@ -1,0 +1,29 @@
+{
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_gt_s03_setup",
+        "user_id": "user_liang_weimin",
+        "source": "calendar",
+        "type": "scheduled_check",
+        "subscription_id": "sub_gt_plan_watch",
+        "title": "First plan implementation check",
+        "body": "Check five services and first-week personal reminders.",
+        "payload_json": "{\"schedule_name\":\"initial_plan_review\",\"personal_only\":true}",
+        "created_at": "2026-07-03T08:55:00+08:00",
+        "read": 0
+      }
+    }
+  ],
+  "previous": "release-001",
+  "release_id": "release-002",
+  "source_stage": 3,
+  "source_event_id": "s03_notification_backend_mutation",
+  "source_event_ids": ["s03_notification_backend_mutation"],
+  "source_time": "2026-07-03T08:55:00+08:00",
+  "token": "go-teacher-neck-eye-microbreak-033-release-token",
+  "virtual_stage": 3
+}

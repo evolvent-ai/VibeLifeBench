@@ -1,0 +1,1 @@
+Health and calendar baseline data are now available: over the past seven days, the daily averages were about 4,380 steps and 6.3 hours of sleep, while right-knee pain on stairs was about 2/10. The calendar already contains placeholders for choir rehearsals and the August 5 showcase.

@@ -1,0 +1,26 @@
+{
+  "step": "event-021",
+  "virtual_stage": 23,
+  "source_event_id": "s23_route_monitor_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Route A roadworks and barriers add detour time, Route B has a nighttime lighting caveat, and Route C is the safer detour with extra time.",
+  "response_paraphrase": "The route review marks Route A roadworks, Route B nighttime lighting risk, and Route C as the buffered detour.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s23_route_monitor_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s23_route_roadwork_adjusted",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

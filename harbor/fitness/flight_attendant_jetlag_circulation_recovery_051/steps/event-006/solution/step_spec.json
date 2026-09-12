@@ -1,0 +1,13 @@
+{
+  "step": "event-006",
+  "stage": 7,
+  "virtual_stage": 7,
+  "source_event_id": "s07_weather_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-002"], "released_mutations": ["s06_comp_sock_stock_mutation"]},
+  "response": "I refreshed Shanghai and Paris conditions and added a private indoor fallback for any walking session affected by the weather.",
+  "response_paraphrase": "The two-city forecast review is complete, and an easy hotel-room option is ready when outdoor activity is unsuitable.",
+  "actions": [{"kind": "record_event", "source_event_id": "s07_weather_notice"}],
+  "expected_checks": [],
+  "expected_stage_weight": 0.0
+}

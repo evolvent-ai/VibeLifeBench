@@ -1,0 +1,28 @@
+{
+  "step": "event-004",
+  "virtual_stage": 4,
+  "source_event_id": "s04_weather_baseline_world",
+  "response": "The Shanghai weather baseline supports morning or evening walking and avoids midday heat.",
+  "response_paraphrase": "The forecast supports cooler walking times, with an indoor option when the afternoon is hot.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 4
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s04_weather_baseline_logged",
+      "weight": 1.25
+    },
+    {
+      "check_id": "chk_s04_avoid_midday_heat",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

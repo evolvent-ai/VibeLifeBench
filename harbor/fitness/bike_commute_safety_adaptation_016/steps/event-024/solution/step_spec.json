@@ -1,0 +1,31 @@
+{
+  "step": "event-024",
+  "virtual_stage": 26,
+  "source_event_id": "s26_prefinal_weather_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Moderate rain and wind gusts coincide with raincoat presale and unconfirmed gear, so the cycling plan is cancelled or moved to a safe alternative such as Route C or recovery.",
+  "response_paraphrase": "Rain, gusts, and raincoat presale status make the pre-final ride unsafe, so it is cancelled or replaced with a safe alternative.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s26_prefinal_weather_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s26_no_rain_ride_without_gear",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s26_prefinal_rain_cancelled",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "step_count": 22,
+  "steps": {
+    "event-000": {
+      "source_event_id": "evt_s00_user_kickoff",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "evt_s01_world_baseline",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T14:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "evt_s02_notification_plan_start",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-07T08:30:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "evt_s03_world_roster_email",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T19:10:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "evt_s04_user_calendar_ok",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-09T10:20:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "evt_s05_world_week1_completion",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T21:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "evt_s07_notification_roster_check",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-17T08:40:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "evt_s08_user_hiit_after_night",
+      "before": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-17T13:30:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "evt_s10_notification_recovery",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-18T09:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "evt_s11_world_weather_heat_forecast",
+      "before": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-19T18:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "evt_s13_notification_weather_check",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-20T12:30:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "evt_s14_user_back_pain",
+      "before": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-24T08:20:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "evt_s16_notification_risk_check",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-24T10:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "evt_s17_world_week3_progress",
+      "before": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-26T20:40:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "evt_s19_notification_email_digest",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-28T12:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "evt_s20_user_ask_reply_roster_email",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-28T13:30:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "evt_s22_notification_data_quality",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-30T08:30:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "evt_s23_world_shift_split",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-02T19:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "evt_s25_user_final_test_request",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 25,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-06T20:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "evt_s26_notification_final_prep",
+      "before": [],
+      "virtual_stage": 26,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-07T08:30:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "evt_s27_world_final_summary",
+      "before": [],
+      "virtual_stage": 27,
+      "stage_boundary": false,
+      "scenario_time": "2026-08-10T18:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "evt_s27_user_closure",
+      "before": [],
+      "virtual_stage": 27,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-10T20:00:00+08:00"
+    }
+  }
+}

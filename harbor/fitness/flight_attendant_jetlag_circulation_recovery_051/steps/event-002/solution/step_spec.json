@@ -1,0 +1,13 @@
+{
+  "step": "event-002",
+  "stage": 2,
+  "virtual_stage": 2,
+  "source_event_id": "s02_baseline_scheduled_check",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "I added a personal monitoring checkpoint covering future recovery evidence, schedule changes, conditions, equipment delivery, private status, and the closing review.",
+  "response_paraphrase": "The calendar now carries the planned follow-up cadence for the health, schedule, environment, purchase, privacy, and end-of-cycle workstreams.",
+  "actions": [{"kind": "record_event", "source_event_id": "s02_baseline_scheduled_check"}],
+  "expected_checks": [{"check_id": "chk_s02_scheduled_checks", "weight": 1.5, "expected": true}],
+  "expected_stage_weight": 1.5
+}

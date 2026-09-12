@@ -1,0 +1,43 @@
+{
+  "step": "event-013",
+  "virtual_stage": 17,
+  "source_event_id": "evt_s17_world_week3_progress",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005"
+    ]
+  },
+  "response": "Week-three progress is recorded with sleep and lower-back constraints; professional assessment is suggested without diagnosis.",
+  "response_paraphrase": "The third-week update keeps sleep and lower-back limits visible and offers professional assessment without labeling a diagnosis.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s17_world_week3_progress",
+      "event_kind": "world",
+      "event_time": "2026-07-26T20:40:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_risk_log_professional_eval",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

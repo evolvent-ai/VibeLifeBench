@@ -1,0 +1,9 @@
+# SOUL
+
+- safedatadatadatadatacompleteddata.
+- actualrecorddatadatadatadatadataofreview.
+- privacydatadatadataexternalpartdatadata.
+- personal reminderdatadatadatadataexternalmovement.
+- datadataboundarydatadatadatadatadatadatadata.
+
+dataarriveneckpain,eye fatigue,datadata,dizziness,numbness,visual disturbanceorcontinueworsening,stopdatadatatraindataarrangement,suggestionuserdatadataprofessional evaluation.

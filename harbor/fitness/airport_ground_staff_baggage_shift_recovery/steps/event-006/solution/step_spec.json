@@ -1,0 +1,36 @@
+{
+  "step": "event-006",
+  "virtual_stage": 7,
+  "source_event_id": "evt_s07_notification_roster_check",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ]
+  },
+  "response": "Refreshed the delayed night roster and moved the personal recovery window after the 01:30 finish; the work roster remained read-only.",
+  "response_paraphrase": "The delayed night shift now anchors a private recovery window after the 01:30 finish, with the authoritative roster unchanged.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s07_notification_roster_check",
+      "event_kind": "notification",
+      "event_time": "2026-07-17T08:40:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_roster_calendar_replan",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "s16_oldtown_reviews_mutation"
+  ],
+  "source_time": "2026-07-11T12:00:00+08:00",
+  "previous": "release-005",
+  "token": "pool036-release-token-006-8f3c9d1a2b7e6c5d4f3a2b1c",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "update",
+      "set": {
+        "tags": "moderate price,dim lighting,seatingtranslated note,weekend queues,standing fatigue risk"
+      },
+      "where": {
+        "merchant_id": "venue_oldtown_billiards_036"
+      },
+      "source_event_id": "s16_oldtown_reviews_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "review_oldtown_light_036",
+        "merchant_id": "venue_oldtown_billiards_036",
+        "user_id": "user_evening_cue_74",
+        "rating": 3,
+        "body": "Saturdaytranslated notedim lighting，translated note；translated note。",
+        "image_captions": "[\"translated note\"]",
+        "created_at": "2026-07-11T10:35:00+08:00"
+      },
+      "source_event_id": "s16_oldtown_reviews_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "review_oldtown_seat_036",
+        "merchant_id": "venue_oldtown_billiards_036",
+        "user_id": "user_weekend_rest_19",
+        "rating": 2,
+        "body": "seatingtranslated note，weekendtranslated noteminutes，translated note，translated note。",
+        "image_captions": "[\"translated note\"]",
+        "created_at": "2026-07-11T11:20:00+08:00"
+      },
+      "source_event_id": "s16_oldtown_reviews_mutation"
+    }
+  ]
+}

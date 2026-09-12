@@ -1,0 +1,25 @@
+{
+  "step": "event-024",
+  "stage": 24,
+  "event_id": "evt_s24_world_pre_exam_digest",
+  "source_event_id": "evt_s24_world_pre_exam_digest",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 24
+    }
+  ],
+  "response_paraphrase": "The pre-interview review favors a small load and a practical checklist.",
+  "expected_env": {
+    "virtual_stage": 24,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": [
+      "release-009"
+    ]
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

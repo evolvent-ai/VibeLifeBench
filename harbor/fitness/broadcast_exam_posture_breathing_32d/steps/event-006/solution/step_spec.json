@@ -1,0 +1,26 @@
+{
+  "step": "event-006",
+  "stage": 4,
+  "event_id": "evt_s04_world_weather_baseline",
+  "source_event_id": "evt_s04_world_weather_baseline",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 4
+    }
+  ],
+  "response_paraphrase": "The weather review leaves a sheltered warm-up as the fallback.",
+  "expected_env": {
+    "virtual_stage": 4,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s04_cold_warmup_adjust",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

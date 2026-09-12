@@ -1,0 +1,26 @@
+{
+  "step": "event-017",
+  "stage": 16,
+  "event_id": "evt_s16_world_voice_teacher_note",
+  "source_event_id": "evt_s16_world_voice_teacher_note",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 16
+    }
+  ],
+  "response_paraphrase": "The voice report leads to quieter recovery and no extra load.",
+  "expected_env": {
+    "virtual_stage": 16,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s16_voice_fatigue_response",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

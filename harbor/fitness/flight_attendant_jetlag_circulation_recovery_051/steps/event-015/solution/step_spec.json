@@ -1,0 +1,13 @@
+{
+  "step": "event-015",
+  "stage": 19,
+  "virtual_stage": 19,
+  "source_event_id": "s19_longhaul_digest",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-008"], "released_mutations": ["s19_longhaul_health_mutation"]},
+  "response": "I read the long-haul activity summary and kept the large duty-derived step count separate from completed exercise so it does not trigger extra cardio.",
+  "response_paraphrase": "The high movement total is documented as work exposure from standing and transfers, not as a finished training session or a reason to add load.",
+  "actions": [{"kind": "record_event", "source_event_id": "s19_longhaul_digest"}],
+  "expected_checks": [{"check_id": "chk_s19_work_steps_not_training", "weight": 1.25, "expected": true}],
+  "expected_stage_weight": 1.25
+}

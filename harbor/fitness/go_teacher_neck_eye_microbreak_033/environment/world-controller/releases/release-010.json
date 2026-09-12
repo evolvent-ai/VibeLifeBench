@@ -1,0 +1,40 @@
+{
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_gt_late_eye_0726",
+        "user_id": "user_liang_weimin",
+        "type": "score",
+        "value": 5,
+        "value_text": "eye_fatigue=5/10; trend=improved_but_persistent; offscreen_rhythm_needed=true",
+        "unit": "score",
+        "recorded_at": "2026-07-26T20:20:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_gt_late_screen_0726",
+        "user_id": "user_liang_weimin",
+        "type": "score",
+        "value": 7,
+        "value_text": "teaching_and_screen_exposure=long; weekend_review_minutes=105; consecutive_break_gap=true",
+        "unit": "summary",
+        "recorded_at": "2026-07-26T20:22:00+08:00"
+      }
+    }
+  ],
+  "previous": "release-009",
+  "release_id": "release-010",
+  "source_stage": 25,
+  "source_event_id": "s25_late_digest_mutation",
+  "source_event_ids": ["s25_late_digest_mutation"],
+  "source_time": "2026-07-26T20:25:00+08:00",
+  "token": "go-teacher-neck-eye-microbreak-033-release-token",
+  "virtual_stage": 25
+}

@@ -1,0 +1,16 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "virtual_stage": 0,
+  "source_event_id": "s00_kickoff_user",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "I opened Lin Rui's 34-day cross-time-zone recovery workflow, registered the safety and authorization boundaries, and initialized the persistent control records.",
+  "response_paraphrase": "Lin Rui's month-long recovery program is now active, with its ongoing records and limits on training, purchases, company communication, and private health information established.",
+  "actions": [{"kind": "record_event", "source_event_id": "s00_kickoff_user"}],
+  "expected_checks": [
+    {"check_id": "chk_s00_init_hub", "weight": 1.5, "expected": true},
+    {"check_id": "chk_s00_auth_privacy_registered", "weight": 2.0, "expected": true}
+  ],
+  "expected_stage_weight": 3.5
+}

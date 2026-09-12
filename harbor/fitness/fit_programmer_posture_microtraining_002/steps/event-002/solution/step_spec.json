@@ -1,0 +1,32 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "s02_release_window_world",
+  "response": "The July 6-8 payment-service canary window and evening on-call coverage are checked, with recovery work kept out of those evenings.",
+  "response_paraphrase": "The release dates and evening duty are verified, and those nights are left free of moderate or hard training.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 2
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "s02_00_release_schedule_mutation"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s02_release_window",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s02_diff_release_email_calendar_lite",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

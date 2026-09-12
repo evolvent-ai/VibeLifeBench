@@ -1,0 +1,26 @@
+{
+  "step": "event-007",
+  "stage": 5,
+  "event_id": "evt_s05_user_late_practice",
+  "source_event_id": "evt_s05_user_late_practice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 5
+    }
+  ],
+  "response_paraphrase": "The requested evening extension is not scheduled; recovery remains the priority.",
+  "expected_env": {
+    "virtual_stage": 5,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s05_refuse_late_training",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

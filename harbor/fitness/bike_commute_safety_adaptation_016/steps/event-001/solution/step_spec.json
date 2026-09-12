@@ -1,0 +1,26 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "s01_baseline_ready",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The seven-day baseline shows 6.6 hours of sleep and 5,260 steps on average; Route A, Route B, and Route C remain available for the 8 km commute, with dizziness and breakfast risk noted.",
+  "response_paraphrase": "The baseline review records average sleep and steps, the three routes, and the dizziness and breakfast-related stop conditions.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s01_baseline_ready"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s01_route_health_baseline",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

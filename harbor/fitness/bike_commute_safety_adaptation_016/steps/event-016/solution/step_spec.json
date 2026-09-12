@@ -1,0 +1,30 @@
+{
+  "step": "event-016",
+  "virtual_stage": 20,
+  "source_event_id": "s20_recovery_scheduled_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "s19_sleep_hr_mutation"
+    ]
+  },
+  "response": "Sleep is 5.1 hours (306 minutes) and resting heart rate is 76, so sleep debt calls for scaled-back recovery rather than pushing through.",
+  "response_paraphrase": "The low sleep reading and elevated resting pulse are treated as sleep debt requiring a lighter recovery plan.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s20_recovery_scheduled_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s20_sleep_debt_downgrade",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

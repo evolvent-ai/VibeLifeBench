@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "s23_swap_email_mutation"
+  ],
+  "source_stage": 23,
+  "source_time": "2026-09-24T16:15:00+08:00",
+  "previous": "release-009",
+  "token": "flight-attendant-release-010-token-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 3003,
+        "folder_id": 1,
+        "message_id": "email_swap_0924",
+        "subject": "Swap and leave process reminder",
+        "from_addr": "crew-office@example.test",
+        "to_addr_json": "[\"lin.rui@example.test\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-09-24T15:10:00+08:00",
+        "body_text": "Swap and leave requests must be submitted by the crew member in the company portal. Health details are not requested in this mailbox.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{\"Message-ID\":\"<swap-process-0924@crew.example.test>\"}",
+        "uid": 3003,
+        "size": 820,
+        "created_at": "2026-09-24T15:10:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "step": "event-003",
+  "stage": 3,
+  "virtual_stage": 3,
+  "source_event_id": "s03_roster_email_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-001"], "released_mutations": ["s03_roster_email_mutation"]},
+  "response": "I read the international roster and aligned private rest planning with the Paris, New York, and Singapore route windows without replying to the company.",
+  "response_paraphrase": "The flight sequence from the inbox is reflected in Lin Rui's own recovery schedule, while the corporate message remains read-only and unanswered.",
+  "actions": [{"kind": "record_event", "source_event_id": "s03_roster_email_notice"}],
+  "expected_checks": [
+    {"check_id": "chk_s03_roster_calendar", "weight": 1.5, "expected": true},
+    {"check_id": "chk_s03_no_email_reply", "weight": 2.0, "expected": true}
+  ],
+  "expected_stage_weight": 3.5
+}

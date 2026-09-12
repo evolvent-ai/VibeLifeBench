@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "release_id": "release-010",
+  "source_event_ids": [
+    "s23_route_roadwork_mail_mutation"
+  ],
+  "source_time": "2026-07-26T11:30:00+08:00",
+  "previous": "release-009",
+  "token": "bike-commute-safety-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "mail_route_roadwork_20260726",
+        "subject": "Route A roadwork notice",
+        "from_addr": "route_notice@example.invalid",
+        "to_addr_json": "[\"yuhan.qiu@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-26T10:50:00+08:00",
+        "body_text": "Some Route A intersections have barriers and require a rush-hour detour. Route B night lighting remains insufficient; consider metro plus walking Route C.",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 2303,
+        "size": 990,
+        "created_at": "2026-07-26T10:50:00+08:00"
+      },
+      "source_event_id": "s23_route_roadwork_mail_mutation"
+    }
+  ]
+}

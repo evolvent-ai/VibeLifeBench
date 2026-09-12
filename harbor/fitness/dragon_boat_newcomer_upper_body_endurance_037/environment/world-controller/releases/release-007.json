@@ -1,0 +1,37 @@
+{
+  "release_id": "release-007",
+  "previous": "release-006",
+  "token": "dragon-boat-037-release-007-20260824",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_sync_gap_0730_037",
+        "user_id": "user_chen_shan",
+        "type": "steps",
+        "value": 0,
+        "value_text": "Device sync was only partial; July 30 steps and training RPE were not uploaded and await device or personal backfill.",
+        "unit": "count",
+        "recorded_at": "2026-07-30T23:00:00+08:00"
+      },
+      "source_event_id": "s20_health_sync_gap_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_sync_gap_0731_037",
+        "user_id": "user_chen_shan",
+        "type": "heart_rate",
+        "value": 0,
+        "value_text": "Device sync was only partial; July 31 heart rate and training RPE were not uploaded and await device or personal backfill.",
+        "unit": "bpm",
+        "recorded_at": "2026-07-31T23:00:00+08:00"
+      },
+      "source_event_id": "s20_health_sync_gap_mutation"
+    }
+  ]
+}

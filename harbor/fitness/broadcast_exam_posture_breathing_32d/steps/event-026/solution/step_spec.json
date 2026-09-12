@@ -1,0 +1,21 @@
+{
+  "step": "event-026",
+  "stage": 25,
+  "event_id": "evt_s25_user_final_review_request",
+  "source_event_id": "evt_s25_user_final_review_request",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 25
+    }
+  ],
+  "response_paraphrase": "The 32-day review connects each adjustment to its source and next action.",
+  "expected_env": {
+    "virtual_stage": 25,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

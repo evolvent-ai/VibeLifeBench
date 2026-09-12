@@ -1,0 +1,43 @@
+{
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_gt_steps_missing_20260718",
+        "user_id": "user_liang_weimin",
+        "type": "steps",
+        "value": 0,
+        "value_text": "sync_status=missing; date=2026-07-18; not_actual_steps=true; do_not_fabricate=true",
+        "unit": "missing",
+        "recorded_at": "2026-07-19T07:40:00+08:00"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_gt_s20_data",
+        "user_id": "user_liang_weimin",
+        "source": "health_tracker",
+        "type": "scheduled_check",
+        "subscription_id": "sub_gt_data_watch",
+        "title": "Data-quality check",
+        "body": "Check sync gaps and completion records.",
+        "payload_json": "{\"schedule_name\":\"data_quality_review\",\"personal_only\":true}",
+        "created_at": "2026-07-20T08:55:00+08:00",
+        "read": 0
+      }
+    }
+  ],
+  "previous": "release-007",
+  "release_id": "release-008",
+  "source_stage": 20,
+  "source_event_id": "s19_step_missing_mutation",
+  "source_event_ids": ["s19_step_missing_mutation", "s20_notification_backend_mutation"],
+  "source_time": "2026-07-19T07:40:00+08:00",
+  "token": "go-teacher-neck-eye-microbreak-033-release-token",
+  "virtual_stage": 20
+}

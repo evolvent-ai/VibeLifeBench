@@ -1,0 +1,32 @@
+{
+  "step": "event-005",
+  "virtual_stage": 6,
+  "source_event_id": "s06_hotfix_scheduled_check",
+  "response": "The July 5 hotfix and on-call coverage are re-queried; training is split into a short recovery version and the reason is logged.",
+  "response_paraphrase": "A fresh calendar read found the July 5 hotfix, so the training plan is split and the adjustment reason is recorded.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 6
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "s05_hotfix_calendar_mutation"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s06_calendar_mutation_discovered",
+      "weight": 1.75
+    },
+    {
+      "check_id": "chk_s06_diff_refresh_calendar_after_mutation",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

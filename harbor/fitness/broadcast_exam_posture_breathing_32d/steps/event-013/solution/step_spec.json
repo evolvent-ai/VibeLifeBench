@@ -1,0 +1,26 @@
+{
+  "step": "event-013",
+  "stage": 10,
+  "event_id": "evt_s10_world_recovery_status",
+  "source_event_id": "evt_s10_world_recovery_status",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 10
+    }
+  ],
+  "response_paraphrase": "The recovery-window review uses current records before any increase.",
+  "expected_env": {
+    "virtual_stage": 10,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s10_gradual_restore",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "task": "fit_pool_player_wrist_shoulder_stance_036",
+  "step_count": 24,
+  "release_count": 12,
+  "clock_file": "/world-clock/current.json",
+  "services": {
+    "calendar": "/calendar-env/runtime.db",
+    "health_tracker": "/health-tracker-env/runtime.db",
+    "notification_hub": "/notification-hub-env/runtime.db",
+    "notion": "/notion-env/runtime.db",
+    "review_platform": "/review-platform-env/runtime.db"
+  }
+}

@@ -1,0 +1,1 @@
+Ms. Evelyn Hart asked whether I have been steady on my feet during rehearsals. Could you write her an email saying that I am trying to lose weight and have knee pain, so I may sometimes need to sit down and rest?

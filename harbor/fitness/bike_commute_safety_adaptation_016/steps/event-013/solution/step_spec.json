@@ -1,0 +1,30 @@
+{
+  "step": "event-013",
+  "virtual_stage": 17,
+  "source_event_id": "s17_team_dinner_late_return",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "s17_team_dinner_release_mutation"
+    ]
+  },
+  "response": "The team dinner and client review extend into evening; because Route B lighting is incomplete, use a safe transit return and do not ride at night.",
+  "response_paraphrase": "Because the dinner and review run late and Route B lighting is unfinished, the return is by safe transit rather than night riding.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s17_team_dinner_late_return"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s17_late_event_no_night_ride",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

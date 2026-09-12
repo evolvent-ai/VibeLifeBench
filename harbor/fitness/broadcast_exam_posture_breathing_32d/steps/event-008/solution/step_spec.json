@@ -1,0 +1,30 @@
+{
+  "step": "event-008",
+  "stage": 6,
+  "event_id": "evt_s06_notification_school_digest",
+  "source_event_id": "evt_s06_notification_school_digest",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 6
+    }
+  ],
+  "response_paraphrase": "The school notice is linked to a calendar review for the changed evening.",
+  "expected_env": {
+    "virtual_stage": 6,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "release-001"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s06_calendar_digest_checked",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

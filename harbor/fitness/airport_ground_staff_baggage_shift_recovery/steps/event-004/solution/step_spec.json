@@ -1,0 +1,33 @@
+{
+  "step": "event-004",
+  "virtual_stage": 4,
+  "source_event_id": "evt_s04_user_calendar_ok",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "response": "Added personal roster, recovery, weather and data-check reminders without changing work events.",
+  "response_paraphrase": "Private reminders now cover roster, recovery, weather, and data checks; workplace events were left intact.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s04_user_calendar_ok",
+      "event_kind": "user_message",
+      "event_time": "2026-07-09T10:20:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_scheduled_checks_created",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

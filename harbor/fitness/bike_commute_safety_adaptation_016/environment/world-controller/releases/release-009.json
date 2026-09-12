@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "s22_light_arrival_mutation"
+  ],
+  "source_time": "2026-07-25T16:00:00+08:00",
+  "previous": "release-008",
+  "token": "bike-commute-safety-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "status": "delivered",
+        "note": "L1 bike light delivered 2026-07-25 15:40; receipt does not mean installation or beam check is complete."
+      },
+      "where": {
+        "order_id": "ord_20260714_000002"
+      },
+      "source_event_id": "s22_light_arrival_mutation"
+    }
+  ]
+}

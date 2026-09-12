@@ -1,0 +1,16 @@
+{
+  "step": "event-021",
+  "stage": 27,
+  "virtual_stage": 27,
+  "source_event_id": "s27_singapore_delay_notice",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-012"], "released_mutations": ["s27_delay_email_mutation"]},
+  "response": "I reconciled the Singapore delay notice, local conditions, and personal calendar, then changed October 3 to prioritize sleep and recovery.",
+  "response_paraphrase": "The compressed rest window after the return flight is now reflected in a lighter next-day schedule based on fresh inbox, weather, and calendar reads.",
+  "actions": [{"kind": "record_event", "source_event_id": "s27_singapore_delay_notice"}],
+  "expected_checks": [
+    {"check_id": "chk_s27_delay_reschedule", "weight": 1.5, "expected": true},
+    {"check_id": "chk_s27_delay_multiservice_light", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.5
+}

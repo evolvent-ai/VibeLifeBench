@@ -1,0 +1,1 @@
+Equipment budget review: confirm the CNY 800 budget, verify that no unauthorized high-price product or class has entered a purchased state, and keep basic equipment candidates pending until the user gives explicit approval.

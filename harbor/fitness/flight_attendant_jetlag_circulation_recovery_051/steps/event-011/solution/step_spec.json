@@ -1,0 +1,13 @@
+{
+  "step": "event-011",
+  "stage": 14,
+  "virtual_stage": 14,
+  "source_event_id": "s14_progress_digest",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-006"], "released_mutations": ["s14_progress_metric_mutation"]},
+  "response": "I read the released progress summary and recorded completion, typical exertion, the improving leg trend, and the reason for the earlier load reduction.",
+  "response_paraphrase": "The mid-cycle tracker digest has been turned into a concise evidence-based progress entry, including adherence, effort, symptom direction, and the prior recovery adjustment.",
+  "actions": [{"kind": "record_event", "source_event_id": "s14_progress_digest"}],
+  "expected_checks": [{"check_id": "chk_s14_progress_digest", "weight": 1.25, "expected": true}],
+  "expected_stage_weight": 1.25
+}

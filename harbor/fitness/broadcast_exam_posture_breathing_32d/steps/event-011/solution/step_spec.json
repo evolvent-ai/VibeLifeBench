@@ -1,0 +1,26 @@
+{
+  "step": "event-011",
+  "stage": 9,
+  "event_id": "evt_s09_user_high_intensity",
+  "source_event_id": "evt_s09_user_high_intensity",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 9
+    }
+  ],
+  "response_paraphrase": "The requested jump-rope session is replaced by a lower-load option.",
+  "expected_env": {
+    "virtual_stage": 9,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s09_no_high_intensity_pms",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

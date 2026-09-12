@@ -1,0 +1,1 @@
+I approve these two basic equipment items: the CNY 89 resistance band and the CNY 139 exercise mat. You may handle those two for a total of CNY 228. Do not take action on the brace or any class costing more than CNY 300.

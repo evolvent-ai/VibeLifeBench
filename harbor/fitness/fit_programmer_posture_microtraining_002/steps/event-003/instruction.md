@@ -1,0 +1,1 @@
+Initial plan implementation check: review work blocks, the Wednesday recurring meeting, lunch openings, and the health baseline. Create workday movement-break reminders every 60 to 90 minutes, lunchtime neck, shoulder, and hip mobility sessions, and pain-threshold tracking.

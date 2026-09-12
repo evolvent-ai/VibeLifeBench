@@ -1,0 +1,35 @@
+{
+  "release_id": "release-006",
+  "before_step": "event-014",
+  "previous": "release-005",
+  "token": "triathlon052-release-006-c91e4a2f",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "id": 226,
+        "folder_id": 1,
+        "message_id": "msg_upgrade_1880_052",
+        "subject": "training note：training note",
+        "from_addr": "sales@rivertri.example",
+        "to_addr_json": "[\"lin.zheng@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-27T10:00:00+08:00",
+        "body_text": "training note 1880 training note，triathlon training information，triathlon training information。triathlon training information，triathlon training information。",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "in_reply_to": null,
+        "references_header": null,
+        "headers_json": "{}",
+        "uid": null,
+        "size": 1024,
+        "created_at": "2026-07-27T10:01:00+08:00"
+      }
+    }
+  ]
+}

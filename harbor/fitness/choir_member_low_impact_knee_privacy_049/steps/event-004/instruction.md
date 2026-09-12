@@ -1,0 +1,1 @@
+The one-week forecast for the area around Ginkgo Community is now available. Mornings and evenings are generally better for walking; avoid prolonged outdoor walks around midday when it is sunny and hot.

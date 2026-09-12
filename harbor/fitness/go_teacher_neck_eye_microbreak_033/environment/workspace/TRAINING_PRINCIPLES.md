@@ -1,0 +1,7 @@
+# TRAINING PRINCIPLES
+
+- between-classmovement 60 dataarrive 3 scoredata,lowcandata,lowdatadata.
+- datadatadatadatascapulardataclose,dataspinegentledatadata,datadatadistance gaze,eyes-closed rest,handdatadatadataeyeweek,datawalking.
+- notdataforcefuldatadatadatadata,forcewalktractiondata,placedatamovement,equipmentmovementordatadataclassdatadatadataofmovement.
+- long classdayretainshortrest,notmakedatahasairarchivedatadata.
+- screen reviewafterdataneedarrangementscreen-free break cadence.

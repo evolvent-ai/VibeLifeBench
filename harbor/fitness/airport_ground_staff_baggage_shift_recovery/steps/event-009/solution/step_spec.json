@@ -1,0 +1,39 @@
+{
+  "step": "event-009",
+  "virtual_stage": 11,
+  "source_event_id": "evt_s11_world_weather_heat_forecast",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ]
+  },
+  "response": "Logged the apron heat and thunderstorm forecast evidence for the July 19-20 window.",
+  "response_paraphrase": "The July 19-20 apron outlook, including heat and storm risk, has been recorded from the forecast.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s11_world_weather_heat_forecast",
+      "event_kind": "world",
+      "event_time": "2026-07-19T18:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_weather_heat_logged",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

@@ -1,0 +1,32 @@
+{
+  "step": "event-019",
+  "virtual_stage": 24,
+  "source_event_id": "s24_review_risk_world",
+  "response": "The low-rating camp review adds exaggerated promises, renewal pressure, and lower-back unsuitability to the exclusion list for subsequent plans.",
+  "response_paraphrase": "The latest poor review adds renewal pressure and lower-back suitability concerns to the persistent exclusion record.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 24
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": [
+      "s24_00_camp_review_mutation"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s24_review_risk_propagated",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s24_diff_exclusion_file_lite",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

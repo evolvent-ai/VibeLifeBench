@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_event_ids": [
+    "s25_rain_gear_presale_mutation"
+  ],
+  "source_time": "2026-07-27T09:40:00+08:00",
+  "previous": "release-011",
+  "token": "bike-commute-safety-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "set": {
+        "quantity": 0
+      },
+      "where": {
+        "sku_id": "sku_rain_r3"
+      },
+      "source_event_id": "s25_rain_gear_presale_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "update",
+      "set": {
+        "description": "Lightweight waterproof fabric with reflective back strip; packs into a commute bag. Now presale; expected to ship after 2026-08-07."
+      },
+      "where": {
+        "product_id": "prod_rain_r3"
+      },
+      "source_event_id": "s25_rain_gear_presale_mutation"
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "alert_id": "alt_rain_20260731"
+      },
+      "source_event_id": "s25_rain_gear_presale_mutation"
+    }
+  ]
+}

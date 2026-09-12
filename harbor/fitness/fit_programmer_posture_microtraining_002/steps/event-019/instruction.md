@@ -1,0 +1,1 @@
+A new low-rating review for the Programmer Posture Camp reports exaggerated promises, pressure to renew, and poor suitability for users with lower-back pain. Propagate these risks to the exclusion list and subsequent plan. Read the exclusion list first and preserve its existing course and package exclusions in the same persisted update.

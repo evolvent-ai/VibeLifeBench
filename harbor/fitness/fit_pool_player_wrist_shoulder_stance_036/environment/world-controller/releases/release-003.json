@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "s10_week1_actual_mutation"
+  ],
+  "source_time": "2026-07-05T21:00:00+08:00",
+  "previous": "release-002",
+  "token": "pool036-release-token-003-8f3c9d1a2b7e6c5d4f3a2b1c",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "workouts",
+      "op": "insert",
+      "values": {
+        "workout_id": "wkt_week1_walk_20260702_036",
+        "user_id": "user_chen_jianmin",
+        "type": "week1_actual_low_intensity_walk_rpe_3_completed",
+        "duration_min": 24,
+        "calories": 82,
+        "distance_m": 1850,
+        "started_at": "2026-07-02T20:20:00+08:00"
+      },
+      "source_event_id": "s10_week1_actual_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "workouts",
+      "op": "insert",
+      "values": {
+        "workout_id": "wkt_week1_hip_20260703_036",
+        "user_id": "user_chen_jianmin",
+        "type": "week1_actual_hip_mobility_rpe_2_completed_after_work_call",
+        "duration_min": 12,
+        "calories": 28,
+        "distance_m": 0,
+        "started_at": "2026-07-03T21:05:00+08:00"
+      },
+      "source_event_id": "s10_week1_actual_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "workouts",
+      "op": "insert",
+      "values": {
+        "workout_id": "wkt_week1_pool_20260705_036",
+        "user_id": "user_chen_jianmin",
+        "type": "week1_actual_pool_short_rpe_4_standing_fatigue_4",
+        "duration_min": 72,
+        "calories": 210,
+        "distance_m": 0,
+        "started_at": "2026-07-05T16:10:00+08:00"
+      },
+      "source_event_id": "s10_week1_actual_mutation"
+    }
+  ]
+}

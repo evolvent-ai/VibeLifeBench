@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "release_id": "release-012",
+  "source_stage": 26,
+  "source_event_ids": [
+    "s25_improvement_mutation"
+  ],
+  "source_time": "2026-07-25T08:00:00+08:00",
+  "previous": "release-011",
+  "token": "posture002-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_pain_improved_0725",
+        "user_id": "user_zou_ming",
+        "type": "blood_pressure",
+        "value": 118,
+        "value_text": "shoulder_neck_pain=2/10; low_back_pain=2/10; completion_rate=76%; sleep_still_fluctuating; cautious_progression_only",
+        "unit": "note",
+        "recorded_at": "2026-07-25T08:00:00+08:00"
+      },
+      "source_event_id": "s25_improvement_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_sleep_0725_fluctuating",
+        "user_id": "user_zou_ming",
+        "type": "sleep_minutes",
+        "value": 360,
+        "value_text": "sleep=6.0h but weekly fluctuation remains",
+        "unit": "min",
+        "recorded_at": "2026-07-25T08:05:00+08:00"
+      },
+      "source_event_id": "s25_improvement_mutation"
+    }
+  ]
+}

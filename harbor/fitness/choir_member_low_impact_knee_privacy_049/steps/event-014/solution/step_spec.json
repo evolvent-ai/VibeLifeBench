@@ -1,0 +1,36 @@
+{
+  "step": "event-014",
+  "virtual_stage": 20,
+  "source_event_id": "s20_heat_scheduled_check",
+  "response": "Heat and humidity reaching a feels-like 38 C require a brief indoor or morning substitute informed by recovery.",
+  "response_paraphrase": "I used the heat warning and recent recovery readings to plan a short morning or indoor option.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 20
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "release-007"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s20_heat_detected",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s20_indoor_or_morning_plan",
+      "weight": 2
+    },
+    {
+      "check_id": "chk_s20_recovery_context_used",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

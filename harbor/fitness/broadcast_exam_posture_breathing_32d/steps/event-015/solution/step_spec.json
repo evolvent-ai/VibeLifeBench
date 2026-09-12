@@ -1,0 +1,34 @@
+{
+  "step": "event-015",
+  "stage": 13,
+  "event_id": "evt_s13_scheduled_weather_check",
+  "source_event_id": "evt_s13_scheduled_weather_check",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 13
+    }
+  ],
+  "response_paraphrase": "The new venue check links cold gusts with sheltered voice protection.",
+  "expected_env": {
+    "virtual_stage": 13,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-004"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s13_weather_mutation_discovered",
+      "weight": 2
+    },
+    {
+      "check_id": "chk_s13_voice_cold_protection",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

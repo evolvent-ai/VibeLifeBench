@@ -1,0 +1,48 @@
+{
+  "step": "event-014",
+  "virtual_stage": 19,
+  "source_event_id": "evt_s19_notification_email_digest",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006"
+    ]
+  },
+  "response": "Read the voluntary-support roster email and recorded its 18:00 reply deadline; the user must respond personally.",
+  "response_paraphrase": "The voluntary-support message and its 18:00 cutoff are noted; only Li Ming can send the response.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s19_notification_email_digest",
+      "event_kind": "notification",
+      "event_time": "2026-07-28T12:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_email_digest_read",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_no_roster_email_reply",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

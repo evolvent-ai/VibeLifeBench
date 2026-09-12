@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "task": "broadcast_exam_posture_breathing_32d",
+  "step_count": 28,
+  "virtual_stage_count": 26,
+  "clock": {
+    "file": "/world-clock/current.json",
+    "key": "world_now",
+    "token_env": "CLOCK_TOKEN"
+  },
+  "databases": {
+    "calendar": "/calendar-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "health_tracker": "/health_tracker-env/runtime.db",
+    "notion": "/notion-env/runtime.db",
+    "weather": "/weather-env/runtime.db"
+  }
+}

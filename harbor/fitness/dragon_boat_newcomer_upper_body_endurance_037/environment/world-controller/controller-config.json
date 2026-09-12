@@ -1,0 +1,14 @@
+{
+  "task": "dragon_boat_newcomer_upper_body_endurance_037",
+  "step_count": 22,
+  "clock_file": "/world-clock/current.json",
+  "clock_token_env": "CLOCK_TOKEN",
+  "db_paths": {
+    "calendar": "/calendar-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "health_tracker": "/health-tracker-env/runtime.db",
+    "notion": "/notion-env/runtime.db",
+    "review_platform": "/review-platform-env/runtime.db",
+    "weather": "/weather-env/runtime.db"
+  }
+}

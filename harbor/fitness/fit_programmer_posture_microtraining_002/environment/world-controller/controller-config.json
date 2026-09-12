@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task": "fit_programmer_posture_microtraining_002",
+  "step_count": 22,
+  "release_count": 13,
+  "clock_file": "/world-clock/current.json",
+  "services": {
+    "calendar": "/calendar-env/runtime.db",
+    "ecommerce": "/ecommerce-env/runtime.db",
+    "email": "/email-env/runtime.db",
+    "health_tracker": "/health-tracker-env/runtime.db",
+    "notion": "/notion-env/runtime.db",
+    "review_platform": "/review-platform-env/runtime.db"
+  }
+}

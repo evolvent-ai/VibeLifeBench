@@ -1,0 +1,37 @@
+{
+  "step": "event-012",
+  "stage": 15,
+  "virtual_stage": 15,
+  "source_event_id": "s15_recovery_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "s14_sleep_shoulder_mutation",
+      "s15_notification_state"
+    ]
+  },
+  "response": "The refreshed data shows 284 minutes (4.7 hours) of sleep and right shoulder pain 5/10. I paused pool/loading and changed the calendar to a short recovery walk, with professional evaluation if symptoms persist or worsen.",
+  "response_paraphrase": "With sleep down to 4.7 hours and shoulder discomfort at 5/10, the plan is now recovery-only: a brief walk replaces play and upper-limb work remains stopped pending improvement.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s15_recovery_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s15_sleep_shoulder_risk_detected",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s15_recovery_calendar_updated",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

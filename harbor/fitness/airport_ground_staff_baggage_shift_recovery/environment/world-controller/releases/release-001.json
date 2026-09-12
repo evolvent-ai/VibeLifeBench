@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "evt_s05_mut_week1_release"
+  ],
+  "source_time": "2026-07-13T21:00:00+08:00",
+  "previous": "release-000",
+  "token": "airport-ground-release-001-token-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "htm-31f6c842a9",
+        "user_id": "li_ming",
+        "type": "sleep_minutes",
+        "value": 352,
+        "value_text": "source=wearable; sleep_window=00:46-06:38; post_shift_rpe=6",
+        "unit": "min",
+        "recorded_at": "2026-07-12T06:42:00+08:00"
+      },
+      "source_event_id": "evt_s05_mut_week1_release",
+      "operation_index": 0
+    },
+    {"server":"health_tracker","table":"metrics","op":"insert","values":{"metric_id":"htm-7a0d5e19c4","user_id":"li_ming","type":"heart_rate","value":75,"value_text":"source=wearable; resting_reading=true; shoulder_fatigue=2/10; low_back=3/10","unit":"bpm","recorded_at":"2026-07-12T06:47:00+08:00"}}
+  ]
+}

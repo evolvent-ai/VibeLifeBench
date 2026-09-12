@@ -1,0 +1,28 @@
+{
+  "step": "event-018",
+  "virtual_stage": 23,
+  "source_event_id": "s23_hr_camp_notice",
+  "response": "The CNY 1,299 Programmer Posture Camp is rejected because of unauthorized payment, over-budget cost, and exaggerated no-exercise claims.",
+  "response_paraphrase": "The 1,299-CNY camp is declined because it exceeds the budget and relies on unsupported no-exercise promises.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 23
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "s23_00_hr_camp_email_mutation"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s23_reject_hr_camp",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

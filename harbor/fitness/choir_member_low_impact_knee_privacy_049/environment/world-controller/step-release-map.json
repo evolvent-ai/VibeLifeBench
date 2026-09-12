@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "step_count": 21,
+  "steps": {
+    "event-000": {"source_event_id":"s00_kickoff_user","before":[],"after":[],"virtual_stage":0,"stage_boundary":true,"scenario_time":"2026-07-01T09:00:00+08:00"},
+    "event-001": {"source_event_id":"s01_baseline_world","before":[],"after":[],"virtual_stage":1,"stage_boundary":true,"scenario_time":"2026-07-01T12:10:00+08:00"},
+    "event-002": {"source_event_id":"s02_plan_scheduled_check","before":[],"after":[],"virtual_stage":2,"stage_boundary":true,"scenario_time":"2026-07-01T20:30:00+08:00"},
+    "event-003": {"source_event_id":"s03_initial_choir_email","before":["release-000"],"after":[],"virtual_stage":3,"stage_boundary":true,"scenario_time":"2026-07-02T10:00:00+08:00"},
+    "event-004": {"source_event_id":"s04_weather_baseline_world","before":[],"after":[],"virtual_stage":4,"stage_boundary":true,"scenario_time":"2026-07-03T09:00:00+08:00"},
+    "event-005": {"source_event_id":"s05_user_quick_weight_loss_pressure","before":[],"after":[],"virtual_stage":5,"stage_boundary":true,"scenario_time":"2026-07-04T19:40:00+08:00"},
+    "event-006": {"source_event_id":"s07_health_scheduled_check","before":["release-001"],"after":[],"virtual_stage":7,"stage_boundary":true,"scenario_time":"2026-07-06T08:00:00+08:00"},
+    "event-007": {"source_event_id":"s08_week1_progress_world","before":["release-002"],"after":[],"virtual_stage":8,"stage_boundary":true,"scenario_time":"2026-07-08T18:00:00+08:00"},
+    "event-008": {"source_event_id":"s10_weather_scheduled_check","before":["release-003"],"after":[],"virtual_stage":10,"stage_boundary":true,"scenario_time":"2026-07-10T07:30:00+08:00"},
+    "event-009": {"source_event_id":"s11_user_privacy_email_pressure","before":[],"after":[],"virtual_stage":11,"stage_boundary":true,"scenario_time":"2026-07-12T20:20:00+08:00"},
+    "event-010": {"source_event_id":"s13_rehearsal_scheduled_check","before":["release-004"],"after":[],"virtual_stage":13,"stage_boundary":true,"scenario_time":"2026-07-13T18:00:00+08:00"},
+    "event-011": {"source_event_id":"s15_data_quality_scheduled_check","before":["release-005"],"after":[],"virtual_stage":15,"stage_boundary":true,"scenario_time":"2026-07-17T08:00:00+08:00"},
+    "event-012": {"source_event_id":"s16_user_stairs_hard_push","before":[],"after":[],"virtual_stage":16,"stage_boundary":true,"scenario_time":"2026-07-18T21:00:00+08:00"},
+    "event-013": {"source_event_id":"s18_sleep_scheduled_check","before":["release-006"],"after":[],"virtual_stage":18,"stage_boundary":true,"scenario_time":"2026-07-20T08:00:00+08:00"},
+    "event-014": {"source_event_id":"s20_heat_scheduled_check","before":["release-007"],"after":[],"virtual_stage":20,"stage_boundary":true,"scenario_time":"2026-07-22T07:30:00+08:00"},
+    "event-015": {"source_event_id":"s21_calltime_world","before":["release-008"],"after":[],"virtual_stage":21,"stage_boundary":true,"scenario_time":"2026-07-25T10:00:00+08:00"},
+    "event-016": {"source_event_id":"s22_user_diuretic_sauna_pressure","before":[],"after":[],"virtual_stage":22,"stage_boundary":true,"scenario_time":"2026-07-26T20:40:00+08:00"},
+    "event-017": {"source_event_id":"s24_pre_show_health_scheduled","before":["release-009"],"after":[],"virtual_stage":24,"stage_boundary":true,"scenario_time":"2026-07-28T08:00:00+08:00"},
+    "event-018": {"source_event_id":"s25_taper_scheduled_check","before":[],"after":[],"virtual_stage":25,"stage_boundary":true,"scenario_time":"2026-08-03T08:30:00+08:00"},
+    "event-019": {"source_event_id":"s26_show_completed_world","before":["release-010"],"after":[],"virtual_stage":26,"stage_boundary":true,"scenario_time":"2026-08-06T08:30:00+08:00"},
+    "event-020": {"source_event_id":"s27_final_review_user","before":[],"after":[],"virtual_stage":27,"stage_boundary":true,"scenario_time":"2026-08-06T20:30:00+08:00"}
+  }
+}

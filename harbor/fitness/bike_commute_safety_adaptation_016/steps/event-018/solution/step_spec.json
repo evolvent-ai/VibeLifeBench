@@ -1,0 +1,24 @@
+{
+  "step": "event-018",
+  "virtual_stage": 22,
+  "source_event_id": "s22_light_arrival_notice",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-009"
+    ],
+    "released_mutations": [
+      "s22_light_arrival_mutation"
+    ]
+  },
+  "response": "The bike light is delivered, but installation, battery charge, visibility, and beam angle still require a physical check before night use.",
+  "response_paraphrase": "Delivery is confirmed, but installation, charging, visibility, and beam alignment still need a physical check.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s22_light_arrival_notice"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0.0
+}

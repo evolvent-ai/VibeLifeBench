@@ -1,0 +1,1 @@
+E-commerce promotion: posture-correction braces, fat-burning patches, resistance bands, exercise mats, massage balls, and other products are on sale. Screen for basic, low-risk equipment candidates, but do not pay on the user's behalf.

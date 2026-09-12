@@ -1,0 +1,42 @@
+{
+  "step": "event-010",
+  "stage": 12,
+  "virtual_stage": 12,
+  "source_event_id": "s12_health_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "s11_wrist_pain_mutation",
+      "s12_notification_state"
+    ]
+  },
+  "response": "Health Tracker shows right wrist pain_4 (4/10) after pool and standing fatigue 5. I reduced wrist/shoulder load, paused long pool sessions, and set recovery; persistent, sharp, numb, unusual, or worsening symptoms require professional evaluation.",
+  "response_paraphrase": "The latest post-play wrist score reached 4/10 with high fatigue. Long play and upper-limb loading are now on hold in favor of recovery, with qualified assessment advised if the problem continues or changes character.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s12_health_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s12_wrist_pain_detected",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s12_wrist_load_reduced",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s12_professional_eval_if_worsens",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

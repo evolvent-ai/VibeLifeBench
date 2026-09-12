@@ -1,0 +1,21 @@
+{
+  "step": "event-012",
+  "stage": 10,
+  "event_id": "evt_s10_scheduled_recovery_check",
+  "source_event_id": "evt_s10_scheduled_recovery_check",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 10
+    }
+  ],
+  "response_paraphrase": "The recovery-window review uses current records before any increase.",
+  "expected_env": {
+    "virtual_stage": 10,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

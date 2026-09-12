@@ -1,0 +1,52 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "dragon-boat-037-release-004-20260824",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_shoulder_pain_20260720_037",
+        "user_id": "user_chen_shan",
+        "type": "heart_rate",
+        "value": 82,
+        "value_text": "Self-rated shoulder pain 4/10; prior training RPE 7/10. Review sleep and calendar load today.",
+        "unit": "bpm",
+        "recorded_at": "2026-07-20T07:30:00+08:00"
+      },
+      "source_event_id": "s12_shoulder_pain_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_sleep_short_20260720_037",
+        "user_id": "user_chen_shan",
+        "type": "sleep_minutes",
+        "value": 305,
+        "value_text": "Last night sleep was 5.1 hours; self-rated shoulder pain 4/10.",
+        "unit": "min",
+        "recorded_at": "2026-07-20T07:20:00+08:00"
+      },
+      "source_event_id": "s12_shoulder_pain_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "workouts",
+      "op": "insert",
+      "values": {
+        "workout_id": "workout_pain_alert_20260720_037",
+        "user_id": "user_chen_shan",
+        "type": "shoulder_pain_report_4_of_10_after_dragon_training",
+        "duration_min": 1,
+        "calories": 0,
+        "distance_m": null,
+        "started_at": "2026-07-20T07:35:00+08:00"
+      },
+      "source_event_id": "s12_shoulder_pain_mutation"
+    }
+  ]
+}

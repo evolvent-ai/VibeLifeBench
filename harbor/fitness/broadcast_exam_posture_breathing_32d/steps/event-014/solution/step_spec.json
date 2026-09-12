@@ -1,0 +1,30 @@
+{
+  "step": "event-014",
+  "stage": 11,
+  "event_id": "evt_s11_world_cold_wind_notice",
+  "source_event_id": "evt_s11_world_cold_wind_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 11
+    }
+  ],
+  "response_paraphrase": "The outdoor plan now has a sheltered alternative after the weather refresh.",
+  "expected_env": {
+    "virtual_stage": 11,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-003"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s11_weather_preemptive",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

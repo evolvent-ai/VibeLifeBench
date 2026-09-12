@@ -1,0 +1,26 @@
+{
+  "step": "event-003",
+  "virtual_stage": 3,
+  "source_event_id": "s03_first_short_ride_window",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Saturday 2026-07-11 morning is the rain-free, low-wind short-ride window; breakfast and hydration are required, while afternoon heat is avoided.",
+  "response_paraphrase": "I selected the cool, dry Saturday morning slot and attached breakfast, hydration, and heat-avoidance checks.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s03_first_short_ride_window"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s03_first_weather_window",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

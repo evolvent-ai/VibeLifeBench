@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "release_id": "release-001",
+  "source_event_ids": [
+    "s06_first_ride_recovery_mutation"
+  ],
+  "source_time": "2026-07-11T10:30:00+08:00",
+  "previous": "release-000",
+  "token": "bike-commute-safety-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "workouts",
+      "op": "insert",
+      "values": {
+        "workout_id": "ht_short_ride_20260711",
+        "user_id": "user_yuhan",
+        "type": "cycling_short",
+        "duration_min": 28,
+        "calories": 120,
+        "distance_m": 6000,
+        "started_at": "2026-07-11T08:30:00+08:00"
+      },
+      "source_event_id": "s06_first_ride_recovery_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "ht_short_ride_rpe_20260711",
+        "user_id": "user_yuhan",
+        "type": "score",
+        "value": 4,
+        "value_text": "First short ride, RPE 4/10; no dizziness after the ride, mild leg fatigue, relieved after hydration.",
+        "unit": "score_10",
+        "recorded_at": "2026-07-11T09:10:00+08:00"
+      },
+      "source_event_id": "s06_first_ride_recovery_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "nutrition_logs",
+      "op": "insert",
+      "values": {
+        "nutrition_id": "nutri_pre_ride_20260711",
+        "user_id": "user_yuhan",
+        "meal": "breakfast",
+        "description": "Ate oatmeal and a banana and hydrated before the short ride.",
+        "calories": 330,
+        "protein_g": 9.0,
+        "carbs_g": 61.0,
+        "fat_g": 6.0,
+        "logged_at": "2026-07-11T07:35:00+08:00"
+      },
+      "source_event_id": "s06_first_ride_recovery_mutation"
+    }
+  ]
+}

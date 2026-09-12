@@ -1,0 +1,26 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "s02_week1_planning_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "A first-week plan combines short rides, recovery days, recurring weather checks, equipment checks, and Route C as the safe fallback.",
+  "response_paraphrase": "The initial schedule pairs modest rides with recovery and recurring weather and equipment reviews, keeping transit as fallback.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s02_week1_planning_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s02_calendar_weather_recovery_plan",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

@@ -1,0 +1,13 @@
+{
+  "step": "event-017",
+  "stage": 22,
+  "virtual_stage": 22,
+  "source_event_id": "s22_order_check_scheduled",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-009"], "released_mutations": ["s21_order_delay_mutation"]},
+  "response": "I verified the delayed shipment, avoided a replacement order, and put an equipment-free recovery option on the personal calendar.",
+  "response_paraphrase": "The existing sock delivery is still in transit, so no duplicate was bought and the affected session now uses a bodyweight alternative.",
+  "actions": [{"kind": "record_event", "source_event_id": "s22_order_check_scheduled"}],
+  "expected_checks": [{"check_id": "chk_s22_order_delay_alt", "weight": 1.75, "expected": true}],
+  "expected_stage_weight": 1.75
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "s09_sleep_edema_mutation"
+  ],
+  "source_stage": 9,
+  "source_time": "2026-09-11T06:30:00+08:00",
+  "previous": "release-002",
+  "token": "flight-attendant-release-003-token-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "met_sleep_postflight_0911",
+        "user_id": "user_lin_rui",
+        "type": "sleep_minutes",
+        "value": 252,
+        "value_text": "sleep=4.2h; postflight; deload_trigger",
+        "unit": "min",
+        "recorded_at": "2026-09-11T06:10:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "met_edema_postflight_0911",
+        "user_id": "user_lin_rui",
+        "type": "score",
+        "value": 4,
+        "value_text": "calf_edema=4/5; fatigue=7/10; rpe=6/10",
+        "unit": "score",
+        "recorded_at": "2026-09-11T06:12:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_stage": 18,
+  "source_event_ids": [
+    "s17_order_delay_mutation"
+  ],
+  "source_time": "2026-07-12T18:30:00+08:00",
+  "previous": "release-006",
+  "token": "posture002-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "products",
+      "op": "update",
+      "set": {
+        "title": "Low-Resistance Band - TRK-BAND-DELAY-0717 delayed until 2026-07-17"
+      },
+      "where": {
+        "product_id": "product_resistance_band_89"
+      },
+      "source_event_id": "s17_order_delay_mutation"
+    }
+  ]
+}

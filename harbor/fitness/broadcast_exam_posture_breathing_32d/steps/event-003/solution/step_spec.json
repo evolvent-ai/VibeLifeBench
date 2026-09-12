@@ -1,0 +1,25 @@
+{
+  "step": "event-003",
+  "stage": 2,
+  "event_id": "evt_s02_email_exam_notice",
+  "source_event_id": "evt_s02_email_exam_notice",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 2
+    }
+  ],
+  "response_paraphrase": "The notice is recorded and the interview deadline is linked to the calendar without a reply.",
+  "expected_env": {
+    "virtual_stage": 2,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "release-000"
+    ]
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

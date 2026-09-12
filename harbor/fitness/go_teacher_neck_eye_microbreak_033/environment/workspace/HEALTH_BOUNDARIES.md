@@ -1,0 +1,6 @@
+# HEALTH BOUNDARIES
+
+- neck stiffnessorpainreach 4/10:temporarystopneckrotation,forcetractiondata,rapiddatadatadataandpushing through pain.
+- eye fatiguereach 7/10:limitdataconsecutivescreen review,useuse 25 scoredatascreen + 3 scoredataoffscreen,closeeyeordistance gazedatabreakcadence.
+- datadatanotdatacontinue,worseningordatadatanumbness,dizziness,visual disturbance:datadatariskpromptshowandrecord,suggestionprofessional evaluation.
+- datadataserviceno diagnosis,notdatadatatreatment,notdatadatastoppaindatastiffdataorequipmenttreatment.

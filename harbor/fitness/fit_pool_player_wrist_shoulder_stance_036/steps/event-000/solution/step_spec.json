@@ -1,0 +1,32 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "virtual_stage": 0,
+  "source_event_id": "s00_kickoff_user",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I opened James Chen's 30-day plan through July 30 with the CNY 600 limit. The scope covers shoulder and wrist stability, hip mobility, low-intensity cardio, pain/sleep/RPE tracking, and recovery after pool. I will use only calendar, Health Tracker, Notion, Review Platform, and Notification Hub; I will reduce load for pain and will not reserve, pay, buy equipment, check weather, or send email.",
+  "response_paraphrase": "James Chen's month-long low-load routine is now tracked within the CNY 600 ceiling. It combines wrist/shoulder control, hip movement, easy cardio, symptom and recovery records, and authorized service checks, while bookings, payments, purchases, weather, and email remain excluded.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s00_kickoff_user"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s00_briefing_capture",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s00_initial_logs",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

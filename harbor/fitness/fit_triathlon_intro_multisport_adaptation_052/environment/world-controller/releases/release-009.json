@@ -1,0 +1,22 @@
+{
+  "release_id": "release-009",
+  "before_step": "event-017",
+  "previous": "release-008",
+  "token": "triathlon052-release-009-c91e4a2f",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "sync_gap_0802_052",
+        "user_id": "user_linz",
+        "type": "score",
+        "value": 0.0,
+        "value_text": "August 2 sync missing: training completion, RPE, steps, heart rate; do not fabricate.",
+        "unit": "score",
+        "recorded_at": "2026-08-02T22:30:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Health summary synced: average daily steps over the past week were about 4,620; last night's sleep was 6.1 hours; neck and shoulder tension was 3/10; and lower-back soreness was 2/10. Build a low-barrier plan around the deep-work blocks and Wednesday evening recurring meeting on the calendar. Do not schedule high-intensity training immediately.

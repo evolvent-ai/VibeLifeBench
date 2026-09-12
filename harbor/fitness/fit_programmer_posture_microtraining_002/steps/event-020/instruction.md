@@ -1,0 +1,1 @@
+Pre-closeout consistency check: refresh health trends, the calendar, equipment status, the class exclusion list, email drafts, and the Notion control center. Even after pain improves, allow only small progressions and retain a recovery version for insufficient sleep. Put this cautious fallback into the existing final-day calendar entry rather than creating a duplicate.

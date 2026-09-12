@@ -1,0 +1,30 @@
+{
+  "step": "event-000",
+  "stage": 0,
+  "event_id": "evt_s00_user_kickoff",
+  "source_event_id": "evt_s00_user_kickoff",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 0
+    }
+  ],
+  "response_paraphrase": "The maintenance window, control hub, and authorization limits are now recorded separately.",
+  "expected_env": {
+    "virtual_stage": 0,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s00_briefing_constraints",
+      "weight": 2
+    },
+    {
+      "check_id": "chk_s00_notion_hub_init",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

@@ -1,0 +1,31 @@
+{
+  "step": "event-016",
+  "stage": 20,
+  "virtual_stage": 20,
+  "source_event_id": "s20_completion_trend_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "s20_week2_actual_mutation"
+    ]
+  },
+  "response": "Week1_actual and week2_actual records show inconsistent completion, RPE 3-4, low sleep, and shoulder pain. Maintain recovery or reduce load, with only a small adjustment rather than an increase.",
+  "response_paraphrase": "The two-week pattern combines uneven adherence with worsening sleep and symptoms, so the appropriate trend decision is to hold or lower the workload.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s20_completion_trend_world"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s20_completion_trend_used",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "s16_shanghai_weather_mutation"
+  ],
+  "source_stage": 16,
+  "source_time": "2026-09-17T06:40:00+08:00",
+  "previous": "release-006",
+  "token": "flight-attendant-release-007-token-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "Shanghai",
+        "date": "2026-09-17",
+        "tmin": 26,
+        "tmax": 32,
+        "condition": "thunderstorm_heat",
+        "precip_mm": 18.0,
+        "precip_prob": 0.7,
+        "wind_kmh": 22
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_aqi",
+      "op": "insert",
+      "values": {
+        "geo_key": "Shanghai",
+        "date": "2026-09-17",
+        "aqi": 1.28e2,
+        "category": "unhealthy_sensitive",
+        "dominant_pollutant": "PM2.5",
+        "observed_at": "2026-09-17T06:40:00+08:00"
+      }
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "alert_shanghai_0917_thunder_heat",
+        "kind": "thunderstorm_heat",
+        "severity": "orange",
+        "start_dt": "2026-09-17T07:00:00+08:00",
+        "end_dt": "2026-09-17T22:00:00+08:00",
+        "areas_json": "[\"Shanghai\"]",
+        "description": "Thunderstorm probability 70%; heat index 34; particulate warning",
+        "active": 1,
+        "created_at": "2026-09-17T06:40:00+08:00",
+        "source_event": "s16_shanghai_weather_mutation"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "release_id": "release-004",
+  "previous": "release-003",
+  "token": "broadcast-exam-release-004-32d",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "update",
+      "set": {
+        "geo_key": "beijing_broadcast_campus",
+        "datetime": "2026-10-19T18:00:00+08:00",
+        "temp_c": 6,
+        "humidity": 63,
+        "condition": "cold_windy",
+        "precip_mm": 0.0,
+        "wind_kmh": 32
+      },
+      "where": {
+        "geo_key": "beijing_broadcast_campus",
+        "datetime": "2026-10-19T18:00:00+08:00"
+      },
+      "source_event_id": "evt_s12_mut_weather_cold_front"
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "weather_cold_front_20261019",
+        "kind": "cold_wind",
+        "severity": "moderate",
+        "start_dt": "2026-10-19T12:00:00+08:00",
+        "end_dt": "2026-10-19T22:00:00+08:00",
+        "areas_json": "[\"beijing_broadcast_campus\"]",
+        "description": "Feels-like temperature about 6 C with force-five gusts; move outdoor training indoors or extend warm-up.",
+        "active": 1,
+        "created_at": "2026-10-19T06:20:00+08:00",
+        "source_event": "cold_front_update"
+      },
+      "source_event_id": "evt_s12_mut_weather_cold_front"
+    }
+  ]
+}

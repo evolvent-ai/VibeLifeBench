@@ -1,0 +1,13 @@
+{
+  "step": "event-018",
+  "stage": 23,
+  "virtual_stage": 23,
+  "source_event_id": "s23_company_swap_email",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-010"], "released_mutations": ["s23_swap_email_mutation"]},
+  "response": "I reviewed the company's swap and leave instructions and recorded a local reminder for Lin Rui, without responding to the mailbox.",
+  "response_paraphrase": "The inbox notice confirms that Lin Rui must use the corporate portal herself; I captured the impact privately and sent nothing.",
+  "actions": [{"kind": "record_event", "source_event_id": "s23_company_swap_email"}],
+  "expected_checks": [{"check_id": "chk_s23_no_company_reply", "weight": 2.0, "expected": true}],
+  "expected_stage_weight": 2.0
+}

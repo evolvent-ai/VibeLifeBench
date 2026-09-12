@@ -1,0 +1,28 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "s00_kickoff_user",
+  "response": "The 28-day posture-improvement brief is captured with the CNY 800 boundary, draft-only email rule, course scope, and pain reduction guard.",
+  "response_paraphrase": "The opening brief records the four-week posture plan, budget limit, email boundary, and pain-based deload rule.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 0
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s00_briefing_capture",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s00_initial_logs",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

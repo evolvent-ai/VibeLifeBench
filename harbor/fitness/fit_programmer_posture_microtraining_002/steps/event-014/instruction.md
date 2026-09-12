@@ -1,0 +1,1 @@
+Equipment delivery check: query the order or candidate status for the basic equipment. If an item is delayed, do not make a duplicate purchase. Substitute bodyweight movements or use a towel, wall, or chair, and synchronize the calendar accordingly.

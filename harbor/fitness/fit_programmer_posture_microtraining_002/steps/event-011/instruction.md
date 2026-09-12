@@ -1,0 +1,1 @@
+Class candidate check: query the current class status, merchant reviews, and email again. Do not purchase any class or membership on the user's behalf. If communication is needed, create a draft only.

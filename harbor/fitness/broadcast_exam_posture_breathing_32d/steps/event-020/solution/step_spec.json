@@ -1,0 +1,30 @@
+{
+  "step": "event-020",
+  "stage": 20,
+  "event_id": "evt_s20_world_taper_digest",
+  "source_event_id": "evt_s20_world_taper_digest",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 20
+    }
+  ],
+  "response_paraphrase": "The pre-interview week now joins rehearsal timing with recovery and venue planning.",
+  "expected_env": {
+    "virtual_stage": 20,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s20_rehearsal_mail_calendar_link",
+      "weight": 1.75
+    },
+    {
+      "check_id": "chk_s20_taper_start",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

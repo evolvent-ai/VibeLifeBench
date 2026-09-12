@@ -1,0 +1,40 @@
+{
+  "step": "event-006",
+  "virtual_stage": 8,
+  "source_event_id": "s08_pre_commute_scheduled_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "s07_weather_rain_mutation"
+    ]
+  },
+  "response": "The pre-ride check found client review meeting cal_work_client_review_20260713 at 08:45 plus heavy rain and lightning; the trial moves to Route C metro and recovery without changing the work meeting.",
+  "response_paraphrase": "The pre-commute refresh found the confirmed 08:45 client review and severe weather, so the trial uses Route C and recovery.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s08_pre_commute_scheduled_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s08_mutation_precheck_discovery",
+      "weight": 1.75,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s08_commute_trial_rescheduled",
+      "weight": 2.0,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s08_no_work_meeting_cancelled",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 5.75
+}

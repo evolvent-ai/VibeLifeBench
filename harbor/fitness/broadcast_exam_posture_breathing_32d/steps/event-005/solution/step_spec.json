@@ -1,0 +1,30 @@
+{
+  "step": "event-005",
+  "stage": 3,
+  "event_id": "evt_s03_scheduled_initial_check",
+  "source_event_id": "evt_s03_scheduled_initial_check",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 3
+    }
+  ],
+  "response_paraphrase": "The first plan audit is complete and future reminders remain under personal control.",
+  "expected_env": {
+    "virtual_stage": 3,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s03_calendar_32d_plan",
+      "weight": 2
+    },
+    {
+      "check_id": "chk_s03_weather_initial_check",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

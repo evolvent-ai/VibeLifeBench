@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "s21_order_delay_mutation"
+  ],
+  "source_stage": 21,
+  "source_time": "2026-09-22T13:30:00+08:00",
+  "previous": "release-008",
+  "token": "flight-attendant-release-009-token-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "where": {
+        "user_id": "user_lin_rui",
+        "status": "paid"
+      },
+      "allow_zero": true,
+      "set": {
+        "status": "shipped",
+        "tracking_no": "TRK-COMP-0920-DELAY-0927",
+        "note": ""
+      }
+    }
+  ]
+}

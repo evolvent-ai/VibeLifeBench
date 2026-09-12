@@ -1,0 +1,24 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "s01_baseline_world",
+  "response": "The health and calendar baseline is read and a careful low-impact starting point is recorded.",
+  "response_paraphrase": "I reviewed the baseline readings and kept the starting load conservative.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 1
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s01_health_baseline_recorded",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

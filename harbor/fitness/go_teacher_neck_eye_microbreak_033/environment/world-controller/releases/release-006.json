@@ -1,0 +1,57 @@
+{
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_gt_eye_20260714",
+        "user_id": "user_liang_weimin",
+        "type": "score",
+        "value": 8,
+        "value_text": "eye_fatigue=8/10; screen_review_minutes=125; offscreen_break_needed=true",
+        "unit": "score",
+        "recorded_at": "2026-07-14T22:10:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "workouts",
+      "op": "insert",
+      "values": {
+        "workout_id": "workout_gt_screen_review_20260714",
+        "user_id": "user_liang_weimin",
+        "type": "screen_review_session",
+        "duration_min": 125,
+        "calories": 0,
+        "distance_m": null,
+        "started_at": "2026-07-14T20:00:00+08:00"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_gt_s14_eye",
+        "user_id": "user_liang_weimin",
+        "source": "health_tracker",
+        "type": "scheduled_check",
+        "subscription_id": "sub_gt_health_watch",
+        "title": "Eye-break check",
+        "body": "Check eye fatigue and screen review.",
+        "payload_json": "{\"schedule_name\":\"eye_rest_review\",\"personal_only\":true}",
+        "created_at": "2026-07-15T08:55:00+08:00",
+        "read": 0
+      }
+    }
+  ],
+  "previous": "release-005",
+  "release_id": "release-006",
+  "source_stage": 14,
+  "source_event_id": "s13_eye_fatigue_mutation",
+  "source_event_ids": ["s13_eye_fatigue_mutation", "s14_notification_backend_mutation"],
+  "source_time": "2026-07-14T22:10:00+08:00",
+  "token": "go-teacher-neck-eye-microbreak-033-release-token",
+  "virtual_stage": 14
+}

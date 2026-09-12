@@ -1,0 +1,1 @@
+The health and routine baseline is now available: average sleep over the last seven days is about 6.1 hours, resting heart rate is about 73 bpm, and neck-shoulder tightness and throat fatigue are mild. The evening-study and intensive-training schedules have also synced.

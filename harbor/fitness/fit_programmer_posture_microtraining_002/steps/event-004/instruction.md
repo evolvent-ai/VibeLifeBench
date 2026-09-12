@@ -1,0 +1,1 @@
+Several candidates are available near the office and home, including stretching spaces, low-intensity group classes, rehabilitation studios, and a course promising to correct rounded shoulders in seven days. Check reviews and record the candidates. Filter out no-exercise claims, quick-fix correction claims, and high-price pressure tactics.

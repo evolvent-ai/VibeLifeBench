@@ -1,0 +1,32 @@
+{
+  "step": "event-001",
+  "stage": 1,
+  "virtual_stage": 1,
+  "source_event_id": "s01_health_baseline_notice",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Health Tracker shows about 5,200 daily steps, 402 minutes (6.7 hours) of sleep, right wrist and shoulder discomfort of 2/10, and standing fatigue of 3/10. The active pain target is at most 3; at 4/10 I will reduce or pause and recommend professional evaluation if symptoms persist or worsen.",
+  "response_paraphrase": "The accessible baseline is 5,200 steps per day, 6.7 hours of sleep, mild 2/10 wrist and shoulder symptoms, and fatigue around 3/10. The ceiling remains 3, with load reduction at 4/10 and qualified assessment for ongoing deterioration.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s01_health_baseline_notice"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s01_health_baseline_recorded",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s01_pain_threshold_set",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

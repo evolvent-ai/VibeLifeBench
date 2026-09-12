@@ -1,0 +1,13 @@
+{
+  "task": "flight_attendant_jetlag_circulation_recovery_051",
+  "clock_file": "/world-clock/current.json",
+  "step_count": 24,
+  "servers": [
+    "calendar",
+    "ecommerce",
+    "email",
+    "health_tracker",
+    "notion",
+    "weather"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "evt_s12_mut_weather_thunderstorm"
+  ],
+  "source_time": "2026-07-20T12:30:00+08:00",
+  "previous": "release-003",
+  "token": "airport-ground-release-004-token-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "wx_airport_apron_20260720",
+        "kind": "thunderstorm_heat",
+        "severity": "orange",
+        "start_dt": "2026-07-20T14:00:00+08:00",
+        "end_dt": "2026-07-20T20:00:00+08:00",
+        "areas_json": "[\"pvg_apron\", \"Shanghai Pudong International Airport\"]",
+        "description": "thunderstormEnglish note 70%，feels-like temperature 36C，gusts 7 English note。",
+        "active": 1,
+        "created_at": "2026-07-20T11:50:00+08:00",
+        "source_event": "weather_update"
+      },
+      "source_event_id": "evt_s12_mut_weather_thunderstorm",
+      "operation_index": 0
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "pvg_apron",
+        "datetime": "2026-07-20T15:00:00+08:00",
+        "temp_c": 33,
+        "humidity": 82,
+        "condition": "thunderstorm_heat",
+        "precip_mm": 9.0,
+        "wind_kmh": 50
+      },
+      "source_event_id": "evt_s12_mut_weather_thunderstorm",
+      "operation_index": 1
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "pvg_apron",
+        "datetime": "2026-07-20T18:00:00+08:00",
+        "temp_c": 31,
+        "humidity": 88,
+        "condition": "thunderstorm_heat",
+        "precip_mm": 12.5,
+        "wind_kmh": 48
+      },
+      "source_event_id": "evt_s12_mut_weather_thunderstorm",
+      "operation_index": 2
+    }
+  ]
+}

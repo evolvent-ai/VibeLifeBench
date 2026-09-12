@@ -1,0 +1,21 @@
+{
+  "step": "event-002",
+  "stage": 2,
+  "virtual_stage": 2,
+  "source_event_id": "s02_calendar_window_world",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I refreshed the calendar and recorded Friday bank-duty, family, and Saturday pool constraints. Training will use only conflict-free weekend windows.",
+  "response_paraphrase": "The schedule review now accounts for Friday work, household commitments, and possible Saturday play, so exercise blocks stay outside occupied periods.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s02_calendar_window_world"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

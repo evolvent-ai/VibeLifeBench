@@ -1,0 +1,116 @@
+{
+  "release_id": "release-008",
+  "previous": "release-007",
+  "token": "broadcast-exam-release-008-32d",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_sleep_20261030_available",
+        "user_id": "lin_yu",
+        "type": "sleep_minutes",
+        "value": 402,
+        "value_text": null,
+        "unit": "min",
+        "recorded_at": "2026-10-30T06:40:00+08:00"
+      },
+      "source_event_id": "evt_s22_mut_health_sync_missing"
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_sleep_20261031_available",
+        "user_id": "lin_yu",
+        "type": "sleep_minutes",
+        "value": 395,
+        "value_text": null,
+        "unit": "min",
+        "recorded_at": "2026-10-31T06:40:00+08:00"
+      },
+      "source_event_id": "evt_s22_mut_health_sync_missing"
+    },
+    {
+      "server": "health_tracker",
+      "table": "workouts",
+      "op": "insert",
+      "values": {
+        "workout_id": "health_sync_gap_20261030_31",
+        "user_id": "lin_yu",
+        "type": "wearable_sync_partial_steps_rpe_missing",
+        "duration_min": 0,
+        "calories": 0,
+        "distance_m": null,
+        "started_at": "2026-10-31T07:30:00+08:00"
+      },
+      "source_event_id": "evt_s22_mut_health_sync_missing"
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "beijing_broadcast_campus",
+        "date": "2026-11-05",
+        "tmin": 5,
+        "tmax": 11,
+        "condition": "cold_light_rain",
+        "precip_mm": 3.2,
+        "precip_prob": 0.65,
+        "wind_kmh": 18
+      },
+      "source_event_id": "evt_s22_mut_health_sync_missing"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "beijing_broadcast_campus",
+        "datetime": "2026-11-05T08:00:00+08:00",
+        "temp_c": 7,
+        "humidity": 82,
+        "condition": "light_rain",
+        "precip_mm": 0.8,
+        "wind_kmh": 17
+      },
+      "source_event_id": "evt_s22_mut_health_sync_missing"
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "beijing_broadcast_campus",
+        "datetime": "2026-11-05T09:00:00+08:00",
+        "temp_c": 8,
+        "humidity": 80,
+        "condition": "light_rain",
+        "precip_mm": 0.6,
+        "wind_kmh": 16
+      },
+      "source_event_id": "evt_s22_mut_health_sync_missing"
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "weather_exam_cold_rain_20261105",
+        "kind": "exam_day_cold_rain_outlook",
+        "severity": "minor",
+        "start_dt": "2026-11-05T06:00:00+08:00",
+        "end_dt": "2026-11-05T12:00:00+08:00",
+        "areas_json": "[\"beijing_broadcast_campus\"]",
+        "description": "The November 5 mock interview morning is cool with light rain; prepare a warm outer layer and indoor warm-up.",
+        "active": 1,
+        "created_at": "2026-11-01T07:58:00+08:00",
+        "source_event": "exam_day_forecast_update"
+      },
+      "source_event_id": "evt_s22_mut_health_sync_missing"
+    }
+  ]
+}

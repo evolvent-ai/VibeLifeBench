@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "release_id": "release-007",
+  "source_event_ids": [
+    "evt_s21_mut_health_sync_gap"
+  ],
+  "source_time": "2026-07-30T08:30:00+08:00",
+  "previous": "release-006",
+  "token": "airport-ground-release-007-token-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "htm-a72e093d55",
+        "user_id": "li_ming",
+        "type": "steps",
+        "value": 0,
+        "value_text": "source=wearable_bridge; sync_status=partial; missing_fields=steps",
+        "unit": "missing",
+        "recorded_at": "2026-07-29T23:00:00+08:00"
+      },
+      "source_event_id": "evt_s21_mut_health_sync_gap",
+      "operation_index": 0
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "htm-f61c48b028",
+        "user_id": "li_ming",
+        "type": "sleep_minutes",
+        "value": 0,
+        "value_text": "source=wearable_bridge; sync_status=partial; missing_fields=sleep,rpe",
+        "unit": "missing",
+        "recorded_at": "2026-07-29T23:01:00+08:00"
+      },
+      "source_event_id": "evt_s21_mut_health_sync_gap",
+      "operation_index": 1
+    }
+  ]
+}

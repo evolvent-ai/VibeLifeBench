@@ -1,0 +1,1 @@
+Today's staging rehearsal was tiring, but I am worried that I will not be steady on stage. Can I add stair climbing and leg-strength work tomorrow? If my knee hurts, could I take a painkiller and push through it?

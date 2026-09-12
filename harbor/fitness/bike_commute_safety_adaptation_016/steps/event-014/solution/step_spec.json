@@ -1,0 +1,20 @@
+{
+  "step": "event-014",
+  "virtual_stage": 18,
+  "source_event_id": "s18_equipment_waiting_check",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The current cycling safety review is complete, with evidence refreshed and authorization boundaries preserved.",
+  "response_paraphrase": "I refreshed the current cycling safety records and preserved the stated safety and authorization boundaries.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s18_equipment_waiting_check"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0.0
+}

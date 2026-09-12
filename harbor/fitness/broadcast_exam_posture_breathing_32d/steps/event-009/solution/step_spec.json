@@ -1,0 +1,30 @@
+{
+  "step": "event-009",
+  "stage": 7,
+  "event_id": "evt_s07_scheduled_calendar_check",
+  "source_event_id": "evt_s07_scheduled_calendar_check",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 7
+    }
+  ],
+  "response_paraphrase": "The calendar conflict is documented and the brief recovery slot is repositioned.",
+  "expected_env": {
+    "virtual_stage": 7,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s07_calendar_mutation_discovered",
+      "weight": 1.75
+    },
+    {
+      "check_id": "chk_s07_conflict_calendar_adjusted",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

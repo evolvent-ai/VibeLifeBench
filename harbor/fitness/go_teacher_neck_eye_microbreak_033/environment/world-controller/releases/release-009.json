@@ -1,0 +1,47 @@
+{
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "cal_gt_sat_20260725",
+        "calendar_id": "cal_go_teacher_primary",
+        "summary": "Saturday long Go class (moved earlier)",
+        "description": "Saturday class moved earlier; lunch is shorter, but keep meal, light walking, and eyes-closed rest windows.",
+        "location": "Classroom 1",
+        "start_dt": "2026-07-25T09:00:00+08:00",
+        "end_dt": "2026-07-25T13:00:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-07-24T18:00:00+08:00",
+        "updated_at": "2026-07-24T18:00:00+08:00"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_gt_s24_weekend",
+        "user_id": "user_liang_weimin",
+        "source": "calendar",
+        "type": "scheduled_check",
+        "subscription_id": "sub_gt_plan_watch",
+        "title": "Pre-Saturday check",
+        "body": "Refresh Saturday schedule and break windows.",
+        "payload_json": "{\"schedule_name\":\"saturday_precheck\",\"personal_only\":true}",
+        "created_at": "2026-07-25T07:55:00+08:00",
+        "read": 0
+      }
+    }
+  ],
+  "previous": "release-008",
+  "release_id": "release-009",
+  "source_stage": 24,
+  "source_event_id": "s23_sat_shift_mutation",
+  "source_event_ids": ["s23_sat_shift_mutation", "s24_notification_backend_mutation"],
+  "source_time": "2026-07-24T18:00:00+08:00",
+  "token": "go-teacher-neck-eye-microbreak-033-release-token",
+  "virtual_stage": 24
+}

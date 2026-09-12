@@ -1,0 +1,30 @@
+{
+  "step": "event-009",
+  "virtual_stage": 12,
+  "source_event_id": "s12_equipment_scheduled_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "s11_light_delay_mutation"
+    ]
+  },
+  "response": "The bike light order delivery is delayed until 2026-07-22, so night-riding remains unsafe and is not scheduled.",
+  "response_paraphrase": "The light shipment now shows a July 22 delay, leaving night riding off the schedule until a working light is available.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s12_equipment_scheduled_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s12_light_delay_no_night",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -1,0 +1,36 @@
+{
+  "step": "event-013",
+  "virtual_stage": 18,
+  "source_event_id": "s18_sleep_scheduled_check",
+  "response": "Short sleep with fatigue and drowsiness calls for light reduced-load recovery, with no compensation or catch-up activity.",
+  "response_paraphrase": "The short nights led to a lighter recovery schedule rather than catch-up exercise.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 18
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "release-006"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s18_sleep_low_detected",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s18_training_downgraded",
+      "weight": 1.75
+    },
+    {
+      "check_id": "chk_s18_no_compensation_workout",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

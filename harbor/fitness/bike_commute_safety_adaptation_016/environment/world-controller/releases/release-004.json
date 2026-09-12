@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_event_ids": [
+    "s11_light_delay_mutation"
+  ],
+  "source_time": "2026-07-15T18:30:00+08:00",
+  "previous": "release-003",
+  "token": "bike-commute-safety-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "status": "shipped",
+        "note": "L1 bike-light package delayed; expected delivery 2026-07-22."
+      },
+      "where": {
+        "order_id": "ord_20260714_000002"
+      },
+      "source_event_id": "s11_light_delay_mutation"
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "set": {
+        "status": "delivered",
+        "note": "H2 helmet delivered 2026-07-15 10:45."
+      },
+      "where": {
+        "order_id": "ord_20260714_000001"
+      },
+      "source_event_id": "s11_light_delay_mutation"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "step": "event-027",
+  "stage": 25,
+  "event_id": "evt_s25_world_exam_completed",
+  "source_event_id": "evt_s25_world_exam_completed",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 25
+    }
+  ],
+  "response_paraphrase": "The final archive keeps the reviewed services and authorization outcome aligned.",
+  "expected_env": {
+    "virtual_stage": 25,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s25_final_refresh",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

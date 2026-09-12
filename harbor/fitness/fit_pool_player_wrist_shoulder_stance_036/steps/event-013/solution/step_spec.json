@@ -1,0 +1,31 @@
+{
+  "step": "event-013",
+  "stage": 16,
+  "virtual_stage": 16,
+  "source_event_id": "s16_venue_fatigue_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "s16_oldtown_reviews_mutation"
+    ]
+  },
+  "response": "OldTown reviews now document dim lighting, limited seating, weekend queues, and standing-fatigue risk, so the venue is marked to avoid during recovery.",
+  "response_paraphrase": "The refreshed OldTown notes show poor visibility, too few places to rest, and long waits; that combination is unsuitable while fatigue is elevated.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s16_venue_fatigue_world"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s16_venue_fatigue_risk_logged",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

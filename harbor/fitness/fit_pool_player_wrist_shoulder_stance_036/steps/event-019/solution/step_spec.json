@@ -1,0 +1,37 @@
+{
+  "step": "event-019",
+  "stage": 25,
+  "virtual_stage": 25,
+  "source_event_id": "s25_venue_recheck",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "s24_club_hours_mutation",
+      "s25_notification_state"
+    ]
+  },
+  "response": "The Community Activity Center now offers only a short Saturday 09:00-11:00 walk-in window. Decide on arrival or skip; do not reserve online or make a payment.",
+  "response_paraphrase": "Current Community hours are limited to Saturday morning from nine to eleven. It is an unbooked, brief on-site option only, and can be skipped if recovery is incomplete.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s25_venue_recheck"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s25_club_hours_detected",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s25_short_walkin_plan",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

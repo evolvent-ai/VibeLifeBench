@@ -1,0 +1,28 @@
+{
+  "step": "event-001",
+  "virtual_stage": 1,
+  "source_event_id": "s01_health_calendar_baseline",
+  "response": "The 4,620-step and 6.1-hour baseline supports a low-intensity plan around deep-work blocks and the recurring meeting.",
+  "response_paraphrase": "The baseline shows about 4,620 steps and 6.1 hours of sleep, so the starting plan stays gentle around work blocks.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 1
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "s01_00_health_baseline_mutation"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s01_health_baseline",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

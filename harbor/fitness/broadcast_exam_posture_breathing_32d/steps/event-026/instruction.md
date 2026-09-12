@@ -1,0 +1,1 @@
+The mock interview is over today. Please review this 32-day physical-maintenance period, explain which adjustments were caused by fatigue, voice, weather, or calendar conflicts, and say how to continue in the next phase.

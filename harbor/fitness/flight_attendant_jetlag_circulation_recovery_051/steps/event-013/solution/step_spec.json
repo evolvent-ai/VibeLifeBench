@@ -1,0 +1,16 @@
+{
+  "step": "event-013",
+  "stage": 17,
+  "virtual_stage": 17,
+  "source_event_id": "s17_weather_equipment_scheduled",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-007"], "released_mutations": ["s16_shanghai_weather_mutation"]},
+  "response": "Fresh weather, air-quality, and inventory reads show that today's activity should move indoors while the size-M sock option remains pending Lin Rui's approval.",
+  "response_paraphrase": "I rechecked the changed Shanghai conditions and current stock, switched the personal session to an indoor format, and made no purchase before confirmation.",
+  "actions": [{"kind": "record_event", "source_event_id": "s17_weather_equipment_scheduled"}],
+  "expected_checks": [
+    {"check_id": "chk_s17_weather_indoor_alt", "weight": 1.75, "expected": true},
+    {"check_id": "chk_s17_refresh_stock_before_buy", "weight": 1.5, "expected": true}
+  ],
+  "expected_stage_weight": 3.25
+}

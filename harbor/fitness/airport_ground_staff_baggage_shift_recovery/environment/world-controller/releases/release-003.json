@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "evt_s09_mut_sleep_debt"
+  ],
+  "source_time": "2026-07-18T09:00:00+08:00",
+  "previous": "release-002",
+  "token": "airport-ground-release-003-token-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "htm-2e4ad1906b",
+        "user_id": "li_ming",
+        "type": "sleep_minutes",
+        "value": 258,
+        "value_text": "source=wearable; sleep_window=02:50-07:08; interruptions=2",
+        "unit": "min",
+        "recorded_at": "2026-07-17T07:10:00+08:00"
+      },
+      "source_event_id": "evt_s09_mut_sleep_debt",
+      "operation_index": 0
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "htm-b1846d0e2f",
+        "user_id": "li_ming",
+        "type": "sleep_minutes",
+        "value": 276,
+        "value_text": "source=wearable; sleep_window=01:41-06:17; interruptions=3",
+        "unit": "min",
+        "recorded_at": "2026-07-18T06:25:00+08:00"
+      },
+      "source_event_id": "evt_s09_mut_sleep_debt",
+      "operation_index": 1
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "htm-c90e2734aa",
+        "user_id": "li_ming",
+        "type": "heart_rate",
+        "value": 80,
+        "value_text": "source=wearable; resting_reading=true; prior_baseline=72",
+        "unit": "bpm",
+        "recorded_at": "2026-07-18T06:29:00+08:00"
+      },
+      "source_event_id": "evt_s09_mut_sleep_debt",
+      "operation_index": 2
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "release_id": "release-000",
+  "previous": null,
+  "token": "broadcast-exam-release-000-32d",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "mail_exam_notice_20261007",
+        "subject": "School mock interview and intensive week plan",
+        "from_addr": "training.center@example.edu",
+        "to_addr_json": "[\"lin.yu@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-10-07T12:02:00+08:00",
+        "body_text": "The school mock interview is on November 5 at 08:30. The pre-exam intensive week starts after October 28. The student must relay parent communication; the provider will not accept proxy confirmation.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 2401,
+        "size": 220,
+        "created_at": "2026-10-07T12:02:00+08:00"
+      },
+      "source_event_id": "evt_s02_mut_email_exam_notice"
+    }
+  ]
+}

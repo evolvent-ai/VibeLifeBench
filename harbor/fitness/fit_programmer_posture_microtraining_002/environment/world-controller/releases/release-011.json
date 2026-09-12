@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_stage": 24,
+  "source_event_ids": [
+    "s24_00_camp_review_mutation"
+  ],
+  "source_time": "2026-07-21T14:29:59+08:00",
+  "previous": "release-010",
+  "token": "posture002-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_posture_camp_risk_0721",
+        "merchant_id": "offer_posture_camp_1299",
+        "user_id": "reviewer_camp_0721",
+        "rating": 1,
+        "body": "The course repeatedly emphasized exaggerated rapid posture improvement, then put me under pressure to renew after the trial. I received no guidance on adapting it for my lower-back soreness, and customer service only urged me to purchase a longer package. It is not suitable for people with lower-back pain to join directly.",
+        "image_captions": "[]",
+        "created_at": "2026-07-21T14:20:00+08:00"
+      },
+      "source_event_id": "s24_00_camp_review_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "update",
+      "set": {
+        "review_count": 422,
+        "rating_tenths": 30
+      },
+      "where": {
+        "merchant_id": "offer_posture_camp_1299"
+      },
+      "source_event_id": "s24_00_camp_review_mutation"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "s19_longhaul_health_mutation"
+  ],
+  "source_stage": 19,
+  "source_time": "2026-09-20T21:55:00+08:00",
+  "previous": "release-007",
+  "token": "flight-attendant-release-008-token-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "met_longhaul_steps_0920",
+        "user_id": "user_lin_rui",
+        "type": "steps",
+        "value": 16840,
+        "value_text": "longhaul_duty_steps; standing_and_transfer=true; not_training_completion=true",
+        "unit": "steps",
+        "recorded_at": "2026-09-20T21:50:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "met_longhaul_fatigue_0920",
+        "user_id": "user_lin_rui",
+        "type": "score",
+        "value": 7,
+        "value_text": "post_longhaul_fatigue=7/10; calf_heaviness=4/5; recovery_priority=high",
+        "unit": "score",
+        "recorded_at": "2026-09-20T21:52:00+08:00"
+      }
+    }
+  ]
+}

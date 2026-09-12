@@ -1,0 +1,24 @@
+{
+  "step": "event-013",
+  "virtual_stage": 16,
+  "source_event_id": "s16_user_low_cost_auth",
+  "response": "The confirmed CNY 89 band and CNY 139 mat are the only authorized order, totaling CNY 228; the brace and courses remain held back.",
+  "response_paraphrase": "Your approval covers only the 89-CNY band and 139-CNY mat, so the 228-CNY order excludes the brace and courses.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 16
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s16_low_cost_authorized",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

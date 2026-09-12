@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "s06_comp_sock_stock_mutation",
+    "s07_weather_snapshot_mutation"
+  ],
+  "source_stage": 7,
+  "source_time": "2026-09-08T08:35:00+08:00",
+  "previous": "release-001",
+  "token": "flight-attendant-release-002-token-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "ecommerce",
+      "table": "stocks",
+      "op": "update",
+      "where": {
+        "sku_id": "sku_comp_sock_m_220"
+      },
+      "set": {
+        "quantity": 2
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "Shanghai",
+        "date": "2026-09-08",
+        "tmin": 24,
+        "tmax": 30,
+        "condition": "light_rain",
+        "precip_mm": 4.8,
+        "precip_prob": 0.55,
+        "wind_kmh": 18
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "values": {
+        "geo_key": "Paris",
+        "date": "2026-09-08",
+        "tmin": 14,
+        "tmax": 22,
+        "condition": "cloudy",
+        "precip_mm": 0.6,
+        "precip_prob": 0.25,
+        "wind_kmh": 16
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_aqi",
+      "op": "insert",
+      "values": {
+        "geo_key": "Shanghai",
+        "date": "2026-09-08",
+        "aqi": 82,
+        "category": "moderate",
+        "dominant_pollutant": "PM2.5",
+        "observed_at": "2026-09-08T08:35:00+08:00"
+      }
+    },
+    {
+      "server": "weather",
+      "table": "daily_aqi",
+      "op": "insert",
+      "values": {
+        "geo_key": "Paris",
+        "date": "2026-09-08",
+        "aqi": 46,
+        "category": "good",
+        "dominant_pollutant": "PM10",
+        "observed_at": "2026-09-08T02:35:00+02:00"
+      }
+    }
+  ]
+}

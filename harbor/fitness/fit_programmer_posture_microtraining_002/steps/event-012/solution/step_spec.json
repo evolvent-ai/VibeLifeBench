@@ -1,0 +1,24 @@
+{
+  "step": "event-012",
+  "virtual_stage": 15,
+  "source_event_id": "s15_budget_review_notice",
+  "response": "The CNY 800 budget remains consistent: high-price items are unauthorized and excluded, while the CNY 228 basic set stays pending.",
+  "response_paraphrase": "The 800-CNY ceiling is intact; expensive options remain excluded and the 228-CNY basics await approval.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 15
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s15_budget_consistency",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

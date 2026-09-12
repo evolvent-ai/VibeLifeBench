@@ -1,0 +1,36 @@
+{
+  "release_id": "release-007",
+  "before_step": "event-015",
+  "previous": "release-006",
+  "token": "triathlon052-release-007-c91e4a2f",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "knee_pain_0728_052",
+        "user_id": "user_linz",
+        "type": "score",
+        "value": 4.0,
+        "value_text": "training note4/10；training note；training note",
+        "unit": "score",
+        "recorded_at": "2026-07-28T20:00:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "workouts",
+      "op": "insert",
+      "values": {
+        "workout_id": "workout_run_knee_pain_0728",
+        "user_id": "user_linz",
+        "type": "easy_run_then_knee_pain",
+        "duration_min": 22,
+        "calories": 140,
+        "distance_m": 2800,
+        "started_at": "2026-07-28T19:10:00+08:00"
+      }
+    }
+  ]
+}

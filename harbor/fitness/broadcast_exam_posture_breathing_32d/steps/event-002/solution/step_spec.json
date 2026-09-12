@@ -1,0 +1,38 @@
+{
+  "step": "event-002",
+  "stage": 1,
+  "event_id": "evt_s01_health_snapshot",
+  "source_event_id": "evt_s01_health_snapshot",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 1
+    }
+  ],
+  "response_paraphrase": "I confirmed that the newly available readings can be consulted.",
+  "expected_env": {
+    "virtual_stage": 1,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s01_baseline_services_read",
+      "weight": 1.25
+    },
+    {
+      "check_id": "chk_s01_three_tier_template",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s01_tier_labels_persisted",
+      "weight": 1
+    },
+    {
+      "check_id": "chk_s01_safety_downgrade_fields",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

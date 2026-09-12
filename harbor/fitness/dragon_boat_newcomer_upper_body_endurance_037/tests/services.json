@@ -1,0 +1,10 @@
+{
+  "mcp_servers": [
+    "calendar",
+    "email",
+    "health_tracker",
+    "notion",
+    "review_platform",
+    "weather"
+  ]
+}

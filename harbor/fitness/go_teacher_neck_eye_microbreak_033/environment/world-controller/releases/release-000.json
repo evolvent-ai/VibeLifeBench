@@ -1,0 +1,68 @@
+{
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_gt_baseline_steps_0701",
+        "user_id": "user_liang_weimin",
+        "type": "steps",
+        "value": 4180,
+        "value_text": "seven_day_average_steps=4180; teaching_days_mixed=true; source=wearable_summary",
+        "unit": "steps",
+        "recorded_at": "2026-07-01T20:20:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_gt_baseline_sleep_0701",
+        "user_id": "user_liang_weimin",
+        "type": "sleep_minutes",
+        "value": 360,
+        "value_text": "last_night_sleep=6.0h; source=wearable_summary; status=complete",
+        "unit": "min",
+        "recorded_at": "2026-07-01T20:21:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_gt_baseline_neck_0701",
+        "user_id": "user_liang_weimin",
+        "type": "score",
+        "value": 3,
+        "value_text": "neck_stiffness=3/10; self_reported_after_teaching=true",
+        "unit": "score",
+        "recorded_at": "2026-07-01T20:22:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_gt_baseline_eye_0701",
+        "user_id": "user_liang_weimin",
+        "type": "score",
+        "value": 6,
+        "value_text": "eye_fatigue=6/10; board_and_screen_exposure=true",
+        "unit": "score",
+        "recorded_at": "2026-07-01T20:23:00+08:00"
+      }
+    }
+  ],
+  "previous": null,
+  "release_id": "release-000",
+  "source_stage": 1,
+  "source_event_id": "s01_health_baseline_mutation",
+  "source_event_ids": ["s01_health_baseline_mutation"],
+  "source_time": "2026-07-01T20:25:00+08:00",
+  "token": "go-teacher-neck-eye-microbreak-033-release-token",
+  "virtual_stage": 1
+}

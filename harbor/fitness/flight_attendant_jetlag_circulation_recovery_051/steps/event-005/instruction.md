@@ -1,0 +1,1 @@
+I saw compression socks, a massage ball, resistance bands, and some capsules claiming to reduce swelling and slim legs. Please assess which items are suitable as recovery aids, but do not buy anything.

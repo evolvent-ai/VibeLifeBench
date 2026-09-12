@@ -1,0 +1,37 @@
+{
+  "step": "event-008",
+  "stage": 9,
+  "virtual_stage": 9,
+  "source_event_id": "s09_venue_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "s08_laneside_league_mutation",
+      "s09_notification_state"
+    ]
+  },
+  "response": "LaneSide's youth league makes Saturday afternoon tables unavailable and the peak deal is sold_out. Use a short Community or off-peak option, or skip pool; no reservation or payment was made.",
+  "response_paraphrase": "The refreshed venue data rules out LaneSide during the league window. A brief community visit, a quieter time, or no play are the available unbooked alternatives.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s09_venue_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s09_venue_mutation_detected",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s09_venue_alternative_without_booking",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

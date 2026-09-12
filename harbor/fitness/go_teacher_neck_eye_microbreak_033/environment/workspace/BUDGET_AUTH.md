@@ -1,0 +1,5 @@
+# BUDGET AUTH
+
+- budget 400 dataonlyfordatakeepboundary,datadataservicenotmessagedatabudget.
+- notprocurement,notdowndata,notbooking,notregistration,notuseusedatamerchant,reviewdataordaydataservice.
+- dataequipment,class,treatmentdatadataandmerchantpromotion,datadatarecordriskandsuggestionuserselfwalkcautiousjudgebreak.

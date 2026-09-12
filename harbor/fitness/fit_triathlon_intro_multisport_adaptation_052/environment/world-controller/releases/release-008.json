@@ -1,0 +1,22 @@
+{
+  "release_id": "release-008",
+  "before_step": "event-016",
+  "previous": "release-007",
+  "token": "triathlon052-release-008-c91e4a2f",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "knee_followup_0730_052",
+        "user_id": "user_linz",
+        "type": "score",
+        "value": 3.0,
+        "value_text": "training note3/10；training note；training note4/10training note48training note",
+        "unit": "score",
+        "recorded_at": "2026-07-30T08:40:00+08:00"
+      }
+    }
+  ]
+}

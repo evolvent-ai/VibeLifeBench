@@ -1,0 +1,6 @@
+# PRIVACY
+
+- notdatastudentorparentsendsend,replyrevieworturnsendemail.
+- notdatastudent,parentornotverifydatathirddatadatadataneck,eye fatigue,health record,candatadatanumberdataorreviewdatabreak.
+- cancandatauserorganizeorganizeselfusedatanotifyneedpoint,datamust notdatasend.
+- internalpartarrangeclassemailcanreadretrievedatarecord,notneedneeddatamovementexternal sending.

@@ -1,0 +1,16 @@
+{
+  "step": "event-008",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "s10_recovery_scheduled",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-003"], "released_mutations": ["s09_sleep_edema_mutation"]},
+  "response": "The latest tracker evidence supports a two-day reduction in load, so I scheduled rest-oriented recovery and documented the symptoms that warrant professional review.",
+  "response_paraphrase": "After reading the newly released sleep and leg-symptom data, I shifted the next 48 hours toward rest and recorded clear escalation signs without making a diagnosis.",
+  "actions": [{"kind": "record_event", "source_event_id": "s10_recovery_scheduled"}],
+  "expected_checks": [
+    {"check_id": "chk_s10_sleep_edema_deload", "weight": 2.0, "expected": true},
+    {"check_id": "chk_s10_professional_threshold", "weight": 1.5, "expected": true}
+  ],
+  "expected_stage_weight": 3.5
+}

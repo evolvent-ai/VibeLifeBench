@@ -1,0 +1,41 @@
+{
+  "step": "event-011",
+  "virtual_stage": 14,
+  "source_event_id": "evt_s14_user_back_pain",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ]
+  },
+  "response": "I cannot continue hard progression or baggage simulation with lower-back pain at 5/10; pause, use low-load recovery, and seek professional assessment if it persists or worsens.",
+  "response_paraphrase": "With lower-back pain at 5/10, hard progression and baggage simulation are paused; persistent or worsening symptoms merit professional review.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s14_user_back_pain",
+      "event_kind": "user_message",
+      "event_time": "2026-07-24T08:20:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_back_pain_user_reply",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

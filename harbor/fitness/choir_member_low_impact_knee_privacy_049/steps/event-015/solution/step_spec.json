@@ -1,0 +1,36 @@
+{
+  "step": "event-015",
+  "virtual_stage": 21,
+  "source_event_id": "s21_calltime_world",
+  "response": "The August 5 call time is 17:30 for a 19:30 performance; the July 30-August 5 taper stays private and no email is sent.",
+  "response_paraphrase": "I confirmed arrival and performance times, created the taper window, and kept outbound mail off.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 21
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "release-008"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s21_calltime_extracted",
+      "weight": 1.25
+    },
+    {
+      "check_id": "chk_s21_taper_window_created",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s21_no_email_sent",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 4
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "release_id": "release-003",
+  "source_event_ids": [
+    "s09_property_registration_mail_mutation"
+  ],
+  "source_time": "2026-07-13T14:20:00+08:00",
+  "previous": "release-002",
+  "token": "bike-commute-safety-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "mail_property_bike_reg_20260713",
+        "subject": "Office bicycle storage registration instructions",
+        "from_addr": "property_admin@example.invalid",
+        "to_addr_json": "[\"yuhan.qiu@example.invalid\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-07-13T14:10:00+08:00",
+        "body_text": "Bicycle storage registration requires only name, department, contact details, and basic bicycle/frame information by Friday 18:00. No health, training, or commuting records are required.",
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 1301,
+        "size": 900,
+        "created_at": "2026-07-13T14:10:00+08:00"
+      },
+      "source_event_id": "s09_property_registration_mail_mutation"
+    }
+  ]
+}

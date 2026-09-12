@@ -1,0 +1,24 @@
+{
+  "step": "event-007",
+  "virtual_stage": 8,
+  "source_event_id": "s08_equipment_noise_notice",
+  "response": "The equipment screen separates the fat-burning patch and brace from the resistance band and exercise mat candidates without payment.",
+  "response_paraphrase": "Basic band and mat options remain candidates, while the patch and brace are excluded and unpaid.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 8
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s08_equipment_screening",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

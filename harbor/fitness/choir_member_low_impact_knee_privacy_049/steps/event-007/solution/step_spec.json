@@ -1,0 +1,28 @@
+{
+  "step": "event-007",
+  "virtual_stage": 8,
+  "source_event_id": "s08_week1_progress_world",
+  "response": "The occasional instability is manageable on level ground, so progression stays careful and reduced.",
+  "response_paraphrase": "The week-one update supports maintaining a careful load instead of progressing early.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 8
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-002"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s08_no_premature_progression",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

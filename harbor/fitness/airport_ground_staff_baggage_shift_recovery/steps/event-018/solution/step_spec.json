@@ -1,0 +1,50 @@
+{
+  "step": "event-018",
+  "virtual_stage": 25,
+  "source_event_id": "evt_s25_user_final_test_request",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009"
+    ]
+  },
+  "response": "Converted the final test into a low-load technical assessment with sleep, pain, RPE and weather conditions plus cancellation alternatives.",
+  "response_paraphrase": "The end-of-cycle test is now a light technical assessment gated by sleep, pain, RPE, and weather, with cancellation or indoor fallback.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s25_user_final_test_request",
+      "event_kind": "user_message",
+      "event_time": "2026-08-06T20:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_final_test_safe_protocol",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

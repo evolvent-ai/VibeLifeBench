@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "release_id": "release-009",
+  "source_event_ids": [
+    "s21_sync_gap_mutation",
+    "s22_notification_state"
+  ],
+  "source_time": "2026-07-17T09:00:00+08:00",
+  "previous": "release-008",
+  "token": "pool036-release-token-009-8f3c9d1a2b7e6c5d4f3a2b1c",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "workouts",
+      "op": "insert",
+      "values": {
+        "workout_id": "wkt_data_quality_sync_gap_20260716_036",
+        "user_id": "user_chen_jianmin",
+        "type": "data_quality_sync_gap_training_rpe_missing_do_not_fabricate",
+        "duration_min": 1,
+        "calories": 0,
+        "distance_m": 0,
+        "started_at": "2026-07-16T23:00:00+08:00"
+      },
+      "source_event_id": "s21_sync_gap_mutation"
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_sched_s22_quality_036",
+        "user_id": "user_chen_jianmin",
+        "source": "data_quality_monitor",
+        "type": "scheduled_check",
+        "subscription_id": "sub_pool_data_quality_036",
+        "title": "trainingrecordsyncgaptranslated noteverify",
+        "body": "7 month 16 daytrainingcompletedtranslated note RPE not synced，currenttranslated notepending confirmation，cannotfill invalue。",
+        "payload_json": "{\"stage\":22,\"topic\":\"sync_gap\"}",
+        "created_at": "2026-07-17T08:55:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s21_sync_gap_mutation"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "step": "event-012",
+  "virtual_stage": 16,
+  "source_event_id": "evt_s16_notification_risk_check",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005"
+    ]
+  },
+  "response": "Verified the 5/10 lower-back report, RPE 8 and 760 handled bags, then paused lifting simulation and heavy hip-hinge work.",
+  "response_paraphrase": "The recorded 5/10 back score, RPE 8, and 760-bag workload were checked; lifting simulation and heavy hip hinging are on hold.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s16_notification_risk_check",
+      "event_kind": "notification",
+      "event_time": "2026-07-24T10:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_back_pain_health_detection",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_pause_lifting_sim",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

@@ -1,0 +1,28 @@
+{
+  "step": "event-004",
+  "virtual_stage": 4,
+  "source_event_id": "s04_review_candidates_world",
+  "response": "Stretching and rehabilitation candidates are recorded, while quick-fix, no-exercise, and pressure-led offers are excluded.",
+  "response_paraphrase": "Candidate venues and rehabilitation options are logged, while unsupported rapid-correction pitches are filtered out.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 4
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-002"
+    ],
+    "released_mutations": [
+      "s04_00_review_candidates_mutation"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s04_venue_filter",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

@@ -1,0 +1,13 @@
+{
+  "step": "event-007",
+  "stage": 8,
+  "virtual_stage": 8,
+  "source_event_id": "s08_user_postflight_hiit",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "I declined the hard post-flight workout and replaced it with a short circulation and rest session appropriate for heavy legs after duty.",
+  "response_paraphrase": "Tonight's intense stair or interval idea is not being used; the calendar now holds gentle movement, elevation, and recovery instead.",
+  "actions": [{"kind": "record_event", "source_event_id": "s08_user_postflight_hiit"}],
+  "expected_checks": [{"check_id": "chk_s08_reject_postflight_hiit", "weight": 2.0, "expected": true}],
+  "expected_stage_weight": 2.0
+}

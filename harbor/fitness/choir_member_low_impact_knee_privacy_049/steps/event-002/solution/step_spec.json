@@ -1,0 +1,28 @@
+{
+  "step": "event-002",
+  "virtual_stage": 2,
+  "source_event_id": "s02_plan_scheduled_check",
+  "response": "The private 36-day framework and Notion control center are established with a reduced-load taper; risk and authorization are recorded.",
+  "response_paraphrase": "The personal calendar and private control page now hold the low-impact schedule and taper.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 2
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s02_calendar_framework",
+      "weight": 1.75
+    },
+    {
+      "check_id": "chk_s02_notion_plan_created",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 3
+}

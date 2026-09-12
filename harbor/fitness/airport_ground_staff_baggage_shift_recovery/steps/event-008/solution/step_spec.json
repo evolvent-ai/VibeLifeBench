@@ -1,0 +1,42 @@
+{
+  "step": "event-008",
+  "virtual_stage": 10,
+  "source_event_id": "evt_s10_notification_recovery",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ]
+  },
+  "response": "Short sleep of 4.3 and 4.6 hours with resting heart rate higher by 8 supports several days of reduced training load and sleep recovery.",
+  "response_paraphrase": "Two short nights of 4.3 and 4.6 hours, with resting heart rate up by 8, justify several days of lighter training and protected sleep.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s10_notification_recovery",
+      "event_kind": "notification",
+      "event_time": "2026-07-18T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_sleep_debt_detected",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_sleep_debt_downgrade",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

@@ -1,0 +1,30 @@
+{
+  "step": "event-010",
+  "virtual_stage": 13,
+  "source_event_id": "s13_dizziness_after_test_ride",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "s13_dizziness_health_mutation"
+    ]
+  },
+  "response": "The record shows dizziness 3/10, fatigue 4/10, coffee-only breakfast, and elevated exertion; the plan is scaled back and the risk is logged.",
+  "response_paraphrase": "The health refresh links the 3/10 dizziness and 4/10 fatigue to coffee-only breakfast and calls for reduced load.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s13_dizziness_after_test_ride"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s13_dizziness_risk_logged",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

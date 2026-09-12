@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "step_count": 28,
+  "steps": {
+    "event-000": {
+      "source_event_id": "evt_s00_user_kickoff",
+      "before": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-05T19:30:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "evt_s01_world_baseline",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": false,
+      "scenario_time": "2026-10-06T07:20:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "evt_s01_health_snapshot",
+      "before": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-06T07:22:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "evt_s02_email_exam_notice",
+      "before": [
+        "release-000"
+      ],
+      "virtual_stage": 2,
+      "stage_boundary": false,
+      "scenario_time": "2026-10-07T12:10:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "evt_s02_world_calendar_seed",
+      "before": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-07T12:14:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "evt_s03_scheduled_initial_check",
+      "before": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-08T08:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "evt_s04_world_weather_baseline",
+      "before": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-09T06:50:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "evt_s05_user_late_practice",
+      "before": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-10T21:35:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "evt_s06_notification_school_digest",
+      "before": [
+        "release-001"
+      ],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-12T16:02:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "evt_s07_scheduled_calendar_check",
+      "before": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-13T08:00:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "evt_s08_world_health_digest",
+      "before": [
+        "release-002"
+      ],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-15T07:12:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "evt_s09_user_high_intensity",
+      "before": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-15T20:40:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "evt_s10_scheduled_recovery_check",
+      "before": [],
+      "virtual_stage": 10,
+      "stage_boundary": false,
+      "scenario_time": "2026-10-17T08:30:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "evt_s10_world_recovery_status",
+      "before": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-17T08:32:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "evt_s11_world_cold_wind_notice",
+      "before": [
+        "release-003"
+      ],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-18T17:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "evt_s13_scheduled_weather_check",
+      "before": [
+        "release-004"
+      ],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-19T12:00:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "evt_s15_user_send_email_request",
+      "before": [
+        "release-005"
+      ],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-20T22:10:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "evt_s16_world_voice_teacher_note",
+      "before": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-22T18:30:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "evt_s18_scheduled_voice_risk_check",
+      "before": [
+        "release-006"
+      ],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-23T12:20:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "evt_s20_scheduled_taper_start",
+      "before": [
+        "release-007"
+      ],
+      "virtual_stage": 20,
+      "stage_boundary": false,
+      "scenario_time": "2026-10-27T08:00:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "evt_s20_world_taper_digest",
+      "before": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-27T08:03:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "evt_s21_user_late_voice_cram",
+      "before": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-10-29T21:55:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "evt_s23_scheduled_data_integrity",
+      "before": [
+        "release-008"
+      ],
+      "virtual_stage": 23,
+      "stage_boundary": false,
+      "scenario_time": "2026-11-01T08:00:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "evt_s23_world_weather_final_window",
+      "before": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-11-01T08:05:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "evt_s24_world_pre_exam_digest",
+      "before": [
+        "release-009"
+      ],
+      "virtual_stage": 24,
+      "stage_boundary": false,
+      "scenario_time": "2026-11-04T19:00:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "evt_s24_notification_personal_reminder",
+      "before": [],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-11-04T19:02:00+08:00"
+    },
+    "event-026": {
+      "source_event_id": "evt_s25_user_final_review_request",
+      "before": [],
+      "virtual_stage": 25,
+      "stage_boundary": false,
+      "scenario_time": "2026-11-05T20:30:00+08:00"
+    },
+    "event-027": {
+      "source_event_id": "evt_s25_world_exam_completed",
+      "before": [],
+      "virtual_stage": 25,
+      "stage_boundary": true,
+      "scenario_time": "2026-11-05T20:32:00+08:00"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "release_id": "release-004",
+  "source_stage": 10,
+  "source_event_ids": [
+    "s09_sleep_pain_mutation"
+  ],
+  "source_time": "2026-07-07T07:40:00+08:00",
+  "previous": "release-003",
+  "token": "posture002-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_sleep_0706_low",
+        "user_id": "user_zou_ming",
+        "type": "sleep_minutes",
+        "value": 264,
+        "value_text": "sleep=4.4h after release duty",
+        "unit": "min",
+        "recorded_at": "2026-07-07T07:30:00+08:00"
+      },
+      "source_event_id": "s09_sleep_pain_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_pain_0706_up",
+        "user_id": "user_zou_ming",
+        "type": "blood_pressure",
+        "value": 122,
+        "value_text": "shoulder_neck_pain=4/10; low_back_pain=3/10; deload required",
+        "unit": "note",
+        "recorded_at": "2026-07-07T07:35:00+08:00"
+      },
+      "source_event_id": "s09_sleep_pain_mutation"
+    }
+  ]
+}

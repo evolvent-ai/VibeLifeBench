@@ -1,0 +1,36 @@
+{
+  "step": "event-008",
+  "virtual_stage": 10,
+  "source_event_id": "s10_weather_scheduled_check",
+  "response": "Rainfall and slippery paths on July 11-12 are recorded, with outdoor walking replaced by indoor activity or rest.",
+  "response_paraphrase": "I logged the rain warning and switched the affected outdoor sessions to indoor work or rest.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 10
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-003"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s10_rain_detected",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s10_outdoor_replaced",
+      "weight": 2
+    },
+    {
+      "check_id": "chk_s10_weather_logged",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 4.75
+}

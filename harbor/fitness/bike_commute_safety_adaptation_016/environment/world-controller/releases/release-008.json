@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_event_ids": [
+    "s19_sleep_hr_mutation"
+  ],
+  "source_time": "2026-07-24T08:15:00+08:00",
+  "previous": "release-007",
+  "token": "bike-commute-safety-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "ht_sleep_20260724_low",
+        "user_id": "user_yuhan",
+        "type": "sleep_minutes",
+        "value": 306,
+        "value_text": "sleep 5.1h",
+        "unit": "min",
+        "recorded_at": "2026-07-24T06:50:00+08:00"
+      },
+      "source_event_id": "s19_sleep_hr_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "ht_hr_20260724_high",
+        "user_id": "user_yuhan",
+        "type": "heart_rate",
+        "value": 76,
+        "value_text": "resting heart rate elevated",
+        "unit": "bpm",
+        "recorded_at": "2026-07-24T06:55:00+08:00"
+      },
+      "source_event_id": "s19_sleep_hr_mutation"
+    }
+  ]
+}

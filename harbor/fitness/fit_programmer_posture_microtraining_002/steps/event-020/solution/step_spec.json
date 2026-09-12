@@ -1,0 +1,36 @@
+{
+  "step": "event-020",
+  "virtual_stage": 26,
+  "source_event_id": "s26_consistency_scheduled",
+  "response": "Latest health, calendar, equipment, review, email, and Notion evidence is refreshed; pain is 2/10 with 76% completion, so progression stays small with a recovery fallback.",
+  "response_paraphrase": "All six service records are refreshed before closeout; improved pain and 76% completion support only a small progression with a sleep-based fallback.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 26
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-012"
+    ],
+    "released_mutations": [
+      "s25_improvement_mutation"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s25_cautious_progression",
+      "weight": 1.75
+    },
+    {
+      "check_id": "chk_s26_diff_cautious_calendar_lite",
+      "weight": 1
+    },
+    {
+      "check_id": "chk_s26_diff_six_service_freshness",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 4
+}

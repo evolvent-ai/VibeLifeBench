@@ -1,0 +1,32 @@
+{
+  "step": "event-015",
+  "virtual_stage": 19,
+  "source_event_id": "s19_work_conflict_world",
+  "response": "The July 15-16 incident review meetings are preserved; a midday short version and evening recovery version yield to the work commitments.",
+  "response_paraphrase": "The two incident reviews remain protected, with a brief midday option and a separate low-load evening recovery slot.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 19
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "s19_00_incident_review_mutation"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s19_work_conflict_split",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s19_diff_conflict_event_replacement_lite",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

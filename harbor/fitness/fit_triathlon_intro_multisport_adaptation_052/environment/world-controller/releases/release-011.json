@@ -1,0 +1,50 @@
+{
+  "release_id": "release-011",
+  "before_step": "event-020",
+  "previous": "release-010",
+  "token": "triathlon052-release-011-c91e4a2f",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "camp_knee_0809_052",
+        "user_id": "user_linz",
+        "type": "score",
+        "value": 2.0,
+        "value_text": "knee pain 2/10 after camp transitions",
+        "unit": "score",
+        "recorded_at": "2026-08-09T15:22:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "camp_rpe_0809_052",
+        "user_id": "user_linz",
+        "type": "score",
+        "value": 6.0,
+        "value_text": "RPE 6/10; transitions completed during camp",
+        "unit": "score",
+        "recorded_at": "2026-08-09T15:20:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "workouts",
+      "op": "insert",
+      "values": {
+        "workout_id": "workout_tri_camp_0809_052",
+        "user_id": "user_linz",
+        "type": "triathlon_intro_camp",
+        "duration_min": 165,
+        "calories": 620,
+        "distance_m": 9800,
+        "started_at": "2026-08-09T08:20:00+08:00"
+      }
+    }
+  ]
+}

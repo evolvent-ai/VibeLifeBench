@@ -1,0 +1,26 @@
+{
+  "step": "event-022",
+  "stage": 27,
+  "virtual_stage": 27,
+  "source_event_id": "s27_final_risk_check",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-011"
+    ],
+    "released_mutations": [
+      "s27_pain5_mutation",
+      "s27_notification_state"
+    ]
+  },
+  "response": "The final refresh shows right wrist pain 5/10 and right shoulder pain 4/10. Pool and wrist/shoulder loading are paused and reduced; all five services were checked, Notion was synchronized, and the final Notification Hub item was marked read.",
+  "response_paraphrase": "Latest records show the wrist at five and shoulder at four, so play and upper-limb work remain stopped. Calendar, health, master-plan, venue, and reminder systems are current for handoff.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s27_final_risk_check"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

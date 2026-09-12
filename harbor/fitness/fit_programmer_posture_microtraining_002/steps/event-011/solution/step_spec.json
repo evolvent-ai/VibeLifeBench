@@ -1,0 +1,36 @@
+{
+  "step": "event-011",
+  "virtual_stage": 14,
+  "source_event_id": "s14_course_scheduled_check",
+  "response": "The cancelled trial and 688 private-training upsell are reconciled across email and reviews; no course or membership enrollment is made.",
+  "response_paraphrase": "Email and review records agree that the trial ended and the 688 private package is only an upsell, so enrollment stays off.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 14
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-006"
+    ],
+    "released_mutations": [
+      "s13_course_cancel_mutation"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s14_no_course_purchase",
+      "weight": 2
+    },
+    {
+      "check_id": "chk_s14_diff_course_email_review_reconcile",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s14_diff_email_read_review_lite",
+      "weight": 1
+    }
+  ],
+  "expected_stage_weight": 4.5
+}

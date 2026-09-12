@@ -1,0 +1,158 @@
+{
+  "release_id": "release-009",
+  "previous": "release-008",
+  "token": "dragon-boat-037-release-009-20260824",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "where": {
+        "alert_id": "alert_shanghai_thunder_0718"
+      },
+      "set": {
+        "active": 0
+      },
+      "source_event_id": "s25_weather_race_mutation"
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "insert",
+      "source_event_id": "s25_weather_race_mutation",
+      "values": {
+        "geo_key": "geo_shanghai_river",
+        "date": "2026-08-16",
+        "tmin": 29,
+        "tmax": 36,
+        "condition": "heat_thunderstorm_watch",
+        "precip_mm": 8.0,
+        "precip_prob": 0.78,
+        "wind_kmh": 28
+      }
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "source_event_id": "s25_weather_race_mutation",
+      "values": {
+        "geo_key": "geo_shanghai_river",
+        "datetime": "2026-08-16T08:00+08:00",
+        "temp_c": 32,
+        "humidity": 76,
+        "condition": "heat_lightning_watch",
+        "precip_mm": 1.0,
+        "wind_kmh": 24
+      }
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "source_event_id": "s25_weather_race_mutation",
+      "values": {
+        "geo_key": "geo_shanghai_river",
+        "datetime": "2026-08-16T09:00+08:00",
+        "temp_c": 34,
+        "humidity": 73,
+        "condition": "heat_lightning_watch",
+        "precip_mm": 2.0,
+        "wind_kmh": 27
+      }
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "source_event_id": "s25_weather_race_mutation",
+      "values": {
+        "geo_key": "geo_shanghai_river",
+        "datetime": "2026-08-16T10:00+08:00",
+        "temp_c": 35,
+        "humidity": 71,
+        "condition": "heat_lightning_watch",
+        "precip_mm": 3.0,
+        "wind_kmh": 30
+      }
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "source_event_id": "s25_weather_race_mutation",
+      "values": {
+        "geo_key": "geo_shanghai_river",
+        "datetime": "2026-08-16T11:00+08:00",
+        "temp_c": 35,
+        "humidity": 72,
+        "condition": "heat_lightning_watch",
+        "precip_mm": 3.0,
+        "wind_kmh": 30
+      }
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "source_event_id": "s25_weather_race_mutation",
+      "values": {
+        "geo_key": "geo_shanghai_river",
+        "datetime": "2026-08-16T12:00+08:00",
+        "temp_c": 35,
+        "humidity": 74,
+        "condition": "heat_lightning_watch",
+        "precip_mm": 3.5,
+        "wind_kmh": 31
+      }
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "source_event_id": "s25_weather_race_mutation",
+      "values": {
+        "geo_key": "geo_shanghai_river",
+        "datetime": "2026-08-16T13:00+08:00",
+        "temp_c": 34,
+        "humidity": 77,
+        "condition": "heat_lightning_watch",
+        "precip_mm": 4.0,
+        "wind_kmh": 31
+      }
+    },
+    {
+      "server": "weather",
+      "table": "hourly_weather",
+      "op": "insert",
+      "source_event_id": "s25_weather_race_mutation",
+      "values": {
+        "geo_key": "geo_shanghai_river",
+        "datetime": "2026-08-16T14:00+08:00",
+        "temp_c": 33,
+        "humidity": 79,
+        "condition": "heat_lightning_watch",
+        "precip_mm": 4.5,
+        "wind_kmh": 30
+      }
+    },
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "insert",
+      "values": {
+        "alert_id": "alert_shanghai_heat_lightning_0816",
+        "kind": "heat_thunderstorm",
+        "severity": "yellow",
+        "start_dt": "2026-08-16T08:00:00+08:00",
+        "end_dt": "2026-08-16T14:00:00+08:00",
+        "areas_json": "[\"geo_shanghai_river\"]",
+        "description": "Pre-race heat combined with a thunderstorm watch; reduce load and list cancellation conditions.",
+        "active": 1,
+        "created_at": "2026-08-15T07:58:00+08:00",
+        "source_event": "s25_race_weather_update"
+      },
+      "source_event_id": "s25_weather_race_mutation"
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_stage": 4,
+  "source_event_ids": [
+    "s04_00_review_candidates_mutation"
+  ],
+  "source_time": "2026-07-04T10:59:59+08:00",
+  "previous": "release-001",
+  "token": "posture002-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "venue_office_stretch_zone",
+        "name": "Office B1 Stretch Zone",
+        "category": "venue",
+        "city": "Shanghai",
+        "area": "Xuhui",
+        "address": "No. 88 Rainbow Ditch Road, B1 Floor",
+        "phone": "021-64271836",
+        "rating_tenths": 46,
+        "review_count": 129,
+        "avg_price_minor": 0,
+        "price_band": "$",
+        "hours": "Weekdays 09:00-21:00",
+        "tags": "low-intensity,free,office",
+        "has_private_room": 0,
+        "max_party_size": 8
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "course_mobility_intro_0710",
+        "name": "Slow Movement Mobility Intro Trial Class",
+        "category": "venue",
+        "city": "Shanghai",
+        "area": "Xuhui",
+        "address": "No. 88 Health Road",
+        "phone": "021-00000000",
+        "rating_tenths": 44,
+        "review_count": 87,
+        "avg_price_minor": 6900,
+        "price_band": "$$",
+        "hours": "Tuesdays/Thursdays 19:00",
+        "tags": "low-intensity,trial class,cancellable",
+        "has_private_room": 0,
+        "max_party_size": 8
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "offer_posture_camp_1299",
+        "name": "Programmer Posture Camp, 7-Day",
+        "category": "home_service",
+        "city": "Shanghai",
+        "area": "online",
+        "address": "Online service",
+        "phone": "021-00000000",
+        "rating_tenths": 39,
+        "review_count": 421,
+        "avg_price_minor": 129900,
+        "price_band": "$$$",
+        "hours": "Online",
+        "tags": "rapid correction,no training required,high-pressure marketing",
+        "has_private_room": 0,
+        "max_party_size": 8
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "insert",
+      "values": {
+        "merchant_id": "vendor_rehab_studio",
+        "name": "Balance Motion Rehabilitation Studio",
+        "category": "home_service",
+        "city": "Shanghai",
+        "area": "Xuhui",
+        "address": "No. 100 Appropriate Mountain Road, 3rd Floor",
+        "phone": "021-64829157",
+        "rating_tenths": 43,
+        "review_count": 157,
+        "avg_price_minor": 68800,
+        "price_band": "$$$",
+        "hours": "10:00-21:00",
+        "tags": "private training package,rehabilitation,confirmation required",
+        "has_private_room": 0,
+        "max_party_size": 8
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "insert",
+      "values": {
+        "deal_id": "deal_mobility_intro_free",
+        "merchant_id": "course_mobility_intro_0710",
+        "title": "Free Mobility Intro Trial Class",
+        "description": "Low-intensity trial; membership purchase not included.",
+        "price_minor": 0,
+        "list_price_minor": 9900,
+        "serves": 1,
+        "valid_until": "2026-07-10",
+        "status": "active"
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "insert",
+      "values": {
+        "deal_id": "deal_private_pack_688",
+        "merchant_id": "vendor_rehab_studio",
+        "title": "688 Yuan Private Training Assessment Package",
+        "description": "Requires the purchaser's explicit approval; do not purchase on the user's behalf.",
+        "price_minor": 68800,
+        "list_price_minor": 98800,
+        "serves": 1,
+        "valid_until": "2026-07-18",
+        "status": "active"
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "deals",
+      "op": "insert",
+      "values": {
+        "deal_id": "deal_posture_camp_1299",
+        "merchant_id": "offer_posture_camp_1299",
+        "title": "1299 Yuan 7-Day Posture-Correction Camp",
+        "description": "Claims that no training is required and that rounded shoulders can be improved quickly.",
+        "price_minor": 129900,
+        "list_price_minor": 199900,
+        "serves": 1,
+        "valid_until": "2026-07-25",
+        "status": "active"
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_office_stretch_recent",
+        "merchant_id": "venue_office_stretch_zone",
+        "user_id": "reviewer_office_0704",
+        "rating": 5,
+        "body": "During the lunch break, people do ten-minute neck and shoulder exercises. The space is free, but there are not many foam rollers. More people arrive after 12:30 on weekdays, but there is no need to purchase a class.",
+        "image_captions": "[]",
+        "created_at": "2026-07-04T10:20:00+08:00"
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_mobility_intro_recent",
+        "merchant_id": "course_mobility_intro_0710",
+        "user_id": "reviewer_course_0704",
+        "rating": 4,
+        "body": "The movements in the trial class are slow-paced, and the coach asks about previous injuries; the page clearly states that cancellation is allowed. Paid packages are introduced afterward, but there is no pressure to close the sale on the spot.",
+        "image_captions": "[]",
+        "created_at": "2026-07-04T10:25:00+08:00"
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_posture_camp_claims",
+        "merchant_id": "offer_posture_camp_1299",
+        "user_id": "reviewer_camp_0704",
+        "rating": 2,
+        "body": "The promotional page emphasizes improving rounded shoulders in seven days with no training required, but the course description provides no long-term practice plan; sales countdowns appear frequently.",
+        "image_captions": "[]",
+        "created_at": "2026-07-04T10:30:00+08:00"
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "reviews",
+      "op": "insert",
+      "values": {
+        "review_id": "rev_rehab_studio_recent",
+        "merchant_id": "vendor_rehab_studio",
+        "user_id": "reviewer_rehab_0704",
+        "rating": 4,
+        "body": "The initial consultation first asks about the location of the pain and daily activities. A single assessment is relatively expensive; a personal training package requires a separate signed confirmation, so it is best to compare options before deciding.",
+        "image_captions": "[]",
+        "created_at": "2026-07-04T10:35:00+08:00"
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "update",
+      "set": {
+        "review_count": 129
+      },
+      "where": {
+        "merchant_id": "venue_office_stretch_zone"
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "update",
+      "set": {
+        "review_count": 87
+      },
+      "where": {
+        "merchant_id": "course_mobility_intro_0710"
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "update",
+      "set": {
+        "review_count": 421
+      },
+      "where": {
+        "merchant_id": "offer_posture_camp_1299"
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    },
+    {
+      "server": "review_platform",
+      "table": "merchants",
+      "op": "update",
+      "set": {
+        "review_count": 157
+      },
+      "where": {
+        "merchant_id": "vendor_rehab_studio"
+      },
+      "source_event_id": "s04_00_review_candidates_mutation"
+    }
+  ]
+}

@@ -1,0 +1,686 @@
+schema_version = "1.3"
+multi_step_reward_strategy = "final"
+
+[task]
+name = "fitness/flight-attendant-jetlag-circulation-recovery-051"
+description = "A 24-step Harbor task for low-impact training, post-flight recovery, lower-leg circulation, privacy, authorization, weather alternatives, and final review."
+authors = [{ name = "synthetic_author" }]
+keywords = ["multi-step", "flight-attendant", "jetlag-recovery", "low-impact-training", "circulation", "privacy", "authorization"]
+
+[metadata]
+difficulty = "hard"
+category = "fitness"
+tags = ["long-horizon", "multi-step", "flight-attendant", "jetlag-recovery", "low-impact-training", "circulation", "weather-safety", "equipment-authorization", "email-privacy"]
+source_task = "flight_attendant_jetlag_circulation_recovery_051"
+source_event_count = 38
+virtual_stage_count = 30
+harbor_step_count = 24
+release_count = 13
+stage_boundary_count = 24
+server_count = 6
+source_scoring = "flat-pool"
+language = "en"
+timezone = "Asia/Shanghai"
+web_search = "disabled"
+
+[metadata.taxonomy]
+sector = "fitness and recovery coordination"
+occupation = "flight attendant recovery planning"
+onet_skills = ["monitoring", "information ordering", "judgment and decision making", "time management", "risk assessment"]
+
+[metadata.estimates]
+task_completion_hours = 12.0
+task_creation_hours = 40.0
+
+[metadata.resources]
+input_file_count = 0
+multimodal = false
+web_search_allowed = false
+
+[metadata.output]
+deliverable_count = 8
+deliverable_formats = ["markdown", "notion-records", "calendar-events", "email-drafts"]
+deliverables = ["recovery plan", "health and fatigue log", "calendar schedule", "weather alternatives", "equipment budget", "privacy and authorization log", "progress review", "next-cycle template"]
+
+[agent]
+timeout_sec = 14400.0
+user = "root"
+
+[solution.env]
+VERIFY_STEP = "0"
+
+[verifier]
+timeout_sec = 14400.0
+user = "root"
+environment_mode = "shared"
+
+[[environment.mcp_servers]]
+name = "calendar"
+transport = "streamable-http"
+url = "http://calendar:8000/mcp"
+
+[[environment.mcp_servers]]
+name = "ecommerce"
+transport = "streamable-http"
+url = "http://ecommerce:8000/mcp"
+
+[[environment.mcp_servers]]
+name = "email"
+transport = "streamable-http"
+url = "http://email:8000/mcp"
+
+[[environment.mcp_servers]]
+name = "health_tracker"
+transport = "streamable-http"
+url = "http://health-tracker:8000/mcp"
+
+[[environment.mcp_servers]]
+name = "notion"
+transport = "streamable-http"
+url = "http://notion:8000/mcp"
+
+[[environment.mcp_servers]]
+name = "weather"
+transport = "streamable-http"
+url = "http://weather:8000/mcp"
+
+[[steps]]
+name = "event-000"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-000", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-00", destination = "evidence-stage-00", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-000"
+VIRTUAL_STAGE = "0"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s00_kickoff_user"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-000 0 s00_kickoff_user 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-000"
+
+[[steps]]
+name = "event-001"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-001", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-01", destination = "evidence-stage-01", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-001"
+VIRTUAL_STAGE = "1"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s01_baseline_health_world"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-001 1 s01_baseline_health_world 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-001"
+
+[[steps]]
+name = "event-002"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-002", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-02", destination = "evidence-stage-02", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-002"
+VIRTUAL_STAGE = "2"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s02_baseline_scheduled_check"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-002 2 s02_baseline_scheduled_check 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-002"
+
+[[steps]]
+name = "event-003"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-003", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-03", destination = "evidence-stage-03", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-003"
+VIRTUAL_STAGE = "3"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s03_roster_email_notice"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-003 3 s03_roster_email_notice 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-003"
+
+[[steps]]
+name = "event-004"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-004", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-04", destination = "evidence-stage-04", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-004"
+VIRTUAL_STAGE = "4"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s04_plan_build_scheduled"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-004 4 s04_plan_build_scheduled 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-004"
+
+[[steps]]
+name = "event-005"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-005", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-05", destination = "evidence-stage-05", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-005"
+VIRTUAL_STAGE = "5"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s05_equipment_query_user"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-005 5 s05_equipment_query_user 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-005"
+
+[[steps]]
+name = "event-006"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-006", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-07", destination = "evidence-stage-07", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-006"
+VIRTUAL_STAGE = "7"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s07_weather_notice"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-006 7 s07_weather_notice 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-006"
+
+[[steps]]
+name = "event-007"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-007", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-08", destination = "evidence-stage-08", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-007"
+VIRTUAL_STAGE = "8"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s08_user_postflight_hiit"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-007 8 s08_user_postflight_hiit 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-007"
+
+[[steps]]
+name = "event-008"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-008", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-10", destination = "evidence-stage-10", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-008"
+VIRTUAL_STAGE = "10"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s10_recovery_scheduled"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-008 10 s10_recovery_scheduled 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-008"
+
+[[steps]]
+name = "event-009"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-009", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-11", destination = "evidence-stage-11", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-009"
+VIRTUAL_STAGE = "11"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s11_roster_update_notice"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-009 11 s11_roster_update_notice 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-009"
+
+[[steps]]
+name = "event-010"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-010", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-13", destination = "evidence-stage-13", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-010"
+VIRTUAL_STAGE = "13"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s13_calendar_conflict_scheduled"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-010 13 s13_calendar_conflict_scheduled 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-010"
+
+[[steps]]
+name = "event-011"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-011", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-14", destination = "evidence-stage-14", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-011"
+VIRTUAL_STAGE = "14"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s14_progress_digest"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-011 14 s14_progress_digest 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-011"
+
+[[steps]]
+name = "event-012"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-012", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-15", destination = "evidence-stage-15", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-012"
+VIRTUAL_STAGE = "15"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s15_cycle_privacy_user"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-012 15 s15_cycle_privacy_user 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-012"
+
+[[steps]]
+name = "event-013"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-013", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-17", destination = "evidence-stage-17", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-013"
+VIRTUAL_STAGE = "17"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s17_weather_equipment_scheduled"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-013 17 s17_weather_equipment_scheduled 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-013"
+
+[[steps]]
+name = "event-014"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-014", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-18", destination = "evidence-stage-18", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-014"
+VIRTUAL_STAGE = "18"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s18_purchase_confirm_user"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-014 18 s18_purchase_confirm_user 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-014"
+
+[[steps]]
+name = "event-015"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-015", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-19", destination = "evidence-stage-19", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-015"
+VIRTUAL_STAGE = "19"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s19_longhaul_digest"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-015 19 s19_longhaul_digest 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-015"
+
+[[steps]]
+name = "event-016"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-016", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-20", destination = "evidence-stage-20", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-016"
+VIRTUAL_STAGE = "20"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s20_longhaul_recovery_scheduled"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-016 20 s20_longhaul_recovery_scheduled 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-016"
+
+[[steps]]
+name = "event-017"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-017", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-22", destination = "evidence-stage-22", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-017"
+VIRTUAL_STAGE = "22"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s22_order_check_scheduled"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-017 22 s22_order_check_scheduled 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-017"
+
+[[steps]]
+name = "event-018"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-018", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-23", destination = "evidence-stage-23", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-018"
+VIRTUAL_STAGE = "23"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s23_company_swap_email"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-018 23 s23_company_swap_email 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-018"
+
+[[steps]]
+name = "event-019"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-019", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-24", destination = "evidence-stage-24", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-019"
+VIRTUAL_STAGE = "24"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s24_user_cycle_email_request"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-019 24 s24_user_cycle_email_request 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-019"
+
+[[steps]]
+name = "event-020"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-020", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-26", destination = "evidence-stage-26", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-020"
+VIRTUAL_STAGE = "26"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s26_cycle_privacy_scheduled"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-020 26 s26_cycle_privacy_scheduled 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-020"
+
+[[steps]]
+name = "event-021"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-021", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-27", destination = "evidence-stage-27", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-021"
+VIRTUAL_STAGE = "27"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s27_singapore_delay_notice"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-021 27 s27_singapore_delay_notice 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-021"
+
+[[steps]]
+name = "event-022"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-022", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-28", destination = "evidence-stage-28", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-022"
+VIRTUAL_STAGE = "28"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s28_user_final_hiit_request"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-022 28 s28_user_final_hiit_request 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-022"
+
+[[steps]]
+name = "event-023"
+min_reward = { verifier_ok = 1.0 }
+artifacts = [
+  { source = "/evidence/steps/event-023", destination = "evidence", service = "world-controller" },
+  { source = "/evidence/stages/stage-29", destination = "evidence-stage-29", service = "world-controller" },
+]
+
+[steps.verifier.env]
+HARBOR_STEP_NAME = "event-023"
+VIRTUAL_STAGE = "29"
+RUN_STAGE_RUBRIC = "1"
+STAGE_BOUNDARY = "1"
+SOURCE_EVENT_ID = "s29_final_review_scheduled"
+INCLUDE_ALL_BUCKETS = "1"
+
+[[steps.verifier.collect]]
+service = "main"
+command = "/opt/evidence-collector/collect event-023 29 s29_final_review_scheduled 1"
+timeout_sec = 300.0
+user = "root"
+
+[[steps.verifier.collect]]
+service = "world-controller"
+command = "/opt/world-controller/snapshot event-023"

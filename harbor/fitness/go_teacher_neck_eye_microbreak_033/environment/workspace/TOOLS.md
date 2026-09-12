@@ -1,0 +1,9 @@
+# TOOLS
+
+- calendar:queryteachclass,publicopenactivitymovement,trainingandpersonal reminder;datadatadataorconditionorganizepersonal reminder.
+- health_tracker:readretrievewalknumber,sleep,neck stiffness,eye fatigue,screen reviewandsyncstatus;recordlimited toactualnumberdata.
+- notion:maintainmaintaincontrol hub,reviewandcrossservicefactsdataneed.
+- email:readretrieveinternalpartarrangeclass/trainingnotificationandexternalpartcomedata;removedatauserupcominglightconfirmauthorizationdatanotdatahealthdatamessage,notsendsend.
+- notification_hub:querypersonalguardiancontroldatareadand scheduled notification,workfordatamovementreviewdatawindow.
+
+notneeduseusedatamerchant,reviewdataordaydataworktools.

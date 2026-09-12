@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_stage": 1,
+  "source_event_ids": [
+    "s01_00_health_baseline_mutation"
+  ],
+  "source_time": "2026-07-02T08:29:59+08:00",
+  "previous": null,
+  "token": "posture002-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_baseline_steps_0701",
+        "user_id": "user_zou_ming",
+        "type": "steps",
+        "value": 4620,
+        "value_text": "Average daily steps over the past week approximately 4620",
+        "unit": "count",
+        "recorded_at": "2026-07-02T08:15:00+08:00"
+      },
+      "source_event_id": "s01_00_health_baseline_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_baseline_sleep_0701",
+        "user_id": "user_zou_ming",
+        "type": "sleep_minutes",
+        "value": 366,
+        "value_text": "6.1h of sleep last night",
+        "unit": "min",
+        "recorded_at": "2026-07-02T08:20:00+08:00"
+      },
+      "source_event_id": "s01_00_health_baseline_mutation"
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_baseline_pain_0701",
+        "user_id": "user_zou_ming",
+        "type": "blood_pressure",
+        "value": 120,
+        "value_text": "shoulder_neck_pain=3/10; low_back_pain=2/10; source=user_log; sync=verified",
+        "unit": "note",
+        "recorded_at": "2026-07-02T08:25:00+08:00"
+      },
+      "source_event_id": "s01_00_health_baseline_mutation"
+    }
+  ]
+}

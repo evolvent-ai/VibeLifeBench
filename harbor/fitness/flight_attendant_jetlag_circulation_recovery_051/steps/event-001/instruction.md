@@ -1,0 +1,1 @@
+Health summary synced: sleep and step counts have varied over the last seven days, so post-flight recovery and lower-leg swelling need separate tracking. Use the health records to build a conservative starting plan.

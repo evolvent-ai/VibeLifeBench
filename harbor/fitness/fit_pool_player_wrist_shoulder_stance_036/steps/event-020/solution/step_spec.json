@@ -1,0 +1,21 @@
+{
+  "step": "event-020",
+  "stage": 26,
+  "virtual_stage": 26,
+  "source_event_id": "s26_user_three_week_summary",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Across almost three weeks, actual completion was uneven while pain increased and sleep fell. Calendar, health, venue, notification, and Notion data do not support a normal two-hour pool return next week; continue short recovery and reassess.",
+  "response_paraphrase": "Compared with the beginning, some activities were completed but the symptom and sleep trend worsened. The refreshed services support recovery rather than resuming the usual two-hour play yet.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s26_user_three_week_summary"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

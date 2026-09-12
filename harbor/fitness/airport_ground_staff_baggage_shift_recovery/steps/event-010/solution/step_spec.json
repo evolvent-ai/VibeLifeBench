@@ -1,0 +1,40 @@
+{
+  "step": "event-010",
+  "virtual_stage": 13,
+  "source_event_id": "evt_s13_notification_weather_check",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004"
+    ]
+  },
+  "response": "The orange thunderstorm and heat alert triggers an indoor low-load alternative and no outdoor simulation.",
+  "response_paraphrase": "An orange heat-and-thunderstorm warning moves the session indoors at low load and rules out outdoor simulation.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s13_notification_weather_check",
+      "event_kind": "notification",
+      "event_time": "2026-07-20T12:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_thunderstorm_alt_plan",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

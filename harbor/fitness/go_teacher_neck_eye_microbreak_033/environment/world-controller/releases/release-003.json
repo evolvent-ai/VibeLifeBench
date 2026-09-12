@@ -1,0 +1,43 @@
+{
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_gt_pain_20260705",
+        "user_id": "user_liang_weimin",
+        "type": "score",
+        "value": 4,
+        "value_text": "neck_stiffness=4/10; eye_fatigue=7/10; after_weekend_long_teaching=yes; pause_rotation=true",
+        "unit": "score",
+        "recorded_at": "2026-07-06T07:30:00+08:00"
+      }
+    },
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_gt_s07_health",
+        "user_id": "user_liang_weimin",
+        "source": "health_tracker",
+        "type": "scheduled_check",
+        "subscription_id": "sub_gt_health_watch",
+        "title": "Monday health check",
+        "body": "Refresh neck stiffness and eye fatigue data.",
+        "payload_json": "{\"schedule_name\":\"monday_health_review\",\"personal_only\":true}",
+        "created_at": "2026-07-06T08:55:00+08:00",
+        "read": 0
+      }
+    }
+  ],
+  "previous": "release-002",
+  "release_id": "release-003",
+  "source_stage": 7,
+  "source_event_id": "s06_health_pain_mutation",
+  "source_event_ids": ["s06_health_pain_mutation", "s07_notification_backend_mutation"],
+  "source_time": "2026-07-06T07:30:00+08:00",
+  "token": "go-teacher-neck-eye-microbreak-033-release-token",
+  "virtual_stage": 7
+}

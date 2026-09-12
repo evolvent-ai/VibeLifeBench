@@ -1,0 +1,1 @@
+The inbox contains a broadcast email from a training provider: the November 5 in-school mock interview and the intensive week after October 28 have been announced. Any parent communication must be relayed by the student.

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "release_id": "release-011",
+  "source_event_ids": [
+    "s25_cycle_fatigue_mutation"
+  ],
+  "source_stage": 25,
+  "source_time": "2026-09-29T07:10:00+08:00",
+  "previous": "release-010",
+  "token": "flight-attendant-release-011-token-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "met_sleep_cycle_0929",
+        "user_id": "user_lin_rui",
+        "type": "sleep_minutes",
+        "value": 306,
+        "value_text": "sleep=5.1h; cycle_private=day1",
+        "unit": "min",
+        "recorded_at": "2026-09-29T07:00:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "met_cycle_private_0929",
+        "user_id": "user_lin_rui",
+        "type": "score",
+        "value": 6,
+        "value_text": "cycle_private=day1; cramps=5/10; bloating=6/10; fatigue=7/10",
+        "unit": "score",
+        "recorded_at": "2026-09-29T07:05:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+The 36 days are over. Please summarize which training and adjustments worked, how the knee, weather, rehearsal, and missing-data issues were handled, and how I can maintain the gains safely over the next month. Keep the review private for me; do not send it to the choir.

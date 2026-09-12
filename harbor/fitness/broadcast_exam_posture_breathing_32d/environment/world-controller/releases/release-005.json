@@ -1,0 +1,32 @@
+{
+  "release_id": "release-005",
+  "previous": "release-004",
+  "token": "broadcast-exam-release-005-32d",
+  "operations": [
+    {
+      "server": "email",
+      "table": "messages",
+      "op": "insert",
+      "values": {
+        "folder_id": 1,
+        "message_id": "mail_booster_offer_20261020",
+        "subject": "Seven-day pre-exam intensive coaching slot reminder",
+        "from_addr": "training.center@example.edu",
+        "to_addr_json": "[\"lin.yu@example.com\"]",
+        "cc_addr_json": "[]",
+        "bcc_addr_json": "[]",
+        "date": "2026-10-20T11:35:00+08:00",
+        "body_text": "The seven-day pre-exam coaching camp has limited slots and costs 799 CNY. A parent may confirm a slot. The student must discuss it with the parent before contacting the provider.",
+        "body_html": null,
+        "is_read": 0,
+        "is_important": 1,
+        "is_flagged": 0,
+        "headers_json": "{}",
+        "uid": 2500,
+        "size": 190,
+        "created_at": "2026-10-20T11:35:00+08:00"
+      },
+      "source_event_id": "evt_s14_mut_email_booster_offer"
+    }
+  ]
+}

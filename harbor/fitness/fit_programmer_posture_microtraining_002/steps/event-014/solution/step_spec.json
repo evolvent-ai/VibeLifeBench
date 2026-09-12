@@ -1,0 +1,32 @@
+{
+  "step": "event-014",
+  "virtual_stage": 18,
+  "source_event_id": "s18_order_delay_scheduled",
+  "response": "The CNY 228 order is delayed for July 17, so bodyweight, towel, wall, and chair substitutes are placed on the calendar without a duplicate order.",
+  "response_paraphrase": "The shipment now points to July 17, so the calendar uses bodyweight and household substitutes instead of creating another order.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 18
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-007"
+    ],
+    "released_mutations": [
+      "s17_order_delay_mutation"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s18_order_delay_adjustment",
+      "weight": 1.75
+    },
+    {
+      "check_id": "chk_s18_diff_order_delay_no_duplicate",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

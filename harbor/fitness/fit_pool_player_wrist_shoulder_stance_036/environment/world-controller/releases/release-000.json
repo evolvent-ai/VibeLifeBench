@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "s04_notification_state"
+  ],
+  "source_time": "2026-07-01T19:30:00+08:00",
+  "previous": null,
+  "token": "pool036-release-token-000-8f3c9d1a2b7e6c5d4f3a2b1c",
+  "operations": [
+    {
+      "server": "notification_hub",
+      "table": "notifications",
+      "op": "insert",
+      "values": {
+        "notification_id": "ntf_sched_s04_plan_036",
+        "user_id": "user_chen_jianmin",
+        "source": "pool_training_monitor",
+        "type": "scheduled_check",
+        "subscription_id": "sub_pool_health_watch_036",
+        "title": "30 translated notelow intensityplantranslated note",
+        "body": "needverifydaytranslated note、healthtranslated noteweekendpooltranslated note，translated note。",
+        "payload_json": "{\"stage\":4,\"topic\":\"initial_plan\"}",
+        "created_at": "2026-07-01T19:25:00+08:00",
+        "read": 0
+      },
+      "source_event_id": "s04_notification_state"
+    }
+  ]
+}

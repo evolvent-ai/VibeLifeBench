@@ -1,0 +1,55 @@
+{
+  "step": "event-019",
+  "virtual_stage": 26,
+  "source_event_id": "evt_s26_notification_final_prep",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009"
+    ]
+  },
+  "response": "Refreshed health, calendar and weather; crosswind and rain require a cancellable indoor alternative for the final assessment.",
+  "response_paraphrase": "Health, calendar, and weather were refreshed; crosswind and rain now require a cancellable indoor fallback for the final assessment.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s26_notification_final_prep",
+      "event_kind": "notification",
+      "event_time": "2026-08-07T08:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_calendar_final_prep",
+      "weight": 2
+    },
+    {
+      "check_id": "chk_crosswind_rain_alt",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 4
+}

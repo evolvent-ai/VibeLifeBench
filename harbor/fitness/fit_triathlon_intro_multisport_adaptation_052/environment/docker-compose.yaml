@@ -1,0 +1,131 @@
+services:
+  main:
+    build: {context: ., dockerfile: Dockerfile}
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      world-controller: {condition: service_healthy}
+      calendar: {condition: service_healthy}
+      ecommerce: {condition: service_healthy}
+      email: {condition: service_healthy}
+      health-tracker: {condition: service_healthy}
+      notion: {condition: service_healthy}
+      review-platform: {condition: service_healthy}
+      weather: {condition: service_healthy}
+    volumes:
+      - workspace-state:/workspace
+      - eval-evidence:/harbor/evidence:ro
+      - world-clock:/world-clock:ro
+      - agent-logs:/logs/agent
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+  workspace-init:
+    build: {context: ., dockerfile: workspace-init/Dockerfile}
+    volumes: [workspace-state:/target]
+    restart: "no"
+  calendar:
+    build: {context: ./servers/calendar_mock}
+    volumes: [./seeds/calendar:/env-seed:ro, calendar-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+    healthcheck: &health {test: [CMD, python, -c, "import socket; s=socket.create_connection(('127.0.0.1',8000),2); s.close()"], interval: 2s, timeout: 5s, retries: 30, start_period: 3s}
+  ecommerce:
+    build: {context: ./servers/ecommerce_mock}
+    volumes: [./seeds/ecommerce:/env-seed:ro, ecommerce-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+    healthcheck: *health
+  email:
+    build: {context: ./servers/email_mock}
+    volumes: [./seeds/email:/env-seed:ro, email-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+    healthcheck: *health
+  health-tracker:
+    build: {context: ./servers/health_tracker_mock}
+    volumes: [./seeds/health_tracker:/env-seed:ro, health-tracker-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+    healthcheck: *health
+  notion:
+    build: {context: ./servers/notion_mock}
+    volumes: [./seeds/notion:/env-seed:ro, notion-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+    healthcheck: *health
+  review-platform:
+    build: {context: ./servers/review_platform_mock}
+    volumes: [./seeds/review_platform:/env-seed:ro, review-platform-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+    healthcheck: *health
+  weather:
+    build: {context: ./servers/weather_mock}
+    volumes: [./seeds/weather:/env-seed:ro, weather-env:/env, world-clock:/world-clock:ro]
+    expose: ["8000"]
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      NO_PROXY: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+      no_proxy: localhost,127.0.0.1,::1,workspace-init,world-controller,calendar,ecommerce,email,health-tracker,notion,review-platform,weather
+    healthcheck: *health
+  world-controller:
+    build: {context: ., dockerfile: world-controller/Dockerfile}
+    environment:
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      CLOCK_TOKEN: triathlon052-clock-7f3e91c4a6d2b805
+      HEALTH_TOKEN: fit-triathlon-health-a1b2c3d4e5f6
+    depends_on:
+      workspace-init: {condition: service_completed_successfully}
+      calendar: {condition: service_healthy}
+      ecommerce: {condition: service_healthy}
+      email: {condition: service_healthy}
+      health-tracker: {condition: service_healthy}
+      notion: {condition: service_healthy}
+      review-platform: {condition: service_healthy}
+      weather: {condition: service_healthy}
+    volumes:
+      - world-clock:/world-clock
+      - workspace-state:/workspace-source:ro
+      - eval-evidence:/evidence
+      - controller-state:/controller-state
+      - calendar-env:/calendar-env
+      - ecommerce-env:/ecommerce-env
+      - email-env:/email-env
+      - health-tracker-env:/health-tracker-env
+      - notion-env:/notion-env
+      - review-platform-env:/review-platform-env
+      - weather-env:/weather-env
+    expose: ["8090"]
+    healthcheck: {test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health',timeout=2).read()"], interval: 2s, timeout: 5s, retries: 30, start_period: 3s}
+volumes:
+  workspace-state: {}
+  eval-evidence: {}
+  world-clock: {}
+  controller-state: {}
+  agent-logs: {}
+  calendar-env: {}
+  ecommerce-env: {}
+  email-env: {}
+  health-tracker-env: {}
+  notion-env: {}
+  review-platform-env: {}
+  weather-env: {}

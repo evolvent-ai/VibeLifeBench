@@ -1,0 +1,1 @@
+The incident review meetings have filled these two days. Please draft an email to Engineer Li explaining that I would like to retain a 10-minute lunchtime movement window without affecting work. Do not send it, and do not include private health details such as pain scores.

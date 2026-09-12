@@ -1,0 +1,41 @@
+{
+  "step": "event-005",
+  "stage": 4,
+  "virtual_stage": 4,
+  "source_event_id": "s04_first_planning_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "s04_notification_state"
+    ]
+  },
+  "response": "The July 30-day low-intensity framework is now in calendar and Notion: shoulder/wrist stability, hip mobility, cardio walks, recovery, review points, and an 8-minute before/10-minute after pool routine. Health, venue, and data-quality reminders were refreshed.",
+  "response_paraphrase": "I implemented the month plan across the authorized systems, including gentle upper-limb control, hip work, easy walking, recovery reviews, short preparation before play, cooldown afterward, and live reminder coverage.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s04_first_planning_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s04_calendar_plan_created",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s04_table_pre_post_routine",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s04_notification_subscriptions",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 4.0
+}

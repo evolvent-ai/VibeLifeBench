@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "release_id": "release-008",
+  "source_stage": 19,
+  "source_event_ids": [
+    "s19_00_incident_review_mutation"
+  ],
+  "source_time": "2026-07-15T08:49:59+08:00",
+  "previous": "release-007",
+  "token": "posture002-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "cal_incident_review_0715",
+        "calendar_id": "cal_work",
+        "summary": "Payment Incident Review Meeting",
+        "description": "Review the trigger chain, recovery duration, and monitoring gaps on the first night; attendees are backend engineers, the payment platform team, and the on-call lead.",
+        "location": "Online",
+        "start_dt": "2026-07-15T19:30:00+08:00",
+        "end_dt": "2026-07-15T22:00:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-07-15T08:45:00+08:00",
+        "updated_at": "2026-07-15T08:45:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      },
+      "source_event_id": "s19_00_incident_review_mutation"
+    },
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "cal_incident_review_0716",
+        "calendar_id": "cal_work",
+        "summary": "Payment Incident Review Meeting",
+        "description": "Confirm the root cause, remediation owners, and action item deadlines on the second night; the meeting materials are updated in the team documents.",
+        "location": "Online",
+        "start_dt": "2026-07-16T19:30:00+08:00",
+        "end_dt": "2026-07-16T22:00:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-07-15T08:45:00+08:00",
+        "updated_at": "2026-07-15T08:45:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      },
+      "source_event_id": "s19_00_incident_review_mutation"
+    }
+  ]
+}

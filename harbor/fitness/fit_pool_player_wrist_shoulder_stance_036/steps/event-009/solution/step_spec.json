@@ -1,0 +1,31 @@
+{
+  "step": "event-009",
+  "stage": 10,
+  "virtual_stage": 10,
+  "source_event_id": "s10_first_week_completion_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-003"
+    ],
+    "released_mutations": [
+      "s10_week1_actual_mutation"
+    ]
+  },
+  "response": "Week-one Health Tracker records link actual completion, RPE 3-4, and standing fatigue to a low-load next week rather than an automatic increase.",
+  "response_paraphrase": "The first-week log shows several finished short activities with moderate perceived effort and residual fatigue, so progression remains conservative.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s10_first_week_completion_world"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s10_completion_logged",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.25
+}

@@ -1,0 +1,37 @@
+{
+  "step": "event-007",
+  "virtual_stage": 8,
+  "source_event_id": "evt_s08_user_hiit_after_night",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002"
+    ]
+  },
+  "response": "A late night makes high-intensity training unsafe; recovery, sleep protection, walking and breathing replace HIIT.",
+  "response_paraphrase": "Because the night ended late, intense work is unsafe today; sleep protection, easy walking, breathing, and recovery take its place.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s08_user_hiit_after_night",
+      "event_kind": "user_message",
+      "event_time": "2026-07-17T13:30:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_no_hiit_after_night",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

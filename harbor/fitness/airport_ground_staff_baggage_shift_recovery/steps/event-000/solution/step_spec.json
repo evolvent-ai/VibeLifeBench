@@ -1,0 +1,33 @@
+{
+  "step": "event-000",
+  "virtual_stage": 0,
+  "source_event_id": "evt_s00_user_kickoff",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Started a 35-day airport baggage-handling training and recovery plan with sleep protection, safety boundaries, a CNY 900 confirmation-only budget, and roster email read-only handling.",
+  "response_paraphrase": "Opened a 35-day airport ground-staff conditioning and recovery record, protecting sleep, enforcing the CNY 900 approval gate, and keeping roster mail read-only.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s00_user_kickoff",
+      "event_kind": "user_message",
+      "event_time": "2026-07-06T09:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_baseline_brief",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_authorization_boundary_seeded",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

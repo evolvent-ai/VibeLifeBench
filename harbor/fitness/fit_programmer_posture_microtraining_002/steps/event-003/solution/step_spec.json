@@ -1,0 +1,28 @@
+{
+  "step": "event-003",
+  "virtual_stage": 3,
+  "source_event_id": "s03_microbreak_setup_check",
+  "response": "Movement breaks every 60-90 minutes and a midday neck, shoulder, and hip routine are added with pain-threshold tracking.",
+  "response_paraphrase": "The calendar now has frequent brief breaks, a lunchtime mobility slot, and explicit pain and sleep triggers.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 3
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s03_microbreak_series",
+      "weight": 1.75
+    },
+    {
+      "check_id": "chk_s03_pain_threshold",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 3.75
+}

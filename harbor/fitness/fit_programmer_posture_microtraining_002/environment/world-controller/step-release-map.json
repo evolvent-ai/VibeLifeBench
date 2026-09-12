@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "step_count": 22,
+  "steps": {
+    "event-000": {
+      "source_event_id": "s00_kickoff_user",
+      "before": [],
+      "after": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-01T09:00:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "s01_health_calendar_baseline",
+      "before": [
+        "release-000"
+      ],
+      "after": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T08:30:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "s02_release_window_world",
+      "before": [
+        "release-001"
+      ],
+      "after": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-02T16:00:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "s03_microbreak_setup_check",
+      "before": [],
+      "after": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-03T10:00:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "s04_review_candidates_world",
+      "before": [
+        "release-002"
+      ],
+      "after": [],
+      "virtual_stage": 4,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-04T11:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "s06_hotfix_scheduled_check",
+      "before": [
+        "release-003"
+      ],
+      "after": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-05T12:00:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "s07_user_brace_pressure",
+      "before": [],
+      "after": [],
+      "virtual_stage": 7,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T09:30:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "s08_equipment_noise_notice",
+      "before": [],
+      "after": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T17:30:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "s10_sleep_debt_scheduled",
+      "before": [
+        "release-004"
+      ],
+      "after": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-07T09:00:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "s11_user_heavy_lift_trap",
+      "before": [],
+      "after": [],
+      "virtual_stage": 11,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T20:30:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "s12_lowback_pain_world",
+      "before": [
+        "release-005"
+      ],
+      "after": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-09T08:10:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "s14_course_scheduled_check",
+      "before": [
+        "release-006"
+      ],
+      "after": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-10T15:00:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "s15_budget_review_notice",
+      "before": [],
+      "after": [],
+      "virtual_stage": 15,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-11T09:20:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "s16_user_low_cost_auth",
+      "before": [],
+      "after": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-11T18:45:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "s18_order_delay_scheduled",
+      "before": [
+        "release-007"
+      ],
+      "after": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T09:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "s19_work_conflict_world",
+      "before": [
+        "release-008"
+      ],
+      "after": [],
+      "virtual_stage": 19,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-15T08:50:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "s20_user_manager_email",
+      "before": [],
+      "after": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-15T17:40:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "s22_data_quality_scheduled",
+      "before": [
+        "release-009"
+      ],
+      "after": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-17T09:00:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "s23_hr_camp_notice",
+      "before": [
+        "release-010"
+      ],
+      "after": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-20T11:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "s24_review_risk_world",
+      "before": [
+        "release-011"
+      ],
+      "after": [],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-21T14:30:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "s26_consistency_scheduled",
+      "before": [
+        "release-012"
+      ],
+      "after": [],
+      "virtual_stage": 26,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-26T09:00:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "s27_user_final_review",
+      "before": [],
+      "after": [],
+      "virtual_stage": 27,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-28T21:00:00+08:00"
+    }
+  }
+}

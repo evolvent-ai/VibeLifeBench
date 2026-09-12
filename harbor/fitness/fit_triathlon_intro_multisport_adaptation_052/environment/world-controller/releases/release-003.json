@@ -1,0 +1,64 @@
+{
+  "release_id": "release-003",
+  "before_step": "event-009",
+  "previous": "release-002",
+  "token": "triathlon052-release-003-c91e4a2f",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "fatigue_note_0719_052",
+        "user_id": "user_linz",
+        "type": "score",
+        "value": 7.0,
+        "value_text": "training note；triathlon training information",
+        "unit": "score",
+        "recorded_at": "2026-07-19T07:20:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "rest_hr_0719_052",
+        "user_id": "user_linz",
+        "type": "heart_rate",
+        "value": 76.0,
+        "value_text": "resting_hr_elevated",
+        "unit": "bpm",
+        "recorded_at": "2026-07-19T07:15:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "sleep_debt_0718_052",
+        "user_id": "user_linz",
+        "type": "sleep_minutes",
+        "value": 312.0,
+        "value_text": "5.2h; recovery=poor",
+        "unit": "min",
+        "recorded_at": "2026-07-18T07:10:00+08:00"
+      }
+    },
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "sleep_debt_0719_052",
+        "user_id": "user_linz",
+        "type": "sleep_minutes",
+        "value": 324.0,
+        "value_text": "5.4h; recovery=poor",
+        "unit": "min",
+        "recorded_at": "2026-07-19T07:10:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Weather summary: the morning-to-evening temperature range is widening, with cool and windy conditions in the early morning and evening. The outdoor track is available, but weather and warm-up conditions must be checked again before training.

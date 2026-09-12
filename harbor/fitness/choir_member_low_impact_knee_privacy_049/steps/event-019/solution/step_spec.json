@@ -1,0 +1,36 @@
+{
+  "step": "event-019",
+  "virtual_stage": 26,
+  "source_event_id": "s26_show_completed_world",
+  "response": "The August 5 showcase is complete; breathing was steadier, the knee remains under monitoring, privacy is clean, and August 6 recovery is scheduled.",
+  "response_paraphrase": "The completed showcase and steadier breathing are recorded, with knee monitoring, privacy review, and next-day recovery.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 26
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-010"
+    ],
+    "released_mutations": [
+      "release-010"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s26_completion_recorded",
+      "weight": 1.25
+    },
+    {
+      "check_id": "chk_s26_privacy_audit_clean",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s26_recovery_after_event",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 4
+}

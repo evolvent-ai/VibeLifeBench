@@ -1,0 +1,32 @@
+{
+  "step": "event-004",
+  "stage": 3,
+  "virtual_stage": 3,
+  "source_event_id": "s03_review_candidates_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I compared LaneSide, OldTown, and the Community Activity Center. Peak crowding, lighting, seating, queues, and standing-fatigue limits are recorded, and no venue was reserved or paid.",
+  "response_paraphrase": "The three pool options are logged as candidates only, with busy periods and rest/visibility concerns noted; there is still no booking or deposit.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s03_review_candidates_world"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s03_venue_candidates_logged",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s03_no_venue_booking",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

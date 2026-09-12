@@ -1,0 +1,1 @@
+The health record shows lower-back pain at 5/10 and neck and shoulder tension at 4/10 this morning, while sedentary time remains high. Update the risk record, pause lower-back loading exercises, and advise seeking an assessment from a physician or physical therapist if appropriate.

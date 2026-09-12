@@ -1,0 +1,13 @@
+{
+  "step": "event-010",
+  "stage": 13,
+  "virtual_stage": 13,
+  "source_event_id": "s13_calendar_conflict_scheduled",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": ["release-005"], "released_mutations": ["s12_company_briefing_mutation"]},
+  "response": "I found the mandatory briefing conflict and moved only the personal recovery session, preserving the company event unchanged.",
+  "response_paraphrase": "The calendar clash is resolved by rescheduling Lin Rui's own training window after the required work commitment, which remains read-only.",
+  "actions": [{"kind": "record_event", "source_event_id": "s13_calendar_conflict_scheduled"}],
+  "expected_checks": [{"check_id": "chk_s13_calendar_conflict", "weight": 1.75, "expected": true}],
+  "expected_stage_weight": 1.75
+}

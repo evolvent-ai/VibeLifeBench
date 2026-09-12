@@ -1,0 +1,30 @@
+{
+  "step": "event-005",
+  "virtual_stage": 6,
+  "source_event_id": "s06_post_first_ride_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "s06_first_ride_recovery_mutation"
+    ]
+  },
+  "response": "The first ride stays a progressive 6 km effort at RPE 4, followed by recovery rather than a direct jump to the full commute.",
+  "response_paraphrase": "The first recorded ride remains a moderate six-kilometre progression with recovery before any full commute.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s06_post_first_ride_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s06_first_ride_progression",
+      "weight": 1.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 1.5
+}

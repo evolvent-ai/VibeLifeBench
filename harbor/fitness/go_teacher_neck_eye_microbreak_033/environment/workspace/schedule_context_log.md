@@ -1,0 +1,3 @@
+# Schedule Context Log
+
+recordteachclass,training,publicopenactivitymovement,Saturdaylong class,walkingandrestmessagewindowwindow.

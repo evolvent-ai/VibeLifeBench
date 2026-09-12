@@ -1,0 +1,28 @@
+{
+  "step": "event-008",
+  "virtual_stage": 10,
+  "source_event_id": "s10_sleep_debt_scheduled",
+  "response": "Sleep at 4.4 hours with higher pain triggers a workload reduction and recovery version rather than normal loading.",
+  "response_paraphrase": "With only 4.4 hours of sleep and elevated discomfort, today's workload is reduced to recovery activity.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 10
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "s09_sleep_pain_mutation"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s10_sleep_downgrade",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

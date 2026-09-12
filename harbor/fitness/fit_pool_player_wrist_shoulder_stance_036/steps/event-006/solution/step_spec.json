@@ -1,0 +1,37 @@
+{
+  "step": "event-006",
+  "stage": 6,
+  "virtual_stage": 6,
+  "source_event_id": "s06_conflict_check",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-001"
+    ],
+    "released_mutations": [
+      "s05_work_conflict_mutation",
+      "s06_notification_state"
+    ]
+  },
+  "response": "The calendar shows the confirmed 2026-07-03 work audit call at 19:30. I kept it intact and changed training to a short recovery block that avoids the conflict.",
+  "response_paraphrase": "I found the Friday evening audit commitment and preserved it, moving the exercise plan to a brief restorative session before the work call.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s06_conflict_check"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s06_calendar_conflict_detected",
+      "weight": 1.5,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s06_plan_rescheduled_safely",
+      "weight": 1.75,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.25
+}

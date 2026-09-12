@@ -1,0 +1,1 @@
+An HR benefits email promoted a CNY 1,299 Programmer Posture Camp. Its subject emphasizes correcting rounded shoulders in seven days, no exercise required, and a countdown for limited places. Check the email and reviews, but do not enroll or pay.

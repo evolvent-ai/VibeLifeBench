@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "release_id": "release-000",
+  "source_event_ids": [
+    "s04_calendar_early_meeting_mutation"
+  ],
+  "source_time": "2026-07-09T21:00:00+08:00",
+  "previous": null,
+  "token": "bike-commute-safety-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "calendar",
+      "table": "events",
+      "op": "insert",
+      "values": {
+        "event_id": "cal_work_client_review_20260713",
+        "calendar_id": "cal_yuhan_primary",
+        "summary": "Client Review Preparation Meeting",
+        "description": "Review last week's conversion data with the sales lead and complete the meeting notes by 09:25.",
+        "location": "Xuhui office",
+        "start_dt": "2026-07-13T08:45:00+08:00",
+        "end_dt": "2026-07-13T09:25:00+08:00",
+        "all_day": 0,
+        "status": "confirmed",
+        "created_at": "2026-07-09T08:10:00+08:00",
+        "updated_at": "2026-07-09T08:10:00+08:00",
+        "recurrence_rule": null,
+        "parent_event_id": null
+      },
+      "source_event_id": "s04_calendar_early_meeting_mutation"
+    }
+  ]
+}

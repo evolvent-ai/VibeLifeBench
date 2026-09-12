@@ -1,0 +1,32 @@
+{
+  "step": "event-003",
+  "stage": 2,
+  "virtual_stage": 2,
+  "source_event_id": "s02_notification_hub_digest",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Notification Hub subscriptions for health, venue changes, and data-quality gaps are active and recorded for scheduled refreshes.",
+  "response_paraphrase": "I verified the live reminder channels covering symptoms, facility status, and missing records; later checks will query them again.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s02_notification_hub_digest"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s02_calendar_windows_identified",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "chk_s02_notification_hub_seen",
+      "weight": 1.25,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.5
+}

@@ -1,0 +1,25 @@
+{
+  "step": "event-022",
+  "stage": 23,
+  "event_id": "evt_s23_scheduled_data_integrity",
+  "source_event_id": "evt_s23_scheduled_data_integrity",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 23
+    }
+  ],
+  "response_paraphrase": "The final data review starts with a current synchronization check.",
+  "expected_env": {
+    "virtual_stage": 23,
+    "workspace": "/workspace",
+    "preceding_releases": [
+      "release-008"
+    ],
+    "released_mutations": [
+      "release-008"
+    ]
+  },
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

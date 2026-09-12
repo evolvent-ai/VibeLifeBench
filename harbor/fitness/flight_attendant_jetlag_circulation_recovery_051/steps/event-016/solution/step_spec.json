@@ -1,0 +1,16 @@
+{
+  "step": "event-016",
+  "stage": 20,
+  "virtual_stage": 20,
+  "source_event_id": "s20_longhaul_recovery_scheduled",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "The tracker and personal calendar were refreshed together, and the first day after the New York duty is now reserved for rest and easy recovery.",
+  "response_paraphrase": "Current health evidence supports keeping the coming 24 hours recovery-led, so I synchronized a gentle personal session and documented the reasoning.",
+  "actions": [{"kind": "record_event", "source_event_id": "s20_longhaul_recovery_scheduled"}],
+  "expected_checks": [
+    {"check_id": "chk_s20_longhaul_recovery", "weight": 1.75, "expected": true},
+    {"check_id": "chk_s20_recovery_light_refresh", "weight": 1.0, "expected": true}
+  ],
+  "expected_stage_weight": 2.75
+}

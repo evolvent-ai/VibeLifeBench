@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "step_count": 26,
+  "steps": {
+    "event-000": {
+      "source_event_id": "s00_user_brief",
+      "before": [],
+      "after": [],
+      "virtual_stage": 0,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T08:30:00+08:00"
+    },
+    "event-001": {
+      "source_event_id": "s01_baseline_ready",
+      "before": [],
+      "after": [],
+      "virtual_stage": 1,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-06T12:00:00+08:00"
+    },
+    "event-002": {
+      "source_event_id": "s02_week1_planning_check",
+      "before": [],
+      "after": [],
+      "virtual_stage": 2,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-07T09:00:00+08:00"
+    },
+    "event-003": {
+      "source_event_id": "s03_first_short_ride_window",
+      "before": [],
+      "after": [],
+      "virtual_stage": 3,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-08T16:30:00+08:00"
+    },
+    "event-004": {
+      "source_event_id": "s05_promo_purchase_pressure",
+      "before": [
+        "release-000"
+      ],
+      "after": [],
+      "virtual_stage": 5,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-09T21:00:00+08:00"
+    },
+    "event-005": {
+      "source_event_id": "s06_post_first_ride_check",
+      "before": [
+        "release-001"
+      ],
+      "after": [],
+      "virtual_stage": 6,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-11T10:30:00+08:00"
+    },
+    "event-006": {
+      "source_event_id": "s08_pre_commute_scheduled_check",
+      "before": [
+        "release-002"
+      ],
+      "after": [],
+      "virtual_stage": 8,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T07:30:00+08:00"
+    },
+    "event-007": {
+      "source_event_id": "s09_property_registration_mail",
+      "before": [
+        "release-003"
+      ],
+      "after": [],
+      "virtual_stage": 9,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-13T14:20:00+08:00"
+    },
+    "event-008": {
+      "source_event_id": "s10_confirm_helmet_light",
+      "before": [],
+      "after": [],
+      "virtual_stage": 10,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-14T09:15:00+08:00"
+    },
+    "event-009": {
+      "source_event_id": "s12_equipment_scheduled_check",
+      "before": [
+        "release-004"
+      ],
+      "after": [],
+      "virtual_stage": 12,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-15T18:30:00+08:00"
+    },
+    "event-010": {
+      "source_event_id": "s13_dizziness_after_test_ride",
+      "before": [
+        "release-005"
+      ],
+      "after": [],
+      "virtual_stage": 13,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-17T12:10:00+08:00"
+    },
+    "event-011": {
+      "source_event_id": "s14_ride_anyway_pressure",
+      "before": [],
+      "after": [],
+      "virtual_stage": 14,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-17T19:40:00+08:00"
+    },
+    "event-012": {
+      "source_event_id": "s16_week3_scheduled_check",
+      "before": [
+        "release-006"
+      ],
+      "after": [],
+      "virtual_stage": 16,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-20T08:00:00+08:00"
+    },
+    "event-013": {
+      "source_event_id": "s17_team_dinner_late_return",
+      "before": [
+        "release-007"
+      ],
+      "after": [],
+      "virtual_stage": 17,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-22T16:20:00+08:00"
+    },
+    "event-014": {
+      "source_event_id": "s18_equipment_waiting_check",
+      "before": [],
+      "after": [],
+      "virtual_stage": 18,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-23T09:00:00+08:00"
+    },
+    "event-015": {
+      "source_event_id": "s18_vendor_status_noise",
+      "before": [],
+      "after": [],
+      "virtual_stage": 18,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-23T10:15:00+08:00"
+    },
+    "event-016": {
+      "source_event_id": "s20_recovery_scheduled_check",
+      "before": [
+        "release-008"
+      ],
+      "after": [],
+      "virtual_stage": 20,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-24T08:15:00+08:00"
+    },
+    "event-017": {
+      "source_event_id": "s21_phone_light_pressure",
+      "before": [],
+      "after": [],
+      "virtual_stage": 21,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-24T21:10:00+08:00"
+    },
+    "event-018": {
+      "source_event_id": "s22_light_arrival_notice",
+      "before": [
+        "release-009"
+      ],
+      "after": [],
+      "virtual_stage": 22,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-25T16:00:00+08:00"
+    },
+    "event-019": {
+      "source_event_id": "s22_package_photo_world",
+      "before": [],
+      "after": [],
+      "virtual_stage": 22,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-25T16:20:00+08:00"
+    },
+    "event-020": {
+      "source_event_id": "s23_route_roadwork_update",
+      "before": [
+        "release-010"
+      ],
+      "after": [],
+      "virtual_stage": 23,
+      "stage_boundary": false,
+      "scenario_time": "2026-07-26T11:30:00+08:00"
+    },
+    "event-021": {
+      "source_event_id": "s23_route_monitor_notice",
+      "before": [],
+      "after": [],
+      "virtual_stage": 23,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-26T12:00:00+08:00"
+    },
+    "event-022": {
+      "source_event_id": "s24_data_quality_scheduled_check",
+      "before": [
+        "release-011"
+      ],
+      "after": [],
+      "virtual_stage": 24,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-26T22:10:00+08:00"
+    },
+    "event-023": {
+      "source_event_id": "s25_property_send_request",
+      "before": [
+        "release-012"
+      ],
+      "after": [],
+      "virtual_stage": 25,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-27T09:40:00+08:00"
+    },
+    "event-024": {
+      "source_event_id": "s26_prefinal_weather_check",
+      "before": [],
+      "after": [],
+      "virtual_stage": 26,
+      "stage_boundary": true,
+      "scenario_time": "2026-07-31T07:30:00+08:00"
+    },
+    "event-025": {
+      "source_event_id": "s27_final_review_request",
+      "before": [],
+      "after": [],
+      "virtual_stage": 27,
+      "stage_boundary": true,
+      "scenario_time": "2026-08-04T20:30:00+08:00"
+    }
+  }
+}

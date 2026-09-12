@@ -1,0 +1,30 @@
+{
+  "step": "event-004",
+  "stage": 2,
+  "event_id": "evt_s02_world_calendar_seed",
+  "source_event_id": "evt_s02_world_calendar_seed",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 2
+    }
+  ],
+  "response_paraphrase": "The shared calendar now carries the interview deadline and surrounding commitments.",
+  "expected_env": {
+    "virtual_stage": 2,
+    "workspace": "/workspace",
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s02_email_exam_read_no_reply",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s02_deadline_calendar_recorded",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 2.75
+}

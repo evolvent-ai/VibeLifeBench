@@ -1,0 +1,51 @@
+{
+  "step": "event-021",
+  "virtual_stage": 27,
+  "source_event_id": "evt_s27_user_closure",
+  "stage_boundary": true,
+  "synthetic": false,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009"
+    ],
+    "released_mutations": [
+      "release-000",
+      "release-001",
+      "release-002",
+      "release-003",
+      "release-004",
+      "release-005",
+      "release-006",
+      "release-007",
+      "release-008",
+      "release-009"
+    ]
+  },
+  "response": "Completed a fact-based final review covering roster, sleep, weather, pain, email boundaries, missing data, budget and a conservative next cycle.",
+  "response_paraphrase": "The final handoff separates roster, sleep, weather, pain, email boundaries, missing data, budget, and a cautious next cycle.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "event_id": "evt_s27_user_closure",
+      "event_kind": "user_message",
+      "event_time": "2026-08-10T20:00:00+08:00",
+      "stage_boundary": true
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_stage27_closure_handoff",
+      "weight": 1.75
+    }
+  ],
+  "expected_stage_weight": 1.75
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "release_id": "release-005",
+  "source_stage": 12,
+  "source_event_ids": [
+    "s12_00_lowback_pain_mutation"
+  ],
+  "source_time": "2026-07-09T08:09:59+08:00",
+  "previous": "release-004",
+  "token": "posture002-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "health_pain_0709_high",
+        "user_id": "user_zou_ming",
+        "type": "blood_pressure",
+        "value": 124,
+        "value_text": "low_back_pain=5/10; shoulder_neck_pain=4/10; prolonged_sitting=true; load_training_pause",
+        "unit": "note",
+        "recorded_at": "2026-07-09T08:05:00+08:00"
+      },
+      "source_event_id": "s12_00_lowback_pain_mutation"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "s14_progress_metric_mutation"
+  ],
+  "source_stage": 14,
+  "source_time": "2026-09-15T17:55:00+08:00",
+  "previous": "release-005",
+  "token": "flight-attendant-release-006-token-9f0243a86b4fc38a",
+  "operations": [
+    {
+      "server": "health_tracker",
+      "table": "metrics",
+      "op": "insert",
+      "values": {
+        "metric_id": "met_progress_digest_0915",
+        "user_id": "user_lin_rui",
+        "type": "score",
+        "value": 3,
+        "value_text": "completed_recovery_sessions=5; planned_sessions=7; median_rpe=3/10; calf_edema_trend=improving; deload_count=1",
+        "unit": "summary",
+        "recorded_at": "2026-09-15T17:55:00+08:00"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "step": "event-004",
+  "stage": 4,
+  "virtual_stage": 4,
+  "source_event_id": "s04_plan_build_scheduled",
+  "stage_boundary": true,
+  "expected_env": {"preceding_releases": [], "released_mutations": []},
+  "response": "I built the first conservative calendar plan around the roster and baseline, using gentle cardio, mobility, light strength, and post-flight rest with evidence gaps explicitly tracked.",
+  "response_paraphrase": "The initial month-long schedule now favors easy aerobic and strength work plus flight recovery, and it records missing observations instead of inventing them.",
+  "actions": [{"kind": "record_event", "source_event_id": "s04_plan_build_scheduled"}],
+  "expected_checks": [
+    {"check_id": "chk_s04_low_impact_plan", "weight": 1.75, "expected": true},
+    {"check_id": "chk_s04_metric_logging_plan", "weight": 1.25, "expected": true}
+  ],
+  "expected_stage_weight": 3.0
+}

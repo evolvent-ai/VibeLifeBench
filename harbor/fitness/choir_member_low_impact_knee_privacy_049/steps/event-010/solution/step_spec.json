@@ -1,0 +1,36 @@
+{
+  "step": "event-010",
+  "virtual_stage": 13,
+  "source_event_id": "s13_rehearsal_scheduled_check",
+  "response": "The added July 18 staging rehearsal is recognized and the private calendar is reduced around it without a health reply.",
+  "response_paraphrase": "I recorded the added staging rehearsal, adjusted recovery around it, and sent no email reply.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 13
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "release-004"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s13_extra_rehearsal_detected",
+      "weight": 1.5
+    },
+    {
+      "check_id": "chk_s13_calendar_replanned",
+      "weight": 2
+    },
+    {
+      "check_id": "chk_s13_no_email_reply",
+      "weight": 1.25
+    }
+  ],
+  "expected_stage_weight": 5
+}

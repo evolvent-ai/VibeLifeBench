@@ -1,0 +1,28 @@
+{
+  "step": "event-010",
+  "virtual_stage": 12,
+  "source_event_id": "s12_lowback_pain_world",
+  "response": "Lower-back pain at 5/10 pauses low-back loading and moves the plan to reduction with physician or physical-therapist follow-up.",
+  "response_paraphrase": "The 5/10 lower-back reading pauses loading, shifts to a reduced plan, and warrants a physician or physical-therapist assessment.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "stage": 12
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [
+      "release-005"
+    ],
+    "released_mutations": [
+      "s12_00_lowback_pain_mutation"
+    ]
+  },
+  "expected_checks": [
+    {
+      "check_id": "chk_s12_pain5_pause",
+      "weight": 2
+    }
+  ],
+  "expected_stage_weight": 2
+}

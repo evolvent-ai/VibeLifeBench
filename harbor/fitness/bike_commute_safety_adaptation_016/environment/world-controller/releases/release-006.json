@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "release_id": "release-006",
+  "source_event_ids": [
+    "s15_thunderstorm_mutation"
+  ],
+  "source_time": "2026-07-20T08:00:00+08:00",
+  "previous": "release-005",
+  "token": "bike-commute-safety-release-7ea146d259c84f0bb137926a",
+  "operations": [
+    {
+      "server": "weather",
+      "table": "alerts",
+      "op": "update",
+      "set": {
+        "active": 1
+      },
+      "where": {
+        "alert_id": "alt_thunder_20260720"
+      },
+      "source_event_id": "s15_thunderstorm_mutation"
+    },
+    {
+      "server": "weather",
+      "table": "daily_weather",
+      "op": "update",
+      "set": {
+        "condition": "thunderstorm",
+        "precip_mm": 12.0,
+        "precip_prob": 0.9,
+        "wind_kmh": 32
+      },
+      "where": {
+        "geo_key": "geo_shanghai",
+        "date": "2026-07-20"
+      },
+      "source_event_id": "s15_thunderstorm_mutation"
+    }
+  ]
+}

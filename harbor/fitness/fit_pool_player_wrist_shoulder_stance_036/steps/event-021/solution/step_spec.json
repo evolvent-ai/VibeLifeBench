@@ -1,0 +1,32 @@
+{
+  "step": "event-021",
+  "stage": 26,
+  "virtual_stage": 26,
+  "source_event_id": "s26_notification_summary_world",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "I refreshed calendar, Health Tracker, Review Platform, Notification Hub, and Notion and synchronized the three-week master-plan summary. Pain, sleep, venue, calendar, and authorization evidence all support continued recovery.",
+  "response_paraphrase": "The pre-final review now uses current data from all five authorized systems, and the master record reflects symptoms, rest, scheduling, facility limits, and permission boundaries.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s26_notification_summary_world"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "chk_s26_three_week_summary_integrated",
+      "weight": 1.25,
+      "expected": true
+    },
+    {
+      "check_id": "stage_26_prefinal_three_service_refresh_light",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.25
+}

@@ -1,0 +1,1 @@
+Incident review meetings were added unexpectedly on the evenings of July 15 and July 16, creating longer periods of continuous sitting. Split training into a short lunchtime version and an evening recovery version. Do not begin training immediately after prolonged sitting.

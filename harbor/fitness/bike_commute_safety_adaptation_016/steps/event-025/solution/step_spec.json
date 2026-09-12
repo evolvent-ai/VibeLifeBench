@@ -1,0 +1,20 @@
+{
+  "step": "event-025",
+  "virtual_stage": 27,
+  "source_event_id": "s27_final_review_request",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "The final review records one short ride and one test ride, while the full commute is not completed; next month starts with twice-weekly cycling only when weather, health, equipment, budget, and authorization conditions are safe.",
+  "response_paraphrase": "The closeout reconciles the two valid rides, outstanding constraints, privacy and authorization status, data quality, and next-cycle conditions.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "s27_final_review_request"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0.0
+}

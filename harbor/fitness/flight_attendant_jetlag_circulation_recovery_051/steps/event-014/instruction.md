@@ -1,0 +1,1 @@
+I confirm that you may buy exactly one pair of size M compression socks, for no more than CNY 260. Do not buy a massage ball, resistance bands, or capsules, and do not put health information in the order note.

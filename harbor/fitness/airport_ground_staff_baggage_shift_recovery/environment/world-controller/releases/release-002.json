@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "release_id": "release-002",
+  "source_event_ids": [
+    "evt_s06_mut_roster_delay"
+  ],
+  "source_time": "2026-07-17T08:40:00+08:00",
+  "previous": "release-001",
+  "token": "airport-ground-release-002-token-9f0243a86b4fc38a",
+  "operations": [
+    {"server":"calendar","table":"events","op":"update","where":{"event_id":"cal_roster_20260716_night"},"set":{"end_dt":"2026-07-17T01:30:00+08:00","description":"Flight delay; night-shift departure updated to 01:30.","updated_at":"2026-07-16T23:20:00+08:00"}},
+    {"server":"email","table":"messages","op":"insert","values":{"folder_id":1,"message_id":"email_roster_delay_20260716","subject":"Flight delay updates night-shift departure","from_addr":"shift.scheduler@airport.example","to_addr_json":"[\"liming.personal@example.com\"]","cc_addr_json":"[]","bcc_addr_json":"[]","date":"2026-07-16T23:20:00+08:00","body_text":"Tonight flight delays mean night-shift baggage sorting support is expected to end at 2026-07-17 01:30.","body_html":null,"is_read":0,"is_important":1,"is_flagged":0,"in_reply_to":null,"references_header":null,"headers_json":"{}","uid":7001,"size":150,"created_at":"2026-07-16T23:20:00+08:00"}}
+  ]
+}
