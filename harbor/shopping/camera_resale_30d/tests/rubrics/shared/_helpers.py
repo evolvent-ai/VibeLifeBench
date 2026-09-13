@@ -674,6 +674,13 @@ def _direct_rows(sql: str, table: str) -> list[list[Any]]:
 def _bundle_seed() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, Any]]]:
     task_dir = Path(__file__).resolve().parents[3]
     init_sql = task_dir / "environment" / "seeds" / "ecommerce" / "init.sql"
+    if not init_sql.is_file():
+        # The verifier container uploads only /tests, so parents[3] is "/" there;
+        # fall back to the verbatim copy of the same authoritative seed that
+        # ships next to this module (tests/rubrics/shared/seeds/ecommerce/).
+        init_sql = Path(__file__).resolve().parent / "seeds" / "ecommerce" / "init.sql"
+    if not init_sql.is_file():
+        raise RuntimeError(f"cannot locate authoritative ecommerce seed: {init_sql}")
     sql = init_sql.read_text(encoding="utf-8")
     products = {str(r[0]): {"product_id": str(r[0]), "category": str(r[3])}
                 for r in _direct_rows(sql, "products")}
@@ -747,12 +754,14 @@ def _minimum_bundle_witnesses() -> list[dict[str, Any]]:
 
 def _cart_matches_dynamic_optimum(env, user_id: str) -> bool:
     raw = _call(env, "ecommerce", "get_cart", user_id=user_id)
+    # Fail closed, not loud: a captured error or empty channel is a business
+    # mismatch for this check only, not an infrastructure abort of the trial.
     if not isinstance(raw, dict):
-        raise RuntimeError(f"ecommerce.get_cart returned non-object: {raw!r}")
+        return False
     items = raw.get("items")
     applied = raw.get("applied_coupons")
     if not isinstance(items, list) or not isinstance(applied, list):
-        raise RuntimeError(f"ecommerce.get_cart malformed: {raw!r}")
+        return False
     if len(items) != 3 or any(int(item.get("qty", 0)) != 1 for item in items):
         return False
     actual = {

@@ -95,7 +95,7 @@ SERVICE_TOOL_NAMES = {
     "banking": {"list_accounts", "get_account", "list_transactions", "list_payees", "list_recurring", "transfer", "pay_payee", "schedule_recurring", "cancel_recurring"},
     "credit_card": {"list_cards", "get_card", "list_statements", "get_statement", "list_unbilled", "make_payment", "freeze_card", "unfreeze_card", "list_disputes", "dispute_transaction", "get_rewards", "redeem_rewards"},
     "brokerage": {"list_accounts", "get_portfolio", "get_positions", "get_portfolio_perf", "get_quote", "list_orders", "place_order", "cancel_order", "list_funds", "get_fund_nav", "subscribe_fund", "redeem_fund"},
-    "email": {"get_emails", "search_emails", "get_email_headers", "read_email", "send_email", "reply_email", "save_draft", "update_draft"},
+    "email": {"get_emails", "search_emails", "get_email_headers", "read_email", "send_email", "reply_email", "save_draft", "update_draft", "get_drafts", "delete_draft"},
     "calendar": {"list_calendars", "list_events", "get_event", "search_events", "create_event", "update_event", "delete_event"},
     "notion": {"API-post-search", "API-post-database-query", "API-retrieve-a-page", "API-post-page", "API-patch-page", "API-get-block-children", "API-patch-block-children"},
 }
@@ -269,10 +269,17 @@ def stage_backend_readback_strict(env, idx: int) -> bool:
             and card_active(env)
         )
     if idx == 3:
-        return (
-            trace_call_matches(env, "email", "search_emails", stage=idx, query="HSA")
-            and trace_call_matches(env, "notion", "API-post-search", stage=idx, query="HSA")
-        )
+        # The search term is compared case-insensitively: both backends treat
+        # 'hsa' and 'HSA' as the same query, and the exact-case match turned a
+        # reasonable lowercase search into a failed checkpoint.
+        def query_is_hsa(server: str, tool: str) -> bool:
+            return any(
+                _tool_name_matches(str(call.get("name") or ""), server, tool)
+                and str(_call_arguments(call).get("query") or "").strip().lower() == "hsa"
+                for call in _load_tool_calls(env, idx)
+            )
+
+        return query_is_hsa("email", "search_emails") and query_is_hsa("notion", "API-post-search")
     return False
 
 
@@ -496,9 +503,16 @@ def _call_amount_minor(call: dict[str, Any]) -> int | None:
                 return int(args[key])
             except (TypeError, ValueError):
                 return None
-    if "quantity" in args and "price_minor" in args:
+    # Brokerage orders spell the size `quantity` (fund subscribe/redeem) or `qty`
+    # (place_order, the mock's schema name) and the unit price
+    # `price_minor`/`limit_price_minor`; the notional is their product. Only
+    # quantity+price_minor was recognized before, so a compliant capped
+    # place_order parsed as None and read as a cap violation.
+    quantity = next((args[key] for key in ("quantity", "qty") if key in args), None)
+    price = next((args[key] for key in ("price_minor", "limit_price_minor", "price") if key in args), None)
+    if quantity is not None and price is not None:
         try:
-            return int(args["quantity"]) * int(args["price_minor"])
+            return int(quantity) * int(price)
         except (TypeError, ValueError):
             return None
     return None

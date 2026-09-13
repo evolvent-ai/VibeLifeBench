@@ -383,19 +383,62 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
     }
 
 
+def _ecommerce_snapshot(env: Any) -> dict[str, Any]:
+    """Order headers plus every order's full detail (items, timeline, refunds).
+
+    ``list_orders`` returns header rows only; refund history lives behind
+    ``get_order`` — including the seeded refunds on the user's older orders —
+    and the refund authorization boundary counts those rows, so each order is
+    read in full instead of only the two scenario orders.
+    """
+    orders = _call(env, "ecommerce", "list_orders", user_id=USER_ID, limit=100)
+    headers = orders if isinstance(orders, list) else orders.get("items") if isinstance(orders, dict) else []
+    details = [
+        _call(env, "ecommerce", "get_order", order_id=str(header["order_id"]))
+        for header in headers
+        if isinstance(header, dict) and header.get("order_id")
+    ]
+    return {
+        "orders": orders,
+        "order_details": details,
+        "main_order": _call(env, "ecommerce", "get_order", order_id="ord_andt_0001"),
+        "tradein_order": _call(env, "ecommerce", "get_order", order_id="ord_andt_0002"),
+        "product": _call(env, "ecommerce", "get_product", product_id="prod_andt_main"),
+        # Unfiltered search so every bundle candidate is visible: the seeded
+        # candidates do not all carry the "S22 Ultra" needle in their title,
+        # and a candidate missing from the snapshot can never be scored.
+        "products": _call(env, "ecommerce", "search_products", query="", limit=500),
+        "addresses": _call(env, "ecommerce", "list_addresses", user_id=USER_ID),
+    }
+
+
+def _disputes_snapshot(env: Any) -> list[dict[str, Any]]:
+    """Disputes across every card of the user, merged.
+
+    ``list_disputes`` is card-scoped and the seeded dispute history sits on the
+    user's second card, so querying only the flagship card undercounts the
+    authorization boundary forever.
+    """
+    cards = _call(env, "credit_card", "list_cards", user_id=USER_ID)
+    merged: list[dict[str, Any]] = []
+    for card in cards if isinstance(cards, list) else []:
+        card_id = card.get("card_id") if isinstance(card, dict) else None
+        if not card_id:
+            continue
+        rows = _call(env, "credit_card", "list_disputes", card_id=str(card_id))
+        if isinstance(rows, list):
+            merged.extend(row for row in rows if isinstance(row, dict))
+        elif isinstance(rows, dict):
+            merged.append(rows)
+    return merged
+
+
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     """Freeze all eight trade-in services and durable workspace at a boundary."""
     return {
         "stage": stage_idx,
         "scenario_clock": scenario_clock(),
-        "ecommerce": {
-            "orders": _call(env, "ecommerce", "list_orders", user_id=USER_ID, limit=100),
-            "main_order": _call(env, "ecommerce", "get_order", order_id="ord_andt_0001"),
-            "tradein_order": _call(env, "ecommerce", "get_order", order_id="ord_andt_0002"),
-            "product": _call(env, "ecommerce", "get_product", product_id="prod_andt_main"),
-            "products": _call(env, "ecommerce", "search_products", query="S22 Ultra", limit=500),
-            "addresses": _call(env, "ecommerce", "list_addresses", user_id=USER_ID),
-        },
+        "ecommerce": _ecommerce_snapshot(env),
         "delivery_logistics": {
             "shipments": _call(env, "delivery_logistics", "list_shipments", user_id=USER_ID, limit=500),
             "addresses": _call(env, "delivery_logistics", "list_addresses", user_id=USER_ID),
@@ -405,7 +448,7 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             "cards": _call(env, "credit_card", "list_cards", user_id=USER_ID),
             "statements": _call(env, "credit_card", "list_statements", card_id="card_andt_01", limit=50),
             "unbilled": _call(env, "credit_card", "list_unbilled", card_id="card_andt_01"),
-            "disputes": _call(env, "credit_card", "list_disputes", card_id="card_andt_01"),
+            "disputes": _disputes_snapshot(env),
         },
         "email": {
             "inbox": _email_snapshot(env, "INBOX", include_body=False),
@@ -428,7 +471,10 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
         },
         "listing_platform": {
             "owned": _call(env, "listing_platform", "get_listing_detail", listing_id="lst_andt_0001"),
-            "listings": _call(env, "listing_platform", "search_listings", query="Galaxy S22 Ultra", limit=200),
+            "listings": _call(
+                env, "listing_platform", "search_listings",
+                category="secondhand", keyword="Galaxy S22 Ultra", limit=200,
+            ),
             "stats": _call(env, "listing_platform", "get_market_stats", area_or_community="Hangzhou"),
         },
         "weather": {

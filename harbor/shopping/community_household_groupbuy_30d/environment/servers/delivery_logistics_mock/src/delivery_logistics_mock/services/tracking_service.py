@@ -16,12 +16,13 @@ logger = logging.getLogger(__name__)
 
 def _events_for(conn: sqlite3.Connection, shipment_id: str) -> list[dict]:
     rows = conn.execute(
-        "SELECT at, location, status_code, description FROM shipment_events "
+        "SELECT event_id, at, location, status_code, description FROM shipment_events "
         "WHERE shipment_id = ? ORDER BY at ASC, event_id ASC",
         (shipment_id,),
     ).fetchall()
     return [
         {
+            "event_id": r["event_id"],
             "at": r["at"],
             "location": r["location"],
             "status_code": r["status_code"],

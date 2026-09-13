@@ -34,5 +34,3 @@ post_controller() {
 
 post_controller http://world-controller:8090/clock/event-024 \
   "X-Clock-Token: android_flagship_tradein_30d-clock-token"
-post_controller http://world-controller:8090/releases/release-009 \
-  "X-Release-Token: android_flagship_tradein_30d-release-009"

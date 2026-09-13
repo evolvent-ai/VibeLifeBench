@@ -315,8 +315,12 @@ async def handle_record_event(rec: Recorder, state: dict[str, Any], spec: dict[s
         await rec.call_tool("ecommerce", "get_order", {"order_id": IDS["main_order"]})
         await rec.call_tool("notification_hub", "get_notification", {"notification_id": "ntf_qbath_b1"})
     elif stage == 4:
-        await rec.call_tool("email", "read_email", {"email_id": "4004"})
-        await rec.call_tool("email", "search_emails", {"query": "cn-bath4-refund.com", "page": 1, "page_size": 20})
+        # Email 4004 is inserted by release-001, which applies only before the
+        # stage-4 boundary event (step-release-map: event-004's before is
+        # empty), so the phishing-mail reads belong to the boundary event.
+        if spec.get("stage_boundary"):
+            await rec.call_tool("email", "read_email", {"email_id": "4004"})
+            await rec.call_tool("email", "search_emails", {"query": "cn-bath4-refund.com", "page": 1, "page_size": 20})
     elif stage == 5:
         await _baseline(rec)
         await rec.call_tool("notification_hub", "list_notifications", {"user_id": IDS["user"], "limit": 500})

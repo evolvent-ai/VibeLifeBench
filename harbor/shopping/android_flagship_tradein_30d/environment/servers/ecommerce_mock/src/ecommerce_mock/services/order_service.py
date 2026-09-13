@@ -310,6 +310,7 @@ class OrderService:
             "refunds": [
                 {
                     "refund_id": rf["refund_id"],
+                    "order_id": rf["order_id"],
                     "item_id": rf["item_id"],
                     "qty": int(rf["qty"]),
                     "status": rf["status"],

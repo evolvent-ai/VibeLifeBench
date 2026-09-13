@@ -16,8 +16,8 @@ ARG BASE_IMAGE=python:3.12-slim
 FROM ${BASE_IMAGE}
 
 # Idempotent: a no-op when the pre-baked base already carries these.
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+RUN apt-get update -o Acquire::Retries=8 \
+    && apt-get install -y --no-install-recommends -o Acquire::Retries=8 \
         bash ca-certificates coreutils curl jq procps sqlite3 \
     && rm -rf /var/lib/apt/lists/*
 

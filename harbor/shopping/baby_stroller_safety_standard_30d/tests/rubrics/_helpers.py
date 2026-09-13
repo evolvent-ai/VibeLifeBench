@@ -469,7 +469,11 @@ def money_terms(amount_minor: int) -> tuple[str, ...]:
 
 
 def optimal_cart_plans(*_args: Any, **_kwargs: Any) -> tuple[CartPlan, ...]:
-    return (CartPlan(("bsk_strr_a3", "bsk_strr_b2", "bsk_strr_c3"), ("FULL209_strr",), 23900, 20900),)
+    # Stacked optimum under the delivered coupon semantics (all qualifying
+    # coupons sum their discounts): 25700 is the smallest subtotal that clears
+    # FULL249's 25400 threshold, so a2+b2+c2 with all three coupons gives
+    # 25700 - 3000 - 5500 - 2570 = 14630, strictly below every smaller basket.
+    return (CartPlan(("bsk_strr_a2", "bsk_strr_b2", "bsk_strr_c2"), ("FULL209_strr", "FULL249_strr", "PCT10_strr"), 25700, 14630),)
 
 
 def _backend_cart_matches_optimal(env, user_id: str, plans: Iterable[CartPlan]) -> bool:

@@ -147,12 +147,24 @@ class TrafficService:
             geom = json.loads(road["geom_json"] or "[]")
         except json.JSONDecodeError:
             geom = []
-        if not geom:
-            return True  # No geometry → fall back to city match only.
+        if not isinstance(geom, list):
+            # Legacy/object geometries (e.g. {"from": .., "to": ..}) carry no
+            # polyline; iterating them would yield their keys, so fall back to
+            # city matching only instead of crashing on float("f").
+            return True
+        points: List[Tuple[float, float]] = []
+        for pt in geom:
+            if not isinstance(pt, (list, tuple)) or len(pt) < 2:
+                continue
+            try:
+                points.append((float(pt[0]), float(pt[1])))
+            except (TypeError, ValueError):
+                continue
+        if not points:
+            return True  # No parseable geometry → fall back to city match only.
 
         nearest = float("inf")
-        for pt in geom:
-            p = (float(pt[0]), float(pt[1]))
+        for p in points:
             if origin_pt is not None:
                 nearest = min(nearest, haversine_m(origin_pt, p))
             if dest_pt is not None:

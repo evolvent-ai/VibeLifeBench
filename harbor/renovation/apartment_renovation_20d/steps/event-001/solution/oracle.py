@@ -98,13 +98,18 @@ def _is_success(result: Any) -> bool:
 class Recorder:
     """MCP client with the ATIF calls required by the evidence collector."""
 
-    def __init__(self) -> None:
+    def __init__(self, scope: str = "oracle") -> None:
+        # Call ids land in the frozen evidence trace and must be unique across
+        # events: every event runs its own oracle process, so a bare per-process
+        # counter ("call-1") collides in stage traces that merge several events
+        # and in checks that pair calls with results across all stages.
+        self.scope = re.sub(r"[^A-Za-z0-9_-]", "-", scope) or "oracle"
         self.calls: list[dict[str, Any]] = []
 
     async def call(self, service: str, tool: str, arguments: dict[str, Any]) -> Any:
         if service not in SERVICE_URLS:
             raise ValueError(f"unsupported MCP service: {service!r}")
-        call_id = f"call-{len(self.calls) + 1}"
+        call_id = f"{self.scope}-call-{len(self.calls) + 1}"
         try:
             from mcp import ClientSession
             from mcp.client.streamable_http import streamablehttp_client
@@ -237,23 +242,31 @@ async def _stage_calls(recorder: Recorder, stage: int) -> None:
         await recorder.call("calendar", "list_events", {"max_results": 500})
         await recorder.call("email", "search_emails", {"query": "renovation", "folder": "INBOX", "page": 1, "page_size": 50})
     elif stage == 1:
-        await _notion(recorder, "requirements acceptance low-VOC noise")
+        # The seeded workspace ships no pages, so a page-filter search stays
+        # empty; read the database this stage actually reasons about.
+        await recorder.call("notion", "API-post-database-query", {"database_id": "notion-db-property-rules", "page_size": 100})
     elif stage == 2:
         await _notion(recorder, "contractor profiles reviews quote schedule risk", database=True)
         await recorder.call("maps", "search_places", {"query": "Shanghai Pudong renovation contractors", "limit": 50})
         await _emails(recorder, "quote", None)
     elif stage == 3:
-        await _notion(recorder, "filing permitted noise hours load-bearing wall")
+        # The seeded workspace ships no pages, so a page-filter search stays
+        # empty; read the database this stage actually reasons about.
+        await recorder.call("notion", "API-post-database-query", {"database_id": "notion-db-property-rules", "page_size": 100})
         await recorder.call("calendar", "create_event", {"summary": "Site measurement and filing documents", "start": "2026-06-06T09:00:00+08:00", "end": "2026-06-06T10:30:00+08:00", "description": "Site measurement; bring documents for property management filing. Verify permitted noise hours and load-bearing wall restrictions.", "location": "Huamu Garden, Pudong", "calendar_id": "primary", "reminders": [{"method": "popup", "minutes_before": 60}]})
     elif stage == 4:
         await _emails(recorder, "quote", None)
-        await _notion(recorder, "budget demolition electrical and plumbing work waterproofing primary materials")
+        # The seeded workspace ships no pages, so a page-filter search stays
+        # empty; read the database this stage actually reasons about.
+        await recorder.call("notion", "API-post-database-query", {"database_id": "notion-db-inspection-standards", "page_size": 100})
     elif stage == 5:
         await _emails(recorder, "PM-RFI-0606", "装修备案补件通知 PM-RFI-0606")
         await _notion(recorder, "filing additional information request")
     elif stage == 6:
         await _emails(recorder, "人员变更", None)
-        await _notion(recorder, "large-format tiles cabinets low-VOC stock lead time")
+        # The seeded workspace ships no pages, so a page-filter search stays
+        # empty; read the database this stage actually reasons about.
+        await recorder.call("notion", "API-post-database-query", {"database_id": "notion-db-material-catalog", "page_size": 100})
     elif stage == 7:
         await _emails(recorder, "PM-APP-0608", "装修备案已通过 PM-APP-0608")
         await _notion(recorder, "renovation filing approved site access")
@@ -371,7 +384,7 @@ def _write_trajectory(spec: dict[str, Any], recorder: Recorder, response: str) -
 async def _run(spec: dict[str, Any]) -> str:
     _validate_spec(spec)
     state = _load_state()
-    recorder = Recorder()
+    recorder = Recorder(scope=str(spec.get("step") or "oracle"))
     for action in spec["actions"]:
         if not isinstance(action, dict):
             raise ValueError("oracle action must be an object")

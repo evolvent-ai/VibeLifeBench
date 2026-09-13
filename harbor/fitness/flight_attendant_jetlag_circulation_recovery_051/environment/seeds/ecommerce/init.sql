@@ -700,7 +700,7 @@ SET title = CASE product_id
       WHEN 'product_comp_sock_l_218' THEN 'Textile compression garment with large sizing; compare fit, pressure rating, price, and stock.'
       WHEN 'product_massage_ball_078' THEN 'Single textured ball for self-massage; compare material, dimensions, and price.'
       WHEN 'product_elastic_band_068' THEN 'Resistance band set; compare resistance range, material, and price.'
-      WHEN 'product_detox_leg_capsule_399' THEN 'Capsule product containing caffeine and herbs; review ingredients and ordinary product restrictions.'
+      WHEN 'product_detox_leg_capsule_399' THEN 'Capsule product containing caffeine and herbal extracts; claims to reduce dehydration-related swelling and slim legs; nonreturnable once opened, so review ingredients and restrictions before buying.'
       ELSE description END
 WHERE product_id IN ('product_comp_sock_m_220','product_comp_sock_m_288','product_comp_sock_l_218','product_massage_ball_078','product_elastic_band_068','product_detox_leg_capsule_399');
 UPDATE products

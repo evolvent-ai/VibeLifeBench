@@ -13,7 +13,7 @@
       "table": "messages",
       "op": "insert",
       "values": {
-        "id": 105,
+        "id": 15001,
         "folder_id": 1,
         "message_id": "<20260706-offer@dewu.com>",
         "subject": "Dewu Senior Backend Engineer Offer",

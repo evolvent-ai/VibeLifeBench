@@ -15,6 +15,29 @@ from loguru import logger
 
 _DISTANCE_PATTERN = re.compile(r"(\d+(?:\.\d+)?)\s*(?:km|kilometers?)",
                                 re.IGNORECASE)
+# The cap is a *per-day* walking budget, so only distances expressed as a
+# daily budget ("<n> km per day", "<n> km/day", ...) may fail the check.
+# Incidental distances (a 60 km airport transfer, a 0.9 km hotel walk) are
+# contextual and must not fail the day-plan check.
+_PER_DAY_BUDGET = re.compile(
+    r"(\d+(?:\.\d+)?)\s*(?:km|kilometers?)\s*"
+    r"(?:per day|/day|a day|daily|per-day)",
+    re.IGNORECASE)
+# Walk-adjacent distances satisfy "numeric walking load present" but can
+# never exceed the cap on their own (no per-day framing).
+_WALK_ADJACENT = re.compile(
+    r"(?:walk(?:ing)?|stroll|on foot|pace|mobility)[^.\n]{0,40}?"
+    r"(\d+(?:\.\d+)?)\s*(?:km|kilometers?)",
+    re.IGNORECASE)
+
+
+def _walking_distances(text: str) -> list[float]:
+    budgets = [float(m.group(1)) for m in _PER_DAY_BUDGET.finditer(text)]
+    if budgets:
+        return budgets
+    return [d for d in (float(m.group(1))
+                        for m in _WALK_ADJACENT.finditer(text))
+            if d <= 4.0]
 
 
 def s15_itinerary_adjust_walking(env) -> bool:
@@ -26,7 +49,7 @@ def s15_itinerary_adjust_walking(env) -> bool:
     if not _any_kw(text, ["walking", "walk", "km", "kilometer"]):
         logger.info("s15 walking: no walking mention → False")
         return False
-    distances = [float(m.group(1)) for m in _DISTANCE_PATTERN.finditer(text)]
+    distances = _walking_distances(text)
     if not distances:
         logger.info("s15 walking: no numeric walking load -> False")
         return False

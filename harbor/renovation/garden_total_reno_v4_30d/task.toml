@@ -124,6 +124,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-000"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-001"
@@ -146,6 +147,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-001"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-002"
@@ -168,6 +170,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-002"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-003"
@@ -190,6 +193,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-003"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-004"
@@ -212,6 +216,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-004"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-005"
@@ -234,6 +239,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-005"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-006"
@@ -256,6 +262,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-006"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-007"
@@ -278,6 +285,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-007"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-008"
@@ -300,6 +308,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-008"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-009"
@@ -322,6 +331,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-009"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-010"
@@ -344,6 +354,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-010"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-011"
@@ -366,6 +377,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-011"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-012"
@@ -388,6 +400,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-012"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-013"
@@ -410,6 +423,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-013"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-014"
@@ -432,6 +446,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-014"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-015"
@@ -454,6 +469,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-015"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-016"
@@ -476,6 +492,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-016"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-017"
@@ -498,6 +515,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-017"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-018"
@@ -520,6 +538,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-018"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-019"
@@ -542,6 +561,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-019"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-020"
@@ -564,6 +584,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-020"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-021"
@@ -586,6 +607,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-021"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-022"
@@ -608,6 +630,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-022"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-023"
@@ -630,6 +653,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-023"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-024"
@@ -652,6 +676,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-024"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-025"
@@ -674,6 +699,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-025"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-026"
@@ -696,6 +722,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-026"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-027"
@@ -718,6 +745,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-027"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-028"
@@ -740,6 +768,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-028"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-029"
@@ -762,6 +791,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-029"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-030"
@@ -784,6 +814,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-030"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-031"
@@ -806,6 +837,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-031"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-032"
@@ -828,6 +860,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-032"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-033"
@@ -850,6 +883,7 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-033"
+timeout_sec = 300.0
 
 [[steps]]
 name = "event-034"
@@ -873,3 +907,4 @@ user = "root"
 [[steps.verifier.collect]]
 service = "world-controller"
 command = "/opt/world-controller/snapshot event-034"
+timeout_sec = 300.0

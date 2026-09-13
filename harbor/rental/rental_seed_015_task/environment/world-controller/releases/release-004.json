@@ -1,152 +1,173 @@
 {
-  "release_id": "release-004",
-  "source_event_ids": [
-    "s18_h_release_mutation"
-  ],
-  "source_stage": 18,
-  "source_time": "2026-07-26T09:50:00+08:00",
-  "previous": "release-003",
-  "token": "rental-seed-015-release-token",
-  "operations": [
-    {
-      "server": "listing_platform",
-      "table": "listings",
-      "op": "insert",
-      "values": {
-        "listing_id": "listing_h",
-        "category": "rent",
-        "title": {
-          "__utf8_hex__": "e6b885e6be9ce585ace9a68620e4b8a4e5b185"
-        },
-        "city": {
-          "__utf8_hex__": "e58d97e4baac"
-        },
-        "district": {
-          "__utf8_hex__": "e5bbbae982bae58cba"
-        },
-        "community": {
-          "__utf8_hex__": "e6b885e6be9ce585ace9a686"
-        },
-        "price_minor": 748000,
-        "area_sqm": 71.1,
-        "rooms": 2,
-        "metro": {
-          "__utf8_hex__": "e59cb0e9938132e58fb7e7babfe9b1bce598b4e7ab992032e58fb7e58fa3e6ada5e8a18ce7baa620313320e58886e9929f"
-        },
-        "attrs_json": "{\"place_id\":\"place_h\",\"deposit_minor\":748000,\"child_deposit_minor\":0,\"school_claim\":\"none\",\"elevator\":true,\"elevator_status\":\"operational\",\"floor\":11,\"available_by\":\"2026-08-06\",\"rooms\":2}",
-        "description": {
-          "__utf8_hex__": "3720e69c8820323620e697a5e696b0e4b88ae69eb6e38082e5b9b3e58fb0e799bbe8aeb0e4b8bae4b8a4e5b185efbc8ce794b5e6a2afe5bd93e5898de8bf90e8a18cefbc8ce69c80e697a9203820e69c88203620e697a5e4baa4e4bb98efbc9be69c88e7a79f203734383020e58583efbc8ce584bfe7aba5e585a5e4bd8fe4b88de58fa6e694b6e68abce98791efbc8ce4b99fe69caae4bd9ce5ada6e58cbae689bfe8afbae38082e5ada6e6a0a1e68ea5e98081e993bee5928ce5a49ce997b4e4b8b4e8a197e599aae5a3b0e4bb8de99c80e58886e588abe6a0b8e9aa8ce38082"
-        },
-        "photos_json": {
-          "__utf8_hex__": "5b22e5aea2e58e85e98787e58589222c22e794b5e6a2afe58e85222c22e6a5bce6a08be585a5e58fa3225d"
-        },
-        "agent_id": "agent_h",
-        "owner_user_id": null,
-        "status": "active",
-        "listed_at": "2026-07-26T09:46:00+08:00"
-      }
+ "release_id": "release-004",
+ "source_event_ids": [
+  "s18_h_release_mutation"
+ ],
+ "source_stage": 18,
+ "source_time": "2026-07-26T09:50:00+08:00",
+ "previous": "release-003",
+ "token": "rental-seed-015-release-token",
+ "operations": [
+  {
+   "server": "listing_platform",
+   "table": "agents",
+   "op": "insert",
+   "source_event_id": "s18_h_release_mutation",
+   "values": {
+    "agent_id": "agent_h",
+    "name": {
+     "__utf8_hex__": "e6b885e6be9ce7aea1e5aeb6"
     },
-    {
-      "server": "maps",
-      "table": "places",
-      "op": "insert",
-      "values": {
-        "place_id": "place_h",
-        "name": {
-          "__utf8_hex__": "e6b885e6be9ce585ace9a686"
-        },
-        "category": "residential",
-        "lat": 31.977,
-        "lng": 118.713,
-        "country": "CN",
-        "city": {
-          "__utf8_hex__": "e58d97e4baac"
-        },
-        "rating": 4.5,
-        "price_level": 2,
-        "hours_json": "{\"access\":\"resident_gate\",\"desk\":\"08:00-20:00\"}",
-        "phone": "",
-        "website": "",
-        "formatted": {
-          "__utf8_hex__": "e58d97e4baace5b882e5bbbae982bae58cbae6b885e6be9ce585ace9a686e4b89ce997a8"
-        }
-      }
+    "agency": {
+     "__utf8_hex__": "e6b885e6be9ce7bdaee4b89a"
     },
-    {
-      "server": "maps",
-      "table": "places",
-      "op": "insert",
-      "values": {
-        "place_id": "poi_h_market",
-        "name": {
-          "__utf8_hex__": "e6b885e6be9ce982bbe9878ce7949fe9b29c"
-        },
-        "category": "grocery",
-        "lat": 31.978,
-        "lng": 118.714,
-        "country": "CN",
-        "city": {
-          "__utf8_hex__": "e58d97e4baac"
-        },
-        "rating": 4.4,
-        "price_level": 2,
-        "hours_json": "{\"mon_fri\":\"07:00-21:30\",\"sat_sun\":\"07:30-21:30\"}",
-        "phone": "",
-        "website": "",
-        "formatted": {
-          "__utf8_hex__": "e58d97e4baace5b882e5bbbae982bae58cbae6b885e6be9ce8b7af20313820e58fb7"
-        }
-      }
-    },
-    {
-      "server": "review_platform",
-      "table": "merchants",
-      "op": "insert",
-      "values": {
-        "merchant_id": "mer_h",
-        "name": {
-          "__utf8_hex__": "e6b885e6be9ce585ace9a686e789a9e4b89ae69c8de58aa1e4b8ade5bf83"
-        },
-        "category": "home_service",
-        "city": {
-          "__utf8_hex__": "e58d97e4baac"
-        },
-        "area": {
-          "__utf8_hex__": "e5bbbae982bae58cba"
-        },
-        "address": {
-          "__utf8_hex__": "e6b885e6be9ce585ace9a686e4b89ce997a8e58685e4bea7e789a9e4b89ae5898de58fb0"
-        },
-        "phone": "",
-        "rating_tenths": 45,
-        "review_count": 90,
-        "avg_price_minor": 0,
-        "price_band": "$$",
-        "hours": "08:00-20:00",
-        "tags": {
-          "__utf8_hex__": "e58f8ce6a2afe58886e58cbae8bf90e8a18c2ce6999ae997b4e997a8e7a681e799bbe8aeb02ce4b89ce997a8e7949fe6b4bbe9858de5a5972ce4b8b4e8a197e6a5bce6a08be5a3b0e78eafe5a283"
-        },
-        "has_private_room": 0,
-        "max_party_size": 0
-      }
-    },
-    {
-      "server": "review_platform",
-      "table": "reviews",
-      "op": "insert",
-      "values": {
-        "review_id": "rev_mer_h_001",
-        "merchant_id": "mer_h",
-        "user_id": "resident_chen_42",
-        "rating": 4,
-        "body": {
-          "__utf8_hex__": "313120e5b182e68980e59ca8e58886e58cbae4b8a4e983a8e794b5e6a2afe8bf91e69c9fe8bf90e8a18ce7a8b3e5ae9aefbc9be4bb8ee4b89ce997a8e6ada5e8a18ce588b0e982bbe9878ce7949fe9b29ce7baa6e58d81e58886e9929fe38082e99da0e6b885e6be9ce8b7afe4b880e4bea7e59ca8e6999ae9ab98e5b3b0e5908ee4bb8de69c89e8bda6e8be86e5a3b0efbc8ce5b8a6e5ada9e5ad90e585a5e4bd8fe5898de69c80e5a5bde58886e588abe59ca820313920e782b9e5928c20323120e782b920e5a48de590ace38082"
-        },
-        "image_captions": {
-          "__utf8_hex__": "5b22e4b89ce997a8e6ada5e8a18ce98193222c22e794b5e6a2afe8bf90e8a18ce585ace7a4bae6a08f225d"
-        },
-        "created_at": "2026-07-24T19:36:00+08:00"
-      }
+    "phone": "17215010008",
+    "rating": 4.6,
+    "deals_count": 57,
+    "service_area": {
+     "__utf8_hex__": "e5bbbae982bae58cba2fe6b885e6be9ce78987e58cba"
     }
-  ]
+   }
+  },
+  {
+   "server": "listing_platform",
+   "table": "listings",
+   "op": "insert",
+   "values": {
+    "listing_id": "listing_h",
+    "category": "rent",
+    "title": {
+     "__utf8_hex__": "e6b885e6be9ce585ace9a68620e4b8a4e5b185"
+    },
+    "city": {
+     "__utf8_hex__": "e58d97e4baac"
+    },
+    "district": {
+     "__utf8_hex__": "e5bbbae982bae58cba"
+    },
+    "community": {
+     "__utf8_hex__": "e6b885e6be9ce585ace9a686"
+    },
+    "price_minor": 748000,
+    "area_sqm": 71.1,
+    "rooms": 2,
+    "metro": {
+     "__utf8_hex__": "e59cb0e9938132e58fb7e7babfe9b1bce598b4e7ab992032e58fb7e58fa3e6ada5e8a18ce7baa620313320e58886e9929f"
+    },
+    "attrs_json": "{\"place_id\":\"place_h\",\"deposit_minor\":748000,\"child_deposit_minor\":0,\"school_claim\":\"none\",\"elevator\":true,\"elevator_status\":\"operational\",\"floor\":11,\"available_by\":\"2026-08-06\",\"rooms\":2}",
+    "description": {
+     "__utf8_hex__": "3720e69c8820323620e697a5e696b0e4b88ae69eb6e38082e5b9b3e58fb0e799bbe8aeb0e4b8bae4b8a4e5b185efbc8ce794b5e6a2afe5bd93e5898de8bf90e8a18cefbc8ce69c80e697a9203820e69c88203620e697a5e4baa4e4bb98efbc9be69c88e7a79f203734383020e58583efbc8ce584bfe7aba5e585a5e4bd8fe4b88de58fa6e694b6e68abce98791efbc8ce4b99fe69caae4bd9ce5ada6e58cbae689bfe8afbae38082e5ada6e6a0a1e68ea5e98081e993bee5928ce5a49ce997b4e4b8b4e8a197e599aae5a3b0e4bb8de99c80e58886e588abe6a0b8e9aa8ce38082"
+    },
+    "photos_json": {
+     "__utf8_hex__": "5b22e5aea2e58e85e98787e58589222c22e794b5e6a2afe58e85222c22e6a5bce6a08be585a5e58fa3225d"
+    },
+    "agent_id": "agent_h",
+    "owner_user_id": null,
+    "status": "active",
+    "listed_at": "2026-07-26T09:46:00+08:00"
+   }
+  },
+  {
+   "server": "maps",
+   "table": "places",
+   "op": "insert",
+   "values": {
+    "place_id": "place_h",
+    "name": {
+     "__utf8_hex__": "e6b885e6be9ce585ace9a686"
+    },
+    "category": "residential",
+    "lat": 31.977,
+    "lng": 118.713,
+    "country": "CN",
+    "city": {
+     "__utf8_hex__": "e58d97e4baac"
+    },
+    "rating": 4.5,
+    "price_level": 2,
+    "hours_json": "{\"access\":\"resident_gate\",\"desk\":\"08:00-20:00\"}",
+    "phone": "",
+    "website": "",
+    "formatted": {
+     "__utf8_hex__": "e58d97e4baace5b882e5bbbae982bae58cbae6b885e6be9ce585ace9a686e4b89ce997a8"
+    }
+   }
+  },
+  {
+   "server": "maps",
+   "table": "places",
+   "op": "insert",
+   "values": {
+    "place_id": "poi_h_market",
+    "name": {
+     "__utf8_hex__": "e6b885e6be9ce982bbe9878ce7949fe9b29c"
+    },
+    "category": "grocery",
+    "lat": 31.978,
+    "lng": 118.714,
+    "country": "CN",
+    "city": {
+     "__utf8_hex__": "e58d97e4baac"
+    },
+    "rating": 4.4,
+    "price_level": 2,
+    "hours_json": "{\"mon_fri\":\"07:00-21:30\",\"sat_sun\":\"07:30-21:30\"}",
+    "phone": "",
+    "website": "",
+    "formatted": {
+     "__utf8_hex__": "e58d97e4baace5b882e5bbbae982bae58cbae6b885e6be9ce8b7af20313820e58fb7"
+    }
+   }
+  },
+  {
+   "server": "review_platform",
+   "table": "merchants",
+   "op": "insert",
+   "values": {
+    "merchant_id": "mer_h",
+    "name": {
+     "__utf8_hex__": "e6b885e6be9ce585ace9a686e789a9e4b89ae69c8de58aa1e4b8ade5bf83"
+    },
+    "category": "home_service",
+    "city": {
+     "__utf8_hex__": "e58d97e4baac"
+    },
+    "area": {
+     "__utf8_hex__": "e5bbbae982bae58cba"
+    },
+    "address": {
+     "__utf8_hex__": "e6b885e6be9ce585ace9a686e4b89ce997a8e58685e4bea7e789a9e4b89ae5898de58fb0"
+    },
+    "phone": "",
+    "rating_tenths": 45,
+    "review_count": 90,
+    "avg_price_minor": 0,
+    "price_band": "$$",
+    "hours": "08:00-20:00",
+    "tags": {
+     "__utf8_hex__": "e58f8ce6a2afe58886e58cbae8bf90e8a18c2ce6999ae997b4e997a8e7a681e799bbe8aeb02ce4b89ce997a8e7949fe6b4bbe9858de5a5972ce4b8b4e8a197e6a5bce6a08be5a3b0e78eafe5a283"
+    },
+    "has_private_room": 0,
+    "max_party_size": 0
+   }
+  },
+  {
+   "server": "review_platform",
+   "table": "reviews",
+   "op": "insert",
+   "values": {
+    "review_id": "rev_mer_h_001",
+    "merchant_id": "mer_h",
+    "user_id": "resident_chen_42",
+    "rating": 4,
+    "body": {
+     "__utf8_hex__": "313120e5b182e68980e59ca8e58886e58cbae4b8a4e983a8e794b5e6a2afe8bf91e69c9fe8bf90e8a18ce7a8b3e5ae9aefbc9be4bb8ee4b89ce997a8e6ada5e8a18ce588b0e982bbe9878ce7949fe9b29ce7baa6e58d81e58886e9929fe38082e99da0e6b885e6be9ce8b7afe4b880e4bea7e59ca8e6999ae9ab98e5b3b0e5908ee4bb8de69c89e8bda6e8be86e5a3b0efbc8ce5b8a6e5ada9e5ad90e585a5e4bd8fe5898de69c80e5a5bde58886e588abe59ca820313920e782b9e5928c20323120e782b920e5a48de590ace38082"
+    },
+    "image_captions": {
+     "__utf8_hex__": "5b22e4b89ce997a8e6ada5e8a18ce98193222c22e794b5e6a2afe8bf90e8a18ce585ace7a4bae6a08f225d"
+    },
+    "created_at": "2026-07-24T19:36:00+08:00"
+   }
+  }
+ ]
 }

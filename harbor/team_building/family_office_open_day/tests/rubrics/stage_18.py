@@ -7,7 +7,9 @@ def s18_execution_readiness_card(env) -> bool:
         ("calendar", "update"), ("maps", "directions"),
         ("review_platform", "get"), ("email", "search"),
     ] if used(env, 18, server, token))
-    recorded = stage_persisted(env, 18, [["onsite"], ["visitors", "staggered"], ["allergy", "materials"], ["photography", "fire"]])
+    # event-018 writes "on-site contacts"; has_all is substring-only, so accept
+    # the hyphenated spelling the world actually uses.
+    recorded = stage_persisted(env, 18, [["onsite", "on-site"], ["visitors", "staggered"], ["allergy", "materials"], ["photography", "fire"]])
     return refreshed >= 2 and recorded
 
 CHECKS = [

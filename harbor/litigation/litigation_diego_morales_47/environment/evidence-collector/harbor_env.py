@@ -25,6 +25,9 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import threading
+from contextlib import AsyncExitStack
+from datetime import timedelta
 from pathlib import Path
 from typing import Any
 
@@ -62,6 +65,101 @@ def _unwrap_mcp(result: Any) -> Any:
     return result
 
 
+_CALL_CONNECT_TIMEOUT = 10.0
+_CALL_READ_TIMEOUT = timedelta(seconds=20)
+_CALL_FUTURE_TIMEOUT = 40.0
+
+
+class _McpSessionHost:
+    """One long-lived MCP session on a private event-loop thread.
+
+    A stage-boundary capture issues hundreds of single-round-trip reads inside
+    Harbor's 60s collect-hook budget. Opening a streamable-HTTP session (TCP
+    connect + initialize handshake) per call costs ~60ms each, which alone
+    blows the budget once the Notion block fan-out reaches ~200 calls. Hosting
+    one session and issuing every call over it keeps per-call cost at a single
+    round trip; the session is shared across captures and rebuilt on failure,
+    because it may go stale while the collector sits idle between boundaries.
+    """
+
+    def __init__(self, url: str) -> None:
+        self.url = url
+        self._loop = asyncio.new_event_loop()
+        self._ready = threading.Event()
+        self._thread = threading.Thread(
+            target=self._run_loop, name=f"mcp-capture:{url}", daemon=True
+        )
+        self._stack: AsyncExitStack | None = None
+        self._session: Any = None
+        self._reset_lock = asyncio.Lock()
+        self._thread.start()
+        self._ready.wait()
+
+    def _run_loop(self) -> None:
+        asyncio.set_event_loop(self._loop)
+        self._ready.set()
+        self._loop.run_forever()
+
+    async def _connect(self) -> None:
+        from mcp import ClientSession
+        from mcp.client.streamable_http import streamablehttp_client
+
+        # Every call is bounded: a hung connection must fail fast (into an
+        # error envelope) instead of eating the whole hook timeout.
+        self._stack = AsyncExitStack()
+        try:
+            read, write, _meta = await self._stack.enter_async_context(
+                streamablehttp_client(self.url, timeout=_CALL_CONNECT_TIMEOUT)
+            )
+            self._session = await self._stack.enter_async_context(
+                ClientSession(read, write, read_timeout_seconds=_CALL_READ_TIMEOUT)
+            )
+            await self._session.initialize()
+        except BaseException:
+            await self._disconnect()
+            raise
+
+    async def _disconnect(self) -> None:
+        stack, self._stack, self._session = self._stack, None, None
+        if stack is not None:
+            await stack.aclose()
+
+    async def _call_with_retry(self, name: str, kwargs: dict[str, Any]) -> Any:
+        await self._ensure_connected()
+        try:
+            result = await self._session.call_tool(name, kwargs)
+        except BaseException:
+            # Stale or broken session (idle between stage boundaries, service
+            # restart): rebuild once on this loop and retry before giving up.
+            async with self._reset_lock:
+                await self._disconnect()
+                await self._connect()
+            result = await self._session.call_tool(name, kwargs)
+        return _unwrap_mcp(result)
+
+    async def _ensure_connected(self) -> None:
+        if self._session is None:
+            await self._connect()
+
+    def call_tool(self, name: str, **kwargs: Any) -> Any:
+        coroutine = self._call_with_retry(name, kwargs)
+        future = asyncio.run_coroutine_threadsafe(coroutine, self._loop)
+        return future.result(timeout=_CALL_FUTURE_TIMEOUT)
+
+
+_SESSION_HOSTS: dict[tuple[str, str], "_McpSessionHost"] = {}
+_SESSION_HOSTS_LOCK = threading.Lock()
+
+
+def _session_host(server: str, url: str) -> _McpSessionHost:
+    key = (server, url)
+    with _SESSION_HOSTS_LOCK:
+        host = _SESSION_HOSTS.get(key)
+        if host is None:
+            host = _SESSION_HOSTS[key] = _McpSessionHost(url)
+        return host
+
+
 class _McpCapability:
     """Read-side MCP capability used during trusted collection."""
 
@@ -71,18 +169,8 @@ class _McpCapability:
         port = os.environ.get("MCP_PORT", "8000")
         self.url = f"http://{host}:{port}/mcp"
 
-    async def _call_async(self, name: str, **kwargs: Any) -> Any:
-        from mcp import ClientSession
-        from mcp.client.streamable_http import streamablehttp_client
-
-        async with streamablehttp_client(self.url) as (read, write, _meta):
-            async with ClientSession(read, write) as session:
-                await session.initialize()
-                result = await session.call_tool(name, kwargs)
-        return _unwrap_mcp(result)
-
     def call_tool(self, name: str, **kwargs: Any) -> Any:
-        return asyncio.run(self._call_async(name, **kwargs))
+        return _session_host(self.server, self.url).call_tool(name, **kwargs)
 
 
 class _Fs:

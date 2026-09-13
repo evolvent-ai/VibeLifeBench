@@ -8,6 +8,12 @@ def register_coupon_tools(mcp: FastMCP, coupon: CouponService) -> None:
 
     @mcp.tool()
     @handle_errors
+    async def list_coupons() -> str:
+        """List the marketplace's official coupon definitions: code, kind, value (bp for percent_off / cents for flat_off), minimum eligible subtotal, validity window, category restriction, usage caps, and active flag."""
+        return dumps({"coupons": coupon.list_coupons()})
+
+    @mcp.tool()
+    @handle_errors
     async def apply_coupon(user_id: str, code: str) -> str:
         """Apply a coupon code to the user's cart. Returns the recomputed cart view, or an error envelope on validation failure (invalid, expired, below min spend, category mismatch)."""
         return dumps(coupon.apply_coupon(user_id, code))

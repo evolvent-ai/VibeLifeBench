@@ -286,7 +286,11 @@ def derived_text(env, stage: int | None = None) -> str:
 
 def persisted_text(env, stage: int | None = None) -> str:
     return derived_text(env, stage)
-_CANON_RE = re.compile('(job_gk_\\d{3,}|app[_a-z0-9]*\\d{3,}|tx_gk_[a-z0-9]+|case_\\d{3,}|art_[a-z0-9_]+|acct_gk_[a-z]+|\\d{8,})')
+# Canonical audit references are real business identifiers only. A bare
+# long-digit alternative (\d{8,}) is deliberately absent: seeded notion pages
+# carry 12-digit platform ids that matched it, letting final_audit_trail pass
+# vacuously with zero agent work.
+_CANON_RE = re.compile('(job_gk_\\d{3,}|app[_a-z0-9]*\\d{3,}|tx_gk_[a-z0-9]+|case_\\d{3,}|art_[a-z0-9_]+|acct_gk_[a-z]+)')
 
 def audit_ref_count(env, corpus: str | None=None) -> int:
     if corpus is None:
@@ -393,7 +397,12 @@ def relocation_statement_total_minor(env, stage: int=2) -> int | None:
                     and str(line.get('kind') or '') in {'purchase', 'refund', 'adjustment'}]
         if selected:
             totals.append(sum(int(line.get('amount_minor')) for line in selected))
-    return totals[0] if len(totals) == 1 else None
+    # Reading the same statement twice is normal (a stage's tool block re-runs
+    # on every event of that stage, and agents re-read statements), so
+    # identical totals are one piece of evidence, not ambiguity. Distinct
+    # totals from different statements stay ambiguous and yield None.
+    distinct = set(totals)
+    return distinct.pop() if len(distinct) == 1 else None
 
 def _email_id(e: dict) -> str | None:
     for k in ('email_id', 'id', 'message_id'):

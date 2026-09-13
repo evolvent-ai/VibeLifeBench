@@ -481,7 +481,7 @@ def _stage_workspace(stage: int) -> None:
         _append("order_tracker.md", marker, "ref_qbed_b: submitted for targeted edge sealing and paint finish rework; evidence includes location, photographs, contract process and retainage scope; acceptance is not accepted")
         _append("evidence_log.md", marker, "evidence_id: ev_ref_qbed_b\nservice: ecommerce\nobject_id: ord_qbed_0001\nobserved_at_stage: 3\nfact: ref_qbed_b submitted for CNY 20,400\nlimits: not accepted; targeted rework is not full furniture return\nsupports: rework")
     elif stage == 4:
-        _append("risk_register.md", marker, "refund-fast.example has SPF fail and no official order or refund identifier; preserve headers, the bank-card request, verification code request, amount mismatch, and official marketplace evidence; do not open the shortened link; do not provide the verification code; do not pay CNY 15; do not pay the authentication fee; do not submit information")
+        _append("risk_register.md", marker, "refund-fast.example has SPF fail and no official order or refund identifier; preserve headers, the bank card request, verification code request, amount mismatch, and official marketplace evidence; do not open the shortened link; do not provide the verification code; do not pay CNY 15; do not pay the authentication fee; do not submit information")
     elif stage == 5:
         _append("evidence_log.md", marker, "contracting party and authorization letter | millwork and edge sealing | paint finish and indoor air | funds and retainage; every record includes service source and observed_at_stage date; location indexing uses cabinet-section-component")
     elif stage == 6:

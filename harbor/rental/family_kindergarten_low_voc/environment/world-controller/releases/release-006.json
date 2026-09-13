@@ -14,12 +14,12 @@
       "op": "insert",
       "values": {
         "notification_id": "nt_sunbay_lockfee",
-        "user_id": "u_nh_7Px4Kq9M",
+        "user_id": "usr_family_038",
         "source": "rental_updates",
         "type": "policy_update",
         "subscription_id": "sub_rental",
-        "title": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated",
-        "body": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated 2000 translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated。",
+        "title": "Chengwan off-platform holding fee request",
+        "body": "The Chengwan contact asks for a 2000 CNY off-platform lock fee tonight to hold apt_sunbay_loft_2b_1801; refuse the private transfer and keep the process on-platform.",
         "payload_json": "{\"listing_id\":\"apt_sunbay_loft_2b_1801\",\"request\":\"private_transfer_2000\",\"platform\":\"off_platform\",\"deadline\":\"tonight\"}",
         "created_at": "2026-08-11T08:40:00+08:00",
         "read": 0

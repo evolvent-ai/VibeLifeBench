@@ -2,9 +2,27 @@
 
 The world-controller invokes this module only in its sidecar phase. All world
 mutations visible to the step were applied before the agent turn; no trailing
-mutation is allowed between response collection and snapshot publication. The returned dictionary is written directly into the
-private evidence volume; this module never materializes historical files in the
-agent workspace.
+mutation is allowed between response collection and snapshot publication. The
+returned dictionary is written directly into the private evidence volume; this
+module never materializes historical files in the agent workspace.
+
+The captured sections are this task's own contract — the five services wired in
+``docker-compose.yaml`` (calendar, email, health_tracker, notion, weather), read
+as user ``li_ming`` — shaped for what ``tests/rubrics/_helpers.py`` reads:
+
+* ``calendar.events`` — rows from BOTH seeded calendars, each keeping its
+  ``calendar_id`` (personal planning vs. the authoritative airport roster);
+* ``health_tracker`` — every metric type plus the workout log, each row
+  projecting its timestamp under ``date``/``timestamp`` (the rubrics window by
+  those keys; the mock stores ``recorded_at``/``started_at``);
+* ``email`` — folder listings with each message's ``read_email`` body and
+  threading headers merged in (the listing is metadata-only, but the rubrics
+  match body facts such as reply deadlines against the row blob);
+* ``weather.alerts`` — active alerts for the seeded apron location.
+
+Every read lands in the snapshot exactly as the service answered it. A failed
+capability read therefore freezes as ``{"error": ...}`` — diagnosable, and the
+controller refuses to publish a snapshot that carries one.
 """
 from __future__ import annotations
 
@@ -17,8 +35,33 @@ from typing import Any
 SCENARIO_CLOCK_PATH = Path(os.environ.get("WORLD_CLOCK_FILE", "/world-clock/current.json"))
 SCENARIO_CLOCK_REQUIRED = True
 
-USER_ID = "usr_lin_che"
-CALENDAR_ID = "cal_lin_primary"
+USER_ID = "li_ming"
+CAL_PERSONAL = "cal_liming_personal"
+CAL_ROSTER = "cal_airport_roster"
+CALENDARS = (CAL_PERSONAL, CAL_ROSTER)
+ALERT_GEO = "pvg_apron"
+
+# The mock accepts exactly these metric types (health_tracker_mock
+# _metric_meta.METRIC_TYPES); each is paged in full and merged.
+METRIC_TYPES = (
+    "weight",
+    "steps",
+    "heart_rate",
+    "sleep_minutes",
+    "blood_pressure",
+    "body_fat",
+    "finger_pain",
+    "score",
+)
+
+# The rubrics window events across the whole cycle (2026-07 .. 2026-08) and the
+# seeded history starts in June, so freeze a superset window; the checks
+# re-filter by each row's start/end themselves.
+CALENDAR_WINDOW = {
+    "time_min": "2026-06-01T00:00:00+08:00",
+    "time_max": "2026-09-30T23:59:00+08:00",
+    "max_results": 500,
+}
 
 
 def scenario_clock() -> dict[str, Any]:
@@ -38,99 +81,27 @@ def scenario_clock() -> dict[str, Any]:
         return {"schema_version": 1, "step": "unknown", "now": ""}
 
 
-# Copied verbatim from the source task.py. The rubrics assert on these exact ids.
-TRACKED_JOB_IDS = (
-    "job_mj_214",
-    "job_yr_098",
-    "job_qs_507",
-    "job_lh_332",
-    "job_jh_126",
-    "job_ba_773",
-    "job_eb2508",
-    "job_4437d4",
-    "job_08caa9",
-    "job_fbc2b6",
-    "job_86f824",
-    "job_361030",
-    "job_541371",
-    "job_adcf31",
-)
-
-TRACKED_APPLICATION_IDS = (
-    "app_mj_001",
-    "app_39f15c",
-    "app_9cfb94",
-    "app_a935d7",
-    "app_b323c6",
-    "app_ca54c7",
-    "app_308e6e",
-    "app_0a108f",
-    "app_6ebad5",
-    "app_bc0d7e",
-)
-
-TRACKED_LEGAL_IDS = {
-    "cases": (
-        "case_noncompete_comp",
-        "case_probation_salary",
-        "case_employee_work",
-        "case_customer_data",
-        "case_clause_scope",
-        "case_confidentiality",
-        "case_0b9fb5e5",
-        "case_91df21d0",
-        "case_32e71e2d",
-        "case_c202b143",
-        "case_9e37bba0",
-    ),
-    "statutes": (
-        "stat_labor_contract",
-        "stat_personal_info",
-        "stat_civil_code",
-        "stat_52e9ebd7",
-        "stat_b8e3b12b",
-        "stat_aa45041c",
-        "stat_53e861d3",
-        "stat_8f9c2ba0",
-        "stat_fdb02184",
-        "stat_fb08641d",
-    ),
-    "articles": (
-        "art_labor_19",
-        "art_labor_20",
-        "art_labor_23",
-        "art_labor_24",
-        "art_pipl_6",
-        "art_civil_privacy",
-        "art_87d7abfc",
-        "art_4cb3c589",
-        "art_314eb23c",
-        "art_41be0315",
-        "art_a67caa73",
-        "art_c6e4419e",
-    ),
-}
-
-# Workspace files shipped as baseline context. The source snapshot excludes them
-# so that seeded prose can never be mistaken for the agent's own writing.
+# Workspace files shipped as baseline context. The snapshot excludes them so
+# that seeded prose can never be mistaken for the agent's own writing; the
+# agent-facing derived ledgers (stage_progress.md, risk_log.md, ...) are
+# captured because the rubrics score what the agent durably wrote there.
 BASELINE_WORKSPACE_NAMES = {
     "AGENTS.md",
-    "AUTHORIZATION.md",
-    "COMPENSATION.md",
+    "BUDGET_AUTH.md",
+    "HEALTH_BOUNDARIES.md",
     "IDENTITY.md",
-    "INTERVIEW_PREP.md",
     "PERSONA.md",
-    "REFERENCES.md",
-    "RESUME_PROFILE.md",
+    "PRIVACY_AND_AUTH.md",
     "SOUL.md",
     "TOOLS.md",
+    "TRAINING_PRINCIPLES.md",
     "USER.md",
 }
 ALLOWED_WORKSPACE_SUFFIXES = (".md", ".txt", ".json", ".csv")
 
 
 def _decode(value: Any) -> Any:
-    """Mirror of the source ``_decode_tool_value`` for JSON-in-string results."""
+    """Decode JSON-in-string tool results."""
     if isinstance(value, str):
         try:
             return json.loads(value)
@@ -166,11 +137,11 @@ def _unwrap_envelope(value: Any, fetch_page: Any = None) -> Any:
 
 
 def _call(env: Any, server: str, tool: str, **kwargs: Any) -> Any:
-    """Mirror of the source ``_snapshot_call``: never raise, record the error.
+    """Never raise, record the error.
 
-    A failed capability read must land in the snapshot as ``{"error": ...}``
-    exactly as the source recorded it, so a broken server produces failing checks
-    with a diagnosable cause instead of aborting the whole verifier.
+    A failed capability read must land in the snapshot as ``{"error": ...}``,
+    so a broken server produces a snapshot the controller refuses to publish
+    with a diagnosable cause instead of silently freezing an empty world.
     """
     cap = getattr(env, f"{server}_mock", None)
     if cap is None:
@@ -178,7 +149,7 @@ def _call(env: Any, server: str, tool: str, **kwargs: Any) -> Any:
     try:
         decoded = _decode(cap.call_tool(tool, **kwargs))
         return _unwrap_envelope(decoded, lambda p: _decode(cap.call_tool(tool, **{**kwargs, "page": p})))
-    except BaseException as exc:  # noqa: BLE001 - parity with source behaviour
+    except BaseException as exc:  # noqa: BLE001 - capture must not abort the sidecar
         return {"error": f"{type(exc).__name__}: {exc}"}
 
 
@@ -189,8 +160,7 @@ def _paged_call(
 
     The email mock clamps ``page_size`` to 50 (``utils/validators.py``) and
     signals the clamp only by echoing the applied value, so one large request
-    silently returns a prefix: the seeded INBOX holds 75 messages, of which a
-    single request captures 50. Evidence that never enters the snapshot can
+    silently returns a prefix. Evidence that never enters the snapshot can
     never be scored, so the walk continues until the accumulated rows reach the
     reported total. Rows are merged back into the first page's envelope, leaving
     the stored shape unchanged for consumers.
@@ -239,6 +209,54 @@ def _paged_call(
     return first
 
 
+def _calendar_snapshot(env: Any) -> dict[str, Any]:
+    """Events from both seeded calendars, rows keeping their ``calendar_id``.
+
+    The rubrics address personal planning and the authoritative airport roster
+    as separate calendars; capturing a single calendar id would freeze either
+    an empty world or a mixed one, and every roster-preservation check would
+    read the wrong rows.
+    """
+    events: list[Any] = []
+    for calendar_id in CALENDARS:
+        rows = _call(env, "calendar", "list_events", calendar_id=calendar_id, **CALENDAR_WINDOW)
+        for row in rows if isinstance(rows, list) else []:
+            if isinstance(row, dict):
+                row.setdefault("calendar_id", calendar_id)
+                events.append(row)
+    return {"events": events, "calendar_ids": list(CALENDARS)}
+
+
+def _health_snapshot(env: Any) -> dict[str, Any]:
+    """Every metric type plus the workout log, with a ``date`` projection.
+
+    The mock exposes timestamps as ``recorded_at`` / ``started_at``; the rubrics
+    window rows by ``date`` or ``timestamp``, so each frozen row carries the
+    same instant under the contract key. Without the projection every
+    since/until filter drops every row and all health checks read an empty
+    tracker no matter what the agent did.
+    """
+    metrics: list[Any] = []
+    for metric_type in METRIC_TYPES:
+        rows = _call(
+            env, "health_tracker", "get_metrics",
+            user_id=USER_ID, type=metric_type, limit=1000,
+        )
+        for row in rows if isinstance(rows, list) else []:
+            if isinstance(row, dict):
+                row.setdefault("date", row.get("recorded_at"))
+                row.setdefault("timestamp", row.get("recorded_at"))
+                metrics.append(row)
+    workouts: list[Any] = []
+    workout_rows = _call(env, "health_tracker", "list_workouts", user_id=USER_ID, limit=500)
+    for row in workout_rows if isinstance(workout_rows, list) else []:
+        if isinstance(row, dict):
+            row.setdefault("date", row.get("started_at"))
+            row.setdefault("timestamp", row.get("started_at"))
+            workouts.append(row)
+    return {"metrics": metrics, "workouts": workouts}
+
+
 def _email_listing(env: Any, folder: str) -> Any:
     return _paged_call(
         env, "email", "get_emails",
@@ -246,34 +264,41 @@ def _email_listing(env: Any, folder: str) -> Any:
     )
 
 
-def _email_snapshot(env: Any, folder: str, *, include_body: bool) -> dict[str, Any]:
-    """Capture a folder's listing plus per-message detail.
+def _email_snapshot(env: Any, folder: str) -> dict[str, Any]:
+    """Folder listing with per-message bodies merged into the listing rows.
 
-    Detail merges ``read_email`` (body) with ``get_email_headers``
-    (``in_reply_to`` / ``references``). Both calls are required: the mock's
-    ``read_email`` projection deliberately omits threading headers, but
-    ``_helpers.sent_message_matches`` matches ``thread_message_id`` against
-    ``in_reply_to``/``references``. Capturing only ``read_email`` therefore makes
-    every threaded-reply check unreachable no matter what the agent does — the
-    reply is in Sent, correctly threaded in the database, and still scores zero.
+    ``get_emails`` returns metadata only. The rubrics match message facts
+    (deadlines, quoted instructions such as the 18:00 reply-by time) against the
+    row blob, so the frozen listing must carry each message's ``read_email``
+    projection and its threading headers — otherwise every inbox message reads
+    as header-only and the email checks fail no matter what the agent did. The
+    raw per-message reads are additionally kept under ``details``. A failed
+    per-message read is recorded on its row without poisoning the folder (one
+    unreadable body must not void the whole stage), so it uses a dedicated key
+    rather than the fatal ``{"error": ...}`` shape.
     """
     listing = _email_listing(env, folder)
-    if not include_body or not isinstance(listing, dict):
-        return {"listing": listing, "details": []}
     details: list[Any] = []
-    for item in listing.get("emails") or []:
-        if not isinstance(item, dict):
-            continue
-        email_id = item.get("email_id") or item.get("id")
-        if email_id is None:
-            continue
-        detail = _call(env, "email", "read_email", email_id=str(email_id))
-        headers = _call(env, "email", "get_email_headers", email_id=str(email_id))
-        if isinstance(detail, dict) and isinstance(headers, dict):
-            for key in ("in_reply_to", "references", "references_header", "headers", "thread_id"):
-                if headers.get(key) is not None:
-                    detail.setdefault(key, headers[key])
-        details.append(detail)
+    if isinstance(listing, dict):
+        for item in listing.get("emails") or []:
+            if not isinstance(item, dict):
+                continue
+            email_id = item.get("email_id") or item.get("id")
+            if email_id is None:
+                continue
+            detail = _call(env, "email", "read_email", email_id=str(email_id))
+            headers = _call(env, "email", "get_email_headers", email_id=str(email_id))
+            if isinstance(detail, dict) and "error" not in detail:
+                for key in ("body_text", "body_html", "attachments"):
+                    if detail.get(key) is not None:
+                        item.setdefault(key, detail[key])
+            elif isinstance(detail, dict):
+                item["detail_capture_error"] = str(detail["error"])
+            if isinstance(headers, dict) and "error" not in headers:
+                for key in ("in_reply_to", "references"):
+                    if headers.get(key) is not None:
+                        item.setdefault(key, headers[key])
+            details.append(detail)
     return {"listing": listing, "details": details}
 
 
@@ -378,62 +403,33 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
     }
 
 
+def _weather_snapshot(env: Any) -> dict[str, Any]:
+    """Active alerts for the seeded apron location.
+
+    ``weather_alert_matches`` greps the alert rows for id/kind/severity/window
+    plus description terms; the apron geo is the seeded location both task
+    alerts cover, so the list under ``alerts`` is the whole contract (the
+    verifier-side reader answers any geo from this one merged list).
+    """
+    return {"alerts": _call(env, "weather", "get_alerts", geo=ALERT_GEO)}
+
+
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
-    """Verbatim port of the source ``_capture_stage_snapshot``."""
+    """Freeze this stage's five-service world for the rubrics."""
     return {
         "stage": stage_idx,
         "scenario_clock": scenario_clock(),
-        "job_board": {
-            "applications": _call(env, "job_board", "list_applications", user_id=USER_ID),
-            "application_details": {
-                application_id: _call(
-                    env, "job_board", "get_application_status", application_id=application_id
-                )
-                for application_id in TRACKED_APPLICATION_IDS
-            },
-            "resumes": _call(env, "job_board", "list_resumes", user_id=USER_ID),
-            "saved_jobs": _call(env, "job_board", "list_saved_jobs", user_id=USER_ID),
-            "chats": _call(env, "job_board", "list_chats", user_id=USER_ID),
-            "jobs": {
-                job_id: _call(env, "job_board", "get_job", job_id=job_id)
-                for job_id in TRACKED_JOB_IDS
-            },
-        },
+        "user_id": USER_ID,
+        "calendar": _calendar_snapshot(env),
         "email": {
-            "inbox": _email_snapshot(env, "INBOX", include_body=False),
-            "sent": _email_snapshot(env, "Sent", include_body=True),
+            "inbox": _email_snapshot(env, "INBOX"),
+            "sent": _email_snapshot(env, "Sent"),
             "drafts": _paged_call(
                 env, "email", "get_drafts", rows_key="drafts", id_keys=("draft_id", "id")
             ),
         },
-        "calendar": {
-            "events": _call(
-                env, "calendar", "list_events", calendar_id=CALENDAR_ID, max_results=500
-            )
-        },
-        "notification_hub": {
-            "subscriptions": _call(
-                env, "notification_hub", "list_subscriptions", user_id=USER_ID
-            ),
-            "notifications": _call(
-                env, "notification_hub", "list_notifications", user_id=USER_ID, limit=500
-            ),
-        },
+        "health_tracker": _health_snapshot(env),
         "workspace": _workspace_snapshot(env),
         "notion": _notion_snapshot(env),
-        "legal_search": {
-            "saved_cases": _call(env, "legal_search", "list_saved", user_id=USER_ID),
-            "cases": {
-                case_id: _call(env, "legal_search", "get_case", case_id=case_id)
-                for case_id in TRACKED_LEGAL_IDS["cases"]
-            },
-            "statutes": {
-                statute_id: _call(env, "legal_search", "get_statute", statute_id=statute_id)
-                for statute_id in TRACKED_LEGAL_IDS["statutes"]
-            },
-            "articles": {
-                article_id: _call(env, "legal_search", "get_article", article_id=article_id)
-                for article_id in TRACKED_LEGAL_IDS["articles"]
-            },
-        },
+        "weather": _weather_snapshot(env),
     }

@@ -35,6 +35,9 @@ def scenario_clock() -> dict[str, Any]:
 
 
 # Copied verbatim from the source task.py. The rubrics assert on these exact ids.
+# Jobs are inserted progressively by releases, so a tracked id is not guaranteed
+# to exist at every stage boundary; the capture records those as null instead of
+# failing (NOT_FOUND_CODES below).
 TRACKED_JOB_IDS = (
     "portal_retake_notice_2026", "portal_defer_rules_2026",
     "portal_grade_review_rules_2026", "campus_defer_application_2026",
@@ -42,9 +45,10 @@ TRACKED_JOB_IDS = (
     "portal_seat_table_0915", "portal_score_report_0921",
 )
 
-TRACKED_APPLICATION_IDS = (
-    "app_retake_2026", "app_defer_2026", "app_review_2026",
-)
+# Mock error codes meaning "this tracked entity does not exist (yet)" — a
+# legitimate world state for a speculative capture, not a read failure. Every
+# other error stays fail-closed.
+NOT_FOUND_CODES = ("NOT_FOUND", "JOB_NOT_FOUND", "APPLICATION_NOT_FOUND")
 
 DECLARED_SERVICES = (
     "job_board", "email", "calendar", "notification_hub", "notion",
@@ -132,7 +136,13 @@ def _unwrap_envelope(value, fetch_page=None):
     return merged
 
 
-def _tool_value(cap: Any, server: str, tool: str, kwargs: dict[str, Any]) -> Any:
+def _tool_value(
+    cap: Any,
+    server: str,
+    tool: str,
+    kwargs: dict[str, Any],
+    tolerate_missing: tuple[str, ...] = (),
+) -> Any:
     try:
         raw = cap.call_tool(tool, **kwargs)
     except Exception as exc:
@@ -146,18 +156,22 @@ def _tool_value(cap: Any, server: str, tool: str, kwargs: dict[str, Any]) -> Any
         if value.get("isError") is True or value.get("is_error") is True:
             raise RuntimeError(f"MCP read failed: {server}.{tool} returned isError=true")
         if value.get("error") not in (None, False, ""):
+            if value.get("code") in tolerate_missing:
+                return None
             raise RuntimeError(f"MCP read failed: {server}.{tool}: {value['error']}")
     return value
 
 
-def _call(env: Any, server: str, tool: str, **kwargs: Any) -> Any:
+def _call(
+    env: Any, server: str, tool: str, tolerate_missing: tuple[str, ...] = (), **kwargs: Any
+) -> Any:
     """Read one declared capability and fail closed on read errors."""
     if server not in DECLARED_SERVICES:
         raise RuntimeError(f"undeclared capability requested during capture: {server}")
     cap = getattr(env, f"{server}_mock", None)
     if cap is None:
         raise RuntimeError(f"missing declared capability: {server}")
-    value = _tool_value(cap, server, tool, kwargs)
+    value = _tool_value(cap, server, tool, kwargs, tolerate_missing=tolerate_missing)
     return _unwrap_envelope(
         value,
         lambda p: _tool_value(cap, server, tool, {**kwargs, "page": p}),
@@ -371,22 +385,36 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     missing = [server for server in DECLARED_SERVICES if getattr(env, f"{server}_mock", None) is None]
     if missing:
         raise RuntimeError(f"missing declared capabilities: {', '.join(missing)}")
+    applications = _call(env, "job_board", "list_applications", user_id=USER_ID)
+    application_rows = [
+        row for row in (applications if isinstance(applications, list) else [])
+        if isinstance(row, dict) and row.get("application_id") is not None
+    ]
     return {
         "stage": stage_idx,
         "scenario_clock": scenario_clock(),
         "job_board": {
-            "applications": _call(env, "job_board", "list_applications", user_id=USER_ID),
+            "applications": applications,
+            # Details are read for the applications that actually exist in the
+            # world; speculatively probing hard-coded ids would only observe
+            # APPLICATION_NOT_FOUND for ids no seed or release ever creates.
             "application_details": {
-                application_id: _call(
-                    env, "job_board", "get_application_status", application_id=application_id
+                str(row["application_id"]): _call(
+                    env,
+                    "job_board",
+                    "get_application_status",
+                    application_id=str(row["application_id"]),
                 )
-                for application_id in TRACKED_APPLICATION_IDS
+                for row in application_rows
             },
             "resumes": _call(env, "job_board", "list_resumes", user_id=USER_ID),
             "saved_jobs": _call(env, "job_board", "list_saved_jobs", user_id=USER_ID),
             "chats": _call(env, "job_board", "list_chats", user_id=USER_ID),
             "jobs": {
-                job_id: _call(env, "job_board", "get_job", job_id=job_id)
+                job_id: _call(
+                    env, "job_board", "get_job", job_id=job_id,
+                    tolerate_missing=NOT_FOUND_CODES,
+                )
                 for job_id in TRACKED_JOB_IDS
             },
         },

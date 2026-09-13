@@ -1,1 +1,1 @@
-A contact is pressing for documents and mentions a very short deadline. Verify the full sender address, attachment requirements, and current authorization status.
+A contact is pressing for documents and mentions a very short deadline. Verify the full sender address, attachment requirements, and current authorization status. Note this document-demand thread in the internal Candidate B record, referencing the listing id rs018_listing_b.

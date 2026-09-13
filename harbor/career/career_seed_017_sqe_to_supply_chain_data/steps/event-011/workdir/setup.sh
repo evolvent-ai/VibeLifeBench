@@ -11,7 +11,7 @@ done
 
 post_controller() {
   for try in 1 2 3 4 5; do
-    if curl -fsS "$@" >/dev/null; then return 0; fi
+    if curl -fsS -X POST "$@" >/dev/null; then return 0; fi
     sleep 2
   done
   return 22

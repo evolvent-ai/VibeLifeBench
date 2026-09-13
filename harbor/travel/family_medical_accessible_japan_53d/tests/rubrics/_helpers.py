@@ -177,6 +177,31 @@ def _search_rows(rows: list[dict[str, Any]], query: str) -> list[dict[str, Any]]
     return [row for row in rows if needle in json.dumps(row, ensure_ascii=False).lower()]
 
 
+def _email_search_rows(
+    rows: list[dict[str, Any]], details: Any, query: str
+) -> list[dict[str, Any]]:
+    """Replay the live email search (subject, from_addr, or body_text).
+
+    The frozen get_emails listing is metadata-only, so a ref that only occurs in
+    a message body cannot match the listing row. When the row itself does not
+    match, fall back to the frozen read_email details captured for that
+    message, which carry body_text.
+    """
+    needle = query.strip().lower()
+    if not needle:
+        return rows
+    detail_map = details if isinstance(details, dict) else {}
+
+    def matches(row: dict[str, Any]) -> bool:
+        if needle in json.dumps(row, ensure_ascii=False).lower():
+            return True
+        email_id = row.get("email_id") or row.get("id")
+        detail = detail_map.get(str(email_id)) if email_id is not None else None
+        return isinstance(detail, dict) and needle in json.dumps(detail, ensure_ascii=False).lower()
+
+    return [row for row in rows if matches(row)]
+
+
 def _call(env, server: str, tool: str, **kwargs):
     section = _required(_stage_snapshot(env).get(server), f"{server} section")
     if not isinstance(section, dict):
@@ -220,7 +245,12 @@ def _call(env, server: str, tool: str, **kwargs):
             folder = str(kwargs.get("folder") or "INBOX").lower()
             bucket = section.get(folder)
             listing = bucket.get("listing") if isinstance(bucket, dict) else bucket
-            rows = _search_rows(_rows(_required(listing, f"email.{folder}"), "emails", "results"), str(kwargs.get("query") or ""))
+            details = bucket.get("details") if isinstance(bucket, dict) else None
+            rows = _email_search_rows(
+                _rows(_required(listing, f"email.{folder}"), "emails", "results"),
+                details,
+                str(kwargs.get("query") or ""),
+            )
             return {"emails": rows, "results": rows}
         if tool == "read_email":
             email_id = str(kwargs.get("email_id"))

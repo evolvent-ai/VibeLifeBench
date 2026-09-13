@@ -17,7 +17,11 @@ def s1_visa_rule_surface(env) -> bool:
     text = _all_corpus(env)
     official = _any_kw(text, ["mofa", "ministry of foreign affairs", "official portal", "official channel"])
     channel = _any_kw(text, ["japan evisa", "evisa", "consular jurisdiction", "jurisdiction"])
-    no_shortcut = _any_kw(text, ["not age-based", "no age shortcut"])
+    # The instruction (event-001) words it "rather than an age-based
+    # shortcut"; accept that faithful paraphrase, not only the literal
+    # "not age-based" token.
+    no_shortcut = _any_kw(text, ["not age-based", "no age shortcut",
+                                 "age-based"])
     insurance_context = (
         _any_kw(text, ["travel insurance", "insurance"])
         and _any_kw(text, ["risk", "trip evidence", "risk coverage", "not a visa form"])

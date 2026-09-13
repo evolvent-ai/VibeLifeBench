@@ -69,7 +69,7 @@ class _McpCapability:
         self.server = server
         host = os.environ.get(f"MCP_HOST_{server.upper()}", _service_host(server))
         port = os.environ.get("MCP_PORT", "8000")
-        self.url = f"http://{host}:{port}/MCP"
+        self.url = f"http://{host}:{port}/mcp"
 
     async def _call_async(self, name: str, **kwargs: Any) -> Any:
         from mcp import ClientSession

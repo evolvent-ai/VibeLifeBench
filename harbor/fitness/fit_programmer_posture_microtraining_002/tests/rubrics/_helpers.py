@@ -1347,7 +1347,20 @@ def _impl_chk_s26_diff_cautious_calendar_lite(env) -> bool:
 
 def _impl_chk_s26_diff_six_service_freshness(env) -> bool:
     servers = ("calendar", "health_tracker", "ecommerce", "review_platform", "email", "notion")
-    used_all = all(_used_server(env, server, stage=26) or _used_server(env, server, stage=27) for server in servers)
+    # Stage 27 is frozen only at the final boundary. At the event-020 / stage-26
+    # boundary its evidence does not exist yet, so the former
+    # `or _used_server(..., stage=27)` fallback read unpublished evidence and
+    # raised EvidenceError, which turned the whole step into a
+    # VerifierInfrastructureError (the nop arm could not be scored at all).
+    # Gate the s27 read on publication: "used at s27" contributes once that
+    # stage is actually frozen, and a damaged (not merely not-yet-published)
+    # stage-27 tree still raises instead of silently reading as unused.
+    frozen = frozenset(env.published_stages())
+    used_all = all(
+        _used_server(env, server, stage=26)
+        or (27 in frozen and _used_server(env, server, stage=27))
+        for server in servers
+    )
     matrix_text = _workspace_file(env, "service_consistency_matrix.md")
     final_text = _workspace_file(env, "final_review.md")
     progress_text = _workspace_file(env, "stage_progress.md")

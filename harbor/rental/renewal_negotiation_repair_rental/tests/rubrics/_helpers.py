@@ -163,16 +163,22 @@ def _tool_calls(env, stage: int | None = None) -> list[dict[str, Any]]:
             continue
         parsed = _load_json(raw)
         if isinstance(parsed, list):
-            calls.extend(
-                c
-                for c in parsed
-                if isinstance(c, dict)
-                and c.get("success") is True
-                and not (
-                    isinstance(_as_obj(c.get("result")), dict)
-                    and _as_obj(c.get("result")).get("error")
-                )
-            )
+            # ATIF submissions hand observations over as JSON text (the oracle
+            # records ``content: json.dumps(result)``), so the frozen entries
+            # carry ``result`` as a string. Decode once here — the same
+            # normalization the dict-shaped branch applies to ``content`` —
+            # otherwise every consumer that replays results (the saved-listing
+            # state machine, market-row readers) sees zero rows and silently
+            # wipes state that earlier calls in the same trace established.
+            for entry in parsed:
+                if not isinstance(entry, dict) or entry.get("success") is not True:
+                    continue
+                merged = dict(entry)
+                merged["result"] = _as_obj(entry.get("result"))
+                content = merged["result"]
+                if isinstance(content, dict) and content.get("error"):
+                    continue
+                calls.append(merged)
             continue
         if not isinstance(parsed, dict):
             continue

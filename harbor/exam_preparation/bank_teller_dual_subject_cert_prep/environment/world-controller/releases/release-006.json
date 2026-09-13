@@ -11,13 +11,13 @@
         "id": 513,
         "folder_id": 1,
         "message_id": "<bank-manager-marketing-0722@example>",
-        "subject": "7 \u6708 26 \u65e5\u5916\u51fa\u8425\u9500\u4e0e\u8c03\u4f11\u5b89\u6392",
+        "subject": "7 月 26 日外出营销与调休安排",
         "from_addr": "manager@binjiang-bank.example",
         "to_addr_json": "[\"chen.yiran@binjiang-bank.example\"]",
         "cc_addr_json": "[]",
         "bcc_addr_json": "[]",
         "date": "2026-07-22T16:20:00+08:00",
-        "body_text": "7 \u6708 26 \u65e5\u5168\u5929\u53c2\u52a0\u793e\u533a\u8425\u9500\uff0c7 \u6708 28 \u65e5\u4e0b\u5348\u8c03\u4f11\u3002\u8bf7\u81ea\u884c\u66f4\u65b0\u4e2a\u4eba\u65e5\u5386\u5e76\u907f\u514d\u4e0e\u6a21\u8003\u5b89\u6392\u51b2\u7a81\u3002",
+        "body_text": "7 月 26 日全天参加社区营销，7 月 28 日下午调休。请自行更新个人日历并避免与模考安排冲突。",
         "body_html": "",
         "is_read": 0,
         "is_important": 1,
@@ -35,8 +35,8 @@
       "table": "folders",
       "op": "update",
       "set": {
-        "message_count": "message_count+1",
-        "unread_count": "unread_count+1"
+        "message_count": 28,
+        "unread_count": 12
       },
       "where": {
         "id": 1

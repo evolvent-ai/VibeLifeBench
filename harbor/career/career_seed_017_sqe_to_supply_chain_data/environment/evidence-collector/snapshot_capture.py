@@ -19,7 +19,7 @@ SCENARIO_CLOCK_PATH = Path(
 SCENARIO_CLOCK_REQUIRED = os.environ.get("SCENARIO_CLOCK_REQUIRED", "0") == "1"
 
 USER_ID = "usr_lin_che"
-CALENDAR_ID = "cal_lin_primary"
+CALENDAR_ID = "cal_lin_work"
 
 
 def scenario_clock() -> dict[str, Any]:
@@ -36,22 +36,12 @@ def scenario_clock() -> dict[str, Any]:
         return {"schema_version": 1, "step": "unknown", "now": ""}
 
 
-# Copied verbatim from the source task.py. The rubrics assert on these exact ids.
+# The core roles this task's rubrics assert on (CORE_JOB_IDS in the rubric
+# helpers); get_job lookups must resolve them from the frozen jobs map.
 TRACKED_JOB_IDS = (
-    "job_mj_214",
-    "job_yr_098",
-    "job_qs_507",
-    "job_lh_332",
-    "job_jh_126",
-    "job_ba_773",
-    "job_eb2508",
-    "job_4437d4",
-    "job_08caa9",
-    "job_fbc2b6",
-    "job_86f824",
-    "job_361030",
-    "job_541371",
-    "job_adcf31",
+    "job_novaforge_sca_001",
+    "job_lumei_sqe_data_002",
+    "job_orbit_wuxi_bi_003",
 )
 
 TRACKED_APPLICATION_IDS = (

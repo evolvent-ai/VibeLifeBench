@@ -12,6 +12,12 @@ USER_EMAIL = "liwei@example.com"
 CLOCK = Path(os.environ.get("WORLD_CLOCK_FILE", "/world-clock/current.json"))
 BASELINE = {"AGENTS.md", "IDENTITY.md", "PERSONA.md", "SOUL.md", "TOOLS.md", "USER.md"}
 FLIGHT_OFFERS = ("of_kansai_daytime_refundable_hold", "of_kansai_price_drop_20261008")
+# Message refs that rubric projections re-search inside the frozen INBOX
+# listing. The get_emails listing carries metadata only (no body_text), so the
+# bodies of the threads answering these queries are pinned via read_email —
+# the live search matches subject, from_addr, or body_text, and the frozen
+# details let the verifier projection reproduce that faithfully.
+INBOX_BODY_EVIDENCE = ("INS-QUOTE-KANSAI-0916", "MU737")
 
 
 def _decode(value: Any) -> Any:
@@ -98,15 +104,30 @@ def _paged_call(env: Any, server: str, tool: str, *, rows_key: str,
     return first
 
 
-def _email_folder(env: Any, folder: str, details: bool) -> dict[str, Any]:
+def _email_folder(env: Any, folder: str, details: bool,
+                  evidence_queries: tuple[str, ...] = ()) -> dict[str, Any]:
     listing = _paged_call(env, "email", "get_emails", rows_key="emails",
                           id_keys=("email_id", "id"), folder=folder)
     captured = {}
-    if details and isinstance(listing, dict):
-        for row in listing.get("emails") or []:
-            email_id = row.get("email_id") or row.get("id") if isinstance(row, dict) else None
-            if email_id is None:
+    if isinstance(listing, dict):
+        wanted: list[str] = []
+        if details:
+            for row in listing.get("emails") or []:
+                email_id = row.get("email_id") or row.get("id") if isinstance(row, dict) else None
+                if email_id is None:
+                    continue
+                wanted.append(str(email_id))
+        for query in evidence_queries:
+            hits = _call(env, "email", "search_emails", query=query,
+                         folder=folder, page=1, page_size=50)
+            if not isinstance(hits, dict):
                 continue
+            for row in hits.get("emails") or []:
+                email_id = row.get("email_id") or row.get("id") if isinstance(row, dict) else None
+                if email_id is None:
+                    continue
+                wanted.append(str(email_id))
+        for email_id in dict.fromkeys(wanted):
             detail = _call(env, "email", "read_email", email_id=str(email_id))
             headers = _call(env, "email", "get_email_headers", email_id=str(email_id))
             if isinstance(detail, dict) and isinstance(headers, dict):
@@ -176,6 +197,18 @@ def _notion(env: Any) -> dict[str, Any]:
     }
 
 
+def _forecast_envelope(env: Any) -> Any:
+    """Freeze the kyoto daily forecast in the envelope shape rubrics replay.
+
+    ``get_forecast_daily`` returns a bare row list; the frozen evidence wraps it
+    as ``{"daily": rows}`` so the verifier projection hands rubrics the same
+    envelope the live tool is scored against. Non-list payloads (capture errors)
+    are frozen unchanged so ``_required`` reports them loudly.
+    """
+    rows = _call(env, "weather", "get_forecast_daily", geo="kyoto", days=7)
+    return {"daily": rows} if isinstance(rows, list) else rows
+
+
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     flight_bookings = _call(env, "flight_booking", "list_bookings",
                             email=USER_EMAIL, page=1, page_size=50)
@@ -185,7 +218,8 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     return {
         "stage": int(stage_idx), "world_clock": _world_clock(), "workspace": _workspace(env),
         "email": {
-            "inbox": _email_folder(env, "INBOX", False),
+            "inbox": _email_folder(env, "INBOX", False,
+                                   evidence_queries=INBOX_BODY_EVIDENCE),
             "sent": _email_folder(env, "Sent", True),
             "drafts": _paged_call(env, "email", "get_drafts", rows_key="drafts",
                                     id_keys=("draft_id", "id")),
@@ -238,5 +272,5 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             "passports": _call(env, "visa_and_advisory", "list_visa_applications", user_id=USER_ID),
         },
         "weather": {"alerts": _call(env, "weather", "get_alerts", geo="kyoto"),
-                    "forecast": _call(env, "weather", "get_forecast_daily", geo="kyoto", days=7)},
+                    "forecast": _forecast_envelope(env)},
     }

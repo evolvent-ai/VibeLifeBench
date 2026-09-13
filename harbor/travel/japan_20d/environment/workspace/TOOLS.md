@@ -4,12 +4,12 @@ This is the "when do I reach for which tool on THIS task" guide.
 Full parameter reference lives in each server's `SPEC.md`; this
 file is the task-shaped shortlist.
 
-9 services are available (5 travel-specific mocks + 4 reused
+8 services are available (5 travel-specific mocks + 3 reused
 toolathlon servers):
 
 - `flight_booking`, `hotel_booking`, `weather`, `maps`,
   `visa_and_advisory` (task-new)
-- `emails`, `calendar`, `filesystem`, `notion` (reused)
+- `email`, `calendar`, `notion` (reused)
 
 There is no local reminder helper in this Terrarium formulation; persist
 follow-ups in Notion, calendar, or workspace files.
@@ -199,7 +199,7 @@ follow-ups in Notion, calendar, or workspace files.
 
 ---
 
-## 6. `emails` — communication
+## 6. `email` — communication
 
 **When to use**
 
@@ -216,7 +216,7 @@ follow-ups in Notion, calendar, or workspace files.
 **Important**
 
 - **Never embed raw passport numbers, DOB, or full home addresses
-  in email bodies.** Store those in filesystem workspace;
+  in email bodies.** Store those in workspace files;
   reference by filename or claim code in the email.
 - The three mailboxes are seeded: `li_wei`, `dad` (lijianguo),
   `mom` (zhanglan). Most sends go to Li Wei; use dad's inbox only
@@ -276,7 +276,10 @@ follow-ups in Notion, calendar, or workspace files.
 
 ---
 
-## 9. `filesystem` — workspace files
+## 9. Workspace files (no MCP server — use your file tools)
+
+There is no `filesystem` MCP server in this task; write workspace files
+directly with your shell/editor file tools.
 
 **When to use**
 
@@ -292,7 +295,7 @@ follow-ups in Notion, calendar, or workspace files.
 - `demo_task/input/` is read-only (N3 scope); write only to the
   designated workspace area.
 - Date-prefix filenames (`2026-05-03_granbell_walk_receipt.pdf`).
-- Prefer filesystem over email for anything containing PII.
+- Prefer workspace files over email for anything containing PII.
 
 ---
 

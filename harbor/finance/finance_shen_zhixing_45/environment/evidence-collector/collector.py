@@ -37,17 +37,26 @@ from response_capture import (  # noqa: E402
     step_text_and_calls,
 )
 
-def scenario_clock() -> dict[str, Any]:
+def scenario_clock(step_hint: str | None = None) -> dict[str, Any]:
     try:
         payload = json.loads(WORLD_CLOCK_FILE.read_text(encoding="utf-8"))
-        if not isinstance(payload.get("step"), str) or not isinstance(payload.get("now"), str):
+        now = payload.get("now")
+        if not isinstance(now, str):
+            # The world-controller publishes {"world_now": <iso>} (the shape the
+            # server mocks and snapshot_capture.py pin); treat it as an alias
+            # for the scenario instant.
+            now = payload.get("world_now")
+        if not isinstance(now, str):
             raise ValueError("invalid scenario clock payload")
-        parsed = datetime.fromisoformat(payload["now"].replace("Z", "+00:00"))
+        parsed = datetime.fromisoformat(now.replace("Z", "+00:00"))
         if parsed.tzinfo is None:
             raise ValueError("scenario clock must include an offset")
+        step = payload.get("step")
+        if not isinstance(step, str) or not step:
+            step = step_hint if isinstance(step_hint, str) and step_hint else "unknown"
         return {
             "schema_version": 1,
-            "step": payload["step"],
+            "step": step,
             "now": parsed.isoformat(),
         }
     except Exception as exc:
@@ -271,7 +280,7 @@ def collect_turn(
             "stage_boundary": bool(stage_boundary),
             "trajectory_source": trajectory_source,
             "captured_at": utc_now(),
-            "scenario_clock": scenario_clock(),
+            "scenario_clock": scenario_clock(step_hint=step_name),
         }
         _write_json(tmp / "metadata.json", metadata)
         _replace_directory(tmp, target)

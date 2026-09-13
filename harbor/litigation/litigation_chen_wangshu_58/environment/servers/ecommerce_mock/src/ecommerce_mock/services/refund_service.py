@@ -37,7 +37,7 @@ class RefundService:
             raise BadArgError("reason is required")
 
         order = self.conn.execute(
-            "SELECT order_id, status, placed_at FROM orders WHERE order_id = ?",
+            "SELECT order_id, status, placed_at, subtotal_minor, total_minor FROM orders WHERE order_id = ?",
             (order_id_,),
         ).fetchone()
         if not order:
@@ -72,7 +72,18 @@ class RefundService:
             # placed_at may be a UTC iso (e.g. with time component) — accept best-effort
             pass
 
-        amount = int(item["unit_price_minor"]) * qty
+        # Refundable amount is what the user actually paid for the item —
+        # the line total less the order's proportional discount, matching
+        # the settled card line — not the pre-discount list price.
+        line_total = int(item["line_total_minor"])
+        item_qty = max(int(item["qty"]), 1)
+        subtotal = int(order["subtotal_minor"] or 0)
+        total = int(order["total_minor"] or 0)
+        if 0 < total < subtotal:
+            amount = line_total * total // subtotal
+        else:
+            amount = line_total
+        amount = amount * qty // item_qty
 
         seq = next_counter(self.conn, "refund_seq")
         rid = refund_id(today, seq)

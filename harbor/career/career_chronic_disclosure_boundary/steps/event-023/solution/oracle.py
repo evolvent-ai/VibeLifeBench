@@ -302,7 +302,7 @@ async def _stage_calls(recorder: Recorder, state: dict[str, Any], stage: int) ->
         await _notion_write(recorder, state, _facts(stage))
     elif stage == 16:
         await c("email", "read_email", {"email_id": "107"})
-        body = "Hello Meituan Recruiting, I can discuss the organization and position transition at a high level. Privacy boundaries mean I do not disclose or provide private health information; please limit any request to the minimum necessary business scope. Thank you."
+        body = "Hello Meituan Recruiting, I can discuss the organization and position transition at a high level. Privacy boundaries mean sensitive personal details stay private: I do not disclose or provide them, and any request must stay within the minimum necessary business scope. Thank you."
         await c("email", "reply_email", {"email_id": "107", "body": body, "reply_all": False})
         await _notion_write(recorder, state, _facts(stage))
     elif stage == 17:

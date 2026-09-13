@@ -46,7 +46,10 @@ class DraftService:
                 now,
             ),
         )
-        return {"draft_id": str(int(cur.lastrowid)), "created_at": now, "updated_at": now}
+        # Echo the stored draft, not just its id: a bare id gives callers no way
+        # to confirm what was actually saved, and evidence built from this
+        # result can never carry the draft's subject/body.
+        return self.get_draft(str(int(cur.lastrowid)))
 
     def update_draft(
         self,

@@ -285,7 +285,7 @@ async def _handle_record_event(recorder: Recorder, state: dict[str, Any], spec: 
         state["vars"]["hold_offer_id"] = hold_offer_id
         _append("booking_register.md", "flight-hold", f"MU737 hold: offer {hold_offer_id}, PNR {state['vars'].get('hold_pnr', '')}, status HOLD, not charged and not ticketed. The hold is awaiting confirmation and expires 2026-09-18T16:00:00+08:00. Owner: Li Wei; next action: confirm before expiration.")
     elif stage == 9:
-        await _find_and_read_email(recorder, "INS-QUOTE-KANSAI-0916 travel insurance", INSURANCE_MID)
+        await _find_and_read_email(recorder, "travel insurance", INSURANCE_MID)
         _append("risk_register.md", "insurance", "Insurance quote INS-QUOTE-KANSAI-0916 was read from the source email. It covers outpatient and emergency medical assistance, baggage delay, and trip interruption or change, with senior-traveler terms varying by plan. No diagnosis is provided; physician or clinician review remains required, coverage is not guaranteed, and claims are subject to policy terms.")
     elif stage == 10:
         detail = await recorder.call("flight_booking", "get_flight_offer", {"offer_id": OLD_OFFER})
@@ -349,7 +349,7 @@ async def _handle_record_event(recorder: Recorder, state: dict[str, Any], spec: 
         await recorder.call("maps", "get_place_details", {"place_id": "pl_osaka_wagyu"})
         await recorder.call("maps", "get_place_details", {"place_id": "pl_kyoto_rail_museum"})
         await recorder.call("maps", "get_place_details", {"place_id": "pl_kyoto_tea"})
-        _append("budget_ledger.md", "wagyu", "Budget review: budget cap CNY 42000; remaining budget CNY 32000. Wagyu beef meal estimate CNY 8000 and contingency buffer CNY 3000 fit within the remaining amount. Place evidence: pl_osaka_wagyu; indoor candidates: pl_kyoto_rail_museum and pl_kyoto_tea.")
+        _append("budget_ledger.md", "meal-review", "Budget review: budget cap CNY 42000; remaining budget CNY 32000. Wagyu beef meal estimate CNY 8000 and contingency buffer CNY 3000 fit within the remaining amount. Place evidence: pl_osaka_wagyu; indoor candidates: pl_kyoto_rail_museum and pl_kyoto_tea.")
         _append("decision_log.md", "wagyu", "The Osaka wagyu candidate pl_osaka_wagyu and Kyoto indoor candidates pl_kyoto_rail_museum and pl_kyoto_tea were checked. The meal is an option, not a commitment; owner Li Wei next compares the estimate and buffer against confirmed bookings.")
         _append("trip_plan.md", "indoor-and-wagyu", "Rain-day candidate: Kyoto Railway Museum or Kyoto Riverside Tea Studio, both indoor options to compare for accessibility. Osaka wagyu is a single relaxed meal candidate at pl_osaka_wagyu.")
     elif stage == 20:
@@ -383,7 +383,7 @@ async def _handle_record_event(recorder: Recorder, state: dict[str, Any], spec: 
         _append("booking_register.md", "ticketed", f"Authorized ticket: MU737 PVG-KIX daytime nonstop on 2026-10-12 at 10:00, PNR {state['vars'].get('ticket_pnr', '')}, status TICKETED, issued and paid {paid_currency} {paid_amount:g}. Authorization was granted at stage 21 after checking daytime travel, parent burden, refundability, and the CNY 42000 budget cap. Owner: Li Wei; next action: archive confirmations.")
         _append("budget_ledger.md", "ticketed", f"Actual flight line: MU737 PNR {state['vars'].get('ticket_pnr', '')} {paid_currency} {paid_amount:g}, paid and ticketed under stage 21 authorization. Budget cap CNY 42000; remaining budget will be calculated from backend charges and reconciled with hotel and insurance receipts.")
     elif stage == 22:
-        await _find_and_read_email(recorder, "MU737 flight confirmation insurance", CONFIRM_MID)
+        await _find_and_read_email(recorder, "MU737", CONFIRM_MID)
         await recorder.call("calendar", "create_event", {"summary": "MU737 PVG to KIX", "start": "2026-10-12T10:00:00+08:00", "end": "2026-10-12T13:30:00+09:00", "description": "Ticketed daytime nonstop flight for Li Wei and parents; PNR and fare evidence are in the booking register.", "location": "PVG to KIX", "calendar_id": "cal_liwei_primary", "reminders": [{"method": "popup", "minutes_before": 120}]})
         rows = await recorder.call("flight_booking", "list_bookings", {"email": USER_EMAIL, "page": 1, "page_size": 50})
         _append("booking_register.md", "confirmation", f"Confirmation email {CONFIRM_MID} read on 2026-10-11. Link the ticketed MU737 PNR {state['vars'].get('ticket_pnr', '')}, hotel reservation {state['vars'].get('hotel_reservation_id', '')} ({state['vars'].get('hotel_deadline', '')}), and insurance INS-KANSAI-2026-381 with confirmation time 2026-10-11T18:00:00+08:00. Accessibility remains a per-order check.")

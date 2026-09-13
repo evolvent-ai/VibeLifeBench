@@ -15,11 +15,27 @@
 ARG BASE_IMAGE=python:3.12-slim
 FROM ${BASE_IMAGE}
 
-# Idempotent: a no-op when the pre-baked base already carries these.
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        bash ca-certificates coreutils curl jq procps sqlite3 \
-    && rm -rf /var/lib/apt/lists/*
+# Idempotent: a no-op when the pre-baked base already carries these. The
+# retry loop rides out transient mirror/proxy failures (a single 502 Bad
+# Gateway from deb.debian.org used to fail the whole image build) instead of
+# letting one bad response take both arms down at setup time.
+RUN set -eux; \
+    for attempt in 1 2 3 4 5; do \
+        if apt-get update -o Acquire::Retries=5 -o Acquire::http::Timeout=60 -o Acquire::https::Timeout=60 \
+            && apt-get install -y --no-install-recommends \
+                -o Acquire::Retries=5 -o Acquire::http::Timeout=60 -o Acquire::https::Timeout=60 \
+                bash ca-certificates coreutils curl jq procps sqlite3; then \
+            break; \
+        fi; \
+        if [ "$attempt" = "5" ]; then \
+            echo "apt-get failed after $attempt attempts" >&2; \
+            exit 1; \
+        fi; \
+        echo "apt-get attempt $attempt failed, retrying..."; \
+        rm -rf /var/lib/apt/lists/*; \
+        sleep 5; \
+    done; \
+    rm -rf /var/lib/apt/lists/*
 
 # Core mcp only. The task's client code uses ClientSession and
 # streamablehttp_client; the [cli] extra pulls a typer/rich chain that cannot be

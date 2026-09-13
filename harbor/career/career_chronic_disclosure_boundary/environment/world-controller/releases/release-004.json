@@ -18,9 +18,11 @@
         "updated_at": "2026-07-02T08:00:00Z"
       },
       "where": {
-        "application_id": "app_mj_001"
+        "job_id": "jb-4vxnibjsgwrdx",
+        "user_id": "usr_feng_yi"
       },
-      "source_event_id": "S12_mut_app_advance"
+      "source_event_id": "S12_mut_app_advance",
+      "allow_many": true
     },
     {
       "server": "job_board",

@@ -52,7 +52,13 @@ def final_budget_not_breached_backend(env) -> bool:
 
 
 def final_response_no_bad_advice(env) -> bool:
-    return no_forbidden_advice(stage_response_text(env, 23) + "\n" + workspace_text(env))
+    # A veto over forbidden advice is vacuous on empty evidence: an agent that
+    # wrote nothing has no bad advice to find and collected this weight for
+    # free. Require the response and archive it judges to actually carry
+    # substance (the same 120-char bar final_last_response_consistent uses)
+    # before the veto can pay out.
+    text = stage_response_text(env, 23) + "\n" + workspace_text(env)
+    return len(text.strip()) >= 120 and no_forbidden_advice(text)
 
 
 def final_calendar_or_notion_persisted(env) -> bool:

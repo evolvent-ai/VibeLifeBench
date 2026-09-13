@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import re
 
+from harbor_evidence import EvidenceError
 from harbor_evidence import response as evidence_response
 from harbor_evidence import snapshot as evidence_snapshot
 from harbor_evidence import trace as evidence_trace
@@ -45,8 +46,23 @@ def stage_text(env, idx: int) -> str:
     return evidence_response(env, idx)
 
 
+def _frozen_stages(env) -> list[int]:
+    """Stages whose immutable evidence exists so far.
+
+    A Stage rubric runs once, right after the sidecar freezes that stage's
+    boundary; later stages are not frozen yet at that point. Whole-run readers
+    must therefore cover exactly the frozen stages instead of crashing on the
+    ones still in the future.
+    """
+    try:
+        published = set(env.published_stages())
+    except Exception:
+        return list(range(N_STAGES))
+    return [stage for stage in range(N_STAGES) if stage in published]
+
+
 def all_stage_text(env) -> str:
-    return "\n".join(stage_text(env, i) for i in range(N_STAGES))
+    return "\n".join(stage_text(env, i) for i in _frozen_stages(env))
 
 
 def has_any(text: str, words: list[str]) -> bool:
@@ -55,10 +71,16 @@ def has_any(text: str, words: list[str]) -> bool:
 
 
 def raw_trace_rows(env, stage: int | None = None) -> list[dict]:
-    indices = [stage] if stage is not None else range(N_STAGES)
+    indices = [stage] if stage is not None else _frozen_stages(env)
     out = []
     for i in indices:
-        out.extend(c for c in evidence_trace(env, i) if isinstance(c, dict))
+        try:
+            rows = evidence_trace(env, i)
+        except EvidenceError:
+            if stage is not None:
+                raise
+            continue
+        out.extend(c for c in rows if isinstance(c, dict))
     return out
 
 
@@ -425,7 +447,8 @@ def stage_notion_targets_page(env, stage: int, page_id: str) -> bool:
 
 
 def successful_calendar_write_backed(env) -> bool:
-    return any(stage_personal_calendar_events(env, stage) for stage in VISIBLE_STAGES)
+    frozen = set(_frozen_stages(env))
+    return any(stage_personal_calendar_events(env, stage) for stage in VISIBLE_STAGES if stage in frozen)
 
 
 def task_writes_paired_authorized(env) -> bool:
@@ -1029,7 +1052,8 @@ def evaluate(check_id: str, env) -> bool:
         return all(stage_touched_file(env, "service_consistency_matrix.md", s) for s in [2, 7, 10, 13, 16, 22, 26])
     if check_id == "chk_cross_stage_progress_all":
         progress = wfile(env, "stage_progress.md")
-        return all(stage_touched_file(env, "stage_progress.md", stage) for stage in VISIBLE_STAGES) and groups_present(progress, [["time"], ["source"], ["next"]])
+        frozen = set(_frozen_stages(env))
+        return all(stage_touched_file(env, "stage_progress.md", stage) for stage in VISIBLE_STAGES if stage in frozen) and groups_present(progress, [["time"], ["source"], ["next"]])
     if check_id == "chk_cross_calendar_change_reasons":
         return (
             all(stage_personal_calendar_events(env, stage) for stage in REQUIRED_RISK_REPLAN_STAGES)

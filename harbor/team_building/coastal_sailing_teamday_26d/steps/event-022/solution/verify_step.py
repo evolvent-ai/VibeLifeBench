@@ -17,7 +17,8 @@ def verify(spec: dict[str, Any]) -> int:
     stage = int(spec["virtual_stage"])
     run_verifier._load_rubric_package()
     run_verifier.validate_stage_evidence(stage)
-    env = run_verifier.HarborEvidence(run_verifier.EVIDENCE_ROOT).at_stage(stage)
+    env = run_verifier.HarborEvidence(run_verifier.EVIDENCE_ROOT)
+    env.current_stage = stage
     reports, detail = run_verifier._run_module(f"stage_{stage}", env, f"stage{stage}")
     declared = {str(row["check_id"]): float(row["weight"]) for row in spec.get("expected_checks", [])}
     actual = {str(row["check_id"]): float(row["weight"]) for row in reports}

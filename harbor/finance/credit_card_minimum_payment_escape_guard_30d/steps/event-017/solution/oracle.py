@@ -275,7 +275,11 @@ async def _stage_calls(rec: Recorder, stage: int) -> None:
         await _read(rec, "banking", "get_account", account_id="acct_protected")
     elif stage == 16:
         await _read(rec, "brokerage", "get_quote", symbol="SGOV")
-        await _read(rec, "notion", "API-post-database-query", database_id="db_finance_ledger", page_size=100)
+        # The ledger holds 200+ rows ordered by created_time ASC and the mock
+        # caps page_size at 100, so an unfiltered query never reaches the
+        # late-June liquidity row. Read it with a targeted filter instead.
+        await _read(rec, "notion", "API-post-database-query", database_id="db_finance_ledger", page_size=100,
+                    filter={"property": "topic", "rich_text": {"contains": "SGOV"}})
     elif stage == 17:
         await _read(rec, "banking", "get_account", account_id="acct_checking_main")
         await _read(rec, "banking", "get_account", account_id="acct_protected")

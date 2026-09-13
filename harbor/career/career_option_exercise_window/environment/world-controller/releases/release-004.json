@@ -7,6 +7,7 @@
       "server": "job_board",
       "table": "applications",
       "op": "update",
+      "on_zero_rows": "skip",
       "set": {
         "status": "interview",
         "updated_at": "2026-07-02T08:00:00Z"
@@ -20,6 +21,7 @@
       "server": "job_board",
       "table": "applications",
       "op": "update",
+      "on_zero_rows": "skip",
       "set": {
         "status": "viewed",
         "updated_at": "2026-07-02T08:00:00Z"

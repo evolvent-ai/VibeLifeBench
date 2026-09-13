@@ -20,7 +20,7 @@
         "type": "reminder",
         "subscription_id": null,
         "title": "Pre-event reminder draft awaiting review",
-        "body": "Prepare a Chinese-English pre-event reminder covering meeting point, sun protection and hydration, accessible detour, dietary restrictions, and opt-out process; final sending still requires Gu Ning confirmation.",
+        "body": "Prepare a Chinese-English pre-event reminder covering meeting point, sun protection and hydration, accessible detour, dietary constraints, and opt-out process; final sending still requires Gu Ning confirmation.",
         "payload_json": "{\"artifact\":\"bilingual_reminder_draft\",\"status\":\"awaiting_user_confirmation\"}",
         "created_at": "2026-07-20T17:25:00+08:00",
         "read": 0

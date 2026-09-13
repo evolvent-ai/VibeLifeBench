@@ -27,7 +27,11 @@ def s21_wrapup_reemploy(env) -> bool:
         return False
     return text_has(record, [
         ["formal Meituan offer", "formal Meituan offer"], ["non-binding terms"],
-        ["lean towardMeituan"], ["decision", "decision"], ["status"], ["follow-up", "offer"],
+        # "lean towardMeituan" is the oracle's concatenation artifact; accept the
+        # natural spaced spellings of the same decision so a correct final review
+        # is not failed on whitespace.
+        ["lean towardMeituan", "lean toward meituan", "lean towards meituan"],
+        ["decision", "decision"], ["status"], ["follow-up", "offer"],
     ])
 
 

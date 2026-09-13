@@ -63,19 +63,28 @@ def _paged_call(env: Any, server: str, tool: str, *, rows_key: str, id_keys: tup
     if total is not None: first["captured_complete"]=len(rows)>=total
     return first
 
-def _email_snapshot(env: Any, folder: str, include_body: bool) -> dict[str,Any]:
-    listing=_paged_call(env,"email","get_emails",rows_key="emails",id_keys=("email_id","id"),folder=folder)
-    if not include_body or not isinstance(listing,dict): return {"listing":listing,"details":[]}
-    details=[]
-    for row in listing.get("emails") or []:
-        eid=row.get("email_id") or row.get("id") if isinstance(row,dict) else None
-        if eid is None: continue
-        detail=_call(env,"email","read_email",email_id=str(eid)); headers=_call(env,"email","get_email_headers",email_id=str(eid))
-        if isinstance(detail,dict) and isinstance(headers,dict):
-            for key in ("in_reply_to","references","references_header","headers","thread_id"):
-                if headers.get(key) is not None: detail.setdefault(key,headers[key])
-        details.append(detail)
-    return {"listing":listing,"details":details}
+def _email_snapshot(env: Any, folder: str) -> dict[str, Any]:
+    # Bodies ride along in the listing rows: per-email read_email round-trips
+    # were timeout-prone at INBOX scale and marked mail as read as a capture
+    # side effect. The listing row keys stay identical, plus body_text/body_html.
+    listing=_paged_call(env,"email","get_emails",rows_key="emails",id_keys=("email_id","id"),folder=folder,include_body=True)
+    return {"listing":listing,"details":[]}
+
+def _orders_snapshot(env: Any) -> Any:
+    # list_orders returns header rows without line items; merge each get_order
+    # detail (items/status_history/refunds) into its header row so order-level
+    # checks can read items from the frozen evidence. _call already flattens
+    # the {"items": [...], "total": ...} envelope into a bare row list, so
+    # handle both that list and a still-envelope dict.
+    listing=_call(env,"ecommerce","list_orders",user_id=USER_ID,limit=800)
+    rows=listing.get("items") if isinstance(listing,dict) else listing
+    if not isinstance(rows,list): return listing
+    for row in rows:
+        order_id=row.get("order_id") if isinstance(row,dict) else None
+        if not order_id: continue
+        detail=_call(env,"ecommerce","get_order",order_id=str(order_id))
+        if isinstance(detail,dict) and "error" not in detail: row.update(detail)
+    return listing
 
 def _workspace_snapshot(env: Any) -> dict[str,str]:
     fs=getattr(getattr(env,"workspace",None),"fs",None)
@@ -104,4 +113,4 @@ def _notion_snapshot(env: Any) -> dict[str,Any]:
     return {"pages":pages,"databases":databases,"page_blocks":page_blocks,"database_rows":database_rows,"row_children":row_children}
 
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str,Any]:
-    return {"stage":stage_idx,"scenario_clock":scenario_clock(),"calendar":{"events":_call(env,"calendar","list_events",calendar_id=CALENDAR_ID,max_results=800),"calendars":_call(env,"calendar","list_calendars")},"health_tracker":{"metrics":{t:_call(env,"health_tracker","get_metrics",user_id=USER_ID,type=t,limit=800) for t in ("steps","sleep_minutes","score","weight")},"workouts":_call(env,"health_tracker","list_workouts",user_id=USER_ID,limit=800),"goals":_call(env,"health_tracker","get_goals",user_id=USER_ID),"alerts":_call(env,"health_tracker","list_health_alerts",user_id=USER_ID)},"weather":{"daily":_call(env,"weather","get_forecast_daily",geo="Shanghai",days=60),"hourly":_call(env,"weather","get_forecast_hourly",geo="Shanghai",hours=500),"alerts":_call(env,"weather","get_alerts",geo="Shanghai"),"aqi":_call(env,"weather","get_aqi",geo="Shanghai")},"email":{"inbox":_email_snapshot(env,"INBOX",False),"sent":_email_snapshot(env,"Sent",True),"drafts":_paged_call(env,"email","get_drafts",rows_key="drafts",id_keys=("draft_id","id"))},"ecommerce":{"products":_call(env,"ecommerce","search_products",query="",limit=800),"orders":_call(env,"ecommerce","list_orders",user_id=USER_ID,limit=800)},"notion":_notion_snapshot(env),"workspace":_workspace_snapshot(env)}
+    return {"stage":stage_idx,"scenario_clock":scenario_clock(),"calendar":{"events":_call(env,"calendar","list_events",calendar_id=CALENDAR_ID,max_results=800),"calendars":_call(env,"calendar","list_calendars")},"health_tracker":{"metrics":{t:_call(env,"health_tracker","get_metrics",user_id=USER_ID,type=t,limit=800) for t in ("steps","sleep_minutes","heart_rate","score","weight")},"workouts":_call(env,"health_tracker","list_workouts",user_id=USER_ID,limit=800),"goals":_call(env,"health_tracker","get_goals",user_id=USER_ID),"alerts":_call(env,"health_tracker","list_health_alerts",user_id=USER_ID)},"weather":{"daily":_call(env,"weather","get_forecast_daily",geo="Shanghai",days=60),"hourly":_call(env,"weather","get_forecast_hourly",geo="Shanghai",hours=500),"alerts":_call(env,"weather","get_alerts",geo="Shanghai"),"aqi":_call(env,"weather","get_aqi",geo="Shanghai")},"email":{"inbox":_email_snapshot(env,"INBOX"),"sent":_email_snapshot(env,"Sent"),"drafts":_paged_call(env,"email","get_drafts",rows_key="drafts",id_keys=("draft_id","id"))},"ecommerce":{"products":_call(env,"ecommerce","search_products",query="",limit=800),"orders":_orders_snapshot(env)},"notion":_notion_snapshot(env),"workspace":_workspace_snapshot(env)}

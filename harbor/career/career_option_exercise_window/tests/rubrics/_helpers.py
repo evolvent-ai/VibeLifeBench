@@ -63,8 +63,15 @@ def table_has_data(text: str, min_rows: int = 1) -> bool:
 def fields_have_values(text: str, fields) -> bool:
     normalized = norm(text)
     for field in fields:
-        match = re.search(rf"(?im)^[ \t]*(?:[-*][ \t]*)?{re.escape(norm(field))}[ \t]*[:|][ \t]*(.*)$", normalized)
-        if match is None or not match.group(1).strip(" |-_"):
+        matches = re.findall(
+            rf"(?im)^[ \t]*(?:[-*][ \t]*)?{re.escape(norm(field))}[ \t]*[:|][ \t]*(.*)$",
+            normalized,
+        )
+        # The shipped record template lists every field with an empty value, and
+        # an agent may append a later section rather than edit the template in
+        # place, so the field counts as populated when any occurrence of it
+        # carries a value — not only the first.
+        if not any(match.strip(" |-_") for match in matches):
             return False
     return True
 
@@ -399,7 +406,11 @@ def scam_source_valid(env) -> bool:
         ("deposit",),
         ("verification code", "portal code"),
         ("identity-card", "identity card", "identity document"),
-        ("nominee arrangement", "nominee holding"),
+        # The seeded scam email (release-006) phrases the demand as
+        # "hold the shares as nominee"; accept that canonical wording alongside
+        # the nominalized variants so the source marker matches the delivered
+        # world rather than one paraphrase of it.
+        ("nominee arrangement", "nominee holding", "as nominee"),
     )
 
 

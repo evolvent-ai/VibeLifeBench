@@ -35,7 +35,7 @@
         "cc_addr_json": "[]",
         "bcc_addr_json": "[]",
         "date": "2026-08-09T11:15:00+08:00",
-        "body_text": "Finance authorizes zero-deposit cancellable holds and materials-cart preparation. Payment, purchase orders, deposits, new payees and signed contracts still require final approval.",
+        "body_text": "Finance authorizes zero-deposit cancellable holds and materials-cart preparation. No payment, purchase order, deposit, new payee or signed contract is allowed before final approval; nothing irreversible moves until Finance signs off.",
         "body_html": null,
         "is_read": 0,
         "is_important": 1,

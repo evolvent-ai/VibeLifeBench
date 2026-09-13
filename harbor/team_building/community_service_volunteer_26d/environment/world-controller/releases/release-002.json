@@ -23,7 +23,7 @@
         "cc_addr_json": "[]",
         "bcc_addr_json": "[]",
         "date": "2026-08-23T08:50:00+08:00",
-        "body_text": "Initial packet: Riverside can host a morning sorting and companionship activity. Do not publish beneficiary names, apartment or room identifiers, telephone details, case notes, or intake records. Staff names may be used for coordination. Volunteer count is still tentative; donation needs and media consent will be updated by official email.",
+        "body_text": "Initial packet: Riverside can host a morning sorting and companionship activity. Do not publish beneficiary names, apartment or room identifiers, telephone details, case notes, or intake records. Follow the center's privacy rules for every photo, list, and report. Staff names may be used for coordination. Volunteer count is still tentative; donation needs and media consent will be updated by official email.",
         "body_html": null,
         "is_read": 0,
         "is_important": 1,
@@ -32,7 +32,7 @@
         "references_header": null,
         "headers_json": "{}",
         "uid": 1212,
-        "size": 341,
+        "size": 410,
         "created_at": "2026-08-23T08:50:00+08:00"
       }
     }

@@ -140,10 +140,10 @@ class EmailService:
         like = f"%{escaped}%"
         sql += (
             "(m.subject LIKE ? ESCAPE '\\' OR m.body_text LIKE ? ESCAPE '\\' "
-            "OR m.from_addr LIKE ? ESCAPE '\\') "
+            "OR m.from_addr LIKE ? ESCAPE '\\' OR m.message_id LIKE ? ESCAPE '\\') "
             "ORDER BY m.date DESC, m.id DESC"
         )
-        params.extend([like, like, like])
+        params.extend([like, like, like, like])
 
         rows = self.conn.execute(sql, params).fetchall()
         total = len(rows)

@@ -13,7 +13,7 @@
       "table": "messages",
       "op": "insert",
       "values": {
-        "folder_id": 2,
+        "folder_id": 1,
         "message_id": "<claim-delay-8472@harborbenefits.example>",
         "subject": "Claim 8472 needs one additional clinic note",
         "from_addr": "claims@harborbenefits.example",

@@ -295,7 +295,16 @@ def workspace_text(env) -> str:
 
 
 def durable_text(env) -> str:
-    return workspace_text(env) + "\n" + stage_text(env, STAGE_COUNT - 1)
+    # The final-stage response only exists once the last boundary has frozen
+    # its evidence. Mid-run scoring (stages 23/24 evaluate backend state that
+    # calls this helper) must not require future evidence, so fall back to the
+    # newest published stage; once stage STAGE_COUNT - 1 is published the text
+    # is identical to the original final-bucket reading.
+    final = STAGE_COUNT - 1
+    published = env.published_stages()
+    stage = final if final in published else (published[-1] if published else None)
+    text = workspace_text(env)
+    return text + "\n" + stage_text(env, stage) if stage is not None else text
 
 
 def files_with_terms(env, terms: list[str] | tuple[str, ...], min_terms: int = 1) -> int:
@@ -347,7 +356,13 @@ def _call(env, server: str, tool: str, **kwargs):
             email_id = kwargs.get("email_id")
             for candidate in ("inbox", "sent"):
                 value = _captured(env, server, candidate)
-                row = _find(value, email_id=email_id, id=email_id)
+                # The capture stores {listing, details}; listing rows carry only
+                # envelope metadata (no body_text), so match the detail row
+                # first and fall back to the listing row.
+                details = value.get("details") if isinstance(value, dict) else None
+                row = _find(details, email_id=email_id, id=email_id) if details else {}
+                if not row:
+                    row = _find(value, email_id=email_id, id=email_id)
                 if row:
                     return row
             return {}

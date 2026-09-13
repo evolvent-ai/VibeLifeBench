@@ -316,6 +316,45 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
     }
 
 
+def _credit_card_snapshot(env: Any) -> dict[str, Any]:
+    """Card, statements (with their line detail), unbilled rows, and disputes.
+
+    ``list_statements`` returns only period headers; the rubric's
+    ``statement_lines``/``card_line_amount`` helpers read the per-statement
+    line detail that only ``get_statement`` exposes. Merging each statement's
+    lines into the frozen row is what makes billed evidence (the settled
+    course line, the installment fee line) visible at every later stage —
+    without it those checks can never pass no matter what the agent does.
+    """
+    snapshot = {
+        "cards": _call(env, "credit_card", "list_cards", user_id=USER_ID, limit=100),
+        "card": _call(env, "credit_card", "get_card", card_id="card_hx_platinum_5528"),
+        "statements": _call(env, "credit_card", "list_statements", card_id="card_hx_platinum_5528", limit=100),
+        "unbilled": _call(env, "credit_card", "list_unbilled", card_id="card_hx_platinum_5528", limit=100),
+        "disputes": _call(env, "credit_card", "list_disputes", card_id="card_hx_platinum_5528", limit=100),
+    }
+    statements = snapshot["statements"]
+    if isinstance(statements, list):
+        for row in statements:
+            if not isinstance(row, dict):
+                continue
+            statement_id = row.get("statement_id") or row.get("id")
+            if statement_id is None:
+                continue
+            detail = _call(env, "credit_card", "get_statement", statement_id=str(statement_id))
+            if not isinstance(detail, dict) or "error" in detail:
+                continue
+            if "statement_lines" in detail:
+                row["statement_lines"] = detail["statement_lines"]
+            for key in (
+                "card_id", "opening_balance_minor", "new_charges_minor", "payments_minor",
+                "closing_balance_minor", "min_payment_due_minor", "due_date", "status",
+            ):
+                if key in detail and key not in row:
+                    row[key] = detail[key]
+    return snapshot
+
+
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     """Freeze the five litigation services and durable workspace at a boundary."""
     order_id = "ord_xq_course_0701"
@@ -327,15 +366,12 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             "orders": _call(env, "ecommerce", "list_orders", user_id=USER_ID, limit=500),
             "products": _call(env, "ecommerce", "search_products", query="AI Product Manager", limit=500),
         },
-        "credit_card": {
-            "cards": _call(env, "credit_card", "list_cards", user_id=USER_ID, limit=100),
-            "card": _call(env, "credit_card", "get_card", card_id="card_hx_platinum_5528"),
-            "statements": _call(env, "credit_card", "list_statements", card_id="card_hx_platinum_5528", limit=100),
-            "unbilled": _call(env, "credit_card", "list_unbilled", card_id="card_hx_platinum_5528", limit=100),
-            "disputes": _call(env, "credit_card", "list_disputes", card_id="card_hx_platinum_5528", limit=100),
-        },
+        "credit_card": _credit_card_snapshot(env),
         "email": {
-            "inbox": _email_snapshot(env, "INBOX", include_body=False),
+            # The INBOX carries the promise / terms / screenshot / usage
+            # emails whose bodies the evidence helpers match against; freeze
+            # per-message detail here exactly as for Sent.
+            "inbox": _email_snapshot(env, "INBOX", include_body=True),
             "sent": _email_snapshot(env, "Sent", include_body=True),
             "drafts": _paged_call(
                 env, "email", "get_drafts", rows_key="drafts", id_keys=("draft_id", "id")

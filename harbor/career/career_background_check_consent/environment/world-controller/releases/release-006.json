@@ -13,7 +13,7 @@
       "table": "messages",
       "op": "insert",
       "values": {
-        "id": 106,
+        "id": 16001,
         "folder_id": 1,
         "message_id": "<20260708-scam@beidiao-vip.com>",
         "subject": "severance was not settled？we guarantee an arbitration win，pay the document fee first",

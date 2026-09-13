@@ -76,3 +76,23 @@ def register_weather_tools(mcp: FastMCP, service: WeatherService) -> None:
             return _dumps({"error": f"invalid_geo: {e}"})
         except Exception as e:
             return _dumps({"error": f"internal_error: {e}"})
+
+    @mcp.tool()
+    async def get_weather_history(
+        geo: Union[dict, str], days: int = 14
+    ) -> str:
+        """Return already-recorded daily rows before the sim date.
+
+        Args:
+            geo: supported city name or {lat,lng}.
+            days: trailing window length, clamped to 1..30 (default 14).
+        """
+        try:
+            rows = service.get_daily_history(geo, days=days)
+            return _dumps(rows)
+        except WeatherNotFound as e:
+            return _dumps({"error": str(e)})
+        except InvalidGeo as e:
+            return _dumps({"error": f"invalid_geo: {e}"})
+        except Exception as e:
+            return _dumps({"error": f"internal_error: {e}"})

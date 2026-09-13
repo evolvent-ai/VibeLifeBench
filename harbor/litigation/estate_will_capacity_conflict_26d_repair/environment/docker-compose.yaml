@@ -29,7 +29,13 @@ services:
   notification-hub: {build: {context: ./servers/notification_hub_mock}, volumes: [./seeds/notification_hub:/env-seed:ro, notification-hub-env:/env, world-clock:/world-clock:ro], expose: ['8000'], environment: {WORLD_CLOCK_FILE: /world-clock/current.json}, healthcheck: *health}
   world-controller:
     build: {context: ., dockerfile: world-controller/Dockerfile}
-    environment: {HEALTH_TOKEN: estate-health-token-7f9a31c2, WORLD_CLOCK_FILE: /world-clock/current.json, WORLD_CLOCK_REQUIRED: '1', CLOCK_TOKEN: estate_will_capacity_conflict_26d_repair-clock-token}
+    environment:
+      HEALTH_TOKEN: estate-health-token-7f9a31c2
+      WORLD_CLOCK_FILE: /world-clock/current.json
+      WORLD_CLOCK_REQUIRED: '1'
+      CLOCK_TOKEN: estate_will_capacity_conflict_26d_repair-clock-token
+      NO_PROXY: localhost,127.0.0.1,::1,world-controller,banking,email,calendar,legal-search,content-platform,listing-platform,notification-hub
+      no_proxy: localhost,127.0.0.1,::1,world-controller,banking,email,calendar,legal-search,content-platform,listing-platform,notification-hub
     depends_on:
       workspace-init: {condition: service_completed_successfully}
       banking: {condition: service_healthy}

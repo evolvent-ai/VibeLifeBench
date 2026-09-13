@@ -565,9 +565,13 @@ def apply_operation(
     if op == "delete":
         predicate, where_values = _predicate(dict(operation["where"]))
         cursor = conn.execute(f"DELETE FROM {table} WHERE {predicate}", where_values)
-        if cursor.rowcount != 1:
+        # Deleting an absent row is an idempotent no-op: releases clear a stale
+        # copy before their INSERT, and on retry the target legitimately does not
+        # exist yet. Failing on rowcount 0 would abort the release and, through
+        # the PREVIOUS_RELEASE chain, every later release.
+        if cursor.rowcount > 1:
             raise RuntimeError(
-                f"delete expected one row in {operation['table']}, got {cursor.rowcount}"
+                f"delete matched {cursor.rowcount} rows in {operation['table']}, expected at most one"
             )
         return {"op": op, "table": operation["table"], "rowcount": cursor.rowcount}
     raise ValueError(f"unsupported operation: {op}")

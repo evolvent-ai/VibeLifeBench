@@ -324,7 +324,12 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             "shipments": _call(env, "delivery_logistics", "list_shipments", user_id=USER_ID, limit=500),
         },
         "email": {
-            "inbox": _email_snapshot(env, "Inbox", include_body=False),
+            # Inbox detail bodies are required: the frozen-evidence search
+            # emails projection filters the captured rows by substring, and the
+            # seeded kindergarten/written-terms queries match body text that a
+            # header-only listing drops. Mirrors the live mock's search over
+            # subject OR body OR sender.
+            "inbox": _email_snapshot(env, "Inbox", include_body=True),
             "sent": _email_snapshot(env, "Sent", include_body=True),
             "drafts": _paged_call(
                 env, "email", "get_drafts", rows_key="drafts", id_keys=("draft_id", "id")
@@ -353,7 +358,10 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             "candidate_a": _call(env, "maps", "get_place_details", place_id="pl_river_garden"),
             "candidate_b": _call(env, "maps", "get_place_details", place_id="pl_maple_lane"),
             "candidate_c": _call(env, "maps", "get_place_details", place_id="pl_sunbay_loft"),
-            "routes": _call(env, "maps", "search_routes", origin="pl_maple_lane", destination="pl_kindergarten_xinghe"),
+            "routes": _call(
+                env, "maps", "directions",
+                origin="pl_maple_lane", dest="pl_kindergarten_xinghe", mode="walking",
+            ),
         },
         "review_platform": {
             "river_garden": _call(env, "review_platform", "list_reviews", merchant_id="mer_river_garden", limit=100),

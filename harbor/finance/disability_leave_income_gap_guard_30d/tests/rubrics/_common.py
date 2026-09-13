@@ -56,6 +56,19 @@ def _all_traces(env: Any, stages: Iterable[int]) -> list[dict[str, Any]]:
             item["stage"] = stage_number
             rows.append(item)
     return rows
+def _published_span(env: Any) -> range:
+    # "Every stage so far" pools must stop at the last published stage: stage
+    # evidence is frozen boundary by boundary, so reading a future stage number
+    # mid-episode raises EvidenceError and aborts the whole trial.
+    return range(int(getattr(env, "current_stage", 23)) + 1)
+def _event_start_dt(row: Mapping[str, Any]) -> str:
+    # calendar_mock formats events as start:{dateTime: ...}; accept that envelope
+    # as well as the flat start_dt column.
+    value = row.get("start_dt")
+    if not value:
+        start = row.get("start")
+        value = (start.get("dateTime") or start.get("date")) if isinstance(start, dict) else start
+    return str(value or "")
 def _tool_name_matches(name: str, server: str | None, tools: Iterable[str] | None) -> bool:
     norm = str(name or "").casefold().replace("-", "_")
     if server and not (norm.startswith(server.casefold().replace("-", "_") + "__") or norm.startswith(server.casefold().replace("-", "_") + "_")): return False
@@ -181,7 +194,9 @@ def runtime_rows(env: Any, server: str, sql: str, params: Iterable[Any] = ()) ->
             rows = [r for r in rows if match(r.get("counterparty"), "Harbor Benefits") and str(r.get("posted_at", ""))[:10] >= "2026-07-30"]
             return [[r.get("tx_id")] for r in rows]
         if "amount_minor < 0" in q:
-            after = str(p[-1] if p and "account_id = ?" not in q else (p[0] if p else "2026-07-30"))[:10]
+            # The trailing parameter carries the "after" cutoff; p[0] is the
+            # account filter when one is present, never a date.
+            after = str(p[-1])[:10] if p else "2026-07-30"
             if "account_id = ?" in q and p: rows = [r for r in rows if match(r.get("account_id"), p[0])]
             return [[r.get("tx_id"),r.get("account_id"),r.get("amount_minor"),r.get("posted_at")] for r in rows if int(r.get("amount_minor",0))<0 and str(r.get("posted_at", ""))[:10]>=after][:1]
     if server == "banking" and "from pending_payments" in q:
@@ -229,7 +244,12 @@ def runtime_rows(env: Any, server: str, sql: str, params: Iterable[Any] = ()) ->
         return [[c.get("statement_balance_minor"),c.get("unbilled_balance_minor"),c.get("available_credit_minor")] for c in rows]
     if server=="credit_card" and "from statements" in q:
         rows=[]
-        for payload in (card.get("statements",{}) if isinstance(card,dict) else {}).values(): rows.extend(_items(payload))
+        # list_statements rows omit the owning card; stamp it from the envelope
+        # key so per-row card predicates can match.
+        for card_key, payload in (card.get("statements",{}) if isinstance(card,dict) else {}).items():
+            for row in _items(payload):
+                row.setdefault("card_id", card_key)
+                rows.append(row)
         if "statement_id = 'stmt_y_2025_12'" in q: rows = [r for r in rows if str(r.get("statement_id")) == "stmt_y_2025_12"]
         if "card_id = ?" in q and p: rows = [r for r in rows if match(r.get("card_id"), p[-1])]
         if "due_date = '2026-08-21'" in q: rows = [r for r in rows if str(r.get("due_date")) == "2026-08-21"]
@@ -255,15 +275,21 @@ def runtime_rows(env: Any, server: str, sql: str, params: Iterable[Any] = ()) ->
         for payload in (card.get("statements",{}) if isinstance(card,dict) else {}).values():
             for st in _items(payload):
                 lines.extend(_all_rows(st.get("statement_lines", [])))
-        for call in _all_traces(env, range(int(getattr(env, "current_stage", 23)) + 1)):
+        for call in _all_traces(env, _published_span(env)):
             if str(call.get("name", "")).casefold().replace("-", "_").endswith("get_statement") and _success(call):
                 result = _decode(call.get("result", call.get("content")))
-                if isinstance(result, dict): lines.extend(_all_rows(result.get("statement_lines", [])))
+                if isinstance(result, dict):
+                    # get_statement line rows omit the owning statement; stamp
+                    # both owners from the envelope so per-line predicates match.
+                    for row in _all_rows(result.get("statement_lines", [])):
+                        row.setdefault("statement_id", result.get("statement_id"))
+                        row.setdefault("card_id", result.get("card_id"))
+                        lines.append(row)
         rows = [r for r in lines if str(r.get("line_id")) == "sl_dli_interest_20260825" and str(r.get("statement_id")) == "stmt_y_2025_12" and int(r.get("amount_minor",0)) == 2600 and str(r.get("kind")) == "interest"]
         return [[1] for _ in rows] if "select 1" in q else [[r.get("line_id"),r.get("statement_id"),r.get("amount_minor"),r.get("kind")] for r in rows]
     if server=="credit_card" and "from payments" in q:
         out=[]
-        for call in _all_traces(env,range(23)):
+        for call in _all_traces(env,_published_span(env)):
             if str(call.get("name","")).endswith("make_payment") and _success(call):
                 a=_decode(call.get("arguments",{})) or {}; r=_decode(call.get("result",{})) or {}; 
                 if isinstance(r,dict) and r.get("payment_id"): out.append([r["payment_id"],a.get("card_id"),a.get("amount_minor"),a.get("source_hint"),r.get("posted_at","")])
@@ -281,13 +307,13 @@ def runtime_rows(env: Any, server: str, sql: str, params: Iterable[Any] = ()) ->
         return [[json.dumps(r.get("properties", r), ensure_ascii=False)] for r in rows if any(token in json.dumps(r,ensure_ascii=False) for token in tokens)]
     if server=="calendar" and "from events" in q:
         rows = _all_rows(_service(snapshot,"calendar").get("events",[]))
-        if "date(start_dt) < date('2026-07-30')" in q: rows = [r for r in rows if str(r.get("start_dt", r.get("start", "")))[:10] < "2026-07-30"]
+        if "date(start_dt) < date('2026-07-30')" in q: rows = [r for r in rows if _event_start_dt(r)[:10] < "2026-07-30"]
         if "count(*)" in q:
             # The rubric's calendar predicates are evaluated directly over the
             # frozen event rows, including dates and content terms.
             date_match = re.search(r"date\(start_dt\) = date\('([^']+)'\)", q)
-            if date_match: rows = [r for r in rows if str(r.get("start_dt", ""))[:10] == date_match.group(1)]
-            elif "date(start_dt) = date(?)" in q and p: rows = [r for r in rows if str(r.get("start_dt", ""))[:10] == str(p[0])[:10]]
+            if date_match: rows = [r for r in rows if _event_start_dt(r)[:10] == date_match.group(1)]
+            elif "date(start_dt) = date(?)" in q and p: rows = [r for r in rows if _event_start_dt(r)[:10] == str(p[0])[:10]]
             def blob(row: Mapping[str, Any]) -> str:
                 return (str(row.get("summary", "")) + " " + str(row.get("description", ""))).casefold()
             if "like '%card%'" in q: rows = [r for r in rows if "card" in blob(r) and ("due" in blob(r) or "payment" in blob(r))]
@@ -303,7 +329,7 @@ def account_balance_minor(env: Any, account_id: str) -> int | None:
     rows=runtime_rows(env,"banking","SELECT balance_minor FROM accounts WHERE account_id = ?",[account_id]); return integer_value(rows[0][0]) if rows and rows[0] else None
 def post_kickoff_card_payments(env: Any, *, kickoff_date: str = "2026-07-30") -> list[tuple[str,str,int,str,str]] | None:
     out=[]
-    for call in _all_traces(env,range(23)):
+    for call in _all_traces(env,_published_span(env)):
         if str(call.get("name","")).endswith("make_payment") and _success(call):
             a=_decode(call.get("arguments",{})) or {}; r=_decode(call.get("result",{})) or {}; out.append((str(r.get("payment_id",call.get("id",""))),str(a.get("card_id")),int(a.get("amount_minor",0)),str(a.get("source_hint")),str(call.get("posted_at",""))))
     return out

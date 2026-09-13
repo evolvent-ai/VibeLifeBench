@@ -15,10 +15,25 @@
 ARG BASE_IMAGE=python:3.12-slim
 FROM ${BASE_IMAGE}
 
-# Idempotent: a no-op when the pre-baked base already carries these.
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        bash ca-certificates coreutils curl jq procps sqlite3 \
+# Idempotent: a no-op when the pre-baked base already carries these. The apt
+# fetches ride a build-time proxy that occasionally answers 502 for a single
+# .deb (deb.debian.org mirror hiccup), which used to abort the whole compose
+# build. Acquire::Retries makes apt itself re-fetch a failed download; the
+# bounded outer loop re-runs update+install on top of that. The trailing
+# assertion keeps the build failing if every attempt is exhausted, so a
+# persistently missing package can never be silently skipped.
+RUN echo 'Acquire::Retries "8";' > /etc/apt/apt.conf.d/80-retries \
+    && ok=0 \
+    && for attempt in 1 2 3; do \
+           if apt-get update \
+              && apt-get install -y --no-install-recommends \
+                  bash ca-certificates coreutils curl jq procps sqlite3; then \
+               ok=1; \
+               break; \
+           fi; \
+           sleep 5; \
+       done \
+    && [ "$ok" = 1 ] \
     && rm -rf /var/lib/apt/lists/*
 
 # Core mcp only. The task's client code uses ClientSession and

@@ -160,7 +160,7 @@ class IOService:
                 folder_name = validate_folder_name(folder_name)
                 folder_id = get_or_create_folder_id(self.conn, folder_name)
                 now = now_iso_z()
-                seq = next_counter(self.conn, "msg_seq")
+                seq = next_counter(self.conn, "message_seq")
                 msg_hdr = e.get("message_id") or message_id_header(seq)
                 cur = self.conn.execute(
                     """

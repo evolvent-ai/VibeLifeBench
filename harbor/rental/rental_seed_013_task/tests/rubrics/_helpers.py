@@ -63,7 +63,7 @@ SERVER_TOOL_ALIASES = {
     },
     "email": {
         "check_connection", "get_emails", "read_email", "search_emails", "send_email",
-        "reply_email", "forward_email", "delete_email", "move_email", "mark_email",
+        "reply_email", "forward_email", "delete_email", "move_email", "mark_emails",
         "save_draft", "get_drafts", "update_draft", "delete_draft", "download_attachment",
     },
     "notification_hub": {
@@ -188,7 +188,11 @@ def _norm_tool(value: str) -> str:
 
 
 def _tool_calls(env, stage: int | None = None) -> list[dict[str, Any]]:
-    stages = [stage] if stage is not None else list(range(STAGE_COUNT))
+    # stage=None means "every stage published so far". Frozen evidence for
+    # future stages does not exist yet, and reading it raises EvidenceError,
+    # so the global guards must walk env.published_stages() rather than the
+    # full 0..STAGE_COUNT range.
+    stages = [stage] if stage is not None else env.published_stages()
     calls: list[dict[str, Any]] = []
     for idx in stages:
         rows = env.trace(idx)

@@ -352,7 +352,8 @@ async def _call_expected(recorder: Recorder, stage: int) -> None:
         await recorder.call("delivery_logistics", "get_shipment", {"shipment_id": "shp_homtg_0002"})
         await recorder.call("delivery_logistics", "list_issues", {"user_id": USER_ID})
     elif stage == 7:
-        await recorder.call("email", "search_emails", {"query": "paper", "folder": "INBOX", "page": 1, "page_size": 50})
+        hits = await recorder.call("email", "search_emails", {"query": "paper", "folder": "INBOX", "page": 1, "page_size": 50})
+        await _read_search_hits(recorder, hits)
         await recorder.call("ecommerce", "get_product", {"product_id": "prod_homtg_c1"})
         await recorder.call("ecommerce", "get_product", {"product_id": "prod_homtg_c2"})
     elif stage == 8:
@@ -369,7 +370,8 @@ async def _call_expected(recorder: Recorder, stage: int) -> None:
         await recorder.call("notification_hub", "list_notifications", {"user_id": USER_ID, "limit": 100})
         await recorder.call("listing_platform", "get_listing_detail", {"listing_id": "lst_homtg_0001"})
     elif stage == 12:
-        await recorder.call("email", "search_emails", {"query": "private transfer", "folder": "INBOX", "page": 1, "page_size": 50})
+        hits = await recorder.call("email", "search_emails", {"query": "private transfer", "folder": "INBOX", "page": 1, "page_size": 50})
+        await _read_search_hits(recorder, hits)
     elif stage == 13:
         await recorder.call("credit_card", "list_unbilled", {"card_id": "card_homtg_01"})
         await recorder.call("listing_platform", "get_listing_detail", {"listing_id": "lst_homtg_0001"})
@@ -395,6 +397,15 @@ async def _call_expected(recorder: Recorder, stage: int) -> None:
         await recorder.call("notification_hub", "list_notifications", {"user_id": USER_ID, "limit": 100})
     else:
         await recorder.call("ecommerce", "get_order", {"order_id": "ord_homtg_0002"})
+
+
+async def _read_search_hits(recorder: Recorder, hits: Any) -> None:
+    """search_emails returns metadata only; read each hit to fetch the body facts."""
+    rows = hits.get("emails", []) if isinstance(hits, dict) else []
+    for row in rows:
+        email_id = row.get("email_id") if isinstance(row, dict) else None
+        if email_id:
+            await recorder.call("email", "read_email", {"email_id": str(email_id)})
 
 
 def _evidence_text(recorder: Recorder) -> str:

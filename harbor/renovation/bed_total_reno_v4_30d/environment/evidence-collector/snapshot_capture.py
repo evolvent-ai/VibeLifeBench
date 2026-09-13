@@ -328,61 +328,6 @@ def _workspace_snapshot(env: Any) -> dict[str, str]:
     return out
 
 
-def _notion_snapshot(env: Any) -> dict[str, Any]:
-    """Pages plus database rows and their children.
-
-    ``API-post-search`` returns pages/databases but not database rows, so rows
-    are queried explicitly and their children captured separately — without this
-    the ledger checks read an empty Notion and fail for the wrong reason.
-    """
-    page_search = _call(
-        env,
-        "notion",
-        "API-post-search",
-        query="",
-        filter={"value": "page", "property": "object"},
-        page_size=100,
-    )
-    database_search = _call(
-        env,
-        "notion",
-        "API-post-search",
-        query="",
-        filter={"value": "database", "property": "object"},
-        page_size=100,
-    )
-
-    def _ids(payload: Any) -> list[str]:
-        if not isinstance(payload, dict):
-            return []
-        return [
-            str(item["id"])
-            for item in payload.get("results") or []
-            if isinstance(item, dict) and item.get("id")
-        ]
-
-    page_blocks = {
-        page_id: _call(env, "notion", "API-get-block-children", block_id=page_id, page_size=100)
-        for page_id in _ids(page_search)
-    }
-    database_rows: dict[str, Any] = {}
-    row_children: dict[str, Any] = {}
-    for database_id in _ids(database_search):
-        rows = _call(env, "notion", "API-post-database-query", database_id=database_id, page_size=100)
-        database_rows[database_id] = rows
-        for row_id in _ids(rows):
-            row_children[row_id] = _call(
-                env, "notion", "API-get-block-children", block_id=row_id, page_size=100
-            )
-    return {
-        "pages": page_search,
-        "databases": database_search,
-        "page_blocks": page_blocks,
-        "database_rows": database_rows,
-        "row_children": row_children,
-    }
-
-
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     """Freeze all eight renovation services and durable workspace at a boundary."""
     return {
@@ -393,10 +338,11 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             "acceptance_order": _call(env, "ecommerce", "get_order", order_id="ord_qbed_0002"),
             "products": _call(env, "ecommerce", "search_products", query="bedroom", limit=500),
             "addresses": _call(env, "ecommerce", "list_addresses", user_id=USER_ID),
+            "cart": _call(env, "ecommerce", "get_cart", user_id=USER_ID),
+            "coupons": _call(env, "ecommerce", "list_coupons"),
         },
         "delivery_logistics": {
             "shipments": _call(env, "delivery_logistics", "list_shipments", user_id=USER_ID, limit=500),
-            "addresses": _call(env, "delivery_logistics", "list_addresses", user_id=USER_ID),
             "issues": _call(env, "delivery_logistics", "list_issues", user_id=USER_ID),
         },
         "credit_card": {

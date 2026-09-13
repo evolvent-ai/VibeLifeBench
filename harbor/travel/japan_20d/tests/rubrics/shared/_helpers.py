@@ -66,6 +66,11 @@ def _call(env, server: str, tool: str, **kwargs: Any) -> Any:
             return details.get(str(kwargs.get("reservation_id")))
     elif server == "visa_and_advisory":
         if tool == "list_visa_applications":
+            apps_by_user = service.get("applications_by_user")
+            user_id = str(kwargs.get("user_id") or "li_wei")
+            if isinstance(apps_by_user, dict) and user_id in apps_by_user:
+                frozen = apps_by_user.get(user_id)
+                return frozen if isinstance(frozen, list) else []
             return service.get("applications")
         if tool == "list_visa_products":
             return []
@@ -303,38 +308,52 @@ def _notion_text(env) -> str:
 
 
 def _notion_agent_text(env) -> str:
-    """Read only trip-journal blocks created or edited after the kickoff."""
-    search = _call(env, "notion", "API-post-search", query="Japan Trip 2026")
-    page_id = None
-    if isinstance(search, dict):
-        for result in search.get("results") or []:
-            if isinstance(result, dict) and result.get("object") == "page":
-                page_id = result.get("id")
-                break
-    if not page_id:
-        return ""
-    blocks = _call(env, "notion", "API-get-block-children", block_id=page_id)
-    items = blocks.get("results") if isinstance(blocks, dict) else blocks
+    """Read only trip-journal blocks created or edited after the kickoff.
+
+    Blocks are aggregated across every frozen page so evidence is not lost
+    when an agent creates or renames its own journal page; the kickoff-date
+    filter keeps seeded (pre-kickoff) content out of the agent corpus.
+    """
+    world = _snapshot(env).get("notion") or {}
+    blocks_by_page = world.get("blocks") if isinstance(world, dict) else None
     chunks: list[str] = []
-    for block in items or []:
-        if not isinstance(block, dict):
-            continue
-        created = str(block.get("created_time") or "")
-        edited = str(block.get("last_edited_time") or "")
-        if max(created, edited) < "2026-04-17":
-            continue
-        block_type = block.get("type") or ""
-        type_data = block.get(block_type) or {}
-        if not isinstance(type_data, dict):
-            continue
-        for rich_text in type_data.get("rich_text") or []:
-            if not isinstance(rich_text, dict):
+    pages: list = []
+    if isinstance(blocks_by_page, dict) and blocks_by_page:
+        pages = list(blocks_by_page.values())
+    else:
+        # Older snapshots: fall back to the frozen search's first page.
+        search = _call(env, "notion", "API-post-search", query="Japan Trip 2026")
+        page_id = None
+        if isinstance(search, dict):
+            for result in search.get("results") or []:
+                if isinstance(result, dict) and result.get("object") == "page":
+                    page_id = result.get("id")
+                    break
+        if page_id:
+            fetched = _call(env, "notion", "API-get-block-children", block_id=page_id)
+            if fetched is not None:
+                pages.append(fetched)
+    for blocks in pages:
+        items = blocks.get("results") if isinstance(blocks, dict) else blocks
+        for block in items or []:
+            if not isinstance(block, dict):
                 continue
-            text = rich_text.get("plain_text")
-            if not text and isinstance(rich_text.get("text"), dict):
-                text = rich_text["text"].get("content")
-            if text:
-                chunks.append(str(text))
+            created = str(block.get("created_time") or "")
+            edited = str(block.get("last_edited_time") or "")
+            if max(created, edited) < "2026-04-17":
+                continue
+            block_type = block.get("type") or ""
+            type_data = block.get(block_type) or {}
+            if not isinstance(type_data, dict):
+                continue
+            for rich_text in type_data.get("rich_text") or []:
+                if not isinstance(rich_text, dict):
+                    continue
+                text = rich_text.get("plain_text")
+                if not text and isinstance(rich_text.get("text"), dict):
+                    text = rich_text["text"].get("content")
+                if text:
+                    chunks.append(str(text))
     return "\n".join(chunks)
 
 
@@ -385,20 +404,56 @@ workspace_text = _workspace_text
 # ── email ──────────────────────────────────────────────────────────
 
 
+def _merge_frozen_details(box: Any, rows: list) -> list:
+    """Fold the frozen read_email details (body_text, headers) into the frozen
+    listing rows. The list view never carries bodies, but the capture freezes
+    them alongside, so checkers can match on real message content.
+    """
+    details = box.get("details") if isinstance(box, dict) else {}
+    if not isinstance(details, dict) or not details:
+        return rows
+    out = []
+    for row in rows:
+        if isinstance(row, dict):
+            detail = details.get(str(row.get("email_id") or row.get("id")))
+            if isinstance(detail, dict):
+                merged = dict(row)
+                for key in ("body_text", "body_html", "from_addr"):
+                    if detail.get(key) is not None:
+                        merged.setdefault(key, detail.get(key))
+                out.append(merged)
+                continue
+        out.append(row)
+    return out
+
+
 def _emails_for(env, user: str = "li_wei") -> list[dict] | None:
     """List inbox emails for ``user`` or None if backend unreachable."""
     data = _call(env, "email", "get_emails", folder="INBOX")
     if data is None:
         return None
+    rows: list = []
     if isinstance(data, list):
-        return list(data)
-    if isinstance(data, dict):
-        return list(data.get("emails") or data.get("messages") or [])
-    return []
+        rows = list(data)
+    elif isinstance(data, dict):
+        rows = list(data.get("emails") or data.get("messages") or [])
+    service = _snapshot(env).get("email") or {}
+    box = service.get("inbox") if isinstance(service, dict) else None
+    return _merge_frozen_details(box, rows)
 
 
 # Backwards-compatible alias used by final.
 emails_for = _emails_for
+
+
+def _sent_email_rows(env, user: str = "li_wei") -> list[dict]:
+    """Sent-folder rows enriched with frozen bodies; [] when absent."""
+    data = _sent_emails(env, user)
+    if not data:
+        return []
+    service = _snapshot(env).get("email") or {}
+    box = service.get("sent") if isinstance(service, dict) else None
+    return _merge_frozen_details(box, list(data))
 
 
 def _sent_emails_any(env, user: str = "li_wei") -> list[dict]:

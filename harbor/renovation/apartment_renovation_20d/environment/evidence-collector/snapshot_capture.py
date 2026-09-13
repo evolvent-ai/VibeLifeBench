@@ -311,12 +311,63 @@ def _workspace_snapshot(env: Any) -> dict[str, str]:
     return out
 
 
+def _database_rows(env: Any, database_id: str) -> Any:
+    """All rows of one database, merged across the mock's 100-row pages.
+
+    ``API-post-database-query`` clamps ``page_size`` to 100, so a single
+    request silently truncates larger databases (the seeded contractor-reviews
+    database holds 144 rows) and checks that enumerate the frozen rows would
+    read a prefix. Pages are merged back into the first page's envelope,
+    leaving the stored shape unchanged for consumers.
+    """
+    first = _call(env, "notion", "API-post-database-query", database_id=database_id, page_size=100)
+    if not isinstance(first, dict) or not isinstance(first.get("results"), list):
+        return first
+    merged = list(first["results"])
+    seen = {
+        str(row.get("id"))
+        for row in merged
+        if isinstance(row, dict) and row.get("id") is not None
+    }
+    cursor = first.get("next_cursor")
+    pages = 1
+    while first.get("has_more") and cursor not in (None, "") and pages < 100:
+        page = _call(
+            env, "notion", "API-post-database-query",
+            database_id=database_id, page_size=100, start_cursor=cursor,
+        )
+        if not isinstance(page, dict) or not isinstance(page.get("results"), list):
+            break
+        fresh = [
+            row
+            for row in page["results"]
+            if isinstance(row, dict)
+            and row.get("id") is not None
+            and str(row.get("id")) not in seen
+        ]
+        if not fresh:
+            break
+        seen.update(str(row["id"]) for row in fresh)
+        merged.extend(fresh)
+        cursor = page.get("next_cursor")
+        pages += 1
+    first["results"] = merged
+    first["has_more"] = False
+    first["next_cursor"] = None
+    first["captured_count"] = len(merged)
+    return first
+
+
 def _notion_snapshot(env: Any) -> dict[str, Any]:
-    """Pages plus database rows and their children.
+    """Pages plus database rows.
 
     ``API-post-search`` returns pages/databases but not database rows, so rows
-    are queried explicitly and their children captured separately — without this
-    the ledger checks read an empty Notion and fail for the wrong reason.
+    are queried explicitly — without this the ledger checks read an empty
+    Notion and fail for the wrong reason. Row children are intentionally not
+    fetched: every ``call_tool`` opens a fresh MCP session, the seeded
+    databases hold ~1000 rows (one session per row per stage boundary), row
+    content lives in ``database_rows[*].properties_json``, and no rubric
+    consumer reads ``row_children``.
     """
     page_search = _call(
         env,
@@ -349,20 +400,16 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
         for page_id in _ids(page_search)
     }
     database_rows: dict[str, Any] = {}
-    row_children: dict[str, Any] = {}
     for database_id in _ids(database_search):
-        rows = _call(env, "notion", "API-post-database-query", database_id=database_id, page_size=100)
-        database_rows[database_id] = rows
-        for row_id in _ids(rows):
-            row_children[row_id] = _call(
-                env, "notion", "API-get-block-children", block_id=row_id, page_size=100
-            )
+        database_rows[database_id] = _database_rows(env, database_id)
+    # ``row_children`` stays in the envelope (empty) so downstream consumers
+    # see an unchanged snapshot shape.
     return {
         "pages": page_search,
         "databases": database_search,
         "page_blocks": page_blocks,
         "database_rows": database_rows,
-        "row_children": row_children,
+        "row_children": {},
     }
 
 

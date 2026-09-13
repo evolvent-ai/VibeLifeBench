@@ -521,7 +521,7 @@ def _stage_workspace(stage: int) -> None:
     elif stage == 18:
         _append("budget.md", marker, "disp_qbed_01 approved; tx_qbed_rev reversal adjustment -22000 minor units posted; normal statement open; tx_qbed_rev is a reversal, not a normal payment")
     elif stage == 19:
-        _append("order_tracker.md", marker, "ref_qbed_b approved for limited-scope rework CNY 20400 plus delay compensation CNY 1020, total CNY 21420; approved but funds posting pending; indoor air, surplus materials and final warranty outside decision")
+        _append("order_tracker.md", marker, "ref_qbed_b approved for limited-scope rework CNY 20400 plus delay compensation CNY 1020, total CNY 21420; approved but funds not posted, posting pending; indoor air, surplus materials and final warranty outside decision")
     elif stage == 20:
         _update_fields("budget.md", {"refund_pending_minor": 0, "refunded_minor": 2164000, "resale_received_minor": 0, "net_outflow_minor": 1236000, "as_of_stage": 20})
         _append("budget.md", marker, "tx_qbed_pp: -2142000 minor units, funds posting complete\nsource_objects: [ord_qbed_0001, tx_qbed_rev, tx_qbed_pp, lst_qbed_0001]")

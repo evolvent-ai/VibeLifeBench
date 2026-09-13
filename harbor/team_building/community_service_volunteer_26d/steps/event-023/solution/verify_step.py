@@ -66,7 +66,8 @@ def verify(spec: dict[str, Any]) -> int:
     rv = _verifier()
     rv._load_rubric_package()
     try:
-        rv.validate_stage_evidence(stage)
+        env = rv.HarborEvidence(rv.EVIDENCE_ROOT)
+        env.validate_stage(stage)
     except Exception as exc:  # noqa: BLE001
         if ORACLE_STDOUT_PATH.is_file():
             print(
@@ -79,14 +80,15 @@ def verify(spec: dict[str, Any]) -> int:
             f"{type(exc).__name__}: {exc}"
         )
         return 1
-    env = rv.HarborEvidence(rv.EVIDENCE_ROOT)
 
     declared = {str(row["check_id"]): float(row["weight"]) for row in expected}
     declared_weight = sum(declared.values())
 
     try:
         # Same entry point the graded run uses for a Stage.
-        reports, detail = rv._run_module(f"stage_{stage}", env, f"stage{stage}")
+        reports, detail = rv._run_module(
+            f"stage_{stage}", env, tag=f"stage{stage}", scoring_stage=stage
+        )
     except Exception as exc:  # noqa: BLE001
         print(f"{step}: stage {stage} rubric failed to run — {type(exc).__name__}: {exc}")
         return 1

@@ -39,6 +39,23 @@ class AlertsService:
             raise WeatherNotFound("no_nearby_location")
         return row
 
+    @staticmethod
+    def _covers_location(areas: Any, loc: dict) -> bool:
+        """Whether an alert's named areas cover the resolved location.
+
+        ``areas_json`` records place names ("Xi'an", "Xi'an City") while the
+        resolved location carries a geo_key, so matching must accept either
+        spelling of the same place or the lookup silently drops every alert.
+        """
+        if not isinstance(areas, list):
+            return False
+        for area in areas:
+            if not isinstance(area, str):
+                continue
+            if area == loc["geo_key"] or area == loc["city"] or area in loc["city"]:
+                return True
+        return False
+
     def get_active_alerts_for_geo(self, geo: Any) -> list[dict]:
         loc = self._resolve(geo)
         rows = self.be.fetchall(
@@ -47,7 +64,7 @@ class AlertsService:
         out: list[dict] = []
         for r in rows:
             areas = json.loads(r["areas_json"])
-            if loc["geo_key"] not in areas:
+            if not self._covers_location(areas, loc):
                 continue
             out.append(
                 {
@@ -56,7 +73,9 @@ class AlertsService:
                     "severity": r["severity"],
                     "start": r["start_dt"],
                     "end": r["end_dt"],
+                    "active": int(r["active"]),
                     "areas": areas,
+                    "areas_json": r["areas_json"],
                     "description": r["description"],
                 }
             )

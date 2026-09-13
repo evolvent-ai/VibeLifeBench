@@ -350,14 +350,16 @@ def _frozen_database(env: Any, stage: int) -> sqlite3.Connection:
         # Order-item responses are often emitted as separate nested rows and
         # do not repeat the parent order's total. Preserve those rows so the
         # contract-context predicate can verify the product/SKU linkage.
+        # Nested item rows usually omit the parent order_id; take it from the
+        # enclosing order context the same way refunds do.
         if (
             value.get("item_id")
-            and value.get("order_id")
+            and (value.get("order_id") or ctx.get("order_id"))
             and value.get("product_id")
             and value.get("sku_id")
             and not in_payload
         ):
-            add("order_items", value)
+            add("order_items", {**value, "order_id": value.get("order_id") or ctx.get("order_id")})
         if value.get("refund_id") and not in_payload:
             add("refunds", {**value, "order_id": value.get("order_id") or ctx.get("order_id")})
         if value.get("product_id"):
@@ -407,7 +409,11 @@ def _frozen_database(env: Any, stage: int) -> sqlite3.Connection:
                 "unbilled_transactions",
                 {**value, "card_id": value.get("card_id") or "card_qflr_01"},
             )
-        if value.get("dispute_id"):
+        # Dispute snapshots survive inside notification payloads (e.g. an
+        # "opened" notice keeps the stale under_review status long after the
+        # backend row moved to approved); like the orders/refunds branches
+        # above, only infer dispute rows from response/table objects.
+        if value.get("dispute_id") and not in_payload:
             add("disputes", {**value, "card_id": value.get("card_id") or "card_qflr_01"})
         if value.get("payment_id"):
             add("payments", value)
@@ -606,17 +612,25 @@ def budget_matches_backend(
 
 def _coupon_discount(coupon: Sequence[Any], items: Sequence[dict[str, Any]], as_of: str) -> int | None:
     code, kind, value, minimum, valid_from, valid_until, restriction, max_uses, used_count, active = coupon
-    if not int(active) or not (str(valid_from) <= as_of <= str(valid_until)):
+    # Coupon rows reconstructed from evidence may be partially populated (a
+    # captured response can carry only a subset of the terms).  Treat unknown
+    # numerics as inert instead of raising on int(None).
+    active_i = int(active or 0)
+    max_uses_i = int(max_uses or 0)
+    used_count_i = int(used_count or 0)
+    value_i = int(value or 0)
+    minimum_i = int(minimum or 0)
+    if not active_i or not (str(valid_from) <= as_of <= str(valid_until)):
         return None
-    if int(max_uses) and int(used_count) >= int(max_uses):
+    if max_uses_i and used_count_i >= max_uses_i:
         return None
     eligible = sum(item["price"] for item in items if not restriction or item["category"] == restriction)
-    if restriction and eligible == 0 or eligible < int(minimum):
+    if restriction and eligible == 0 or eligible < minimum_i:
         return None
     if kind == "percent_off":
-        return (eligible * int(value)) // 10_000
+        return (eligible * value_i) // 10_000
     if kind == "flat_off":
-        return min(int(value), eligible)
+        return min(value_i, eligible)
     if kind == "free_shipping":
         return 0
     raise RuntimeError(f"unknown coupon kind: {kind}")

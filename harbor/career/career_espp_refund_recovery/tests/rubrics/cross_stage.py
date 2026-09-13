@@ -70,8 +70,17 @@ def cross_valuation_consistent(env) -> bool:
     )
     if not all(value.lower() in review_num for value in required_review):
         return False
+    # The valuation formula is matched against the norm_num corpus like every
+    # other value in this function, so "4955 * 60.00 = 297300" is accepted on
+    # its whitespace while the operands and result stay exact.
+    formula = (
+        f"{QTY}*{PRICE}={FAIR_VALUE}",
+        f"{QTY}×{PRICE}={FAIR_VALUE}",
+        f"{QTY}x{PRICE}={FAIR_VALUE}",
+    )
+    if not any(term in review_num for term in formula):
+        return False
     if not text_has(review, [
-        [f"{QTY}×{PRICE}={FAIR_VALUE}", f"{QTY}*{PRICE}={FAIR_VALUE}"],
         ["value"],
         ["income", "income", "basis"],
     ]):

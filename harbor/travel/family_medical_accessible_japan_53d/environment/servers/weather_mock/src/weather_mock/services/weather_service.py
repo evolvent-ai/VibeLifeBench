@@ -118,6 +118,7 @@ class WeatherService:
                     "tmax": row["tmax"],
                     "condition": row["condition"],
                     "precip_prob": row["precip_prob"],
+                    "precip_mm": row["precip_mm"],
                     "wind_kmh": row["wind_kmh"],
                 }
             )

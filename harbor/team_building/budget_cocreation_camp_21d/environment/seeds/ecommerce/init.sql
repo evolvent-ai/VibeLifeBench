@@ -27,7 +27,7 @@ INSERT INTO "stocks" ("sku_id", "quantity") VALUES ('SK_PRIVACY_SLEEVES40', 55);
 INSERT INTO "stocks" ("sku_id", "quantity") VALUES ('SK_REMOTE_MIC1', 9);
 INSERT INTO "addresses" ("address_id", "user_id", "recipient", "phone", "province", "city", "district", "detail", "postal_code", "is_default") VALUES ('ADDR_OFFICE', 'u_budget_ops', 'Lin Yue', '13800000000', 'Shanghai', 'Shanghai', 'Xuhui', '88 Riverside Rd, 3F', '200030', 1);
 INSERT INTO "carts" ("user_id", "updated_at") VALUES ('u_budget_ops', '2026-07-22T09:00:00Z');
-INSERT INTO "coupons" ("code", "kind", "value_bp_or_minor", "min_spend_minor", "valid_from", "valid_until", "category_restriction", "max_uses", "used_count", "active") VALUES ('CAMPKIT500', 'flat_off', 50000, 100000, '2026-07-20', '2026-08-11', 'office', 50, 0, 1);
+INSERT INTO "coupons" ("code", "kind", "value_bp_or_minor", "min_spend_minor", "valid_from", "valid_until", "category_restriction", "max_uses", "used_count", "active") VALUES ('CAMPKIT500', 'flat_off', 50000, 100000, '2026-07-20', '2026-08-12', 'office', 50, 0, 1);
 INSERT INTO "_counters" ("key", "value") VALUES ('cart_item_seq', 1000);
 INSERT INTO "_counters" ("key", "value") VALUES ('order_seq', 1000);
 

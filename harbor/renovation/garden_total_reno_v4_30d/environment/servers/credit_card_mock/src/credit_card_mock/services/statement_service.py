@@ -108,7 +108,7 @@ class StatementService:
         # is already authoritative; just return rows newest first.
         rows = self.conn.execute(
             """
-            SELECT tx_id, posted_at, amount_minor, merchant_name, mcc, category, kind
+            SELECT tx_id, card_id, posted_at, amount_minor, merchant_name, mcc, category, kind
             FROM unbilled_transactions
             WHERE card_id = ?
             ORDER BY posted_at ASC
@@ -118,6 +118,7 @@ class StatementService:
         return [
             {
                 "tx_id": r["tx_id"],
+                "card_id": r["card_id"],
                 "posted_at": r["posted_at"],
                 "amount_minor": int(r["amount_minor"]),
                 "merchant_name": r["merchant_name"],

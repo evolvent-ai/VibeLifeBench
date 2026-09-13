@@ -28,6 +28,10 @@ if str(HERE) not in sys.path:
 # divergence rather than papering over it.
 WORLD_CLOCK_PATH = Path(os.environ.get("WORLD_CLOCK_FILE", "/world-clock/current.json"))
 
+# Must match controller.TIMEZONE_NAME: _validate_staging compares the stamped
+# scenario_clock dict for exact equality against {now, step, timezone}.
+TIMEZONE_NAME = "Asia/Shanghai"
+
 ORACLE_STDOUT_FILE = "oracle.txt"
 ORACLE_EXIT_CODE_FILE = "exit-code.txt"
 
@@ -60,7 +64,7 @@ def scenario_clock(step_name: str = "") -> dict[str, Any]:
         raise RuntimeError(
             f"required world clock unavailable at {WORLD_CLOCK_PATH}: {exc}"
         ) from exc
-    return {"schema_version": 1, "step": step_name, "now": parsed.isoformat()}
+    return {"now": parsed.isoformat(), "step": step_name, "timezone": TIMEZONE_NAME}
 
 
 def utc_now(step_name: str = "") -> str:

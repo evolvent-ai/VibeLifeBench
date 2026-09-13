@@ -582,7 +582,18 @@ def apply_operation(
                 selector_values + [int(selector.get("offset", 0))],
             ).fetchone()
             if row is None:
-                raise RuntimeError(f"selector matched no row in {operation['table']}")
+                # A selector models "the Nth row the user produced, in order".
+                # The user may legitimately have produced nothing (a no-op
+                # trial), leaving the world event nothing to act on: record
+                # the skip instead of failing the whole release. The plain
+                # where-predicate update path below still fails loudly on a
+                # wrong rowcount, so a mis-specified release cannot hide.
+                return {
+                    "op": op,
+                    "table": operation["table"],
+                    "rowcount": 0,
+                    "skipped": "selector matched no row",
+                }
             where.setdefault(selector["key"], row[0])
         predicate, where_values = _predicate(where)
         assignments = ", ".join(f"{_quote(str(k))} = ?" for k in values)

@@ -60,7 +60,7 @@ def build_server(db_path: str, init_sql: str | None, host: str, port: int) -> Fa
         "ecommerce-mock",
         host=host,
         port=int(port),
-        streamable_http_path="/MCP",
+        streamable_http_path="/mcp",
     )
     register_catalog_tools(MCP, catalog_service)
     register_cart_tools(MCP, cart_service)

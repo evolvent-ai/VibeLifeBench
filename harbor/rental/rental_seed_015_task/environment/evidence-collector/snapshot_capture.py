@@ -10,13 +10,22 @@ from __future__ import annotations
 
 import json
 import os
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+# The world-controller publishes the scenario clock at WORLD_CLOCK_FILE (see
+# controller.py / docker-compose.yaml); SCENARIO_CLOCK_PATH stays as an explicit
+# override so a deployment that splits the volumes can still point here.
 SCENARIO_CLOCK_PATH = Path(
-    os.environ.get("SCENARIO_CLOCK_PATH", "/scenario-clock/current.json")
+    os.environ.get("SCENARIO_CLOCK_PATH")
+    or os.environ.get("WORLD_CLOCK_FILE")
+    or "/world-clock/current.json"
 )
-SCENARIO_CLOCK_REQUIRED = os.environ.get("SCENARIO_CLOCK_REQUIRED", "0") == "1"
+SCENARIO_CLOCK_REQUIRED = (
+    os.environ.get("SCENARIO_CLOCK_REQUIRED", os.environ.get("WORLD_CLOCK_REQUIRED", "0"))
+    == "1"
+)
 
 USER_ID = "usr_liyan"
 CALENDAR_ID = "cal_liyan_main"
@@ -35,7 +44,11 @@ def scenario_clock() -> dict[str, Any]:
             raise RuntimeError(
                 f"required scenario clock unavailable at {SCENARIO_CLOCK_PATH}: {exc}"
             ) from exc
-        raise RuntimeError(f"required world clock unavailable at {SCENARIO_CLOCK_PATH}: {exc}") from exc
+        # The controller only marks the clock required when the world-clock
+        # volume is guaranteed to be mounted. Otherwise a missing file must not
+        # abort the whole capture: fall back to wall time so the stage sidecar
+        # (and therefore the verifier) still gets produced.
+        return {"schema_version": 1, "step": "unknown", "now": datetime.now(timezone.utc).isoformat()}
 
 
 # Copied verbatim from the source task.py. The rubrics assert on these exact ids.

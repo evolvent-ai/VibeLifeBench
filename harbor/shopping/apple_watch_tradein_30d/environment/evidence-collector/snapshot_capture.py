@@ -28,19 +28,20 @@ CLOCK_KEYS = frozenset({"schema_version", "step", "now"})
 SCENARIO_TIMES = {
     "event-000": "2026-06-15T09:00:00+08:00", "event-001": "2026-06-15T09:30:00+08:00",
     "event-002": "2026-06-16T10:00:00+08:00", "event-003": "2026-06-16T10:20:00+08:00",
-    "event-004": "2026-06-17T14:30:00+08:00", "event-005": "2026-06-18T18:20:00+08:00",
-    "event-006": "2026-06-19T09:10:00+08:00", "event-007": "2026-06-19T09:30:00+08:00",
-    "event-008": "2026-06-20T11:20:00+08:00", "event-009": "2026-06-21T15:10:00+08:00",
-    "event-010": "2026-06-22T10:00:00+08:00", "event-011": "2026-06-22T15:00:00+08:00",
-    "event-012": "2026-06-23T13:30:00+08:00", "event-013": "2026-06-24T09:20:00+08:00",
-    "event-014": "2026-06-25T10:00:00+08:00", "event-015": "2026-06-25T10:20:00+08:00",
-    "event-016": "2026-06-26T16:20:00+08:00", "event-017": "2026-06-28T09:00:00+08:00",
-    "event-018": "2026-06-30T10:30:00+08:00", "event-019": "2026-07-02T09:00:00+08:00",
-    "event-020": "2026-07-02T09:30:00+08:00", "event-021": "2026-07-02T09:40:00+08:00",
-    "event-022": "2026-07-04T10:00:00+08:00", "event-023": "2026-07-06T14:00:00+08:00",
-    "event-024": "2026-07-08T18:30:00+08:00", "event-025": "2026-07-10T11:30:00+08:00",
-    "event-026": "2026-07-11T16:30:00+08:00", "event-027": "2026-07-12T10:00:00+08:00",
-    "event-028": "2026-07-13T10:00:00+08:00", "event-029": "2026-07-14T10:00:00+08:00",
+    "event-004": "2026-06-16T10:40:00+08:00", "event-005": "2026-06-17T14:30:00+08:00",
+    "event-006": "2026-06-18T18:20:00+08:00", "event-007": "2026-06-19T09:10:00+08:00",
+    "event-008": "2026-06-19T09:30:00+08:00", "event-009": "2026-06-20T11:20:00+08:00",
+    "event-010": "2026-06-21T15:10:00+08:00", "event-011": "2026-06-22T10:00:00+08:00",
+    "event-012": "2026-06-22T15:00:00+08:00", "event-013": "2026-06-23T13:30:00+08:00",
+    "event-014": "2026-06-24T09:20:00+08:00", "event-015": "2026-06-25T10:00:00+08:00",
+    "event-016": "2026-06-25T10:20:00+08:00", "event-017": "2026-06-26T16:20:00+08:00",
+    "event-018": "2026-06-28T09:00:00+08:00", "event-019": "2026-06-28T09:20:00+08:00",
+    "event-020": "2026-06-30T10:30:00+08:00", "event-021": "2026-07-02T09:00:00+08:00",
+    "event-022": "2026-07-02T09:30:00+08:00", "event-023": "2026-07-02T09:40:00+08:00",
+    "event-024": "2026-07-04T10:00:00+08:00", "event-025": "2026-07-06T14:00:00+08:00",
+    "event-026": "2026-07-08T18:30:00+08:00", "event-027": "2026-07-10T11:30:00+08:00",
+    "event-028": "2026-07-11T16:30:00+08:00", "event-029": "2026-07-12T10:00:00+08:00",
+    "event-030": "2026-07-13T10:00:00+08:00", "event-031": "2026-07-14T10:00:00+08:00",
 }
 
 USER_ID = "usr_mo_fan"
@@ -87,9 +88,23 @@ def scenario_clock(expected_step: str) -> dict[str, Any]:
         parsed = datetime.fromisoformat(payload["now"].replace("Z", "+00:00"))
         if parsed.tzinfo is None or parsed.utcoffset() is None:
             raise ValueError("scenario clock must include an offset")
-        mapped = Path(__file__).resolve().parent.parent / "world-controller" / "step-release-map.json"
+        here = Path(__file__).resolve().parent.parent
+        map_candidates = []
+        env_map = os.environ.get("STEP_RELEASE_MAP")
+        if env_map:
+            map_candidates.append(Path(env_map))
+        map_candidates.extend(
+            [
+                # image layout: /opt/world-controller/{capture,snapshot_capture -> step-release-map.json}
+                here / "step-release-map.json",
+                # source-tree layout: environment/evidence-collector -> environment/world-controller
+                here / "world-controller" / "step-release-map.json",
+                Path("/opt/world-controller/step-release-map.json"),
+            ]
+        )
         expected_now = SCENARIO_TIMES.get(expected_step)
-        if mapped.is_file():
+        mapped = next((c for c in map_candidates if c.is_file()), None)
+        if mapped is not None:
             try:
                 expected_now = json.loads(mapped.read_text(encoding="utf-8"))["steps"][expected_step]["scenario_time"]
             except Exception:

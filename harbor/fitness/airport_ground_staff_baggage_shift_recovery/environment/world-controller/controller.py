@@ -38,6 +38,13 @@ DB_ALIASES: dict[str, str] = {
 ALLOWED_SERVERS = frozenset(DB_PATHS)
 IDENTIFIER = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 STEP_NAME = re.compile(r"^event-(?:00[0-9]|01[0-9]|020|021)$")
+
+# The verifier closes an immutable boundary for every virtual stage
+# (tests/run_verifier.py STAGE_COUNT). Stages with no agent step are unscored
+# transition stages (empty CHECKS in tests/rubrics/stage_NN.py) but still need
+# published evidence, so they carry over the world frozen by the last
+# completed stage.
+STAGE_COUNT = 28
 EVIDENCE_ROOT = Path("/evidence")
 WORKSPACE_ROOT = Path("/workspace-source")
 STATE_PATH = Path("/controller-state/controller-state.json")
@@ -85,6 +92,17 @@ def _load_step_map() -> dict[str, dict[str, Any]]:
 
 STEP_MAP = _load_step_map()
 STEP_ORDER = tuple(STEP_MAP)
+
+# The verifier closes an immutable boundary for every virtual stage
+# (tests/run_verifier.py STAGE_COUNT). Stages with no agent step are unscored
+# transition stages (empty CHECKS in tests/rubrics/stage_NN.py) but still need
+# published evidence, so they carry over the world frozen by the last
+# completed stage.
+TRANSITION_STAGES: frozenset[int] = frozenset(
+    stage
+    for stage in range(STAGE_COUNT)
+    if stage not in {int(item["virtual_stage"]) for item in STEP_MAP.values()}
+)
 
 
 
@@ -818,18 +836,31 @@ def _validate_staging(step_name: str) -> tuple[Path, dict[str, Any]]:
 def _validate_world_snapshot(snapshot: dict[str, Any], stage: int) -> None:
     if snapshot.get("stage") != stage:
         raise ValueError("controller world snapshot stage mismatch")
-    sections = [value for key, value in snapshot.items() if key != "stage" and isinstance(value, dict)]
-    field_count = sum(len(section) for section in sections)
-    error_count = sum(
-        1
-        for section in sections
-        for value in section.values()
-        if isinstance(value, dict) and "error" in value
-    )
-    if error_count and error_count * 2 >= max(field_count, 1):
+
+    # Any captured {"error": ...} sentinel — at any depth — means the capture
+    # side failed to read its world. Publishing such a snapshot freezes damaged
+    # evidence that the verifier then rejects wholesale, which converts one
+    # failed read into an infrastructure error for every later check; failing
+    # here keeps the failure at the collection boundary where it happened.
+    def _captured_error(item: Any, path: str) -> str | None:
+        if isinstance(item, dict):
+            if set(item) == {"error"}:
+                return f"{path}: {item['error']!r}"
+            for key, child in item.items():
+                found = _captured_error(child, f"{path}.{key}")
+                if found is not None:
+                    return found
+        elif isinstance(item, list):
+            for index, child in enumerate(item):
+                found = _captured_error(child, f"{path}[{index}]")
+                if found is not None:
+                    return found
+        return None
+
+    failure = _captured_error(snapshot, "snapshot")
+    if failure is not None:
         raise RuntimeError(
-            f"stage {stage} snapshot is mostly capture errors "
-            f"({error_count}/{field_count} fields)"
+            f"stage {stage} snapshot contains a captured error at {failure}"
         )
 
 
@@ -931,6 +962,67 @@ def _build_stage_evidence(root: Path, stage: int, boundary_step: str) -> dict[st
     )
 
 
+def _stage_manifest_dir(stage: int) -> Path:
+    return EVIDENCE_ROOT / "stages" / f"stage-{stage:02d}"
+
+
+def _build_transition_stage_evidence(root: Path, stage: int, donor_dir: Path) -> dict[str, Any]:
+    """Freeze an unscored transition stage from the last completed boundary.
+
+    The world the transition stage closes is exactly the world the previous
+    stage boundary froze (no agent turn and no release happened in between), so
+    the donor snapshot is re-frozen under this stage's own number with an empty
+    agent turn. The donor directory is never modified — each stage keeps its
+    own immutable, hash-pinned copy.
+    """
+    donor_manifest = _read_json_object(donor_dir / "manifest.json")
+    donor_snapshot = _read_json_object(donor_dir / "snapshot.json")
+    donor_snapshot["stage"] = stage
+    write_json_atomic(root / "snapshot.json", donor_snapshot)
+    write_json_atomic(root / "trace.json", [])
+    (root / "response.txt").write_text("", encoding="utf-8")
+    write_json_atomic(
+        root / "trajectory.json",
+        {"schema_version": 1, "virtual_stage": stage, "steps": []},
+    )
+    return _write_manifest(
+        root,
+        {
+            "schema_version": 1,
+            "kind": "stage",
+            "step": None,
+            "virtual_stage": stage,
+            "event_steps": [],
+            "transition_from": int(donor_manifest.get("virtual_stage") or 0),
+            "captured_at": donor_manifest.get("captured_at") or utc_now(),
+        },
+    )
+
+
+def _publish_transition_stages(up_to: int) -> None:
+    """Publish evidence for every step-less stage at or below ``up_to``."""
+    for stage in range(up_to + 1):
+        if stage not in TRANSITION_STAGES:
+            continue
+        target = _stage_manifest_dir(stage)
+        if _existing_manifest(target) is not None:
+            continue
+        donor = None
+        for previous in range(stage - 1, -1, -1):
+            candidate = _stage_manifest_dir(previous)
+            if _existing_manifest(candidate) is not None:
+                donor = candidate
+                break
+        if donor is None:
+            continue
+        _publish_directory(
+            target,
+            lambda root, stage=stage, donor=donor: _build_transition_stage_evidence(
+                root, stage, donor
+            ),
+        )
+
+
 def _record_snapshot(step_name: str, captured_at: str) -> None:
     conn = _connect_state()
     try:
@@ -973,6 +1065,7 @@ def snapshot(step_name: str) -> dict[str, Any]:
                     EVIDENCE_ROOT / "stages" / f"stage-{stage:02d}",
                     lambda root: _build_stage_evidence(root, stage, step_name),
                 )
+            _publish_transition_stages(int(item["virtual_stage"]))
             _record_snapshot(step_name, str(existing["captured_at"]))
             return existing
         current, metadata = _validate_staging(step_name)
@@ -986,6 +1079,7 @@ def snapshot(step_name: str) -> dict[str, Any]:
                 EVIDENCE_ROOT / "stages" / f"stage-{stage:02d}",
                 lambda root: _build_stage_evidence(root, stage, step_name),
             )
+        _publish_transition_stages(int(metadata["virtual_stage"]))
         _record_snapshot(step_name, str(manifest["captured_at"]))
         return manifest
 

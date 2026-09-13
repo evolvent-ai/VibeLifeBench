@@ -1208,23 +1208,28 @@ def _orders_by_sku(env) -> dict[str, list[dict[str, Any]]]:
     orders = _call(env, "ecommerce", "list_orders", user_id=USER_ID, limit=100)
     traced_items: dict[str, list[dict[str, Any]]] = {}
     cart: list[dict[str, Any]] = []
-    for call in _tool_calls(env, 10):
-        name = str(call.get("name") or "")
-        if _tool_name_matches(name, "ecommerce", "add_to_cart"):
-            args = call.get("arguments") if isinstance(call.get("arguments"), dict) else {}
-            sku = args.get("sku_id")
-            if sku:
-                cart.append({"sku_id": str(sku), "qty": args.get("qty", 1)})
-        elif _tool_name_matches(name, "ecommerce", "place_order"):
-            result = call.get("result")
-            if isinstance(result, str):
-                try:
-                    result = json.loads(result)
-                except json.JSONDecodeError:
-                    result = {}
-            if isinstance(result, dict) and result.get("order_id"):
-                traced_items[str(result["order_id"])] = list(cart)
-            cart.clear()
+    # The cart->order mapping lives in the stage-10 purchase trace. Stage 10 is
+    # only frozen once the trial passes event-008, so earlier rubrics (e.g. the
+    # stage-5 checks at event-004) must treat it as absent instead of raising
+    # EvidenceError; order rows still come from the check's own stage snapshot.
+    if 10 in _evidence(env).published_stages():
+        for call in _tool_calls(env, 10):
+            name = str(call.get("name") or "")
+            if _tool_name_matches(name, "ecommerce", "add_to_cart"):
+                args = call.get("arguments") if isinstance(call.get("arguments"), dict) else {}
+                sku = args.get("sku_id")
+                if sku:
+                    cart.append({"sku_id": str(sku), "qty": args.get("qty", 1)})
+            elif _tool_name_matches(name, "ecommerce", "place_order"):
+                result = call.get("result")
+                if isinstance(result, str):
+                    try:
+                        result = json.loads(result)
+                    except json.JSONDecodeError:
+                        result = {}
+                if isinstance(result, dict) and result.get("order_id"):
+                    traced_items[str(result["order_id"])] = list(cart)
+                cart.clear()
     for summary in orders if isinstance(orders, list) else []:
         if not isinstance(summary, dict):
             continue

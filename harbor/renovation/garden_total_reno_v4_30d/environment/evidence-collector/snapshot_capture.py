@@ -260,6 +260,59 @@ def _paged_call(
     return first
 
 
+def _order_projection(raw: Any, order_id: str) -> Any:
+    """Expose the order header as a single rubric-readable row.
+
+    ``get_order`` returns the header plus an ``items`` line-item list in one
+    envelope.  Snapshot consumers key rows off ``items`` first (the paginated
+    envelope convention), so leaving the line items under that key silently
+    replaces the header row with its line items and every ``orders`` /
+    ``refunds`` query loses ``order_id`` / ``status`` / ``total_minor`` /
+    ``placed_at``.  Re-homing the line items under ``line_items`` keeps the
+    header addressable, and stamping each refund with its parent ``order_id``
+    preserves the joins the rubric's refund queries perform.
+    """
+    if not isinstance(raw, dict) or "error" in raw:
+        return raw
+    header = {key: value for key, value in raw.items() if key != "items"}
+    header.setdefault("order_id", order_id)
+    line_items = raw.get("items")
+    header["line_items"] = line_items if isinstance(line_items, list) else []
+    refunds = header.get("refunds") if isinstance(header.get("refunds"), list) else []
+    header["refunds"] = [
+        {**refund, "order_id": header["order_id"]} if isinstance(refund, dict) and refund.get("order_id") is None else refund
+        for refund in refunds
+    ]
+    return header
+
+
+def _daily_weather(env: Any) -> Any:
+    """Daily rows across the recorded window, not just the forward forecast.
+
+    ``get_forecast_daily`` starts at the scenario's current date, so a boundary
+    that falls after an audited rain day would freeze a daily_weather table
+    without the very rows the audit queries. Merge the trailing history with
+    the forward forecast: the union is the mock's authoritative daily_weather
+    table, deduplicated by date.
+    """
+    forecast = _call(env, "weather", "get_forecast_daily", geo="geo_qgrd", days=14)
+    history = _call(env, "weather", "get_weather_history", geo="geo_qgrd", days=14)
+    rows: list[Any] = []
+    seen: set[str] = set()
+    for source in (history, forecast):
+        if not isinstance(source, list):
+            continue
+        for row in source:
+            if not isinstance(row, dict):
+                continue
+            key = str(row.get("date"))
+            if key in seen:
+                continue
+            seen.add(key)
+            rows.append(row)
+    return rows
+
+
 def _email_listing(env: Any, folder: str) -> Any:
     return _paged_call(
         env, "email", "get_emails",
@@ -409,18 +462,20 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
         "stage": stage_idx,
         "scenario_clock": scenario_clock(),
         "ecommerce": {
-            "main_order": _call(env, "ecommerce", "get_order", order_id="ord_qgrd_0001"),
-            "acceptance_order": _call(env, "ecommerce", "get_order", order_id="ord_qgrd_0002"),
+            "main_order": _order_projection(
+                _call(env, "ecommerce", "get_order", order_id="ord_qgrd_0001"), "ord_qgrd_0001"
+            ),
+            "acceptance_order": _order_projection(
+                _call(env, "ecommerce", "get_order", order_id="ord_qgrd_0002"), "ord_qgrd_0002"
+            ),
             "products": _call(env, "ecommerce", "search_products", query="drainage", limit=500),
             # Search results intentionally contain summaries only. Capture the
             # contract product detail as well so SKU attributes remain
             # available to checks that query the backend SKU table.
             "product_details": _call(env, "ecommerce", "get_product", product_id="prod_qgrd_main"),
-            "addresses": _call(env, "ecommerce", "list_addresses", user_id=USER_ID),
         },
         "delivery_logistics": {
             "shipments": _call(env, "delivery_logistics", "list_shipments", user_id=USER_ID, limit=500),
-            "addresses": _call(env, "delivery_logistics", "list_addresses", user_id=USER_ID),
             "issues": _call(env, "delivery_logistics", "list_issues", user_id=USER_ID),
         },
         "credit_card": {
@@ -455,7 +510,7 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
         },
         "weather": {
             "current": _call(env, "weather", "get_current_weather", geo="geo_qgrd"),
-            "forecast": _call(env, "weather", "get_forecast_daily", geo="geo_qgrd"),
+            "forecast": _daily_weather(env),
             "alerts": _call(env, "weather", "get_alerts", geo="geo_qgrd"),
         },
         "workspace": _workspace_snapshot(env),

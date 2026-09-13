@@ -111,6 +111,12 @@ def call_backend(env: HarborEvidence, server: str, tool: str, **kwargs: Any) -> 
             return _required(section, key, server)
         if tool == "read_email":
             email_id = str(kwargs.get("email_id") or "")
+            # Folder listings are metadata-only (SPEC), so the capture freezes
+            # read_email detail alongside them; serve that full message when
+            # present instead of the bodyless listing row.
+            details = section.get("details")
+            if isinstance(details, dict) and isinstance(details.get(email_id), dict):
+                return details[email_id]
             rows = (
                 _email_rows(section, "inbox")
                 + _email_rows(section, "sent")

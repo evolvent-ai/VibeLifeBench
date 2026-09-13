@@ -23,6 +23,18 @@ def _field(obj: Any, name: str, default: Any = None) -> Any:
 
 
 def _jsonable(value: Any) -> Any:
+    # Tool results travel as text inside ATIF observations, so a JSON payload
+    # would stay double-encoded here and every structural predicate over
+    # ``json.dumps(result)`` (exact fragments like '"stock": 0') could never
+    # match. Decode object/array payloads once, at read time.
+    if isinstance(value, str):
+        text = value.strip()
+        if text[:1] in ("{", "["):
+            try:
+                return json.loads(text)
+            except json.JSONDecodeError:
+                return value
+        return value
     try:
         json.dumps(value, ensure_ascii=False)
     except (TypeError, ValueError):

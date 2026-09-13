@@ -370,6 +370,12 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
 
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     """Freeze the seven task services and durable workspace."""
+    statements = _call(
+        env, "credit_card", "list_statements", card_id="card_gk_main", limit=50
+    )
+    statement_rows = (
+        statements if isinstance(statements, list) else (statements or {}).get("items")
+    )
     return {
         "stage": stage_idx,
         "scenario_clock": scenario_clock(),
@@ -384,9 +390,17 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
         },
         "credit_card": {
             "cards": _call(env, "credit_card", "list_cards", user_id=USER_ID),
-            "statements": _call(
-                env, "credit_card", "list_statements", card_id="card_gk_main", limit=50
-            ),
+            "statements": statements,
+            "statement_details": {
+                str(row.get("statement_id")): _call(
+                    env,
+                    "credit_card",
+                    "get_statement",
+                    statement_id=str(row.get("statement_id")),
+                )
+                for row in (statement_rows or [])
+                if isinstance(row, dict) and row.get("statement_id")
+            },
             "unbilled": _call(
                 env, "credit_card", "list_unbilled", card_id="card_gk_main"
             ),
@@ -408,7 +422,7 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             "alternate_applications": _call(
                 env, "job_board", "list_applications", user_id="gao_kai"
             ),
-            "saved": _call(env, "job_board", "list_saved", user_id=USER_ID),
+            "saved": _call(env, "job_board", "list_saved_jobs", user_id=USER_ID),
             "jobs": {
                 job_id: _call(env, "job_board", "get_job", job_id=job_id)
                 for job_id in TRACKED_JOB_IDS

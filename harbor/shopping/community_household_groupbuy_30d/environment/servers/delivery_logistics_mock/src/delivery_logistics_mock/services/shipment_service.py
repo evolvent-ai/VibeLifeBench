@@ -41,7 +41,7 @@ def _shipment_dict(conn: sqlite3.Connection, row: sqlite3.Row) -> dict:
     recipient = json.loads(row["recipient_json"])
     dims = json.loads(row["dimensions_json"]) if row["dimensions_json"] else {}
     events = conn.execute(
-        "SELECT at, location, status_code, description FROM shipment_events "
+        "SELECT event_id, at, location, status_code, description FROM shipment_events "
         "WHERE shipment_id = ? ORDER BY at ASC, event_id ASC",
         (row["shipment_id"],),
     ).fetchall()
@@ -71,6 +71,7 @@ def _shipment_dict(conn: sqlite3.Connection, row: sqlite3.Row) -> dict:
         "cancel_reason": row["cancel_reason"],
         "events": [
             {
+                "event_id": e["event_id"],
                 "at": e["at"],
                 "location": e["location"],
                 "status_code": e["status_code"],

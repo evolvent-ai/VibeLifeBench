@@ -56,6 +56,25 @@ def _call(env: Any, server: str, tool: str, **kwargs: Any) -> Any:
         return _unwrap_envelope(first, lambda p: _decode(cap.call_tool(tool, **{**kwargs, "page": p})))
     except BaseException as exc: return {"error": f"{type(exc).__name__}: {exc}"}
 
+def _freeze_email_bodies(env, rows) -> None:
+    """Freeze the full message body next to each header row.
+
+    ``get_emails`` returns headers only (``include_body=False``), so scoring
+    lookups that read ``read_email`` content out of the snapshot would always
+    match an empty body. Fetch the ``read_email`` detail per row and merge it
+    in; rows already carrying a body, and rows the mock cannot resolve, are
+    left untouched.
+    """
+    for row in rows:
+        if not isinstance(row, dict) or row.get("body_text") is not None:
+            continue
+        email_id = row.get("email_id") or row.get("id")
+        if email_id is None:
+            continue
+        detail = _call(env, "email", "read_email", email_id=str(email_id))
+        if isinstance(detail, dict) and str(detail.get("email_id") or detail.get("id") or "") == str(email_id):
+            row.update(detail)
+
 def _paged_email(env, folder):
     first = _decode(env.email_mock.call_tool("get_emails", folder=folder, page=1, page_size=50))
     if not isinstance(first, dict): return first
@@ -65,7 +84,9 @@ def _paged_email(env, folder):
         fresh = (nxt.get("emails") if isinstance(nxt, dict) else []) or []
         if not fresh: first["_pagination_incomplete"] = True; break
         rows.extend(fresh)
-    first["emails"] = rows; first["captured_complete"] = len(rows) >= total; return first
+    first["emails"] = rows; first["captured_complete"] = len(rows) >= total
+    _freeze_email_bodies(env, rows)
+    return first
 
 def _workspace_snapshot(env):
     fs = getattr(getattr(env, "workspace", None), "fs", None); out = {}
@@ -120,6 +141,51 @@ def _notion_snapshot(env) -> dict[str, Any]:
         "blocks": blocks,
     }
 
+def _shipments_snapshot(env) -> list[Any]:
+    """Freeze the full detail of every shipment visible to the user.
+
+    ``list_shipments`` summarizes addresses down to province/city/district and
+    drops sender/recipient detail, so scoring lookups that need the full
+    address (sender branch, recipient front desk) would always miss. Freeze the
+    ``get_shipment`` detail per row and fall back to the summary row only when
+    the detail read fails.
+    """
+    listing = _call(env, "delivery_logistics", "list_shipments", user_id=USER_ID, limit=100)
+    rows = listing if isinstance(listing, list) else []
+    out: list[Any] = []
+    for row in rows:
+        if not isinstance(row, dict) or not row.get("shipment_id"):
+            continue
+        detail = _call(env, "delivery_logistics", "get_shipment", shipment_id=str(row["shipment_id"]))
+        out.append(detail if isinstance(detail, dict) and detail.get("shipment_id") else row)
+    return out
+
+
+JOBS = ("onboard_pm_001",)
+
+def _jobs_snapshot(env) -> list[Any]:
+    """Freeze the job catalog without a language-bound keyword filter.
+
+    ``search_jobs`` matches title/jd/requirements/tags with a LIKE filter; a
+    keyword that no seed row contains freezes an empty corpus. Enumerate all
+    open jobs with an empty keyword and pin the full ``get_job`` detail (jd and
+    requirements are search-view omissions) for the jobs scoring reads.
+    """
+    out: list[Any] = []
+    for job_id in JOBS:
+        detail = _call(env, "job_board", "get_job", job_id=job_id)
+        if isinstance(detail, dict) and detail.get("job_id"):
+            out.append(detail)
+    catalog = _call(env, "job_board", "search_jobs", keyword="", limit=100)
+    if isinstance(catalog, list):
+        pinned = {str(row.get("job_id")) for row in out}
+        out.extend(
+            row for row in catalog
+            if isinstance(row, dict) and row.get("job_id") and str(row["job_id"]) not in pinned
+        )
+    return out
+
+
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     return {
         "stage": stage_idx, "scenario_clock": scenario_clock(),
@@ -127,8 +193,8 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
         "maps": {"places": {i: _call(env,"maps","get_place_details",place_id=i) for i in PLACES}},
         "email": {"inbox": _paged_email(env,"INBOX"), "sent": _paged_email(env,"Sent"), "drafts": _call(env,"email","get_drafts",page_size=100)},
         "calendar": {"events": _call(env,"calendar","list_events",calendar_id="cal_linyuan_main",max_results=500)},
-        "delivery_logistics": {"shipments": _call(env,"delivery_logistics","list_shipments",user_id="user_linyuan",limit=100)},
-        "job_board": {"jobs": _call(env,"job_board","search_jobs",keyword="product manager",limit=100)},
+        "delivery_logistics": {"shipments": _shipments_snapshot(env)},
+        "job_board": {"jobs": _jobs_snapshot(env)},
         "notification_hub": {"notifications": _call(env,"notification_hub","list_notifications",user_id=USER_ID,limit=500)},
         "notion": _notion_snapshot(env),
         "workspace": _workspace_snapshot(env),

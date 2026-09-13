@@ -1,0 +1,28 @@
+{
+  "step": "event-016",
+  "stage": 13,
+  "virtual_stage": 13,
+  "source_event_id": "H13_money_review",
+  "scenario_time": "2026-06-28T09:00:00+08:00",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Stage 13 handover evidence was checked in the formal systems and recorded with all unresolved items and authorization boundaries preserved.",
+  "response_paraphrase": "The formal records for handover stage 13 were reviewed and written back; outstanding defects, funds and approvals remain explicitly tracked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "H13_money_review"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s13_budget",
+      "weight": 3.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.0
+}

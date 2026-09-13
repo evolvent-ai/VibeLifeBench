@@ -1,0 +1,42 @@
+{
+  "step": "event-012",
+  "stage": 9,
+  "virtual_stage": 9,
+  "source_event_id": "H09_cure_list",
+  "scenario_time": "2026-06-23T14:00:00+08:00",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-004"
+    ],
+    "released_mutations": [
+      "highrise-evidence-returned-20260623"
+    ]
+  },
+  "response": "Stage 9 handover evidence was checked in the formal systems and recorded with all unresolved items and authorization boundaries preserved.",
+  "response_paraphrase": "The formal records for handover stage 9 were reviewed and written back; outstanding defects, funds and approvals remain explicitly tracked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "H09_cure_list"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s9_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s9_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s9_result",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

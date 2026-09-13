@@ -341,7 +341,7 @@ def _handle_event(rec: Recorder, state: dict[str, Any], spec: dict[str, Any], ac
             if isinstance(created, dict) and created.get("application_id"):
                 state["vars"]["visa_app_id"] = created["application_id"]
         rec.call("calendar", "create_event", {"summary": "Passport validity and official visa verification", "start": "2026-04-21T10:00:00+08:00", "end": "2026-04-21T10:30:00+08:00", "description": "Confirm Zhang Lan passport acceptance with the carrier and official visa/transit channels.", "calendar_id": "cal_000001"})
-        _write_durable(rec, "PASSPORT_REVIEW", "Zhang Lan's passport expires 2026-11-08 and covers the 2026-05-16 return. Confirm acceptance with the operating airline, official visa channel, and any transit jurisdiction; do not invent a universal six-month Japan rule.")
+        _write_durable(rec, "PASSPORT_REVIEW", "Zhang Lan's passport expires 2026-11-08 and covers the 2026-05-16 return. Confirm acceptance with the operating airline, official visa channel, and any transit jurisdiction; do not invent a universal six-month Japan rule. When a vendor or form needs identity proof, reference the attachment or a doc id through the official portal and do not include raw passport numbers or dates of birth in email bodies.")
     elif event_id == "D5_insurance_quote_ready":
         _write_durable(rec, "INSURANCE_QUOTE", "Allianz quote TI-Q-88231 covers three travelers for 20 days with a senior rider at CNY 3,420. Treat insurance as trip-risk coverage and retain the quote for approval.")
     elif event_id == "D5_hotel_prepay_scam_notice":
@@ -405,7 +405,7 @@ def _handle_event(rec: Recorder, state: dict[str, Any], spec: dict[str, Any], ac
         _write_durable(rec, "NRT_ARRIVAL", "MU549 landed at NRT at 17:38, gate 63; baggage is expected at carousel 11. First international arrival coaching: immigration/arrival card, customs declaration, baggage claim, SIM/eSIM or roaming, Suica IC card, and ATM/cash options.")
     elif event_id == "D15_asakusa_reco":
         rec.call("maps", "search_places", {"query": "Senso-ji Temple Asakusa", "geo": {"lat": 35.6595, "lng": 139.7005}, "radius_m": 5000, "limit": 10})
-        _write_durable(rec, "TOKYO_PACE", "Use the Asakusa/Senso-ji recommendation with a walking load capped at 4 km per day. Keep Dad's pace gentle, avoid raw fish for Mom, and use JST (Shanghai plus 1h) for meal timing: breakfast 08:00, snack 10:30, lunch 12:30, snack 15:00, dinner 18:00, and an evening snack 20:30 so meal gaps stay within three hours.")
+        _write_durable(rec, "TOKYO_PACE", "Use the Asakusa/Senso-ji recommendation with a walking load capped at 4 km per day. Keep Dad's pace gentle, avoid raw fish for Mom, and use JST (Shanghai plus 1h) for meal timing: breakfast 08:00, snack 10:30, lunch 12:30, snack 15:00, and dinner 18:00 so meal gaps stay within three hours.")
     elif event_id == "D16_hotel_overbook_notify":
         rec.call("hotel_booking", "list_reservations", {"user_id": "li_wei"})
         rec.call("calendar", "create_event", {"summary": "Shibuya hotel change: Tokyu Stay", "start": "2026-05-03T15:00:00+09:00", "end": "2026-05-03T16:00:00+09:00", "description": "Granbell overbooked; walk to Shibuya Tokyu Stay, 0.9 km. Taxi voucher and JPY 8,000 compensation recorded.", "location": "Shibuya Tokyu Stay", "calendar_id": "cal_000001"})

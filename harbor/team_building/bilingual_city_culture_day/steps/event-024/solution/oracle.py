@@ -285,7 +285,9 @@ async def _stage10(recorder: Recorder) -> None:
 async def _stage11(recorder: Recorder) -> None:
     await call_tool(recorder, "email", "search_emails", {"query": "Pause external sending of the current English menu. Pork-free does not equal halal; gluten intolerance must not be labeled as ordinary vegetarian"})
     await call_tool(recorder, "email", "read_email", {"email_id": "3001"})
-    await _draft(recorder, "menu correction and pause external sending", "Menu correction: pork-free does not equal halal; gluten intolerance must not be labeled as ordinary vegetarian. Confirm ingredients and shared-utensil controls before any guarantee. Pause external sending.")
+    # Reply to the vendor contact that raised the menu correction
+    # (menu-correction-20260712@lingnan-tasting.example), not to the organizer.
+    await _draft(recorder, "menu correction and pause external sending", "Menu correction: pork-free does not equal halal; gluten intolerance must not be labeled as ordinary vegetarian. Confirm ingredients and shared-utensil controls before any guarantee. Pause external sending.", "menu-correction-20260712@lingnan-tasting.example")
     _append("COMMUNICATION_DRAFTS.md", "Menu correction draft: pork-free does not equal halal; gluten intolerance is distinct from ordinary vegetarian labeling; ingredient and shared-utensil evidence is pending and external sending is paused.")
 
 

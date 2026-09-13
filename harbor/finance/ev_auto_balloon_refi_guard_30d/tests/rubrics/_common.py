@@ -162,7 +162,13 @@ def runtime_rows(env: Any, server: str, sql: str, params: Iterable[Any] = ()) ->
         return [[a.get("balance_minor")] for a in rows if str(a.get("account_id")) == str(p[0] if p else "")]
     if server == "banking" and "from transactions" in q:
         rows=[]
-        for payload in (banking.get("transactions", {}) if isinstance(banking,dict) else {}).values(): rows.extend(_items(payload))
+        # The collector unwraps list_transactions' pagination envelope into a
+        # bare row list (snapshot_capture._unwrap_envelope); older dict shapes
+        # (envelope or per-account map) stay readable so both shapes score.
+        tx = banking.get("transactions", {}) if isinstance(banking, dict) else {}
+        if isinstance(tx, list): rows.extend(_items(tx))
+        elif isinstance(tx, dict):
+            for payload in tx.values(): rows.extend(_items(payload))
         if "where tx_id" in q: return [[r.get("account_id"),r.get("amount_minor"),r.get("kind"),r.get("balance_after_minor")] for r in rows if str(r.get("tx_id"))==str(p[0] if p else "")]
         if "acct_pension" in q: return [[r.get("tx_id")] for r in rows if str(r.get("account_id"))=="acct_pension"][:1]
         if "amount_minor < 0" in q:
@@ -179,11 +185,17 @@ def runtime_rows(env: Any, server: str, sql: str, params: Iterable[Any] = ()) ->
         return [[c.get("statement_balance_minor"),c.get("unbilled_balance_minor"),c.get("available_credit_minor")] for c in rows]
     if server=="credit_card" and "from statements" in q:
         rows=[]
-        for payload in (card.get("statements",{}) if isinstance(card,dict) else {}).values(): rows.extend(_items(payload))
+        stmts = card.get("statements", {}) if isinstance(card, dict) else {}
+        if isinstance(stmts, list): rows.extend(_items(stmts))
+        elif isinstance(stmts, dict):
+            for payload in stmts.values(): rows.extend(_items(payload))
         return [[r.get("card_id"),r.get("interest_apr_bp"),r.get("min_payment_due_minor"),r.get("due_date"),r.get("period_start"),r.get("period_end"),r.get("closing_balance_minor"),r.get("status")] for r in rows if str(r.get("period_end"))=="2026-07-28"]
     if server=="credit_card" and "from unbilled_transactions" in q:
         rows=[]
-        for payload in (card.get("unbilled",{}) if isinstance(card,dict) else {}).values(): rows.extend(_items(payload))
+        unbilled = card.get("unbilled", {}) if isinstance(card, dict) else {}
+        if isinstance(unbilled, list): rows.extend(_items(unbilled))
+        elif isinstance(unbilled, dict):
+            for payload in unbilled.values(): rows.extend(_items(payload))
         txid=str(p[0]) if p else ""; return [[r.get("card_id"),r.get("amount_minor"),r.get("merchant_name"),r.get("category"),r.get("kind")] for r in rows if str(r.get("tx_id"))==txid]
     if server=="credit_card" and "from statement_lines" in q:
         # Statement lines are nested in some provider projections. Walk the
@@ -203,7 +215,9 @@ def runtime_rows(env: Any, server: str, sql: str, params: Iterable[Any] = ()) ->
         return [[r.get("amount_minor"), r.get("kind"), r.get("merchant_name")] for r in found if str(r.get("line_id")) == wanted]
     if server=="credit_card" and "from payments" in q:
         out=[]
-        for call in _all_traces(env,range(24)):
+        # Payments are judged from the trace; only stages published so far
+        # exist, so walk the observable prefix rather than the full 24.
+        for call in _all_traces(env,range(int(getattr(env, "current_stage", 23)) + 1)):
             if str(call.get("name","")).endswith("make_payment") and _success(call):
                 a=_decode(call.get("arguments",{})) or {}; r=_decode(call.get("result",{})) or {}; 
                 if isinstance(r,dict) and r.get("payment_id"): out.append([r["payment_id"],a.get("card_id"),a.get("amount_minor"),a.get("source_hint"),r.get("posted_at","")])
@@ -220,7 +234,10 @@ def account_balance_minor(env: Any, account_id: str) -> int | None:
     rows=runtime_rows(env,"banking","SELECT balance_minor FROM accounts WHERE account_id = ?",[account_id]); return integer_value(rows[0][0]) if rows and rows[0] else None
 def post_kickoff_card_payments(env: Any, *, kickoff_date: str = "2026-07-30") -> list[tuple[str,str,int,str,str]] | None:
     out=[]
-    for call in _all_traces(env,range(24)):
+    # Same observable-prefix bound as every other trace walk: future stage
+    # sidecars are not frozen yet at a stage boundary, and reading them raised
+    # EvidenceError instead of judging the stage.
+    for call in _all_traces(env,range(int(getattr(env, "current_stage", 23)) + 1)):
         if str(call.get("name","")).endswith("make_payment") and _success(call):
             a=_decode(call.get("arguments",{})) or {}; r=_decode(call.get("result",{})) or {}; out.append((str(r.get("payment_id",call.get("id",""))),str(a.get("card_id")),int(a.get("amount_minor",0)),str(a.get("source_hint")),str(call.get("posted_at",""))))
     return out

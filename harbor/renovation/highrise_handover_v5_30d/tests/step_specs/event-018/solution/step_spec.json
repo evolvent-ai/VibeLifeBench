@@ -1,0 +1,22 @@
+{
+  "step": "event-018",
+  "stage": 15,
+  "virtual_stage": 15,
+  "source_event_id": "H15_rain_retest",
+  "scenario_time": "2026-07-02T09:00:00+08:00",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Stage 15 handover evidence was checked in the formal systems and recorded with all unresolved items and authorization boundaries preserved.",
+  "response_paraphrase": "The formal records for handover stage 15 were reviewed and written back; outstanding defects, funds and approvals remain explicitly tracked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "H15_rain_retest"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

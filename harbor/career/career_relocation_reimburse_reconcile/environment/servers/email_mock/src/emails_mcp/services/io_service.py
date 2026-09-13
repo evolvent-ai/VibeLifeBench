@@ -165,13 +165,18 @@ class IOService:
                 cur = self.conn.execute(
                     """
                     INSERT INTO messages (
-                      folder_id, message_id, subject, from_addr,
+                      id, folder_id, message_id, subject, from_addr,
                       to_addr_json, cc_addr_json, bcc_addr_json,
                       date, body_text, body_html, is_read, is_important,
                       headers_json, size, created_at
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '{}', ?, ?)
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '{}', ?, ?)
                     """,
                     (
+                        # Imported mail takes an explicit high-band id for the
+                        # same reason as send_email: autoincrement would
+                        # collide with the world-controller's fixed release
+                        # mail ids (101..108).
+                        100000 + next_counter(self.conn, "out_msg_id"),
                         folder_id,
                         msg_hdr,
                         e.get("subject") or "",

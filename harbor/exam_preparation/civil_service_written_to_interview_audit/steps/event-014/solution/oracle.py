@@ -270,7 +270,7 @@ async def handle_record_event(recorder: Recorder, state: dict[str, Any], spec: d
         await recorder.call("maps", "search_places", {"query": "Nanling Vocational College Yuntai Campus south gate east gate", "limit": 20})
         await recorder.call("maps", "get_place_details", {"place_id": "place_nl_vocational_yuntai_east"})
         await recorder.call("maps", "get_place_details", {"place_id": "place_nl_vocational_yuntai_south"})
-        await recorder.call("maps", "directions", {"origin": "place_nl_vocational_yuntai_east", "dest": "pl_bldg_00", "mode": "walking", "depart_at": "2026-08-16T08:00:00+08:00"})
+        await recorder.call("maps", "directions", {"origin": "29.8016,106.5041", "dest": "pl_bldg_00", "mode": "walking", "depart_at": "2026-08-16T08:00:00+08:00"})
         await _calendar_event(recorder, "Exam-site route south gate early buffer", "2026-08-15T18:00:00+08:00", "2026-08-15T18:30:00+08:00", "Entrance change: east gate is closed; use the south gate and keep an early commute buffer for the exam site.", "Nanling Vocational College south gate")
     elif stage == 14:
         pass

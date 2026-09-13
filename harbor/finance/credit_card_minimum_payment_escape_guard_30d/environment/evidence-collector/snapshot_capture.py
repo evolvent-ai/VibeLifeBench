@@ -257,6 +257,58 @@ def _workspace_snapshot(env: Any) -> dict[str, str]:
     return out
 
 
+def _notion_database_rows(env: Any, database_id: str) -> Any:
+    """Every row of one Notion database, merged into the first page's envelope.
+
+    The mock caps ``page_size`` at 100 and orders rows by ``created_time`` ASC,
+    so the seeded finance ledger (200+ rows spanning January through June)
+    truncates at its January prefix: late-June release rows — and even the
+    seed's own CFPB source row — never enter the frozen snapshot, and checks
+    that read them from the projection fail for a pagination reason that looks
+    like agent failure. Evidence that never enters the snapshot can never be
+    scored, so walk ``next_cursor`` until ``has_more`` is false and merge the
+    rows, keeping the stored envelope shape unchanged for consumers.
+    """
+    first = _call(env, "notion", "API-post-database-query", database_id=database_id, page_size=100)
+    if not isinstance(first, dict) or not isinstance(first.get("results"), list):
+        return first
+    merged = [row for row in first["results"] if isinstance(row, dict)]
+    seen = {str(row.get("id")) for row in merged}
+    cursor = first.get("next_cursor")
+    more = bool(first.get("has_more"))
+    pages = 1
+    while more and cursor and pages < 50:
+        nxt = _call(
+            env,
+            "notion",
+            "API-post-database-query",
+            database_id=database_id,
+            page_size=100,
+            start_cursor=cursor,
+        )
+        if not isinstance(nxt, dict) or not isinstance(nxt.get("results"), list):
+            first["_pagination_incomplete"] = True
+            break
+        fresh = [
+            row
+            for row in nxt["results"]
+            if isinstance(row, dict) and str(row.get("id")) not in seen
+        ]
+        if not fresh:
+            first["_pagination_incomplete"] = True
+            break
+        seen.update(str(row.get("id")) for row in fresh)
+        merged.extend(fresh)
+        pages += 1
+        more = bool(nxt.get("has_more"))
+        cursor = nxt.get("next_cursor")
+    first["has_more"] = more
+    first["next_cursor"] = cursor if more else None
+    first["results"] = merged
+    first["captured_count"] = len(merged)
+    return first
+
+
 def _notion_snapshot(env: Any) -> dict[str, Any]:
     """Pages plus database rows and their children.
 
@@ -297,7 +349,7 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
     database_rows: dict[str, Any] = {}
     row_children: dict[str, Any] = {}
     for database_id in _ids(database_search):
-        rows = _call(env, "notion", "API-post-database-query", database_id=database_id, page_size=100)
+        rows = _notion_database_rows(env, database_id)
         database_rows[database_id] = rows
         for row_id in _ids(rows):
             row_children[row_id] = _call(

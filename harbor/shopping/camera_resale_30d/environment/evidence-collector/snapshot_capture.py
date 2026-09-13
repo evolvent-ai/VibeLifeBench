@@ -18,8 +18,21 @@ SCENARIO_CLOCK_PATH = Path(
 )
 SCENARIO_CLOCK_REQUIRED = True
 
-USER_ID = "usr_geng_lu"
-CALENDAR_ID = "cal_qbath_task"
+USER_ID = "usr_zhan_peng"
+CALENDAR_ID = "cal_rscam_task"
+
+# The snapshot-backed rubrics (tests/rubrics/shared/_helpers.py) project each
+# historical read onto named channels under the owning service's section; the
+# channel keys in ``capture_stage_snapshot`` must match that mapping. These are
+# the identifiers the frozen channels are read with.
+MAIN_ORDER_ID = "ord_rscam_0001"
+SALE_ORDER_ID = "ord_rscam_0002"
+MAIN_PRODUCT_ID = "prod_rscam_main"
+LISTING_ID = "lst_rscam_0001"
+CARD_ID = "card_rscam_01"
+ORIGINAL_TRACKING_NO = "SF3521520001CN"
+SALE_TRACKING_NO = "YTOSCAM5520002CN"
+WEATHER_GEO = "Guangzhou City"
 
 
 def scenario_clock() -> dict[str, Any]:
@@ -36,90 +49,12 @@ def scenario_clock() -> dict[str, Any]:
         raise RuntimeError(f"required world clock unavailable at {SCENARIO_CLOCK_PATH}: {exc}") from exc
 
 
-# Copied verbatim from the source task.py. The rubrics assert on these exact ids.
-TRACKED_JOB_IDS = (
-    "job_mj_214",
-    "job_yr_098",
-    "job_qs_507",
-    "job_lh_332",
-    "job_jh_126",
-    "job_ba_773",
-    "job_eb2508",
-    "job_4437d4",
-    "job_08caa9",
-    "job_fbc2b6",
-    "job_86f824",
-    "job_361030",
-    "job_541371",
-    "job_adcf31",
-)
-
-TRACKED_APPLICATION_IDS = (
-    "app_mj_001",
-    "app_39f15c",
-    "app_9cfb94",
-    "app_a935d7",
-    "app_b323c6",
-    "app_ca54c7",
-    "app_308e6e",
-    "app_0a108f",
-    "app_6ebad5",
-    "app_bc0d7e",
-)
-
-TRACKED_LEGAL_IDS = {
-    "cases": (
-        "case_noncompete_comp",
-        "case_probation_salary",
-        "case_employee_work",
-        "case_customer_data",
-        "case_clause_scope",
-        "case_confidentiality",
-        "case_0b9fb5e5",
-        "case_91df21d0",
-        "case_32e71e2d",
-        "case_c202b143",
-        "case_9e37bba0",
-    ),
-    "statutes": (
-        "stat_labor_contract",
-        "stat_personal_info",
-        "stat_civil_code",
-        "stat_52e9ebd7",
-        "stat_b8e3b12b",
-        "stat_aa45041c",
-        "stat_53e861d3",
-        "stat_8f9c2ba0",
-        "stat_fdb02184",
-        "stat_fb08641d",
-    ),
-    "articles": (
-        "art_labor_19",
-        "art_labor_20",
-        "art_labor_23",
-        "art_labor_24",
-        "art_pipl_6",
-        "art_civil_privacy",
-        "art_87d7abfc",
-        "art_4cb3c589",
-        "art_314eb23c",
-        "art_41be0315",
-        "art_a67caa73",
-        "art_c6e4419e",
-    ),
-}
-
 # Workspace files shipped as baseline context. The source snapshot excludes them
 # so that seeded prose can never be mistaken for the agent's own writing.
 BASELINE_WORKSPACE_NAMES = {
     "AGENTS.md",
-    "AUTHORIZATION.md",
-    "COMPENSATION.md",
     "IDENTITY.md",
-    "INTERVIEW_PREP.md",
     "PERSONA.md",
-    "REFERENCES.md",
-    "RESUME_PROFILE.md",
     "SOUL.md",
     "TOOLS.md",
     "USER.md",
@@ -328,82 +263,34 @@ def _workspace_snapshot(env: Any) -> dict[str, str]:
     return out
 
 
-def _notion_snapshot(env: Any) -> dict[str, Any]:
-    """Pages plus database rows and their children.
-
-    ``API-post-search`` returns pages/databases but not database rows, so rows
-    are queried explicitly and their children captured separately — without this
-    the ledger checks read an empty Notion and fail for the wrong reason.
-    """
-    page_search = _call(
-        env,
-        "notion",
-        "API-post-search",
-        query="",
-        filter={"value": "page", "property": "object"},
-        page_size=100,
-    )
-    database_search = _call(
-        env,
-        "notion",
-        "API-post-search",
-        query="",
-        filter={"value": "database", "property": "object"},
-        page_size=100,
-    )
-
-    def _ids(payload: Any) -> list[str]:
-        if not isinstance(payload, dict):
-            return []
-        return [
-            str(item["id"])
-            for item in payload.get("results") or []
-            if isinstance(item, dict) and item.get("id")
-        ]
-
-    page_blocks = {
-        page_id: _call(env, "notion", "API-get-block-children", block_id=page_id, page_size=100)
-        for page_id in _ids(page_search)
-    }
-    database_rows: dict[str, Any] = {}
-    row_children: dict[str, Any] = {}
-    for database_id in _ids(database_search):
-        rows = _call(env, "notion", "API-post-database-query", database_id=database_id, page_size=100)
-        database_rows[database_id] = rows
-        for row_id in _ids(rows):
-            row_children[row_id] = _call(
-                env, "notion", "API-get-block-children", block_id=row_id, page_size=100
-            )
-    return {
-        "pages": page_search,
-        "databases": database_search,
-        "page_blocks": page_blocks,
-        "database_rows": database_rows,
-        "row_children": row_children,
-    }
-
-
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
-    """Freeze all eight renovation services and durable workspace at a boundary."""
+    """Freeze all eight resale services and durable workspace at a boundary.
+
+    Every channel mirrors one rubric read channel in
+    ``tests/rubrics/shared/_helpers.py::_BACKEND_CHANNELS`` — e.g. the cart
+    channel exists so ``s8_optimal`` sees the live cart instead of a malformed
+    payload, and the two shipment reads sit under ``shipments`` so
+    ``track_package`` lookups resolve either tracking number.
+    """
     return {
         "stage": stage_idx,
         "scenario_clock": scenario_clock(),
         "ecommerce": {
-            "main_order": _call(env, "ecommerce", "get_order", order_id="ord_qbath_0001"),
-            "acceptance_order": _call(env, "ecommerce", "get_order", order_id="ord_qbath_0002"),
-            "products": _call(env, "ecommerce", "search_products", query="bathroom", limit=500),
-            "addresses": _call(env, "ecommerce", "list_addresses", user_id=USER_ID),
+            "main_order": _call(env, "ecommerce", "get_order", order_id=MAIN_ORDER_ID),
+            "acceptance_order": _call(env, "ecommerce", "get_order", order_id=SALE_ORDER_ID),
+            "main_product": _call(env, "ecommerce", "get_product", product_id=MAIN_PRODUCT_ID),
+            "cart": _call(env, "ecommerce", "get_cart", user_id=USER_ID),
         },
         "delivery_logistics": {
-            "shipments": _call(env, "delivery_logistics", "list_shipments", user_id=USER_ID, limit=500),
-            "addresses": _call(env, "delivery_logistics", "list_addresses", user_id=USER_ID),
-            "issues": _call(env, "delivery_logistics", "list_issues", user_id=USER_ID),
+            "shipments": [
+                _call(env, "delivery_logistics", "track_package", tracking_no=ORIGINAL_TRACKING_NO),
+                _call(env, "delivery_logistics", "track_package", tracking_no=SALE_TRACKING_NO),
+            ],
         },
         "credit_card": {
-            "cards": _call(env, "credit_card", "list_cards", user_id=USER_ID),
-            "statements": _call(env, "credit_card", "list_statements", card_id="card_qbath_01", limit=50),
-            "unbilled": _call(env, "credit_card", "list_unbilled", card_id="card_qbath_01"),
-            "disputes": _call(env, "credit_card", "list_disputes", card_id="card_qbath_01"),
+            "cards": _call(env, "credit_card", "get_card", card_id=CARD_ID),
+            "unbilled": _call(env, "credit_card", "list_unbilled", card_id=CARD_ID),
+            "disputes": _call(env, "credit_card", "list_disputes", card_id=CARD_ID),
         },
         "email": {
             "inbox": _email_snapshot(env, "INBOX", include_body=False),
@@ -425,14 +312,12 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             ),
         },
         "listing_platform": {
-            "settlement": _call(env, "listing_platform", "get_listing_detail", listing_id="lst_qbath_0001"),
-            "offer": _call(env, "listing_platform", "get_listing_detail", listing_id="lst_qbath_0002"),
-            "services": _call(env, "listing_platform", "search_listings", category="secondhand", keyword="renovation", limit=200),
+            "settlement": _call(env, "listing_platform", "get_listing_detail", listing_id=LISTING_ID),
         },
         "weather": {
-            "current": _call(env, "weather", "get_current_weather", geo="Shanghai Xuhui District"),
-            "forecast": _call(env, "weather", "get_forecast_daily", geo="Shanghai Xuhui District"),
-            "alerts": _call(env, "weather", "get_alerts", geo="Shanghai Xuhui District"),
+            "current": _call(env, "weather", "get_current_weather", geo=WEATHER_GEO),
+            "forecast": _call(env, "weather", "get_forecast_daily", geo=WEATHER_GEO, days=10),
+            "alerts": _call(env, "weather", "get_alerts", geo=WEATHER_GEO),
         },
         "workspace": _workspace_snapshot(env),
     }

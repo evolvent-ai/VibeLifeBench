@@ -16,16 +16,34 @@ ARG BASE_IMAGE=python:3.12-slim
 FROM ${BASE_IMAGE}
 
 # Idempotent: a no-op when the pre-baked base already carries these.
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        bash ca-certificates coreutils curl jq procps sqlite3 \
-    && rm -rf /var/lib/apt/lists/*
+#
+# The build network's proxy intermittently answers 502 for deb.debian.org —
+# observed once on a trixie-updates InRelease fetch and once on a jq .deb —
+# which failed the whole compose build on a single transient response. Two
+# layers of defense: apt's per-fetch retries (covers an individual InRelease or
+# .deb), and an outer loop that re-runs the update+install pair. The loop keeps
+# the build loud: if apt never succeeds the RUN still exits 1.
+RUN ok=0; \
+    for attempt in 1 2 3 4; do \
+      if apt-get update -o Acquire::Retries=10 \
+         && apt-get install -y --no-install-recommends -o Acquire::Retries=10 \
+             bash ca-certificates coreutils curl jq procps sqlite3; then \
+        ok=1; break; \
+      fi; \
+      echo "apt attempt $attempt failed; retrying after backoff"; \
+      sleep 15; \
+    done; \
+    [ "$ok" = 1 ] || { echo "apt-get failed after 4 attempts"; exit 1; }; \
+    rm -rf /var/lib/apt/lists/*
 
+# --retries: pip defaults to 5; raise it to ride out the same proxy flakiness
+# that hit apt above.
+#
 # Core mcp only. The task's client code uses ClientSession and
 # streamablehttp_client; the [cli] extra pulls a typer/rich chain that cannot be
 # resolved against mcp 1.25.0's pydantic pin, so requesting it makes this image
 # unbuildable while adding nothing the task uses.
-RUN pip install --no-cache-dir \
+RUN pip install --no-cache-dir --retries 10 \
     "mcp==1.25.0" \
     "PyYAML==6.0.3" \
     "loguru==0.7.3"

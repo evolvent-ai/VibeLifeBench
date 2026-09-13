@@ -63,26 +63,78 @@ def _unwrap_mcp(result: Any) -> Any:
 
 
 class _McpCapability:
-    """Read-side MCP capability used during trusted collection."""
+    """Read-side MCP capability used during trusted collection.
+
+    One streamable-HTTP session per server is opened lazily and reused across
+    every ``call_tool`` of a capture. A stage-boundary freeze makes several
+    hundred reads (per-email bodies + headers, per-page Notion children,
+    per-id legal / job-board lookups); paying a full TCP connect + MCP
+    initialize handshake for each read put the capture over the collect
+    hook's timeout under host load, the stage sidecar was never published,
+    and the verifier failed for infrastructure reasons. Reusing the session
+    changes nothing about *what* is read — same tools, same arguments, same
+    unwrapped shapes — it only removes the per-call handshake.
+    """
 
     def __init__(self, server: str) -> None:
         self.server = server
         host = os.environ.get(f"MCP_HOST_{server.upper()}", _service_host(server))
         port = os.environ.get("MCP_PORT", "8000")
         self.url = f"http://{host}:{port}/mcp"
+        self._loop: asyncio.AbstractEventLoop | None = None
+        self._client_cm: Any = None
+        self._session_cm: Any = None
+        self._session: Any = None
 
-    async def _call_async(self, name: str, **kwargs: Any) -> Any:
+    async def _open_session(self) -> None:
         from mcp import ClientSession
         from mcp.client.streamable_http import streamablehttp_client
 
-        async with streamablehttp_client(self.url) as (read, write, _meta):
-            async with ClientSession(read, write) as session:
-                await session.initialize()
-                result = await session.call_tool(name, kwargs)
-        return _unwrap_mcp(result)
+        self._client_cm = streamablehttp_client(self.url)
+        read, write, _meta = await self._client_cm.__aenter__()
+        self._session_cm = ClientSession(read, write)
+        self._session = await self._session_cm.__aenter__()
+        await self._session.initialize()
+
+    async def _close_session(self) -> None:
+        for cm in (self._session_cm, self._client_cm):
+            if cm is not None:
+                try:
+                    await cm.__aexit__(None, None, None)
+                except BaseException:  # noqa: BLE001 - teardown is best-effort
+                    pass
+        self._session = self._session_cm = self._client_cm = None
+
+    async def _call_async(self, name: str, **kwargs: Any) -> Any:
+        try:
+            if self._session is None:
+                await self._open_session()
+            return await self._session.call_tool(name, kwargs)
+        except BaseException:
+            # A session left idle since the previous boundary step may have
+            # been reaped server-side, and a first connect can be refused by
+            # an overloaded host. Reconnect once so a read that would have
+            # succeeded on a fresh connection still succeeds; a second
+            # failure propagates exactly as the per-call client's did.
+            await self._close_session()
+            await self._open_session()
+            return await self._session.call_tool(name, kwargs)
 
     def call_tool(self, name: str, **kwargs: Any) -> Any:
-        return asyncio.run(self._call_async(name, **kwargs))
+        if self._loop is None:
+            self._loop = asyncio.new_event_loop()
+        try:
+            return _unwrap_mcp(
+                self._loop.run_until_complete(self._call_async(name, **kwargs))
+            )
+        except BaseException:
+            # Never leave a half-dead session bound to the loop: the next
+            # call must start from a clean reconnect, not the same corpse.
+            try:
+                self._loop.run_until_complete(self._close_session())
+            except BaseException:  # noqa: BLE001
+                self._session = self._session_cm = self._client_cm = None
+            raise
 
 
 class _Fs:

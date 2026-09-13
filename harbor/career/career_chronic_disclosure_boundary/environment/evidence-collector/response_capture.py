@@ -46,6 +46,26 @@ def _errorish(value: Any) -> bool:
     return bool(value.get("error")) and "code" in value
 
 
+def _decoded_content(value: Any) -> Any:
+    """Decode JSON-encoded tool outputs into structured results.
+
+    MCP transports (and every agent dialect, including the reference oracle's
+    own trajectory) serialize tool payloads as JSON strings. ``_tool_result_success``
+    already parses them to judge success, but the stored ``result`` kept the
+    encoded string, so every rubric that reads structured rows (``items``,
+    ``application_id``, ``job_id`` …) saw an opaque string instead of the world's
+    answer. Decode once here so success and result agree on one shape.
+    """
+    if isinstance(value, str):
+        text = value.strip()
+        if text.startswith("{") or text.startswith("["):
+            try:
+                return json.loads(text)
+            except json.JSONDecodeError:
+                return value
+    return value
+
+
 def _tool_result_success(block: Any) -> bool:
     """Whether a tool call succeeded, judged structurally.
 
@@ -128,7 +148,7 @@ def extract_tool_calls(messages: Iterable[Any], event_id: str | None = None) -> 
             call = by_id.get(str(tool_id))
             if call is not None:
                 call["success"] = _tool_result_success(block)
-                call["result"] = _jsonable(_field(block, "content", ""))
+                call["result"] = _jsonable(_decoded_content(_field(block, "content", "")))
     return calls
 
 
@@ -245,7 +265,7 @@ def _atif_tool_calls(trajectory: dict[str, Any], event_id: str | None) -> list[d
         if call_id in results:
             content = results[call_id]
             call["success"] = _tool_result_success({"content": content})
-            call["result"] = _jsonable(content)
+            call["result"] = _jsonable(_decoded_content(content))
         out.append(call)
     return out
 
@@ -329,7 +349,7 @@ def _codex_session_items(path: Path) -> tuple[str, list[dict[str, Any]]]:
         if call_id in outputs:
             content = outputs[call_id]
             call["success"] = _tool_result_success({"content": content})
-            call["result"] = _jsonable(content)
+            call["result"] = _jsonable(_decoded_content(content))
         out.append(call)
     return "\n".join(texts), out
 

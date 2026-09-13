@@ -39,6 +39,15 @@ class AlertsService:
             raise WeatherNotFound("no_nearby_location")
         return row
 
+    def _covers(self, areas: list, geo_key: str, city: str) -> bool:
+        """areas_json carries location names (cities), not geo_keys — accept
+        either spelling, normalized, so a padded seed city still matches."""
+        wanted = {geo_key, str(city or "").strip().lower()}
+        return any(
+            str(area).strip().lower() in wanted or str(area) == geo_key
+            for area in areas
+        )
+
     def get_active_alerts_for_geo(self, geo: Any) -> list[dict]:
         loc = self._resolve(geo)
         rows = self.be.fetchall(
@@ -47,7 +56,7 @@ class AlertsService:
         out: list[dict] = []
         for r in rows:
             areas = json.loads(r["areas_json"])
-            if loc["geo_key"] not in areas:
+            if not self._covers(areas, loc["geo_key"], loc.get("city", "")):
                 continue
             out.append(
                 {
@@ -94,10 +103,12 @@ class AlertsService:
             "SELECT * FROM alerts WHERE active = 1"
         )
         delivered_count = 0
+        by_key = {row["geo_key"]: row for row in self.be.fetchall("SELECT * FROM locations")}
         for sub in subs:
+            loc = by_key.get(sub["geo_key"], {})
             for alert in active_alerts:
                 areas = json.loads(alert["areas_json"])
-                if sub["geo_key"] not in areas:
+                if not self._covers(areas, sub["geo_key"], loc.get("city", "")):
                     continue
                 prior = self.be.fetchone(
                     """SELECT id FROM notifications

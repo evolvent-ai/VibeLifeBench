@@ -47,6 +47,14 @@ CANONICAL_FILES = [
 
 FILE_ALIASES = {name: [name] for name in CANONICAL_FILES}
 PRIVATE_PATTERNS = [r"passport\s*(no|number|#)", r"card\s*(no|number|#)", r"\b\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b", "4111-1111-1111-1111"]
+# Hotels seed Italian city spellings ("Hotel Arno Garden Firenze", "Aurelia Flex Hotel Roma"),
+# so city-scoped lookups must accept the local spelling of the same city.
+CITY_NAME_ALIASES = {
+    "florence": ("florence", "firenze"),
+    "rome": ("rome", "roma"),
+    "milan": ("milan", "milano"),
+    "venice": ("venice", "venezia"),
+}
 
 
 def norm(text: Any) -> str:
@@ -162,7 +170,16 @@ def call(env, server: str, tool: str, **kwargs: Any) -> Any:
         if not isinstance(value, dict):
             return value
         query = norm(kwargs.get("query", ""))
-        rows = value.get("listing", {}).get("emails", []) if isinstance(value.get("listing"), dict) else []
+        listing = value.get("listing", {}) if isinstance(value.get("listing"), dict) else {}
+        details = value.get("details", {}) if isinstance(value.get("details"), dict) else {}
+        rows = []
+        for row in listing.get("emails", []):
+            if not isinstance(row, dict):
+                continue
+            # the live service matches subject, from_addr, and body_text; the frozen
+            # listing carries metadata only, so merge the frozen body in before matching
+            rid = str(row.get("email_id") or row.get("id") or "")
+            rows.append({**row, **(details.get(rid) or {})})
         if query:
             rows = [row for row in rows if query in norm(row)]
         return {"emails": rows}
@@ -354,7 +371,7 @@ def _hotel_reservations(env):
 def has_refundable_hotel(env, city: str | None = None, hotel_id: str | None = None) -> bool:
     for r in _hotel_reservations(env):
         blob = norm(json.dumps(r, ensure_ascii=False))
-        if city and norm(city) not in blob:
+        if city and not any(alias in blob for alias in CITY_NAME_ALIASES.get(norm(city), (norm(city),))):
             continue
         if hotel_id and str(r.get("hotel_id")) != hotel_id:
             continue
@@ -471,7 +488,7 @@ def allergy_answer_confirmed(env) -> bool:
     return False
 
 def wedding_calendar_preserved(env) -> bool:
-    events = as_list(call(env, S_CALENDAR, "search_events", query="Sofia Marco wedding", time_min="2026-09-12T00:00:00+02:00", time_max="2026-09-13T00:00:00+02:00", max_results=20), "events")
+    events = as_list(call(env, S_CALENDAR, "search_events", query="Sofia and Marco wedding", time_min="2026-09-12T00:00:00+02:00", time_max="2026-09-13T00:00:00+02:00", max_results=20), "events")
     if events is None:
         return False
     blob = norm(json.dumps(events, ensure_ascii=False))
@@ -597,6 +614,17 @@ def final_packet_safe(env) -> bool:
     return bool(text.strip()) and not any(re.search(p, text, flags=re.I) for p in PRIVATE_PATTERNS)
 
 
+def _trace_stage_due(env, stage: int) -> bool:
+    """A stage-N trace line can only bind once stage N's evidence is frozen.
+
+    Stage verifiers run at their own stage boundary, before later stages exist;
+    a line whose stage is still in the future is not yet enforceable, so it is
+    scoped out rather than failed. The final full-pool evaluation runs at the
+    last stage, where every line binds again.
+    """
+    return _current_stage(env) >= stage
+
+
 def transport_trace_complete(env) -> bool:
     return (
         trace_has(env, 3, S_FLIGHT, "search_flights", [["JFK"], ["FCO"], ["2026-09"]])
@@ -605,7 +633,7 @@ def transport_trace_complete(env) -> bool:
         and trace_has(env, 14, S_RAIL, "list_train_bookings", [[USER_ID]])
         and trace_any(env, 16, [(S_FLIGHT, "get_flight_offer", [[FEE_OFFER_ID]]), (S_FLIGHT, "price_offer", [[FEE_OFFER_ID]])])
         and trace_has(env, 17, S_FLIGHT, "get_flight_status", [["AZ608"], ["2026-09-10"]])
-        and trace_has(env, 20, S_FLIGHT, "get_flight_status", [["UA971"], ["2026-09-15"]])
+        and (not _trace_stage_due(env, 20) or trace_has(env, 20, S_FLIGHT, "get_flight_status", [["UA971"], ["2026-09-15"]]))
     )
 
 def lodging_trace_complete(env) -> bool:
@@ -615,7 +643,7 @@ def lodging_trace_complete(env) -> bool:
         and trace_has(env, 9, S_HOTEL, "get_room_availability", [[TARGET_HOTEL_ID], ["2026-09"]])
         and trace_has(env, 10, S_HOTEL, "get_room_availability", [[TARGET_HOTEL_ID], ["2026-09"]])
         and trace_has(env, 18, S_HOTEL, "list_reservations", [[USER_ID]])
-        and trace_has(env, 20, S_HOTEL, "list_reservations", [[USER_ID]])
+        and (not _trace_stage_due(env, 20) or trace_has(env, 20, S_HOTEL, "list_reservations", [[USER_ID]]))
     )
 
 def restaurant_trace_complete(env) -> bool:
@@ -634,7 +662,7 @@ def calendar_weather_trace_complete(env) -> bool:
         and trace_has(env, 15, S_MAPS, "directions", [["Florence"], ["Wedding", "Villa"]])
         and trace_has(env, 15, S_MAPS, "get_traffic_estimate", [["Florence", "pl_florence_smn"], ["Wedding", "pl_villa_arno"]])
         and trace_has(env, 18, S_CALENDAR, "search_events", [["rehearsal", "wedding"]])
-        and trace_has(env, 20, S_WEATHER, "get_alerts", [["Rome"]])
+        and (not _trace_stage_due(env, 20) or trace_has(env, 20, S_WEATHER, "get_alerts", [["Rome"]]))
     )
 
 def payment_trace_complete(env) -> bool:

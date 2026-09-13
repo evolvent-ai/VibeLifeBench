@@ -257,6 +257,20 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def _stage_sidecar_published(
+    stage: int, *, evidence_root: Path | str = EVIDENCE_ROOT
+) -> bool:
+    """Whether the controller ever published this stage's sidecar manifest.
+
+    A virtual stage the step map never assigns to a boundary step is a
+    continuity stage: it owns no checks and gets no published manifest, so
+    there is nothing to validate and nothing to score. Stages that carry
+    weight but lost their sidecar still fail loudly in validate_stage_evidence.
+    """
+    root = Path(evidence_root) / "stages" / f"stage-{stage:02d}"
+    return (root / "manifest.json").is_file()
+
+
 def validate_stage_evidence(
     stage: int, *, evidence_root: Path | str = EVIDENCE_ROOT
 ) -> dict[str, Any]:
@@ -353,6 +367,19 @@ def main() -> int:
         stage_details: list[dict[str, Any]] = []
         per_stage: dict[str, Any] = {}
         for stage in range(STAGE_COUNT):
+            if not _stage_sidecar_published(stage) and _module_weight(
+                _import_module(f"stage_{stage}")
+            ) == 0.0:
+                # Continuity stage: never published, no rubric weight. Record an
+                # explicit zero and keep it out of stage_details so the scored
+                # pool still matches the declared 128.75.
+                per_stage[str(stage)] = {
+                    "total_weight": 0.0,
+                    "earned_weight": 0.0,
+                    "ratio": 0.0,
+                    "skipped": "no published sidecar and no rubric weight",
+                }
+                continue
             try:
                 validate_stage_evidence(stage)
                 env.current_stage = stage

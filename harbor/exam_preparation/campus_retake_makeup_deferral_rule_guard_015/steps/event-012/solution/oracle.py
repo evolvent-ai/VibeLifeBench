@@ -25,7 +25,11 @@ SERVICE_URLS = {
 USER_ID = "user_lin_zeyu"
 PAGE_TITLE = "Calculus A2 makeup exam control"
 PAGE_PARENT = {"type": "workspace", "workspace": True}
-PAGE_QUERY = "Calculus A2"
+# Search for the dedicated control page by its full title. The generic
+# "Calculus A2" query also matches seeded decoy pages (e.g. "Calculus A2 Class
+# Notes Index"), so the hub content would land on the wrong page and the
+# stage-0 control record would never be written.
+PAGE_QUERY = PAGE_TITLE
 PORTAL = {
     "retake": "portal_retake_notice_2026",
     "defer": "portal_defer_rules_2026",
@@ -350,7 +354,7 @@ async def _handle_record_event(rec: Recorder, state: dict[str, Any], spec: dict[
         await _read_portal(rec, PORTAL["review"])
         await rec.call("email", "read_email", {"email_id": "503"})
         await rec.call("email", "save_draft", {"subject": "Calculus A2 grade review draft", "body": "Grade review draft pending confirmation: the official entry is score=61 and status=passed. Review only official entry, missed grading, and scoring errors; do not submit yet.", "to": "academic@example.edu"})
-        await _notion_append(rec, state, "Score report records score=61 and passed; grade review remains a pending confirmation draft limited to official entry, missed grading, and scoring errors.")
+        await _notion_append(rec, state, "Score report records score=61 and passed; grade review deadline is 2026-09-23T12:00:00+08:00; the review remains a pending confirmation draft limited to official entry, missed grading, and scoring errors.")
         _append("auth_log.md", "stage-023", "grade review | pending confirmation | not submitted")
     elif stage == 24:
         await _read_notification(rec, "notif_review_window_closed_0926")

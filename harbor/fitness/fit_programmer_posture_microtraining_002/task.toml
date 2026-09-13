@@ -111,6 +111,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-000"
 
 [[steps]]
@@ -133,6 +140,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-001"
 
 [[steps]]
@@ -155,6 +169,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-002"
 
 [[steps]]
@@ -177,6 +198,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-003"
 
 [[steps]]
@@ -199,6 +227,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-004"
 
 [[steps]]
@@ -221,6 +256,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-005"
 
 [[steps]]
@@ -243,6 +285,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-006"
 
 [[steps]]
@@ -265,6 +314,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-007"
 
 [[steps]]
@@ -287,6 +343,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-008"
 
 [[steps]]
@@ -309,6 +372,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-009"
 
 [[steps]]
@@ -331,6 +401,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-010"
 
 [[steps]]
@@ -353,6 +430,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-011"
 
 [[steps]]
@@ -375,6 +459,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-012"
 
 [[steps]]
@@ -397,6 +488,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-013"
 
 [[steps]]
@@ -419,6 +517,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-014"
 
 [[steps]]
@@ -441,6 +546,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-015"
 
 [[steps]]
@@ -463,6 +575,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-016"
 
 [[steps]]
@@ -485,6 +604,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-017"
 
 [[steps]]
@@ -507,6 +633,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-018"
 
 [[steps]]
@@ -529,6 +662,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-019"
 
 [[steps]]
@@ -551,6 +691,13 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-020"
 
 [[steps]]
@@ -574,4 +721,11 @@ user = "root"
 
 [[steps.verifier.collect]]
 service = "world-controller"
+# Freezing a stage hashes and copies the whole accumulated evidence tree; under
+# a loaded docker host this can exceed harbor's 60s hook default (measured:
+# event-012 and event-000 snapshot hooks timed out at 60s and the arm died as
+# VerifierInfrastructureError with no frozen stage manifest). The main
+# evidence-collector hook already runs with 300s, so give the snapshot hook the
+# same budget instead of letting a busy host abort an otherwise healthy trial.
+timeout_sec = 300.0
 command = "/opt/world-controller/snapshot event-021"

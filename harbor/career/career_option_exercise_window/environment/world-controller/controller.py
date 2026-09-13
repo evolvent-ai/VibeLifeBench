@@ -556,6 +556,19 @@ def apply_operation(
             [values[column] for column in values] + where_values,
         )
         if cursor.rowcount != 1:
+            if cursor.rowcount == 0 and operation.get("on_zero_rows") == "skip":
+                # World events that target agent-created rows cannot assume the
+                # row exists: the nop agent never applies, and an agent may
+                # apply to different roles or in a different order. A release
+                # that opts in with "on_zero_rows": "skip" treats a zero-row
+                # match as a no-op; every other outcome keeps the strict
+                # rowcount guard.
+                return {
+                    "op": op,
+                    "table": operation["table"],
+                    "rowcount": 0,
+                    "skipped": True,
+                }
             raise RuntimeError(
                 f"update expected one row in {operation['table']}, got {cursor.rowcount}"
             )

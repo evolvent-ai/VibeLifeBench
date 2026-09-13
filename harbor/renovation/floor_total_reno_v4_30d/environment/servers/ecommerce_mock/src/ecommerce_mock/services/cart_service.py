@@ -163,6 +163,7 @@ class CartService:
             subtotal += line
             items.append({
                 "cart_item_id": r["cart_item_id"],
+                "user_id": user_id,
                 "product_id": r["product_id"],
                 "sku_id": r["sku_id"],
                 "qty": qty,
@@ -189,6 +190,13 @@ class CartService:
                     "code": code,
                     "kind": effect["kind"],
                     "discount_minor": int(effect["discount_minor"]),
+                    # Carry the coupon terms so the cart view is self-describing
+                    # and the frozen evidence can reconstruct the coupon row.
+                    **{key: effect[key] for key in (
+                        "value_bp_or_minor", "min_spend_minor", "valid_from",
+                        "valid_until", "category_restriction", "max_uses",
+                        "used_count", "active",
+                    ) if key in effect},
                 })
                 still_valid.append(code)
 

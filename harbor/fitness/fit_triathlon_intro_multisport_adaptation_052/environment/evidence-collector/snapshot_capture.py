@@ -154,6 +154,19 @@ def capture_stage_snapshot(env: Any, stage: int) -> dict[str, Any]:
         merchant_ids.update(str(r.get("merchant_id") or r.get("id")) for r in rows if isinstance(r, dict))
     products = {q: _call(env, "ecommerce", "search_products", query=q, limit=80)
                 for q in ("gloves", "race-number belt", "helmet", "swimming goggles", "supplement", "bundle")}
+    # Search summaries carry no description and the English queries above miss
+    # the catalog corpus, so also freeze the full get_product detail for the
+    # catalogued SKUs. Mutation-driven delivery facts (e.g. release-004's
+    # 2026-07-27 delay note) must stay readable from the snapshot.
+    for product_id in (
+        "prod_tri_glove_basic_052",
+        "prod_tri_race_belt_052",
+        "prod_tri_helmet_pro_052",
+        "prod_tri_supp_nitro_052",
+        "prod_tri_pain_patch_052",
+        "prod_tri_bundle_advanced_052",
+    ):
+        products[product_id] = _call(env, "ecommerce", "get_product", product_id=product_id)
     orders = _call(env, "ecommerce", "list_orders", user_id=USER_ID, limit=100)
     order_rows = orders if isinstance(orders, list) else orders.get("items", []) if isinstance(orders, dict) else []
     return {

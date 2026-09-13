@@ -611,9 +611,17 @@ def apply_operation(
             [values[column] for column in values] + where_values,
         )
         if cursor.rowcount != 1:
-            raise RuntimeError(
-                f"update expected one row in {operation['table']}, got {cursor.rowcount}"
-            )
+            # The portal-status releases (registered_paid / admit_status /
+            # attendance / score) mutate the applications row an agent creates
+            # by applying. A no-op agent leaves no row: that is a legitimate
+            # empty update, not a world fault, so skip it instead of aborting
+            # the scenario. Seeded tables (e.g. jobs) must still hit exactly
+            # one row, and a wider update is always a fault.
+            tolerant = str(operation["table"]) == "applications" and cursor.rowcount == 0
+            if not tolerant:
+                raise RuntimeError(
+                    f"update expected one row in {operation['table']}, got {cursor.rowcount}"
+                )
         return {"op": op, "table": operation["table"], "rowcount": cursor.rowcount}
     if op == "delete":
         predicate, where_values = _predicate(dict(operation["where"]))

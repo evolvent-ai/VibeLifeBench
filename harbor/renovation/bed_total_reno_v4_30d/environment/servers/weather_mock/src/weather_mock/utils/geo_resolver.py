@@ -33,6 +33,12 @@ _ALIASES: dict[str, str] = {
     "shanghai pudong intl": "shanghai_pvg",
     "pudong": "shanghai_pvg",
     "pvg": "shanghai_pvg",
+    # Suzhou (SIP) locations are seeded with padded city strings; without these
+    # aliases neither the collector's "Suzhou Industrial Park" nor a plain city
+    # reference resolves to the seeded geo_qbed row.
+    "suzhou": "geo_qbed",
+    "suzhou industrial park": "geo_qbed",
+    "sip": "geo_qbed",
 }
 
 
@@ -57,7 +63,9 @@ def resolve_geo(
     seeded. Raises InvalidGeo on bad input shape.
     """
     by_key = {row["geo_key"]: row for row in locations}
-    by_city = {row["city"].lower(): row for row in locations}
+    # City cells are free-form seed text (" Suzhou ") — match on normalized
+    # values so surrounding whitespace or casing cannot hide a location.
+    by_city = {str(row["city"]).strip().lower(): row for row in locations}
 
     if isinstance(geo, str):
         needle = geo.strip().lower()

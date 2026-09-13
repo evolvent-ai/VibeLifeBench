@@ -180,17 +180,21 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     """Freeze every service slice used by the task rubric."""
     return {
         "stage": int(stage_idx), "world_clock": _world_clock(), "workspace": _workspace(env),
-        "email": {"inbox": _email_folder(env, "INBOX", False), "sent": _email_folder(env, "Sent", True),
+        "email": {"inbox": _email_folder(env, "INBOX", True), "sent": _email_folder(env, "Sent", True),
                    "drafts": _paged_call(env, "email", "get_drafts", rows_key="drafts", id_keys=("draft_id", "id"))},
-        "calendar": {"events": _call(env, "calendar", "search_events", query="", max_results=500)},
+        "calendar": {"events": _call(env, "calendar", "list_events", max_results=500)},
         "notification_hub": {"subscriptions": _call(env, "notification_hub", "list_subscriptions", user_id=USER_ID),
                               "notifications": _call(env, "notification_hub", "list_notifications", user_id=USER_ID, limit=500)},
         "content_platform": {"notes": {note_id: _call(env, "content_platform", "get_note", note_id=note_id)
                                           for note_id in ("note_zj_safety_duty_2026", "note_exam_integrity_risk", "note_ce_attendance_integrity")},
                               "collections": _call(env, "content_platform", "list_collections", user_id=USER_ID)},
         "ecommerce": {"products": _call(env, "ecommerce", "search_products", query="constructor", limit=100),
+                       "products_internal": _call(env, "ecommerce", "search_products", query="internal", limit=100),
+                       "product_details": {pid: _call(env, "ecommerce", "get_product", product_id=pid)
+                                           for pid in ("prod_2026_jzs_official", "prod_2025_jzs_legacy", "prod_exam_risk_bundle")},
                        "orders": _call(env, "ecommerce", "list_orders", user_id=USER_ID),
-                       "target_order": _call(env, "ecommerce", "get_order", order_id="order_20260706_4819")},
+                       "target_order": _call(env, "ecommerce", "get_order", order_id="order_20260706_4819"),
+                       "cart": _call(env, "ecommerce", "get_cart", user_id=USER_ID)},
         "delivery_logistics": {"shipment": _call(env, "delivery_logistics", "get_shipment", shipment_id="ship_jd_260706_4819"),
                                "tracking": _call(env, "delivery_logistics", "track_package", tracking_no="JD-ZJ-260706-4819"),
                                "issues": _call(env, "delivery_logistics", "list_issues", user_id=USER_ID)},

@@ -19,7 +19,8 @@
       "where": {
         "order_id": "ord_20260714_000002"
       },
-      "source_event_id": "s22_light_arrival_mutation"
+      "source_event_id": "s22_light_arrival_mutation",
+      "allow_missing": true
     }
   ]
 }

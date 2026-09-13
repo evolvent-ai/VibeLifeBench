@@ -10,16 +10,16 @@ SCENARIO_CLOCK_REQUIRED = os.environ.get("WORLD_CLOCK_REQUIRED", "0") == "1"
 USER_ID = "han_yushan"
 CALENDAR_ID = "cal_han_primary"
 
-def scenario_clock() -> dict[str, Any]:
+def scenario_clock(step_name: str = "") -> dict[str, Any]:
     try:
         payload=json.loads(SCENARIO_CLOCK_PATH.read_text(encoding="utf-8"))
-        now=str(payload["now"]); datetime.fromisoformat(now.replace("Z","+00:00"))
-        step=str(payload["step"])
-        if not step: raise ValueError("invalid clock step")
-        return {"schema_version":1,"step":step,"now":now}
+        # The world-controller owns the clock file and writes exactly
+        # {"world_now": ...} (controller.py). There is no "now"/"step" key.
+        now=str(payload["world_now"]); datetime.fromisoformat(now.replace("Z","+00:00"))
+        return {"schema_version":1,"step":step_name or "unknown","now":now}
     except Exception as exc:
         if SCENARIO_CLOCK_REQUIRED: raise RuntimeError(f"required world clock unavailable: {exc}") from exc
-        return {"schema_version":1,"step":"unknown","now":""}
+        return {"schema_version":1,"step":step_name or "unknown","now":""}
 
 def _decode(value: Any) -> Any:
     if isinstance(value,str):
@@ -78,7 +78,7 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str,Any]:
       "stage":stage_idx,"scenario_clock":scenario_clock(),"workspace":_workspace_snapshot(env),
       "calendar":{"calendars":_call(env,"calendar","list_calendars",user_id=USER_ID),"events":_call(env,"calendar","list_events",calendar_id=CALENDAR_ID,max_results=500)},
       "email":{"inbox":_paged_call(env,"email","get_emails","emails",("email_id","id"),folder="INBOX"),"sent":_paged_call(env,"email","get_emails","emails",("email_id","id"),folder="Sent"),"drafts":_paged_call(env,"email","get_drafts","drafts",("draft_id","id"))},
-      "legal_search":{"saved":_call(env,"legal_search","list_saved",user_id=USER_ID),"cases":_call(env,"legal_search","search_cases",query="water leak",limit=100),"statutes":_call(env,"legal_search","search_statutes",query="property damage",limit=100)},
+      "legal_search":{"saved":_call(env,"legal_search","list_saved",user_id=USER_ID),"cases":_call(env,"legal_search","search_cases",keyword="water leak",limit=100),"statutes":_call(env,"legal_search","search_statutes",keyword="property damage",limit=100)},
       "notion":{"pages":_call(env,"notion","API-post-search",query="",filter={"value":"page"},page_size=100)},
-      "review_platform":{"merchants":_call(env,"review_platform","search_merchants",query="",category="home_service",city="Shanghai",page=1,page_size=100),"reviews":_call(env,"review_platform","list_reviews",merchant_id="mer_home_haize_025",limit=100),"saved":_call(env,"review_platform","list_saved_merchants",user_id=USER_ID),"reservations":_call(env,"review_platform","list_reservations",user_id=USER_ID)},
+      "review_platform":{"merchants":_call(env,"review_platform","search_merchants",category="home_service",city="Shanghai",page=1,limit=100),"reviews":_call(env,"review_platform","list_reviews",merchant_id="mer_home_haize_025",limit=100),"saved":_call(env,"review_platform","list_saved_merchants",user_id=USER_ID),"reservations":_call(env,"review_platform","list_reservations",user_id=USER_ID),"qa":_call(env,"review_platform","get_merchant_qa",merchant_id="mer_home_kangyuan_025")},
     }

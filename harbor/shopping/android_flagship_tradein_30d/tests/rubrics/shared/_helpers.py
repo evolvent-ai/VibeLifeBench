@@ -274,8 +274,13 @@ def _runtime_rows(
     if server == "ecommerce":
         if table == "orders":
             rows.extend(rows_from(root.get("orders")))
-            rows.extend(rows_from(root.get("main_order")))
-            rows.extend(rows_from(root.get("tradein_order")))
+            # ``get_order`` payloads are order rows themselves; routing them
+            # through ``rows_from`` unwraps their ``items`` list first, so
+            # append each order dict directly instead.
+            for source in (root.get("main_order"), root.get("tradein_order"), root.get("order_details")):
+                for order in source if isinstance(source, list) else [source]:
+                    if isinstance(order, dict):
+                        rows.append(dict(order))
         elif table == "products":
             rows.extend(rows_from(root.get("products")))
             rows.extend(rows_from(root.get("product")))
@@ -283,8 +288,20 @@ def _runtime_rows(
             for product in rows_from(root.get("product")) + rows_from(root.get("products")):
                 rows.extend(rows_from(product.get("skus")))
         elif table == "refunds":
-            for order in rows_from(root.get("orders")) + rows_from(root.get("main_order")) + rows_from(root.get("tradein_order")):
-                rows.extend(rows_from(order.get("refunds")))
+            direct = root.get("refunds")
+            if isinstance(direct, (list, dict)):
+                rows.extend(rows_from(direct))
+            # ``get_order`` embeds ``refunds`` on the order dict itself, but
+            # ``rows_from`` unwraps a dict through its ``items`` list first, so
+            # routing order payloads through it yields order *items* and drops
+            # every refund row. Read the nested list off each order directly.
+            for source in (root.get("orders"), root.get("main_order"), root.get("tradein_order"), root.get("order_details")):
+                for order in source if isinstance(source, list) else [source]:
+                    if not isinstance(order, dict):
+                        continue
+                    nested = order.get("refunds")
+                    if isinstance(nested, (list, dict)):
+                        rows.extend(rows_from(nested))
         elif table in {"cart_items", "coupons", "applied_coupons"}:
             rows.extend(rows_from(root.get(table)))
     elif server == "credit_card":
@@ -324,8 +341,11 @@ def _runtime_rows(
         rows.extend(rows_from(root.get(table)))
     elif server == "listing_platform":
         if table == "listings":
-            rows.extend(rows_from(root.get("listings")))
+            # ``owned`` (get_listing_detail) is the authoritative row and the
+            # only one carrying ``owner_user_id``; search summaries share the
+            # same listing_id, so dedup must keep the detail row first.
             rows.extend(rows_from(root.get("owned")))
+            rows.extend(rows_from(root.get("listings")))
     elif server == "weather" and table == "alerts":
         rows.extend(rows_from(root.get("alerts")))
 

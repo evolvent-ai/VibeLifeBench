@@ -1,1 +1,32 @@
-{"step":"event-006","virtual_stage":3,"source_event_id":"S03_user_legal_basis","response":"Legal sources confirm Labor Contract Law article40, article46, article47 and Regulation article27: eight years plus an additional notice month uses nine months of average gross wages including bonus and allowance. PIPL art_pipl_006, art_pipl_013, art_pipl_014, art_pipl_028 and art_pipl_029 require purpose, minimum necessity, scope, sensitive-information safeguards and separate consent; cited cases are judg-2025-q7m4v2c6t3knx, judg-2025-r5p2w7d4h6jsx, judg-2025-t6n3y5f2k7qmx and judg-2025-v4c7r2m6p5ldx.","response_paraphrase":"The research ties the nine-month average-wage calculation to articles 40, 46, 47 and regulation 27, while PIPL articles 6, 13, 14, 28 and 29 constrain sensitive health collection to a stated necessary purpose with separate consent; four relevant judgments are retained.","actions":[{"kind":"record_event","source_event_id":"S03_user_legal_basis"}],"expected_env":{"preceding_releases":[],"released_mutations":[]},"expected_checks":[{"check_id":"s3_legal_tool_used","weight":2.5},{"check_id":"s3_basis_caliber_cited","weight":2.0},{"check_id":"s3_sensitive_info_basis_cited","weight":1.5}],"expected_stage_weight":6.0}
+{
+  "step": "event-006",
+  "virtual_stage": 3,
+  "source_event_id": "S03_user_legal_basis",
+  "response": "Legal sources confirm Labor Contract Law article40, article46, article47 and Regulation article27: eight years plus an additional notice month uses nine months of average gross wages including bonus and allowance, not the lower base salary caliber of CNY 25,500. PIPL art_pipl_006, art_pipl_013, art_pipl_014, art_pipl_028 and art_pipl_029 require a stated purpose, minimum necessity, scope, sensitive health information safeguards and separate consent; cited cases are judg-2025-q7m4v2c6t3knx, judg-2025-r5p2w7d4h6jsx, judg-2025-t6n3y5f2k7qmx and judg-2025-v4c7r2m6p5ldx.",
+  "response_paraphrase": "The research ties the nine-month average-wage calculation to articles 40, 46, 47 and regulation 27, using average gross wages rather than the lower base salary, while PIPL articles 6, 13, 14, 28 and 29 constrain sensitive health collection to a stated necessary purpose with separate consent; four relevant judgments are retained.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "S03_user_legal_basis"
+    }
+  ],
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "expected_checks": [
+    {
+      "check_id": "s3_legal_tool_used",
+      "weight": 2.5
+    },
+    {
+      "check_id": "s3_basis_caliber_cited",
+      "weight": 2.0
+    },
+    {
+      "check_id": "s3_sensitive_info_basis_cited",
+      "weight": 1.5
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

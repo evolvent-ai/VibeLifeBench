@@ -239,7 +239,7 @@ async def _handle_record_event(recorder: Recorder, state: dict[str, Any], spec: 
         await recorder.call(service, tool, arguments)
     record = _record_text(stage, source_event_id, str(spec["scenario_time"]))
     for filename in ("handover_control.md", "defect_ledger.md", "claim_ledger.md", "evidence_index.md", "final_handover.md"):
-        _append_record(recorder, filename, f"s{stage:02d}", record)
+        _append_record(recorder, filename, f"s{stage:02d}-{source_event_id}", record)
     state["events"] = [row for row in state["events"] if row.get("source_event_id") != source_event_id]
     state["events"].append({"source_event_id": source_event_id, "virtual_stage": stage})
 

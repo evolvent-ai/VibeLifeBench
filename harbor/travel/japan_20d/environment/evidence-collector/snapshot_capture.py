@@ -117,21 +117,68 @@ def _list_details(env, server, list_tool, detail_tool, list_key, id_key, **kwarg
         if ident: details[str(ident)] = _call(env, server, detail_tool, **{id_key: str(ident)})
     return {"listing": listing, "details": details}
 
+def _notion_blocks(env, block_id: str) -> Any:
+    """Freeze the complete block-children listing, following next_cursor."""
+    merged: dict[str, Any] | None = None
+    cursor: str | None = None
+    while True:
+        page = _call(
+            env, "notion", "API-get-block-children",
+            block_id=block_id, page_size=100, **({"start_cursor": cursor} if cursor else {}),
+        )
+        if not isinstance(page, dict):
+            return page
+        if merged is None:
+            merged = page
+        else:
+            merged["results"] = (merged.get("results") or []) + (page.get("results") or [])
+            merged["has_more"] = page.get("has_more")
+            merged["next_cursor"] = page.get("next_cursor")
+        if not page.get("has_more") or not page.get("next_cursor"):
+            break
+        cursor = page.get("next_cursor")
+    return merged
+
 def _notion(env):
+    # The seeded trip journal is the canonical page, but agents may legitimately
+    # create or rename pages (AGENTS.md instructs structured journaling without
+    # pinning a single page id). Freeze the whole workspace so no agent-authored
+    # block is lost to a title mismatch.
     search = _call(env, "notion", "API-post-search", query="Japan Trip Journal", page_size=100)
-    pages = search.get("results", []) if isinstance(search, dict) else []
+    pages = [r for r in (search.get("results", []) if isinstance(search, dict) else [])
+             if isinstance(r, dict) and r.get("object") == "page"]
+    all_pages = _call(env, "notion", "API-post-search", query="", page_size=100)
+    seen = {str(p.get("id")) for p in pages}
+    for r in (all_pages.get("results", []) if isinstance(all_pages, dict) else []):
+        if isinstance(r, dict) and r.get("object") == "page" and str(r.get("id")) not in seen:
+            pages.append(r); seen.add(str(r.get("id")))
     if not pages: pages = [_call(env, "notion", "API-retrieve-a-page", page_id=NOTION_PAGE_ID)]
-    return {"search": search, "pages": pages, "blocks": {str(p.get("id")): _call(env,"notion","API-get-block-children",block_id=str(p.get("id")),page_size=100) for p in pages if isinstance(p,dict) and p.get("id")}}
+    blocks = {str(p.get("id")): _notion_blocks(env, str(p.get("id"))) for p in pages if isinstance(p, dict) and p.get("id")}
+    return {"search": search, "pages": pages, "blocks": blocks}
 
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     return {
         "stage": int(stage_idx), "world_clock": _clock(), "workspace": _workspace(env),
         "flight_booking": _list_details(env,"flight_booking","list_bookings","get_booking","bookings","pnr",user_id=USER_ID),
         "hotel_booking": _list_details(env,"hotel_booking","list_reservations","get_reservation","reservations","reservation_id",user_id=USER_ID),
-        "visa_and_advisory": {"applications": _call(env,"visa_and_advisory","list_visa_applications",user_id=USER_ID), "entry_requirements": _call(env,"visa_and_advisory","check_entry_requirements",nationality="CN",destination="JP",purpose="tourism")},
-        "calendar": {"events": _call(env,"calendar","list_events",calendar_id=CALENDAR_ID,max_results=500)},
-        "email": {"inbox": _email(env,"INBOX"), "sent": _email(env,"Sent",True), "drafts": _paged_call(env,"email","get_drafts",rows_key="drafts",id_keys=("draft_id","id"))},
+        "visa_and_advisory": {
+            # Freeze filings for every traveler, not just Li Wei: the grader
+            # loops li_wei / dad / li_jianguo, so a father-only filing must be
+            # visible in the frozen evidence.
+            "applications": _call(env,"visa_and_advisory","list_visa_applications",user_id=USER_ID),
+            "applications_by_user": {u: _call(env,"visa_and_advisory","list_visa_applications",user_id=u)
+                                     for u in (USER_ID, "dad", "li_jianguo")},
+            "entry_requirements": _call(env,"visa_and_advisory","check_entry_requirements",nationality="CN",destination="JP",purpose="tourism"),
+        },
+        # calendar accounts live under the usr_li_wei owner id in the seed data.
+        "calendar": {
+            "calendars": _call(env,"calendar","list_calendars",user_id="usr_li_wei"),
+            "events": _call(env,"calendar","list_events",calendar_id=CALENDAR_ID,max_results=500),
+        },
+        # INBOX needs bodies/from headers just as much as Sent does: several
+        # cross-stage checkers read the frozen inbox listing.
+        "email": {"inbox": _email(env,"INBOX",True), "sent": _email(env,"Sent",True), "drafts": _paged_call(env,"email","get_drafts",rows_key="drafts",id_keys=("draft_id","id"))},
         "maps": {"places": _call(env,"maps","search_places",query="Japan")},
-        "weather": {"forecasts": _call(env,"weather","get_forecast",location="Tokyo"), "alerts": _call(env,"weather","list_alerts",location="Tokyo")},
+        "weather": {"forecasts": _call(env,"weather","get_forecast_daily",geo="Tokyo",days=14), "alerts": _call(env,"weather","get_alerts",geo="Tokyo")},
         "notion": _notion(env),
     }

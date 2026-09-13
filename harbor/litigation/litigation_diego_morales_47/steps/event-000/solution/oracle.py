@@ -292,6 +292,9 @@ async def _stage10(r: Recorder) -> None:
 async def _stage11(r: Recorder) -> None:
     await _notion_note(r, "Consumer follow-up is logged but not adopted; the witness template is limited to personal knowledge and excludes legal conclusions.")
     _merge_rows("pressure_log.json", "events", [{"source": "consumer_followup", "adopted": False}])
+    # The stage-11 rubric reads personal_knowledge_only from the template, so the
+    # flag is set here rather than waiting for the stage-17 template pass.
+    _write_json("witness_statement_template.json", {"personal_knowledge_only": True})
     _merge_rows("witness_statement_template.json", "limits", [{"topic": "platform_fault_legal_conclusion", "witness_observed": False}])
 
 

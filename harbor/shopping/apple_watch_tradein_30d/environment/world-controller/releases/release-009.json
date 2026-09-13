@@ -133,7 +133,7 @@
         "severity": "orange",
         "start_dt": "2026-07-02T09:30:00+08:00",
         "end_dt": "2026-07-03T20:00:00+08:00",
-        "areas_json": "[\"ShanghaiPudong\", \"ShanghaiXuhui\"]",
+        "areas_json": "[\"geo_awch\", \"geo_awch_sz\"]",
         "description": "heavy rain and gustsmay affectsmartwatchshipment、 translated text delivery receipt translated text ， translated text verify translated text item translated text 。",
         "active": 1,
         "created_at": "2026-07-02T09:35:00+08:00",

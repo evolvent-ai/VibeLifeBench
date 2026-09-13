@@ -19,7 +19,6 @@ SCENARIO_CLOCK_PATH = Path(
 SCENARIO_CLOCK_REQUIRED = os.environ.get("SCENARIO_CLOCK_REQUIRED", "0") == "1"
 
 USER_ID = "usr_yao_lin"
-CALENDAR_ID = "cal_rstent_task"
 
 
 def scenario_clock() -> dict[str, Any]:
@@ -332,7 +331,13 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             ),
         },
         "calendar": {"calendars": _call(env, "calendar", "list_calendars", user_id=USER_ID),
-                      "events": _call(env, "calendar", "list_events", calendar_id=CALENDAR_ID, max_results=500)},
+                      # Omitting calendar_id makes the mock search every calendar
+                      # the user owns; the frozen projection must cover all of
+                      # them because scoring re-reads events without a scope
+                      # (backend_calendar_deadlines_valid). Pinning the capture
+                      # to the task calendar starves the rubric of events that
+                      # live in the primary calendar (e.g. evt_rstent_c2).
+                      "events": _call(env, "calendar", "list_events", max_results=500)},
         "notification_hub": {
             "subscriptions": _call(
                 env, "notification_hub", "list_subscriptions", user_id=USER_ID

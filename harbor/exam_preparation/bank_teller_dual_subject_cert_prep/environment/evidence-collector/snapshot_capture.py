@@ -180,7 +180,10 @@ def _paged_call(
 
     merged = [row for row in (first.get(rows_key) or []) if isinstance(row, dict)]
     applied = int(first.get("page_size") or 0) or max(len(merged), 1)
-    raw_total = first.get("total_results", first.get("total"))
+    # Draft envelopes report their total under "total_drafts" rather than the
+    # generic "total_results"/"total" keys, so walk those too or multi-page
+    # draft folders are silently truncated to the first page.
+    raw_total = first.get("total_results", first.get("total_drafts", first.get("total")))
     total = int(raw_total) if isinstance(raw_total, (int, float)) else None
     seen = {_row_id(row) for row in merged}
     page = 2
@@ -434,71 +437,9 @@ def _bank_teller_paged(env: Any, server: str, tool: str, rows_key: str, **kwargs
     return {**first, rows_key: rows}
 
 
-_CANONICAL = {
-    "银行业资格考试服务平台": "Banking Qualification Examination Service Platform",
-    "银行业考试服务号": "Banking Examination Service Account",
-    "银行业初级职业资格": "Banking Professional Qualification Examination junior level",
-    "法律法规与综合能力": "Laws and Regulations and Comprehensive Ability",
-    "个人理财": "Personal Finance",
-    "公司信贷": "Corporate Credit",
-    "风险管理": "Risk Management",
-    "早班柜台": "counter duty",
-    "新柜员合规培训": "new teller course training",
-    "日结": "reconciliation closing",
-    "扎账": "reconciliation closing",
-    "双科全真模考（暂定）": "two-subject mock examination (tentative)",
-    "机考": "computer-based examination",
-    "滨江支行": "Binjiang Branch",
-    "支行培训室": "branch training room",
-    "家中": "Home",
-    "3机房": "computer room 3",
-    "准考证": "admission ticket",
-    "座位": "seat",
-    "内部培训绝密题库与考前原题": "Confidential Internal Training Question Bank and Leaked Pre-Exam Questions",
-    "内部培训绝密题库": "Confidential Internal Training Question Bank",
-    "考前押题包与所谓命中清单": "Cram Package and Claimed Hit List",
-    "押题包": "cram package",
-    "捷径资料": "Shortcut Materials",
-    "银行业考试出版社": "Banking Examination Press",
-    "考试服务号": "Banking Examination Service Account",
-    "专业科目选择建议": "Professional Subject Selection Advice",
-    "模考错题回炉建议": "Mock-Examination Wrong-Answer Review Advice",
-    "7 月 26 日外出营销与调休安排": "July 26 Marketing Outing and Compensatory Time Off",
-    "7 月 26 日全天参加社区营销": "July 26 community marketing outing",
-    "调休": "compensatory time off",
-    "考试费核验与报名状态更新": "Examination Fee Verification and Registration Status Update",
-    "双科机考成绩可查": "Two-Subject Computer-Based Examination Scores Available",
-    "机考批次开始放量": "Computer-Based Examination Slot Open",
-    "机考批次库存刷新": "Computer-Based Examination Slot Inventory Refresh",
-    "准考证打印入口开放": "Admission Ticket Printing Open",
-    "准考证座位信息更新": "Admission Ticket Seat Information Updated",
-    "下半年": "second half",
-    "报名公告": "registration notice",
-    "基础排班": "roster",
-    "周五扎账": "Friday reconciliation closing",
-    "培训": "training",
-    "柜员": "teller",
-    "综合能力": "Comprehensive Ability",
-    "银行业考试出版社": "Banking Examination Press",
-}
-
-
-def _canonicalize(value: Any) -> Any:
-    if isinstance(value, str):
-        out = value
-        for source, target in _CANONICAL.items():
-            out = out.replace(source, target)
-        return out
-    if isinstance(value, list):
-        return [_canonicalize(item) for item in value]
-    if isinstance(value, dict):
-        return {key: _canonicalize(item) for key, item in value.items()}
-    return value
-
-
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     notifications = _call(env, "notification_hub", "list_notifications", user_id=USER_ID, limit=500, page=1)
-    subscriptions = _call(env, "notification_hub", "list_subscriptions", user_id=USER_ID, page=1)
+    subscriptions = _call(env, "notification_hub", "list_subscriptions", user_id=USER_ID)
     feed = _call(env, "notification_hub", "get_account_feed", account_id="acct_bank_exam", limit=200, page=1)
     accounts = _call(env, "banking", "list_accounts", user_id=USER_ID)
     account_rows = _bank_teller_rows(accounts, "accounts", "items", "results")
@@ -522,7 +463,10 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     drafts = _paged_call(env, "email", "get_drafts", rows_key="drafts", id_keys=("draft_id", "id"))
     events = _call(env, "calendar", "list_events", max_results=500, page=1)
     notion = _notion_snapshot(env)
-    return _canonicalize({
+    # The snapshot is the frozen evidence the rubrics score against: it must
+    # carry the world's verbatim content (Chinese tokens included). Any
+    # rewriting here would sever the evidence chains the checks match on.
+    return {
         "stage": stage_idx,
         "scenario_clock": scenario_clock(),
         "notification_hub": {"notifications": notifications, "subscriptions": subscriptions, "account_feed": feed},
@@ -532,4 +476,4 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
         "calendar": {"events": events},
         "notion": notion,
         "workspace": _workspace_snapshot(env),
-    })
+    }

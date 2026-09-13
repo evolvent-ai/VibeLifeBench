@@ -186,16 +186,23 @@ class EmailService:
         msg_id = message_id_header(seq)
 
         size = len(body or "") + len(html_body or "")
+        # Outgoing mail must not take the next autoincrement id: the task
+        # world-controller inserts scripted release mail into ``messages`` with
+        # fixed low ids (101..108), so a sent message landing in that band makes
+        # a later release insert fail its UNIQUE constraint. Allocate explicit
+        # ids from a dedicated counter far above the release band instead.
+        new_id = 100000 + next_counter(self.conn, "out_msg_id")
         cur = self.conn.execute(
             """
             INSERT INTO messages (
-              folder_id, message_id, subject, from_addr,
+              id, folder_id, message_id, subject, from_addr,
               to_addr_json, cc_addr_json, bcc_addr_json,
               date, body_text, body_html, is_read, is_important,
               headers_json, size, created_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, 0, '{}', ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, 0, '{}', ?, ?)
             """,
             (
+                new_id,
                 sent_folder_id,
                 msg_id,
                 subject or "",

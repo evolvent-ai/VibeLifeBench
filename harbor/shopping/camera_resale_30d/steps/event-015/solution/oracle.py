@@ -260,13 +260,71 @@ def _first_amount_minor(value: Any) -> int:
     return 0
 
 
+# Free-text tool fields (message subjects/bodies, echoed search parameters) are
+# excluded from the durable record: pasting them verbatim would store the
+# agent's own queries and unverified prose as if they were findings, and the
+# unbounded payloads would grow every ledger file past the evidence
+# collector's capture window.
+_EVIDENCE_SKIP_KEYS = frozenset({
+    "query", "folder", "page", "page_size", "total_pages", "total_results",
+    "subject", "body", "content", "snippet", "text", "description",
+    "message", "summary", "title", "remark", "note", "latest_event",
+})
+
+
+_EVIDENCE_KEEP_KEYS = frozenset({
+    "status", "carrier", "code", "merchant", "amount_minor", "total_minor",
+    "subtotal_minor", "discount_minor", "eta_date",
+})
+
+
+def _evidence_digest(value: Any) -> str:
+    """Compact scalar digest (ids, statuses, amounts, dates) of one backend read.
+
+    Object fields keep every short scalar (verification codes, prices, states);
+    rows inside list results are narrowed to identifiers and keyed figures so
+    the ledger can cite each returned transaction without republishing whole
+    payloads. Free-text fields stay excluded in both cases.
+    """
+    scalars: list[str] = []
+
+    def walk(node: Any, depth: int, in_list: bool) -> None:
+        if depth > 4:
+            return
+        if isinstance(node, dict):
+            for key in sorted(node):
+                child = node[key]
+                if isinstance(child, (str, int, float)) and not isinstance(child, bool):
+                    text = str(child)
+                    if key in _EVIDENCE_SKIP_KEYS or not text or len(text) > 40 or text.count(" ") > 2:
+                        continue
+                    if in_list and not (
+                        key in _EVIDENCE_KEEP_KEYS or key.endswith("_id") or key.endswith("_no")
+                    ):
+                        continue
+                    scalars.append(f"{key}={text}")
+                else:
+                    walk(child, depth + 1, in_list)
+        elif isinstance(node, list):
+            for child in node:
+                walk(child, depth + 1, True)
+
+    walk(value, 0, False)
+    return "; ".join(scalars[:400])
+
+
+def _evidence_line(evidence: dict[str, Any]) -> str:
+    return " | ".join(
+        f"{label}: {_evidence_digest(evidence[label])}" for label in sorted(evidence)
+    )
+
+
 def _record(source_event_id: str, stage: int, evidence: dict[str, Any], rec: Recorder) -> str:
     note = EVENT_NOTES.get(source_event_id)
     observed_at = EVENT_TIMES.get(source_event_id)
     if not note or not observed_at:
         raise RuntimeError(f"missing current-event record template for {source_event_id}")
     sources = ",".join(dict.fromkeys(call["function_name"] for call in rec.calls)) or "event"
-    evidence_json = json.dumps(evidence, ensure_ascii=False, sort_keys=True, default=str)
     return "\n".join((
         f"## Evidence update {source_event_id}",
         "thread_id: ord_rscam_0001,ord_rscam_0002,lst_rscam_0001",
@@ -281,12 +339,12 @@ def _record(source_event_id: str, stage: int, evidence: dict[str, Any], rec: Rec
         "risk: unsupported status, amount, or authorization claim",
         "mitigation: preserve separate tracks and cite the current backend result",
         "evidence_type: backend_read_and_event_analysis",
-        "resolved: only states explicitly present in evidence_json",
-        "pending: all actions and external processing not explicitly completed in evidence_json",
+        "resolved: only states explicitly present in the recorded evidence digest",
+        "pending: all actions and external processing not explicitly completed in the recorded evidence digest",
         "authorization: read-only unless the current user event explicitly authorizes a reversible cart update",
         "next_action: reassess on the next event without rewriting prior observations",
         f"virtual_stage: {stage}",
-        f"evidence_json: {evidence_json}",
+        f"evidence_digest: {_evidence_line(evidence)}",
     ))
 
 

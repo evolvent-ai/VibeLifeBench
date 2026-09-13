@@ -4,6 +4,7 @@ from __future__ import annotations
 import ast
 import itertools
 import json
+import os
 import re
 from functools import lru_cache
 from pathlib import Path
@@ -316,14 +317,24 @@ def _email_search(section: Any, query: str) -> dict[str, Any]:
     records = _rows(listing, "emails") + _rows(section.get("details"), "emails")
     needle = _normalize(query)
     matches: list[dict[str, Any]] = []
-    seen: set[str] = set()
+    retained: dict[str, dict[str, Any]] = {}
     for row in records:
         if needle not in _normalize(_flatten_text(row)):
             continue
         identity = str(row.get("email_id") or row.get("id") or id(row))
-        if identity not in seen:
-            seen.add(identity)
+        kept = retained.get(identity)
+        if kept is None:
+            retained[identity] = row
             matches.append(row)
+        else:
+            # The listing row (get_emails, body elided) and the detail row
+            # (read_email) are the same message. Keeping the first and dropping
+            # the second discarded the body, leaving body-only tokens
+            # unscoreable even for a perfect trajectory; merge the fields into
+            # the retained row instead.
+            for key, value in row.items():
+                if kept.get(key) in (None, "") and value not in (None, ""):
+                    kept[key] = value
     return {"total_results": len(matches), "emails": matches}
 
 
@@ -520,6 +531,74 @@ _TASK_ROOT = Path(__file__).resolve().parents[3]
 _BUSINESS_DATE = "2026-06-22"
 
 
+# Harbor's Evaluator ships only tests/ into the grading container (mounted at
+# /tests), so environment/seeds/ecommerce/init.sql is absent at scoring time and
+# _TASK_ROOT resolves to '/'. The bundle-candidate rows are therefore also
+# carried verbatim below, extracted from environment/seeds/ecommerce/init.sql;
+# _bundle_seed() prefers a mounted task tree and falls back to this copy.
+_BUNDLE_SEED_FALLBACK_SQL = "\n".join((
+    "INSERT INTO products (product_id, title, brand, category, description, rating, rating_count, sales_count, base_price_minor, return_policy) VALUES ('prod_ppbeauty_main', 'GlowSpa prepaid annual beauty-care card', 'GlowSpa', 'beauty service', 'The card number and card verification code must match the membership contract. Preserve business credentials, the top-up receipt, invoice, and payment records when reviewing card balance and service performance.', 4.6, 1200, 8000, 1880000.0, 'If the card is not activated, card cancellation follows the contract application. After activation, remaining benefits, service performance, and contractual deductions are reviewed under the card-cancellation terms.');",
+    'INSERT INTO skus (sku_id, product_id, attrs_json, price_minor) VALUES (\'sku_ppbeauty_main\', \'prod_ppbeauty_main\', \'{"sn": "GLS-Y1-4963", "batch": "2025Q4", "vcode": "VRF-PPBEAUTY-4963G"}\', 1880000.0);',
+    "INSERT INTO stocks (sku_id, quantity) VALUES ('sku_ppbeauty_main', 50);",
+    "INSERT INTO products (product_id, title, brand, category, description, rating, rating_count, sales_count, base_price_minor, return_policy) VALUES ('prod_ppbeauty_c1', 'GlowSpa additional local detail (service-remediation shipment)', 'GlowSpa', 'beauty devices', 'store locationadditional local detailservice, packagingadditional local detail, additional local detailactionexplanation; additional local detailcontractadditional local detail. ', 4.6, 1200, 8000, 50400.0, 'additional local detailaccessoriesadditional local detaildayadditional local detail; additional local detailhandle');",
+    'INSERT INTO skus (sku_id, product_id, attrs_json, price_minor) VALUES (\'sku_ppbeauty_c1\', \'prod_ppbeauty_c1\', \'{"variant": "standard"}\', 50400.0);',
+    "INSERT INTO stocks (sku_id, quantity) VALUES ('sku_ppbeauty_c1', 50);",
+    "INSERT INTO products (product_id, title, brand, category, description, rating, rating_count, sales_count, base_price_minor, return_policy) VALUES ('prod_ppbeauty_c2', 'GlowSpa additional local detail (service-remediation shipment)', 'GlowSpa', 'professional salon care', 'additional local detailforadditional local detail, additional local detailretainbatch number, valid throughadditional local detailseal; additional local detailbatchadditional local detailmerchantadditional local detailservice performanceadditional local detail. ', 4.6, 1200, 8000, 21000.0, 'sealcompleteadditional local detaildayadditional local detail; additional local detailonlyhandleadditional local detailproblem');",
+    'INSERT INTO skus (sku_id, product_id, attrs_json, price_minor) VALUES (\'sku_ppbeauty_c2\', \'prod_ppbeauty_c2\', \'{"variant": "standard"}\', 21000.0);',
+    "INSERT INTO stocks (sku_id, quantity) VALUES ('sku_ppbeauty_c2', 50);",
+    "INSERT INTO products (product_id, title, brand, category, description, rating, rating_count, sales_count, base_price_minor, return_policy) VALUES ('prod_ppbeauty_c3', 'GlowSpa additional local detailconsumableadditional local detail (service-remediation shipment)', 'GlowSpa', 'additional local detailconsumable', 'additional local detail, additional local detail, additional local detailpackagingadditional local detailbatch; consumableadditional local detailchecklistadditional local detailreconcile. ', 4.6, 1200, 8000, 12600.0, 'additional local detailpackagingadditional local detaildayadditional local detail; additional local detailconsumableadditional local detailreasonadditional local detail');",
+    'INSERT INTO skus (sku_id, product_id, attrs_json, price_minor) VALUES (\'sku_ppbeauty_c3\', \'prod_ppbeauty_c3\', \'{"variant": "standard"}\', 12600.0);',
+    "INSERT INTO stocks (sku_id, quantity) VALUES ('sku_ppbeauty_c3', 50);",
+    "INSERT INTO products (product_id, title, brand, category, description, rating, rating_count, sales_count, base_price_minor, return_policy) VALUES ('prod_ppbeauty_recording_stand_pro', 'additional local detailstand (additional local detail)', 'additional local detail', 'additional local detail', 'additional local detailstandadditional local detail, suitable foradditional local detailrecordstore locationadditional local detailserviceadditional local detail; storageadditional local detail. ', 4.5, 800, 3000, 19000.0, 'additional local detailpackagingaccessoriesadditional local detaildayadditional local detail');",
+    'INSERT INTO skus (sku_id, product_id, attrs_json, price_minor) VALUES (\'sku_ppbeauty_recording_stand_pro\', \'prod_ppbeauty_recording_stand_pro\', \'{"use_case": "recording_stand", "height_cm": 160}\', 19000.0);',
+    "INSERT INTO stocks (sku_id, quantity) VALUES ('sku_ppbeauty_recording_stand_pro', 120);",
+    "INSERT INTO products (product_id, title, brand, category, description, rating, rating_count, sales_count, base_price_minor, return_policy) VALUES ('prod_ppbeauty_recording_stand_table', 'additional local detailstand (additional local detail)', 'additional local detail', 'additional local detail', 'additional local detail, additional local detailcontractadditional local detail; additional local detail. ', 4.5, 800, 3000, 12000.0, 'additional local detailpackagingaccessoriesadditional local detaildayadditional local detail');",
+    'INSERT INTO skus (sku_id, product_id, attrs_json, price_minor) VALUES (\'sku_ppbeauty_recording_stand_table\', \'prod_ppbeauty_recording_stand_table\', \'{"use_case": "recording_stand", "height_cm": 65}\', 12000.0);',
+    "INSERT INTO stocks (sku_id, quantity) VALUES ('sku_ppbeauty_recording_stand_table', 120);",
+    "INSERT INTO products (product_id, title, brand, category, description, rating, rating_count, sales_count, base_price_minor, return_policy) VALUES ('prod_ppbeauty_recording_stand_mini', 'additional local detailstand (additional local detail)', 'additional local detail', 'additional local detail', 'additional local detailstandsuitable foradditional local detailproductbatch number, problemadditional local detail, additional local detail. ', 4.5, 800, 3000, 10000.0, 'additional local detailpackagingaccessoriesadditional local detaildayadditional local detail');",
+    'INSERT INTO skus (sku_id, product_id, attrs_json, price_minor) VALUES (\'sku_ppbeauty_recording_stand_mini\', \'prod_ppbeauty_recording_stand_mini\', \'{"use_case": "recording_stand", "height_cm": 28}\', 10000.0);',
+    "INSERT INTO stocks (sku_id, quantity) VALUES ('sku_ppbeauty_recording_stand_mini', 120);",
+    "INSERT INTO products (product_id, title, brand, category, description, rating, rating_count, sales_count, base_price_minor, return_policy) VALUES ('prod_ppbeauty_fill_light_dual', 'additional local detail', 'additional local detail', 'additional local detail', 'additional local detailseparatelyadditional local detail, additional local detailcontractadditional local detailproblemadditional local detailoffadditional local detail; additional local detail. ', 4.5, 800, 3000, 18000.0, 'additional local detaildayadditional local detail');",
+    'INSERT INTO skus (sku_id, product_id, attrs_json, price_minor) VALUES (\'sku_ppbeauty_fill_light_dual\', \'prod_ppbeauty_fill_light_dual\', \'{"use_case": "fill_light", "lamp_count": 2}\', 18000.0);',
+    "INSERT INTO stocks (sku_id, quantity) VALUES ('sku_ppbeauty_fill_light_dual', 120);",
+    "INSERT INTO products (product_id, title, brand, category, description, rating, rating_count, sales_count, base_price_minor, return_policy) VALUES ('prod_ppbeauty_fill_light_clip', 'additional local detail', 'additional local detail', 'additional local detail', 'additional local detail, additional local detailforadditional local detail; additional local detail. ', 4.5, 800, 3000, 13000.0, 'additional local detaildayadditional local detail');",
+    'INSERT INTO skus (sku_id, product_id, attrs_json, price_minor) VALUES (\'sku_ppbeauty_fill_light_clip\', \'prod_ppbeauty_fill_light_clip\', \'{"use_case": "fill_light", "lamp_count": 1}\', 13000.0);',
+    "INSERT INTO stocks (sku_id, quantity) VALUES ('sku_ppbeauty_fill_light_clip', 120);",
+    "INSERT INTO products (product_id, title, brand, category, description, rating, rating_count, sales_count, base_price_minor, return_policy) VALUES ('prod_ppbeauty_headband_box50', 'additional local detail 50 additional local detail', 'additional local detail', 'additional local detailconsumable', 'additional local detailpackagingadditional local detail, additional local detailbatchadditional local detail; suitable foradditional local detailtimelineadditional local detailrecord. ', 4.5, 800, 3000, 12000.0, 'additional local detailpackagingcompleteadditional local detaildayadditional local detail');",
+    'INSERT INTO skus (sku_id, product_id, attrs_json, price_minor) VALUES (\'sku_ppbeauty_headband_box50\', \'prod_ppbeauty_headband_box50\', \'{"use_case": "disposable_headband", "count": 50}\', 12000.0);',
+    "INSERT INTO stocks (sku_id, quantity) VALUES ('sku_ppbeauty_headband_box50', 120);",
+    "INSERT INTO products (product_id, title, brand, category, description, rating, rating_count, sales_count, base_price_minor, return_policy) VALUES ('prod_ppbeauty_headband_pack20', 'additional local detail 20 additional local detail', 'additional local detail', 'additional local detailconsumable', 'additional local detailsuitable foradditional local detailmonthadditional local detail, additional local detaildayadditional local detailservicerecordadditional local detail. ', 4.5, 800, 3000, 7500.0, 'additional local detaildayadditional local detail');",
+    'INSERT INTO skus (sku_id, product_id, attrs_json, price_minor) VALUES (\'sku_ppbeauty_headband_pack20\', \'prod_ppbeauty_headband_pack20\', \'{"use_case": "disposable_headband", "count": 20}\', 7500.0);',
+    "INSERT INTO stocks (sku_id, quantity) VALUES ('sku_ppbeauty_headband_pack20', 120);",
+    "INSERT INTO products (product_id, title, brand, category, description, rating, rating_count, sales_count, base_price_minor, return_policy) VALUES ('prod_ppbeauty_headband_pack10', 'additional local detail 10 additional local detail', 'additional local detail', 'additional local detailconsumable', 'additional local detailpackagingadditional local detail, suitable foradditional local detail; additional local detailhasadditional local detail. ', 4.5, 800, 3000, 6000.0, 'additional local detaildayadditional local detail');",
+    'INSERT INTO skus (sku_id, product_id, attrs_json, price_minor) VALUES (\'sku_ppbeauty_headband_pack10\', \'prod_ppbeauty_headband_pack10\', \'{"use_case": "disposable_headband", "count": 10}\', 6000.0);',
+    "INSERT INTO stocks (sku_id, quantity) VALUES ('sku_ppbeauty_headband_pack10', 120);",
+    "INSERT INTO coupons (code, kind, value_bp_or_minor, min_spend_minor, valid_from, valid_until, category_restriction, max_uses, used_count, active) VALUES ('SAVE30_ppbeauty', 'flat_off', 3000, 26000, '2026-06-01', '2026-08-31', NULL, 5000, 200, 1);",
+    "INSERT INTO coupons (code, kind, value_bp_or_minor, min_spend_minor, valid_from, valid_until, category_restriction, max_uses, used_count, active) VALUES ('BIG70_ppbeauty', 'flat_off', 7000, 29800, '2026-06-01', '2026-08-31', NULL, 5000, 200, 1);",
+    "INSERT INTO coupons (code, kind, value_bp_or_minor, min_spend_minor, valid_from, valid_until, category_restriction, max_uses, used_count, active) VALUES ('MAX120_ppbeauty', 'flat_off', 12000, 54000, '2026-06-01', '2026-08-31', NULL, 5000, 200, 1);",
+    "INSERT INTO coupons (code, kind, value_bp_or_minor, min_spend_minor, valid_from, valid_until, category_restriction, max_uses, used_count, active) VALUES ('PCT12_ppbeauty', 'percent_off', 1200, 10000, '2026-06-01', '2026-08-31', NULL, 5000, 200, 1);",
+))
+
+
+def _bundle_seed_sql() -> str:
+    """Resolve the ecommerce seed: mounted task tree first, embedded copy otherwise.
+
+    The grading container has no environment/ mount, so the read fails there and
+    the verbatim fallback keeps the bundle witnesses computable at scoring time.
+    """
+    here = Path(__file__).resolve()
+    roots = [here.parents[3], here.parents[2]]
+    env_root = os.environ.get("HARBOR_TASK_ROOT")
+    if env_root:
+        roots.insert(0, Path(env_root))
+    for root in roots:
+        try:
+            return (root / "environment" / "seeds" / "ecommerce" / "init.sql").read_text(encoding="utf-8")
+        except OSError:
+            continue
+    return _BUNDLE_SEED_FALLBACK_SQL
+
+
 def _split_sql_fields(row: str) -> list[str]:
     out, cur, quoted, i = [], [], False, 0
     while i < len(row):
@@ -564,8 +643,7 @@ def _direct_rows(sql: str, table: str) -> list[list[Any]]:
 
 @lru_cache(maxsize=1)
 def _bundle_seed() -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, Any]]]:
-    init_sql = _TASK_ROOT / "environment" / "seeds" / "ecommerce" / "init.sql"
-    sql = init_sql.read_text(encoding="utf-8")
+    sql = _bundle_seed_sql()
     products = {str(r[0]): {"product_id": str(r[0]), "category": str(r[3])}
                 for r in _direct_rows(sql, "products")}
     stocks = {str(r[0]): int(r[1]) for r in _direct_rows(sql, "stocks")}

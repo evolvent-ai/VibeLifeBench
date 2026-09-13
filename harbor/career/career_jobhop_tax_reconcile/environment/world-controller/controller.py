@@ -558,6 +558,17 @@ def apply_operation(
             [values[column] for column in values] + where_values,
         )
         if cursor.rowcount != 1:
+            # An "optional" operation models the world reacting to a row only
+            # the agent can create (e.g. the applications row born from
+            # apply_job). When the agent never created it, the world event is a
+            # no-op — not a trial-aborting inconsistency.
+            if operation.get("optional") is True and cursor.rowcount == 0:
+                return {
+                    "op": op,
+                    "table": operation["table"],
+                    "rowcount": 0,
+                    "skipped": True,
+                }
             raise RuntimeError(
                 f"update expected one row in {operation['table']}, got {cursor.rowcount}"
             )
@@ -566,6 +577,13 @@ def apply_operation(
         predicate, where_values = _predicate(dict(operation["where"]))
         cursor = conn.execute(f"DELETE FROM {table} WHERE {predicate}", where_values)
         if cursor.rowcount != 1:
+            if operation.get("optional") is True and cursor.rowcount == 0:
+                return {
+                    "op": op,
+                    "table": operation["table"],
+                    "rowcount": 0,
+                    "skipped": True,
+                }
             raise RuntimeError(
                 f"delete expected one row in {operation['table']}, got {cursor.rowcount}"
             )

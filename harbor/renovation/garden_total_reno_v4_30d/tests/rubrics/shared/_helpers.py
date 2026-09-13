@@ -64,10 +64,25 @@ def _table_rows(env, stage: int, server: str, table: str) -> list[dict[str, Any]
     if server == "ecommerce":
         if table == "orders":
             for key in ("main_order", "acceptance_order"):
-                out += _rows(sec.get(key))
+                raw = sec.get(key)
+                if isinstance(raw, dict) and isinstance(raw.get("items"), list):
+                    # A detail envelope keeps its line items under "items",
+                    # which _rows would otherwise return instead of the order
+                    # header.  Re-home the line items so the header survives as
+                    # the single orders row the rubric's SQL reads.
+                    header = {k: v for k, v in raw.items() if k != "items"}
+                    header["line_items"] = raw["items"]
+                    out.append(header)
+                else:
+                    out += _rows(raw)
         elif table == "refunds":
             for order in _table_rows(env, stage, server, "orders"):
-                out += _rows(order.get("refunds"))
+                for refund in _rows(order.get("refunds")):
+                    # Each refund belongs to its parent order; the refund
+                    # detail view may omit the join key the rubric queries on.
+                    if isinstance(refund, dict) and refund.get("order_id") is None:
+                        refund = {**refund, "order_id": order.get("order_id")}
+                    out.append(refund)
         elif table == "products":
             out += _rows(sec.get("products"))
             out += _rows(sec.get("product_details"))

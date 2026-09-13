@@ -13,7 +13,7 @@
       "table": "messages",
       "op": "insert",
       "values": {
-        "id": 108,
+        "id": 19001,
         "folder_id": 1,
         "message_id": "<20260720-offer@meituan.com>",
         "subject": "Meituan Senior Backend Engineer Offer",

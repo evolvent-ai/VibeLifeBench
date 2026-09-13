@@ -215,6 +215,13 @@ def _tool_calls(env, stage_idx: int | None = None) -> list[dict[str, Any]]:
         if stage_idx is not None
         else [i for i in env.published_stages() if i <= _current_stage(env)]
     )
+    # A stage whose sidecar was never published (transition stages, or a future
+    # stage while scoring mid-run) has no tool calls by definition. Reading it
+    # must yield "no calls", not raise: checkers like ck_19 legitimately probe a
+    # later stage as one alternative of a disjunction, and a missing stage there
+    # means the agent has not coordinated yet — not a broken harness.
+    published = set(env.published_stages())
+    stages = [idx for idx in stages if idx in published]
     out: list[dict[str, Any]] = []
     for idx in stages:
         data = harbor_trace(env, idx)
@@ -246,7 +253,10 @@ def _tool_calls(env, stage_idx: int | None = None) -> list[dict[str, Any]]:
             result = _as_obj(row.get("result"))
             if isinstance(result, dict) and (result.get("error") or result.get("status") == "error"):
                 continue
-            out.append(row)
+            # Legacy rows keep the raw tool output (a JSON string) in "result";
+            # the payload branch above stores the decoded object. Emit the same
+            # decoded shape here so per-check consumers see one envelope.
+            out.append(row if result is row.get("result") else {**row, "result": result})
     return out
 
 
@@ -257,6 +267,9 @@ def _all_tool_calls(env, stage_idx: int | None = None) -> list[dict[str, Any]]:
         if stage_idx is not None
         else [i for i in env.published_stages() if i <= _current_stage(env)]
     )
+    # Same unpublished-stage tolerance as _tool_calls.
+    published = set(env.published_stages())
+    stages = [idx for idx in stages if idx in published]
     out: list[dict[str, Any]] = []
     for idx in stages:
         data = harbor_trace(env, idx)
@@ -282,7 +295,12 @@ def _all_tool_calls(env, stage_idx: int | None = None) -> list[dict[str, Any]]:
                         merged["success"] = False
                 out.append(merged)
             continue
-        out.extend(row for row in data if isinstance(row, dict))
+        out.extend(
+            row if not isinstance(row, dict) or _as_obj(row.get("result")) is row.get("result")
+            else {**row, "result": _as_obj(row.get("result"))}
+            for row in data
+            if isinstance(row, dict)
+        )
     return out
 
 

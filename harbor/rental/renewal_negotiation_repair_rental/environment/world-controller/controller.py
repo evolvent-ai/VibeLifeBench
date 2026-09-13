@@ -65,6 +65,14 @@ BASELINE_WORKSPACE_NAMES = frozenset({
     "PRIVACY_POLICY.md", "REFERENCES.md", "RENTAL_REQUIREMENTS.md",
     "RESUME_PROFILE.md", "SOUL.md", "TOOLS.md", "TRACKER_TEMPLATE.md", "USER.md",
 })
+# Pristine copies of the seeded workspace, baked into this image (see
+# world-controller/Dockerfile). A baseline-named file stays excluded only while
+# it is byte-identical to its seed; once the agent rewrites it (ARTIFACT_CONTRACT.md
+# makes BUDGET_LEDGER.md a maintained deliverable) the content is agent work and
+# must be frozen with the stage.
+BASELINE_WORKSPACE_ROOT = Path(
+    os.environ.get("WORLD_BASELINE_WORKSPACE", "/opt/workspace-baseline")
+)
 ALLOWED_WORKSPACE_SUFFIXES = frozenset({".md", ".txt", ".json", ".csv"})
 
 
@@ -772,6 +780,25 @@ def _publish_directory(target: Path, build: Any) -> dict[str, Any]:
             shutil.rmtree(tmp)
 
 
+def _baseline_file_unchanged(source: Path, name: str) -> bool:
+    """True while a baseline-named workspace file still matches its shipped seed.
+
+    Unreadable entries stay excluded, matching the legacy behaviour for anything
+    that is not a readable file; a missing shipped baseline is also treated as
+    unchanged so the freeze degrades to the legacy exclusion rather than
+    publishing unverifiable content.
+    """
+    try:
+        data = source.read_bytes()
+    except OSError:
+        return True
+    try:
+        seed = (BASELINE_WORKSPACE_ROOT / name).read_bytes()
+    except OSError:
+        return True
+    return data == seed
+
+
 def _business_workspace_files() -> list[tuple[Path, Path]]:
     files: list[tuple[Path, Path]] = []
     if not WORKSPACE_ROOT.is_dir():
@@ -782,7 +809,11 @@ def _business_workspace_files() -> list[tuple[Path, Path]]:
         relative = source.relative_to(WORKSPACE_ROOT)
         if any(part.startswith(".") for part in relative.parts):
             continue
-        if len(relative.parts) == 1 and relative.name in BASELINE_WORKSPACE_NAMES:
+        if (
+            len(relative.parts) == 1
+            and relative.name in BASELINE_WORKSPACE_NAMES
+            and _baseline_file_unchanged(source, relative.name)
+        ):
             continue
         if source.suffix.lower() not in ALLOWED_WORKSPACE_SUFFIXES:
             continue

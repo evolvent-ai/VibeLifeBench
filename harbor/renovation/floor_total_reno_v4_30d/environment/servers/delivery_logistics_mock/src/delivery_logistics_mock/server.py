@@ -75,7 +75,7 @@ def build_server(
         "delivery-logistics-mock",
         host=host,
         port=port,
-        streamable_http_path="/MCP",
+        streamable_http_path="/mcp",
     )
     register_tracking_tools(MCP, tracking)
     register_shipment_tools(MCP, shipments)

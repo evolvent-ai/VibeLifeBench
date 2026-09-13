@@ -193,6 +193,20 @@ async def _note(rec: Recorder, page: str, stage: int, text: str) -> None:
     await rec.call("notion", "API-patch-block-children", {"block_id": PAGES[page], "children": [_rich(f"Stage {stage}: {text}")]})
 
 
+async def _written_terms_email_id(rec: Recorder) -> str:
+    """Resolve the written-terms draft email to its numeric id via Inbox search."""
+    found = await rec.call("email", "search_emails",
+                           {"query": "Maple Lane contract attachment terms draft", "folder": "Inbox"})
+    if isinstance(found, dict):
+        rows = found.get("emails") or found.get("items") or found.get("results") or []
+    else:
+        rows = found or []
+    for row in rows:
+        if isinstance(row, dict) and str(row.get("message_id") or "") == "msg_b_written_terms":
+            return str(row.get("email_id"))
+    raise ValueError("written-terms email not found in Inbox search")
+
+
 async def _stage(rec: Recorder, stage: int) -> None:
     evidence = ""
     if stage == 0:
@@ -226,7 +240,7 @@ async def _stage(rec: Recorder, stage: int) -> None:
         await _note(rec, "tracker", stage, "Child nap is 13:00-15:00; a 10:00-11:00 viewing draft has no conflict and remains unscheduled.")
     elif stage == 6:
         await rec.call("maps", "search_places", {"query": "clinic", "geo": {"lat": 30.205, "lng": 120.215}, "radius_m": 5000, "category": "clinic", "limit": 20})
-        await rec.call("maps", "search_places", {"query": "family", "geo": {"lat": 30.205, "lng": 120.215}, "radius_m": 5000, "limit": 50})
+        await rec.call("maps", "search_places", {"query": "sports", "geo": {"lat": 30.205, "lng": 120.215}, "radius_m": 5000, "limit": 50})
         evidence = f"{B}: child context includes pl_binjiang_night_clinic and pl_jianghan_indoor_play.\n"
         await _note(rec, "tracker", stage, "POI planning records a nearby clinic and family facility for B.")
     elif stage == 7:
@@ -286,7 +300,7 @@ async def _stage(rec: Recorder, stage: int) -> None:
         evidence = f"{B}: price checked 2026-08-07T08:45; rent 10600 CNY; property fees 320 CNY; total 10920. ship_quote_0008: moving quote 772 CNY; quote only; not scheduled.\n"
         await _note(rec, "budget", stage, "B monthly total is 10,920 CNY; moving quote 0008 is 772 CNY and unscheduled.")
     elif stage == 20:
-        await rec.call("email", "read_email", {"email_id": "msg_b_written_terms"})
+        await rec.call("email", "read_email", {"email_id": await _written_terms_email_id(rec)})
         evidence = f"{B}: first choice 8/10 at 10920; msg_b_written_terms covers window lock, maintenance, pollution, deposit, contract, and tenant confirmation.\n"
         await _note(rec, "risk", stage, "B written terms cover window lock, maintenance, pollution handling, deposit return, and tenant confirmation.")
         await _note(rec, "tracker", stage, "B becomes first choice at 8/10 and 10,920 CNY monthly.")
@@ -318,7 +332,7 @@ async def _stage(rec: Recorder, stage: int) -> None:
         await rec.call("maps", "directions", {"origin": "pl_maple_lane", "dest": "pl_kindergarten_xinghe", "mode": "walking"})
         await rec.call("maps", "directions", {"origin": "pl_maple_lane", "dest": "pl_cbd_qianjiang", "mode": "driving", "depart_at": "2026-08-21T08:00:00"})
         await rec.call("review_platform", "list_reviews", {"merchant_id": "mer_river_garden", "limit": 80})
-        await rec.call("email", "read_email", {"email_id": "msg_b_written_terms"})
+        await rec.call("email", "read_email", {"email_id": await _written_terms_email_id(rec)})
         await rec.call("delivery_logistics", "get_shipment", {"shipment_id": "ship_quote_0010"})
         evidence = f"{A} {B} {C}: last_checked final refresh. {B} first choice and pending authorization; {A} backup; {C} rejected. Maps, mold review, terms email, and ship_quote_0010 refreshed.\n"
         await _note(rec, "tracker", stage, "Closing matrix refreshed across listings, maps, reviews, email, and delivery quote.")

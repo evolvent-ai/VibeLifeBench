@@ -263,6 +263,7 @@ async def _call_stage(rec: Recorder, stage: int) -> None:
         await rec.call("credit_card", "list_disputes", {"card_id": "card_qbed_01"})
     elif stage == 11:
         await rec.call("email", "read_email", {"email_id": "4011"})
+        await rec.call("email", "get_email_headers", {"email_id": "4011"})
         await rec.call("ecommerce", "get_order", {"order_id": "ord_qbed_0001"})
     elif stage == 12:
         found = await rec.call("email", "search_emails", {"query": "deposit", "folder": "INBOX", "page": 1, "page_size": 50})

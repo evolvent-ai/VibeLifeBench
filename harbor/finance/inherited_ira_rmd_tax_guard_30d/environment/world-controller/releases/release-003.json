@@ -11,7 +11,7 @@
       "table": "messages",
       "op": "insert",
       "values": {
-        "folder_id": 2,
+        "folder_id": 1,
         "message_id": "<mut_iirtg_liquidity@example.com>",
         "subject": "Beneficiary distribution processing timeline",
         "from_addr": "distributions@northstarcustody.example",

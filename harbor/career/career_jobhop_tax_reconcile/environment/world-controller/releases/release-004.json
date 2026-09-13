@@ -14,6 +14,7 @@
         "status": "interview",
         "updated_at": "2026-07-02T08:00:00+08:00"
       },
+      "optional": true,
       "where": {
         "application_id": "app_000000"
       },
@@ -29,6 +30,7 @@
         "status": "viewed",
         "updated_at": "2026-07-02T08:00:00+08:00"
       },
+      "optional": true,
       "where": {
         "application_id": "app_000001"
       },

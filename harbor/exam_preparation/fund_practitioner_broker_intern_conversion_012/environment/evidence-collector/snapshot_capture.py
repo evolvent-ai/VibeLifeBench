@@ -26,11 +26,14 @@ ALLOWED_WORKSPACE_SUFFIXES = (".md", ".txt", ".json", ".csv")
 def scenario_clock() -> dict[str, Any]:
     try:
         payload = json.loads(WORLD_CLOCK_FILE.read_text(encoding="utf-8"))
-        if not isinstance(payload, dict) or set(payload) != {"world_now"}:
-            raise ValueError("world clock keys must be exactly {world_now}")
-        value = payload.get("world_now")
+        if not isinstance(payload, dict):
+            raise ValueError("world clock payload must be an object")
+        # The controller writes {schema_version, step, now}; the mocks read
+        # world_now or now (utils/world_clock.py). Accept either key so the
+        # snapshot consumer stays aligned with every other reader.
+        value = payload.get("world_now") or payload.get("now")
         if not isinstance(value, str) or not value:
-            raise ValueError("world_now must be a non-empty timestamp")
+            raise ValueError("world_now/now must be a non-empty timestamp")
         from datetime import datetime
         if datetime.fromisoformat(value.replace("Z", "+00:00")).tzinfo is None:
             raise ValueError("world_now must include a timezone")
@@ -124,7 +127,8 @@ def _paged_call(
 
     merged = [row for row in (first.get(rows_key) or []) if isinstance(row, dict)]
     applied = int(first.get("page_size") or 0) or max(len(merged), 1)
-    raw_total = first.get("total_results", first.get("total"))
+    # get_drafts reports total_drafts, not total/total_results.
+    raw_total = first.get("total_results", first.get("total", first.get("total_drafts")))
     total = int(raw_total) if isinstance(raw_total, (int, float)) else None
     seen = {row_id(row) for row in merged}
     page = 2
@@ -162,6 +166,13 @@ def _email_snapshot(env: Any, folder: str, include_body: bool) -> dict[str, Any]
         if email_id is None:
             continue
         detail = _call(env, "email", "read_email", email_id=str(email_id))
+        if isinstance(detail, dict) and not detail.get("error"):
+            # read_email omits in_reply_to/references (include_headers=False),
+            # so merge the header view the way the rubrics' email_full_row
+            # does; without it frozen Sent evidence can never prove threading.
+            headers = _call(env, "email", "get_email_headers", email_id=str(email_id))
+            if isinstance(headers, dict) and not headers.get("error"):
+                detail = {**detail, **headers}
         details.append(detail)
     return {"listing": listing, "details": details}
 

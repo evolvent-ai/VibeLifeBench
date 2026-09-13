@@ -24,6 +24,7 @@ from .shared._helpers import (
     _list_hotel_reservations,
     _list_visa_apps,
     _notion_text,
+    _sent_email_rows,
     to_cny,
 )
 
@@ -164,9 +165,16 @@ def spend_under_60k_hard(env) -> bool:
 
     total_cny = 0.0
     for b in flights:
-        tp = b.get("total_price") or b.get("priced_total") or {}
+        # list_bookings persists the charged figure under ``total_paid`` —
+        # read it, or the flight spend is silently counted as zero.
+        tp = (b.get("total_paid") or b.get("total_price")
+              or b.get("priced_total") or {})
         amt = tp.get("amount") if isinstance(tp, dict) else None
         cur = tp.get("currency") if isinstance(tp, dict) else None
+        if isinstance(amt, (int, float)):
+            pass
+        elif isinstance(tp, (int, float)):
+            amt, cur = tp, b.get("currency")
         if amt is None:
             amt = b.get("total_amount") or b.get("amount") or 0
             cur = b.get("currency") or "CNY"
@@ -271,21 +279,23 @@ def s6_no_booking_mutations(env) -> bool:
 
 
 def s12_no_overexplain_confirmations(env) -> bool:
-    """B2: stage 12 precision. ≤2 agent-authored summary emails (non-vendor)."""
+    """B2: stage 12 precision. ≤2 agent-authored summary emails (non-vendor).
+
+    Agent-authored mail lives in the Sent folder (the agent acts on Li Wei's
+    account); the inbox only ever carries world-originated mail, so count Sent.
+    """
     if not _agent_responses(env).strip() or not env.trace(env.current_stage):
         logger.info("B2 s12 precision: no agent activity; FAIL")
         return False
-    msgs = _emails_for(env, "li_wei")
-    if msgs is None:
-        logger.info("B2 s12 precision: lenient pass — inbox unreachable")
-        return False
+    msgs = _sent_email_rows(env, "li_wei")
     extra = 0
     for m in msgs:
-        frm = str(m.get("from") or "").lower()
-        if "liwei" in frm or "lijianguo" in frm or "zhanglan" in frm:
+        frm = str(m.get("from_addr") or m.get("from") or "").lower()
+        if "li.wei" not in frm:
+            # not authored by the agent account
             continue
         subj = str(m.get("subject") or "").lower()
-        body = str(m.get("body") or "").lower()
+        body = str(m.get("body_text") or m.get("body") or "").lower()
         if (("confirm" in subj or "confirmation" in subj
                 or "summary" in subj or "recap" in subj
                 or "confirm" in body or "summary" in body)
@@ -385,10 +395,12 @@ def shinkansen_alt_with_notion_decision(env) -> bool:
 
 def flight_delay_communication(env) -> bool:
     """D3: agent communicated the delay via email or notion."""
-    msgs = _emails_for(env, "li_wei") or []
+    # The agent sends from Li Wei's account, so agent-authored mail lands in
+    # Sent; the inbox only carries the world's mail.
+    msgs = _sent_email_rows(env, "li_wei")
     for m in msgs:
         blob = (str(m.get("subject") or "") + "\n"
-                + str(m.get("body") or "")).lower()
+                + str(m.get("body_text") or m.get("body") or "")).lower()
         if "mu550" in blob or "delay" in blob:
             logger.info("D3 delay comm: PASS via email")
             return True

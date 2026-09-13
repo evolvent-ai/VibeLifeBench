@@ -1,0 +1,22 @@
+{
+  "step": "event-007",
+  "stage": 5,
+  "virtual_stage": 5,
+  "source_event_id": "H05_evidence_partition",
+  "scenario_time": "2026-06-19T09:10:00+08:00",
+  "stage_boundary": false,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Stage 5 handover evidence was checked in the formal systems and recorded with all unresolved items and authorization boundaries preserved.",
+  "response_paraphrase": "The formal records for handover stage 5 were reviewed and written back; outstanding defects, funds and approvals remain explicitly tracked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "H05_evidence_partition"
+    }
+  ],
+  "expected_checks": [],
+  "expected_stage_weight": 0
+}

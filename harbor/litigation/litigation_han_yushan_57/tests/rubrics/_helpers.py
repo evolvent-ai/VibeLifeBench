@@ -577,7 +577,10 @@ def legal_conclusion_present(env: HarborEvidence, stage: int | None = None) -> b
 
 
 def notion_title_exists(env: HarborEvidence, title: str) -> bool:
-    return any(str(row.get("title", "")) == title for row in _rows(call_tool(env, "notion", "API-post-search"), "results", "pages"))
+    # Notion search rows carry the title inside properties (rich-text), not as
+    # a plain "title" string field, so compare on normalized flattened text.
+    needle = norm_text(title)
+    return any(needle in norm_text(row) for row in _rows(call_tool(env, "notion", "API-post-search"), "results", "pages"))
 
 
 def no_external_action(env: HarborEvidence) -> bool:

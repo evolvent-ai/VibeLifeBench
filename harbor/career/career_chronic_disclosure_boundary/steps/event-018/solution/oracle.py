@@ -287,7 +287,23 @@ async def _stage_calls(recorder: Recorder, state: dict[str, Any], stage: int) ->
     elif stage == 12:
         result = await c("job_board", "list_applications", {"user_id": USER_ID})
         recorder.record_local("job_board", "status_evidence", result, {"user_id": USER_ID})
-        await _notion_write(recorder, state, _facts(stage))
+        if isinstance(result, list):
+            rows = result
+        elif isinstance(result, dict):
+            rows = result.get("items") or result.get("applications") or []
+        else:
+            rows = []
+        lines = [
+            f"{row.get('application_id')} for job {row.get('job_id')}: status {row.get('status')}"
+            for row in rows
+            if isinstance(row, dict) and row.get("application_id") and row.get("status")
+        ]
+        status_sync = ""
+        if lines:
+            status_sync = "Application status sync: " + "; ".join(lines) + "."
+            _atomic_write(WORKSPACE / "status_sync.md", f"# Career transition record\n\n{status_sync}\n")
+            recorder.record_local("workspace", "write_file", {"written": ["status_sync.md"], "stage": stage}, {"files": ["status_sync.md"]})
+        await _notion_write(recorder, state, _facts(stage) + ("\n\n" + status_sync if status_sync else ""))
     elif stage == 13:
         await c("email", "read_email", {"email_id": "105"})
         _source_note(recorder, stage, "Poizon offer: CNY 52000 monthly, 16-salary package, and a two-year noncompete restriction without stated noncompete compensation.")

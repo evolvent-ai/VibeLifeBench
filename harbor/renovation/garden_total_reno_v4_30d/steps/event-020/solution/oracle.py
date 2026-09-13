@@ -701,7 +701,7 @@ async def _handle_record_event(recorder: Recorder, state: dict[str, Any], spec: 
     await _calls_for_stage(recorder, stage)
     for name, body in STAGE_NOTES.get(stage, {}).items():
         _append(name, f"stage-{stage:03d}", body)
-    _append("HEARTBEAT.md", f"stage-{stage:03d}", f"stage: {stage}\\nnext_action: continue evidence reconciliation\\nreviewed_at_stage: {stage}")
+    _append("HEARTBEAT.md", f"stage-{stage:03d}", f"stage: {stage}\nnext_action: continue evidence reconciliation\nreviewed_at_stage: {stage}")
     state["events"] = [row for row in state["events"] if row.get("source_event_id") != source_event_id]
     state["events"].append({"source_event_id": source_event_id, "virtual_stage": stage})
 

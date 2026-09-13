@@ -38,6 +38,7 @@ DB_ALIASES: dict[str, str] = {
     "ecommerce": "svc_ecommerce",
     "email": "svc_email",
     "listing_platform": "svc_listing_platform",
+    "maps": "svc_maps",
     "notification_hub": "svc_notification_hub",
     "notion": "svc_notion",
     "review_platform": "svc_review_platform",

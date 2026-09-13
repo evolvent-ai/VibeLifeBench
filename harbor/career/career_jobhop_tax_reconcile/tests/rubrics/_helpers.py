@@ -379,7 +379,7 @@ def apps(env: Any) -> list[dict[str, Any]]:
 
 def get_job(env: Any, job_id: str) -> dict[str, Any]:
     value = _call(env, "job_board", "get_job", job_id=job_id)
-    if isinstance(value, dict) and not value.get("error"):
+    if isinstance(value, dict) and value and not value.get("error"):
         return value
     for _arguments, result in reversed(_successful_trace_calls(env, "job_board", "search_jobs")):
         for row in _rows(result, "items", "results"):
@@ -431,7 +431,7 @@ def pipeline_covers_backend_applications(env: Any) -> bool:
 
 
 def tax_transactions(env: Any) -> list[dict[str, Any]]:
-    return _rows(_call(env, "banking", "list_transactions", account_id=CHECKING_ACCOUNT), "transactions", "results")
+    return _rows(_call(env, "banking", "list_transactions", account_id=CHECKING_ACCOUNT), "items", "transactions", "results")
 
 
 def transaction_map(env: Any) -> dict[str, dict[str, Any]]:

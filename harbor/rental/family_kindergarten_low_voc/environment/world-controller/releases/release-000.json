@@ -19,7 +19,7 @@
         "end_dt": "2026-08-16T22:00:00+08:00",
         "kind": "heavy_traffic",
         "magnitude": 1.5,
-        "note": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated",
+        "note": "Chengwan Apartments construction on the Jianghong Road cycling segment; expect heavy traffic at midday and in the evening; cyclists should follow the signed riverside detour.",
         "active": 1
       },
       "source_event_id": "evt_008_mut"
@@ -30,13 +30,13 @@
       "op": "insert",
       "values": {
         "notification_id": "nt_sunbay_construction",
-        "user_id": "u_nh_7Px4Kq9M",
+        "user_id": "usr_family_038",
         "source": "rental_updates",
         "type": "policy_update",
         "subscription_id": "sub_rental",
-        "title": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated",
-        "body": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated 2026-07-26 translatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated。",
-        "payload_json": "{\"listing_id\":\"apt_sunbay_loft_2b_1801\",\"road\":\"translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated\",\"noise\":\"midday_and_evening\"}",
+        "title": "Chengwan construction cycling detour notice",
+        "body": "Chengwan construction on the Jianghong Road side of the Chengwan Apartments runs 2026-07-26 08:00 through 2026-08-16 22:00 with midday_and_evening heavy traffic; the child nap window may be disturbed and cyclists should follow the signed cycling detour.",
+        "payload_json": "{\"listing_id\": \"apt_sunbay_loft_2b_1801\", \"road\": \"Jianghong Road construction cycling segment\", \"noise\": \"midday_and_evening\"}",
         "created_at": "2026-07-26T08:45:00+08:00",
         "read": 0
       },

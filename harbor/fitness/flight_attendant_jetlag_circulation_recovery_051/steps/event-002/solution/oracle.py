@@ -435,7 +435,7 @@ async def _handle_record_event(
         await _ensure_event(recorder, state, "oracle-monitoring-S02", "Recovery monitoring reviews", "2026-09-06T09:00:00+08:00", "2026-09-06T09:30:00+08:00", "Health recovery review; weather review; equipment order review; private status review; final review.")
         _progress(stage, "scheduled check", "health, calendar, weather, order/equipment, private status, and final review checkpoints", "monitoring checkpoint added", "roster synchronization")
         _matrix(stage, "calendar", "personal review checkpoint created")
-        _append_stage("calendar_change_log.md", stage, "Calendar object: health/recovery, weather, order/equipment, private status, and final review. Previous window: none. New window: scheduled personal review. Reason/source: initial monitoring plan. Work/private boundary: personal calendar only. Backend verification: created.")
+        _append_stage("calendar_change_log.md", stage, "Calendar object: health/recovery, weather, order/equipment, cycle-recovery/private status, and final review. Previous window: none. New window: scheduled personal review. Reason/source: initial monitoring plan. Work/private boundary: personal calendar only. Backend verification: created.")
     elif source_event_id == "s03_roster_email_notice":
         await _email_search(recorder, "PVG-CDG")
         await _ensure_event(recorder, state, "oracle-roster-S03", "International route recovery and rest windows", "2026-09-07T06:00:00+08:00", "2026-09-07T07:00:00+08:00", "Paris CDG, New York JFK, and Singapore SIN flight-linked recovery and rest windows.")

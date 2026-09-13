@@ -105,11 +105,12 @@ class GeocodeService:
         if not anything:
             return None
         s = anything.strip()
-        # place_id direct hit?
-        if s.startswith("pl_"):
-            row = self.backend.get_place(s)
-            if row is not None:
-                return self._to_resolved(row)
+        # place_id direct hit? Accept any stored id shape: legacy "pl_*"
+        # plus seed ids like "PLACE_HZ_EAST_STATION". A plain indexed lookup
+        # misses harmlessly on free-text input and falls through to geocode.
+        row = self.backend.get_place(s)
+        if row is not None:
+            return self._to_resolved(row)
         # "lat,lng"
         m = re.match(r"^\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*$", s)
         if m:

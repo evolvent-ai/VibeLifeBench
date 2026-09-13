@@ -76,6 +76,11 @@ def list_attachments(conn: sqlite3.Connection, message_pk: int) -> List[dict]:
     return [
         {
             "attachment_id": f"att_{int(r['id']):08d}",
+            # The numeric attachment id and its parent message id are part of
+            # the stored row; expose them so clients can trace attachment
+            # lineage back to the email (attachments.message_id).
+            "id": int(r["id"]),
+            "message_id": int(message_pk),
             "filename": r["filename"],
             "content_type": r["content_type"] or "application/octet-stream",
             "size": int(r["size"] or 0),
@@ -112,11 +117,14 @@ def message_row_to_dict(
         out["body_html"] = row["body_html"]
     if include_attachments:
         out["attachments"] = list_attachments(conn, int(row["id"]))
+    # The stored header map (headers_json) is part of every message row;
+    # include it parsed so clients can inspect transport metadata without
+    # calling get_email_headers separately.
+    try:
+        out["headers"] = json.loads(row["headers_json"] or "{}")
+    except (json.JSONDecodeError, TypeError):
+        out["headers"] = {}
     if include_headers:
-        try:
-            out["headers"] = json.loads(row["headers_json"] or "{}")
-        except (json.JSONDecodeError, TypeError):
-            out["headers"] = {}
         out["in_reply_to"] = row["in_reply_to"]
         out["references"] = row["references_header"]
     return out

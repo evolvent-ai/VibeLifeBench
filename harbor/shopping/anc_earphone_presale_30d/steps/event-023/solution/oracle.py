@@ -482,7 +482,7 @@ def _rows(value: Any, *keys: str) -> list[dict[str, Any]]:
     return []
 
 
-async def _call_stage(rec: Recorder, stage: int, state: dict[str, Any]) -> None:
+async def _call_stage(rec: Recorder, stage: int, state: dict[str, Any], source: str = "") -> None:
     if stage == 0:
         await rec.call("ecommerce", "list_orders", {"user_id": USER_ID, "limit": 100, "page": 1})
         await rec.call("ecommerce", "get_order", {"order_id": "ord_psea_0001"})
@@ -521,51 +521,61 @@ async def _call_stage(rec: Recorder, stage: int, state: dict[str, Any]) -> None:
         await rec.call("notification_hub", "get_notification", {"notification_id": "ntf_psea_cp"})
         await rec.call("notification_hub", "list_notifications", {"user_id": USER_ID, "limit": 100, "page": 1})
     elif stage == 8:
-        search_groups: dict[str, tuple[str, ...]] = {}
-        for term, group in BUNDLE_SEARCHES:
-            result = await rec.call("ecommerce", "search_products", {"query": term, "category": "耳机配件", "sort": "price_asc", "limit": 20, "page": 1})
-            if not isinstance(result, dict) or result.get("total") != 3 or result.get("has_more") is not False:
-                raise RuntimeError(f"unexpected accessory search envelope for {term!r}")
-            items = result.get("items")
-            if not isinstance(items, list) or len(items) != 3 or any(not isinstance(row, dict) for row in items):
-                raise RuntimeError(f"unexpected accessory search items for {term!r}")
-            ids = tuple(str(row.get("product_id") or "") for row in items)
-            if any(not pid or row.get("category") != "耳机配件" or row.get("in_stock") is not True for pid, row in zip(ids, items)):
-                raise RuntimeError(f"invalid accessory search candidate for {term!r}")
-            search_groups[group] = ids
-        details: dict[str, dict[str, Any]] = {}
-        for pid in sorted(set().union(*search_groups.values())):
-            detail = await rec.call("ecommerce", "get_product", {"product_id": pid})
-            if not isinstance(detail, dict) or detail.get("category") != "耳机配件":
-                raise RuntimeError(f"invalid accessory product detail for {pid!r}")
-            skus = [row for row in detail.get("skus", []) if isinstance(row, dict) and int(row.get("stock") or 0) > 0]
-            if not skus:
-                raise RuntimeError(f"accessory {pid!r} has no in-stock SKU")
-            sku = min(skus, key=lambda row: int(row.get("price_minor") or 0))
-            details[pid] = {"sku_id": str(sku.get("sku_id") or ""), "price_minor": int(sku.get("price_minor") or 0)}
-        evaluated = []
-        groups = [search_groups[key] for key in ("a", "b", "c")]
-        for selected in product(*groups):
-            subtotal = sum(details[pid]["price_minor"] for pid in selected)
-            for coupon in BUNDLE_COUPONS:
-                if subtotal < coupon["min_spend_minor"]:
-                    continue
-                eligible = subtotal
-                discount = eligible * coupon["value"] // 10000 if coupon["kind"] == "percent_off" else min(coupon["value"], eligible)
-                evaluated.append({"selected_product_ids": tuple(selected), "sku_ids": tuple(details[pid]["sku_id"] for pid in selected), "coupon_code": coupon["code"], "subtotal_minor": subtotal, "discount_minor": discount, "final_total_minor": subtotal - discount})
-        if not evaluated:
-            raise RuntimeError("no valid accessory bundle solution")
-        best = min(row["final_total_minor"] for row in evaluated)
-        solutions = [row for row in evaluated if row["final_total_minor"] == best]
-        if len(solutions) != 1:
-            raise RuntimeError("accessory bundle optimum is not unique")
-        state["vars"]["bundle"] = solutions[0]
-        cart = await rec.call("ecommerce", "get_cart", {"user_id": USER_ID})
-        existing = {str(x.get("sku_id")) for x in _rows(cart, "items")}
-        for product_id, sku in zip(solutions[0]["selected_product_ids"], solutions[0]["sku_ids"]):
-            if sku not in existing:
-                await rec.call("ecommerce", "add_to_cart", {"user_id": USER_ID, "product_id": product_id, "sku_id": sku, "qty": 1})
-        await rec.call("ecommerce", "get_cart", {"user_id": USER_ID})
+        if source != "S08_bundle":
+            # event-011 (S08_tradein) is the settlement/price-protection
+            # decision step; the accessory-bundle discovery belongs to
+            # event-012 (S08_bundle) only. Running it here would duplicate the
+            # stage-8 search evidence, so the trade-in pass only refreshes the
+            # settlement inputs (offer notification, listing, order state).
+            await rec.call("notification_hub", "get_notification", {"notification_id": "ntf_psea_cp"})
+            await rec.call("listing_platform", "get_listing_detail", {"listing_id": "lst_psea_0001"})
+            await rec.call("ecommerce", "get_order", {"order_id": "ord_psea_0001"})
+        else:
+            search_groups: dict[str, tuple[str, ...]] = {}
+            for term, group in BUNDLE_SEARCHES:
+                result = await rec.call("ecommerce", "search_products", {"query": term, "category": "耳机配件", "sort": "price_asc", "limit": 20, "page": 1})
+                if not isinstance(result, dict) or result.get("total") != 3 or result.get("has_more") is not False:
+                    raise RuntimeError(f"unexpected accessory search envelope for {term!r}")
+                items = result.get("items")
+                if not isinstance(items, list) or len(items) != 3 or any(not isinstance(row, dict) for row in items):
+                    raise RuntimeError(f"unexpected accessory search items for {term!r}")
+                ids = tuple(str(row.get("product_id") or "") for row in items)
+                if any(not pid or row.get("category") != "耳机配件" or row.get("in_stock") is not True for pid, row in zip(ids, items)):
+                    raise RuntimeError(f"invalid accessory search candidate for {term!r}")
+                search_groups[group] = ids
+            details: dict[str, dict[str, Any]] = {}
+            for pid in sorted(set().union(*search_groups.values())):
+                detail = await rec.call("ecommerce", "get_product", {"product_id": pid})
+                if not isinstance(detail, dict) or detail.get("category") != "耳机配件":
+                    raise RuntimeError(f"invalid accessory product detail for {pid!r}")
+                skus = [row for row in detail.get("skus", []) if isinstance(row, dict) and int(row.get("stock") or 0) > 0]
+                if not skus:
+                    raise RuntimeError(f"accessory {pid!r} has no in-stock SKU")
+                sku = min(skus, key=lambda row: int(row.get("price_minor") or 0))
+                details[pid] = {"sku_id": str(sku.get("sku_id") or ""), "price_minor": int(sku.get("price_minor") or 0)}
+            evaluated = []
+            groups = [search_groups[key] for key in ("a", "b", "c")]
+            for selected in product(*groups):
+                subtotal = sum(details[pid]["price_minor"] for pid in selected)
+                for coupon in BUNDLE_COUPONS:
+                    if subtotal < coupon["min_spend_minor"]:
+                        continue
+                    eligible = subtotal
+                    discount = eligible * coupon["value"] // 10000 if coupon["kind"] == "percent_off" else min(coupon["value"], eligible)
+                    evaluated.append({"selected_product_ids": tuple(selected), "sku_ids": tuple(details[pid]["sku_id"] for pid in selected), "coupon_code": coupon["code"], "subtotal_minor": subtotal, "discount_minor": discount, "final_total_minor": subtotal - discount})
+            if not evaluated:
+                raise RuntimeError("no valid accessory bundle solution")
+            best = min(row["final_total_minor"] for row in evaluated)
+            solutions = [row for row in evaluated if row["final_total_minor"] == best]
+            if len(solutions) != 1:
+                raise RuntimeError("accessory bundle optimum is not unique")
+            state["vars"]["bundle"] = solutions[0]
+            cart = await rec.call("ecommerce", "get_cart", {"user_id": USER_ID})
+            existing = {str(x.get("sku_id")) for x in _rows(cart, "items")}
+            for product_id, sku in zip(solutions[0]["selected_product_ids"], solutions[0]["sku_ids"]):
+                if sku not in existing:
+                    await rec.call("ecommerce", "add_to_cart", {"user_id": USER_ID, "product_id": product_id, "sku_id": sku, "qty": 1})
+            await rec.call("ecommerce", "get_cart", {"user_id": USER_ID})
     elif stage == 9:
         await rec.call("ecommerce", "get_order", {"order_id": "ord_psea_0001"})
         await rec.call("ecommerce", "get_order", {"order_id": "ord_psea_0002"})
@@ -637,7 +647,7 @@ async def _handle_record_event(rec: Recorder, state: dict[str, Any], spec: dict[
     if source != str(spec.get("source_event_id")):
         raise ValueError("record_event source_event_id does not match step_spec")
     stage = int(spec["virtual_stage"])
-    await _call_stage(rec, stage, state)
+    await _call_stage(rec, stage, state, source)
     _write_workspace(stage, state)
     state["events"] = [row for row in state["events"] if row.get("source_event_id") != source]
     state["events"].append({"source_event_id": source, "virtual_stage": stage})

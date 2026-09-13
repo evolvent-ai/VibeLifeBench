@@ -136,7 +136,19 @@ async def chk_filing_no_demolition_while_blocked(ctx) -> bool:
     # draft/not_started is the seed baseline for other apps; for the filing
     # the real block is rfi/rejected.
     if status not in ("rfi", "rejected", "denied"):
-        return True
+        # Non-blocking at this boundary: the hard "no confirmed demolition"
+        # gate is satisfied by world state alone, and the scripted filing
+        # recovers before the stage-3 boundary. That is not agent behavior,
+        # so an idle run must not inherit the recovery as a freebie — credit
+        # the hold only when the agent actually observed the live filing
+        # record through a successful compliance poll (the same targeting
+        # the stage-1 pre-demolition poll check requires).
+        return agent_tool_called(
+            ctx,
+            tool_any=["get_visa_application", "list_visa_applications", "visa_and_advisory"],
+            args_any=["commercial_fit_up_filing_001", "fit_up_filing", "commercial_fit"],
+            max_stage=3,
+        )
     fitup_terms = [
         "demolition", "scenario-term", "scenario-term", "scenario-term", "demo", "fit-up", "fit up",
         "site entry", "construction", "fit-out start", "start construction",

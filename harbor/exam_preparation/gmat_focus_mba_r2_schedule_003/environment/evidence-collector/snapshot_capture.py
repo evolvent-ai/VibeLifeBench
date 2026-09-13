@@ -8,7 +8,7 @@ from typing import Any
 
 WORLD_CLOCK_FILE = Path(os.environ.get("WORLD_CLOCK_FILE", "/world-clock/current.json"))
 USER_ID = "user_lin_che"
-CALENDAR_ID = "cal_lin_primary"
+CALENDAR_ID = "cal_linche_main_003"
 ACCOUNT_ID = "acct_linche_main_003"
 TRACKED_JOB_IDS = (
     "seat_gf_sh_20260928_pm", "seat_gf_hk_20260930_am", "seat_gf_sg_20261001_pm",
@@ -18,6 +18,10 @@ TRACKED_JOB_IDS = (
     "score_gmat_20260930_record_003",
 )
 TRACKED_APPLICATION_IDS = ("app_gmat_hk_003", "app_gmat_sh_003", "app_gmat_sg_003")
+TRACKED_PRODUCT_IDS = (
+    "prod_di_official_guide_003", "prod_gmat_mock_pack_003", "prod_di_live_course_0925_003",
+    "prod_gmat_guarantee_705_003", "prod_mba_essay_ghostwrite_003",
+)
 BASELINE_WORKSPACE_NAMES = {
     "AGENTS.md", "ARTIFACT_CONTRACT.md", "IDENTITY.md", "PERSONA.md",
     "PRIVACY_AND_INTEGRITY.md", "SOUL.md", "STUDY_PREFERENCES.md", "TOOLS.md", "USER.md",
@@ -258,6 +262,20 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             order_details[str(order_id)] = _call(env, "ecommerce", "get_order", order_id=order_id)
             order_tracking[str(order_id)] = _call(env, "ecommerce", "track_order", order_id=order_id)
 
+    products = _call(env, "ecommerce", "search_products", query="", limit=1000)
+    product_rows = products if isinstance(products, list) else (
+        products.get("products", products.get("items", [])) if isinstance(products, dict) else []
+    )
+    # search_products yields listing summaries without description/skus; those
+    # are the fields releases mutate and the rubrics read, so merge each tracked
+    # product's get_product detail into its frozen listing row.
+    for row in product_rows:
+        product_id = (row.get("product_id") or row.get("id")) if isinstance(row, dict) else None
+        if product_id in TRACKED_PRODUCT_IDS:
+            detail = _call(env, "ecommerce", "get_product", product_id=str(product_id))
+            if isinstance(detail, dict) and "error" not in detail:
+                row.update(detail)
+
     return {
         "stage": stage_idx,
         "scenario_clock": scenario_clock(),
@@ -282,7 +300,7 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             "recurring": _call(env, "banking", "list_recurring", user_id=USER_ID),
         },
         "ecommerce": {
-            "products": _call(env, "ecommerce", "search_products", query="", limit=1000),
+            "products": products,
             "cart": _call(env, "ecommerce", "get_cart", user_id=USER_ID),
             "addresses": _call(env, "ecommerce", "list_addresses", user_id=USER_ID),
             "orders": orders,

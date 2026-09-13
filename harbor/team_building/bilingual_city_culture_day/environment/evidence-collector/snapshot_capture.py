@@ -5,6 +5,16 @@ mutations visible to the step were applied before the agent turn; no trailing
 mutation is allowed between response collection and snapshot publication. The returned dictionary is written directly into the
 private evidence volume; this module never materializes historical files in the
 agent workspace.
+
+The snapshot must expose every backend the rubric helpers address through
+``_helpers.call_tool`` — banking, calendar, email, maps, notification_hub,
+notion, review_platform and weather — keyed exactly the way those helpers look
+them up (``accounts``/``transactions``/``pending_payments`` under banking,
+``events`` under calendar, ``notifications``/``subscriptions`` under
+notification_hub, ``reservations``/``saved_merchants``/``deals`` under
+review_platform, ``pages`` under notion). A backend missing from this dict makes
+``_server_snapshot`` raise "snapshot has no <server> backend", which aborts the
+whole trial as a verifier infrastructure error instead of scoring the agent.
 """
 from __future__ import annotations
 
@@ -18,8 +28,25 @@ WORLD_CLOCK_PATH = Path(
 )
 WORLD_CLOCK_REQUIRED = os.environ.get("WORLD_CLOCK_REQUIRED", "0") == "1"
 
-USER_ID = "usr_lin_che"
-CALENDAR_ID = "cal_lin_primary"
+USER_ID = "usr_gn_m4xqpa"
+CALENDAR_ID = "cal_gz_w9rkmq"
+
+# Vendors whose Q&A and deals the rubric helpers trace back into the snapshot.
+TRACKED_MERCHANT_IDS = (
+    "mer_yuexiu_bilingual_walk",
+    "mer_huifu_dim_sum_studio",
+)
+# Deals referenced by the guide/dim-sum holds; get_deal lookups resolve from
+# this map (release-000 inserts the first two, the seed ships the dim-sum one).
+TRACKED_DEAL_IDS = (
+    "deal_yuexiu_walk_group33",
+    "deal_yuexiu_stepfree_review",
+    "deal_huifu_dim_sum_group33",
+)
+# Places along the candidate route (office -> Yuexiu assembly point).
+TRACKED_PLACE_IDS = ("pl_gz_office", "pl_yuexiu_route")
+# Weather location the scenario uses (geo_key yuexiu_old_city / city name).
+WEATHER_GEO = "Guangzhou Yuexiu"
 
 
 def scenario_clock() -> dict[str, Any]:
@@ -35,79 +62,6 @@ def scenario_clock() -> dict[str, Any]:
             ) from exc
         return {"schema_version": 1, "step": "unknown", "now": ""}
 
-
-# Copied verbatim from the source task.py. The rubrics assert on these exact ids.
-TRACKED_JOB_IDS = (
-    "job_mj_214",
-    "job_yr_098",
-    "job_qs_507",
-    "job_lh_332",
-    "job_jh_126",
-    "job_ba_773",
-    "job_eb2508",
-    "job_4437d4",
-    "job_08caa9",
-    "job_fbc2b6",
-    "job_86f824",
-    "job_361030",
-    "job_541371",
-    "job_adcf31",
-)
-
-TRACKED_APPLICATION_IDS = (
-    "app_mj_001",
-    "app_39f15c",
-    "app_9cfb94",
-    "app_a935d7",
-    "app_b323c6",
-    "app_ca54c7",
-    "app_308e6e",
-    "app_0a108f",
-    "app_6ebad5",
-    "app_bc0d7e",
-)
-
-TRACKED_LEGAL_IDS = {
-    "cases": (
-        "case_noncompete_comp",
-        "case_probation_salary",
-        "case_employee_work",
-        "case_customer_data",
-        "case_clause_scope",
-        "case_confidentiality",
-        "case_0b9fb5e5",
-        "case_91df21d0",
-        "case_32e71e2d",
-        "case_c202b143",
-        "case_9e37bba0",
-    ),
-    "statutes": (
-        "stat_labor_contract",
-        "stat_personal_info",
-        "stat_civil_code",
-        "stat_52e9ebd7",
-        "stat_b8e3b12b",
-        "stat_aa45041c",
-        "stat_53e861d3",
-        "stat_8f9c2ba0",
-        "stat_fdb02184",
-        "stat_fb08641d",
-    ),
-    "articles": (
-        "art_labor_19",
-        "art_labor_20",
-        "art_labor_23",
-        "art_labor_24",
-        "art_pipl_6",
-        "art_civil_privacy",
-        "art_87d7abfc",
-        "art_4cb3c589",
-        "art_314eb23c",
-        "art_41be0315",
-        "art_a67caa73",
-        "art_c6e4419e",
-    ),
-}
 
 # Workspace files shipped as baseline context. The source snapshot excludes them
 # so that seeded prose can never be mistaken for the agent's own writing.
@@ -154,19 +108,31 @@ def _call(env: Any, server: str, tool: str, **kwargs: Any) -> Any:
 
 
 def _paged_call(
-    env: Any, server: str, tool: str, *, rows_key: str, id_keys: tuple[str, ...], **kwargs: Any
+    env: Any,
+    server: str,
+    tool: str,
+    *,
+    rows_key: str,
+    id_keys: tuple[str, ...],
+    page_size_kw: str = "page_size",
+    page_size: int = 200,
+    **kwargs: Any,
 ) -> Any:
     """Walk every page of a paginated tool and merge the rows.
 
     The email mock clamps ``page_size`` to 50 (``utils/validators.py``) and
     signals the clamp only by echoing the applied value, so one large request
-    silently returns a prefix: the seeded INBOX holds 75 messages, of which a
-    single request captures 50. Evidence that never enters the snapshot can
-    never be scored, so the walk continues until the accumulated rows reach the
-    reported total. Rows are merged back into the first page's envelope, leaving
-    the stored shape unchanged for consumers.
+    silently returns a prefix: the seeded INBOX holds 48 messages, of which a
+    single small request would capture only a prefix. Evidence that never enters
+    the snapshot can never be scored, so the walk continues until the accumulated
+    rows reach the reported total. Rows are merged back into the first page's
+    envelope, leaving the stored shape unchanged for consumers.
+
+    ``page_size_kw`` adapts the walk to each mock's own spelling of the page
+    size argument (email uses ``page_size``; banking uses ``limit``).
     """
-    first = _call(env, server, tool, page=1, page_size=200, **kwargs)
+    size_kw = {page_size_kw: page_size}
+    first = _call(env, server, tool, page=1, **size_kw, **kwargs)
     if not isinstance(first, dict):
         return first
 
@@ -179,7 +145,7 @@ def _paged_call(
         return ""
 
     merged = [row for row in (first.get(rows_key) or []) if isinstance(row, dict)]
-    applied = int(first.get("page_size") or 0) or max(len(merged), 1)
+    applied = int(first.get("page_size") or first.get("limit") or 0) or max(len(merged), 1)
     raw_total = first.get("total_results", first.get("total"))
     total = int(raw_total) if isinstance(raw_total, (int, float)) else None
     seen = {_row_id(row) for row in merged}
@@ -188,7 +154,7 @@ def _paged_call(
     # that grew between calls rather than silently stopping short.
     max_pages = ((total + applied - 1) // applied + 1) if total else 1
     while total is not None and len(merged) < total and page <= max_pages:
-        nxt = _call(env, server, tool, page=page, page_size=applied, **kwargs)
+        nxt = _call(env, server, tool, page=page, **{page_size_kw: applied}, **kwargs)
         if not isinstance(nxt, dict):
             break
         # An out-of-range page is clamped to the last page rather than returning
@@ -349,27 +315,98 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
     }
 
 
+def _banking_snapshot(env: Any) -> dict[str, Any]:
+    """Accounts, payees, pending payments and the merged transaction log.
+
+    ``_helpers.banking_transactions`` asks for ``list_transactions`` per account
+    and flattens the rows itself, so the snapshot stores one flat row list under
+    ``transactions``; a per-account nested dict would defeat ``_rows``.
+    """
+    accounts = _call(env, "banking", "list_accounts", user_id=USER_ID)
+    transactions: list[Any] = []
+    for account in accounts if isinstance(accounts, list) else []:
+        account_id = account.get("account_id") if isinstance(account, dict) else None
+        if not account_id:
+            continue
+        rows = _paged_call(
+            env, "banking", "list_transactions",
+            rows_key="items", id_keys=("tx_id",), page_size_kw="limit",
+            account_id=account_id,
+        )
+        if isinstance(rows, dict):
+            transactions.extend(row for row in rows.get("items") or [] if isinstance(row, dict))
+    return {
+        "accounts": accounts,
+        "payees": _call(env, "banking", "list_payees", user_id=USER_ID),
+        "pending_payments": _paged_call(
+            env, "banking", "list_pending_payments",
+            rows_key="items", id_keys=("pending_id",), page_size_kw="limit",
+            user_id=USER_ID,
+        ),
+        "transactions": transactions,
+    }
+
+
+def _review_platform_snapshot(env: Any) -> dict[str, Any]:
+    """Saved merchants, reservations, plus per-vendor deals/QA lookups.
+
+    ``_helpers.call_tool`` resolves ``get_deal`` against the ``deals`` mapping,
+    so deals are stored keyed by deal id — seeded holds and the release-inserted
+    guide/step-free deals alike. ``list_merchant_deals`` for the tracked vendors
+    also feeds the map, so a deal added by a release is never missed.
+    """
+    deal_ids = list(TRACKED_DEAL_IDS)
+    for merchant_id in TRACKED_MERCHANT_IDS:
+        listing = _call(env, "review_platform", "list_merchant_deals", merchant_id=merchant_id)
+        rows = listing if isinstance(listing, list) else (listing or {}).get("items") if isinstance(listing, dict) else []
+        for row in rows or []:
+            if isinstance(row, dict) and row.get("deal_id"):
+                deal_id = str(row["deal_id"])
+                if deal_id not in deal_ids:
+                    deal_ids.append(deal_id)
+    deals = {
+        deal_id: _call(env, "review_platform", "get_deal", deal_id=deal_id)
+        for deal_id in deal_ids
+    }
+    return {
+        "saved_merchants": _call(env, "review_platform", "list_saved_merchants", user_id=USER_ID),
+        "reservations": _call(env, "review_platform", "list_reservations", user_id=USER_ID),
+        "deals": deals,
+        "merchants": {
+            merchant_id: _call(env, "review_platform", "get_merchant", merchant_id=merchant_id)
+            for merchant_id in TRACKED_MERCHANT_IDS
+        },
+        "merchant_qa": {
+            merchant_id: _call(env, "review_platform", "get_merchant_qa", merchant_id=merchant_id)
+            for merchant_id in TRACKED_MERCHANT_IDS
+        },
+    }
+
+
+def _maps_snapshot(env: Any) -> dict[str, Any]:
+    """Route places with live alerts plus the driving route between them."""
+    return {
+        "places": {
+            place_id: _call(env, "maps", "get_place_details", place_id=place_id)
+            for place_id in TRACKED_PLACE_IDS
+        },
+        "directions": _call(
+            env, "maps", "directions",
+            origin="pl_gz_office", dest="pl_yuexiu_route", mode="driving",
+        ),
+    }
+
+
+def _weather_snapshot(env: Any) -> dict[str, Any]:
+    """Active severe-weather alerts for the scenario location."""
+    return {"alerts": _call(env, "weather", "get_alerts", geo=WEATHER_GEO)}
+
+
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
-    """Verbatim port of the source ``_capture_stage_snapshot``."""
+    """Freeze every scored backend of this task at the stage boundary."""
     return {
         "stage": stage_idx,
         "scenario_clock": scenario_clock(),
-        "job_board": {
-            "applications": _call(env, "job_board", "list_applications", user_id=USER_ID),
-            "application_details": {
-                application_id: _call(
-                    env, "job_board", "get_application_status", application_id=application_id
-                )
-                for application_id in TRACKED_APPLICATION_IDS
-            },
-            "resumes": _call(env, "job_board", "list_resumes", user_id=USER_ID),
-            "saved_jobs": _call(env, "job_board", "list_saved_jobs", user_id=USER_ID),
-            "chats": _call(env, "job_board", "list_chats", user_id=USER_ID),
-            "jobs": {
-                job_id: _call(env, "job_board", "get_job", job_id=job_id)
-                for job_id in TRACKED_JOB_IDS
-            },
-        },
         "email": {
             "inbox": _email_snapshot(env, "INBOX", include_body=False),
             "sent": _email_snapshot(env, "Sent", include_body=True),
@@ -390,21 +427,10 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
                 env, "notification_hub", "list_notifications", user_id=USER_ID, limit=500
             ),
         },
+        "banking": _banking_snapshot(env),
+        "review_platform": _review_platform_snapshot(env),
+        "maps": _maps_snapshot(env),
+        "weather": _weather_snapshot(env),
         "workspace": _workspace_snapshot(env),
         "notion": _notion_snapshot(env),
-        "legal_search": {
-            "saved_cases": _call(env, "legal_search", "list_saved", user_id=USER_ID),
-            "cases": {
-                case_id: _call(env, "legal_search", "get_case", case_id=case_id)
-                for case_id in TRACKED_LEGAL_IDS["cases"]
-            },
-            "statutes": {
-                statute_id: _call(env, "legal_search", "get_statute", statute_id=statute_id)
-                for statute_id in TRACKED_LEGAL_IDS["statutes"]
-            },
-            "articles": {
-                article_id: _call(env, "legal_search", "get_article", article_id=article_id)
-                for article_id in TRACKED_LEGAL_IDS["articles"]
-            },
-        },
     }

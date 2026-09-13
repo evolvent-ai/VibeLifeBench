@@ -41,6 +41,10 @@ def notification_row(r: sqlite3.Row) -> dict:
         "title": r["title"],
         "body": r["body"],
         "payload": _maybe_json(r["payload_json"]),
+        # Keep the raw column alongside the decoded payload: snapshot consumers
+        # match notifications with SQL LIKE over payload_json, which is lost if
+        # only the parsed object is projected.
+        "payload_json": r["payload_json"] or "",
         "created_at": r["created_at"],
         "read": bool(int(r["read"])),
     }

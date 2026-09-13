@@ -516,10 +516,8 @@ INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-07-20T12:00:00+08:00',35.5,59,'thunderstorm_risk',0,30.8);
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-07-20T13:00:00+08:00',35.9,54,'thunderstorm_risk',0,29.9);
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-07-20T14:00:00+08:00',35.6,60,'building_clouds',0,29.2);
-INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-07-20T15:00:00+08:00',35.4,57,'thunderstorm_risk',3.6,28.8);
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-07-20T16:00:00+08:00',34.6,64,'thunderstorm_risk',4.2,28.7);
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-07-20T17:00:00+08:00',33.5,63,'thunderstorm_risk',0,28.8);
-INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-07-20T18:00:00+08:00',32.8,70,'thunderstorm_risk',0,29.2);
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-07-20T19:00:00+08:00',31.5,70,'thunderstorm_risk',0,29.9);
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-07-20T20:00:00+08:00',30.7,78,'thunderstorm_risk',4.2,30.8);
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-07-20T21:00:00+08:00',29.5,77,'building_clouds',0,31.8);
@@ -903,7 +901,6 @@ INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-08-05T15:00:00+08:00',30.7,70,'building_clouds',0,28.6);
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-08-05T16:00:00+08:00',30.5,67,'shower',3,28.4);
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-08-05T17:00:00+08:00',29.8,74,'shower',1.9,28.6);
-INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-08-05T18:00:00+08:00',29.4,71,'rain_breezy',0,29);
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-08-05T19:00:00+08:00',28.6,79,'shower',2.6,29.7);
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-08-05T20:00:00+08:00',27.8,77,'building_clouds',0,30.5);
 INSERT INTO hourly_weather (geo_key,datetime,temp_c,humidity,condition,precip_mm,wind_kmh) VALUES ('pvg_apron','2026-08-05T21:00:00+08:00',27.4,83,'rain_breezy',0,31.6);

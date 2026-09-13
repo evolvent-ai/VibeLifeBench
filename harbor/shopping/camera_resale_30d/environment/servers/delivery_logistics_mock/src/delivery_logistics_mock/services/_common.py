@@ -70,8 +70,9 @@ def address_to_json(addr: dict) -> str:
 
 
 def address_summary(addr: dict) -> str:
-    parts = [addr.get("province", ""), addr.get("city", ""), addr.get("district", "")]
-    return "".join(p for p in parts if p)
+    """District-first, comma-separated summary, matching shipment-event locations."""
+    parts = [addr.get("district", ""), addr.get("city", ""), addr.get("province", "")]
+    return ", ".join(p for p in parts if p)
 
 
 def fee_for(service_type: str, weight_kg: float) -> int:

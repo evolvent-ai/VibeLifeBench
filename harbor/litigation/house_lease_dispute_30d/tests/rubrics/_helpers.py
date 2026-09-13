@@ -562,7 +562,7 @@ def _source(stage: int, env) -> bool:
     if stage == 5:
         return (
             backend_notification(env, "ntf_case_0505", [["filing"], ["litigation", "acceptance"]])
-            and backend_official_feed(env, "oa_minhang_court", [["litigation"], ["burden"]])
+            and backend_official_feed(env, "oa_minhang_court", [["litigation", "诉讼费"], ["burden", "举证责任"]])
             and trace_resources(env, 5, "notification_hub", ["ntf_case_0505", "oa_minhang_court"])
         )
     if stage == 6:
@@ -610,7 +610,7 @@ def _source(stage: int, env) -> bool:
     if stage == 21:
         return (
             backend_notification(env, "ntf_case_1818", [["judgment"], ["16000"]])
-            and backend_official_feed(env, "oa_minhang_court", [["enforcement"], ["effective"], ["comply", "compliance"]])
+            and backend_official_feed(env, "oa_minhang_court", [["enforcement", "申请执行"], ["effective", "生效"], ["comply", "compliance", "履行"]])
             and trace_resources(env, 21, "notification_hub", ["ntf_case_1818", "oa_minhang_court"])
         )
     return False

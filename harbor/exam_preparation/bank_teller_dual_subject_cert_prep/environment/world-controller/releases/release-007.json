@@ -11,13 +11,13 @@
         "id": 516,
         "folder_id": 1,
         "message_id": "<bank-mentor-wrongbook-0731@example>",
-        "subject": "\u6a21\u8003\u9519\u9898\u56de\u7089\u5efa\u8bae",
+        "subject": "模考错题回炉建议",
         "from_addr": "mentor@binjiang-bank.example",
         "to_addr_json": "[\"chen.yiran@binjiang-bank.example\"]",
         "cc_addr_json": "[]",
         "bcc_addr_json": "[]",
         "date": "2026-07-31T20:25:00+08:00",
-        "body_text": "\u53cd\u6d17\u94b1\u548c\u6d88\u8d39\u8005\u6743\u76ca\u4fdd\u62a4\u4e0e\u67dc\u9762\u5de5\u4f5c\u8054\u7cfb\u7d27\u5bc6\uff1b\u5e74\u91d1\u73b0\u503c\u3001\u98ce\u9669\u5339\u914d\u4ecd\u5e94\u6309\u5b98\u65b9\u8003\u8bd5\u8303\u56f4\u56de\u770b\u89e3\u6790\uff0c\u5e76\u5206\u522b\u5b89\u6392\u590d\u4e60\u3002",
+        "body_text": "反洗钱和消费者权益保护与柜面工作联系紧密；年金现值、风险匹配仍应按官方考试范围回看解析，并分别安排复习。",
         "body_html": "",
         "is_read": 0,
         "is_important": 1,
@@ -35,8 +35,8 @@
       "table": "folders",
       "op": "update",
       "set": {
-        "message_count": "message_count+1",
-        "unread_count": "unread_count+1"
+        "message_count": 29,
+        "unread_count": 13
       },
       "where": {
         "id": 1

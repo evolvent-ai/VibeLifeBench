@@ -1,5 +1,5 @@
 from __future__ import annotations
-from ._helpers import NONCOMPETE_JOB_ID, TRAP_JOB_IDS, applied_job_ids, applications_by_status, derived_text, get_job, has_exact_number, prenatal_conflict_violations, text_has
+from ._helpers import NONCOMPETE_JOB_ID, TRAP_JOB_IDS, applied_job_ids, applications_by_status, derived_text, get_job, has_exact_number, norm_num, prenatal_conflict_violations, text_has
 
 def cross_base_consistent(env) -> bool:
     raw = derived_text(env)
@@ -7,7 +7,10 @@ def cross_base_consistent(env) -> bool:
         return False
     if not has_exact_number(raw, 33800):
         return False
-    bad = text_has(raw, [['basis 25800', 'basis is 25800', 'calculate compensation using 25800', 'relocation reimbursement shortfall basis 25800']])
+    # Match against normalized digits so comma/space variants of the wrong
+    # contract base ("basis is 25,800") are caught exactly like the bare form.
+    corpus = norm_num(raw)
+    bad = any((norm_num(phrase) in corpus for phrase in ('basis 25800', 'basis is 25800', 'calculate compensation using 25800', 'relocation reimbursement shortfall basis 25800')))
     return not bad
 
 def cross_no_trap_ever(env) -> bool:

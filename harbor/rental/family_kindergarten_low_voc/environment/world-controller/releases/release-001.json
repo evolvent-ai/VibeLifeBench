@@ -13,7 +13,7 @@
       "table": "listings",
       "op": "update",
       "set": {
-        "description": "Renovated in June 2026; two bedrooms with good daylight. Some cabinets still require ventilation, and inspect wall corners during the rainy season.",
+        "description": "Renovated in June 2026; two bedrooms with good daylight. Continue ventilation for the new cabinets, and inspect rainy-season wall corners.",
         "attrs_json": "{\"available_from\":\"2026-08-12\",\"property_fee_minor\":0,\"renovated_at\":\"2026-06\",\"ventilation_days_possible\":13,\"elevator\":true,\"floor\":11,\"balcony_guardrail_cm\":112,\"window_locks\":\"unknown\",\"written_terms\":\"pending\",\"air_report\":\"none\",\"mold_risk\":\"unknown\",\"description_changed\":\"2026-07-29\"}"
       },
       "where": {

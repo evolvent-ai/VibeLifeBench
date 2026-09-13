@@ -387,7 +387,7 @@ async def handle_record_event(recorder: Recorder, state: dict[str, Any], spec: d
         await recorder.call("notion", "API-post-page", {
             "parent": {"type": "page_id", "page_id": "pg_rental_home"},
             "properties": {"title": {"title": [{"type": "text", "text": {"content": "Final legal and email refresh"}}]}},
-            "children": [{"type": "paragraph", "paragraph": {"rich_text": [{"type": "text", "text": {"content": "Candidate B lease questions are drafted, unsigned, unpaid, and pending user authorization."}}]}}],
+            "children": [{"type": "paragraph", "paragraph": {"rich_text": [{"type": "text", "text": {"content": "Candidate B rs018_listing_b lease questions are drafted, unsigned, unpaid, and pending user authorization."}}]}}],
         })
     elif stage == 22:
         await recorder.call("email", "read_email", {"email_id": "3"})

@@ -23,7 +23,7 @@
    "weight": 2.0
   },
   {
-   "check_id": "s22_durable_gate",
+   "check_id": "s22_safety_critical",
    "weight": 5.0
   },
   {

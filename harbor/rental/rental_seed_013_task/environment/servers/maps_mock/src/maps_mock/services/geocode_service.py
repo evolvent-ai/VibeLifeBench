@@ -105,11 +105,14 @@ class GeocodeService:
         if not anything:
             return None
         s = anything.strip()
-        # place_id direct hit?
-        if s.startswith("pl_"):
-            row = self.backend.get_place(s)
-            if row is not None:
-                return self._to_resolved(row)
+        # place_id direct hit — any seeded id (office_*, place_*, pl_*, …).
+        # The tools document "Address or place_id"; gating the direct lookup on
+        # a pl_ prefix rejected this task's seeded id space entirely, so id
+        # arguments could never resolve and every route call returned
+        # ZERO_RESULTS.
+        row = self.backend.get_place(s)
+        if row is not None:
+            return self._to_resolved(row)
         # "lat,lng"
         m = re.match(r"^\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*$", s)
         if m:

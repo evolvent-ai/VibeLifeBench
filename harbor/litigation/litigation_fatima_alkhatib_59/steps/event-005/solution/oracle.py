@@ -211,6 +211,29 @@ def _affected_count(product: Any) -> int:
     raise RuntimeError("target SKU was not returned")
 
 
+async def _list_all_orders(c: Any) -> list[dict[str, Any]]:
+    """Walk every list_orders page; a single request returns only the newest 100.
+
+    The tool contract documents page=2,3,... reads while has_more is true: the
+    mock clamps limit to 100, and the 230 seeded orders hold 37 target-lot rows
+    of which only 13 fall inside the newest 100. Stage scoring compares the
+    written counts against the full backend scope, so the reference read must
+    paginate exactly the way the frozen evidence collector does.
+    """
+    rows: list[dict[str, Any]] = []
+    page = 1
+    while page <= 100:
+        envelope = await c("ecommerce", "list_orders", {"user_id": USER_ID, "limit": 100, "page": page})
+        batch = _rows(envelope, "items", "orders", "results")
+        if not batch:
+            break
+        rows.extend(batch)
+        if not isinstance(envelope, dict) or not envelope.get("has_more"):
+            break
+        page += 1
+    return rows
+
+
 def _require_order(value: Any) -> dict[str, Any]:
     order = _require_mapping(value, "target order detail")
     if order.get("order_id") != ORDER_ID:
@@ -360,7 +383,7 @@ async def _call_stage(rec: Recorder, stage: int, state: dict[str, Any]) -> int:
     elif stage == 2:
         _require_rows(await c("ecommerce", "search_products", {"query": "facial steamer", "limit": 100}), "product search", "items", "products", "results")
         _affected_count(await c("ecommerce", "get_product", {"product_id": PRODUCT_ID}))
-        rows = await c("ecommerce", "list_orders", {"user_id": USER_ID, "limit": 100})
+        rows = await _list_all_orders(c)
         state["vars"]["order_count"] = batch_count(rows)
         if state["vars"]["order_count"] <= 0:
             raise RuntimeError("order listing contains no target-lot orders")
@@ -386,7 +409,7 @@ async def _call_stage(rec: Recorder, stage: int, state: dict[str, Any]) -> int:
         rows = await search_email("factory QC summary")
         _require_mapping(await c("email", "read_email", {"email_id": _record_id(rows[0], "email_id", "id")}), "QC summary email")
     elif stage == 9:
-        rows = await c("ecommerce", "list_orders", {"user_id": USER_ID, "limit": 100})
+        rows = await _list_all_orders(c)
         state["vars"]["order_count"] = batch_count(rows)
         if state["vars"]["order_count"] <= 0:
             raise RuntimeError("order listing contains no target-lot orders")
@@ -403,7 +426,7 @@ async def _call_stage(rec: Recorder, stage: int, state: dict[str, Any]) -> int:
         _require_mapping(await c("legal_search", "add_note_to_case", {"user_id": USER_ID, "case_id": case_id, "note": "Record source and counsel question only; do not reach a conclusion."}), "recall case note")
     elif stage == 12:
         product = await c("ecommerce", "get_product", {"product_id": PRODUCT_ID})
-        rows = await c("ecommerce", "list_orders", {"user_id": USER_ID, "limit": 100})
+        rows = await _list_all_orders(c)
         state["vars"]["order_count"] = batch_count(rows)
         if state["vars"]["order_count"] <= 0:
             raise RuntimeError("order listing contains no target-lot orders")
@@ -412,7 +435,7 @@ async def _call_stage(rec: Recorder, stage: int, state: dict[str, Any]) -> int:
         state["vars"]["affected_order_count"] = affected
     elif stage == 13:
         product = await c("ecommerce", "get_product", {"product_id": PRODUCT_ID})
-        rows = await c("ecommerce", "list_orders", {"user_id": USER_ID, "limit": 100})
+        rows = await _list_all_orders(c)
         state["vars"]["order_count"] = batch_count(rows)
         if state["vars"]["order_count"] <= 0:
             raise RuntimeError("order listing contains no target-lot orders")
@@ -435,7 +458,7 @@ async def _call_stage(rec: Recorder, stage: int, state: dict[str, Any]) -> int:
     elif stage == 18:
         previous_affected = affected
         product = await c("ecommerce", "get_product", {"product_id": PRODUCT_ID})
-        rows = await c("ecommerce", "list_orders", {"user_id": USER_ID, "limit": 100})
+        rows = await _list_all_orders(c)
         state["vars"]["order_count"] = batch_count(rows)
         affected = _affected_count(product)
         if affected <= previous_affected:
@@ -443,7 +466,7 @@ async def _call_stage(rec: Recorder, stage: int, state: dict[str, Any]) -> int:
         state["vars"]["affected_order_count"] = affected
     elif stage == 19:
         product = await c("ecommerce", "get_product", {"product_id": PRODUCT_ID})
-        rows = await c("ecommerce", "list_orders", {"user_id": USER_ID, "limit": 100})
+        rows = await _list_all_orders(c)
         state["vars"]["order_count"] = batch_count(rows)
         if state["vars"]["order_count"] <= 0:
             raise RuntimeError("order listing contains no target-lot orders")
@@ -474,7 +497,7 @@ async def _call_stage(rec: Recorder, stage: int, state: dict[str, Any]) -> int:
         _require_saved(await c("legal_search", "list_saved", {"user_id": USER_ID}), set(state["vars"].get("saved_cases", [])))
     elif stage == 24:
         product = await c("ecommerce", "get_product", {"product_id": PRODUCT_ID})
-        rows = await c("ecommerce", "list_orders", {"user_id": USER_ID, "limit": 100})
+        rows = await _list_all_orders(c)
         state["vars"]["order_count"] = batch_count(rows)
         if state["vars"]["order_count"] <= 0:
             raise RuntimeError("order listing contains no target-lot orders")

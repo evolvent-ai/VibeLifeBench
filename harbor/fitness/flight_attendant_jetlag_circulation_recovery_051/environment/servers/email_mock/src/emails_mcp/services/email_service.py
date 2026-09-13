@@ -53,7 +53,10 @@ class EmailService:
         }
 
     # ---- listing / reading ---------------------------------------------
-    def get_emails(self, folder: str = "INBOX", page: int = 1, page_size: int = 20) -> dict:
+    def get_emails(
+        self, folder: str = "INBOX", page: int = 1, page_size: int = 20,
+        include_body: bool = False,
+    ) -> dict:
         name = validate_folder_name(folder)
         folder_id = get_folder_id(self.conn, name)
         refresh_folder_counts(self.conn, folder_id)
@@ -82,7 +85,7 @@ class EmailService:
             (folder_id, ps, offset),
         ).fetchall()
         emails = [
-            message_row_to_dict(self.conn, r, include_body=False)
+            message_row_to_dict(self.conn, r, include_body=include_body)
             for r in rows
         ]
         return {

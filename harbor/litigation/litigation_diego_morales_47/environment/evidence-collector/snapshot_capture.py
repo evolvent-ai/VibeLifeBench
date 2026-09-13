@@ -1,6 +1,7 @@
 """Read-only stage snapshots for the litigation task."""
 from __future__ import annotations
 import json, os
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -40,6 +41,21 @@ def _unwrap_envelope(value: Any, fetch_page=None) -> Any:
         return {"error": "capture pagination did not complete"}
     return merged
 
+
+CAPTURE_WORKERS = 12
+
+def _parallel_calls(env: Any, jobs: list[Any]) -> list[Any]:
+    """Run independent read-only MCP captures concurrently, in job order.
+
+    A stage boundary must freeze the whole world inside Harbor's 60s collect-hook
+    budget; the Notion block-children and Maps place-details fans out to hundreds
+    of single-round-trip calls, which is only feasible when they overlap.
+    """
+    if len(jobs) <= 1:
+        return [job() for job in jobs]
+    workers = min(CAPTURE_WORKERS, len(jobs))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        return list(pool.map(lambda job: job(), jobs))
 
 def _capture_error(value: Any, server: str, tool: str) -> dict[str, str] | None:
     if not isinstance(value, dict):
@@ -148,16 +164,25 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
     )
     page_blocks: dict[str, Any] = {}
     if isinstance(pages, dict):
-        for row in pages.get("results", []):
-            if not isinstance(row, dict) or row.get("object") != "page" or not row.get("id"):
-                continue
-            page_blocks[str(row["id"])] = _call(
-                env,
-                "notion",
-                "API-get-block-children",
-                block_id=str(row["id"]),
-                page_size=10000,
-            )
+        page_ids = [
+            str(row["id"])
+            for row in pages.get("results", [])
+            if isinstance(row, dict) and row.get("object") == "page" and row.get("id")
+        ]
+        blocks = _parallel_calls(
+            env,
+            [
+                lambda page_id=page_id: _call(
+                    env,
+                    "notion",
+                    "API-get-block-children",
+                    block_id=page_id,
+                    page_size=10000,
+                )
+                for page_id in page_ids
+            ],
+        )
+        page_blocks = dict(zip(page_ids, blocks))
     return {"pages": pages, "databases": databases, "page_blocks": page_blocks}
 
 
@@ -177,10 +202,17 @@ def _maps_places_snapshot(env: Any) -> dict[str, Any]:
     for row in rows:
         if isinstance(row, dict) and row.get("place_id"):
             unique[str(row["place_id"])] = row
-    details = {
-        place_id: _call(env, "maps", "get_place_details", place_id=place_id)
-        for place_id in unique
-    }
+    place_ids = list(unique)
+    detail_rows = _parallel_calls(
+        env,
+        [
+            lambda place_id=place_id: _call(
+                env, "maps", "get_place_details", place_id=place_id
+            )
+            for place_id in place_ids
+        ],
+    )
+    details = dict(zip(place_ids, detail_rows))
     detail_error = next(
         (value for value in details.values() if isinstance(value, dict) and set(value) == {"error"}),
         None,

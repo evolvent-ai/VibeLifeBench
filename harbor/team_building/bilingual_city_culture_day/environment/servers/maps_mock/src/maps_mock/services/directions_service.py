@@ -90,6 +90,11 @@ class DirectionsService:
             duration_in_traffic_s = int(round(duration_s * mult))
             for inc in incidents:
                 warnings.append(f"{inc['kind']} on {inc['road_name']}")
+                # Surface the road-event advisory itself (transit warnings
+                # already carry alert notes; driving should too), so a closure
+                # warning names the detour instead of only the kind + road.
+                if inc.get("note"):
+                    warnings.append(inc["note"])
 
         steps = self._surface_steps(origin, dest, distance_m, duration_s, mode)
 

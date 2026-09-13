@@ -52,7 +52,10 @@ def final_budget_not_breached_backend(env) -> bool:
 
 
 def final_response_no_bad_advice(env) -> bool:
-    return no_forbidden_advice(stage_response_text(env, 23) + "\n" + workspace_text(env))
+    # An empty final response and empty workspace pass the scan vacuously, so a
+    # no-op agent would score here; require a response that actually exists.
+    resp = stage_response_text(env, 23)
+    return bool(resp.strip()) and no_forbidden_advice(resp + "\n" + workspace_text(env))
 
 
 def final_calendar_or_notion_persisted(env) -> bool:

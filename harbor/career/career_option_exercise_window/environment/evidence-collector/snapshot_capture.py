@@ -21,6 +21,15 @@ SCENARIO_CLOCK_REQUIRED = os.environ.get("WORLD_CLOCK_REQUIRED", "0") == "1"
 USER_ID = "usr_gao_kai"
 CALENDAR_ID = "cal_gk_0001"
 
+# Brokerage/banking identifiers mirrored from the rubrics (_helpers.ACCOUNT_ID,
+# _helpers.CHECKING_ID, _helpers.SAVINGS_ID, _helpers.SYMBOL). The quote,
+# positions, orders, account-balance, and transaction-traceability checks read
+# the snapshot's brokerage/banking sections through those same ids, so the
+# capture must target exactly the accounts the rubrics score.
+BROKERAGE_ACCOUNT_ID = "acct_eq_main"
+BROKERAGE_SYMBOL = "688111"
+BANK_ACCOUNT_IDS = ("acct_gk_checking", "acct_gk_savings")
+
 
 def scenario_clock() -> dict[str, Any]:
     try:
@@ -232,12 +241,18 @@ def _email_snapshot(env: Any, folder: str, *, include_body: bool) -> dict[str, A
     listing = _email_listing(env, folder)
     if not include_body or not isinstance(listing, dict):
         return {"listing": listing, "details": []}
+    # The whitelist below only knows the seeded INBOX ids. Outgoing messages are
+    # agent-authored and their ids are not knowable up front (release-003 pushes
+    # the message sequence past every seeded id), so Sent details must be
+    # captured for every row: without body/in_reply_to the threaded-reply
+    # evidence can never be scored no matter what the agent does.
+    detail_all = folder.casefold() == "sent"
     details: list[Any] = []
     for item in listing.get("emails") or []:
         if not isinstance(item, dict):
             continue
         email_id = item.get("email_id") or item.get("id")
-        if email_id is None or (include_body and str(email_id) not in DETAIL_EMAIL_IDS):
+        if email_id is None or (not detail_all and str(email_id) not in DETAIL_EMAIL_IDS):
             continue
         detail = _call(env, "email", "read_email", email_id=str(email_id))
         headers = _call(env, "email", "get_email_headers", email_id=str(email_id))
@@ -369,6 +384,29 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             "jobs": {
                 job_id: _call(env, "job_board", "get_job", job_id=job_id)
                 for job_id in TRACKED_JOB_IDS
+            },
+        },
+        # The quote/holdings/order and protected-funds rubric predicates read
+        # these sections through _helpers.call(env, "brokerage"/"banking", ...),
+        # so the keys and shapes mirror that accessor: quote is the raw
+        # get_quote record, positions/orders are page-merged row lists, and
+        # transactions are keyed by account id as the accessor expects.
+        "brokerage": {
+            "quote": _call(env, "brokerage", "get_quote", symbol=BROKERAGE_SYMBOL),
+            "positions": _call(env, "brokerage", "get_positions", account_id=BROKERAGE_ACCOUNT_ID),
+            "orders": _call(
+                env, "brokerage", "list_orders",
+                account_id=BROKERAGE_ACCOUNT_ID, limit=500, page=1,
+            ),
+        },
+        "banking": {
+            "accounts": _call(env, "banking", "list_accounts", user_id=USER_ID),
+            "transactions": {
+                account_id: _call(
+                    env, "banking", "list_transactions",
+                    account_id=account_id, limit=500, page=1,
+                )
+                for account_id in BANK_ACCOUNT_IDS
             },
         },
         "email": {

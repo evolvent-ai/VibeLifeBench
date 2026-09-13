@@ -297,9 +297,13 @@ async def _handle_event(rec: Recorder, state: dict[str, Any], spec: dict[str, An
     elif stage == 7:
         await rec.call("email", "read_email", {"email_id": "1010"})
         await rec.call("legal_search", "get_article", {"article_id": "art_kq_period"})
+        await rec.call("legal_search", "get_article", {"article_id": ARTICLE_ID})
     elif stage == 8:
         await rec.call("job_board", "search_jobs", {"keyword": "backend", "city": "Shanghai", "category": "backend", "min_salary_minor": 0, "sort": "newest", "limit": 100})
         await rec.call("job_board", "search_jobs", {"keyword": "platform", "city": "Shanghai", "category": "backend", "sort": "newest", "limit": 100})
+        await rec.call("job_board", "get_job", {"job_id": "job_4f91c2a8d7e3"})
+        await rec.call("job_board", "get_job", {"job_id": "job_a17e5c903bd4"})
+        await rec.call("job_board", "get_job", {"job_id": "job_6c2d8f14b9a7"})
     elif stage == 9:
         await rec.call("job_board", "list_resumes", {"user_id": USER_ID})
         await rec.call("job_board", "list_applications", {"user_id": USER_ID})

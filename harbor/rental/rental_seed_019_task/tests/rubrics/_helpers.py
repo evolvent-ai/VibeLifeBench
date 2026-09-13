@@ -349,29 +349,45 @@ def _listing_rows(env, stage: int) -> list[dict[str, Any]]:
 
 
 def listing_detail(env, listing_id: str) -> dict[str, Any]:
+    # Search-list projections (snapshot rows and search_listings results) carry
+    # no "attrs", so a summary-only row at a later stage must not discard the
+    # attrs recorded by an earlier get_listing/get_listing_detail read. Keep the
+    # newest of each independently, then let whichever was observed at the later
+    # stage win scalar conflicts: a stale summary row must not override a newer
+    # detail read (delisted listings drop out of search results, so their newest
+    # summary can predate the delisting), and a newer summary must still refresh
+    # price/status over an older detail read.
+    summary: dict[str, Any] = {}
+    summary_stage = -1
+    detail: dict[str, Any] = {}
+    detail_stage = -1
     for stage in reversed(env.published_stages()):
-        summary: dict[str, Any] = {}
-        for row in _listing_rows(env, stage):
-            if str(row.get("listing_id") or row.get("id")) == str(listing_id):
-                summary = row
-                break
-        detail: dict[str, Any] = {}
-        for call in reversed(_tool_calls(env, stage)):
-            if not _tool_name_ok(str(call.get("name") or ""), "listing_platform"):
-                continue
-            if _action_name(call) not in {"get_listing", "get_listing_detail"}:
-                continue
-            result = _decode_result(call.get("result"))
-            if (
-                isinstance(result, dict)
-                and str(result.get("listing_id") or result.get("id")) == str(listing_id)
-                and _read_result_ok(call)
-            ):
-                detail = result
-                break
-        if summary or detail:
-            return {**detail, **summary}
-    return {}
+        if summary_stage < 0:
+            for row in _listing_rows(env, stage):
+                if str(row.get("listing_id") or row.get("id")) == str(listing_id):
+                    summary = row
+                    summary_stage = stage
+                    break
+        if detail_stage < 0:
+            for call in reversed(_tool_calls(env, stage)):
+                if not _tool_name_ok(str(call.get("name") or ""), "listing_platform"):
+                    continue
+                if _action_name(call) not in {"get_listing", "get_listing_detail"}:
+                    continue
+                result = _decode_result(call.get("result"))
+                if (
+                    isinstance(result, dict)
+                    and str(result.get("listing_id") or result.get("id")) == str(listing_id)
+                    and _read_result_ok(call)
+                ):
+                    detail = result
+                    detail_stage = stage
+                    break
+        if summary_stage >= 0 and detail_stage >= 0:
+            break
+    if detail_stage > summary_stage:
+        return {**summary, **detail}
+    return {**detail, **summary}
 
 
 def listing_status(env, listing_id: str) -> str:

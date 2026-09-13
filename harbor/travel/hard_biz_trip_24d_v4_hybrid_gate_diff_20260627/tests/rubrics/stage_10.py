@@ -17,7 +17,7 @@ def s10_checked_calendar(env) -> bool:
 
 def s10_detected_conflict(env) -> bool:
     text = _workspace_file_text(env, "/workspace/decision_log.md").lower()
-    described = _any(text, ["conflict", "overlap", "reschedule", "keynote", "14:00"]) and _any(text, ["7/20", "jul 20", "20th"])
+    described = _any(text, ["conflict", "overlap", "reschedule", "keynote", "14:00"]) and _any(text, ["7/20", "jul 20", "july 20", "july20", "2026-07-20", "20th"])
     ok = described and _calendar_conflict_backend(env)
     logger.info(f"s10_conflict_backend: {ok}"); return ok
 

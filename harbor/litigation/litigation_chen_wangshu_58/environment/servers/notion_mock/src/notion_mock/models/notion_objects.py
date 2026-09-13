@@ -47,10 +47,27 @@ def _title_property(title: str) -> Dict[str, Any]:
     }
 
 
+def _canonicalize_title_type(props: Dict[str, Any]) -> Dict[str, Any]:
+    """Ensure a stored ``title`` property carries Notion's ``type`` marker.
+
+    Pages created through the API may pass ``{"title": {"title": [...]}}``
+    without the ``type`` discriminator. Stored as-is, every serialized page
+    would surface a title property that no client can distinguish from a
+    plain property (real Notion always tags title properties
+    ``"type": "title"``, as ``_title_property`` and the seeded rows do), so
+    normalize on the way out rather than requiring every writer to remember.
+    """
+    value = props.get("title") if isinstance(props, dict) else None
+    if isinstance(value, dict) and not value.get("type"):
+        return {**props, "title": {**value, "id": value.get("id", "title"), "type": "title"}}
+    return props
+
+
 def row_to_page(row: Any, *, include_title_in_properties: bool = True) -> Dict[str, Any]:
     props = _loads(row["properties_json"], {})
     if include_title_in_properties and "title" not in props and row["title"]:
         props = {**props, "title": _title_property(row["title"])}
+    props = _canonicalize_title_type(props)
     parent: Dict[str, Any] = {"type": row["parent_type"]}
     if row["parent_type"] == "workspace":
         parent["workspace"] = True
@@ -73,7 +90,7 @@ def row_to_page(row: Any, *, include_title_in_properties: bool = True) -> Dict[s
 
 def row_to_database_row_page(row: Any, database_id: str) -> Dict[str, Any]:
     """A DB row is a page whose parent is the database."""
-    props = _loads(row["properties_json"], {})
+    props = _canonicalize_title_type(_loads(row["properties_json"], {}))
     return {
         "object": "page",
         "id": row["row_id"],

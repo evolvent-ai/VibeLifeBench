@@ -15,7 +15,7 @@
       "set": {
         "start_dt": "2026-08-12T09:30:00+08:00",
         "end_dt": "2026-08-12T11:00:00+08:00",
-        "description": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated。",
+        "description": "Xinghe kindergarten information session rescheduled to 09:30-11:00 on 2026-08-12; the pickup/drop-off drill time separately notified through the class email list.",
         "updated_at": "2026-07-30T08:45:00+08:00"
       },
       "where": {
@@ -30,13 +30,13 @@
       "values": {
         "folder_id": 1,
         "message_id": "msg_kindergarten_changed",
-        "subject": "translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated",
+        "subject": "Xinghe kindergarten information session time change",
         "from_addr": "office@xinghe.invalid",
         "to_addr_json": "[\"lin.lan@example.invalid\"]",
         "cc_addr_json": "[]",
         "bcc_addr_json": "[]",
         "date": "2026-07-30T08:40:00+08:00",
-        "body_text": "translatedtranslatedtranslatedtranslatedtranslatedtranslated 2026-08-12 09:30-11:00；translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated，translatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslatedtranslated。",
+        "body_text": "The Xinghe kindergarten information session has moved to 2026-08-12 09:30-11:00; the pickup/drop-off drill time separately notified via the class email list. Please plan the family schedule around it without double-booking the calendar.",
         "body_html": "",
         "is_read": 0,
         "is_important": 1,

@@ -132,7 +132,7 @@ def scenario_clock() -> dict[str, Any]:
     try:
         payload = json.loads(SCENARIO_CLOCK_PATH.read_text(encoding="utf-8"))
         step = str(payload.get("step") or "")
-        value = str(payload.get("now") or "")
+        value = str(payload.get("world_now") or "")
         if step not in STEP_MAP or not value:
             raise ValueError("invalid scenario clock payload")
         parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
@@ -140,18 +140,18 @@ def scenario_clock() -> dict[str, Any]:
             raise ValueError("scenario clock must include an offset")
         if value != STEP_MAP[step]["scenario_time"]:
             raise ValueError(f"scenario clock mismatch for {step}")
-        return {"schema_version": 1, "step": step, "now": value}
+        return {"schema_version": 1, "step": step, "world_now": value}
     except Exception as exc:
         if SCENARIO_CLOCK_REQUIRED:
             raise RuntimeError(
                 f"required scenario clock unavailable at {SCENARIO_CLOCK_PATH}: {exc}"
             ) from exc
         now = datetime.now(timezone.utc).isoformat()
-        return {"schema_version": 1, "step": "event-000", "now": now}
+        return {"schema_version": 1, "step": "event-000", "world_now": now}
 
 
 def scenario_now() -> datetime:
-    return datetime.fromisoformat(scenario_clock()["now"].replace("Z", "+00:00"))
+    return datetime.fromisoformat(scenario_clock()["world_now"].replace("Z", "+00:00"))
 
 
 def utc_now() -> str:
@@ -201,7 +201,7 @@ def set_clock(step_name: str, token: str | None = None) -> dict[str, Any]:
     payload = {
         "schema_version": 1,
         "step": step_name,
-        "now": STEP_MAP[step_name]["scenario_time"],
+        "world_now": STEP_MAP[step_name]["scenario_time"],
     }
     write_json_atomic(SCENARIO_CLOCK_PATH, payload)
     return {**payload, "status": "advanced", "advanced": True}
@@ -1135,7 +1135,7 @@ def serve() -> None:
             {
                 "schema_version": 1,
                 "step": "event-000",
-                "now": STEP_MAP["event-000"]["scenario_time"],
+                "world_now": STEP_MAP["event-000"]["scenario_time"],
             },
         )
     conn = _connect_state()

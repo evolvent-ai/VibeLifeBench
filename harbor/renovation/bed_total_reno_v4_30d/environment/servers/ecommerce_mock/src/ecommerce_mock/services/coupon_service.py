@@ -24,6 +24,18 @@ class CouponService:
         self.cart_service = cart_service
 
     # ---------------- public ----------------
+    def list_coupons(self) -> List[dict]:
+        """Return the official coupon definitions (the marketplace bulletin rules)."""
+        rows = self.conn.execute(
+            """
+            SELECT code, kind, value_bp_or_minor, min_spend_minor, valid_from,
+                   valid_until, category_restriction, max_uses, used_count, active
+            FROM coupons
+            ORDER BY code
+            """
+        ).fetchall()
+        return [dict(r) for r in rows]
+
     def apply_coupon(self, user_id: str, code: str) -> dict:
         code = (code or "").strip()
         if not code:

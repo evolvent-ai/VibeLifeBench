@@ -12,9 +12,16 @@ def register_email_tools(mcp: FastMCP, email_service: EmailService) -> None:
 
     @mcp.tool()
     @handle_errors
-    async def get_emails(folder: str = "INBOX", page: int = 1, page_size: int = 20) -> str:
-        """Get a paginated list of emails in a folder (newest first). Returns metadata only — call read_email for the body."""
-        return dumps(email_service.get_emails(folder=folder, page=page, page_size=page_size))
+    async def get_emails(
+        folder: str = "INBOX", page: int = 1, page_size: int = 20,
+        include_body: bool = False,
+    ) -> str:
+        """Get a paginated list of emails in a folder (newest first). Returns metadata only unless include_body=True — call read_email for one full message."""
+        return dumps(
+            email_service.get_emails(
+                folder=folder, page=page, page_size=page_size, include_body=include_body
+            )
+        )
 
     @mcp.tool()
     @handle_errors

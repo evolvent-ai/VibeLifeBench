@@ -188,18 +188,18 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     return {
         "stage": int(stage_idx), "world_clock": _world_clock(), "workspace": _workspace(env),
         "email": {
-            "inbox": _email_folder(env, "INBOX", False),
+            "inbox": _email_folder(env, "INBOX", True),
             "sent": _email_folder(env, "Sent", True),
             "drafts": _paged_call(env, "email", "get_drafts", rows_key="drafts",
                                     id_keys=("draft_id", "id")),
         },
         "calendar": {"wedding_events": _call(
-            env, "calendar", "search_events", query="Sofia Marco wedding",
+            env, "calendar", "search_events", query="Sofia and Marco wedding",
             time_min="2026-09-12T00:00:00+02:00", time_max="2026-09-13T00:00:00+02:00",
             max_results=20)},
         "credit_card": {
             "cards": _call(env, "credit_card", "list_cards", user_id=USER_ID),
-            "primary_card": _call(env, "credit_card", "get_card", card_id="card_chase_sapphire"),
+            "primary_card": _call(env, "credit_card", "get_card", card_id="cadqrf73jw"),
         },
         "flight_booking": {
             "bookings": flight_bookings,

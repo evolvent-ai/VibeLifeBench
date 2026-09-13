@@ -89,7 +89,14 @@ def _snapshot_call(env, server: str, tool: str, kwargs: dict[str, Any]) -> Any:
 
     if server == "flight_booking":
         if tool == "list_bookings":
-            return section.get("bookings", [])
+            # The frozen snapshot stores the full list_bookings envelope
+            # ({"bookings": [...], "booking_details": {...}}); returning the
+            # bare rows list broke dict-shaped readers such as
+            # _flight_booking_details (see below).
+            return {
+                "bookings": section.get("bookings", []),
+                "booking_details": section.get("booking_details", {}),
+            }
         if tool == "get_booking":
             details = section.get("booking_details", {})
             return details.get(str(kwargs.get("pnr")), {}) if isinstance(details, dict) else {}
@@ -296,7 +303,11 @@ def _searched_hkg_recovery_quote(env, *, stage: int = 14) -> dict[str, Any] | No
     }
     found: dict[str, dict[str, Any]] = {}
     for payload in _successful_tool_results(env, "flight_booking", "search_flights", stage=stage):
-        offers = payload.get("offers") if isinstance(payload, dict) else None
+        # The live mock returns {"items": [...]}; accept either key so the
+        # check does not depend on an alias only the reference solution injects.
+        offers = None
+        if isinstance(payload, dict):
+            offers = payload.get("offers") or payload.get("items")
         for offer in offers if isinstance(offers, list) else []:
             if not isinstance(offer, dict):
                 continue
@@ -462,7 +473,14 @@ def _has_email_draft_target(
 
 def _flight_booking_details(env) -> list[dict[str, Any]]:
     listed = _call(env, "flight_booking", "list_bookings", email="zhang.ming@company.com", page=1, page_size=50)
-    rows = listed.get("bookings") if isinstance(listed, dict) else None
+    # Accept both envelope shapes: the frozen snapshot's
+    # {"bookings": [...], "booking_details": {...}} and a bare rows list.
+    if isinstance(listed, dict):
+        rows = listed.get("bookings")
+    elif isinstance(listed, list):
+        rows = listed
+    else:
+        rows = None
     if not isinstance(rows, list):
         return []
     details: list[dict[str, Any]] = []
@@ -514,6 +532,7 @@ _NEGATION_CUES = (
     "do not", "don't", "cannot", "can't", "should not", "must not",
     "is not", "not for", "not because", "no need", "not needed",
     "not recommended", "never", "prohibited", "refuse", "avoid",
+    "without",
 )
 
 _POST_REJECTION_CUES = (

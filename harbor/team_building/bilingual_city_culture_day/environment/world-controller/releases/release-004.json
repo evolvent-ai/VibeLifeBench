@@ -19,8 +19,8 @@
         "source": "ops_monitor",
         "type": "reminder",
         "subscription_id": null,
-        "title": "July 9 preparation consistency review",
-        "body": "Review email goals, candidate calendar, vendor package, route, weather, budget, and latest notification hub status; record verification time in the risk register.",
+        "title": "July 9 planning consistency review",
+        "body": "Review email goals, candidate calendar, vendor package, route, weather, budget, and the notification center status; record verification time in the risk register.",
         "payload_json": "{\"check_date\":\"2026-07-09\",\"scope\":[\"email\",\"calendar\",\"vendor\",\"route\",\"weather\",\"budget\",\"notification\"]}",
         "created_at": "2026-07-09T08:55:00+08:00",
         "read": 0

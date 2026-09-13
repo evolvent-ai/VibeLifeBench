@@ -84,6 +84,39 @@ class _McpCapability:
     def call_tool(self, name: str, **kwargs: Any) -> Any:
         return asyncio.run(self._call_async(name, **kwargs))
 
+    async def _call_sequence_async(self, requests: list[tuple[str, dict[str, Any]]]) -> list[Any]:
+        from mcp import ClientSession
+        from mcp.client.streamable_http import streamablehttp_client
+
+        results: list[Any] = []
+        async with streamablehttp_client(self.url) as (read, write, _meta):
+            async with ClientSession(read, write) as session:
+                await session.initialize()
+                for name, kwargs in requests:
+                    try:
+                        results.append(_unwrap_mcp(await session.call_tool(name, kwargs)))
+                    except BaseException as exc:  # noqa: BLE001 - parity with call_tool
+                        results.append({"error": f"{type(exc).__name__}: {exc}"})
+        return results
+
+    def call_tool_sequence(self, requests: list[tuple[str, dict[str, Any]]]) -> list[Any]:
+        """Batched counterpart of :meth:`call_tool` for snapshot capture.
+
+        Every ``call_tool`` pays a full streamable-HTTP handshake plus
+        ``initialize`` for a single read. The stage snapshot issues hundreds of
+        such reads (per-message email details, per-page Notion children), and at
+        one-session-per-call that exceeds the collect hook budget. This method
+        reuses one session for the whole sequence while degrading each failed
+        call into the same ``{"error": ...}`` envelope ``call_tool`` produces,
+        so callers observe identical shapes.
+        """
+        if not requests:
+            return []
+        try:
+            return asyncio.run(self._call_sequence_async(requests))
+        except BaseException as exc:  # noqa: BLE001 - parity with call_tool
+            return [{"error": f"{type(exc).__name__}: {exc}"} for _ in requests]
+
 
 class _Fs:
     """Live read-only workspace adapter used only during trusted collection."""

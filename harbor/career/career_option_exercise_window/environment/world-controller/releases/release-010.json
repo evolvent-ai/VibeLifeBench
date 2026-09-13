@@ -7,6 +7,7 @@
       "server": "job_board",
       "table": "applications",
       "op": "update",
+      "on_zero_rows": "skip",
       "set": {
         "status": "offer",
         "updated_at": "2026-08-19T01:30:00Z"

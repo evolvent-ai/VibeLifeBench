@@ -275,6 +275,22 @@ async def _calendar_update(recorder: Recorder, stage: int) -> None:
     await recorder.call("calendar", "update_event", kwargs)
 
 
+async def _route_hold(recorder: Recorder) -> None:
+    """Park the rechecked meeting/return plan as its own calendar hold.
+
+    The main event's description keeps being rewritten by later stages, so a
+    durable route plan needs its own created entry to survive them.
+    """
+    await recorder.call("calendar", "create_event", {
+        "calendar_id": "cal_yehang_team",
+        "summary": "Route recheck hold: Jing'an District meeting point and return plan",
+        "description": STAGE_NOTES[9],
+        "location": "Jing'an District",
+        "start": "2026-07-24T17:30:00+08:00",
+        "end": "2026-07-24T18:30:00+08:00",
+    })
+
+
 async def _notifications(recorder: Recorder) -> None:
     await recorder.call("notification_hub", "list_notifications", {
         "user_id": USER_ID,
@@ -352,6 +368,7 @@ async def _calls_for_stage(recorder: Recorder, stage: int) -> None:
             "depart_at": "2026-07-24T17:30:00+08:00",
         })
         await _notion(recorder, "route waiting")
+        await _route_hold(recorder)
         await _calendar_update(recorder, stage)
         await _calendar(recorder)
     elif stage == 10:

@@ -1062,7 +1062,7 @@ def call_tool(env, server: str, tool: str, **kwargs: Any) -> Any:
         ("hotel_booking", "list_reservations"): ("hotel_booking", "reservations"),
         ("content_platform", "get_note"): ("content_platform", "official"),
         ("maps", "get_place_details"): ("maps", "new_center"),
-        ("health_tracker", "get_metrics"): ("health_tracker",),
+        ("health_tracker", "get_metrics"): ("health_tracker", "sleep_history"),
     }
     path = projections.get((server, tool))
     if path is None:

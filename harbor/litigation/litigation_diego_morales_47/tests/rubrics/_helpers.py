@@ -757,6 +757,14 @@ def legal_article_exists(env, article_id: str, *tokens: str) -> bool:
         if not struct_contains(call.get("arguments", {}), article_id):
             continue
         result = call.get("result")
+        # ATIF observation results carry the tool output as a serialized JSON
+        # string, so the captured trace.result is a str even when the tool
+        # returned an object; parse it before the dict-shape test.
+        if isinstance(result, str):
+            try:
+                result = json.loads(result)
+            except (json.JSONDecodeError, ValueError):
+                result = None
         if isinstance(result, dict) and article_id in flatten_struct(result) and struct_contains(result, *tokens):
             return True
     return False

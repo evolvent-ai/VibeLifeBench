@@ -74,6 +74,7 @@ def register_booking_tools(mcp: FastMCP, booking_service: BookingService) -> Non
         passengers: list[PassengerProfile],
         contact: BookingContact,
         payment: PaymentDetails,
+        user_id: Optional[str] = None,
         seat_selections: Optional[list[SeatSelection]] = None,
         hold: bool = False,
     ) -> dict[str, Any]:
@@ -83,13 +84,15 @@ def register_booking_tools(mcp: FastMCP, booking_service: BookingService) -> Non
             offer_id: Offer id from search_flights/price_offer.
             passengers: List of {type, given_name, family_name, dob, ...}.
             contact: {email, phone}.
+            user_id: Account id the PNR belongs to (as shown by other services for this traveller). Defaults to contact.email if omitted.
             payment: For hold=true use {method: "NONE"}; for ticketing use {method: "CARD"|"POINTS", card_last4?/token?}.
             seat_selections: Optional seat picks {segment_idx, pax_idx, seat}.
             hold: If true, issue a HOLD instead of TICKETED.
         """
         return booking_service.create_booking(
             offer_id=offer_id, passengers=passengers, contact=contact,
-            payment=payment, seat_selections=seat_selections, hold=hold,
+            payment=payment, user_id=user_id,
+            seat_selections=seat_selections, hold=hold,
         )
 
     @mcp.tool()

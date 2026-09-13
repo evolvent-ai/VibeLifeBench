@@ -1,0 +1,42 @@
+{
+  "step": "event-005",
+  "stage": 3,
+  "virtual_stage": 3,
+  "source_event_id": "H03_site_result",
+  "scenario_time": "2026-06-17T15:00:00+08:00",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [
+      "release-000"
+    ],
+    "released_mutations": [
+      "highrise-defect-case-20260617"
+    ]
+  },
+  "response": "Stage 3 handover evidence was checked in the formal systems and recorded with all unresolved items and authorization boundaries preserved.",
+  "response_paraphrase": "The formal records for handover stage 3 were reviewed and written back; outstanding defects, funds and approvals remain explicitly tracked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "H03_site_result"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s3_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s3_args",
+      "weight": 1.0,
+      "expected": true
+    },
+    {
+      "check_id": "s3_result",
+      "weight": 2.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 3.5
+}

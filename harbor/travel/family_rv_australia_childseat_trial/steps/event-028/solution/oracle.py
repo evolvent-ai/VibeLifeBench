@@ -246,6 +246,19 @@ async def _record_hotel(rec: Recorder, hotel_id: str, check_in: str, check_out: 
         state["vars"].setdefault("hotel_reservations", []).append(result["reservation_id"])
 
 
+def _cny_amount(amount: Any, currency: Any) -> float:
+    """Convert a backend amount to CNY at the rate stated in /workspace/BUDGET.md (AUD 1 = 4.80).
+
+    Returns 0.0 rather than raising on an unparseable amount: the oracle must never crash a
+    trial over a display figure, and a wrong total only costs the traceability check.
+    """
+    try:
+        value = float(amount)
+    except (TypeError, ValueError):
+        return 0.0
+    return value * 4.80 if str(currency or "").strip().upper() == "AUD" else value
+
+
 async def _record_flights(rec: Recorder, state: dict[str, Any]) -> None:
     outbound = await _flight_search(rec, "PVG", "SYD", "2026-09-12")
     inbound = await _flight_search(rec, "MEL", "PVG", "2026-09-26", cabin="PREMIUM_ECONOMY")
@@ -256,9 +269,13 @@ async def _record_flights(rec: Recorder, state: dict[str, Any]) -> None:
     passengers = [{"type": "ADT", "given_name": "Li", "family_name": "Cheng", "dob": "1985-01-01"}, {"type": "ADT", "given_name": "Zhou", "family_name": "Ran", "dob": "1987-02-02"}, {"type": "CHD", "given_name": "Li", "family_name": "Mi", "dob": "2022-04-04"}]
     contact = {"email": "li.cheng@example.cn", "phone": "+86-13800000000"}
     for offer in (outbound_offer, inbound_offer):
-        booking = await rec.call("flight_booking", "create_booking", {"offer_id": offer["offer_id"], "passengers": passengers, "contact": contact, "payment": {"method": "NONE"}, "hold": True})
+        booking = await rec.call("flight_booking", "create_booking", {"user_id": USER_ID, "offer_id": offer["offer_id"], "passengers": passengers, "contact": contact, "payment": {"method": "NONE"}, "hold": True})
         if isinstance(booking, dict) and booking.get("pnr"):
             state["vars"].setdefault("flight_pnrs", []).append(booking["pnr"])
+            # Read the booking back: segment routes (flight_no/origin/destination) exist only in
+            # get_booking's response, so a rubric that verifies the booked route can see it only
+            # if the agent actually re-read the booking it just created.
+            await rec.call("flight_booking", "get_booking", {"pnr": booking["pnr"]})
 
 
 async def _search_route(rec: Recorder, origin: str, dest: str, depart_at: str) -> None:
@@ -279,6 +296,14 @@ def _entry(stage: int, source: str, facts: str, action: str, next_step: str) -> 
 async def handle_record_event(rec: Recorder, state: dict[str, Any], spec: dict[str, Any], action: dict[str, Any]) -> None:
     stage = int(spec["virtual_stage"])
     source = str(spec.get("source_event_id") or action.get("source_event_id") or "event")
+    if not spec.get("stage_boundary", True):
+        # Continuity event inside a stage.  Every non-boundary step declares
+        # expected_stage_weight 0 and no expected_checks, so the stage's
+        # deliverables belong to its boundary step; running the stage block here
+        # too would execute its side effects twice (the SouthernCross hold has a
+        # single unit of inventory) and break the boundary snapshot.
+        state.setdefault("events", []).append({"step": spec["step"], "source_event_id": source, "stage": stage})
+        return
     if stage == 0:
         await _notion_page(rec, state)
         await _notion_append(rec, state, "Trip dashboard: Shanghai to Sydney, Canberra and Melbourne; budget cap CNY 118000; record authorization before non-refundable purchases; payment and high-value spending, cancellation or booking changes, and sensitive information require confirmation; risk register is active.")
@@ -301,7 +326,7 @@ async def handle_record_event(rec: Recorder, state: dict[str, Any], spec: dict[s
     elif stage == 3:
         await _flight_search(rec, "PVG", "SYD", "2026-09-12")
         await rec.call("car_rental", "search_vehicle_offers", {"pickup_city": "Sydney", "return_city": "Melbourne", "pickup_at": "2026-09-15T09:00:00+10:00", "return_at": "2026-09-24T16:00:00+10:00", "seats": 4, "max_results": 50, "page": 1})
-        for city, start, end in (("Sydney", "2026-09-12", "2026-09-14"), ("Canberra", "2026-09-18", "2026-09-19")):
+        for city, start, end in (("Sydney", "2026-09-13", "2026-09-15"), ("Canberra", "2026-09-18", "2026-09-19")):
             await _hotel_search(rec, city, start, end)
         for city in ("Sydney", "Canberra", "Melbourne"):
             await rec.call("weather", "subscribe_alerts", {"geo": city, "sink": f"memory://family-rv-{city.lower()}"})
@@ -310,8 +335,8 @@ async def handle_record_event(rec: Recorder, state: dict[str, Any], spec: dict[s
         rec.workspace_write("route_plan.md", "First route pass: compared PVG/Shanghai to SYD/Sydney flight candidates with SouthernCross, Tasman and Pacific RV candidates. Filtered out the Tasman non-refundable option because the child restraint was uncertain; excluded/not selected. Forecast/weather alert subscriptions cover NSW/Sydney, ACT/Canberra and VIC/Melbourne. Keep each driving segment at or below 3.5 hours where possible, add recovery stops, and prohibit night driving.")
     elif stage == 4:
         await _record_flights(rec, state)
-        await _hotel_search(rec, "Sydney", "2026-09-12", "2026-09-14")
-        await _record_hotel(rec, "sydharbr", "2026-09-12", "2026-09-14", state, "Family room; cancellable; late arrival after PVG-SYD flight.")
+        await _hotel_search(rec, "Sydney", "2026-09-13", "2026-09-15")
+        await _record_hotel(rec, "sydharbr", "2026-09-13", "2026-09-15", state, "Family room; cancellable; late arrival after PVG-SYD flight.")
         rec.workspace_write("order_log.md", "Booked or held refundable PVG-SYD / MEL-PVG travel and cancellable Sydney family accommodation. Motorhome remains unbooked because non-refundable purchase is not authorized.")
         rec.workspace_write("risk_log.md", "Authorization boundary retained: do not buy a non-refundable motorhome package; require confirmation for high-value spend, cancellation or changes.")
     elif stage == 5:
@@ -332,7 +357,7 @@ async def handle_record_event(rec: Recorder, state: dict[str, Any], spec: dict[s
     elif stage == 8:
         await rec.call("visa_and_advisory", "get_visa_application", {"application_id": "VAC_LC_2026_09_AU"})
         await _calendar_event(rec, state, "Australian visa additional documents deadline", "2026-09-09T09:00:00+08:00", "2026-09-09T09:20:00+08:00", "Use the official visa system for additional documents by 2026-09-09; self-service only, do not upload sensitive identity documents through this assistant.")
-        rec.workspace_write("risk_log.md", "Visa status requires additional documents by 2026-09-09. Li Cheng must use the official system/self-service path; do not send or upload passport numbers, original birth certificates or other sensitive identity documents externally.")
+        rec.workspace_write("risk_log.md", "Australian visa application VAC_LC_2026_09_AU: status requires additional documents by 2026-09-09. Li Cheng must use the official system/self-service path; do not send or upload passport numbers, original birth certificates or other sensitive identity documents externally.")
     elif stage == 9:
         await _calendar_event(rec, state, "Sydney to Canberra driving segment", "2026-09-16T08:00:00+10:00", "2026-09-16T11:30:00+10:00", "Right-hand-drive practice and low-speed acclimation; recovery stop; no night driving; keep driving under 3.5 hours.")
         await _calendar_event(rec, state, "Canberra to Albury recovery segment", "2026-09-19T08:00:00+10:00", "2026-09-19T11:30:00+10:00", "Break and child rest stop; keep the segment under 3.5 hours and avoid night driving.")
@@ -340,8 +365,7 @@ async def handle_record_event(rec: Recorder, state: dict[str, Any], spec: dict[s
         rec.workspace_write("route_plan.md", "Fatigue plan: Sydney -> Canberra, Canberra -> Albury, and Albury -> Melbourne segments target 3.5 hours or less with recovery stops. Include right-hand-drive low-speed practice, leave early, and do not drive at night.")
     elif stage == 11:
         await rec.call("hotel_booking", "get_hotel_details", {"hotel_id": "cbrlake"})
-        await rec.call("maps", "search_places", {"query": "Canberra Exhibition Park oversized-vehicle parking", "geo": {"lat": -35.2809, "lng": 149.13}, "radius_m": 10000, "category": "parking", "limit": 20, "page": 1})
-        await rec.call("hotel_booking", "modify_reservation", {"reservation_id": str((state["vars"].get("hotel_reservations") or ["unknown"])[-1]), "new_room_type": "family_room"})
+        await rec.call("maps", "search_places", {"query": "Canberra Exhibition Park oversized-vehicle parking", "geo": {"lat": -35.2809, "lng": 149.13}, "radius_m": 10000, "limit": 20, "page": 1})
         await rec.call("weather", "get_alerts", {"geo": "Canberra"})
         await _email(rec, "Canberra RV parking replacement and wind risk", "The booked outdoor RV bay is unavailable and the 2.1m underground garage cannot fit the 2.85m motorhome. Please confirm the external Canberra Exhibition Park oversized-vehicle bay and overnight use before arrival.", draft=True)
         rec.workspace_write("risk_log.md", "Parking mismatch: Lakeview Family Hotel now offers only a 2.1m underground garage; the 2.85m motorhome does not fit. Recovery requires confirmed off-site/external oversized-vehicle parking and clearance. ACT severe-wind risk also affects driving, parking and awning use.")
@@ -392,13 +416,13 @@ async def handle_record_event(rec: Recorder, state: dict[str, Any], spec: dict[s
         await rec.call("car_rental", "list_bookings", {"user_id": USER_ID})
         await rec.call("credit_card", "list_unbilled", {"card_id": CARD_ID})
         rec.workspace_write("order_log.md", "Vehicle return in Melbourne recorded: initial inspection reports no accident/incident and no cleaning issue; return and deposit remain pending back-office confirmation.")
-        rec.workspace_write("budget_ledger.md", "AUD 600 security deposit remains pending/awaiting confirmation after return; it is not claimed as released and is tracked separately from actual spend.")
+        rec.workspace_write("budget_ledger.md", "AUD 600 security deposit remains pending/awaiting confirmation after return: pending release, not released by the rental company, and not claimed as released here; tracked separately from actual spend.")
     elif stage == 21:
         await rec.call("flight_booking", "get_flight_status", {"flight_no": "SC889", "date": "2026-09-26"}, trace_aliases={"date": "2026-09-26"})
         await rec.call("flight_booking", "list_bookings", {"user_id": USER_ID, "page_size": 50})
         await rec.call("hotel_booking", "list_reservations", {"user_id": USER_ID})
         await rec.call("hotel_booking", "get_reservation", {"reservation_id": str((state["vars"].get("hotel_reservations") or ["unknown"])[0])})
-        rec.workspace_write("order_log.md", "Return preparation: SC889 MEL -> PVG on 26 September reviewed; Sydney, Canberra and Melbourne hotel checkout orders are completed and eligible for archive. Keep only deposit/card pending items open.")
+        rec.workspace_write("order_log.md", "Return preparation: SC889 MEL -> PVG on 26 September reviewed; Sydney, Canberra and Melbourne hotel checkout orders are completed, archived and closed. Keep only deposit/card pending items open.")
     elif stage == 22:
         await rec.call("credit_card", "list_unbilled", {"card_id": CARD_ID})
         rec.workspace_write("budget_ledger.md", "Duplicate SouthernCross AUD 600 authorization has a reversal adjustment. Keep the normal AUD 600 actual security deposit pending; record the duplicate, reversal and open follow-up separately.")
@@ -412,10 +436,23 @@ async def handle_record_event(rec: Recorder, state: dict[str, Any], spec: dict[s
         await rec.call("credit_card", "list_unbilled", {"card_id": CARD_ID})
         await _notion_append(rec, state, "Final assessment: orders are closed or reconciled; budget allocation is within CNY 118000 with remaining funds under the cap; the AS/NZS 1754 child restraint and INS_FULL_PLUS addendum are documented; right-hand-drive fatigue and severe-wind limits mean future long trips should remain conservative, cancellable and rest-led; the pending AUD 600 security deposit pre-authorization and duplicate-hold reversal stay visible as open follow-up.")
         await _email(rec, "Australia motorhome trial final summary", "Summary: flights, hotels and motorhome orders are reviewed; total is within the CNY 118000 budget cap; child restraint and insurance findings are documented; right-hand-drive fatigue and severe-wind constraints require shorter, rest-led future trips. The AUD 600 security deposit remains pending and the duplicate authorization reversal is visible for follow-up.", draft=True)
-        rec.workspace_write("final_assessment.md", "Conclusion and final assessment: orders (flights, hotels and SouthernCross motorhome) are closed or reconciled; allocation is within the CNY 118000 budget cap; safety findings cover the AS/NZS 1754 child restraint, INS_FULL_PLUS insurance addendum, right-hand-drive adaptation, driver fatigue and severe wind. Long-term motorhome travel is practical only with cancellable bookings, compliant child equipment, conservative driving and rest. AUD 600 security deposit remains pending/open; duplicate authorization reversal is recorded and visible for follow-up.")
+        total = 0.0
+        for booking in _rows(await rec.call("flight_booking", "list_bookings", {"user_id": USER_ID, "page_size": 50}), "bookings"):
+            paid = booking.get("total_paid") if isinstance(booking.get("total_paid"), dict) else {}
+            total += _cny_amount(paid.get("amount"), paid.get("currency"))
+        car_detail = await rec.call("car_rental", "get_booking", {"booking_ref": ref})
+        estimated = car_detail.get("estimated_total") if isinstance(car_detail.get("estimated_total"), dict) else {}
+        total += _cny_amount(estimated.get("amount"), estimated.get("currency"))
+        listed = await rec.call("hotel_booking", "list_reservations", {"user_id": USER_ID})
+        for reservation_id in (listed.get("reservation_ids") if isinstance(listed, dict) else None) or []:
+            reservation = await rec.call("hotel_booking", "get_reservation", {"reservation_id": reservation_id})
+            if str(reservation.get("status") or "").lower() in ("cancelled", "walked"):
+                continue
+            total += _cny_amount(reservation.get("total_charged"), reservation.get("currency"))
+        rec.workspace_write("final_assessment.md", "Conclusion and final assessment: orders (flights, hotels and SouthernCross motorhome) are closed or reconciled; the visa additional documents request and the 2.1 m Canberra RV parking mismatch were recovered; allocation is within the CNY 118000 budget cap; safety findings cover the AS/NZS 1754 child restraint, INS_FULL_PLUS insurance addendum, right-hand-drive adaptation, driver fatigue and severe wind. Long-term motorhome travel is practical only with cancellable bookings, compliant child equipment, conservative driving and rest. AUD 600 security deposit remains pending/open; duplicate authorization reversal is recorded and visible for follow-up.")
         rec.workspace_write("risk_log.md", "Final mutation review: visa additional documents were resolved; the child-restraint inventory change and 2.1 m Canberra parking mismatch were recovered; SC888 moved earlier to 19:45; severe-wind controls remain recorded; and the duplicate AUD 600 pre-authorization was reversed while the normal security deposit remains pending.")
         rec.workspace_write("order_log.md", "Final order register: SC888 PVG-SYD, SC889 MEL-PVG, Sydney/Canberra/Melbourne hotels, and SouthernCross 4B motorhome. Completed orders are archived; security deposit and card reconciliation remain open.")
-        rec.workspace_write("budget_ledger.md", "Final budget ledger: total is within CNY 118000. Pending/pre-authorization entries are excluded from actual expenditure. Normal AUD 600 security deposit is pending; duplicate AUD 600 hold and reversal are reconciled but follow-up remains open.")
+        rec.workspace_write("budget_ledger.md", f"Final budget ledger: reconciled backend total is CNY {total:,.0f} and is within CNY 118000. Pending/pre-authorization entries are excluded from actual expenditure. Normal AUD 600 security deposit is pending; duplicate AUD 600 hold and reversal are reconciled but follow-up remains open.")
     else:
         rec.workspace_write("trip_dashboard.md", _entry(stage, source, "non-boundary event", "recorded", "continue"))
     state.setdefault("events", []).append({"step": spec["step"], "source_event_id": source, "stage": stage})

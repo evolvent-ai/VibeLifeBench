@@ -82,10 +82,18 @@ def call_tool(env: Any, server: str, tool: str, **kwargs: Any) -> Any:
             value = data.get("shipments")
         elif tool == "get_shipment":
             wanted = str(kwargs.get("shipment_id") or "")
-            value = next(
-                (row for row in _rows(data.get("shipments"), "items") if str(row.get("shipment_id")) == wanted),
-                {},
-            )
+            # Full records (declared_value_minor, subscriptions) live only in the
+            # captured shipment_details; the list_shipments summary rows lack
+            # both, so they remain only as a fallback for non-batch ids.
+            details = data.get("shipment_details")
+            entry = details.get(wanted) if isinstance(details, dict) else None
+            if isinstance(entry, dict) and "error" not in entry:
+                value = entry
+            else:
+                value = next(
+                    (row for row in _rows(data.get("shipments"), "items") if str(row.get("shipment_id")) == wanted),
+                    {},
+                )
         elif tool == "list_issues":
             value = data.get("issues")
         else:
@@ -745,6 +753,11 @@ def packet_ready(env: Any) -> bool:
 def packet_covers_backend(env: Any) -> bool:
     if not packet_ready(env):
         return False
+    # Fail closed: an empty/missing declared-value map must drop the packet, not
+    # vacuously satisfy it via an all() over zero items.
+    values = batch_declared_values(env)
+    if set(values) != set(BATCH_TRACKING_NUMBERS):
+        return False
     if not all(
         artifact_has_amount_record(
             env,
@@ -752,7 +765,7 @@ def packet_covers_backend(env: Any) -> bool:
             amount,
             [[tracking_no], ["shipment", "logistics", "signatory", "quality"]],
         )
-        for tracking_no, amount in batch_declared_values(env).items()
+        for tracking_no, amount in values.items()
     ):
         return False
     if not reconciliation_covers_supplier_payments(env):

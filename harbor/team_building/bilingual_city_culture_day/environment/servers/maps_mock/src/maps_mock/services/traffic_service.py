@@ -79,6 +79,10 @@ class TrafficService:
                 "event_id": ev["event_id"],
                 "kind": ev["kind"],
                 "road_name": road["name"],
+                # Carry the advisory text so route consumers can surface the
+                # actual guidance (e.g. an accessible detour), not just the
+                # kind + road label.
+                "note": ev["note"],
             })
         return mult, incidents
 

@@ -455,11 +455,17 @@ def durable_text(env) -> str:
 
 def calls_named(env, needle: str, stage_min: int | None = None, stage_max: int | None = None) -> list[tuple[int, dict[str, Any]]]:
     out: list[tuple[int, dict[str, Any]]] = []
+    # Scan only up to the stage under verification. Later stages are not
+    # frozen yet at a mid-run stage boundary, and reading their evidence
+    # raises EvidenceError — a verifier crash, not a judgement. At the final
+    # recomputation current_stage is the last stage, so the full history is
+    # still scanned there.
+    top = stage_max if stage_max is not None else _current_stage(env)
     for stage in range(STAGE_COUNT):
         if stage_min is not None and stage < stage_min:
             continue
-        if stage_max is not None and stage > stage_max:
-            continue
+        if stage > top:
+            break
         for call in trace_calls(env, stage):
             if needle in _tool_name(call):
                 out.append((stage, call))
@@ -848,16 +854,26 @@ def photo_authorization_ok(env) -> bool:
 def photo_authorization_after_closure_ok(env) -> bool:
  return executed_readiness_closure_ok(env) and final_notice_ok(env) and photo_authorization_ok(env) and photo_reservation_ok(env)
 
+def _tool_basename(name: str) -> str:
+    """Normalize a trace tool name to its bare tool id.
+
+    Accepts the canonical spellings a caller may emit — ``server__tool``,
+    ``mcp__server__tool``, or a bare ``tool`` — so the weather-gate ordering
+    check below matches the tool that ran rather than one naming convention.
+    """
+    return re.sub(r"^(?:mcp__)?(?:[a-z0-9_]+)__", "", str(name).lower())
+
+
 def no_premature_irreversible(env) -> bool:
     weather_trace = stage_trace(env, 21)["tool_calls"]
     weather_calls = {
-        suffix: any(
-            _tool_name(call).endswith(suffix)
+        tool: any(
+            _tool_basename(_tool_name(call)) == tool
             and call.get("success") is True
             and not call.get("error")
             for call in weather_trace
         )
-        for suffix in ("__get_forecast_daily", "__get_alerts")
+        for tool in ("get_forecast_daily", "get_alerts")
     }
     if not all(weather_calls.values()):
         return False

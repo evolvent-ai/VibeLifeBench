@@ -25,6 +25,7 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import threading
 from pathlib import Path
 from typing import Any
 
@@ -32,6 +33,8 @@ from typing import Any
 # (present when the verifier shares the main service); the evidence copy is the
 # collected snapshot used for offline replay.
 DEFAULT_WORKSPACE_ROOT = Path(os.environ.get("HARBOR_WORKSPACE_ROOT", "/workspace"))
+
+CALL_TIMEOUT_SEC = float(os.environ.get("HARBOR_MCP_CALL_TIMEOUT", "120"))
 
 
 def _service_host(server: str) -> str:
@@ -62,27 +65,108 @@ def _unwrap_mcp(result: Any) -> Any:
     return result
 
 
+class _McpLoop:
+    """One process-wide background event loop for all capabilities.
+
+    A stage snapshot issues hundreds of sequential MCP reads. Opening a fresh
+    streamable-HTTP connection (TCP + initialize handshake) per read made the
+    snapshot command overrun its collect timeout, so the sessions are kept
+    alive instead. Calls from any thread are marshalled onto this loop.
+    """
+
+    _instance: "_McpLoop | None" = None
+    _lock = threading.Lock()
+
+    @classmethod
+    def instance(cls) -> "_McpLoop":
+        with cls._lock:
+            if cls._instance is None:
+                cls._instance = cls()
+            return cls._instance
+
+    def __init__(self) -> None:
+        self._loop = asyncio.new_event_loop()
+        self._thread = threading.Thread(
+            target=self._loop.run_forever, name="mcp-capture-loop", daemon=True
+        )
+        self._thread.start()
+
+    def run(self, coroutine: Any) -> Any:
+        future = asyncio.run_coroutine_threadsafe(coroutine, self._loop)
+        return future.result(timeout=CALL_TIMEOUT_SEC)
+
+
 class _McpCapability:
-    """Read-side MCP capability used during trusted collection."""
+    """Read-side MCP capability used during trusted collection.
+
+    One ``ClientSession`` per server is opened lazily and reused for every
+    read in the process. If a call fails (idle session expiry, service
+    restart), the session is rebuilt once and the call retried before the
+    error propagates.
+    """
 
     def __init__(self, server: str) -> None:
         self.server = server
         host = os.environ.get(f"MCP_HOST_{server.upper()}", _service_host(server))
         port = os.environ.get("MCP_PORT", "8000")
         self.url = f"http://{host}:{port}/mcp"
+        self._session: Any = None
+        self._client_context: Any = None
+        self._session_context: Any = None
+        # Serialises session setup on the shared capture loop; requests on an
+        # already-initialised session are multiplexed by the MCP client.
+        self._session_lock: asyncio.Lock | None = None
 
-    async def _call_async(self, name: str, **kwargs: Any) -> Any:
+    async def _ensure_session(self) -> Any:
+        if self._session_lock is None:
+            self._session_lock = asyncio.Lock()
+        async with self._session_lock:
+            return await self._ensure_session_locked()
+
+    async def _ensure_session_locked(self) -> Any:
+        if self._session is not None:
+            return self._session
         from mcp import ClientSession
         from mcp.client.streamable_http import streamablehttp_client
 
-        async with streamablehttp_client(self.url) as (read, write, _meta):
-            async with ClientSession(read, write) as session:
-                await session.initialize()
+        self._client_context = streamablehttp_client(self.url)
+        read, write, _meta = await self._client_context.__aenter__()
+        self._session_context = ClientSession(read, write)
+        self._session = await self._session_context.__aenter__()
+        await self._session.initialize()
+        return self._session
+
+    async def _close_session(self) -> None:
+        session, session_context, client_context = (
+            self._session,
+            self._session_context,
+            self._client_context,
+        )
+        self._session = None
+        self._session_context = None
+        self._client_context = None
+        for context, enter in ((session_context, False), (client_context, False)):
+            if context is None:
+                continue
+            try:
+                await context.__aexit__(None, None, None)
+            except BaseException:  # noqa: BLE001 - teardown must not mask the call error
+                pass
+
+    async def _call_async(self, name: str, kwargs: dict[str, Any]) -> Any:
+        last_error: BaseException | None = None
+        for attempt in range(2):
+            try:
+                session = await self._ensure_session()
                 result = await session.call_tool(name, kwargs)
-        return _unwrap_mcp(result)
+                return _unwrap_mcp(result)
+            except BaseException as exc:  # noqa: BLE001 - retry once with a fresh session
+                last_error = exc
+                await self._close_session()
+        raise last_error  # type: ignore[misc]
 
     def call_tool(self, name: str, **kwargs: Any) -> Any:
-        return asyncio.run(self._call_async(name, **kwargs))
+        return _McpLoop.instance().run(self._call_async(name, kwargs))
 
 
 class _Fs:

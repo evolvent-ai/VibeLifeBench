@@ -200,7 +200,7 @@ def _write(name: str, text: str) -> None:
 
 def _write_workspace(stage: int, state: dict[str, Any]) -> None:
     """Rewrite the durable ledgers from current facts after each event."""
-    cart = state.get("cart_total", "20900")
+    cart = state.get("cart_total", "14630")
     tracker = f"""# Order and workstream tracker
 Reference IDs: ord_strr_0001, ord_strr_0002, lst_strr_0001.
 Shipment references: SF6693520001CN and ZTOSTRR5520002CN. Card reference suffix: 6693.
@@ -254,7 +254,7 @@ Confirmed references: SF6693520001CN, ZTOSTRR5520002CN, card suffix 6693, and or
     if stage >= 6:
         decision += "Card line: foreign currency posting and exchange rate require reconciliation before a conclusion.\n"
     if stage >= 8:
-        decision += "Cart line: selected bsk_strr_a3, bsk_strr_b2, bsk_strr_c3 and FULL209_strr; cart total is 20900, not an order.\n"
+        decision += "Cart line: selected bsk_strr_a2, bsk_strr_b2, bsk_strr_c2 with coupons FULL209_strr, FULL249_strr, and PCT10_strr; cart total is 14630, not an order.\n"
     if stage >= 9:
         decision += "Return line: rejected status triggers additional evidence and platform escalation review.\n"
     if stage >= 10:
@@ -300,7 +300,7 @@ Stroller safety choices: free recall replacement (0), brake reinforcement (120),
     if stage >= 6:
         budget += "BABYJOGGER US foreign currency purchase: 25800 minor units (258); pending posting and exchange-rate reconciliation are recorded.\n"
     if stage >= 8:
-        budget += f"Cart plan: bsk_strr_a3 + bsk_strr_b2 + bsk_strr_c3 subtotal 23900; FULL209_strr discount 3000; final total {cart} minor units (209.00). No order placed.\n"
+        budget += f"Cart plan: bsk_strr_a2 + bsk_strr_b2 + bsk_strr_c2 subtotal 25700; stacked discounts FULL209_strr 3000, FULL249_strr 5500, and PCT10_strr 2570; final total {cart} minor units (146.30). No order placed.\n"
     if stage >= 11:
         budget += "Trade-in proceeds estimate: 1500; secondhand listing price: 1500 before platform settlement.\n"
     if stage >= 13:
@@ -347,7 +347,7 @@ Resale line: compare official trade-in with secondhand platform escrow by delive
     if stage >= 2:
         gear += "Safety options: recall replacement is free; brake reinforcement costs 120; return route is estimated at 600. Nearby or onsite work is most convenient but still awaits authorization.\n"
     if stage >= 8:
-        gear += "Selected cart: bsk_strr_a3, bsk_strr_b2, bsk_strr_c3. Coupon FULL209_strr is applied after checking all eligible combinations; lowest total is 20900.\n"
+        gear += "Selected cart: bsk_strr_a2, bsk_strr_b2, bsk_strr_c2. Coupons FULL209_strr, FULL249_strr, and PCT10_strr are applied after checking all eligible combinations; lowest total is 14630.\n"
     if stage >= 11:
         gear += "Updated resale judgment: the 1500 trade-in estimate is below the protected secondhand route; keep the listing active until the authorized sale.\n"
     if stage >= 16:
@@ -436,17 +436,32 @@ async def handle_record_event(recorder: Recorder, state: dict[str, Any], spec: d
         await recorder.call("listing_platform", "get_listing", {"listing_id": "lst_strr_0001"})
         await recorder.call("listing_platform", "get_listing_detail", {"listing_id": "lst_strr_0001"})
     elif stage == 8:
-        for product_id in ("bnd_strr_a3", "bnd_strr_b2", "bnd_strr_c3"):
+        for product_id in ("bnd_strr_a2", "bnd_strr_b2", "bnd_strr_c2"):
             await recorder.call("ecommerce", "get_product", {"product_id": product_id})
         cart = await recorder.call("ecommerce", "get_cart", {"user_id": "usr_yan_ting"})
+        # Normalize the cart to the stacked-optimal plan from any starting
+        # state: drop foreign lines and coupons, then add the missing plan
+        # SKUs and apply every qualifying coupon.
+        plan_skus = {"bsk_strr_a2", "bsk_strr_b2", "bsk_strr_c2"}
+        plan_coupons = {"FULL209_strr", "FULL249_strr", "PCT10_strr"}
+        for row in _rows(cart):
+            if str(row.get("sku_id")) not in plan_skus:
+                cart = await recorder.call("ecommerce", "remove_from_cart", {"user_id": "usr_yan_ting", "cart_item_id": row.get("cart_item_id")})
+        for code in [str(row.get("code")) for row in (cart.get("applied_coupons", []) if isinstance(cart, dict) else [])]:
+            if code not in plan_coupons:
+                cart = await recorder.call("ecommerce", "remove_coupon", {"user_id": "usr_yan_ting", "code": code})
+        cart = await recorder.call("ecommerce", "get_cart", {"user_id": "usr_yan_ting"})
         present = {str(row.get("sku_id")) for row in _rows(cart)}
-        for product_id, sku_id in (("bnd_strr_a3", "bsk_strr_a3"), ("bnd_strr_b2", "bsk_strr_b2"), ("bnd_strr_c3", "bsk_strr_c3")):
+        for product_id, sku_id in (("bnd_strr_a2", "bsk_strr_a2"), ("bnd_strr_b2", "bsk_strr_b2"), ("bnd_strr_c2", "bsk_strr_c2")):
             if sku_id not in present:
                 cart = await recorder.call("ecommerce", "add_to_cart", {"user_id": "usr_yan_ting", "product_id": product_id, "sku_id": sku_id, "qty": 1})
                 present.add(sku_id)
         codes = {str(row.get("code")) for row in (cart.get("applied_coupons", []) if isinstance(cart, dict) else [])}
-        if "FULL209_strr" not in codes:
-            cart = await recorder.call("ecommerce", "apply_coupon", {"user_id": "usr_yan_ting", "code": "FULL209_strr"})
+        for code in sorted(plan_coupons):
+            if code not in codes:
+                cart = await recorder.call("ecommerce", "apply_coupon", {"user_id": "usr_yan_ting", "code": code})
+                codes.add(code)
+        cart = await recorder.call("ecommerce", "get_cart", {"user_id": "usr_yan_ting"})
         if isinstance(cart, dict) and cart.get("total_minor") is not None:
             state["cart_total"] = int(cart["total_minor"])
     elif stage == 9:

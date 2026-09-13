@@ -314,7 +314,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "fastmcp", specifier = ">=2.10.5" },
-    { name = "mcp", extras = ["cli"], specifier = ">=1.11.0" },
+    { name = "mcp", extras = ["cli"], specifier = ">=1.11.0,<2.0.0" },
     { name = "typing-extensions", specifier = ">=4.9.0" },
 ]
 

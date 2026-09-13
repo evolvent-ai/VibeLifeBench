@@ -1,0 +1,38 @@
+{
+  "step": "event-019",
+  "stage": 15,
+  "virtual_stage": 15,
+  "source_event_id": "H15_weather_alert",
+  "scenario_time": "2026-07-02T09:40:00+08:00",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Stage 15 handover evidence was checked in the formal systems and recorded with all unresolved items and authorization boundaries preserved.",
+  "response_paraphrase": "The formal records for handover stage 15 were reviewed and written back; outstanding defects, funds and approvals remain explicitly tracked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "H15_weather_alert"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s15_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s15_result",
+      "weight": 3.0,
+      "expected": true
+    },
+    {
+      "check_id": "s15_weather",
+      "weight": 2.5,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 6.0
+}

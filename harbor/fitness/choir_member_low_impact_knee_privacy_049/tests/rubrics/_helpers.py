@@ -2470,7 +2470,17 @@ def _call(env, server: str, tool: str, **kwargs: Any) -> Any:
                 folder = "inbox"
             return section.get("sent" if folder == "sent" else "inbox", {})
         if tool == "read_email":
-            return section.get("sent", {})
+            # Frozen folders are {listing, details} envelopes; resolve the
+            # requested message from the frozen detail rows by email_id.
+            email_id = str(kwargs.get("email_id", ""))
+            for key in ("inbox", "sent"):
+                folder_data = section.get(key)
+                if not isinstance(folder_data, dict):
+                    continue
+                for detail in folder_data.get("details") or []:
+                    if isinstance(detail, dict) and str(detail.get("email_id") or "") == email_id:
+                        return detail
+            return {}
     if server == "notion":
         if tool in {"API-post-search", "api_post_search"}:
             return section.get("pages", [])
@@ -2611,11 +2621,16 @@ def _tool_args_text(env, stage: int | None = None, server: str | None = None, to
 def _email_folder_text(env, folder: str) -> str:
     data = _call(env, "email", "get_emails", folder=folder, page_size=80)
     chunks = [_flatten(data)]
+    # Frozen folders are {listing, details} envelopes; the listing rows live one
+    # level down, so unwrap before looking for per-message rows.
+    listing = data
+    if isinstance(data, dict) and isinstance(data.get("listing"), dict):
+        listing = data["listing"]
     items = []
-    if isinstance(data, dict):
-        items = data.get("emails") or data.get("messages") or data.get("items") or []
-    elif isinstance(data, list):
-        items = data
+    if isinstance(listing, dict):
+        items = listing.get("emails") or listing.get("messages") or listing.get("items") or []
+    elif isinstance(listing, list):
+        items = listing
     for item in items[:100]:
         email_id = item.get("email_id") or item.get("id") if isinstance(item, dict) else None
         if email_id is not None:
@@ -2706,13 +2721,30 @@ def _backend_server_text(env, server: str) -> str:
     return reader(env).lower()
 
 
+def _frozen_stages(env) -> set[int]:
+    """Stages whose sidecar evidence is actually published.
+
+    Window and tool-group rules name absolute stages (e.g. (0, 1, 2)); while a
+    run is still mid-flight some of those stages have no frozen sidecar yet, and
+    probing them raises EvidenceError — an infrastructure crash, not a verdict.
+    Clamping to the published set keeps the window semantics (every frozen stage
+    in the window is still probed) while never reading evidence that cannot
+    exist yet.
+    """
+    reader = getattr(env, "published_stages", None)
+    stages = reader() if callable(reader) else []
+    return {int(stage) for stage in stages}
+
+
 def _required_tool_group_ok(env, alternatives: list[dict[str, Any]], default_stage: int | None) -> bool:
+    frozen = _frozen_stages(env)
     for requirement in alternatives:
         server = requirement.get("server")
         tool = requirement.get("tool")
         stages = requirement.get("stages")
         if stages is None:
             stages = [default_stage] if default_stage is not None else _available_stages(env)
+        stages = [int(stage) for stage in stages if int(stage) in frozen]
         if any(_used_tool(env, server, tool, stage=int(stage)) for stage in stages):
             return True
     return False
@@ -2825,7 +2857,8 @@ RELAXED_TOOL_WINDOWS = {
 
 
 def _used_server_in_any_stage(env, server: str, stages: tuple[int, ...]) -> bool:
-    return any(_used_server(env, server, stage=stage) for stage in stages)
+    frozen = _frozen_stages(env)
+    return any(_used_server(env, server, stage=stage) for stage in stages if stage in frozen)
 
 
 def _tool_window_ok(env, rule: dict[str, dict[str, tuple[int, ...]]]) -> bool:

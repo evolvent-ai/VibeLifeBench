@@ -456,6 +456,8 @@ def _load_release_config() -> tuple[
                 raise ValueError(f"update has no set in {release_id}")
             if op in {"update", "delete"} and not isinstance(operation.get("where"), dict):
                 raise ValueError(f"{op} has no where in {release_id}")
+            if "allow_missing" in operation and not isinstance(operation["allow_missing"], bool):
+                raise ValueError(f"invalid allow_missing flag in {release_id}")
             if op not in {"insert", "update", "delete"}:
                 raise ValueError(f"unsupported release operation: {op}")
             for key in (operation.get("values", {}) or {}):
@@ -554,9 +556,15 @@ def apply_operation(
             [values[column] for column in values] + where_values,
         )
         if cursor.rowcount != 1:
-            raise RuntimeError(
-                f"update expected one row in {operation['table']}, got {cursor.rowcount}"
-            )
+            # A fixture may target a row the agent only conditionally creates
+            # (e.g. an order the user never places). Opt in with
+            # "allow_missing": true so zero matched rows is an accepted no-op;
+            # anything else — including an unexpected multi-row match — stays
+            # fail-loud.
+            if not (bool(operation.get("allow_missing")) and cursor.rowcount == 0):
+                raise RuntimeError(
+                    f"update expected one row in {operation['table']}, got {cursor.rowcount}"
+                )
         return {"op": op, "table": operation["table"], "rowcount": cursor.rowcount}
     if op == "delete":
         predicate, where_values = _predicate(dict(operation["where"]))

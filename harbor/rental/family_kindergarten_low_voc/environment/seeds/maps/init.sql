@@ -70,10 +70,10 @@ INSERT INTO roads(road_id,name,city,geom_json) VALUES
 ('road_changhe_school','School Section of Changhe Road','Hangzhou','[[30.1982,120.2077],[30.2050,120.2150]]'),
 ('road_xixing_bridge','Underpass beneath Xixing Road Bridge','Hangzhou','[[30.1889,120.2114],[30.1938,120.2160]]');
 INSERT INTO transit_stops(stop_id,name,lat,lng,city) VALUES
-('stop_library','Tai''an Road Library','30.2085,120.2056,'Hangzhou'),
-('stop_jiangnan_market','Jiangnan Market','30.2057,120.2242,'Hangzhou'),
-('stop_changhe_metro','Changhe Metro Station Exit C','30.2014,120.2064,'Hangzhou'),
-('stop_xixing_metro','Xixing Metro Station Exit D','30.1908,120.2145,'Hangzhou');
+('stop_library','Tai''an Road Library',30.2085,120.2056,'Hangzhou'),
+('stop_jiangnan_market','Jiangnan Market',30.2057,120.2242,'Hangzhou'),
+('stop_changhe_metro','Changhe Metro Station Exit C',30.2014,120.2064,'Hangzhou'),
+('stop_xixing_metro','Xixing Metro Station Exit D',30.1908,120.2145,'Hangzhou');
 INSERT INTO transit_lines(line_id,name,mode,operator,segment_minutes_json) VALUES
 ('line_bus_1505','1505 Community Bus','bus','Hangzhou Public Transit','[6,9,7]'),
 ('line_walk_greenway','Binjiang Riverside Shuttle Line','bus','Binjiang Community Transit','[12,14,11]');

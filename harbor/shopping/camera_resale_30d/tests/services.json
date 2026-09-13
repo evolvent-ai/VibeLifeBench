@@ -1,10 +1,12 @@
 {
   "mcp_servers": [
-    "job_board",
-    "email",
     "calendar",
-    "legal_search",
-    "notion",
-    "notification_hub"
+    "credit_card",
+    "delivery_logistics",
+    "ecommerce",
+    "email",
+    "listing_platform",
+    "notification_hub",
+    "weather"
   ]
 }

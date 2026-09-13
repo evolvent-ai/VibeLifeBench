@@ -8,6 +8,11 @@ COPY world-controller/step-release-map.json /opt/world-controller/step-release-m
 COPY world-controller/releases /opt/world-controller/releases
 COPY evidence-collector/harbor_env.py /opt/world-controller/capture/harbor_env.py
 COPY evidence-collector/snapshot_capture.py /opt/world-controller/capture/snapshot_capture.py
+# Pristine copies of the seeded workspace. Baseline-named files stay excluded
+# from the frozen evidence only while they match these seeds; once the agent
+# rewrites one (ARTIFACT_CONTRACT.md makes BUDGET_LEDGER.md a maintained
+# deliverable) the modified content must be captured instead.
+COPY workspace/ /opt/workspace-baseline/
 RUN chmod +x /opt/world-controller/snapshot \
     && mkdir -p \
         /evidence \

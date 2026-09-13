@@ -70,7 +70,8 @@ def _event_created(env) -> bool:
     for event in calendar_events(env):
         description = str(event.get("description") or "").lower()
         summary = str(event.get("summary") or "").lower()
-        if "Meituan" in summary and "interview" in summary and "job_gk_0001" in description and app_id in description:
+        # summary is lowercased above; match the lowered needle or the branch is dead.
+        if "meituan" in summary and "interview" in summary and "job_gk_0001" in description and app_id in description:
             return True
     return False
 
@@ -165,7 +166,10 @@ def final_reemploy_outcome_recorded(env) -> bool:
     if not all(value.lower() in record for value in required):
         return False
     return text_has(record, [
-        ["formal Meituan offer", "formal Meituan offer"], ["non-binding terms"], ["lean towardMeituan"],
+        ["formal Meituan offer", "formal Meituan offer"], ["non-binding terms"],
+        # Same whitespace normalization as stage_21: the no-space concatenation
+        # was only ever satisfied by the oracle's own literal.
+        ["lean towardMeituan", "lean toward meituan", "lean towards meituan"],
         ["decision", "decision"], ["status"], ["follow-up", "offer"],
     ])
 

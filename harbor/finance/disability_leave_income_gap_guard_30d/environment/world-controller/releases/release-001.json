@@ -13,7 +13,7 @@
       "table": "messages",
       "op": "insert",
       "values": {
-        "folder_id": 2,
+        "folder_id": 1,
         "message_id": "<claim-received-8472@harborbenefits.example>",
         "subject": "Claim 8472 received; estimate not yet payable",
         "from_addr": "claims@harborbenefits.example",

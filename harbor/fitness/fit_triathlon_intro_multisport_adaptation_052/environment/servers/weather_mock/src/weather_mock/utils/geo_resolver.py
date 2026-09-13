@@ -57,7 +57,22 @@ def resolve_geo(
     seeded. Raises InvalidGeo on bad input shape.
     """
     by_key = {row["geo_key"]: row for row in locations}
-    by_city = {row["city"].lower(): row for row in locations}
+    by_city: dict[str, dict] = {}
+    for row in locations:
+        city_key = str(row.get("city") or "").lower()
+        current = by_city.get(city_key)
+        # Several districts can share one city name; the canonical
+        # ``kind='city'`` row (e.g. hangzhou_westlake_training) must win over
+        # district rows that merely sort later by geo_key, instead of being
+        # silently shadowed by the last row in the list.
+        if (
+            current is None
+            or (
+                str(row.get("kind") or "").lower() == "city"
+                and str(current.get("kind") or "").lower() != "city"
+            )
+        ):
+            by_city[city_key] = row
 
     if isinstance(geo, str):
         needle = geo.strip().lower()

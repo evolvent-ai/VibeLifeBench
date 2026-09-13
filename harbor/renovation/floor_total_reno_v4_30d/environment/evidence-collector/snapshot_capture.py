@@ -393,6 +393,7 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             "acceptance_order": _call(env, "ecommerce", "get_order", order_id="ord_qflr_0002"),
             "products": _call(env, "ecommerce", "search_products", query="bathroom", limit=500),
             "addresses": _call(env, "ecommerce", "list_addresses", user_id=USER_ID),
+            "cart": _call(env, "ecommerce", "get_cart", user_id=USER_ID),
         },
         "delivery_logistics": {
             "shipments": _call(env, "delivery_logistics", "list_shipments", user_id=USER_ID, limit=500),

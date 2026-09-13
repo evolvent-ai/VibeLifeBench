@@ -13,7 +13,7 @@
       "table": "messages",
       "op": "insert",
       "values": {
-        "id": 107,
+        "id": 17001,
         "folder_id": 1,
         "message_id": "<20260713-probe@meituan.com>",
         "subject": "detailsfollow-up：background information",

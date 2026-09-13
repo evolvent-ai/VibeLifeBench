@@ -7,17 +7,34 @@ from ._helpers import _amount_in_text, _any, _agent_used_tool, _successful_tool_
 def _searched_hotel_rows(env) -> list[dict]:
     rows: list[dict] = []
     for result in _successful_tool_results(env, "hotel_booking", "search_hotels", stage=2):
-        candidates = result if isinstance(result, list) else (result.get("results") or result.get("hotels") or []) if isinstance(result, dict) else []
+        # The live mock returns {"items": [...]}; accept either key so the
+        # check does not depend on an alias only the reference solution injects.
+        if isinstance(result, list):
+            candidates = result
+        elif isinstance(result, dict):
+            candidates = result.get("results") or result.get("hotels") or result.get("items") or []
+        else:
+            candidates = []
         rows.extend(row for row in candidates if isinstance(row, dict))
     return rows
 
 
 def _hotel_result(rows: list[dict], hotel_ids: set[str], names: list[str]) -> dict | None:
+    """Pick the searched row by id, else by the most specific name phrase.
+
+    Name aliases are prefixes of one another ("roppongi" vs "roppongi
+    business hotel"), so a loose substring match can land on a decoy row
+    (e.g. "Roppongi Capsule Inn"); the longest matching phrase wins.
+    """
+    best: tuple[int, dict] | None = None
     for row in rows:
         blob = f"{row.get('hotel_id') or ''} {row.get('name') or ''}".lower()
-        if str(row.get("hotel_id") or "") in hotel_ids or _any(blob, names):
+        if str(row.get("hotel_id") or "") in hotel_ids:
             return row
-    return None
+        matched = max((len(str(w)) for w in names if str(w).lower() in blob), default=0)
+        if matched and (best is None or matched > best[0]):
+            best = (matched, row)
+    return best[1] if best else None
 
 
 def _comparison_rows(env) -> tuple[dict | None, dict | None]:

@@ -13,6 +13,17 @@ from ..utils.geo_resolver import resolve_geo
 from ..utils.world_clock import now_iso_z as _world_now_iso_z
 
 
+def _area_matches(loc: dict, areas: Any) -> bool:
+    """Alert areas may hold geo keys or city names; accept either form."""
+    keys = {str(loc.get("geo_key") or "").lower(), str(loc.get("city") or "").lower()}
+    if not isinstance(areas, list):
+        return False
+    return any(
+        isinstance(a, str) and a.strip().lower() in keys
+        for a in areas
+    )
+
+
 class AlertsService:
     """Read-through over the ``alerts`` table plus subscription writes.
 
@@ -47,7 +58,7 @@ class AlertsService:
         out: list[dict] = []
         for r in rows:
             areas = json.loads(r["areas_json"])
-            if loc["geo_key"] not in areas:
+            if not _area_matches(loc, areas):
                 continue
             out.append(
                 {
@@ -97,7 +108,7 @@ class AlertsService:
         for sub in subs:
             for alert in active_alerts:
                 areas = json.loads(alert["areas_json"])
-                if sub["geo_key"] not in areas:
+                if not _area_matches(sub, areas):
                     continue
                 prior = self.be.fetchone(
                     """SELECT id FROM notifications

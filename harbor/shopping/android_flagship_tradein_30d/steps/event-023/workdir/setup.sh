@@ -34,3 +34,7 @@ post_controller() {
 
 post_controller http://world-controller:8090/clock/event-023 \
   "X-Clock-Token: android_flagship_tradein_30d-clock-token"
+# release-009 (stage-15 rainstorm alert) lands on this step's boundary per
+# step-release-map.json, so it must be applied before the stage-15 snapshot.
+post_controller http://world-controller:8090/releases/release-009 \
+  "X-Release-Token: android_flagship_tradein_30d-release-009"

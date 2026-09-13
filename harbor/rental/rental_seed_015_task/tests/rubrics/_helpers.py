@@ -82,6 +82,7 @@ _TEXT_ALIASES = {
     "\u4e91\u5cb8\u91cc\u793e\u533a\u83dc\u573a": "Yunanli Community Market",
     "\u5357\u6eaa\u82d1\u90bb\u91cc\u8d85\u5e02": "South Creek Neighborhood Market",
     "\u6e05\u6f9c\u90bb\u91cc\u751f\u9c9c": "Clearwave Neighborhood Fresh Market",
+    "\u90bb\u91cc\u751f\u9c9c": "neighborhood fresh market",
     "\u660e\u6f84\u8def\u5c0f\u5b66": "Mingcheng Road Primary School",
     "\u6cb3\u897f\u5357\u6570\u5b57\u670d\u52a1\u4e2d\u5fc3": "Hexi South Digital Services Center",
     "\u6c5f\u4e1c\u5357\u8def\u7ed5\u884c\u63a5\u9a73\u70b9": "Jiangdong South Road detour transfer point",
@@ -122,6 +123,17 @@ _TEXT_ALIASES = {
     "\u5b69\u5b50": "child",
     "\u6750\u6599": "documents",
     "\u9ad8\u6e29": "heat",
+    # Seeded world text is Chinese-only and cannot be rewritten by the agent, so
+    # every English token a rubric asserts on that world text must be reachable
+    # through these aliases (reviews, notifications, calendar descriptions).
+    "\u65e9\u9ad8\u5cf0": "morning rush hour",
+    "\u5b66\u533a": "school district",
+    "\u8d39\u7528": "fees",
+    "\u5355\u5411\u7ba1\u5236": "one-way restriction",
+    "\u5b66\u6821\u5468\u8fb9\u65e9\u9ad8\u5cf0": "school-area rush-hour change",
+    "\u79df\u7ea6\u5230\u671f": "lease expiration",
+    "8 \u6708 7 \u65e5": "2026-08-07",
+    "7 \u6708 27 \u65e5": "2026-07-27",
 }
 
 _ROUTE_IDS = {
@@ -182,6 +194,11 @@ def _tool_calls(env, stage: int | None = None) -> list[dict[str, Any]]:
                 if row.get("success") is not True:
                     continue
                 merged = dict(row)
+                # The flat ATIF trace stores results as JSON-in-string (the
+                # orchestrator envelope branch decodes the same field via
+                # _as_obj). Dict-shaped consumers (e.g. _available_email_details)
+                # would otherwise silently drop every flat-trace result.
+                merged["result"] = _as_obj(row.get("result"))
                 merged["_stage"] = idx
                 calls.append(merged)
     return calls
@@ -294,6 +311,11 @@ def _rows(value: Any, *keys: str) -> list[dict[str, Any]]:
 
 
 def _call(env, server: str, tool: str, **kwargs: Any) -> Any:
+    # A frozen per-call projection (traffic) is only a fallback: an exact
+    # matching trace record is the more precise frozen evidence for a specific
+    # request, so the trace loop below runs first and `projection` is returned
+    # only when no trace call matches.
+    projection: Any = None
     state = harbor_snapshot(env, _current_stage(env)).get(server, {})
     if not isinstance(state, dict):
         raise RuntimeError(f"frozen snapshot has no {server} section")
@@ -311,10 +333,15 @@ def _call(env, server: str, tool: str, **kwargs: Any) -> Any:
             value = state.get("traffic")
             origin = str(kwargs.get("origin") or "")
             dest = str(kwargs.get("dest") or "")
-            if isinstance(value, dict) and {
-                _ROUTE_IDS.get(origin, origin), _ROUTE_IDS.get(dest, dest)
-            } <= {"place_b", "place_school"}:
-                return value
+            # The capture freezes exactly one traffic projection (the
+            # place_b -> place_school pair, in that direction). Serve it only
+            # as a fallback for that mapped pair — a matching trace call (e.g.
+            # the morning-chain legs recorded at their own depart_at) wins.
+            if isinstance(value, dict) and (
+                _ROUTE_IDS.get(origin, origin) == "place_b"
+                and _ROUTE_IDS.get(dest, dest) == "place_school"
+            ):
+                projection = value
     elif server == "calendar" and tool == "list_events":
         return state.get("events", [])
     elif server == "email":
@@ -370,7 +397,14 @@ def _call(env, server: str, tool: str, **kwargs: Any) -> Any:
         if meaningful and not all(_matches(value) for value in meaningful.values()):
             continue
         return _as_obj(call.get("result"))
-    raise RuntimeError(f"unsupported frozen projection: {server}.{tool}")
+    if projection is not None:
+        return projection
+    # No frozen projection and no matching trace call. Raising here would abort
+    # the whole verifier (every caller sits inside a checker), so return an empty
+    # envelope: the consuming predicate fails closed on the missing data instead
+    # of the run being unscoreable — which is exactly the honest outcome for a
+    # turn that never made the call.
+    return {}
 
 
 def listing_detail(env, listing_id: str) -> dict[str, Any]:
@@ -872,11 +906,27 @@ def sister_dates_backend_ready(env) -> bool:
     return all(any(date in _flat(row) and str(row.get("status") or "").lower() != "cancelled" for row in rows) for date in dates)
 
 
+def _event_dt(row: dict[str, Any], key: str) -> str:
+    """Event start/end as an ISO string, tolerant of both stored shapes.
+
+    The calendar mock projects ``{"start": {"dateTime": ...}}`` (services/_common.py
+    format_event) while some seeded rows carry flat ``start_dt``; reading the raw
+    value with ``str()`` turned the nested dict into ``"{'start': ...}"`` and made
+    every ``startswith(...)`` predicate constantly false.
+    """
+    value = row.get(f"{key}_dt")
+    if value is None:
+        value = row.get(key)
+    if isinstance(value, dict):
+        value = value.get("dateTime") or value.get("date") or ""
+    return str(value or "")
+
+
 def parent_meeting_retimed(env) -> bool:
     row = calendar_event("evt_mingcheng_parent_meeting", env)
     return (
-        str(row.get("start_dt") or row.get("start") or "").startswith("2026-07-31T17:40")
-        and str(row.get("end_dt") or row.get("end") or "").startswith("2026-07-31T18:20")
+        _event_dt(row, "start").startswith("2026-07-31T17:40")
+        and _event_dt(row, "end").startswith("2026-07-31T18:20")
         and str(row.get("status") or "").lower() in {"confirmed", "cancelled"}
     )
 
@@ -887,8 +937,8 @@ def parent_meeting_cancelled(env) -> bool:
 
 def h_travel_buffer_event(env) -> bool:
     for row in calendar_events(env):
-        start = str(row.get("start_dt") or row.get("start") or "")
-        end = str(row.get("end_dt") or row.get("end") or "")
+        start = _event_dt(row, "start")
+        end = _event_dt(row, "end")
         if not start.startswith("2026-07-31T18:05") or not end.startswith("2026-07-31T18:30"):
             continue
         if str(row.get("status") or "").lower() == "cancelled":
@@ -901,7 +951,7 @@ def h_travel_buffer_event(env) -> bool:
 def h_viewing_calendar_event(env) -> bool:
     matches = []
     for row in calendar_events(env):
-        start = str(row.get("start_dt") or row.get("start") or "")
+        start = _event_dt(row, "start")
         if not start.startswith("2026-07-31T18:30"):
             continue
         if str(row.get("status") or "").lower() in {"cancelled", "canceled"}:

@@ -21,13 +21,13 @@ The event timeline may activate you during quiet gaps with heartbeat or
 lightweight check-in events even when there is no disruption.
 
 Execute bookings against the ¥60,000 budget; persist state across stages in
-Notion / filesystem / calendar; proactively surface risks before Li Wei asks.
+Notion / workspace files / calendar; proactively surface risks before Li Wei asks.
 
 ---
 
-## Notion page — `Japan Trip 2026 — Journal`
+## Notion page — `Japan Trip Journal (2026-05)`
 
-A Notion page titled **`Japan Trip 2026 — Journal`** is pre-seeded at
+A Notion page titled **`Japan Trip Journal (2026-05)`** is pre-seeded at
 stage 0. Append structured blocks to this page throughout the run —
 **do not** call `API-create-a-database` (the Notion interface we expose
 does not allow creating new databases at task time, and attempts will
@@ -148,7 +148,8 @@ Example `HEARTBEAT.md`:
 - [ ] On any disruption — update Trip Journal + calendar within the same stage
 ```
 
-Write to the file with `filesystem.write_file` to `/workspace/HEARTBEAT.md`.
+Write to the file at `/workspace/HEARTBEAT.md` using your own file tools
+(there is no `filesystem` MCP server).
 On light stages, a short internal journal entry is enough if no item needs
 Li Wei's attention.
 
@@ -172,7 +173,7 @@ activation:
 6. Update HEARTBEAT.md: add new recurring checks, remove resolved items.
 7. Persist next-stage obligations in Notion, calendar, or HEARTBEAT.md.
 8. Hand back. Scratch state does not survive — persist anything you will need
-   next stage into filesystem, Notion, or HEARTBEAT.md.
+   next stage into workspace files, Notion, or HEARTBEAT.md.
 
 If you touched nothing in a light stage (no events, no disruption, no
 HEARTBEAT.md items applicable), a one-line journal entry confirming

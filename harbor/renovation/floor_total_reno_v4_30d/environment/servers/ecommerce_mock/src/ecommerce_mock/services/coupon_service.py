@@ -132,7 +132,19 @@ class CouponService:
         else:
             return {"error": f"unknown coupon kind {kind!r}", "code": "COUPON_INVALID"}
 
-        return {"discount_minor": int(discount), "kind": kind}
+        return {
+            "discount_minor": int(discount),
+            "kind": kind,
+            # Echo the coupon terms so cart views can carry the full record.
+            "value_bp_or_minor": int(coupon["value_bp_or_minor"]),
+            "min_spend_minor": int(coupon["min_spend_minor"]),
+            "valid_from": coupon["valid_from"],
+            "valid_until": coupon["valid_until"],
+            "category_restriction": coupon["category_restriction"],
+            "max_uses": int(coupon["max_uses"]),
+            "used_count": int(coupon["used_count"]),
+            "active": int(coupon["active"]),
+        }
 
     # ---------------- internals ----------------
     def _load_coupon(self, code: str) -> sqlite3.Row:

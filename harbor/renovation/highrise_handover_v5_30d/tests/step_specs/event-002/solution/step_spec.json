@@ -1,0 +1,38 @@
+{
+  "step": "event-002",
+  "stage": 1,
+  "virtual_stage": 1,
+  "source_event_id": "H01_site_calendar",
+  "scenario_time": "2026-06-15T14:20:00+08:00",
+  "stage_boundary": true,
+  "expected_env": {
+    "preceding_releases": [],
+    "released_mutations": []
+  },
+  "response": "Stage 1 handover evidence was checked in the formal systems and recorded with all unresolved items and authorization boundaries preserved.",
+  "response_paraphrase": "The formal records for handover stage 1 were reviewed and written back; outstanding defects, funds and approvals remain explicitly tracked.",
+  "actions": [
+    {
+      "kind": "record_event",
+      "source_event_id": "H01_site_calendar"
+    }
+  ],
+  "expected_checks": [
+    {
+      "check_id": "s1_servers",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s1_args",
+      "weight": 0.5,
+      "expected": true
+    },
+    {
+      "check_id": "s1_result",
+      "weight": 1.0,
+      "expected": true
+    }
+  ],
+  "expected_stage_weight": 2.0
+}

@@ -19,3 +19,5 @@ post_controller() {
 
 post_controller -X POST http://world-controller:8090/clock/event-002 \
   -H 'X-Clock-Token: bank-teller-dual-subject-cert-prep-clock-token'
+post_controller -X POST http://world-controller:8090/releases/release-000a \
+  -H 'X-Release-Token: fund-conversion-000a-clock-token-7d3a9e'

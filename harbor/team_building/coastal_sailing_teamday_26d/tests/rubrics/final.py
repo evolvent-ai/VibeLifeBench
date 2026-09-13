@@ -14,13 +14,17 @@ from ._helpers import (
     sailing_reservations_after_readiness_ok,
     shuttle_booking_ok,
     weather_backend_safe,
+    weather_clearance_rechecked_ok,
     workspace_business_complete,
 )
 
 
 def final_weather_safety(env) -> bool:
-    """Backend durable gate: weather get_forecast_daily/get_alerts plus workspace_file_text weather go/no-go."""
-    return weather_backend_safe(env)
+    """Backend durable gate: the official Haiwan forecast is green AND the
+    operator re-checked it with the weather tools after the clearance and
+    recorded the dated go decision. The backend clearing on its own (world
+    release) is not evidence the operator ever verified it."""
+    return weather_backend_safe(env) and weather_clearance_rechecked_ok(env)
 
 
 def final_insurance_gate(env) -> bool:

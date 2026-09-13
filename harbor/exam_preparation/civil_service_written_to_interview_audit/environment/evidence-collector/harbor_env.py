@@ -23,6 +23,7 @@ should fail loudly rather than silently score zero.
 from __future__ import annotations
 
 import asyncio
+import contextlib
 import json
 import os
 from pathlib import Path
@@ -70,19 +71,53 @@ class _McpCapability:
         host = os.environ.get(f"MCP_HOST_{server.upper()}", _service_host(server))
         port = os.environ.get("MCP_PORT", "8000")
         self.url = f"http://{host}:{port}/mcp"
+        self._loop: asyncio.AbstractEventLoop | None = None
+        self._stack: contextlib.AsyncExitStack | None = None
+        self._session: Any = None
 
-    async def _call_async(self, name: str, **kwargs: Any) -> Any:
+    async def _open_session(self) -> Any:
         from mcp import ClientSession
         from mcp.client.streamable_http import streamablehttp_client
 
-        async with streamablehttp_client(self.url) as (read, write, _meta):
-            async with ClientSession(read, write) as session:
-                await session.initialize()
-                result = await session.call_tool(name, kwargs)
+        stack = contextlib.AsyncExitStack()
+        read, write, _meta = await stack.enter_async_context(
+            streamablehttp_client(self.url)
+        )
+        session = await stack.enter_async_context(ClientSession(read, write))
+        await session.initialize()
+        self._stack = stack
+        return session
+
+    async def _close_session(self) -> None:
+        stack, self._stack = self._stack, None
+        self._session = None
+        if stack is not None:
+            with contextlib.suppress(Exception):
+                await stack.aclose()
+
+    async def _call_async(self, name: str, **kwargs: Any) -> Any:
+        if self._session is None:
+            self._session = await self._open_session()
+        try:
+            result = await self._session.call_tool(name, kwargs)
+        except BaseException:
+            # A poisoned transport would fail every later read; drop the
+            # session so the next call starts from a fresh handshake.
+            await self._close_session()
+            raise
         return _unwrap_mcp(result)
 
     def call_tool(self, name: str, **kwargs: Any) -> Any:
-        return asyncio.run(self._call_async(name, **kwargs))
+        """Reuse one initialized session per server across the capture.
+
+        The snapshot freezes dozens of reads per stage; paying a full
+        streamablehttp handshake on every call dominated the snapshot budget
+        and pushed the collect past its hook timeout. The session therefore
+        lives on a per-capability loop that survives between calls.
+        """
+        if self._loop is None or self._loop.is_closed():
+            self._loop = asyncio.new_event_loop()
+        return self._loop.run_until_complete(self._call_async(name, **kwargs))
 
 
 class _Fs:

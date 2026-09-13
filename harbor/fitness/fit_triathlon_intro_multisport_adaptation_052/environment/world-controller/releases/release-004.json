@@ -25,6 +25,19 @@
       "where": {
         "product_id": "prod_tri_race_belt_052"
       }
+    },
+    {
+      "server": "ecommerce",
+      "table": "orders",
+      "op": "update",
+      "allow_zero": true,
+      "set": {
+        "status": "shipped",
+        "tracking_no": "TRK-GLOVE-DELAY-0727"
+      },
+      "where": {
+        "status": "paid"
+      }
     }
   ]
 }

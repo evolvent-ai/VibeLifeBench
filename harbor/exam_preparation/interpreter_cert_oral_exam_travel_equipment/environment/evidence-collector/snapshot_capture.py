@@ -403,6 +403,7 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
         "health_tracker": {
             "sleep": _call(env, "health_tracker", "get_latest_metric", user_id=USER_ID, type="sleep_minutes"),
             "voice": _call(env, "health_tracker", "get_latest_metric", user_id=USER_ID, type="voice_strain"),
+            "sleep_history": _call(env, "health_tracker", "get_metrics", user_id=USER_ID, type="sleep_minutes", limit=300),
         },
         "hotel_booking": {
             "hotels": _call(

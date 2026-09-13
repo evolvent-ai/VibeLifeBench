@@ -25,6 +25,8 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import threading
+from concurrent.futures import TimeoutError as _FutureTimeout
 from pathlib import Path
 from typing import Any
 
@@ -63,26 +65,133 @@ def _unwrap_mcp(result: Any) -> Any:
 
 
 class _McpCapability:
-    """Read-side MCP capability used during trusted collection."""
+    """Read-side MCP capability used during trusted collection.
+
+    One stage snapshot issues hundreds of sequential tool calls against the
+    same servers. Opening a fresh streamable-http transport and session per
+    call costs three HTTP round trips each, which used to push the snapshot
+    collect hook past its timeout budget, so a single session per server is
+    opened on a private event-loop thread and shared by every call. A per-call
+    timeout plus one reconnect-and-retry keeps a wedged transport from hanging
+    the collect hook: a dead call surfaces as an error entry inside the
+    snapshot instead of an infrastructure timeout, and every captured tool is
+    a read, so the single retry cannot double-apply a mutation.
+    """
+
+    _CONNECT_TIMEOUT = float(os.environ.get("SNAPSHOT_MCP_CONNECT_TIMEOUT", "60"))
+    _CALL_TIMEOUT = float(os.environ.get("SNAPSHOT_MCP_CALL_TIMEOUT", "120"))
 
     def __init__(self, server: str) -> None:
         self.server = server
         host = os.environ.get(f"MCP_HOST_{server.upper()}", _service_host(server))
         port = os.environ.get("MCP_PORT", "8000")
         self.url = f"http://{host}:{port}/mcp"
+        self._lock = threading.Lock()
+        self._loop: asyncio.AbstractEventLoop | None = None
+        self._session: Any = None
+        self._contexts: tuple[Any, ...] = ()
 
-    async def _call_async(self, name: str, **kwargs: Any) -> Any:
+    # -- session lifecycle ------------------------------------------------
+    def _ensure_loop(self) -> asyncio.AbstractEventLoop:
+        # httpx/anyio transports are bound to the loop that opened them, so
+        # every call must run on one long-lived loop instead of the throwaway
+        # loop asyncio.run() would create per call.
+        if self._loop is None:
+            loop = asyncio.new_event_loop()
+            threading.Thread(
+                target=loop.run_forever,
+                name=f"mcp-capture-{self.server}",
+                daemon=True,
+            ).start()
+            self._loop = loop
+        return self._loop
+
+    async def _open_session(self) -> Any:
         from mcp import ClientSession
         from mcp.client.streamable_http import streamablehttp_client
 
-        async with streamablehttp_client(self.url) as (read, write, _meta):
-            async with ClientSession(read, write) as session:
-                await session.initialize()
-                result = await session.call_tool(name, kwargs)
+        try:
+            transport_cm = streamablehttp_client(
+                self.url, httpx_client_factory=self._http_client_factory
+            )
+        except TypeError:
+            # Older mcp without the factory hook; container-level NO_PROXY
+            # then remains the only proxy guard.
+            transport_cm = streamablehttp_client(self.url)
+        read, write, _meta = await asyncio.wait_for(
+            transport_cm.__aenter__(), self._CONNECT_TIMEOUT
+        )
+        session_cm = ClientSession(read, write)
+        session = await session_cm.__aenter__()
+        try:
+            await asyncio.wait_for(session.initialize(), self._CONNECT_TIMEOUT)
+        except BaseException:
+            await self._close_contexts((transport_cm, session_cm))
+            raise
+        self._contexts = (transport_cm, session_cm)
+        return session
+
+    @staticmethod
+    def _http_client_factory(**factory_kwargs: Any) -> Any:
+        # The mocks live on the compose network; never route them through an
+        # ambient HTTP proxy even when the container exports one.
+        import httpx
+
+        factory_kwargs.setdefault("trust_env", False)
+        # Mirror mcp's default factory so only proxy handling differs.
+        factory_kwargs.setdefault("follow_redirects", True)
+        return httpx.AsyncClient(**factory_kwargs)
+
+    async def _close_contexts(self, contexts: tuple[Any, ...]) -> None:
+        for context in reversed(contexts):
+            try:
+                await asyncio.wait_for(context.__aexit__(None, None, None), 10)
+            except BaseException:  # noqa: BLE001 - best-effort teardown
+                pass
+
+    def _ensure_session(self) -> Any:
+        with self._lock:
+            if self._session is not None:
+                return self._session
+            loop = self._ensure_loop()
+            session = asyncio.run_coroutine_threadsafe(
+                self._open_session(), loop
+            ).result(self._CONNECT_TIMEOUT + 30.0)
+            self._session = session
+            return session
+
+    def _drop_session(self) -> None:
+        with self._lock:
+            contexts = self._contexts
+            self._session = None
+            self._contexts = ()
+            loop = self._loop
+        if loop is not None and contexts:
+            asyncio.run_coroutine_threadsafe(self._close_contexts(contexts), loop)
+
+    # -- calls -------------------------------------------------------------
+    def _call_once(self, name: str, kwargs: dict[str, Any]) -> Any:
+        session = self._ensure_session()
+        loop = self._loop
+        assert loop is not None
+        future = asyncio.run_coroutine_threadsafe(
+            asyncio.wait_for(session.call_tool(name, kwargs), self._CALL_TIMEOUT), loop
+        )
+        try:
+            result = future.result(self._CALL_TIMEOUT + 30.0)
+        except _FutureTimeout:
+            future.cancel()
+            raise TimeoutError(f"{self.server} MCP call {name!r} timed out") from None
         return _unwrap_mcp(result)
 
     def call_tool(self, name: str, **kwargs: Any) -> Any:
-        return asyncio.run(self._call_async(name, **kwargs))
+        try:
+            return self._call_once(name, kwargs)
+        except BaseException:  # noqa: BLE001 - one clean retry on a fresh session
+            # A broken transport poisons every later call on the shared
+            # session; rebuild it once before giving up.
+            self._drop_session()
+            return self._call_once(name, kwargs)
 
 
 class _Fs:

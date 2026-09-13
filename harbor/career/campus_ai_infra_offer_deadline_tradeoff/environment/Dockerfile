@@ -15,11 +15,29 @@
 ARG BASE_IMAGE=python:3.12-slim
 FROM ${BASE_IMAGE}
 
-# Idempotent: a no-op when the pre-baked base already carries these.
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        bash ca-certificates coreutils curl jq procps sqlite3 \
-    && rm -rf /var/lib/apt/lists/*
+# Idempotent: a no-op when the pre-baked base already carries these. jq and
+# procps are not installed: nothing in the delivered tree invokes either (the
+# only mention of jq was this line), and the jq .deb resolves to
+# debian-security, whose fetch through the build-time proxy was observed to
+# return 502 Bad Gateway and abort the run before step 1. The apt invocation is
+# wrapped in a bounded retry because that proxy fails intermittently
+# mid-transfer; if every attempt fails the build still fails loudly (no
+# silently-missing curl downstream).
+RUN set -eux; \
+    export DEBIAN_FRONTEND=noninteractive; \
+    ok=0; \
+    for attempt in 1 2 3 4 5 6 7 8; do \
+        if apt-get -o Acquire::Retries=10 -o Acquire::http::Timeout=60 -o Acquire::https::Timeout=60 update \
+           && apt-get -o Acquire::Retries=10 -o Acquire::http::Timeout=60 -o Acquire::https::Timeout=60 install -y --no-install-recommends \
+                bash ca-certificates coreutils curl procps sqlite3; then \
+            ok=1; \
+            break; \
+        fi; \
+        rm -rf /var/lib/apt/lists/*; \
+        sleep "$((attempt * 10))"; \
+    done; \
+    rm -rf /var/lib/apt/lists/*; \
+    test "$ok" = 1
 
 # Core mcp only. The task's client code uses ClientSession and
 # streamablehttp_client; the [cli] extra pulls a typer/rich chain that cannot be

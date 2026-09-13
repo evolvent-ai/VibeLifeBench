@@ -18,6 +18,7 @@ def _row_to_card_summary(r: sqlite3.Row) -> dict:
         "min_payment_due_minor": int(r["min_payment_due_minor"]),
         "due_date": r["due_date"],
         "status": r["status"],
+        "interest_apr_bp": int(r["interest_apr_bp"]),
     }
 
 

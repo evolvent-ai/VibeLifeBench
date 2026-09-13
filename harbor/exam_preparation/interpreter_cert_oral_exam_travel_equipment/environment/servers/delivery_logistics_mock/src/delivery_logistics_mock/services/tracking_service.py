@@ -45,6 +45,7 @@ class TrackingService:
         recipient = json.loads(row["recipient_json"])
         return {
             "tracking_no": row["tracking_no"],
+            "shipment_id": row["shipment_id"],
             "carrier": row["carrier"],
             "status": row["status"],
             "latest_event": latest,

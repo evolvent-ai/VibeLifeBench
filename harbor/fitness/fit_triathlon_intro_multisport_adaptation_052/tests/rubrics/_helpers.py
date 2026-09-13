@@ -295,8 +295,15 @@ def _calendar_events(env) -> list[dict[str, Any]]:
 
 def _event_time(event: dict[str, Any], field: str) -> str:
     alias = {"start_dt": "start", "end_dt": "end"}.get(field, "")
-    value = str(event.get(field) or event.get(alias) or "")
-    return value.replace("T", " ")[:19]
+    value = event.get(field)
+    if value is None:
+        value = event.get(alias)
+    if isinstance(value, dict):
+        # The calendar mock serializes start/end as {"dateTime": ...} (or
+        # {"date": ...} for all-day rows); unwrap before normalizing so the
+        # raw dict repr is never compared against a rule time key.
+        value = value.get("dateTime") or value.get("datetime") or value.get("date")
+    return str(value or "").replace("T", " ")[:19]
 
 def _calendar_has_event(env, start: str, end: str, groups: list[list[str]]) -> bool:
     start_key, end_key = start.replace("T", " ")[:19], end.replace("T", " ")[:19]

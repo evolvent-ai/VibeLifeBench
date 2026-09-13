@@ -25,6 +25,7 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import threading
 from pathlib import Path
 from typing import Any
 
@@ -63,26 +64,87 @@ def _unwrap_mcp(result: Any) -> Any:
 
 
 class _McpCapability:
-    """Read-side MCP capability used during trusted collection."""
+    """Read-side MCP capability used during trusted collection.
+
+    A full stage snapshot issues well over a hundred tool calls. Paying the
+    streamable-HTTP connect + initialize handshake on every single call pushed
+    each capture past the collect timeout, so one session is kept warm per
+    capability and reused sequentially. A transport-level failure drops the
+    cached session and the next call re-opens it, keeping the fail-closed
+    error-envelope behaviour of the per-call design.
+    """
 
     def __init__(self, server: str) -> None:
         self.server = server
         host = os.environ.get(f"MCP_HOST_{server.upper()}", _service_host(server))
         port = os.environ.get("MCP_PORT", "8000")
         self.url = f"http://{host}:{port}/mcp"
+        self._lock = threading.Lock()
+        self._loop: asyncio.AbstractEventLoop | None = None
+        self._session: tuple[Any, Any, Any] | None = None
 
-    async def _call_async(self, name: str, **kwargs: Any) -> Any:
+    def _ensure_loop(self) -> asyncio.AbstractEventLoop:
+        if self._loop is None or self._loop.is_closed():
+            self._loop = asyncio.new_event_loop()
+            threading.Thread(
+                target=self._loop.run_forever,
+                daemon=True,
+                name=f"mcp-capture-{self.server}",
+            ).start()
+        return self._loop
+
+    async def _open_session(self) -> tuple[Any, Any, Any]:
         from mcp import ClientSession
         from mcp.client.streamable_http import streamablehttp_client
 
-        async with streamablehttp_client(self.url) as (read, write, _meta):
-            async with ClientSession(read, write) as session:
-                await session.initialize()
-                result = await session.call_tool(name, kwargs)
-        return _unwrap_mcp(result)
+        client = streamablehttp_client(self.url)
+        read, write, _meta = await client.__aenter__()
+        try:
+            session_cm = ClientSession(read, write)
+            session = await session_cm.__aenter__()
+        except BaseException:
+            await client.__aexit__(None, None, None)
+            raise
+        try:
+            await session.initialize()
+        except BaseException:
+            await session_cm.__aexit__(None, None, None)
+            await client.__aexit__(None, None, None)
+            raise
+        return client, session_cm, session
+
+    async def _close_session(self) -> None:
+        if self._session is None:
+            return
+        client, session_cm, _session = self._session
+        self._session = None
+        for exitable in (session_cm, client):
+            try:
+                await exitable.__aexit__(None, None, None)
+            except BaseException:
+                pass
+
+    async def _call_async(self, name: str, kwargs: dict[str, Any]) -> Any:
+        last_exc: BaseException | None = None
+        for _attempt in range(2):
+            try:
+                if self._session is None:
+                    self._session = await self._open_session()
+                result = await self._session[2].call_tool(name, kwargs)
+                return _unwrap_mcp(result)
+            except BaseException as exc:
+                last_exc = exc
+                await self._close_session()
+        assert last_exc is not None
+        raise last_exc
 
     def call_tool(self, name: str, **kwargs: Any) -> Any:
-        return asyncio.run(self._call_async(name, **kwargs))
+        with self._lock:
+            loop = self._ensure_loop()
+            future = asyncio.run_coroutine_threadsafe(
+                self._call_async(name, kwargs), loop
+            )
+            return future.result()
 
 
 class _Fs:

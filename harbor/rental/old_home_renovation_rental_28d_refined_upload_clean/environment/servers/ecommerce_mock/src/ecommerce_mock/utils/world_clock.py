@@ -40,7 +40,7 @@ def _read_clock_file(path: Path) -> datetime:
         raise WorldClockError(f"configured world clock file is missing: {path}") from exc
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:
         raise WorldClockError(f"configured world clock file is unreadable: {path}: {exc}") from exc
-    if not isinstance(payload, dict) or set(payload) != {"world_now"}:
+    if not isinstance(payload, dict) or set(payload) != {"schema_version", "step", "world_now"}:
         raise WorldClockError(f"configured world clock file must contain a JSON object: {path}")
     return _parse_timestamp(payload.get("world_now"), f"world_now in {path}")
 

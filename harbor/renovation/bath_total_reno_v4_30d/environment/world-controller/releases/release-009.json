@@ -20,7 +20,7 @@
         "severity": "orange",
         "start_dt": "2026-07-02T06:00:00+08:00",
         "end_dt": "2026-07-04T18:00:00+08:00",
-        "areas_json": "[\"Pudong New Area\"]",
+        "areas_json": "[\"geo_qbath\", \"Pudong New Area\"]",
         "description": "Continuous heavy rain and high humidity may affect material delivery, substrate drying, and reinspection scheduling.",
         "active": 1,
         "created_at": "2026-07-02T07:45:00+08:00",

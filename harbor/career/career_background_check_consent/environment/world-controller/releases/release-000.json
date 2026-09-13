@@ -13,7 +13,7 @@
       "table": "messages",
       "op": "insert",
       "values": {
-        "id": 101,
+        "id": 10001,
         "folder_id": 1,
         "message_id": "<20260615-plan@yanmunet.com>",
         "subject": "【details】position eliminationdetailsproposaldetailsbackground-check authorization（Please respond by  6/22  before confirm）",

@@ -182,20 +182,21 @@ class EmailService:
         from_addr = get_account_email(self.conn)
         sent_folder_id = get_or_create_folder_id(self.conn, "Sent")
         now = now_iso_z()
-        seq = next_counter(self.conn, "msg_seq")
+        seq = next_counter(self.conn, "message_seq")
         msg_id = message_id_header(seq)
 
         size = len(body or "") + len(html_body or "")
         cur = self.conn.execute(
             """
             INSERT INTO messages (
-              folder_id, message_id, subject, from_addr,
+              id, folder_id, message_id, subject, from_addr,
               to_addr_json, cc_addr_json, bcc_addr_json,
               date, body_text, body_html, is_read, is_important,
               headers_json, size, created_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, 0, '{}', ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, 0, '{}', ?, ?)
             """,
             (
+                seq,
                 sent_folder_id,
                 msg_id,
                 subject or "",

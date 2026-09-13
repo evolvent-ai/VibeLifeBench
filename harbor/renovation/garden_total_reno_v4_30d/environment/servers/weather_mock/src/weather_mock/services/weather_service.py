@@ -104,21 +104,43 @@ class WeatherService:
         out: list[dict] = []
         for i in range(days):
             d = start_date + timedelta(days=i)
-            date_str = d.isoformat()
-            row = self.be.fetchone(
-                "SELECT * FROM daily_weather WHERE geo_key = ? AND date = ?",
-                (loc["geo_key"], date_str),
-            )
-            if row is None:
-                continue
-            out.append(
-                {
-                    "date": date_str,
-                    "tmin": row["tmin"],
-                    "tmax": row["tmax"],
-                    "condition": row["condition"],
-                    "precip_prob": row["precip_prob"],
-                    "wind_kmh": row["wind_kmh"],
-                }
-            )
+            out.extend(self._daily_rows_for(loc, d.isoformat()))
         return out
+
+    def get_daily_history(self, geo: Any, days: int = 14) -> list[dict]:
+        """Recorded daily rows for the trailing window, oldest first.
+
+        The forecast endpoint intentionally starts at the simulated current
+        date, so once a rain day is in the past no read path remains to the
+        authoritative ``daily_weather`` rows for it — exactly the rows an
+        audit at a later boundary has to reconcile against.
+        """
+        days = max(1, min(30, int(days)))
+        loc = self._resolve(geo)
+        tz = loc["timezone"]
+        end_date = _now_in(tz, self.be).date() - timedelta(days=1)
+        out: list[dict] = []
+        for i in range(days - 1, -1, -1):
+            d = end_date - timedelta(days=i)
+            out.extend(self._daily_rows_for(loc, d.isoformat()))
+        return out
+
+    def _daily_rows_for(self, loc: dict, date_str: str) -> list[dict]:
+        row = self.be.fetchone(
+            "SELECT * FROM daily_weather WHERE geo_key = ? AND date = ?",
+            (loc["geo_key"], date_str),
+        )
+        if row is None:
+            return []
+        return [
+            {
+                "date": date_str,
+                "geo_key": loc["geo_key"],
+                "tmin": row["tmin"],
+                "tmax": row["tmax"],
+                "condition": row["condition"],
+                "precip_prob": row["precip_prob"],
+                "precip_mm": row["precip_mm"],
+                "wind_kmh": row["wind_kmh"],
+            }
+        ]

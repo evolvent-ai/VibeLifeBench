@@ -108,8 +108,8 @@ services:
       CLOCK_TOKEN: grad-exam-clock-61cfd7a428e903b5
       RELEASE_TOKEN: grad-exam-release-7ea146d259c84f0bb137926a
       WORLD_CLOCK_FILE: /world-clock/current.json
-      NO_PROXY: 127.0.0.1,localhost,banking,calendar,ecommerce,email,health-tracker,notion,notification-hub,world-controller
-      no_proxy: 127.0.0.1,localhost,banking,calendar,ecommerce,email,health-tracker,notion,notification-hub,world-controller
+      NO_PROXY: 127.0.0.1,localhost,banking,calendar,ecommerce,email,health-tracker,job-board,notion,notification-hub,world-controller
+      no_proxy: 127.0.0.1,localhost,banking,calendar,ecommerce,email,health-tracker,job-board,notion,notification-hub,world-controller
     healthcheck:
       test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health', timeout=2).read()"]
       interval: 2s

@@ -307,7 +307,16 @@ def _successful_tool_calls(env, stage: int | None = None) -> list[dict[str, Any]
     returned successfully.  This prevents tool-only/failed-call trajectories
     from receiving the same credit as completed investigations.
     """
-    stages = [stage] if stage is not None else list(range(STAGE_COUNT))
+    if stage is not None:
+        stages = [stage]
+    else:
+        # Only the stages the controller actually published.  Continuity stages
+        # the step map never assigns to a boundary step (virtual 10 and 13)
+        # freeze no evidence at all, and asking for it raises EvidenceError
+        # instead of returning an empty trace.
+        published = getattr(env, "published_stages", None)
+        stages = sorted(published()) if callable(published) else list(range(STAGE_COUNT))
+        stages = [s for s in stages if 0 <= s < STAGE_COUNT]
     calls: list[dict[str, Any]] = []
     for idx in stages:
         parsed = trace(env, idx)
@@ -910,15 +919,47 @@ def _car_booking_details(env) -> list[dict[str, Any]]:
     return out
 
 
+_RETURN_CONDITION_GROUPS = [["accident", "incident", "damage", "damage-free", "no"], ["clean", "cleanliness"], ["fuel", "charge", "petrol", "electricity"]]
+
+
+def _return_condition_reports(env) -> list[dict[str, Any]]:
+    """Successful ``report_vehicle_condition`` envelopes frozen in the trace.
+
+    The mutation's own success response carries the same condition the mock just
+    persisted, so it is evidence for the backend state independent of whether the
+    agent happened to read the booking again afterwards.
+    """
+    out: list[dict[str, Any]] = []
+    for stage in dict.fromkeys(_evidence_stages(env)):
+        for call in trace(env, stage):
+            if call.get("success") is not True or "result" not in call:
+                continue
+            if not _tool_name_matches(str(call.get("name") or call.get("tool") or ""), "car_rental", "report_vehicle_condition"):
+                continue
+            result = _decode_result(call.get("result"))
+            condition = result.get("condition") if isinstance(result, dict) else None
+            if isinstance(condition, dict):
+                out.append(condition)
+    return out
+
+
 def _return_condition_backend_ready(env) -> bool:
+    def _ok(condition: Any) -> bool:
+        return (
+            isinstance(condition, dict)
+            and condition.get("phase") == "return"
+            and _all_groups(_flatten_text(condition).lower(), _RETURN_CONDITION_GROUPS)
+        )
+
     for booking in _car_booking_details(env):
-        condition = booking.get("return_condition")
-        if not isinstance(condition, dict) or condition.get("phase") != "return":
-            continue
-        text = _flatten_text(condition).lower()
-        if _all_groups(text, [["accident", "incident", "damage", "damage-free", "no"], ["clean", "cleanliness"], ["fuel", "charge", "petrol", "electricity"]]):
+        if _ok(booking.get("return_condition")):
             return True
-    return False
+    # _call projects the *first* matching read, so an agent that reads the booking
+    # before recording the return condition leaves no post-mutation read behind and
+    # the leg above cannot see a condition the backend does hold.  Accept the
+    # mutation's own envelope too; the content requirement is identical, so this
+    # widens who passes without weakening what has to be true.
+    return any(_ok(condition) for condition in _return_condition_reports(env))
 
 
 def _return_flight_backend_ready(env) -> bool:
@@ -1055,7 +1096,13 @@ def _not_claim_deposit_released(env, stage: int) -> bool:
 def _no_awning_advice(env, stage: int) -> bool:
     text = _durable_text(env)
     bad = ["extend the awning", "use the awning", "awning is safe", "awning available"]
-    return not _any(text, bad) and _all_groups(text, [["retractable awning", "awning"], ["do not", "keep retracted", "avoid", "prohibited"]])
+    # Negation-aware.  The clause below *requires* a prohibition cue next to "awning",
+    # so a naive substring test here would fail the very sentence this check asks for:
+    # "do not use the awning" contains "use the awning".  Route through the same
+    # guard the other forbidden-phrase checks in this file use.
+    if any(_has_unqualified_forbidden(text, phrase) for phrase in bad):
+        return False
+    return _all_groups(text, [["retractable awning", "awning"], ["do not", "keep retracted", "avoid", "prohibited"]])
 
 
 __all__ = [

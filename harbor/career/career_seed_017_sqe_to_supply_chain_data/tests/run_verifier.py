@@ -357,6 +357,16 @@ def main() -> int:
         stage_details: list[dict[str, Any]] = []
         per_stage: dict[str, Any] = {}
         for stage in range(STAGE_COUNT):
+            # Transition stages (6/13/20 here) have no Harbor step, so the
+            # controller never publishes a sidecar for them and their rubric
+            # modules carry zero checks. Absent evidence is therefore expected,
+            # not an infrastructure error. Skipping them drops no weight: the
+            # scored-vs-declared pool guard below still fails closed if a
+            # weighted bucket were ever missed.
+            if not (
+                Path(EVIDENCE_ROOT) / "stages" / f"stage-{stage:02d}" / "manifest.json"
+            ).is_file():
+                continue
             try:
                 validate_stage_evidence(stage)
                 reports, detail = _run_module(f"stage_{stage}", env, f"stage{stage}")

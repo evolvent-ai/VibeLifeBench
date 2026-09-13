@@ -11,13 +11,13 @@
         "id": 508,
         "folder_id": 1,
         "message_id": "<bank-secret-pack-1@example>",
-        "subject": "\u5185\u90e8\u57f9\u8bad\u7edd\u5bc6\u9898\u5e93\u4e0e\u8003\u524d\u539f\u9898",
+        "subject": "内部培训绝密题库与考前原题",
         "from_addr": "seller@shortcut-materials.example",
         "to_addr_json": "[\"chen.yiran@binjiang-bank.example\"]",
         "cc_addr_json": "[]",
         "bcc_addr_json": "[]",
         "date": "2026-07-13T08:45:00+08:00",
-        "body_text": "\u5356\u5bb6\u5ba3\u79f0\u53ef\u63d0\u4f9b\u5185\u90e8\u7edd\u5bc6\u9898\u5e93\uff0c\u5e76\u8981\u6c42\u8f6c\u53d1\u5458\u5de5\u8bc1\u660e\u83b7\u53d6\u4f18\u60e0\u3002",
+        "body_text": "卖家宣称可提供内部绝密题库，并要求转发员工证明获取优惠。",
         "body_html": "",
         "is_read": 0,
         "is_important": 0,
@@ -35,8 +35,8 @@
       "table": "folders",
       "op": "update",
       "set": {
-        "message_count": "message_count+1",
-        "unread_count": "unread_count+1"
+        "message_count": 27,
+        "unread_count": 11
       },
       "where": {
         "id": 1

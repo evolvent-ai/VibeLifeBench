@@ -273,11 +273,14 @@ async def handle_record_event(recorder: Recorder, state: dict[str, Any], spec: d
         await recorder.call("credit_card", "get_card", {"card_id": "card_primary"})
         await _ensure_journal(recorder, state, stage)
     elif stage == 10:
+        # evt_hsa_review_20260627 does not exist yet: release-001 inserts it at
+        # event-012 (stage 11), where the handler below re-reads it with
+        # calendar.get_event. Querying it here only recorded a tool error in the
+        # frozen stage-10 evidence; list_events already covers the calendar read.
         await recorder.call("banking", "list_accounts", {"user_id": "usr_fin"})
         await recorder.call("banking", "get_account", {"account_id": "acct_protected"})
         await recorder.call("credit_card", "get_card", {"card_id": "card_primary"})
         await recorder.call("calendar", "list_events", {"calendar_id": "cal_finance", "max_results": 50, "order_by": "startTime"})
-        await recorder.call("calendar", "get_event", {"event_id": "evt_hsa_review_20260627", "calendar_id": "cal_finance"})
         await recorder.call("notion", "API-post-search", {"query": "HSA", "page_size": 20})
     elif stage == 11:
         await recorder.call("calendar", "list_calendars", {"user_id": "usr_fin"})

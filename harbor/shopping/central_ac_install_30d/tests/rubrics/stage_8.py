@@ -11,12 +11,22 @@ from . import _helpers as H
 
 @lru_cache(maxsize=1)
 def _optimal_plans() -> tuple[H.CartPlan, ...]:
-    task_root = Path(__file__).resolve().parents[1]
-    return H.optimal_cart_plans(
-        task_root / "envs/ecommerce/central_ac_install_30d/init.sql",
-        "bsk_iscac_",
-        date(2026, 6, 22),
+    """Resolve the ecommerce seed shipped with the delivered verifier tree.
+
+    The delivered /tests tree carries a verbatim copy of the seed under
+    envs/ecommerce/central_ac_install_30d/; when the rubric runs from the
+    source tree the environment/ seed is preferred. A missing asset must
+    fail the check (empty plans), not raise and abort the whole verifier.
+    """
+    here = Path(__file__).resolve()
+    candidates = (
+        here.parents[2] / "environment" / "seeds" / "ecommerce" / "init.sql",
+        here.parents[1] / "envs" / "ecommerce" / "central_ac_install_30d" / "init.sql",
     )
+    seed = next((path for path in candidates if path.is_file()), None)
+    if seed is None:
+        return ()
+    return H.optimal_cart_plans(seed, "bsk_iscac_", date(2026, 6, 22))
 
 
 def _plan_is_documented(text: str, plan: H.CartPlan) -> bool:
@@ -46,7 +56,14 @@ def s8_optimal(env) -> bool:
     chosen = H._count_any(text, ['lowest cost', 'lowest final amount paid', 'best value', 'recommend', 'selected']) >= 1
     if not (documented and chosen):
         return False
-    if H._has_bad_advice(text, ['already ordered', 'bought directly', 'place the order for you', 'paid', 'settled']):
+    # "amount paid" is the documentation wording this check and the step
+    # instruction require the agent to record ("lowest final amount paid");
+    # neutralize it so honest reporting is not read as executed-payment
+    # advice. Any other bare "paid" still flags.
+    if H._has_bad_advice(
+        text.replace("amount paid", "amount due"),
+        ['already ordered', 'bought directly', 'place the order for you', 'paid', 'settled'],
+    ):
         return False
     return H._backend_cart_matches_optimal(env, 'usr_luo_wei', plans)
 

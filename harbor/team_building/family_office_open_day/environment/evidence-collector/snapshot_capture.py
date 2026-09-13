@@ -18,8 +18,13 @@ SCENARIO_CLOCK_PATH = Path(
 )
 SCENARIO_CLOCK_REQUIRED = os.environ.get("SCENARIO_CLOCK_REQUIRED", "0") == "1"
 
-USER_ID = "usr_lin_che"
-CALENDAR_ID = "cal_lin_primary"
+# This task's seeded identity: the notification-hub user and the calendar that
+# belong to Han Shu (see seeds/notification_hub/init.sql and
+# seeds/calendar/init.sql). Snapshot sections filter on these ids, so a
+# placeholder from another task would capture empty/error sections and leave
+# the durable-state evidence chain blind.
+USER_ID = "user_han_shu"
+CALENDAR_ID = "cal_lin_qiao"
 
 
 def scenario_clock() -> dict[str, Any]:
@@ -36,93 +41,34 @@ def scenario_clock() -> dict[str, Any]:
         return {"schema_version": 1, "step": "unknown", "now": ""}
 
 
-# Copied verbatim from the source task.py. The rubrics assert on these exact ids.
-TRACKED_JOB_IDS = (
-    "job_mj_214",
-    "job_yr_098",
-    "job_qs_507",
-    "job_lh_332",
-    "job_jh_126",
-    "job_ba_773",
-    "job_eb2508",
-    "job_4437d4",
-    "job_08caa9",
-    "job_fbc2b6",
-    "job_86f824",
-    "job_361030",
-    "job_541371",
-    "job_adcf31",
+# Vendors this task's rubrics and releases reference (seeds/review_platform/init.sql).
+TRACKED_MERCHANT_IDS = (
+    "venue_office_nanshan",
+    "workshop_spark_lab",
+    "catering_garden_box",
+    "photo_clear_lens",
 )
-
-TRACKED_APPLICATION_IDS = (
-    "app_mj_001",
-    "app_39f15c",
-    "app_9cfb94",
-    "app_a935d7",
-    "app_b323c6",
-    "app_ca54c7",
-    "app_308e6e",
-    "app_0a108f",
-    "app_6ebad5",
-    "app_bc0d7e",
-)
-
-TRACKED_LEGAL_IDS = {
-    "cases": (
-        "case_noncompete_comp",
-        "case_probation_salary",
-        "case_employee_work",
-        "case_customer_data",
-        "case_clause_scope",
-        "case_confidentiality",
-        "case_0b9fb5e5",
-        "case_91df21d0",
-        "case_32e71e2d",
-        "case_c202b143",
-        "case_9e37bba0",
-    ),
-    "statutes": (
-        "stat_labor_contract",
-        "stat_personal_info",
-        "stat_civil_code",
-        "stat_52e9ebd7",
-        "stat_b8e3b12b",
-        "stat_aa45041c",
-        "stat_53e861d3",
-        "stat_8f9c2ba0",
-        "stat_fdb02184",
-        "stat_fb08641d",
-    ),
-    "articles": (
-        "art_labor_19",
-        "art_labor_20",
-        "art_labor_23",
-        "art_labor_24",
-        "art_pipl_6",
-        "art_civil_privacy",
-        "art_87d7abfc",
-        "art_4cb3c589",
-        "art_314eb23c",
-        "art_41be0315",
-        "art_a67caa73",
-        "art_c6e4419e",
-    ),
-}
 
 # Workspace files shipped as baseline context. The source snapshot excludes them
 # so that seeded prose can never be mistaken for the agent's own writing.
+# Mirrors environment/workspace/ (the workspace-init seed): persona and contract
+# context plus the blank deliverable templates the agent is told to fill in.
 BASELINE_WORKSPACE_NAMES = {
     "AGENTS.md",
-    "AUTHORIZATION.md",
-    "COMPENSATION.md",
+    "ARTIFACT_CONTRACT.md",
+    "AUTH_LOG.md",
+    "BUDGET_TEMPLATE.csv",
+    "COMMUNICATION_DRAFTS.md",
     "IDENTITY.md",
-    "INTERVIEW_PREP.md",
     "PERSONA.md",
-    "REFERENCES.md",
-    "RESUME_PROFILE.md",
+    "POST_EVENT_TEMPLATE.md",
+    "RISK_POLICY.md",
+    "SITE_CARD.md",
     "SOUL.md",
+    "TEAM_ROSTER_TEMPLATE.csv",
     "TOOLS.md",
     "USER.md",
+    "VENDOR_SHORTLIST.md",
 }
 ALLOWED_WORKSPACE_SUFFIXES = (".md", ".txt", ".json", ".csv")
 
@@ -376,27 +322,63 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
     }
 
 
+def _review_platform_snapshot(env: Any) -> dict[str, Any]:
+    return {
+        "merchants": _call(
+            env, "review_platform", "search_merchants",
+            category="venue", city="Shenzhen", area="Nanshan District",
+            sort="rating", limit=50, page=1,
+        ),
+        "merchant_details": {
+            merchant_id: _call(env, "review_platform", "get_merchant", merchant_id=merchant_id)
+            for merchant_id in TRACKED_MERCHANT_IDS
+        },
+        "merchant_qa": {
+            merchant_id: _call(env, "review_platform", "get_merchant_qa", merchant_id=merchant_id)
+            for merchant_id in TRACKED_MERCHANT_IDS
+        },
+    }
+
+
+def _maps_snapshot(env: Any) -> dict[str, Any]:
+    return {
+        "office_places": _call(
+            env, "maps", "search_places", query="Nanshan office entrance", limit=20, page=1
+        ),
+    }
+
+
+def _ecommerce_snapshot(env: Any) -> dict[str, Any]:
+    return {
+        "supplies": _call(
+            env, "ecommerce", "search_products",
+            query="event supplies", filters={"in_stock_only": True},
+            sort="relevance", limit=50, page=1,
+        ),
+        "cart": _call(env, "ecommerce", "get_cart", user_id=USER_ID),
+    }
+
+
+def _credit_card_snapshot(env: Any) -> dict[str, Any]:
+    return {
+        "cards": _call(env, "credit_card", "list_cards", user_id=USER_ID),
+        "unbilled": _call(env, "credit_card", "list_unbilled", card_id="card_family_office_tb"),
+    }
+
+
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
-    """Verbatim port of the source ``_capture_stage_snapshot``."""
+    """Capture every service this task's world is built on.
+
+    Each section targets a server that actually exists in this environment
+    (docker-compose + tests/services.json): email, calendar, notification_hub,
+    notion, workspace, review_platform, maps, ecommerce and credit_card. A
+    section for a server that is not part of the task would record nothing but
+    in-band ``missing capability`` errors and leave the evidence chain with
+    phantom capabilities.
+    """
     return {
         "stage": stage_idx,
         "scenario_clock": scenario_clock(),
-        "job_board": {
-            "applications": _call(env, "job_board", "list_applications", user_id=USER_ID),
-            "application_details": {
-                application_id: _call(
-                    env, "job_board", "get_application_status", application_id=application_id
-                )
-                for application_id in TRACKED_APPLICATION_IDS
-            },
-            "resumes": _call(env, "job_board", "list_resumes", user_id=USER_ID),
-            "saved_jobs": _call(env, "job_board", "list_saved_jobs", user_id=USER_ID),
-            "chats": _call(env, "job_board", "list_chats", user_id=USER_ID),
-            "jobs": {
-                job_id: _call(env, "job_board", "get_job", job_id=job_id)
-                for job_id in TRACKED_JOB_IDS
-            },
-        },
         "email": {
             "inbox": _email_snapshot(env, "INBOX", include_body=False),
             "sent": _email_snapshot(env, "Sent", include_body=True),
@@ -419,19 +401,8 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
         },
         "workspace": _workspace_snapshot(env),
         "notion": _notion_snapshot(env),
-        "legal_search": {
-            "saved_cases": _call(env, "legal_search", "list_saved", user_id=USER_ID),
-            "cases": {
-                case_id: _call(env, "legal_search", "get_case", case_id=case_id)
-                for case_id in TRACKED_LEGAL_IDS["cases"]
-            },
-            "statutes": {
-                statute_id: _call(env, "legal_search", "get_statute", statute_id=statute_id)
-                for statute_id in TRACKED_LEGAL_IDS["statutes"]
-            },
-            "articles": {
-                article_id: _call(env, "legal_search", "get_article", article_id=article_id)
-                for article_id in TRACKED_LEGAL_IDS["articles"]
-            },
-        },
+        "review_platform": _review_platform_snapshot(env),
+        "maps": _maps_snapshot(env),
+        "ecommerce": _ecommerce_snapshot(env),
+        "credit_card": _credit_card_snapshot(env),
     }

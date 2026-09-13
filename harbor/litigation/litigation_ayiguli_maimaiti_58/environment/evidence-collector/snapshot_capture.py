@@ -36,6 +36,17 @@ def scenario_clock() -> dict[str, Any]:
 # Copied verbatim from the source task.py. The rubrics assert on these exact ids.
 TRACKED_LEGAL_IDS = {"cases": (), "statutes": (), "articles": ()}
 
+# The batch shipments every delivery rubric resolves through ``get_shipment``:
+# ``declared_value_minor`` and ``subscriptions`` exist only on the full shipment
+# record (``shipment_service._shipment_dict``), never on the ``list_shipments``
+# summary rows or the ``track_package`` projection.
+BATCH_TRACKING_NUMBERS = (
+    "DL-AXG-0705",
+    "DL-AXG-0712",
+    "DL-AXG-0720",
+    "DL-AXG-0728",
+)
+
 # Workspace files shipped as baseline context. The source snapshot excludes them
 # so that seeded prose can never be mistaken for the agent's own writing.
 BASELINE_WORKSPACE_NAMES = {
@@ -304,6 +315,44 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
     }
 
 
+def _delivery_snapshot(env: Any) -> dict[str, Any]:
+    """Shipments listing plus the full record for each batch shipment.
+
+    ``get_shipment`` is the only read that carries ``declared_value_minor`` and
+    ``subscriptions``; without it the declared values are unreachable evidence
+    and every batch-matrix check fails regardless of what the agent does. Only
+    the batch shipments are expanded — they are the sole shipments the rubrics
+    ever resolve through ``get_shipment`` — so the per-stage capture stays
+    bounded instead of issuing one call per seeded shipment row.
+    """
+    shipments = _call(env, "delivery_logistics", "list_shipments", user_id=USER_ID, limit=500)
+    rows = (
+        shipments.get("items")
+        if isinstance(shipments, dict)
+        else shipments if isinstance(shipments, list) else None
+    )
+    shipment_details: dict[str, Any] = {}
+    if isinstance(rows, list):
+        for row in rows:
+            if not isinstance(row, dict) or row.get("tracking_no") not in BATCH_TRACKING_NUMBERS:
+                continue
+            shipment_id = str(row.get("shipment_id") or "")
+            if not shipment_id:
+                continue
+            shipment_details[shipment_id] = _call(
+                env, "delivery_logistics", "get_shipment", shipment_id=shipment_id
+            )
+    return {
+        "shipments": shipments,
+        "shipment_details": shipment_details,
+        "packages": {
+            tracking: _call(env, "delivery_logistics", "track_package", tracking_no=tracking)
+            for tracking in BATCH_TRACKING_NUMBERS
+        },
+        "issues": _call(env, "delivery_logistics", "list_issues", user_id=USER_ID),
+    }
+
+
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     """Verbatim port of the source ``_capture_stage_snapshot``."""
     return {
@@ -316,11 +365,7 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             "recurring": _call(env, "banking", "list_recurring", user_id=USER_ID),
             "pending": _call(env, "banking", "list_pending_payments", user_id=USER_ID, limit=100),
         },
-        "delivery_logistics": {
-            "shipments": _call(env, "delivery_logistics", "list_shipments", user_id=USER_ID, limit=500),
-            "packages": {tracking: _call(env, "delivery_logistics", "track_package", tracking_no=tracking) for tracking in ("DL-AXG-0705", "DL-AXG-0712", "DL-AXG-0720", "DL-AXG-0728")},
-            "issues": _call(env, "delivery_logistics", "list_issues", user_id=USER_ID),
-        },
+        "delivery_logistics": _delivery_snapshot(env),
         "email": {
             "inbox": _email_snapshot(env, "INBOX", include_body=False),
             "sent": _email_snapshot(env, "Sent", include_body=True),

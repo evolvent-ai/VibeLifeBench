@@ -12,7 +12,7 @@
       "table": "messages",
       "op": "insert",
       "values": {
-        "folder_id": 2,
+        "folder_id": 1,
         "message_id": "<leave-approval-20260731@northstar.example>",
         "subject": "Leave approval and payroll handoff",
         "from_addr": "leave-team@northstar.example",

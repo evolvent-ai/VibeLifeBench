@@ -352,6 +352,25 @@ def main() -> int:
         stage_details: list[dict[str, Any]] = []
         per_stage: dict[str, Any] = {}
         for stage in range(STAGE_COUNT):
+            module = _import_module(f"stage_{stage}")
+            if (
+                module is not None
+                and hasattr(module, "CHECKS")
+                and not module.CHECKS
+            ):
+                # Transition stage: the rubric declares no checks for it and no
+                # boundary step publishes its evidence, so there is nothing to
+                # validate or score. Demanding a sidecar manifest here would
+                # fail the whole pool over evidence that can never exist.
+                empty_detail = {
+                    "checks": [],
+                    "raw_earned_score": 0.0,
+                    "eligible_weight": 0.0,
+                    "normalized_score": 0.0,
+                }
+                stage_details.append(empty_detail)
+                per_stage[str(stage)] = _bucket_summary(empty_detail)
+                continue
             try:
                 env.current_stage = stage
                 validate_stage_evidence(stage)

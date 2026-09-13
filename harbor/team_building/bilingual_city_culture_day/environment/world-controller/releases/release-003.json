@@ -34,7 +34,7 @@
         "merchant_id": "mer_yuexiu_bilingual_walk",
         "user_id": "usr_gn_m4xqpa",
         "question": "Is there a continuous step-free route for wheelchair users?",
-        "answer": "The base route has a ramp entrance; the upgrade checks elevators, restrooms, and pickup points segment by segment. Recheck construction changes before the event.",
+        "answer": "The base route has a ramp entrance; the upgrade checks accessible elevators, restrooms, and pickup points segment by segment. Recheck construction changes before the event.",
         "answered_by": "merchant",
         "created_at": "2026-07-08T10:21:00+08:00"
       },

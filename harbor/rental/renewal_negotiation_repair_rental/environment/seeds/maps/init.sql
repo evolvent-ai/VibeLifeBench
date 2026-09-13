@@ -355,10 +355,6 @@ INSERT INTO transit_schedule(schedule_id,line_id,stop_id,direction,stop_seq,time
 INSERT INTO transit_schedule(schedule_id,line_id,stop_id,direction,stop_seq,time) VALUES (43,'bus_n12_qinghe','stop_yongtai','软件园方向',2,'08:40');
 INSERT INTO transit_schedule(schedule_id,line_id,stop_id,direction,stop_seq,time) VALUES (44,'bus_n12_qinghe','stop_yongtai','居住区方向',2,'18:10');
 INSERT INTO transit_schedule(schedule_id,line_id,stop_id,direction,stop_seq,time) VALUES (45,'bus_n12_qinghe','stop_yongtai','居住区方向',2,'21:50');
-INSERT INTO road_events(event_id,road_id,start_dt,end_dt,kind,note,active) VALUES ('road_evt_yongtai_night','road_yongtai_north','2026-07-24T20:00:00+08:00','2026-07-30T23:59:00+08:00','closure','北门施工围挡压缩人行通道，23:30后需走西门',0);
-INSERT INTO road_events(event_id,road_id,start_dt,end_dt,kind,note,active) VALUES ('road_evt_qinghe_patrol','road_xiaoying_west','2026-08-05T17:00:00+08:00','2026-08-10T23:59:00+08:00','closure','清河备选苑东门外人行道维修，晚高峰临时绕行',0);
-INSERT INTO transit_events(event_id,line_id,stop_id,start_dt,end_dt,kind,note,active) VALUES ('transit_evt_n12_summer','bus_n12_qinghe',NULL,'2026-07-18T22:00:00+08:00','2026-07-24T23:59:00+08:00','delayed','夜间接驳末班提前，清河嘉园晚归需改走地铁8号线',0);
-INSERT INTO transit_events(event_id,line_id,stop_id,start_dt,end_dt,kind,note,active) VALUES ('transit_evt_qinghe_east',NULL,'stop_qinghebridge','2026-08-05T17:00:00+08:00','2026-08-10T23:59:00+08:00','delayed','清河备选苑东门步行段施工绕行',0);
 UPDATE places SET name='Qinghe Jiayuan', city='Beijing', formatted='Beijing Qinghe Jiayuan' WHERE place_id='bjp_61c4f20a';
 UPDATE places SET name='Yongtaizhuang North Road', city='Beijing', formatted='Beijing Yongtaizhuang North Road' WHERE place_id='bjp_7ad2e985';
 UPDATE places SET name='Qinghe Alternative Residence', city='Beijing', formatted='Beijing Qinghe Alternative Residence' WHERE place_id='bjp_3f8c1b76';

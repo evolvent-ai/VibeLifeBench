@@ -39,6 +39,28 @@ class AlertsService:
             raise WeatherNotFound("no_nearby_location")
         return row
 
+    @staticmethod
+    def _covers_location(geo_row: dict, areas: Any) -> bool:
+        """True when the alert's ``areas_json`` names this location.
+
+        Alerts are seeded with human-readable area strings (city/district)
+        while locations are keyed by ``geo_key``, so a raw ``geo_key in areas``
+        membership test never matches. Match the location's identifying tokens
+        (its geo_key or city name) against the area strings instead.
+        """
+        if not isinstance(areas, list):
+            return False
+        tokens = {
+            str(geo_row.get("geo_key") or "").strip(),
+            str(geo_row.get("city") or "").strip(),
+        }
+        tokens.discard("")
+        for area in areas:
+            text = str(area).strip()
+            if text and (text in tokens or any(token in text for token in tokens)):
+                return True
+        return False
+
     def get_active_alerts_for_geo(self, geo: Any) -> list[dict]:
         loc = self._resolve(geo)
         rows = self.be.fetchall(
@@ -47,7 +69,7 @@ class AlertsService:
         out: list[dict] = []
         for r in rows:
             areas = json.loads(r["areas_json"])
-            if loc["geo_key"] not in areas:
+            if not self._covers_location(loc, areas):
                 continue
             out.append(
                 {
@@ -58,6 +80,9 @@ class AlertsService:
                     "end": r["end_dt"],
                     "areas": areas,
                     "description": r["description"],
+                    # The activation flag is part of the row's authoritative
+                    # state; dropping it makes "is this alert on?" unreadable.
+                    "active": int(r["active"]),
                 }
             )
         return out
@@ -95,9 +120,13 @@ class AlertsService:
         )
         delivered_count = 0
         for sub in subs:
+            try:
+                sub_loc = self._resolve(sub["geo_key"])
+            except Exception:
+                continue
             for alert in active_alerts:
                 areas = json.loads(alert["areas_json"])
-                if sub["geo_key"] not in areas:
+                if not self._covers_location(sub_loc, areas):
                     continue
                 prior = self.be.fetchone(
                     """SELECT id FROM notifications

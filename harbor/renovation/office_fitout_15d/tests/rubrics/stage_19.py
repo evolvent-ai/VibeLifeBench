@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from ._helpers import (
     COMPLIANCE_APP_IDS,
+    agent_tool_called,
     app_status_map,
     has_any,
     owner_facing_emails,
@@ -20,6 +21,13 @@ from ._helpers import (
 async def chk_closeout_all_gates_cleared_live(ctx) -> bool:
     """S19: every commercial gate is in an approved-equivalent LIVE state at
     close-out — grounded in the backend, not in the word "done".
+
+    Backend clearance alone is scripted world state: once the release lands,
+    the five gates read approved for any agent, idle included. The close-out
+    review must therefore actually re-verify the gates live (a compliance
+    poll inside the close-out window, the same window the stage-18
+    live-verification check uses) and record the review in the durable
+    close-out packet.
     """
     statuses = await app_status_map(ctx)
     cleared = 0
@@ -30,7 +38,23 @@ async def chk_closeout_all_gates_cleared_live(ctx) -> bool:
         if status_is_approved(status):
             cleared += 1
     # All five must be terminal-good (filing/fire/electrical/insurance/handover).
-    return cleared >= len(COMPLIANCE_APP_IDS)
+    if cleared < len(COMPLIANCE_APP_IDS):
+        return False
+    # AGENT CONTRIBUTION: the scheduled close-out review re-polled the live
+    # compliance backend instead of trusting the scripted state.
+    if not agent_tool_called(
+        ctx,
+        tool_any=["get_visa_application", "list_visa_applications"],
+        min_stage=15,
+        max_stage=19,
+    ):
+        return False
+    # The review is recorded in the durable packet surfaces (workspace files
+    # or owner-facing mail) — same surfaces the sibling S19 packet checks read.
+    surfaces = (await workspace_blob(ctx)).lower()
+    for m in await owner_facing_emails(ctx):
+        surfaces += "\n" + (m.text or "").lower()
+    return bool(surfaces.strip())
 
 
 async def chk_closeout_voc_recleared_all_rooms(ctx) -> bool:

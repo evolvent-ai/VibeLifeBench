@@ -23,8 +23,10 @@ should fail loudly rather than silently score zero.
 from __future__ import annotations
 
 import asyncio
+import contextlib
 import json
 import os
+import threading
 from pathlib import Path
 from typing import Any
 
@@ -62,27 +64,102 @@ def _unwrap_mcp(result: Any) -> Any:
     return result
 
 
+class _CaptureLoop:
+    """One process-wide background event loop for all capture sessions.
+
+    Sessions are created lazily on this loop and reused, so ``call_tool`` can be
+    a plain synchronous method that hops onto the loop per call.
+    """
+
+    _lock = threading.Lock()
+    _loop: asyncio.AbstractEventLoop | None = None
+
+    @classmethod
+    def loop(cls) -> asyncio.AbstractEventLoop:
+        with cls._lock:
+            if cls._loop is None or cls._loop.is_closed():
+                loop = asyncio.new_event_loop()
+                threading.Thread(
+                    target=loop.run_forever,
+                    name="harbor-capture-mcp-loop",
+                    daemon=True,
+                ).start()
+                cls._loop = loop
+            return cls._loop
+
+
 class _McpCapability:
-    """Read-side MCP capability used during trusted collection."""
+    """Read-side MCP capability used during trusted collection.
+
+    A stage snapshot issues hundreds of tool calls (one per email, per Notion
+    row, per order).  Opening a fresh streamable-HTTP connection and re-running
+    the MCP initialize handshake for every one of them pushed each snapshot
+    past the collect hook's fixed 60s budget, so the stage evidence was never
+    published.  One persistent session per server is created lazily instead and
+    reused for every call in this process; a failed call rebuilds the session
+    once so a dropped connection cannot poison the remaining reads.
+    """
 
     def __init__(self, server: str) -> None:
         self.server = server
         host = os.environ.get(f"MCP_HOST_{server.upper()}", _service_host(server))
         port = os.environ.get("MCP_PORT", "8000")
         self.url = f"http://{host}:{port}/mcp"
+        self._session: Any = None
+        self._stack: contextlib.AsyncExitStack | None = None
 
-    async def _call_async(self, name: str, **kwargs: Any) -> Any:
+    async def _ensure_session(self) -> Any:
+        if self._session is not None:
+            return self._session
         from mcp import ClientSession
         from mcp.client.streamable_http import streamablehttp_client
 
-        async with streamablehttp_client(self.url) as (read, write, _meta):
-            async with ClientSession(read, write) as session:
-                await session.initialize()
-                result = await session.call_tool(name, kwargs)
+        stack = contextlib.AsyncExitStack()
+        try:
+            read, write, _meta = await stack.enter_async_context(
+                streamablehttp_client(self.url)
+            )
+            session = await stack.enter_async_context(ClientSession(read, write))
+            await session.initialize()
+        except BaseException:
+            await stack.aclose()
+            raise
+        self._stack = stack
+        self._session = session
+        return session
+
+    async def _reset_session(self) -> None:
+        session, stack = self._session, self._stack
+        self._session = None
+        self._stack = None
+        if stack is not None:
+            try:
+                await stack.aclose()
+            except BaseException:
+                pass
+
+    async def _call_async(self, name: str, kwargs: dict[str, Any]) -> Any:
+        session = await self._ensure_session()
+        result = await session.call_tool(name, kwargs)
         return _unwrap_mcp(result)
 
     def call_tool(self, name: str, **kwargs: Any) -> Any:
-        return asyncio.run(self._call_async(name, **kwargs))
+        loop = _CaptureLoop.loop()
+        timeout = float(os.environ.get("MCP_CALL_TIMEOUT_SEC", "60"))
+        try:
+            future = asyncio.run_coroutine_threadsafe(
+                self._call_async(name, kwargs), loop
+            )
+            return future.result(timeout)
+        except BaseException:
+            # The persistent session may have been dropped server-side; rebuild
+            # it and retry once before surfacing the failure to the capture.
+            reset = asyncio.run_coroutine_threadsafe(self._reset_session(), loop)
+            reset.result(timeout)
+            future = asyncio.run_coroutine_threadsafe(
+                self._call_async(name, kwargs), loop
+            )
+            return future.result(timeout)
 
 
 class _Fs:

@@ -292,7 +292,11 @@ def _runtime_rows(
                         for sku in _dict_rows(product.get("skus")):
                             rows.append({"product_id": product_id, **sku})
         elif table == "cart_items":
-            rows.extend(_dict_rows(section.get("cart", {}).get("items")))
+            cart = section.get("cart", {})
+            rows.extend(_dict_rows(cart.get("items")))
+            for row in rows:
+                # ``user_id`` lives on the cart envelope, not on each item row.
+                row.setdefault("user_id", cart.get("user_id"))
         elif table == "coupons":
             cart = section.get("cart", {})
             for coupon in _dict_rows(cart.get("applied_coupons")):
@@ -322,6 +326,9 @@ def _runtime_rows(
         rows.extend(_dict_rows(section))
     elif server == "weather" and table == "alerts":
         rows.extend(_dict_rows(section.get("alerts")))
+        for row in rows:
+            # get_alerts only returns currently-active alerts; project the column.
+            row.setdefault("active", 1)
 
     matched = _filter_rows(_dedupe_rows(rows, where or {}), where or {})
     if columns:

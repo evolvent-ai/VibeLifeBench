@@ -21,7 +21,13 @@ def _created_calendar_arguments(env) -> list[dict]:
 
 
 def _event_start(item: dict) -> str:
-    return str(item.get("start_dt") or item.get("start") or "")
+    # create_event arguments carry a plain "start" string, while the calendar
+    # mock persists events with a nested {"dateTime": ...} (or {"date": ...}
+    # for all-day rows); unwrap the dict before the date-prefix comparisons.
+    value = item.get("start_dt") or item.get("start")
+    if isinstance(value, dict):
+        value = value.get("dateTime") or value.get("datetime") or value.get("date")
+    return str(value or "")
 
 
 def _event_summary(item: dict) -> str:

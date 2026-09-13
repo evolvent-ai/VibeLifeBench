@@ -24,6 +24,7 @@ class BookingService:
     # ---------- create ----------
     def create_booking(self, *, offer_id: str, passengers: list[dict[str, Any]],
                        contact: dict[str, str], payment: dict[str, Any],
+                       user_id: Optional[str] = None,
                        seat_selections: Optional[list[dict[str, Any]]] = None,
                        hold: bool = False) -> dict[str, Any]:
         offer_row = self.backend.get_offer(offer_id)
@@ -110,7 +111,7 @@ class BookingService:
 
         status = "HOLD" if hold else "TICKETED"
         created_at = now_iso
-        user_id = contact.get("email")
+        user_id = user_id or contact.get("email")
         booking_segments = []
         for seg in segments:
             booking_segments.append({

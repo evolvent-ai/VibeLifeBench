@@ -1199,6 +1199,24 @@ def tool_calls(env, stage: int | None = None) -> list[dict[str, Any]]:
     return out
 
 
+def _as_dict(value: Any) -> Any:
+    """Decode a JSON-string payload into structured data.
+
+    Frozen tool results arrive as the mock's serialized JSON text (the mocks
+    return ``json.dumps(...)`` strings and the evidence collector preserves
+    them verbatim). Readers that need structured access must decode first —
+    the same tolerance ``call()`` applies to its own reads.
+    """
+    if isinstance(value, str):
+        text = value.strip()
+        if text.startswith("{") or text.startswith("["):
+            try:
+                return json.loads(text)
+            except json.JSONDecodeError:
+                return value
+    return value
+
+
 def flat(obj: Any) -> str:
     if obj is None:
         return ""
@@ -1284,7 +1302,7 @@ def stage_has_distinct_candidate_routes(env, stage: int) -> bool:
         # The maps mock accepts free-form names for the seeded ``place_*``
         # identifiers. In that path the authoritative resolution is the
         # returned route legs, not the caller's spelling.
-        result = row.get("result")
+        result = _as_dict(row.get("result"))
         if isinstance(result, dict):
             for route in result.get("routes") or []:
                 for leg in route.get("legs") or []:
@@ -1470,7 +1488,7 @@ def current_budget_within_cap(env) -> bool:
     for row in tool_calls(env):
         if not name_ok(str(row.get("name") or ""), "notion", "api_post_page"):
             continue
-        result = row.get("result")
+        result = _as_dict(row.get("result"))
         if not isinstance(result, dict):
             continue
         blob = flat(result)

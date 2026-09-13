@@ -228,6 +228,14 @@ def _weight_inventory() -> tuple[dict[str, float], int]:
 
 
 def _available_step_specs() -> list[Path]:
+    # The tests bundle ships a copy of every step spec (tests/step_specs), so the
+    # rubric-contract validation below runs on every arm. Falling back to the
+    # per-step /solution/step_spec.json alone makes the validation satisfiable
+    # only where Harbor mounted a solution — a nop or candidate arm had no spec
+    # at all and died as a VerifierInfrastructureError before any rubric ran.
+    bundled = sorted((RUNTIME_DIR / "step_specs").glob("event-*/solution/step_spec.json"))
+    if bundled:
+        return bundled
     local = sorted((RUNTIME_DIR.parent / "steps").glob("event-*/solution/step_spec.json"))
     if local:
         return local

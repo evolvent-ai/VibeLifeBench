@@ -281,7 +281,10 @@ _TABLE_KEYS = {
 
 def _json_value(value: Any) -> Any:
     if isinstance(value, (dict, list)):
-        return json.dumps(value, ensure_ascii=False, sort_keys=True)
+        # Compact separators: rubric checks match exact tokens such as
+        # '"packet":"ready"' inside serialized payloads; Python's default
+        # spaced output would hide those tokens behind ": " padding.
+        return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     if isinstance(value, bool):
         return int(value)
     return value
@@ -340,7 +343,11 @@ def _frozen_database(env: Any, stage: int) -> sqlite3.Connection:
         # otherwise a later refund status can overwrite the real order state.
         if value.get("order_id") and not value.get("refund_id"):
             add("orders", value)
-        if value.get("refund_id"):
+        # Notification payloads (path .../payload) describe a state change —
+        # they are observations about a refund/dispute/ledger row, not the row
+        # itself. Ingesting them let a stale push notification overwrite the
+        # authoritative state read back from get_order/list_disputes.
+        if value.get("refund_id") and "payload" not in path:
             add("refunds", {**value, "order_id": value.get("order_id") or ctx.get("order_id")})
         if value.get("product_id"):
             add("products", value)
@@ -355,7 +362,13 @@ def _frozen_database(env: Any, stage: int) -> sqlite3.Connection:
             quantity = value.get("quantity", value.get("stock"))
             if quantity is not None:
                 add("stocks", {"sku_id": value["sku_id"], "quantity": quantity})
-            if value.get("qty") is not None and (value.get("user_id") or "cart" in path):
+            # Cart rows are identifiable by cart_item_id (cart-view items carry
+            # it; order lines carry item_id and must never enter this table).
+            # get_cart/add_to_cart results carry no per-item user_id, so the
+            # cart_item_id marker (or a 'cart' snapshot path) is what admits them.
+            if value.get("qty") is not None and (
+                value.get("user_id") or "cart" in path or value.get("cart_item_id")
+            ):
                 add(
                     "cart_items",
                     {
@@ -365,7 +378,18 @@ def _frozen_database(env: Any, stage: int) -> sqlite3.Connection:
                     },
                     fallback_key=f"{value.get('user_id') or 'usr_du_rong'}:{value['sku_id']}",
                 )
-        if value.get("code") and value.get("kind"):
+        # Coupon *definitions* only. Applied-coupon detail dicts ({code, kind,
+        # discount_minor} from cart views) share code/kind but carry no rule
+        # fields; ingesting them as definitions poisons the coupons table with
+        # NULL rules and crashes downstream consumers.
+        if (
+            value.get("code")
+            and value.get("kind")
+            and value.get("value_bp_or_minor") is not None
+            and value.get("min_spend_minor") is not None
+            and value.get("valid_from") is not None
+            and value.get("valid_until") is not None
+        ):
             add("coupons", value)
         if value.get("shipment_id"):
             add("shipments", {**value, "user_id": value.get("user_id") or "usr_du_rong"})
@@ -379,16 +403,16 @@ def _frozen_database(env: Any, stage: int) -> sqlite3.Connection:
             add("statements", {**value, "card_id": value.get("card_id") or "card_qbed_01"})
         # Notification payloads may repeat tx_id/amount_minor as a positive
         # business amount. Only ledger-shaped records belong in this table.
-        if value.get("tx_id") and value.get("amount_minor") is not None and any(
+        if value.get("tx_id") and value.get("amount_minor") is not None and "payload" not in path and any(
             value.get(key) not in (None, "") for key in ("merchant_name", "posted_at", "category")
         ):
             add(
                 "unbilled_transactions",
                 {**value, "card_id": value.get("card_id") or "card_qbed_01"},
             )
-        if value.get("dispute_id"):
+        if value.get("dispute_id") and "payload" not in path:
             add("disputes", {**value, "card_id": value.get("card_id") or "card_qbed_01"})
-        if value.get("payment_id"):
+        if value.get("payment_id") and "payload" not in path:
             add("payments", value)
         if value.get("message_id") or value.get("email_id"):
             email_id = value.get("email_id", value.get("id"))
@@ -580,6 +604,13 @@ def budget_matches_backend(
 
 def _coupon_discount(coupon: Sequence[Any], items: Sequence[dict[str, Any]], as_of: str) -> int | None:
     code, kind, value, minimum, valid_from, valid_until, restriction, max_uses, used_count, active = coupon
+    # A coupon row frozen from a partial payload may carry NULL rule fields;
+    # such a row is not an applicable definition, not a verifier crash.
+    if any(
+        field is None
+        for field in (active, valid_from, valid_until, value, minimum, max_uses, used_count)
+    ):
+        return None
     if not int(active) or not (str(valid_from) <= as_of <= str(valid_until)):
         return None
     if int(max_uses) and int(used_count) >= int(max_uses):
@@ -725,11 +756,21 @@ def _field_value(text: str, field: str) -> str | None:
 def _list_field_values(text: str, field: str) -> list[str] | None:
     lines = text.splitlines()
     field_pattern = re.compile(rf"^[ \t]*{re.escape(field)}[ \t]*:[ \t]*(.*)$", re.IGNORECASE)
+    # The log is append-only: later entries supersede earlier ones, matching
+    # the frozen database's last-write-wins key upsert. Scan for the FINAL
+    # occurrence of the field before parsing it.
+    match = None
+    match_index = 0
     for index, line in enumerate(lines):
-        match = field_pattern.match(line)
-        if not match:
-            continue
-        inline = match.group(1).strip()
+        found = field_pattern.match(line)
+        if found:
+            match = found
+            match_index = index
+    if match is None:
+        return None
+
+    def parse(occurrence: re.Match[str], at: int) -> list[str] | None:
+        inline = occurrence.group(1).strip()
         if inline:
             try:
                 value = yaml.safe_load(inline)
@@ -737,7 +778,7 @@ def _list_field_values(text: str, field: str) -> list[str] | None:
                 return None
         else:
             items: list[str] = []
-            for following in lines[index + 1 :]:
+            for following in lines[at + 1 :]:
                 stripped = following.strip()
                 if not stripped:
                     continue
@@ -751,7 +792,8 @@ def _list_field_values(text: str, field: str) -> list[str] | None:
         if any(not item or item.lower() in PLACEHOLDERS for item in normalized):
             return None
         return normalized
-    return None
+
+    return parse(match, match_index)
 
 
 def _yaml_object_records(text: str) -> list[dict[str, Any]]:

@@ -347,6 +347,52 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
     }
 
 
+def _banking_transactions(env: Any) -> dict[str, Any]:
+    """Per-account transaction pages, keyed by ``account_id``.
+
+    The banking mock scopes ``list_transactions`` to one account — it takes a
+    required ``account_id`` and no ``user_id`` — so a single user-level call is
+    rejected by schema validation and would freeze an error string into every
+    snapshot. Accounts come from ``list_accounts`` (whose items carry
+    ``account_id``), and each account's merged page envelope is stored under
+    its own key, the shape the frozen-evidence readers select with.
+    """
+    accounts = _call(env, "banking", "list_accounts", user_id=USER_ID)
+    out: dict[str, Any] = {}
+    for account in accounts if isinstance(accounts, list) else []:
+        if not isinstance(account, dict):
+            continue
+        account_id = account.get("account_id")
+        if not account_id:
+            continue
+        out[str(account_id)] = _account_transactions(env, str(account_id))
+    return out
+
+
+def _account_transactions(env: Any, account_id: str) -> Any:
+    """Merge every page of one account's transactions into the first envelope.
+
+    ``limit`` clamps at 500 and ``has_more`` signals truncation, so walk pages
+    until the stored ``total`` is reached; consumers read the ``items`` rows.
+    """
+    first = _call(env, "banking", "list_transactions", account_id=account_id, limit=500, page=1)
+    if not isinstance(first, dict) or not isinstance(first.get("items"), list):
+        return first
+    total = first.get("total") if isinstance(first.get("total"), int) else None
+    page_size = int(first.get("page_size") or 500)
+    max_pages = ((total + page_size - 1) // page_size) if total is not None else 1
+    page = 2
+    while first.get("has_more") and page <= max_pages:
+        nxt = _call(env, "banking", "list_transactions", account_id=account_id, limit=page_size, page=page)
+        if not isinstance(nxt, dict) or not isinstance(nxt.get("items"), list):
+            break
+        first["items"].extend(row for row in nxt["items"] if isinstance(row, dict))
+        first["has_more"] = bool(nxt.get("has_more"))
+        page += 1
+    first["captured_count"] = len(first["items"])
+    return first
+
+
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     """Capture the six task services and durable workspace evidence."""
     return {
@@ -354,7 +400,7 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
         "scenario_clock": scenario_clock(),
         "banking": {
             "accounts": _call(env, "banking", "list_accounts", user_id=USER_ID),
-            "transactions": _call(env, "banking", "list_transactions", user_id=USER_ID, limit=500),
+            "transactions": _banking_transactions(env),
             "payees": _call(env, "banking", "list_payees", user_id=USER_ID),
         },
         "email": {
@@ -365,8 +411,10 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             ),
         },
         "calendar": {
+            # The calendar mock implements no list_reminders tool; calling it
+            # would freeze a permanent error string here, and no reader
+            # consumes reminders, so the key is omitted entirely.
             "events": _call(env, "calendar", "list_events", calendar_id=CALENDAR_ID, max_results=500),
-            "reminders": _call(env, "calendar", "list_reminders", calendar_id=CALENDAR_ID, max_results=500),
         },
         "notification_hub": {
             "subscriptions": _call(
@@ -380,8 +428,10 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
         "notion": _notion_snapshot(env),
         "legal_search": {
             "saved_cases": _call(env, "legal_search", "list_saved", user_id=USER_ID),
-            "cases": _call(env, "legal_search", "search_cases", query="", page_size=100),
-            "statutes": _call(env, "legal_search", "search_statutes", query="", page_size=100),
-            "articles": _call(env, "legal_search", "search_articles", query="", page_size=100),
+            # search_cases/search_statutes take keyword/limit, not query/page_size.
+            "cases": _call(env, "legal_search", "search_cases", keyword="", limit=100, page=1),
+            "statutes": _call(env, "legal_search", "search_statutes", keyword="", limit=100, page=1),
+            # No listing tool exists for articles (only per-id get_article), so
+            # the key is omitted rather than frozen as a permanent error string.
         },
     }

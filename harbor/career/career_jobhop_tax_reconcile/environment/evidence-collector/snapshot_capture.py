@@ -16,8 +16,9 @@ from typing import Any
 WORLD_CLOCK_FILE = Path(os.environ.get("WORLD_CLOCK_FILE", "/world-clock/current.json"))
 WORLD_CLOCK_REQUIRED = True
 
-USER_ID = "usr_lin_che"
-CALENDAR_ID = "cal_lin_primary"
+USER_ID = "usr_gao_kai"
+CALENDAR_ID = "cal_gk_0001"
+CHECKING_ACCOUNT = "acct_gk_checking"
 
 
 def scenario_clock() -> dict[str, Any]:
@@ -34,76 +35,43 @@ def scenario_clock() -> dict[str, Any]:
         raise RuntimeError(f"required world clock unavailable at {WORLD_CLOCK_FILE}: {exc}") from exc
 
 
-# Copied verbatim from the source task.py. The rubrics assert on these exact ids.
+# IDs used by this task's rubrics and seeded corpus. The rubrics assert on
+# these exact ids, so the snapshot must resolve each of them.
 TRACKED_JOB_IDS = (
-    "job_mj_214",
-    "job_yr_098",
-    "job_qs_507",
-    "job_lh_332",
-    "job_jh_126",
-    "job_ba_773",
-    "job_eb2508",
-    "job_4437d4",
-    "job_08caa9",
-    "job_fbc2b6",
-    "job_86f824",
-    "job_361030",
-    "job_541371",
-    "job_adcf31",
+    "job_4f91c2a8d7e3",
+    "job_a17e5c903bd4",
+    "job_6c2d8f14b9a7",
 )
 
 TRACKED_APPLICATION_IDS = (
-    "app_mj_001",
-    "app_39f15c",
-    "app_9cfb94",
-    "app_a935d7",
-    "app_b323c6",
-    "app_ca54c7",
-    "app_308e6e",
-    "app_0a108f",
-    "app_6ebad5",
-    "app_bc0d7e",
+    "app_000000",
+    "app_000001",
 )
 
 TRACKED_LEGAL_IDS = {
     "cases": (
-        "case_noncompete_comp",
-        "case_probation_salary",
-        "case_employee_work",
-        "case_customer_data",
-        "case_clause_scope",
-        "case_confidentiality",
-        "case_0b9fb5e5",
-        "case_91df21d0",
-        "case_32e71e2d",
-        "case_c202b143",
-        "case_9e37bba0",
+        "case_kq_missing_month",
+        "case_kq_false_delete",
+        "case_kq_net_gross",
     ),
     "statutes": (
-        "stat_labor_contract",
-        "stat_personal_info",
-        "stat_civil_code",
-        "stat_52e9ebd7",
-        "stat_b8e3b12b",
-        "stat_aa45041c",
-        "stat_53e861d3",
-        "stat_8f9c2ba0",
-        "stat_fdb02184",
-        "stat_fb08641d",
+        "stat_kq_iit_settlement_admin",
+        "stat_kq_admin",
+        "stat_kq_iit_law",
+        "stat_kq_withholding",
     ),
     "articles": (
-        "art_labor_19",
-        "art_labor_20",
-        "art_labor_23",
-        "art_labor_24",
-        "art_pipl_6",
-        "art_civil_privacy",
-        "art_87d7abfc",
-        "art_4cb3c589",
-        "art_314eb23c",
-        "art_41be0315",
-        "art_a67caa73",
-        "art_c6e4419e",
+        "art_kq_admin_retention",
+        "art_kq_period",
+        "art_kq_iit_comprehensive",
+        "art_kq_annual",
+        "art_kq_2025_booking",
+        "art_kq_appeal",
+        "art_kq_authorization",
+        "art_kq_prepare",
+        "art_kq_refund_account",
+        "art_kq_truth",
+        "art_kq_withhold_info",
     ),
 }
 
@@ -246,6 +214,20 @@ def _email_snapshot(env: Any, folder: str, *, include_body: bool) -> dict[str, A
     return {"listing": listing, "details": details}
 
 
+def _banking_transactions(env: Any, account_id: str) -> list[dict[str, Any]]:
+    """Flat transaction rows for one account.
+
+    ``list_transactions`` answers with a paged ``{"items": [...]}`` envelope,
+    but the rubric evidence fallback reads ``banking.transactions`` verbatim as
+    a row list, so the envelope is flattened here at capture time.
+    """
+    envelope = _call(env, "banking", "list_transactions", account_id=account_id, limit=500)
+    rows = envelope.get("items") if isinstance(envelope, dict) else envelope
+    if not isinstance(rows, list):
+        return []
+    return [row for row in rows if isinstance(row, dict)]
+
+
 def _workspace_snapshot(env: Any) -> dict[str, str]:
     """Agent-authored workspace files, baseline context excluded."""
     fs = getattr(getattr(env, "workspace", None), "fs", None)
@@ -368,8 +350,12 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
                 for job_id in TRACKED_JOB_IDS
             },
         },
+        "banking": {
+            "accounts": _call(env, "banking", "list_accounts", user_id=USER_ID),
+            "transactions": _banking_transactions(env, CHECKING_ACCOUNT),
+        },
         "email": {
-            "inbox": _email_snapshot(env, "INBOX", include_body=False),
+            "inbox": _email_snapshot(env, "INBOX", include_body=True),
             "sent": _email_snapshot(env, "Sent", include_body=True),
             "drafts": _paged_call(
                 env, "email", "get_drafts", rows_key="drafts", id_keys=("draft_id", "id")

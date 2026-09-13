@@ -97,6 +97,10 @@ def message_row_to_dict(
     out = {
         "email_id": str(row["id"]),
         "folder": row["folder_name"],
+        # Expose the storage identifiers the messages table is queried by:
+        # snapshot consumers select on folder_id and match raw headers_json.
+        "folder_id": int(row["folder_id"]),
+        "headers_json": row["headers_json"] or "",
         "subject": row["subject"] or "",
         "from_addr": row["from_addr"] or "",
         "to_addr": json_to_csv(row["to_addr_json"]),

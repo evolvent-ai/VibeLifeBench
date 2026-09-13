@@ -255,7 +255,7 @@ async def _calls_for_stage(r: Recorder, stage: int) -> None:
         _write_json("training_credit_record.json", {"offer_amount_minor": 800000, "accepted": False, "cash_offset_minor": 0, "source": "academy email", "reserved_status": "not accepted"})
     elif stage == 13:
         await r.call("email", "search_emails", {"query": "learning-benefit", "page": 1, "page_size": 100})
-        _write_json("authorization_boundaries.json", {"events": [{"action": x, "requires_confirmation": True, "execution_status": "awaiting confirmation", "basis": "user instruction"} for x in ["training credits", "formal submission", "sensitive materials", "credit-card payment", "maps", "formal send"]], "cash_refund": "still requested"})
+        _write_json("authorization_boundaries.json", {"events": [{"action": x, "requires_confirmation": True, "execution_status": "awaiting confirmation", "basis": "user instruction"} for x in ["training credits", "formal submission", "sensitive materials", "credit-card payment", "maps", "formal send"]], "cash refund": "still requested"})
     elif stage == 14:
         await r.call("credit_card", "get_statement", {"statement_id": "stmt_hx_202607"})
         await r.call("credit_card", "list_unbilled", {"card_id": CARD_ID})

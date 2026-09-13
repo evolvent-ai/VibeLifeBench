@@ -100,6 +100,11 @@ class CatalogService:
                 "title": p["title"],
                 "brand": p["brand"],
                 "category": p["category"],
+                # Claim/policy text: without it a search listing cannot answer
+                # "what does this product claim / can it be returned?" without
+                # one get_product call per row.
+                "description": p["description"],
+                "return_policy": p["return_policy"],
                 "price_minor": int(p["base_price_minor"]),
                 "min_sku_price_minor": min_sku,
                 "max_sku_price_minor": max_sku,

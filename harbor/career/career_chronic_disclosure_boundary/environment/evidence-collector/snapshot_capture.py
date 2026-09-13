@@ -37,7 +37,7 @@ def scenario_clock() -> dict[str, Any]:
 # Copied verbatim from the source task.py. The rubrics assert on these exact ids.
 TRACKED_JOB_IDS = ("jb-4vxnibjsgwrdx", "jb-n3e27mxldw6bx", "jb-a3ltos7t5ortx", "jb-tb2gjepdyi66x", "jb-2jzt2pu3dgjvx", "jb-2dwm2nq5ea3mx", "jb-ippyupc52h4qx", "jb-pbjxtacswkbkx", "jb-23rg376hdmgdx", "jb-jxw5ohelcmv2x", "jb-q6wdazlnw3mlx", "jb-5ryrkwdeqvyhx", "jb-iq3vsr5r5ipdx", "jb-5p6lww2xboxwx", "jb-vbhyeuta37eyx", "jb-rxscnaawg22hx")
 
-TRACKED_APPLICATION_IDS = ("app_mj_001", "app_dewu_001", "app_xhs_001", "app_zhipu_001")
+TRACKED_APPLICATION_IDS = ("app_000001", "app_000002", "app_000003", "app_000004")
 
 TRACKED_LEGAL_IDS = {
     "cases": tuple(f"case_{i:03d}" for i in range(1, 19)),
@@ -308,18 +308,71 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
     }
 
 
+def _tracked_application_ids(env: Any) -> tuple[str, ...]:
+    """Freeze details for the applications that actually exist.
+
+    Application ids are service-generated (``app_%06d``), so the historical
+    literal list went stale the moment the seeker flow was wired; derive the
+    tracked set from the live listing and keep the constant only as fallback.
+    """
+    listed = _call(env, "job_board", "list_applications", user_id=USER_ID)
+    rows = listed if isinstance(listed, list) else (listed.get("applications") if isinstance(listed, dict) else None)
+    if isinstance(rows, list):
+        ids = tuple(
+            str(row.get("application_id") or row.get("id"))
+            for row in rows
+            if isinstance(row, dict) and (row.get("application_id") or row.get("id"))
+        )
+        if ids:
+            return ids
+    return TRACKED_APPLICATION_IDS
+
+
+def _banking_snapshot(env: Any) -> dict[str, Any]:
+    """Accounts, every transaction with ``account_id`` stamped, pending payments.
+
+    ``list_transactions`` scopes rows to one account and omits the account_id
+    from the returned items, but the frozen projection filters transactions by
+    that exact field — stamp it at capture time or the payroll rows vanish.
+    """
+    accounts = _call(env, "banking", "list_accounts", user_id=USER_ID)
+    account_rows = accounts if isinstance(accounts, list) else (accounts.get("accounts") if isinstance(accounts, dict) else None)
+    if not isinstance(account_rows, list):
+        account_rows = []
+    transactions: list[dict[str, Any]] = []
+    for account in account_rows:
+        if not isinstance(account, dict):
+            continue
+        account_id = str(account.get("account_id") or "")
+        data = _call(env, "banking", "list_transactions", account_id=account_id, limit=500)
+        items = data.get("items") if isinstance(data, dict) else data
+        for row in items or []:
+            if isinstance(row, dict):
+                row.setdefault("account_id", account_id)
+                transactions.append(row)
+    pending = _call(env, "banking", "list_pending_payments", user_id=USER_ID)
+    pending_items = pending.get("items") if isinstance(pending, dict) else pending
+    pending_rows = [row for row in (pending_items or []) if isinstance(row, dict)]
+    return {
+        "accounts": account_rows,
+        "transactions": transactions,
+        "pending_payments": pending_rows,
+    }
+
+
 def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
     """Verbatim port of the source ``_capture_stage_snapshot``."""
     return {
         "stage": stage_idx,
         "scenario_clock": scenario_clock(),
+        "banking": _banking_snapshot(env),
         "job_board": {
             "applications": _call(env, "job_board", "list_applications", user_id=USER_ID),
             "application_details": {
                 application_id: _call(
                     env, "job_board", "get_application_status", application_id=application_id
                 )
-                for application_id in TRACKED_APPLICATION_IDS
+                for application_id in _tracked_application_ids(env)
             },
             "resumes": _call(env, "job_board", "list_resumes", user_id=USER_ID),
             "saved_jobs": _call(env, "job_board", "list_saved_jobs", user_id=USER_ID),

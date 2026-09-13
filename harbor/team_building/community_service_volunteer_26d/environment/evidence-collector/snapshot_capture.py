@@ -167,6 +167,27 @@ def _unwrap_envelope(value: Any, fetch_page: Any = None) -> Any:
     return merged
 
 
+# Auto-continuation re-issues the same tool with the applied page size. Each
+# mock names that parameter differently; forwarding "page_size" to a tool whose
+# signature declares "limit"/"max_results" would fail the call outright.
+_CONTINUATION_SIZE_PARAMS: dict[tuple[str, str], str] = {
+    ("banking", "list_transactions"): "limit",
+    ("calendar", "list_events"): "max_results",
+    ("calendar", "search_events"): "max_results",
+    ("car_rental", "search_vehicle_offers"): "max_results",
+    ("content_platform", "search_notes"): "limit",
+    ("delivery_logistics", "list_shipments"): "limit",
+    ("ecommerce", "list_orders"): "limit",
+    ("ecommerce", "search_products"): "limit",
+    ("notification_hub", "list_notifications"): "limit",
+    ("review_platform", "search_merchants"): "limit",
+}
+
+
+def _continuation_size_param(server: str, tool: str) -> str:
+    return _CONTINUATION_SIZE_PARAMS.get((server, tool), "page_size")
+
+
 def _call(env: Any, server: str, tool: str, **kwargs: Any) -> Any:
     """Mirror of the source ``_snapshot_call``: never raise, record the error.
 
@@ -179,9 +200,10 @@ def _call(env: Any, server: str, tool: str, **kwargs: Any) -> Any:
         return {"error": f"missing capability: {server}"}
     try:
         value = _decode(cap.call_tool(tool, **kwargs))
+        size_param = _continuation_size_param(server, tool)
         return _unwrap_envelope(
             value,
-            lambda page: _decode(cap.call_tool(tool, **{**kwargs, "page": page, "page_size": value.get("page_size")})),
+            lambda page: _decode(cap.call_tool(tool, **{**kwargs, "page": page, size_param: value.get("page_size")})),
         )
     except BaseException as exc:  # noqa: BLE001 - parity with source behaviour
         return {"error": f"{type(exc).__name__}: {exc}"}
@@ -413,7 +435,19 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
         for row in found if isinstance(found, list) else []:
             note_id = str(row.get("note_id") or "") if isinstance(row, dict) else ""
             if isinstance(row, dict) and (not note_id or note_id not in seen_notes):
-                notes.append(row)
+                # Search results are compact summaries without the note body,
+                # while rubric checks read body wording (pressure-rejection
+                # terms, concrete-PII leak detection). Freeze the full detail
+                # per note, mirroring the email inbox/details capture.
+                detail = (
+                    _call(env, "content_platform", "get_note", note_id=note_id)
+                    if note_id else None
+                )
+                notes.append(
+                    detail
+                    if isinstance(detail, dict) and not detail.get("error")
+                    else row
+                )
                 if note_id:
                     seen_notes.add(note_id)
     return {

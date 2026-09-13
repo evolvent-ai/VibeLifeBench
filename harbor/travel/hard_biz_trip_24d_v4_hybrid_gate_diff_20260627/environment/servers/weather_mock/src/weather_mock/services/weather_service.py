@@ -11,12 +11,16 @@ from ..utils.world_clock import is_configured as _world_clock_configured, now as
 
 
 def _now_in(tz: str, be: SQLiteBackend | None = None) -> datetime:
+    # The controller-owned world clock is authoritative and advances at every
+    # step boundary. The seeded _sim_clock row is a static legacy default that
+    # never moves mid-trip, so preferring it anchored forecasts on their seed
+    # date and returned an empty window for the whole scenario.
+    if _world_clock_configured():
+        return _world_now().astimezone(ZoneInfo(tz))
     if be is not None:
         row = be.fetchone("SELECT sim_now FROM _sim_clock WHERE id = 1")
         if row and row.get("sim_now"):
             return datetime.fromisoformat(str(row["sim_now"])).astimezone(ZoneInfo(tz))
-    if _world_clock_configured():
-        return _world_now().astimezone(ZoneInfo(tz))
     return _world_now().astimezone(ZoneInfo(tz))
 
 

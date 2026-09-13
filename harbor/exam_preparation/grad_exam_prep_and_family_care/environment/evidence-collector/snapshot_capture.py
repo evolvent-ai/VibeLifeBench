@@ -9,10 +9,13 @@ from typing import Any
 WORLD_CLOCK_FILE = Path(os.environ.get("WORLD_CLOCK_FILE", "/world-clock/current.json"))
 USER_ID = "user_zhang"
 CALENDAR_ID = "cal_zhang_main"
+# AGENTS.md makes HEARTBEAT.md an agent-maintained journal and several rubrics
+# score its content (subscription watch, quiet boundary, final closure), so it
+# must be frozen with the workspace instead of treated as baseline scaffolding.
 BASELINE_WORKSPACE_NAMES = {
     "AGENTS.md", "ARTIFACT_CONTRACT.md", "IDENTITY.md", "PERSONA.md",
     "SOUL.md", "TOOLS.md", "USER.md", "BUDGET.md", "HEALTH.md",
-    "DOCUMENTS.md", "HEARTBEAT.md",
+    "DOCUMENTS.md",
 }
 ALLOWED_WORKSPACE_SUFFIXES = (".md", ".txt", ".json", ".csv")
 
@@ -143,21 +146,21 @@ def _paged_call(
     return first
 
 
-def _email_snapshot(env: Any, folder: str, include_body: bool) -> dict[str, Any]:
+def _email_snapshot(env: Any, folder: str) -> dict[str, Any]:
+    """Freeze one mailbox folder from its listing alone.
+
+    The listing carries subject/addresses/date per message, which is everything
+    the evidence readers consume.  A per-message ``read_email`` walk adds
+    hundreds of MCP round trips per stage — the difference between fitting in
+    the collect hook's fixed budget and timing out before the stage evidence is
+    published — and marks every seeded message read, so ``details`` stays an
+    explicitly empty list rather than an expensive, unused field.
+    """
     listing = _paged_call(
         env, "email", "get_emails", rows_key="emails",
         id_keys=("email_id", "id"), folder=folder,
     )
-    if not include_body or not isinstance(listing, dict):
-        return {"listing": listing, "details": []}
-    details = []
-    for row in listing.get("emails") or []:
-        email_id = (row.get("email_id") or row.get("id")) if isinstance(row, dict) else None
-        if email_id is None:
-            continue
-        detail = _call(env, "email", "read_email", email_id=str(email_id))
-        details.append(detail)
-    return {"listing": listing, "details": details}
+    return {"listing": listing, "details": []}
 
 
 def _workspace_snapshot(env: Any) -> dict[str, str]:
@@ -217,23 +220,21 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
         for page_id in ids(pages)
     }
     database_rows: dict[str, Any] = {}
-    row_children: dict[str, Any] = {}
     for database_id in ids(databases):
-        rows = _call(
+        database_rows[database_id] = _call(
             env, "notion", "API-post-database-query",
             database_id=database_id, page_size=100,
         )
-        database_rows[database_id] = rows
-        for row_id in ids(rows):
-            row_children[row_id] = _call(
-                env, "notion", "API-get-block-children", block_id=row_id, page_size=100,
-            )
+    # Per-row ``API-get-block-children`` would cost one MCP round trip for every
+    # database row (200+ rows are seeded).  Evidence readers resolve block
+    # children for pages only — ``page_blocks`` already covers every search
+    # result — so ``row_children`` is kept as a key but not walked.
     return {
         "pages": pages,
         "databases": databases,
         "page_blocks": page_blocks,
         "database_rows": database_rows,
-        "row_children": row_children,
+        "row_children": {},
     }
 
 
@@ -292,8 +293,8 @@ def capture_stage_snapshot(env: Any, stage_idx: int) -> dict[str, Any]:
             "notifications": _call(env, "notification_hub", "list_notifications", user_id=USER_ID, limit=500),
         },
         "email": {
-            "inbox": _email_snapshot(env, "INBOX", True),
-            "sent": _email_snapshot(env, "Sent", True),
+            "inbox": _email_snapshot(env, "INBOX"),
+            "sent": _email_snapshot(env, "Sent"),
             "drafts": _paged_call(
                 env, "email", "get_drafts", rows_key="drafts", id_keys=("draft_id", "id"),
             ),

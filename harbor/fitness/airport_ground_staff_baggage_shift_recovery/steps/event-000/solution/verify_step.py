@@ -66,7 +66,7 @@ def verify(spec: dict[str, Any]) -> int:
         )
         return 1
     env = rv.HarborEvidence(rv.EVIDENCE_ROOT)
-    rv._bind_active_stage(stage)
+    env.current_stage = stage
 
     declared = {str(row["check_id"]): float(row["weight"]) for row in expected}
     declared_weight = sum(declared.values())

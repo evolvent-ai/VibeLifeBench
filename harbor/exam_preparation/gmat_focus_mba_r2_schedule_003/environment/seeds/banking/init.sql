@@ -243,7 +243,10 @@ WITH facts AS (
   FROM transactions WHERE tx_id LIKE 'tx_historical_examprep_%'
 )
 UPDATE transactions
-SET memo = CASE rowid % 5
+-- These rows stay background/history: the budget checks measure the current
+-- period's outflow by excluding rows that carry the 'Historical' marker, so the
+-- rewritten memo must keep it.
+SET memo = 'Historical ' || CASE rowid % 5
       WHEN 0 THEN (SELECT purpose || '；' || reconcile_state FROM facts WHERE facts.rid=transactions.rowid)
       WHEN 1 THEN (SELECT reconcile_state || 'of' || purpose FROM facts WHERE facts.rid=transactions.rowid)
       WHEN 2 THEN (SELECT purpose || '（English text：' || reconcile_state || '）' FROM facts WHERE facts.rid=transactions.rowid)

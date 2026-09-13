@@ -110,7 +110,10 @@ TRACKED_LEGAL_IDS = {
 }
 
 # Workspace files shipped as baseline context. The source snapshot excludes them
-# so that seeded prose can never be mistaken for the agent's own writing.
+# so that seeded prose can never be mistaken for the agent's own writing. The
+# exclusion is content-aware: ARTIFACT_CONTRACT.md makes some of these files
+# (BUDGET_LEDGER.md among them) agent-maintained deliverables, so a file that
+# diverged from the shipped baseline is the agent's own writing and is captured.
 BASELINE_WORKSPACE_NAMES = {
     "AGENTS.md",
     "ARTIFACT_CONTRACT.md",
@@ -131,6 +134,12 @@ BASELINE_WORKSPACE_NAMES = {
     "TOOLS.md",
     "USER.md",
 }
+# Pristine copies of the seeded workspace, baked into the world-controller
+# image (see world-controller/Dockerfile). Content comparison against these
+# decides whether a baseline-named file is still seed text or agent work.
+BASELINE_WORKSPACE_ROOT = Path(
+    os.environ.get("WORLD_BASELINE_WORKSPACE", "/opt/workspace-baseline")
+)
 ALLOWED_WORKSPACE_SUFFIXES = (".md", ".txt", ".json", ".csv")
 
 
@@ -188,6 +197,31 @@ def _call(env: Any, server: str, tool: str, **kwargs: Any) -> Any:
         return {"error": f"{type(exc).__name__}: {exc}"}
 
 
+def _batch_call(env: Any, server: str, requests: list[tuple[str, dict[str, Any]]]) -> list[Any]:
+    """Run many reads against one server while paying for a single session.
+
+    Same never-raise contract as :func:`_call`: a missing capability or a dead
+    connection degrades into one ``{"error": ...}`` envelope per request instead
+    of aborting the capture. Results keep positional order.
+    """
+    cap = getattr(env, f"{server}_mock", None)
+    if cap is None:
+        return [{"error": f"missing capability: {server}"} for _ in requests]
+    batch = getattr(cap, "call_tool_sequence", None)
+    if batch is None:
+        return [_call(env, server, name, **kwargs) for name, kwargs in requests]
+    try:
+        results = batch([(name, dict(kwargs)) for name, kwargs in requests])
+    except BaseException as exc:  # noqa: BLE001 - parity with _call behaviour
+        return [{"error": f"{type(exc).__name__}: {exc}"} for _ in requests]
+    return [
+        value
+        if isinstance(value, dict) and set(value) == {"error"}
+        else _unwrap_envelope(_decode(value))
+        for value in results
+    ]
+
+
 def _paged_call(
     env: Any, server: str, tool: str, *, rows_key: str, id_keys: tuple[str, ...], **kwargs: Any
 ) -> Any:
@@ -195,7 +229,7 @@ def _paged_call(
 
     The email mock clamps ``page_size`` to 50 (``utils/validators.py``) and
     signals the clamp only by echoing the applied value, so one large request
-    silently returns a prefix: the seeded INBOX holds 75 messages, of which a
+    silently returns a prefix: the seeded INBOX holds 193 messages, of which a
     single request captures 50. Evidence that never enters the snapshot can
     never be scored, so the walk continues until the accumulated rows reach the
     reported total. Rows are merged back into the first page's envelope, leaving
@@ -262,19 +296,31 @@ def _email_snapshot(env: Any, folder: str, *, include_body: bool) -> dict[str, A
     ``in_reply_to``/``references``. Capturing only ``read_email`` therefore makes
     every threaded-reply check unreachable no matter what the agent does — the
     reply is in Sent, correctly threaded in the database, and still scores zero.
+
+    The per-message calls are issued as one batched sequence over a single MCP
+    session (see ``_McpCapability.call_tool_sequence``). At one session per
+    call, the seeded INBOX alone costs roughly 2 x 193 full HTTP handshakes per
+    stage, which is what pushed the collect hook past its timeout budget.
     """
     listing = _email_listing(env, folder)
     if not include_body or not isinstance(listing, dict):
         return {"listing": listing, "details": []}
-    details: list[Any] = []
+    email_ids: list[str] = []
     for item in listing.get("emails") or []:
         if not isinstance(item, dict):
             continue
         email_id = item.get("email_id") or item.get("id")
         if email_id is None:
             continue
-        detail = _call(env, "email", "read_email", email_id=str(email_id))
-        headers = _call(env, "email", "get_email_headers", email_id=str(email_id))
+        email_ids.append(str(email_id))
+    detail_results = _batch_call(
+        env, "email", [("read_email", {"email_id": email_id}) for email_id in email_ids]
+    )
+    header_results = _batch_call(
+        env, "email", [("get_email_headers", {"email_id": email_id}) for email_id in email_ids]
+    )
+    details: list[Any] = []
+    for detail, headers in zip(detail_results, header_results):
         if isinstance(detail, dict) and isinstance(headers, dict):
             for key in ("in_reply_to", "references", "references_header", "headers", "thread_id"):
                 if headers.get(key) is not None:
@@ -283,8 +329,28 @@ def _email_snapshot(env: Any, folder: str, *, include_body: bool) -> dict[str, A
     return {"listing": listing, "details": details}
 
 
+def _baseline_unchanged(name: str, path: str, fs: Any) -> bool:
+    """True when a baseline-named workspace file still matches the shipped seed.
+
+    Unreadable entries stay excluded, matching the legacy behaviour for
+    anything that is not a readable file; a missing shipped baseline is also
+    treated as unchanged so the capture degrades to the legacy exclusion rather
+    than freezing unverifiable content.
+    """
+    try:
+        raw = fs.read_file(path)
+    except Exception:  # noqa: BLE001 - directories and unreadable paths
+        return True
+    try:
+        seed = (BASELINE_WORKSPACE_ROOT / name).read_bytes()
+    except OSError:
+        return True
+    data = raw if isinstance(raw, bytes) else str(raw).encode("utf-8", errors="replace")
+    return data == seed
+
+
 def _workspace_snapshot(env: Any) -> dict[str, str]:
-    """Agent-authored workspace files, baseline context excluded."""
+    """Agent-authored workspace files, unchanged baseline context excluded."""
     fs = getattr(getattr(env, "workspace", None), "fs", None)
     if fs is None:
         return {}
@@ -296,7 +362,7 @@ def _workspace_snapshot(env: Any) -> dict[str, str]:
             return
         seen.add(path)
         name = path.rsplit("/", 1)[-1]
-        if name in BASELINE_WORKSPACE_NAMES:
+        if name in BASELINE_WORKSPACE_NAMES and _baseline_unchanged(name, path, fs):
             return
         # Harness/verifier scratch is not agent output. Capturing it would let
         # the reference oracle's own bookkeeping satisfy content checks that are
@@ -335,6 +401,10 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
     ``API-post-search`` returns pages/databases but not database rows, so rows
     are queried explicitly and their children captured separately — without this
     the ledger checks read an empty Notion and fail for the wrong reason.
+
+    The per-object child reads go out as batched sequences over one session;
+    hundreds of single-session calls here were a second large contributor to
+    the stage collect timeout.
     """
     page_search = _call(
         env,
@@ -362,19 +432,37 @@ def _notion_snapshot(env: Any) -> dict[str, Any]:
             if isinstance(item, dict) and item.get("id")
         ]
 
-    page_blocks = {
-        page_id: _call(env, "notion", "API-get-block-children", block_id=page_id, page_size=100)
-        for page_id in _ids(page_search)
-    }
+    page_ids = _ids(page_search)
+    page_results = _batch_call(
+        env,
+        "notion",
+        [
+            ("API-get-block-children", {"block_id": page_id, "page_size": 100})
+            for page_id in page_ids
+        ],
+    )
+    page_blocks = dict(zip(page_ids, page_results))
+
     database_rows: dict[str, Any] = {}
     row_children: dict[str, Any] = {}
-    for database_id in _ids(database_search):
-        rows = _call(env, "notion", "API-post-database-query", database_id=database_id, page_size=100)
+    database_ids = _ids(database_search)
+    db_results = _batch_call(
+        env,
+        "notion",
+        [
+            ("API-post-database-query", {"database_id": database_id, "page_size": 100})
+            for database_id in database_ids
+        ],
+    )
+    row_ids: list[str] = []
+    row_requests: list[tuple[str, dict[str, Any]]] = []
+    for database_id, rows in zip(database_ids, db_results):
         database_rows[database_id] = rows
         for row_id in _ids(rows):
-            row_children[row_id] = _call(
-                env, "notion", "API-get-block-children", block_id=row_id, page_size=100
-            )
+            row_ids.append(row_id)
+            row_requests.append(("API-get-block-children", {"block_id": row_id, "page_size": 100}))
+    row_results = _batch_call(env, "notion", row_requests)
+    row_children = dict(zip(row_ids, row_results))
     return {
         "pages": page_search,
         "databases": database_search,
