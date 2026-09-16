@@ -182,17 +182,17 @@ def _trajectory_and_items(
             ).encode("utf-8")
         text, calls = step_text_and_calls(trajectory, step_name, source_event_id)
         if text.strip() or calls:
-            # codex family travel detail unified_exec family travel detail MCP family travel detail exec family travel detail JS family travel detail，ATIF family travel detail
-            # function_name="exec"，family travel detail trace family travel detail MCP family travel detail，family travel detail
-            # *_servers Inspectfamily travel detail False。family travel detailrecordfamily travel detail session jsonl family travel detail
-            # event_msg/item_completed family travel detail，family travel detail。family travel detail docstring。
+            # codex's unified_exec buries MCP calls in the exec JS body; ATIF only
+            # records function_name="exec", so the trace holds no MCP calls and every
+            # *_servers check is vacuously False. The structured records live in the
+            # session jsonl event_msg/item_completed stream; recover them here. See the module docstring.
             session_path = _latest_session(logs_root)
             if session_path is not None:
                 try:
                     calls = calls + _session_mcp_calls(session_path, source_event_id)
                 except (OSError, ValueError):
-                    # family travel detail：family travel detail，family travel detail
-                    # "agent family travel detail"family travel detail。
+                    # Leave as-is when capture fails: under-record rather than disguise a
+                    # capture failure as a new "agent didn't call tools" shape.
                     pass
             return raw, text, calls, "trajectory.json", None
     else:
@@ -280,12 +280,12 @@ def collect_turn(
 
 
 def _session_mcp_calls(path, event_id):
-    """family travel detail codex session jsonl family travel detail MCP family travel detail，family travel detail trace family travel detail。
+    """Extract MCP calls from the codex session jsonl into trace rows.
 
-    codex family travel detail MCP family travel detail**family travel detail**family travel detail ``event_msg`` family travel detail ``item_completed`` family travel detail
-    （``item.type == "McpToolCall"``）；``response_item`` family travel detail exec
-    （``custom_tool_call``）。family travel detailmustfamily travel detail ``<server>__<tool>``——rubric family travel detail
-    ``_server()`` family travel detail。
+    codex writes MCP calls **only** to the ``event_msg`` stream's
+    ``item_completed`` (``item.type == "McpToolCall"``); the ``response_item``
+    stream only carries exec (``custom_tool_call``). Names must be joined as
+    ``<server>__<tool>`` -- rubric's ``_server()`` matches on that prefix.
     """
     import json as _json
 
@@ -308,8 +308,8 @@ def _session_mcp_calls(path, event_id):
             continue
         server = str(item.get("server") or "")
         tool = str(item.get("tool") or "")
-        # server == "codex" family travel detail CLI family travel detail（list_mcp_resources family travel detail），family travel detail task
-        # family travel detail；family travel detail _stage_servers_correct family travel detail allow_extra=False family travel detail。
+        # server == "codex" is CLI introspection (such as list_mcp_resources), not a task
+        # service; including it would pollute the _stage_servers_correct allow_extra=False check.
         if not server or not tool or server == "codex":
             continue
         result = item.get("result")

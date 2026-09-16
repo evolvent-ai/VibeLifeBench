@@ -1,19 +1,19 @@
         # email env for family_rv_australia_childseat_trial
 
-        family travel detail：family travel detail、hotel、family travel detaildepositfamily travel detailusersummaryfamily travel detail，family travel detail。
+        Purpose: email read/write for suppliers, hotels, card deposits, and user summaries; no real mailboxes.
 
-        timefamily travel detail：2026-09-01 family travel detail 2026-09-27；userfamily travel detail Asia/Shanghai，Australiafamily travel detail Australia/Sydney。
+        Time range and timezone: 2026-09-01 to 2026-09-27; user communication uses Asia/Shanghai, and the Australia itinerary uses Australia/Sydney.
 
-        family travel detail：
+        Key objects:
 
-        - Lakeview parking family travel detail 2.1m family travel detail。
-- SouthernCross child restraint family travel detailrestraintfamily travel detail。
-- billing family travel detailpre-authorizationfamily travel detail。
+        - The Lakeview parking email notes the 2.1m height limit.
+- The SouthernCross child restraint email supports restraint standard verification.
+- The billing email supports duplicate pre-authorization follow-up.
 
-        family travel detail task/rubric family travel detail：task.py family travel detail `agent_caps_config(email_mock="family_rv_australia_childseat_trial")` family travel detail env；event.yaml family travel detail mutation family travel detail rubrics family travel detail。family travel detail agent family travel detail、family travel detail，family travel detail。
+        Relation to task/rubric: task.py binds this env through `agent_caps_config(email_mock="family_rv_australia_childseat_trial")`; the mutations in event.yaml and the rubrics reference these stable objects. The distractor data ensures the agent has to search, filter, and re-check rather than face single-line answers.
 
-        statusfamily travel detail：family travel detail server family travel detail，budgetfamily travel detail workspace family travel detail AUD 1 = CNY 4.80。pending/held/confirmed/reversed family travel detailstatusfamily travel detail init.sql family travel detail mutation family travel detail。
+        Status and amount conventions: amounts are stored in the native fields of the corresponding server, and the budget conversion is fixed by the workspace at AUD 1 = CNY 4.80. Statuses such as pending/held/confirmed/reversed follow init.sql and later mutations.
 
-        family travel detail smoke test：server family travel detail init.sql。family travel detail mock server family travel detail list/search/get family travel detail。
+        Loading and smoke test: init.sql in this directory runs when the server cold-starts. The key objects can be verified through the list/search/get tools of the corresponding mock server.
 
-        family travel detail：family travel detail，family travel detail，family travel detail。
+        Data source: all synthetic offline data, with no real personal privacy and no external network dependency.

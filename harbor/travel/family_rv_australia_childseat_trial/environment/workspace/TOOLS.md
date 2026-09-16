@@ -1,14 +1,14 @@
 # Tool Guide
 
-- `flight_booking_mock`：family travel detail、family travel detail、family travel detail/query/family travel detail/cancelled PNR、family travel detailstatus。
-- `car_rental_mock`：family travel detailmotorhome offer、queryinsurancefamily travel detail、family travel detailmotorhome booking、family travel detailrecord。
-- `hotel_booking_mock`：family travel detailhotel、family travel detail、family travel detail/family travel detail/cancelledfamily travel detail、family travel detail。
-- `visa_and_advisory_mock`：family travel detailAustraliafamily travel detail、family travel detail、family travel detailstatusfamily travel detail。
-- `maps_mock`：family travel detail、family travel detail、family travel detail、family travel detail。
-- `weather_mock`：family travel detail、AQI、family travel detailremind。
-- `email_mock`：family travel detail、family travel detailordinary email、family travel detail。
-- `calendar_mock`：family travel detailremind、family travel detail、family travel detail、hotelfamily travel detaildepositfamily travel detail。
-- `credit_card_mock`：family travel detail、family travel detail、pre-authorization、family travel detailrecord。
-- `notion_mock`：family travel detailitinerary board、risk register、budgetfamily travel detail。
+- `flight_booking_mock`: search flights and quotes, create/query/change/cancel PNR, check flight status.
+- `car_rental_mock`: search motorhome offers, query insurance and road policies, create a motorhome booking, check return requirements and vehicle condition records.
+- `hotel_booking_mock`: search hotels, check room availability, create/modify/cancel a booking, submit special requests.
+- `visa_and_advisory_mock`: check Australian entry requirements, visa products, application status, and travel advice.
+- `maps_mock`: check places, routes, distances, traffic, and road events.
+- `weather_mock`: check weather and AQI, and subscribe to weather alerts.
+- `email_mock`: read email, send ordinary email, save drafts, and follow up with suppliers.
+- `calendar_mock`: create and update reminders, driving segments, flights, hotels, and deposit follow-up schedules.
+- `credit_card_mock`: check the credit card, unbilled items, pre-authorizations, disputes, and benefit records.
+- `notion_mock`: maintain the itinerary board, risk register, budget ledger, and final assessment.
 
-Do not use rail_booking_mock family travel detail job_board_mock。
+Do not use rail_booking_mock or job_board_mock.

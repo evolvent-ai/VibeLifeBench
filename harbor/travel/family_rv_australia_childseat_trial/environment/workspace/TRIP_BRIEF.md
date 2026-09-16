@@ -1,8 +1,8 @@
 # Trip Brief
 
-- family travel detail：Shanghai PVG。
-- family travel detail：Sydney SYD。
-- motorhomefamily travel detail：Sydneyfamily travel detail，Sydneyfamily travel detail，family travel detailCanberra，family travel detailMelbournefamily travel detail。
-- family travel detail：Melbourne MEL family travel detailShanghai。
-- family travel detail：family travel detailmotorhomefamily travel detail，family travel detail。
-- family travel detail：childrestraintcompliant、family travel detail/family travel detail、motorhomeinsurance、family travel detail、family travel detail。
+- Origin: Shanghai PVG.
+- Entry: Sydney SYD.
+- Motorhome route: pick up in Sydney, acclimatise around Sydney, drive in segments to Canberra, then continue to Melbourne for the return.
+- Return: Melbourne MEL back to Shanghai.
+- Travel purpose: assess the feasibility of longer-term motorhome travel, not luxury or high-intensity sightseeing.
+- Key verification: child restraint compliance, right-hand-drive/left-side adaptation, motorhome insurance, cross-state one-way return, and fatigue and weather recovery capacity.

@@ -1,6 +1,6 @@
 # Document Summary
 
-- Li Cheng、Zhou Ranfamily travel detailLi Mifamily travel detailpassport，family travel detail。
-- Li Mi 4 family travel detail，family travel detail 103cm / 16kg，mustfamily travel detail approved child restraint。
-- Li Chengfamily travel detail，family travel detailAustraliafamily travel detail。
-- family travel detail、family travel detail、family travel detailreminduserfamily travel detail，family travel detailsend externally。
+- Li Cheng, Zhou Ran, and Li Mi all hold Chinese passports; specific numbers are not written into the workspace.
+- Li Mi is 4 years old, about 103cm / 16kg, and must use an approved child restraint.
+- Li Cheng can drive an automatic, but has no right-hand-drive or left-side driving experience in Australia.
+- Sensitive documents, relationship proof, and financial material may only be reminded to the user to handle; they are not sent externally.

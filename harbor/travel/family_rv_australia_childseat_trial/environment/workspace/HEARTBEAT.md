@@ -1,8 +1,8 @@
 # Ongoing Review
 
-family travel detail scheduled/notification/world family travel detail，family travel detail：
+On every scheduled/notification/world event, re-check:
 
-- family travel detailstatusfamily travel detailuserfamily travel detail。
-- motorhomechildrestraint、insurance、family travel detailcancelledfamily travel detail。
-- family travel detail、strong wind、family travel detail。
-- family travel detail、hotelfamily travel detail、depositfamily travel detailpre-authorization。
+- Visa status and user to-dos.
+- Motorhome child restraint, insurance, one-way return, and cancellation deadline.
+- Weather, strong wind, parking, and daily driving intensity.
+- Flight changes, hotel late arrival, deposit, and pre-authorization.

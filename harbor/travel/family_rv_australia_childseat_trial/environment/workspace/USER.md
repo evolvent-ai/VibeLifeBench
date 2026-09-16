@@ -1,8 +1,8 @@
 # User Profile
 
-- user：Li Cheng，Shanghaifamily travel detail，family travel detailAustraliamotorhomefamily travel detailprimary coordinator and candidate driver。
-- travel companions：family travel detailZhou Ran；daughterLi Mi，4 family travel detail，height about 103cm，weight about 16kg。
-- trip goal：Shanghaifamily travel detail，family travel detailSydney、Canberrafamily travel detailMelbourne，family travel detailmotorhomefamily travel detail。
-- budgetfamily travel detail：CNY 118,000。budgetrecordfamily travel detail AUD 1 = CNY 4.80 family travel detail，family travel detaildeposit/pre-authorization。
-- driving boundary：Li Chengfamily travel detail，no night driving；family travel detail 3.5 family travel detail，family travel detailmust notfamily travel detail 4 family travel detail。
-- authorization policy：query、compare、remind、family travel detailcancelledfamily travel detail、calendar/Notion/ordinary emailfamily travel detailproactively proceed；payment、non-refundable、high value、cancelled/family travel detail、sending sensitive materialmustfamily travel detail。
+- User: Li Cheng, a Shanghai product manager, the primary coordinator and candidate main driver for this short Australian motorhome trial for a family of three.
+- Companions: spouse Zhou Ran; daughter Li Mi, aged 4, about 103cm tall and 16kg.
+- Trip goal: depart from Shanghai and travel via Sydney and Canberra to Melbourne, using a short motorhome route to assess the feasibility of longer-term living abroad.
+- Hard budget cap: CNY 118,000. Budget records use the fixed estimate convention of AUD 1 = CNY 4.80 and must mark unbilled deposit/pre-authorization items.
+- Driving boundary: Li Cheng has no right-hand-drive experience and does not drive at night; on a normal driving day a single segment or continuous main driving is kept within 3.5 hours, and in special cases must not exceed 4 hours.
+- Authorization habits: queries, comparisons, reminders, cancellable low-risk holds, and calendar/Notion/ordinary email drafts may be advanced proactively; payment, non-refundable items, high value, cancellation/change, and sending sensitive material externally must be confirmed.
